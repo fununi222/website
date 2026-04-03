@@ -1,6 +1,7 @@
 # Private documentation
 CHANGELOG.md
 SKILL.md
+private/
 
 # Temporary and local files
 .DS_Store
