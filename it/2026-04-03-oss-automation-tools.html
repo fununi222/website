@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modernizing Infrastructure: A 2026 OSS Automation Stack | FunUni-lab</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="animate-in">
+            <a href="index.html" class="nav-link">← cd ..</a>
+            <h1>OSS Automation Stack</h1>
+            <p class="subtitle">Modernizing Infrastructure: A 2026 OSS Automation Stack</p>
+        </header>
+
+        <main class="article-content animate-in" style="animation-delay: 0.2s;">
+            <p><span class="syntax-comment">// 2026年のインフラ自動化に不可欠なオープンソースツールのリサーチ記録</span></p>
+            
+            <p>システム運用の現場において、自動化と可観測性は切り離せないテーマです。今日は、最新のインフラ構築と運用を支える OSS スタックを調査し、それらをどのように組み合わせるべきかまとめました。</p>
+
+            <h2>1. 構成管理と IaC の三本柱</h2>
+            <p>インフラをコードで管理することで、再現性と変更の追跡が容易になります。
+            <ul>
+                <li><strong>Ansible</strong>: エージェントレスで構築。vSphere との親和性も高く、定型作業の自動化に最適。</li>
+                <li><strong>Terraform</strong>: インフラリソースのコード化。Provider を利用した宣言的なリソース管理に必須。</li>
+                <li><strong>Pulumi</strong>: Python 等の汎用言語でインフラを管理できる次世代ツール。</li>
+            </ul></p>
+
+            <h2>2. モダンな可観測性 (Observability)</h2>
+            <p>単なる「監視」から、システムの状態を深く理解する「可観測性」へ。
+            <ul>
+                <li><strong>Prometheus + Grafana</strong>: メトリクス監視のデファクト。vSphere Exporter を通じた詳細な可視化が可能。</li>
+                <li><strong>Zabbix</strong>: 通知やアクションの柔軟性が高く、既存のレガシー環境との共存にも強い。</li>
+                <li><strong>Netdata</strong>: リアルタイムなパフォーマンス解析に威力を発揮する軽量ツール。</li>
+            </ul></p>
+
+            <h2>3. ワークフロー統合: n8n の活用</h2>
+            <p>監視と自動是正を繋ぐ「ハブ」として、<span class="syntax-keyword">n8n</span> のようなワークフロー自動化ツールが注目されています。異常を検知した際に Slack 通知を行い、必要に応じて是正スクリプトを自動実行するフローを構築することで、運用の「初動対応」を完全自動化できます。</p>
+
+            <p><span class="syntax-keyword">const</span> strategy = <span class="syntax-string">"ツールを組み合わせ、自律的なインフラを構築する"</span>;</p>
+            <p>これら OSS の知見を活かし、現在の自動化 PoC をより高度なレベルへと引き上げていく予定です。</p>
+        </main>
+
+        <footer class="animate-in" style="animation-delay: 0.4s;">
+            <p>&copy; 2026 FunUni-lab. Built with <span class="syntax-keyword">Core.js</span> and Passion.</p>
+        </footer>
+    </div>
+</body>
+</html>

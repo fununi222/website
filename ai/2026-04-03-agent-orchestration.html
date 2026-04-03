@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orchestrating Intelligence: OpenClaw as a Lightweight Orchestrator | FunUni-lab</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="animate-in">
+            <a href="index.html" class="nav-link">← cd ..</a>
+            <h1>Agent Orchestration</h1>
+            <p class="subtitle">Orchestrating Intelligence: OpenClaw as a Lightweight Orchestrator</p>
+        </header>
+
+        <main class="article-content animate-in" style="animation-delay: 0.2s;">
+            <p><span class="syntax-comment">// エージェント設計における役割分担の再定義</span></p>
+            
+            <p>AI エージェントを日常の業務に組み込む際、一つのエージェントにすべてを任せようとすると、プロンプトが肥大化し、応答の精度や速度が低下する問題に直面します。今日は、この課題を解決するための「エージェント・オーケストレーション」の考え方について整理します。</p>
+
+            <h2>1. OpenClaw の「軽量な指揮者」としての役割</h2>
+            <p><span class="syntax-keyword">OpenClaw</span> 自体は、高度で多様なツール（Google Search, Browser, Shell 等）を操ることができる強力なエージェントですが、すべての重い計算や専門的なタスクを完結させる必要はありません。むしろ、OpenClaw は「最適な外部スキルを選択し、実行を促す指揮者」として機能させるのが理想的です。</p>
+
+            <h2>2. 重い作業は外部スキル（ラッパー）へ委譲</h2>
+            <p>例えば、ログインが必要な特定の AI ツールや、複雑なバッチ処理などは、OpenClaw が直接行うのではなく、それらを専門に扱う「外部スキル」として定義します。OpenClaw はそのスキルを呼び出し、結果を受け取ってユーザーに報告する「ラッパー」としての役割に徹します。これにより、OpenClaw 本体のコンテキストをクリーンに保ち、シングルタスクへの集中を促すことができます。</p>
+
+            <h2>3. 階層的なエージェント管理</h2>
+            <p>このアプローチの最大のメリットは、各エージェントの専門性を高められることです。
+            <ul>
+                <li><strong>Orchestrator (OpenClaw)</strong>: タスクを分解し、最適なツール/スキルを割り振る。</li>
+                <li><strong>Specialists (External Skills)</strong>: 特定のドメインや重い処理に特化して実行する。</li>
+            </ul>
+            この階層構造により、全体としての応答品質と安定性が飛躍的に向上します。</p>
+
+            <p><span class="syntax-keyword">const</span> vision = <span class="syntax-string">"分業こそが、AI運用の極致となる"</span>;</p>
+            <p>これからも、このオーケストレーションの仕組みを磨き、より複雑な業務を AI でスマートに解決していくための PoC を進めていきます。</p>
+        </main>
+
+        <footer class="animate-in" style="animation-delay: 0.4s;">
+            <p>&copy; 2026 FunUni-lab. Built with <span class="syntax-keyword">Agent.js</span> and Vision.</p>
+        </footer>
+    </div>
+</body>
+</html>
