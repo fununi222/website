@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPO System Dashboard | Private</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        .skill-group {
+            margin-bottom: 4rem;
+        }
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+        .progress-bg {
+            height: 6px;
+            background: var(--accent-secondary);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-primary);
+            transition: width 1s ease-out;
+        }
+        .progress-fill.warning {
+            background: var(--syntax-string); /* 80点未満 */
+        }
+        .progress-fill.expert {
+            background: var(--syntax-type); /* 85点以上 */
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+        th, td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid var(--accent-border);
+        }
+        th {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+        }
+        .status-badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .status-inprogress { background: rgba(86, 156, 214, 0.2); color: #569cd6; }
+        .status-pending { background: rgba(206, 145, 120, 0.2); color: #ce9178; }
+        .status-active { background: rgba(78, 201, 176, 0.2); color: #4ec9b0; }
+
+        .radar-box {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="animate-in">
+            <a href="../index.html" class="nav-link">← cd ..</a>
+            <h1>LPO_System.exe</h1>
+            <p class="subtitle"><span class="syntax-comment">// Life Professional Optimization System - v1.0.0</span><br>
+            キャリア最大化と資産形成に向けた、中長期パラメータ最適化ダッシュボード。</p>
+        </header>
+
+        <main class="article-content animate-in" style="animation-delay: 0.2s;">
+            <p><span class="syntax-keyword">const</span> current_status = <span class="syntax-string">"Analyzing..."</span>;</p>
+
+            <section class="skill-group">
+                <h2 style="border: none; margin-top: 0;"><span class="syntax-type">Professional</span> Skills</h2>
+                <div class="skill-item">
+                    <div class="skill-header"><span>技術適応力</span><span>85</span></div>
+                    <div class="progress-bg"><div class="progress-fill expert" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>プロジェクト推進力</span><span>75</span></div>
+                    <div class="progress-bg"><div class="progress-fill warning" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>チーム貢献・SL力</span><span>70</span></div>
+                    <div class="progress-bg"><div class="progress-fill warning" style="width: 70%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>課題解決・改善提案</span><span>75</span></div>
+                    <div class="progress-bg"><div class="progress-fill warning" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>ドメイン知識</span><span>80</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+            </section>
+
+            <section class="skill-group">
+                <h2><span class="syntax-type">Technical</span> Skills</h2>
+                <div class="skill-item">
+                    <div class="skill-header"><span>IaC・構成管理</span><span>85</span></div>
+                    <div class="progress-bg"><div class="progress-fill expert" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>監視・可観測性</span><span>85</span></div>
+                    <div class="progress-bg"><div class="progress-fill expert" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>開発力(Python/Bash)</span><span>80</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>生成AI・LLM活用</span><span>75</span></div>
+                    <div class="progress-bg"><div class="progress-fill warning" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>AIエージェント運用</span><span>70</span></div>
+                    <div class="progress-bg"><div class="progress-fill warning" style="width: 70%;"></div></div>
+                </div>
+            </section>
+
+            <section class="skill-group">
+                <h2><span class="syntax-type">Personal</span> Foundation</h2>
+                <div class="skill-item">
+                    <div class="skill-header"><span>学習・知的好奇心</span><span>85</span></div>
+                    <div class="progress-bg"><div class="progress-fill expert" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>自己投資・目標管理</span><span>70</span></div>
+                    <div class="progress-bg"><div class="progress-fill warning" style="width: 70%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>心身メンテナンス</span><span>65</span></div>
+                    <div class="progress-bg"><div class="progress-fill warning" style="width: 65%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>自己管理・習慣化</span><span>75</span></div>
+                    <div class="progress-bg"><div class="progress-fill warning" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header"><span>情報収集・整理</span><span>80</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Active Issues</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Category</th>
+                            <th>Issue Name</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td>Public</td>
+                            <td>AIエージェントによる監視自動化PoC</td>
+                            <td>05/20</td>
+                            <td><span class="status-badge status-inprogress">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td>#002</td>
+                            <td>Private</td>
+                            <td>中長期資産形成に向けた資金シミュレーション</td>
+                            <td>06/30</td>
+                            <td><span class="status-badge status-pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>#003</td>
+                            <td>Private</td>
+                            <td>生活基盤の最適化（ルーチン・環境整備）</td>
+                            <td>Cont.</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer class="animate-in" style="animation-delay: 0.4s;">
+            <p>&copy; 2026 LPO System. <span class="syntax-comment">/* Confidential Personnel Data */</span></p>
+        </footer>
+    </div>
+</body>
+</html>
