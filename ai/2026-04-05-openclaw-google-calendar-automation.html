@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【OpenClaw】AIエージェントにGoogleカレンダーを自動管理させる方法と「エラー403」の解決策 | FunUni-lab</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <meta name="description" content="OpenClaw と Google Calendar API を連携し、ローカル PC で予定管理を自動化する手順と 403 access_denied の解決策をまとめた記事。">
+    <meta property="og:site_name" content="FunUni-lab">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="【OpenClaw】AIエージェントにGoogleカレンダーを自動管理させる方法と「エラー403」の解決策 | FunUni-lab">
+    <meta property="og:description" content="VPS ではなくローカル PC で OpenClaw と Google Calendar API を連携し、403 access_denied を解消するまでの手順を整理。">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="【OpenClaw】AIエージェントにGoogleカレンダーを自動管理させる方法と「エラー403」の解決策 | FunUni-lab">
+    <meta name="twitter:description" content="OpenClaw と Google Calendar API の連携手順、ローカル構築の利点、403 エラーの解決策をまとめた実践ガイド。">
+</head>
+<body>
+    <div class="container">
+        <header class="animate-in">
+            <a href="index.html" class="nav-link">← cd ..</a>
+            <h1>OpenClaw x Google Calendar</h1>
+            <p class="subtitle">AIエージェントで予定管理を自動化する方法と 403 access_denied の解決策</p>
+        </header>
+
+        <main class="article-content animate-in" style="animation-delay: 0.2s;">
+            <p><span class="syntax-comment">// VPS からローカル移行、API 取得、OAuth 403 解消までをまとめた Google カレンダー連携ガイド</span></p>
+
+            <p>OpenClaw などの AI エージェントを使って、日常のスケジュール管理を自動化したいと考えたことはありませんか。「明日の予定を教えて」「来週の火曜日に会議を入れて」とテキストで指示するだけで、AI が Google カレンダーを操作してくれたらかなり便利です。</p>
+
+            <p>この記事では、OpenClaw と Google Calendar API を連携させるための一連の流れを、VPS からローカル PC への方針転換、API 準備、そしてつまずきやすい <code>403: access_denied</code> の解決まで含めて整理します。</p>
+
+            <h2>1. なぜ VPS ではなくローカル PC が向いているのか</h2>
+            <p>24 時間稼働を考えると VPS は魅力的ですが、Google API と AI エージェントの組み合わせでは、まずローカル PC で構築するほうが圧倒的にスムーズです。</p>
+            <ol>
+                <li><strong>OAuth 認証が localhost 前提で進む</strong><br>Google API の初回認証では、ブラウザでログイン後に <code>localhost</code> へ戻されるフローが一般的です。VPS 上で実行すると、手元のブラウザから VPS 側の <code>localhost</code> に到達できず、認証完了までが面倒になります。</li>
+                <li><strong>データセンター IP は bot 判定を受けやすい</strong><br>Playwright などを使ってブラウザ操作を伴う場合、VPS の IP は Google 側に不審判定されやすく、ログインや認証フローが不安定になりがちです。自宅回線や通常の Wi-Fi 環境のほうが安全に進められます。</li>
+            </ol>
+
+            <h2>2. Google Calendar API の準備</h2>
+            <h3>ステップ1：API を有効化する</h3>
+            <p><a href="https://console.cloud.google.com/">Google Cloud Console</a> で新しいプロジェクトを作成し、「API とサービス」→「ライブラリ」から <strong>Google Calendar API</strong> を有効化します。</p>
+
+            <h3>ステップ2：OAuth クライアント ID を作成する</h3>
+            <p>「認証情報」タブから「認証情報を作成」→「OAuth クライアント ID」を選択し、アプリケーション種別は <strong>デスクトップ アプリ</strong> を指定します。作成後にダウンロードできる <code>credentials.json</code> が、OpenClaw 側で使う認証情報になります。</p>
+
+            <h2>3. 最大の罠：403 access_denied の正体</h2>
+            <p>ここで多くの人が詰まるのが OAuth 同意画面の設定不足です。認証時に次のようなエラーが表示されることがあります。</p>
+
+            <blockquote>
+                <p><strong>アクセスをブロック: [アプリ名] は Google の審査プロセスを完了していません</strong></p>
+                <p>[アプリ名] は現在テスト中で、デベロッパーに承認されたテスターのみがアクセスできます。<br>エラー 403: access_denied</p>
+            </blockquote>
+
+            <h3>原因</h3>
+            <p>自作アプリは、Google の審査を通していない限りデフォルトで <strong>「テスト中」</strong> 扱いになります。この状態では、OAuth 同意画面で事前登録した <strong>テストユーザー</strong> しかログインできません。</p>
+
+            <h3>解決手順</h3>
+            <ol>
+                <li>Google Cloud Console で <strong>「OAuth 同意画面」</strong> を開く。</li>
+                <li>下部の <strong>「テストユーザー」</strong> セクションを確認する。</li>
+                <li><strong>「ADD USERS」</strong> から、自分の Google アカウントを追加して保存する。</li>
+            </ol>
+
+            <p>設定後は数分待ち、ローカルに残っている古い <code>token.json</code> を削除してから、もう一度認証をやり直すのが安全です。これで 403 が解消されるケースがほとんどです。</p>
+
+            <h2>4. OpenClaw に実行させる流れ</h2>
+            <p>403 エラーが解消されたら、ダウンロードした <code>credentials.json</code> を OpenClaw のワークスペースに配置します。あとは自然言語で次のように依頼できます。</p>
+
+            <blockquote>
+                <p>ワークスペースにある credentials.json を使って、Google Calendar API 経由で予定を追加・取得する Python スクリプトを作成し、実行して。</p>
+            </blockquote>
+
+            <p>初回のみローカル PC のブラウザが立ち上がり、Google の認証を求められます。許可すると <code>token.json</code> が生成され、以降は「予定を追加して」「明日の予定を見せて」といった自然言語の指示でカレンダー操作を自動化しやすくなります。</p>
+
+            <h2>5. まとめ</h2>
+            <p>Google API 連携で重要なのは、複雑な実装テクニックよりも <strong>実行環境と OAuth 設定を間違えないこと</strong> です。特に、<strong>「ローカル PC で動かす」「OAuth 同意画面でテストユーザーを追加する」</strong> の 2 点を押さえるだけで、セットアップ難易度はかなり下がります。</p>
+
+            <p>カレンダー連携が安定すると、Web から集めた情報を自動で予定化したり、エージェント経由で日程調整を進めたりと、より実用的な自動化へ広げやすくなります。OpenClaw を実務レベルで活かしたいなら、まずはこの構成から始めるのがおすすめです。</p>
+        </main>
+
+        <footer class="animate-in" style="animation-delay: 0.4s;">
+            <p>&copy; 2026 FunUni-lab. Built with <span class="syntax-keyword">Agent.js</span> and Routine Automation.</p>
+        </footer>
+    </div>
+</body>
+</html>
