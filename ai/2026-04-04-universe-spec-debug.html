@@ -3,87 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【コードレビュー】宇宙の物理法則、ITエンジニア視点で見たら「仕様」と「最適化」の塊だった件 | FunUni-lab</title>
+    <title>【技術レポート】OpenClaw 外部通信疎通トラブルシュート | FunUni-lab</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
-    <meta name="description" content="宇宙の未解決パラドックスをITエンジニア視点で読み解く思考実験。宇宙定数問題、量子もつれ、遅延評価などを分かりやすく整理。">
+    <meta name="description" content="XServer VPS 上の OpenClaw で fetch failed が発生した原因を、VPS 特有のパケットフィルター制約から切り分けて解決した技術レポート。">
     <meta property="og:site_name" content="FunUni-lab">
     <meta property="og:locale" content="ja_JP">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="【コードレビュー】宇宙の物理法則、ITエンジニア視点で見たら『仕様』と『最適化』の塊だった件 | FunUni-lab">
-    <meta property="og:description" content="宇宙の未解決パラドックスをITエンジニア視点で読み解く思考実験。宇宙定数問題、量子もつれ、遅延評価などを分かりやすく整理。">
+    <meta property="og:title" content="【技術レポート】OpenClaw 外部通信疎通トラブルシュート | FunUni-lab">
+    <meta property="og:description" content="VPS 環境で browser-js や外部通信が fetch failed になる問題を、インフラ制約に焦点を当てて解説。">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="【コードレビュー】宇宙の物理法則、ITエンジニア視点で見たら『仕様』と『最適化』の塊だった件 | FunUni-lab">
-    <meta name="twitter:description" content="宇宙の未解決パラドックスをITエンジニア視点で読み解く思考実験。宇宙定数問題、量子もつれ、遅延評価などを分かりやすく整理。">
+    <meta name="twitter:title" content="【技術レポート】OpenClaw 外部通信疎通トラブルシュート | FunUni-lab">
+    <meta name="twitter:description" content="VPS 環境で browser-js や外部通信が fetch failed になる問題を、インフラ制約に焦点を当てて解説。">
 </head>
 <body>
     <div class="container">
         <header class="animate-in">
             <a href="index.html" class="nav-link">← cd ..</a>
-            <h1>Universe Spec Review</h1>
-            <p class="subtitle">宇宙の物理法則を「仕様」と「最適化」として読む、エンジニア向け思考実験</p>
+            <h1>OpenClaw Network Troubleshoot</h1>
+            <p class="subtitle">VPS 環境におけるパケットフィルターの罠と解決策</p>
         </header>
 
         <main class="article-content animate-in" style="animation-delay: 0.2s;">
-            <p><span class="syntax-comment">// この記事は理論物理のパラドックスをITシステム設計の比喩で読み解く考察です</span></p>
+            <p><span class="syntax-comment">// XServer VPS 上で OpenClaw の外部通信が失敗した事象を、インフラ起点で切り分けた実戦ログ</span></p>
 
-            <p>物理学者が100年以上向き合ってきた「宇宙の未解決パラドックス」。これをエンジニア視点で見ると、<strong>リソース制限下の設計判断</strong>や<strong>高度なメモリ管理</strong>として再解釈できる可能性があります。</p>
-            <p>今回は、宇宙という「本番環境」をシステムエンジニアの視点でリバースエンジニアリングし、パラドックスをデバッグするように整理してみます。</p>
-
-            <h2>1. 120桁の計算ミス？「真空のエネルギー・バグ」</h2>
-            <p>物理学界で有名な問題に、<a href="https://ja.wikipedia.org/wiki/%E5%AE%87%E5%AE%99%E5%AE%9A%E6%95%B0%E5%95%8F%E9%A1%8C" target="_blank" rel="noopener noreferrer">宇宙定数問題（真空のカタストロフ）</a>があります。量子論で真空エネルギーを見積もると、観測値より <strong>10<sup>120</sup> 倍</strong> という巨大な差が出る、とされる問題です。</p>
-            <h3>エンジニア的解決案</h3>
-            <p>「空間を膨張させる」という重いインフラ処理ではなく、<strong>オブジェクト側のスケールを圧縮する仕様</strong>へ寄せると、見かけ上の差分を吸収できる――という読み方です。空間を固定し、中身（質量・定数）を同期圧縮するなら、ズレは基準系差分として扱える、という比喩です。</p>
-
-            <h2>2. 誰も見ていない時は計算しない「遅延レンダリング」</h2>
-            <p>「観測するまで状態が定まらない」という<a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%9A%E3%83%B3%E3%83%8F%E3%83%BC%E3%82%B2%E3%83%B3%E8%A7%A3%E9%87%88" target="_blank" rel="noopener noreferrer">コペンハーゲン解釈</a>は、エンジニア的には<a href="https://ja.wikipedia.org/wiki/%E9%81%85%E5%BB%B6%E8%A9%95%E4%BE%A1" target="_blank" rel="noopener noreferrer">遅延評価（Lazy Evaluation）</a>の発想に近い、と解釈できます。</p>
-            <h3>システム仕様としての比喩</h3>
-            <p>全粒子を常時RAM展開するのではなく、観測リクエスト時のみ実体化する。未観測状態は「式（確率振幅）」として保持する設計なら、計算資源を抑えられる――という見方です。</p>
-
-            <h2>3. 通信ラグなしの同期「シンボリックリンク説」</h2>
-            <p><a href="https://ja.wikipedia.org/wiki/%E9%87%8F%E5%AD%90%E3%82%82%E3%81%A4%E3%82%8C" target="_blank" rel="noopener noreferrer">量子もつれ</a>は「遠距離即時同期」に見えます。これを通信ではなく、同一参照先を持つリンク構造と見ると、システム的には自然です。関連するアイデアとして <a href="https://en.wikipedia.org/wiki/ER_%3D_EPR" target="_blank" rel="noopener noreferrer">ER=EPR</a> 仮説が語られます。</p>
-            <h3>運用制約の比喩</h3>
-            <p>ただし、このリンクが自由に複製できると破綻するため、<a href="https://ja.wikipedia.org/wiki/%E9%87%8F%E5%AD%90%E8%A4%87%E8%A3%BD%E4%B8%8D%E5%8F%AF%E8%83%BD%E5%AE%9A%E7%90%86" target="_blank" rel="noopener noreferrer">量子複製不可能定理</a>のような保護則が必要――という説明になります。</p>
-
-            <h2>4. デジタルかアナログか？究極のバックエンド論争</h2>
-            <p>宇宙を離散格子で扱う<a href="https://ja.wikipedia.org/wiki/%E6%A0%BC%E5%AD%90%E3%82%B2%E3%83%BC%E3%82%B8%E7%90%86%E8%AB%96" target="_blank" rel="noopener noreferrer">格子ゲージ理論</a>には、フェルミオン倍加問題のような難しさがあります。ここから、バックエンドはデジタルでも、観測面はアナログに見せるハイブリッド設計という発想が出てきます。</p>
-            <p>また、最小スケールの議論として<a href="https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%A9%E3%83%B3%E3%82%AF%E9%95%B7" target="_blank" rel="noopener noreferrer">プランク長</a>が参照されます。</p>
-
-            <h2>5. 結局、我々は「NPC」なのか？</h2>
-            <p>観測自由度そのものを再定義する考え方として、<a href="https://ja.wikipedia.org/wiki/%E8%B6%85%E6%B1%BA%E5%AE%9A%E8%AB%96" target="_blank" rel="noopener noreferrer">超決定論（Superdeterminism）</a>があります。検証系まで含めて宇宙側に組み込まれているなら、我々のテスト戦略にも限界がある、という見方です。</p>
-
-            <h2>まとめ</h2>
-            <p>宇宙を「神秘」ではなく「設計されたシステム」として読むと、<strong>妥協</strong>・<strong>最適化</strong>・<strong>権限管理</strong>といった、日常のエンジニアリング課題と重なる景色が見えてきます。</p>
+            <h2>1. 発生した現象と環境</h2>
             <ul>
-                <li><strong>膨張に見えるもの = スケール圧縮</strong></li>
-                <li><strong>量子状態 = 遅延レンダリング</strong></li>
-                <li><strong>もつれ = 参照リンク</strong></li>
-                <li><strong>自由意志問題 = 実行スクリプト制約</strong></li>
+                <li><strong>対象:</strong> OpenClaw v2026.4.1（XServer VPS / Ubuntu）</li>
+                <li><strong>現象:</strong> <code>openclaw skills check</code> ではツールが Ready に見えるが、<code>browser-js</code> の外部アクセスがタイムアウト / <code>fetch failed</code>。</li>
+                <li><strong>補足:</strong> サーバー内の <code>curl</code> は無反応、<code>nslookup</code> だけ成功。</li>
             </ul>
 
-            <h2>参考資料・参考文献</h2>
+            <h2>2. 主因：VPS 固有のパケットフィルター仕様</h2>
+            <p>今回のボトルネックは OS やモデル能力ではなく、<strong>VPS 事業者側のインフラフィルター</strong>でした。XServer VPS のパケットフィルターが ON の場合、許可ポート以外は双方向で遮断されます。</p>
             <ul>
-                <li><a href="https://ja.wikipedia.org/wiki/%E5%AE%87%E5%AE%99%E5%AE%9A%E6%95%B0%E5%95%8F%E9%A1%8C" target="_blank" rel="noopener noreferrer">宇宙定数問題 - Wikipedia</a></li>
-                <li><a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%9A%E3%83%B3%E3%83%8F%E3%83%BC%E3%82%B2%E3%83%B3%E8%A7%A3%E9%87%88" target="_blank" rel="noopener noreferrer">コペンハーゲン解釈 - Wikipedia</a></li>
-                <li><a href="https://ja.wikipedia.org/wiki/%E9%81%85%E5%BB%B6%E8%A9%95%E4%BE%A1" target="_blank" rel="noopener noreferrer">遅延評価（Lazy Evaluation）- Wikipedia</a></li>
-                <li><a href="https://ja.wikipedia.org/wiki/%E9%87%8F%E5%AD%90%E3%82%82%E3%81%A4%E3%82%8C" target="_blank" rel="noopener noreferrer">量子もつれ - Wikipedia</a></li>
-                <li><a href="https://en.wikipedia.org/wiki/ER_%3D_EPR" target="_blank" rel="noopener noreferrer">ER = EPR - Wikipedia (EN)</a></li>
-                <li><a href="https://ja.wikipedia.org/wiki/%E9%87%8F%E5%AD%90%E8%A4%87%E8%A3%BD%E4%B8%8D%E5%8F%AF%E8%83%BD%E5%AE%9A%E7%90%86" target="_blank" rel="noopener noreferrer">量子複製不可能定理 - Wikipedia</a></li>
-                <li><a href="https://ja.wikipedia.org/wiki/%E6%A0%BC%E5%AD%90%E3%82%B2%E3%83%BC%E3%82%B8%E7%90%86%E8%AB%96" target="_blank" rel="noopener noreferrer">格子ゲージ理論 - Wikipedia</a></li>
-                <li><a href="https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%A9%E3%83%B3%E3%82%AF%E9%95%B7" target="_blank" rel="noopener noreferrer">プランク長 - Wikipedia</a></li>
-                <li><a href="https://ja.wikipedia.org/wiki/%E8%B6%85%E6%B1%BA%E5%AE%9A%E8%AB%96" target="_blank" rel="noopener noreferrer">超決定論 - Wikipedia</a></li>
-                <li><a href="https://ja.wikipedia.org/wiki/%E3%83%9B%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E5%8E%9F%E7%90%86" target="_blank" rel="noopener noreferrer">ホログラフィック原理 - Wikipedia</a></li>
-                <li><a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BB%AE%E8%AA%AC" target="_blank" rel="noopener noreferrer">シミュレーション仮説 - Wikipedia</a></li>
+                <li><strong>DNS（UDP 53）が通る理由:</strong> 管理用途で 53 番が既定許可されるケースが多いため。</li>
+                <li><strong>HTTP/HTTPS（TCP 80/443）が失敗する理由:</strong> 外向きリクエストの戻りパケットも明示許可が必要で、フィルターにより遮断されるため。</li>
             </ul>
-            <p><strong>執筆:</strong> FunUni-lab Editorial Team (with AI debug partner)</p>
-            <p><span class="syntax-comment">※ この記事は理論物理学の課題をITアーキテクチャで再定義する思考実験です。</span></p>
+            <p>ローカル PC や家庭用ルーターのステートフル通信とは挙動が異なるため、<strong>VPS 特有の制約</strong>として扱う必要があります。</p>
+
+            <h2>3. 解決ステップ</h2>
+            <h3>ステップ1：Scope 権限を解放</h3>
+            <pre><code>openclaw devices list
+openclaw devices approve &lt;REQUEST_ID&gt;</code></pre>
+
+            <h3>ステップ2：DNS の安定化</h3>
+            <pre><code>echo "nameserver 8.8.8.8" &gt; /etc/resolv.conf</code></pre>
+
+            <h3>ステップ3：インフラ・フィルターを開放（最重要）</h3>
+            <ol>
+                <li>管理パネルの「パケットフィルター」を一時的に OFF。</li>
+                <li>または「TCP 80 / 443」を接続許可ポートへ追加。</li>
+            </ol>
+
+            <h2>4. 診断コマンド（切り分けの定番）</h2>
+            <pre><code># DNS（UDP 53）
+nslookup google.com
+
+# TCP ハンドシェイク（80/443）
+curl -v --connect-timeout 5 https://www.google.com</code></pre>
+            <p>この2本をセットで見ることで、<strong>名前解決と外部通信のどちらが詰まっているか</strong>を高速に切り分けできます。</p>
+
+            <h2>5. 結論</h2>
+            <p>今回の失敗要因は LLM ではなく、純粋なネットワーク・インフラ制約でした。<code>gemini-3.1-flash-lite-preview</code> のような軽量モデルでも、インフラが整えば実運用レベルで十分にツール連携できます。</p>
+            <p><strong>「SSH が開いている = 外部通信できる」ではない</strong>点は、VPS 構築で必ず押さえるべきチェックポイントです。</p>
         </main>
 
         <footer class="animate-in" style="animation-delay: 0.4s;">
-            <p>&copy; 2026 FunUni-lab. Built with <span class="syntax-keyword">Agent.js</span> and Curiosity.</p>
+            <p>&copy; 2026 FunUni-lab. Built with <span class="syntax-keyword">Agent.js</span> and Persistence.</p>
         </footer>
     </div>
 </body>
