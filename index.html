@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FunUni-lab | IT・ポイ活・AIの総合技術ラボ</title>
-    <meta name="description" content="FunUni-labは、IT技術、ポイ活、AI活用術を研究し、明日の生活を豊かにするためのエンジニアリング情報を発信するラボです。">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <meta name="description" content="FunUni-labはIT・ポイ活・AIの知見を発信する総合技術ラボ。インフラ自動化から資産形成まで、実践的な改善アイデアをまとめています。">
+    <meta property="og:site_name" content="FunUni-lab">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FunUni-lab | IT・ポイ活・AIの総合技術ラボ">
+    <meta property="og:description" content="FunUni-labはIT・ポイ活・AIの知見を発信する総合技術ラボ。インフラ自動化から資産形成まで、実践的な改善アイデアをまとめています。">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FunUni-lab | IT・ポイ活・AIの総合技術ラボ">
+    <meta name="twitter:description" content="FunUni-labはIT・ポイ活・AIの知見を発信する総合技術ラボ。インフラ自動化から資産形成まで、実践的な改善アイデアをまとめています。">
 </head>
 <body>
     <div class="container">
@@ -17,44 +26,40 @@
             <p class="subtitle"><span class="syntax-comment">// 未来を少しだけ先取りする、FunUniエンジニアの実験場。</span><br>インフラ自動化からAI活用まで、技術の力で日常をアップデートします。</p>
         </header>
 
-        <main class="grid animate-in" style="animation-delay: 0.2s;">
-            <!-- 新着記事 (Featured) -->
-            <a href="ai/2026-04-03-agent-orchestration.html" class="card" style="grid-column: 1 / -1;">
-                <span class="icon">🤖</span>
-                <div style="display: flex; flex-direction: column;">
-                    <span class="syntax-keyword" style="font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.1em;">[Featured Tech]</span>
-                    <h2>Orchestrating Intelligence: OpenClaw as a Lightweight Orchestrator</h2>
-                    <p>AI エージェントを「軽量なオーケストレーター」として、専門的なタスクを外部スキルに委譲する次世代の運用モデルを提唱。</p>
-                </div>
-            </a>
+        <main class="animate-in" style="animation-delay: 0.2s;">
+            <section class="grid" style="margin-bottom: 1.2rem;">
+                <a href="ai/2026-04-03-agent-orchestration.html" class="card" style="grid-column: 1 / -1; min-height: 0;">
+                    <span class="icon">✨</span>
+                    <div style="display: flex; flex-direction: column;">
+                        <span class="syntax-keyword" style="font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.08em;">Featured</span>
+                        <h2>Orchestrating Intelligence: OpenClaw as a Lightweight Orchestrator</h2>
+                        <p>AI エージェントを「軽量なオーケストレーター」として活用し、重い処理を外部スキルへ委譲する運用モデルを解説。</p>
+                    </div>
+                </a>
+            </section>
 
-            <!-- IT系 Category -->
-            <a href="it/index.html" class="card">
-                <span class="icon">⚙️</span>
-                <h2>IT_Infrastructure</h2>
-                <p>インフラ自動化、クラウド基盤、開発効率化。自動是正スクリプトやIaCの知見を公開。</p>
-            </a>
-
-            <!-- ポイ活 Category -->
-            <a href="points/index.html" class="card">
-                <span class="icon">💎</span>
-                <h2>Points_Finance</h2>
-                <p>生活をお得にするポイ活術や、最新キャンペーン、資産形成のエンジニアリング的アプローチ。</p>
-            </a>
-
-            <!-- AI系 Category -->
-            <a href="ai/index.html" class="card">
-                <span class="icon">🤖</span>
-                <h2>AI_Agents</h2>
-                <p>LLMプロンプト開発や業務AIツールの活用術。OpenClawを含む次世代エージェントの研究記録。</p>
-            </a>
-
-            <!-- LPO Dashboard -->
-            <a href="lpo/index.html" class="card">
-                <span class="icon">🚀</span>
-                <h2>LPO_Optimization</h2>
-                <p>Life Professional Optimization. キャリア最大化と資産形成のためのスキル可視化・目標管理ダッシュボード。</p>
-            </a>
+            <section class="grid" style="margin-bottom: 1.2rem;">
+                <a href="it/index.html" class="card">
+                    <span class="icon">⚙️</span>
+                    <h2>IT & Infrastructure</h2>
+                    <p>インフラ自動化、クラウド基盤、開発効率化。運用を改善する実践ノウハウ。</p>
+                </a>
+                <a href="points/index.html" class="card">
+                    <span class="icon">💎</span>
+                    <h2>Points & Finance</h2>
+                    <p>ポイ活と決済最適化を軸に、日常を少し豊かにする再現可能なルートを紹介。</p>
+                </a>
+                <a href="ai/index.html" class="card">
+                    <span class="icon">🤖</span>
+                    <h2>AI & Agents</h2>
+                    <p>LLM活用、エージェント設計、業務効率化のための実験ログと知見。</p>
+                </a>
+                <a href="lpo/index.html" class="card">
+                    <span class="icon">🚀</span>
+                    <h2>LPO Dashboard</h2>
+                    <p>キャリア最大化と資産形成を両立するための、可視化・目標管理ページ。</p>
+                </a>
+            </section>
         </main>
 
         <footer class="animate-in" style="animation-delay: 0.4s;">
@@ -63,4 +68,3 @@
     </div>
 </body>
 </html>
-
