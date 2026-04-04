@@ -1,70 +1,230 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html class="dark" lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FunUni-lab | IT・ポイ活・AIの総合技術ラボ</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-
-    <meta name="description" content="FunUni-labはIT・ポイ活・AIの知見を発信する総合技術ラボ。インフラ自動化から資産形成まで、実践的な改善アイデアをまとめています。">
-    <meta property="og:site_name" content="FunUni-lab">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="FunUni-lab | IT・ポイ活・AIの総合技術ラボ">
-    <meta property="og:description" content="FunUni-labはIT・ポイ活・AIの知見を発信する総合技術ラボ。インフラ自動化から資産形成まで、実践的な改善アイデアをまとめています。">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FunUni-lab | IT・ポイ活・AIの総合技術ラボ">
-    <meta name="twitter:description" content="FunUni-labはIT・ポイ活・AIの知見を発信する総合技術ラボ。インフラ自動化から資産形成まで、実践的な改善アイデアをまとめています。">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FunUni-lab.js Synthetic Edition</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'on-secondary-container': '#eefaff',
+            'outline-variant': '#40485d',
+            'secondary-fixed': '#7edeff',
+            'secondary-fixed-dim': '#30d4ff',
+            'on-primary': '#23009c',
+            'on-primary-container': '#19007b',
+            'surface-dim': '#060e20',
+            'on-surface': '#dee5ff',
+            'error-dim': '#d73357',
+            'tertiary-container': '#a19afd',
+            'on-background': '#dee5ff',
+            'tertiary': '#b0aaff',
+            'surface-container-high': '#141f38',
+            'surface-bright': '#1f2b49',
+            'on-error-container': '#ffb2b9',
+            'primary-container': '#9b94ff',
+            'primary-fixed-dim': '#8d84ff',
+            'on-secondary-fixed-variant': '#00586d',
+            'surface': '#060e20',
+            'background': '#060e20',
+            'on-tertiary-fixed': '#11005d',
+            'surface-container': '#0f1930',
+            'surface-container-low': '#091328',
+            'surface-container-lowest': '#000000',
+            'inverse-on-surface': '#4d556b',
+            'tertiary-dim': '#9992f5',
+            'primary': '#aaa4ff',
+            'surface-tint': '#aaa4ff',
+            'surface-variant': '#192540',
+            'on-secondary-fixed': '#003a48',
+            'primary-dim': '#6a5cf9',
+            'surface-container-highest': '#192540',
+            'on-secondary': '#004253',
+            'tertiary-fixed': '#ada7ff',
+            'on-primary-fixed': '#000000',
+            'on-primary-fixed-variant': '#210096',
+            'error': '#ff6e84',
+            'inverse-surface': '#faf8ff',
+            'inverse-primary': '#5443e2',
+            'on-tertiary-fixed-variant': '#332a88',
+            'on-error': '#490013',
+            'error-container': '#a70138',
+            'on-tertiary-container': '#211376',
+            'secondary-dim': '#00c3ed',
+            'primary-fixed': '#9b94ff',
+            'tertiary-fixed-dim': '#9f98fa',
+            'on-tertiary': '#2c2281',
+            'outline': '#6d758c',
+            'secondary-container': '#00677f',
+            'on-surface-variant': '#a3aac4',
+            'secondary': '#00d2ff'
+          },
+          borderRadius: {
+            DEFAULT: '0.125rem',
+            lg: '0.25rem',
+            xl: '0.5rem',
+            full: '0.75rem'
+          },
+          fontFamily: {
+            headline: ['Space Grotesk'],
+            body: ['Inter'],
+            label: ['Space Grotesk']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .cyber-glow {
+      box-shadow: 0 0 40px rgba(108, 92, 231, 0.04);
+    }
+    .mesh-gradient {
+      background-image:
+        radial-gradient(at 0% 0%, rgba(170, 164, 255, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(0, 210, 255, 0.05) 0px, transparent 50%);
+    }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <header class="animate-in">
-            <h1>FunUni-lab.js</h1>
-            <p class="subtitle"><span class="syntax-comment">// 未来を少しだけ先取りする、FunUniエンジニアの実験場。</span><br>インフラ自動化からAI活用まで、技術の力で日常をアップデートします。</p>
-        </header>
-
-        <main class="animate-in" style="animation-delay: 0.2s;">
-            <section class="grid" style="margin-bottom: 1.2rem;">
-                <a href="ai/2026-04-04-openclaw-vps-network-troubleshoot.html" class="card" style="grid-column: 1 / -1; min-height: 0;">
-                    <span class="icon">✨</span>
-                    <div style="display: flex; flex-direction: column;">
-                        <span class="syntax-keyword" style="font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.08em;">Featured</span>
-                        <h2>【技術レポート】OpenClaw 外部通信疎通トラブルシュート</h2>
-                        <p>VPS 特有のパケットフィルター制約が原因だった fetch failed を、診断コマンドと復旧ステップで体系化。</p>
-                    </div>
-                </a>
-            </section>
-
-            <section class="grid" style="margin-bottom: 1.2rem;">
-                <a href="it/index.html" class="card">
-                    <span class="icon">⚙️</span>
-                    <h2>IT & Infrastructure</h2>
-                    <p>インフラ自動化、クラウド基盤、開発効率化。運用を改善する実践ノウハウ。</p>
-                </a>
-                <a href="points/index.html" class="card">
-                    <span class="icon">💎</span>
-                    <h2>Points & Finance</h2>
-                    <p>ポイ活と決済最適化を軸に、日常を少し豊かにする再現可能なルートを紹介。</p>
-                </a>
-                <a href="ai/index.html" class="card">
-                    <span class="icon">🤖</span>
-                    <h2>AI & Agents</h2>
-                    <p>LLM活用、エージェント設計、業務効率化のための実験ログと知見。</p>
-                </a>
-                <a href="lpo/index.html" class="card">
-                    <span class="icon">🚀</span>
-                    <h2>LPO Dashboard</h2>
-                    <p>キャリア最大化と資産形成を両立するための、可視化・目標管理ページ。</p>
-                </a>
-            </section>
-        </main>
-
-        <footer class="animate-in" style="animation-delay: 0.4s;">
-            <p>&copy; 2026 FunUni-lab. <span class="syntax-comment">/* Elevating daily life through engineering excellence. */</span></p>
-        </footer>
+<body class="bg-background text-on-background font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
+  <nav class="fixed top-0 z-50 flex justify-between items-center px-8 h-16 w-full bg-[#0f1930]/60 backdrop-blur-xl transition-all duration-300 ease-out font-['Space_Grotesk'] tracking-tight shadow-[0_0_40px_rgba(108,92,231,0.04)]">
+    <div class="flex items-center gap-8">
+      <a class="text-xl font-bold tracking-tighter text-[#aaa4ff]" href="index.html">FunUni-lab.js</a>
+      <div class="hidden md:flex items-center gap-6">
+        <a class="text-[#00d2ff] border-b-2 border-[#00d2ff] pb-1" href="it/index.html">Infrastructure</a>
+        <a class="text-slate-400 hover:text-[#aaa4ff] transition-colors" href="points/index.html">Finance</a>
+        <a class="text-slate-400 hover:text-[#aaa4ff] transition-colors" href="ai/index.html">AI &amp; Agents</a>
+        <a class="text-slate-400 hover:text-[#aaa4ff] transition-colors" href="lpo/index.html">LPO</a>
+      </div>
     </div>
+    <div class="flex items-center gap-4">
+      <button class="p-2 hover:bg-[#192540]/50 rounded-lg transition-all text-[#aaa4ff]" aria-label="science">
+        <span class="material-symbols-outlined">science</span>
+      </button>
+      <button class="p-2 hover:bg-[#192540]/50 rounded-lg transition-all text-[#aaa4ff]" aria-label="terminal">
+        <span class="material-symbols-outlined">terminal</span>
+      </button>
+    </div>
+  </nav>
+
+  <aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col py-20 px-4 space-y-2 bg-[#0f1930] z-40">
+    <div class="mb-8 px-4">
+      <div class="text-[#aaa4ff] font-bold text-xs uppercase tracking-widest font-headline">SYNTHETIC_EDITION</div>
+      <div class="text-slate-500 text-[10px] uppercase tracking-widest font-label mt-1">v2.0.4-stable</div>
+    </div>
+    <nav class="flex-1 space-y-1">
+      <a class="flex items-center gap-3 py-2.5 px-4 bg-[#192540] text-[#00d2ff] border-l-2 border-[#00d2ff] transition-all hover:translate-x-1 duration-200" href="it/index.html">
+        <span class="material-symbols-outlined text-lg">history</span>
+        <span class="font-label text-[10px] uppercase tracking-widest">Latest Logs</span>
+      </a>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-[#141f38] hover:text-[#aaa4ff] transition-all hover:translate-x-1 duration-200" href="it/index.html">
+        <span class="material-symbols-outlined text-lg">settings_input_component</span>
+        <span class="font-label text-[10px] uppercase tracking-widest">System Status</span>
+      </a>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-[#141f38] hover:text-[#aaa4ff] transition-all hover:translate-x-1 duration-200" href="ai/index.html">
+        <span class="material-symbols-outlined text-lg">biotech</span>
+        <span class="font-label text-[10px] uppercase tracking-widest">Research Notes</span>
+      </a>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-[#141f38] hover:text-[#aaa4ff] transition-all hover:translate-x-1 duration-200" href="lpo/index.html">
+        <span class="material-symbols-outlined text-lg">inventory_2</span>
+        <span class="font-label text-[10px] uppercase tracking-widest">Archives</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main class="lg:pl-64 pt-20 flex-grow">
+    <section class="max-w-7xl mx-auto px-8 py-20 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-label tracking-widest mb-8 uppercase">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+        </span>
+        Active Laboratory Environment
+      </div>
+      <h1 class="text-6xl md:text-8xl font-bold font-headline tracking-tighter text-on-surface mb-6">FunUni-lab<span class="text-primary">.js</span></h1>
+      <div class="max-w-2xl mx-auto space-y-2">
+        <p class="text-secondary font-label text-lg tracking-widest opacity-90">// 未来を構築するための合成エンジニアリング環境</p>
+        <p class="text-on-surface-variant font-body text-sm tracking-wide leading-relaxed">A synthetic engineering framework for constructing next-generation digital ecosystems.</p>
+      </div>
+      <div class="mt-12 flex justify-center gap-4">
+        <a href="it/index.html" class="px-8 py-3 bg-gradient-to-r from-primary to-primary-dim text-on-primary font-bold rounded-lg transition-transform active:scale-95 shadow-lg shadow-primary/20">Launch Core</a>
+        <a href="lpo/index.html" class="px-8 py-3 bg-surface-container-highest border border-secondary/20 text-secondary font-bold rounded-lg hover:bg-surface-container-high transition-all">System Overview</a>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-8 pb-32">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <a href="it/index.html" class="md:col-span-7 group relative overflow-hidden rounded-xl bg-surface-container-high p-8 hover:bg-surface-container-highest transition-all cyber-glow">
+          <div class="absolute top-0 right-0 p-8 text-primary/10 group-hover:text-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-9xl leading-none">settings</span>
+          </div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-surface-container text-primary border border-primary/20">
+                <span class="material-symbols-outlined">settings</span>
+              </div>
+              <h3 class="text-2xl font-bold font-headline tracking-tight">IT &amp; Infrastructure</h3>
+            </div>
+            <p class="text-on-surface-variant max-w-sm mb-8">堅牢なスケーラビリティを実現するコア・インフラストラクチャの設計と管理。次世代の分散システム。Robust core design for high-scale environments.</p>
+          </div>
+        </a>
+
+        <a href="points/index.html" class="md:col-span-5 group relative overflow-hidden rounded-xl bg-surface-container-high p-8 hover:bg-surface-container-highest transition-all cyber-glow">
+          <div class="absolute top-0 right-0 p-8 text-secondary/10">
+            <span class="material-symbols-outlined text-8xl">diamond</span>
+          </div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-surface-container text-secondary border border-secondary/20">
+                <span class="material-symbols-outlined">diamond</span>
+              </div>
+              <h3 class="text-2xl font-bold font-headline tracking-tight">Points &amp; Finance</h3>
+            </div>
+            <p class="text-on-surface-variant mb-12">デジタルアセットの流動性と、インセンティブ・メカニズムの最適化。Financial engineering for the token economy.</p>
+          </div>
+        </a>
+
+        <a href="ai/index.html" class="md:col-span-5 group relative overflow-hidden rounded-xl bg-surface-container-high p-8 hover:bg-surface-container-highest transition-all cyber-glow">
+          <div class="absolute bottom-0 right-0 p-8 text-tertiary/10">
+            <span class="material-symbols-outlined text-8xl">smart_toy</span>
+          </div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-surface-container text-tertiary border border-tertiary/20">
+                <span class="material-symbols-outlined">smart_toy</span>
+              </div>
+              <h3 class="text-2xl font-bold font-headline tracking-tight">AI &amp; Agents</h3>
+            </div>
+            <p class="text-on-surface-variant mb-12">自律型エージェントとニューラル・ネットワークの統合。Synthetic intelligence at the edge.</p>
+          </div>
+        </a>
+
+        <a href="lpo/index.html" class="md:col-span-7 group relative overflow-hidden rounded-xl bg-surface-container-high p-8 hover:bg-surface-container-highest transition-all cyber-glow">
+          <div class="relative z-10">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-surface-container text-secondary border border-secondary/20">
+                <span class="material-symbols-outlined">rocket_launch</span>
+              </div>
+              <h3 class="text-2xl font-bold font-headline tracking-tight">LPO Dashboard</h3>
+            </div>
+            <p class="text-on-surface-variant max-w-md mb-8">Landing Page Optimizationのためのリアルタイム分析とABテスト。High-velocity performance tuning for conversion.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full py-12 px-8 mt-auto bg-[#060e20] font-['Inter'] text-xs border-t border-[#192540]/30">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-80 hover:opacity-100 transition-opacity">
+      <div class="flex flex-col gap-2">
+        <span class="text-slate-400">© 2026 FunUni-lab Synthetic Edition. Clinical Precision. Artistic Flair.</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
