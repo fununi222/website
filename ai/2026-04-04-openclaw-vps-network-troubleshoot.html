@@ -21,9 +21,14 @@
         <main class="article-content animate-in" style="animation-delay: 0.2s;">
             <p><span class="syntax-comment">// XServer VPS 上で browser-js が fetch failed になる問題をインフラ起点で切り分け</span></p>
 
+            <div class="callout">
+                <strong class="callout-title">関連用語</strong>
+                <p><a href="../glossary.html#openclaw" class="term-link">OpenClaw</a> や <a href="../glossary.html#vps" class="term-link">VPS</a> の意味を先に確認したい場合は、用語集から見られます。</p>
+            </div>
+
             <h2>1. 発生した現象と環境</h2>
             <ul>
-                <li><strong>対象:</strong> OpenClaw v2026.4.1（XServer VPS / Ubuntu）</li>
+                <li><strong>対象:</strong> <a href="../glossary.html#openclaw" class="term-link">OpenClaw</a> v2026.4.1（XServer <a href="../glossary.html#vps" class="term-link">VPS</a> / Ubuntu）</li>
                 <li><strong>現象:</strong> skills check は Ready だが、外部サイトアクセスがタイムアウト / fetch failed。</li>
                 <li><strong>補足:</strong> <code>curl</code> は無反応、<code>nslookup</code> のみ成功。</li>
             </ul>

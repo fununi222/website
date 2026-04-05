@@ -30,15 +30,20 @@
         <main class="article-content animate-in" style="animation-delay: 0.2s;">
             <p><span class="syntax-comment">// VPS からローカル移行、API 取得、OAuth 403 解消までをまとめた Google カレンダー連携ガイド</span></p>
 
-            <p>OpenClaw などの AI エージェントを使って、日常のスケジュール管理を自動化したいと考えたことはありませんか。「明日の予定を教えて」「来週の火曜日に会議を入れて」とテキストで指示するだけで、AI が Google カレンダーを操作してくれたらかなり便利です。</p>
+            <p><a href="../glossary.html#openclaw" class="term-link">OpenClaw</a> などの <a href="../glossary.html#ai-agent" class="term-link">AI エージェント</a>を使って、日常のスケジュール管理を自動化したいと考えたことはありませんか。「明日の予定を教えて」「来週の火曜日に会議を入れて」とテキストで指示するだけで、AI が Google カレンダーを操作してくれたらかなり便利です。</p>
 
-            <p>この記事では、OpenClaw と Google Calendar API を連携させるための一連の流れを、VPS からローカル PC への方針転換、API 準備、そしてつまずきやすい <code>403: access_denied</code> の解決まで含めて整理します。</p>
+            <p>この記事では、OpenClaw と <a href="../glossary.html#google-calendar-api" class="term-link">Google Calendar API</a> を連携させるための一連の流れを、<a href="../glossary.html#vps" class="term-link">VPS</a> からローカル PC への方針転換、API 準備、そしてつまずきやすい <code>403: access_denied</code> の解決まで含めて整理します。</p>
+
+            <div class="callout">
+                <strong class="callout-title">用語メモ</strong>
+                <p>リンク付きの用語は <a href="../glossary.html">用語集</a> に飛べます。記事を読みながら意味を確認したいときに使えます。</p>
+            </div>
 
             <h2>1. なぜ VPS ではなくローカル PC が向いているのか</h2>
             <p>24 時間稼働を考えると VPS は魅力的ですが、Google API と AI エージェントの組み合わせでは、まずローカル PC で構築するほうが圧倒的にスムーズです。</p>
             <ol>
-                <li><strong>OAuth 認証が localhost 前提で進む</strong><br>Google API の初回認証では、ブラウザでログイン後に <code>localhost</code> へ戻されるフローが一般的です。VPS 上で実行すると、手元のブラウザから VPS 側の <code>localhost</code> に到達できず、認証完了までが面倒になります。</li>
-                <li><strong>データセンター IP は bot 判定を受けやすい</strong><br>Playwright などを使ってブラウザ操作を伴う場合、VPS の IP は Google 側に不審判定されやすく、ログインや認証フローが不安定になりがちです。自宅回線や通常の Wi-Fi 環境のほうが安全に進められます。</li>
+                <li><strong><a href="../glossary.html#oauth" class="term-link">OAuth</a> 認証が <a href="../glossary.html#localhost" class="term-link">localhost</a> 前提で進む</strong><br>Google API の初回認証では、ブラウザでログイン後に <code>localhost</code> へ戻されるフローが一般的です。VPS 上で実行すると、手元のブラウザから VPS 側の <code>localhost</code> に到達できず、認証完了までが面倒になります。</li>
+                <li><strong>データセンター IP は bot 判定を受けやすい</strong><br><a href="../glossary.html#playwright" class="term-link">Playwright</a> などを使ってブラウザ操作を伴う場合、VPS の IP は Google 側に不審判定されやすく、ログインや認証フローが不安定になりがちです。自宅回線や通常の Wi-Fi 環境のほうが安全に進められます。</li>
             </ol>
 
             <h2>2. Google Calendar API の準備</h2>
@@ -49,7 +54,7 @@
             <p>「認証情報」タブから「認証情報を作成」→「OAuth クライアント ID」を選択し、アプリケーション種別は <strong>デスクトップ アプリ</strong> を指定します。作成後にダウンロードできる <code>credentials.json</code> が、OpenClaw 側で使う認証情報になります。</p>
 
             <h2>3. 最大の罠：403 access_denied の正体</h2>
-            <p>ここで多くの人が詰まるのが OAuth 同意画面の設定不足です。認証時に次のようなエラーが表示されることがあります。</p>
+            <p>ここで多くの人が詰まるのが <a href="../glossary.html#oauth" class="term-link">OAuth</a> 同意画面の設定不足です。認証時に次のようなエラーが表示されることがあります。</p>
 
             <blockquote>
                 <p><strong>アクセスをブロック: [アプリ名] は Google の審査プロセスを完了していません</strong></p>

@@ -30,19 +30,24 @@
         <main class="article-content animate-in" style="animation-delay: 0.2s;">
             <p><span class="syntax-comment">// システム運用における自動化と整理の記録</span></p>
             
-            <p>システム運用において、<span class="syntax-type">vSphere</span>（仮想マシンやホストを統合管理する基盤）を扱っていると、日々の確認や設定変更が積み重なり、意外と手間がかかるものです。今日は、そんな運用負担を減らしつつ、品質を維持するための自動化と整理について書きます。</p>
+            <p>システム運用において、<a href="../glossary.html#vsphere" class="term-link">vSphere</a> を扱っていると、日々の確認や設定変更が積み重なり、意外と手間がかかるものです。今日は、そんな運用負担を減らしつつ、品質を維持するための自動化と整理について書きます。</p>
+
+            <div class="callout">
+                <strong class="callout-title">用語が気になったら</strong>
+                <p><a href="../glossary.html#cbt" class="term-link">CBT</a> や <a href="../glossary.html#bcp" class="term-link">BCP</a> などの略語は、用語集へ飛べるようにしてあります。</p>
+            </div>
 
             <h2>1. 更新作業の標準化と切り戻し手順の整備</h2>
             <p>更新スクリプトや切り戻し手順を整理し、既存構成を崩さずに更新できる運用を確立。復旧対象を必要最小限に絞り込むことで、脆弱性対応などの定期的な作業が、より安心かつ効率的に継続できるようになりました。</p>
 
             <h2>2. バックアップと容量の自動是正</h2>
-            <p>Rubrik/CBT の不整合を検知して自動是正する仕組みに加え、<span class="syntax-type">VAST Data</span> の容量監視を強化しました。実測データに基づき、フェーズごとの閾値到達見込みを算出するロジックを実装。BCP 要件に合わせた保持期間の最適化を能動的に行える体制を整えています。</p>
+            <p><a href="../glossary.html#rubrik" class="term-link">Rubrik</a>/<a href="../glossary.html#cbt" class="term-link">CBT</a> の不整合を検知して自動是正する仕組みに加え、<a href="../glossary.html#vast-data" class="term-link">VAST Data</a> の容量監視を強化しました。実測データに基づき、フェーズごとの閾値到達見込みを算出するロジックを実装。<a href="../glossary.html#bcp" class="term-link">BCP</a> 要件に合わせた保持期間の最適化を能動的に行える体制を整えています。</p>
 
             <h2>3. インフラレイヤーでのライセンス管理</h2>
             <p>GT-V 基盤におけるミドルウェアライセンス管理を、タグ運用によって改善しました。インフラ側でタグを付与することで、管理主体と利用実態を正確に紐付け、スモールスタートでの管理精度向上を図っています。</p>
 
             <h2>4. OSS 活用と次世代エージェント調査</h2>
-            <p>今後の自動化に向けて、監視（<span class="syntax-keyword">Prometheus/Grafana</span>）やワークフロー（<span class="syntax-keyword">n8n</span>）などの OSS ツールの PoC を進めています。また、AI エージェントを「軽量なオーケストレーター」として、専門的なタスクを外部スキルに委譲する新しい運用の形も模索中です。</p>
+            <p>今後の自動化に向けて、監視（<a href="../glossary.html#prometheus" class="term-link">Prometheus</a>/<a href="../glossary.html#grafana" class="term-link">Grafana</a>）やワークフロー（<a href="../glossary.html#n8n" class="term-link">n8n</a>）などの <a href="../glossary.html#oss" class="term-link">OSS</a> ツールの <a href="../glossary.html#poc" class="term-link">PoC</a> を進めています。また、AI エージェントを「軽量なオーケストレーター」として、専門的なタスクを外部スキルに委譲する新しい運用の形も模索中です。</p>
 
             <p><span class="syntax-keyword">const</span> philosophy = <span class="syntax-string">"自動化できるところは自動化し、人が見るべきところを減らす"</span>;</p>
             <p>これからも、この方針で手間とミスを減らし、より安定した運用を目指していきます。</p>

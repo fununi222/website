@@ -30,13 +30,18 @@
         <main class="article-content animate-in" style="animation-delay: 0.2s;">
             <p><span class="syntax-comment">// エージェント設計における役割分担の再定義</span></p>
             
-            <p>AI エージェントを日常の業務に組み込む際、一つのエージェントにすべてを任せようとすると、プロンプトが肥大化し、応答の精度や速度が低下する問題に直面します。今日は、この課題を解決するための「エージェント・オーケストレーション」の考え方について整理します。</p>
+            <p><a href="../glossary.html#ai-agent" class="term-link">AI エージェント</a>を日常の業務に組み込む際、一つのエージェントにすべてを任せようとすると、プロンプトが肥大化し、応答の精度や速度が低下する問題に直面します。今日は、この課題を解決するための「エージェント・オーケストレーション」の考え方について整理します。</p>
+
+            <div class="callout">
+                <strong class="callout-title">読み方ガイド</strong>
+                <p><a href="../glossary.html#orchestrator" class="term-link">オーケストレーター</a> や <a href="../glossary.html#wrapper" class="term-link">ラッパー</a> などの言葉は、リンク先の用語集で短く意味を確認できます。</p>
+            </div>
 
             <h2>1. OpenClaw の「軽量な指揮者」としての役割</h2>
-            <p><span class="syntax-keyword">OpenClaw</span> 自体は、高度で多様なツール（Google Search, Browser, Shell 等）を操ることができる強力なエージェントですが、すべての重い計算や専門的なタスクを完結させる必要はありません。むしろ、OpenClaw は「最適な外部スキルを選択し、実行を促す指揮者」として機能させるのが理想的です。</p>
+            <p><a href="../glossary.html#openclaw" class="term-link">OpenClaw</a> 自体は、高度で多様なツール（Google Search, Browser, Shell 等）を操ることができる強力なエージェントですが、すべての重い計算や専門的なタスクを完結させる必要はありません。むしろ、OpenClaw は「最適な外部スキルを選択し、実行を促す<a href="../glossary.html#orchestrator" class="term-link">オーケストレーター</a>」として機能させるのが理想的です。</p>
 
             <h2>2. 重い作業は外部スキル（ラッパー）へ委譲</h2>
-            <p>例えば、ログインが必要な特定の AI ツールや、複雑なバッチ処理などは、OpenClaw が直接行うのではなく、それらを専門に扱う「外部スキル」として定義します。OpenClaw はそのスキルを呼び出し、結果を受け取ってユーザーに報告する「ラッパー」としての役割に徹します。これにより、OpenClaw 本体のコンテキストをクリーンに保ち、シングルタスクへの集中を促すことができます。</p>
+            <p>例えば、ログインが必要な特定の AI ツールや、複雑なバッチ処理などは、OpenClaw が直接行うのではなく、それらを専門に扱う「外部スキル」として定義します。OpenClaw はそのスキルを呼び出し、結果を受け取ってユーザーに報告する<a href="../glossary.html#wrapper" class="term-link">ラッパー</a>としての役割に徹します。これにより、OpenClaw 本体のコンテキストをクリーンに保ち、シングルタスクへの集中を促すことができます。</p>
 
             <h2>3. 階層的なエージェント管理</h2>
             <p>このアプローチの最大のメリットは、各エージェントの専門性を高められることです。
@@ -47,7 +52,7 @@
             この階層構造により、全体としての応答品質と安定性が飛躍的に向上します。</p>
 
             <p><span class="syntax-keyword">const</span> vision = <span class="syntax-string">"分業こそが、AI運用の極致となる"</span>;</p>
-            <p>これからも、このオーケストレーションの仕組みを磨き、より複雑な業務を AI でスマートに解決していくための PoC を進めていきます。</p>
+            <p>これからも、このオーケストレーションの仕組みを磨き、より複雑な業務を AI でスマートに解決していくための <a href="../glossary.html#poc" class="term-link">PoC</a> を進めていきます。</p>
         </main>
 
         <footer class="animate-in" style="animation-delay: 0.4s;">
