@@ -7,39 +7,9 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#aaa4ff',
-                        'primary-dim': '#6a5cf9',
-                        'secondary': '#00d2ff',
-                        'tertiary': '#b0aaff',
-                        'background': '#060e20',
-                        'surface': '#0f1930',
-                        'surface-container': '#141f38',
-                        'on-surface': '#dee5ff',
-                        'on-surface-variant': '#a3aac4',
-                        'outline': '#6d758c'
-                    },
-                    fontFamily: {
-                        headline: ['Space Grotesk'],
-                        body: ['Inter']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .cyber-glow { box-shadow: 0 0 40px rgba(108, 92, 231, 0.04); }
-        .mesh-gradient {
-            background-image:
-                radial-gradient(at 0% 0%, rgba(170, 164, 255, 0.05) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(0, 210, 255, 0.05) 0px, transparent 50%);
-        }
-    </style>
+    <!-- Synthetic Shared Assets -->
+    <script src="../assets/js/tw-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/synthetic.css">
 </head>
 <body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
     <!-- Top Nav -->
@@ -47,12 +17,14 @@
         <div class="flex items-center gap-8">
             <a class="text-xl font-bold tracking-tighter text-primary" href="../index.html">FunUni-lab.js</a>
             <div class="hidden md:flex items-center gap-6 text-[10px] uppercase tracking-widest font-bold">
-                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../it/index.html">Infrastructure</a>
-                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../points/index.html">Finance</a>
-                <a class="text-secondary border-b-2 border-secondary pb-1" href="index.html">AI & Agents</a>
-                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../lpo/index.html">LPO</a>
-                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../glossary.html">Glossary</a>
-            </div>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../infra/index.html">Infrastructure</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../dev/index.html">Development</a>
+        <a class="text-secondary border-b-2 border-secondary pb-1" href="../ai/index.html">AI & Agents</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../finance/index.html">Finance</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../lpo/index.html">LPO</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../other/index.html">Other</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../glossary/index.html">Glossary</a>
+      </div>
         </div>
         <div class="flex items-center gap-4">
             <span class="text-xs font-bold text-tertiary uppercase tracking-widest hidden sm:block">Research Phase</span>
@@ -67,34 +39,40 @@
             <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.05</div>
         </div>
         <nav class="flex-1 space-y-1">
-            <a class="flex items-center gap-3 py-2.5 px-4 bg-surface-container text-secondary border-l-2 border-secondary transition-all hover:translate-x-1 duration-200" href="index.html">
-                <span class="material-symbols-outlined text-lg">smart_toy</span>
-                <span class="font-headline text-[10px] uppercase tracking-widest">Main Index</span>
-            </a>
-            <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../glossary.html">
-                <span class="material-symbols-outlined text-lg">menu_book</span>
-                <span class="font-headline text-[10px] uppercase tracking-widest">AI Glossary</span>
-            </a>
-            <hr class="border-white/5 my-2">
-            <div class="px-4 py-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold">Categories</div>
-            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-primary transition-colors" href="#recent">
-                <span class="w-1 h-1 rounded-full bg-secondary"></span>
-                <span class="font-headline text-[10px] uppercase tracking-widest">Recent Experiments</span>
-            </a>
-        </nav>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../infra/index.html">
+        <span class="material-symbols-outlined text-lg">history</span>
+        <span class="font-headline text-[10px] uppercase tracking-widest">Latest Logs</span>
+      </a>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../dev/index.html">
+        <span class="material-symbols-outlined text-lg">code</span>
+        <span class="font-headline text-[10px] uppercase tracking-widest">Development</span>
+      </a>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../ai/index.html">
+        <span class="material-symbols-outlined text-lg">biotech</span>
+        <span class="font-headline text-[10px] uppercase tracking-widest">AI Research</span>
+      </a>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../finance/index.html">
+        <span class="material-symbols-outlined text-lg">diamond</span>
+        <span class="font-headline text-[10px] uppercase tracking-widest">Finance</span>
+      </a>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../other/index.html">
+        <span class="material-symbols-outlined text-lg">folder_open</span>
+        <span class="font-headline text-[10px] uppercase tracking-widest">Other / Misc</span>
+      </a>
+    </nav>
     </aside>
 
     <main class="lg:pl-64 pt-20 flex-grow">
         <section class="max-w-7xl mx-auto px-8 py-12">
             <div class="mb-12 border-l-4 border-primary pl-6 py-2">
-                <h2 class="text-4xl font-bold font-headline tracking-tighter text-on-surface mb-2">AI &amp; Agents</h2>
+                <h2 class="text-4xl font-bold font-headline tracking-tighter text-on-surface mb-2">AI, Agents & Automation</h2>
                 <p class="text-on-surface-variant font-body text-sm tracking-wide leading-relaxed max-w-2xl text-slate-400">
-                    LLM活用・エージェント運用・実験ログをまとめた研究カテゴリ。自律型知能の社会実装と、操作レイヤーの最適化を追記し続けます。
+                    LLM、エージェントワークフロー、業務自動化プロセスに関する研究ログ。
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="recent">
-                <a href="2026-04-05-1bit-llm-bonsai-8b.html" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
+                <a href="../article.html?md=ai/2026-04-06-1bit-llm-bonsai-8b.md" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-2xl">🌵</span>
                         <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Research_01</span>
@@ -103,7 +81,7 @@
                     <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">GPU推論不要の未来。究極の軽量化技術「1ビット量子化」がもたらすAIパラダイムシフトを解説。</p>
                 </a>
 
-                <a href="2026-04-05-ai-hallucination.html" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
+                <a href="../article.html?md=ai/2026-04-05-ai-hallucination.md" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-2xl">🤔</span>
                         <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Research_02</span>
@@ -112,16 +90,17 @@
                     <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">最新LLMの「ポチョムキン理解」の仕組みと、弱点を補うための最適な「使い分け」術を解説。</p>
                 </a>
 
-                <a href="2026-04-05-altra-recommender-retrospective.html" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
+
+                <a href="../article.html?md=ai/2026-04-03-agent-orchestration.md" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
                     <div class="flex items-center justify-between mb-4">
-                        <span class="text-2xl">🎯</span>
-                        <span class="text-[10px] font-bold text-tertiary uppercase tracking-widest">Retrospective</span>
+                        <span class="text-2xl">🤖</span>
+                        <span class="text-[10px] font-bold text-tertiary uppercase tracking-widest">Architecture</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-tertiary transition-colors">altra-recommender 制作記録</h3>
-                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">推薦ロジック、データ構造、結果の見せ方を振り返るレコメンド系 Web アプリの制作記録。</p>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-tertiary transition-colors">Orchestrating Intelligence</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">AIエージェントを軽量オーケストレーターとして運用する設計パターン。チェーンからグラフへの進化を読み解く。</p>
                 </a>
 
-                <a href="2026-04-05-openclaw-google-calendar-automation.html" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
+                <a href="../article.html?md=ai/2026-04-05-openclaw-google-calendar-automation.md" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-2xl">📅</span>
                         <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Automation</span>
@@ -130,32 +109,24 @@
                     <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">ローカル PC 構築の理由から Google Calendar API 連携、403 access_denied の解消までを一気通貫で整理。</p>
                 </a>
 
-                <a href="2026-04-04-openclaw-vps-network-troubleshoot.html" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
+                <a href="../article.html?md=ai/2026-04-03-operation-automation.md" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-secondary/30 transition-all cyber-glow">
                     <div class="flex items-center justify-between mb-4">
-                        <span class="text-2xl">🌐</span>
-                        <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Network</span>
+                        <span class="text-2xl">⚙️</span>
+                        <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Process</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">OpenClaw 外部通信トラブルシュート（VPS編）</h3>
-                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">VPS パケットフィルター制約による fetch failed を切り分け、復旧まで整理。</p>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">運用の手間を減らし、品質を上げる</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">容量監視・タグ管理・定型運用を改善した実践プロセスを整理。自動化への戦略的ステップ。</p>
                 </a>
 
-                <a href="2026-04-04-universe-spec-debug.html" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
+                <a href="../article.html?md=ai/2026-04-03-oss-automation-tools.md" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-secondary/30 transition-all cyber-glow">
                     <div class="flex items-center justify-between mb-4">
-                        <span class="text-2xl">🧪</span>
-                        <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Audit</span>
+                        <span class="text-2xl">🔍</span>
+                        <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Stack</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-primary transition-colors">OpenClaw Universe Spec Debug</h3>
-                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">仕様定義と実装のズレを診断し、安定運用に向けたデバッグ観点を整理。</p>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-primary transition-colors">A 2026 OSS Automation Stack</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">Terraform / Ansible / Prometheus / n8n を軸にした OSS 自動化スタック研究。Modernizing Infrastructure.</p>
                 </a>
 
-                <a href="2026-04-03-agent-orchestration.html" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-2xl">🤖</span>
-                        <span class="text-[10px] font-bold text-tertiary uppercase tracking-widest">Architecture</span>
-                    </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-tertiary transition-colors">Orchestrating Intelligence</h3>
-                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">AIエージェントを軽量オーケストレーターとして運用する設計パターン。チェーンからグラフへの進化を読み解く。</p>
-                </a>
             </div>
         </section>
     </main>
@@ -167,7 +138,7 @@
             </div>
             <div class="flex gap-6">
                 <a href="../index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Portal_Home</a>
-                <a href="../glossary.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">System_Glossary</a>
+                <a href="../glossary/index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">System_Glossary</a>
             </div>
         </div>
     </footer>

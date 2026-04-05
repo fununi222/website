@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossary | FunUni-lab Synthetic Edition</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <!-- Syntax Highlighting & Diagrams -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    
+    <!-- Synthetic Shared Assets -->
+    <script src="../assets/js/tw-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/synthetic.css">
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col mesh-gradient">
+    <nav class="fixed top-0 z-50 flex justify-between items-center px-8 h-16 w-full bg-surface/60 backdrop-blur-xl border-b border-white/5 font-headline shadow-lg">
+        <a class="text-xl font-bold tracking-tighter text-primary" href="index.html">FunUni-lab.js</a>
+        <div class="hidden md:flex items-center gap-6 text-[10px] uppercase tracking-widest font-bold">
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../infra/index.html">Infrastructure</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../dev/index.html">Development</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../ai/index.html">AI & Agents</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../finance/index.html">Finance</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../lpo/index.html">LPO</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../other/index.html">Other</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../glossary/index.html">Glossary</a>
+      </div>
+    </nav>
+    <main class="lg:pl-64 pt-20 flex-grow">
+        <article class="max-w-4xl mx-auto px-8 py-12">
+            <div id="sme-content" data-src="2026-04-06-system-glossary.md">
+                <div class="p-8 animate-pulse text-primary font-bold text-[10px] uppercase tracking-widest">Accessing Node...</div>
+            </div>
+        </article>
+    </main>
+    <script src="../assets/js/sme.js"></script>
+    <script>
+        window.addEventListener('sme-loaded', () => {
+            const table = document.querySelector('#sme-content table');
+            if (!table) return;
+
+            // 1. Styling the Table
+            table.classList.add('w-full', 'text-left', 'border-collapse', 'mt-6');
+            table.querySelectorAll('th').forEach(th => {
+                th.classList.add('p-3', 'border-b', 'border-white/10', 'text-slate-400', 'font-bold', 'cursor-pointer', 'hover:text-secondary', 'transition-colors', 'select-none');
+                th.innerHTML += ' <span class="text-xs opacity-50 ml-1">↕</span>';
+            });
+            table.querySelectorAll('td').forEach(td => td.classList.add('p-3', 'border-b', 'border-white/5', 'text-on-surface-variant', 'text-sm'));
+            table.querySelectorAll('tr').forEach(tr => tr.classList.add('hover:bg-surface-container-high/50', 'transition-colors'));
+
+            // 2. Inject Search Control Above Text
+            const controlDiv = document.createElement('div');
+            controlDiv.className = 'mb-6 mt-4 fade-in';
+            controlDiv.innerHTML = '<input type="text" id="glossary-search" placeholder="カテゴリーや用語でフィルター検索... (例: AI, 運用)" class="w-full max-w-sm px-4 py-2 bg-surface-container border border-white/5 rounded-lg text-on-surface focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 placeholder-slate-500 font-body text-sm transition-all focus:bg-surface-container-highest shadow-inner">';
+            table.parentNode.insertBefore(controlDiv, table);
+
+            // 3. Search Logic
+            const searchInput = document.getElementById('glossary-search');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                let visibleCount = 0;
+                rows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                
+                // Remove existing empty state message if any
+                const existingMsg = tbody.querySelector('.empty-state-msg');
+                if (existingMsg) existingMsg.remove();
+                
+                if (visibleCount === 0) {
+                    const tr = document.createElement('tr');
+                    tr.className = 'empty-state-msg';
+                    tr.innerHTML = `<td colspan="${table.querySelectorAll('th').length}" class="p-8 text-center text-on-surface-variant">「${e.target.value}」に一致する用語は見つかりませんでした。</td>`;
+                    tbody.appendChild(tr);
+                }
+            });
+
+            // 4. Sort Logic
+            const headers = table.querySelectorAll('th');
+            let currentSortCol = -1;
+            let asc = true;
+
+            headers.forEach((th, index) => {
+                th.addEventListener('click', () => {
+                    asc = currentSortCol === index ? !asc : true;
+                    currentSortCol = index;
+
+                    headers.forEach(h => h.querySelector('span').textContent = '↕');
+                    th.querySelector('span').textContent = asc ? '↓' : '↑';
+
+                    const sortedRows = rows.sort((a, b) => {
+                        const aText = a.children[index].textContent.trim();
+                        const bText = b.children[index].textContent.trim();
+                        return asc ? aText.localeCompare(bText, 'ja') : bText.localeCompare(aText, 'ja');
+                    });
+
+                    // Remove empty message if present before re-appending
+                    const existingMsg = tbody.querySelector('.empty-state-msg');
+                    if (existingMsg) existingMsg.remove();
+
+                    tbody.innerHTML = '';
+                    sortedRows.forEach(row => tbody.appendChild(row));
+                });
+            });
+        });
+    </script>
+</body>
+</html>

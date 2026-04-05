@@ -1,4 +1,11 @@
-# 【OpenClaw】AIエージェントにGoogleカレンダーを自動管理させる方法と「エラー403」の解決策
+---
+title: "OpenClaw で Google カレンダー自動管理"
+date: "2026-04-05"
+category: "Automation"
+description: "ローカル PC 構築の理由から Google Calendar API 連携、403 access_denied の解消までを一気通貫で整理。"
+---
+
+# OpenClaw で Google カレンダー自動管理させる方法と「エラー403」の解決策
 
 OpenClaw などの AI エージェントを使って、日常のスケジュール管理を自動化したいと考えたことはありませんか。
 「明日の予定を教えて」「来週の火曜日に会議を入れて」とテキストで指示するだけで、AI が自律的に Google カレンダーを操作してくれたら非常に便利です。
