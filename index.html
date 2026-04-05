@@ -7,9 +7,20 @@
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <!-- Synthetic Shared Assets -->
   <script src="assets/js/tw-config.js"></script>
   <link rel="stylesheet" href="assets/css/synthetic.css">
+  <style>
+    .skill-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; color: #a3aac4; }
+    .progress-bg { height: 4px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #aaa4ff; transition: width 1s ease-out; }
+  </style>
 </head>
 <body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
   
@@ -148,6 +159,64 @@
         </a>
       </div>
     </section>
+    
+    <!-- Global Optimization Dashboard -->
+    <section class="max-w-7xl mx-auto px-8 pb-20">
+      <div class="bg-surface-container/30 rounded-3xl border border-white/5 p-8 md:p-12 cyber-glow relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-12 text-primary/5">
+          <span class="material-symbols-outlined text-[12rem]">analytics</span>
+        </div>
+        
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Left: Overview -->
+          <div class="lg:col-span-4 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary border border-secondary/20 text-[10px] font-headline tracking-widest uppercase">
+              Global_Performance_Index
+            </div>
+            <h2 class="text-3xl font-bold font-headline tracking-tight text-on-surface">System Optimization Dashboard</h2>
+            <p class="text-sm text-on-surface-variant leading-relaxed opacity-80">
+              各セクションのパフォーマンスと習得スキルのリアルタイム・マトリクス。LPOシステムからの動的データプロジェクション。
+            </p>
+            <div class="pt-4 grid grid-cols-2 gap-4">
+              <div class="p-4 bg-surface-container-high rounded-xl border border-white/5">
+                <div class="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Status</div>
+                <div class="text-secondary font-bold font-headline">OPTIMIZED</div>
+              </div>
+              <div class="p-4 bg-surface-container-high rounded-xl border border-white/5">
+                <div class="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Efficiency</div>
+                <div class="text-primary font-bold font-headline">82.4%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Middle: Radar Chart -->
+          <div class="lg:col-span-4 flex justify-center h-64">
+            <canvas id="homeSkillRadarChart"></canvas>
+          </div>
+
+          <!-- Right: Summary Bars -->
+          <div class="lg:col-span-4 space-y-6">
+            <div class="skill-item">
+              <div class="skill-header"><span>技術適応力</span><span id="score-adapt">--%</span></div>
+              <div class="progress-bg"><div id="bar-adapt" class="progress-fill" style="width: 0%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span>プロジェクト推進力</span><span id="score-project">--%</span></div>
+              <div class="progress-bg"><div id="bar-project" class="progress-fill opacity-60" style="width: 0%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span>課題解決・改善提案</span><span id="score-solve">--%</span></div>
+              <div class="progress-bg"><div id="bar-solve" class="progress-fill opacity-60" style="width: 0%;"></div></div>
+            </div>
+            <a href="lpo/index.html" class="flex items-center gap-2 text-[10px] font-bold text-secondary uppercase tracking-widest hover:text-primary transition-colors pt-2">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              View Full Optimization Report
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
   </main>
 
   <footer class="lg:pl-64 w-full py-12 px-8 mt-auto bg-background/50 backdrop-blur-sm font-body text-xs border-t border-white/5">
@@ -157,5 +226,110 @@
       </div>
     </div>
   </footer>
+  <script>
+    let homeSkillChart;
+    const homeDashboardMdPath = 'lpo/2026-04-06-lpo-system.md';
+
+    async function updateHomeDashboard() {
+      try {
+        const response = await fetch(homeDashboardMdPath);
+        const content = await response.text();
+        
+        // 1. Extract Scores
+        const scores = {};
+        const scoreRegex = /- \*\*([^:*]+)\*\*: (\d+)/g;
+        let match;
+        while ((match = scoreRegex.exec(content)) !== null) {
+          let key = match[1].replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').trim();
+          scores[key] = parseInt(match[2]);
+        }
+
+        // 2. Update Bars
+        const mappings = {
+          'score-adapt': '技術適応力',
+          'score-project': 'プロジェクト推進力',
+          'score-solve': '課題解決・改善提案'
+        };
+        const barMappings = {
+          'bar-adapt': '技術適応力',
+          'bar-project': 'プロジェクト推進力',
+          'bar-solve': '課題解決・改善提案'
+        };
+
+        for (const [id, key] of Object.entries(mappings)) {
+          if (scores[key]) document.getElementById(id).innerText = scores[key] + '%';
+        }
+        for (const [id, key] of Object.entries(barMappings)) {
+          if (scores[key]) document.getElementById(id).style.width = scores[key] + '%';
+        }
+
+        // 3. Update Chart
+        const chartMapping = {
+          '適応力': '技術適応力',
+          '推進力': 'プロジェクト推進力',
+          '貢献力': 'チーム貢献・SL力',
+          '課題解決': '課題解決・改善提案',
+          'ドメイン': 'ドメイン知識',
+          'IaC': 'IaC・構成管理',
+          '監視': '監視・可観測性',
+          '開発': '開発力(Python/Bash)',
+          'AI': '生成AI・LLM活用',
+          'エージェント': 'AIエージェント運用'
+        };
+        const labels = ['適応力', '推進力', '貢献力', '課題解決', 'ドメイン', 'IaC', '監視', '開発', 'AI', 'エージェント'];
+        const data = labels.map(label => scores[chartMapping[label]] || 0);
+
+        if (homeSkillChart) {
+          homeSkillChart.data.datasets[0].data = data;
+          homeSkillChart.update();
+        }
+      } catch (err) {
+        console.error('Home Sync Error:', err);
+      }
+    }
+
+    window.onload = function() {
+      const ctx = document.getElementById('homeSkillRadarChart').getContext('2d');
+      homeSkillChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['適応力', '推進力', '貢献力', '課題解決', 'ドメイン', 'IaC', '監視', '開発', 'AI', 'エージェント'],
+          datasets: [{
+            label: 'System Skills',
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            fill: true,
+            backgroundColor: 'rgba(170, 164, 255, 0.1)',
+            borderColor: '#aaa4ff',
+            pointBackgroundColor: '#aaa4ff',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: '#aaa4ff',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            r: {
+              min: 0,
+              max: 100,
+              ticks: { display: false },
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              angleLines: { color: 'rgba(255, 255, 255, 0.05)' },
+              pointLabels: {
+                color: 'rgba(255, 255, 255, 0.4)',
+                font: { family: 'Space Grotesk', size: 10 }
+              }
+            }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+      updateHomeDashboard();
+    };
+  </script>
 </body>
 </html>

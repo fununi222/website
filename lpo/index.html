@@ -3,47 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LPO System Dashboard | FunUni-lab Synthetic Edition</title>
+    <title>LPO Optimization | FunUni-lab Synthetic Edition</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <!-- Synthetic Shared Assets -->
     <script src="../assets/js/tw-config.js"></script>
     <link rel="stylesheet" href="../assets/css/synthetic.css">
-    <style>
-        .skill-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-size: 0.75rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #a3aac4;
-        }
-        .progress-bg {
-            height: 4px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            background: #aaa4ff;
-            transition: width 1s ease-out;
-        }
-        .status-badge {
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .status-inprogress { background: rgba(0, 210, 255, 0.1); color: #00d2ff; border: 1px solid rgba(0, 210, 255, 0.2); }
-        .status-active { background: rgba(176, 170, 255, 0.1); color: #aaa4ff; border: 1px solid rgba(170, 164, 255, 0.2); }
-    </style>
 </head>
 <body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
     <!-- Top Nav -->
@@ -69,8 +35,8 @@
     <!-- Sidebar -->
     <aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col py-20 px-4 space-y-2 bg-surface z-40 border-r border-white/5">
         <div class="mb-8 px-4">
-            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">LPO_SYSTEM_ANALYSIS</div>
-            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v1.0.0-release</div>
+            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">LPO_OPTIMIZATION</div>
+            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.06</div>
         </div>
         <nav class="flex-1 space-y-1">
       <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../infra/index.html">
@@ -98,139 +64,34 @@
 
     <main class="lg:pl-64 pt-20 flex-grow">
         <section class="max-w-7xl mx-auto px-8 py-12">
-            <div class="mb-12 border-l-4 border-secondary pl-6 py-2 flex justify-between items-end">
-                <div>
-                    <h2 class="text-4xl font-bold font-headline tracking-tighter text-on-surface mb-2">LPO Dashboard</h2>
-                    <p class="text-on-surface-variant font-body text-sm tracking-wide leading-relaxed max-w-2xl text-slate-400">
-                        LIFE PROFESSIONAL OPTIMIZATION. キャリアと資産形成に向けた、中長期パラメータの最適化とリアルタイム分析フィード。
-                    </p>
-                </div>
-                <a href="../article.html?md=lpo/2026-04-06-lpo-system.md" class="flex items-center gap-2 px-4 py-2 bg-surface-container-high hover:bg-secondary/20 text-secondary border border-secondary/30 rounded-lg transition-all text-xs font-bold uppercase tracking-widest mb-1">
-                    <span class="material-symbols-outlined text-sm">settings_suggest</span>
-                    View System Spec
-                </a>
+            <div class="mb-12 border-l-4 border-secondary pl-6 py-2">
+                <h2 class="text-4xl font-bold font-headline tracking-tighter text-on-surface mb-2">LPO Optimization</h2>
+                <p class="text-on-surface-variant font-body text-sm tracking-wide leading-relaxed max-w-2xl text-slate-400">
+                    LIFE PROFESSIONAL OPTIMIZATION. キャリアと技能の多角的分析、およびコンバージョン率最適化のための実践ノート。
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8" id="status">
-                <!-- Left: Skill Bars -->
-                <div class="lg:col-span-7 space-y-8">
-                    <div class="bg-surface-container/50 p-6 rounded-2xl border border-white/5 cyber-glow">
-                        <h3 class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-6">Professional_Core</h3>
-                        <div class="space-y-4">
-                            <div class="skill-item">
-                                <div class="skill-header"><span>技術適応力</span><span>85%</span></div>
-                                <div class="progress-bg"><div class="progress-fill" style="width: 85%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header"><span>プロジェクト推進力</span><span>75%</span></div>
-                                <div class="progress-bg"><div class="progress-fill opacity-60" style="width: 75%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header"><span>課題解決・改善提案</span><span>75%</span></div>
-                                <div class="progress-bg"><div class="progress-fill opacity-60" style="width: 75%;"></div></div>
-                            </div>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="latest">
+                <a href="../article.html?md=lpo/2026-04-06-lpo-system.md" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-secondary/30 transition-all cyber-glow">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl">🚀</span>
+                        <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">System_Spec</span>
                     </div>
-
-                    <div class="bg-surface-container/50 p-6 rounded-2xl border border-white/5 cyber-glow">
-                        <h3 class="text-xs font-bold text-secondary uppercase tracking-[0.2em] mb-6">Active_Issues</h3>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left text-[11px] font-headline border-collapse">
-                                <thead>
-                                    <tr class="text-slate-500 uppercase tracking-widest border-b border-white/5">
-                                        <th class="pb-4 font-bold">Issue</th>
-                                        <th class="pb-4 font-bold">Category</th>
-                                        <th class="pb-4 font-bold">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-white/5">
-                                        <td class="py-4 text-on-surface">AI監視自動化PoC</td>
-                                        <td class="py-4 text-slate-400">Public</td>
-                                        <td class="py-4"><span class="status-badge status-inprogress">Progress</span></td>
-                                    </tr>
-                                    <tr class="border-b border-white/5">
-                                        <td class="py-4 text-on-surface">中長期資産シミュレーション</td>
-                                        <td class="py-4 text-slate-400">Private</td>
-                                        <td class="py-4"><span class="status-badge opacity-40">Pending</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-4 text-on-surface">生活基盤の最適化</td>
-                                        <td class="py-4 text-slate-400">Private</td>
-                                        <td class="py-4"><span class="status-badge status-active">Active</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: Radar Chart -->
-                <div class="lg:col-span-5 flex flex-col justify-center items-center bg-surface-container/30 p-8 rounded-2xl border border-white/5 shadow-2xl" id="radar">
-                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-8">Radar_Projection.plt</span>
-                    <div class="w-full">
-                        <canvas id="skillRadarChart"></canvas>
-                    </div>
-                </div>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">LPO System (Life Professional Optimization)</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">ユーザーのスキル可視化と課題管理をサポートする、中長期パラメータ最適化インデックス。自律型メンターエージェントのコア指示書。</p>
+                </a>
             </div>
         </section>
     </main>
 
     <footer class="lg:pl-64 w-full py-12 px-8 mt-auto bg-background/50 backdrop-blur-sm font-body text-xs border-t border-white/5">
         <div class="max-w-7xl mx-auto text-center opacity-60 hover:opacity-100 transition-opacity">
-            <span class="text-secondary block font-bold mb-2 tracking-widest lowercase">// lpo_system.rendered successfully</span>
+            <span class="text-secondary block font-bold mb-2 tracking-widest lowercase">// lpo_index.rendered successfully</span>
             <div class="flex justify-center gap-6">
                 <a href="../index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Portal_Home</a>
                 <a href="../glossary/index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">System_Glossary</a>
             </div>
         </div>
     </footer>
-
-    <script>
-        window.onload = function() {
-            const ctx = document.getElementById('skillRadarChart').getContext('2d');
-            const data = {
-                labels: ['技術適応力', '推進力', 'SL力', '改善提案', 'ドメイン知識', 'IaC', '監視', '開発', '生成AI', 'エージェント'],
-                datasets: [{
-                    label: 'Current Skills',
-                    data: [85, 75, 70, 75, 80, 85, 85, 80, 75, 70],
-                    fill: true,
-                    backgroundColor: 'rgba(170, 164, 255, 0.1)',
-                    borderColor: '#aaa4ff',
-                    pointBackgroundColor: '#aaa4ff',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: '#aaa4ff',
-                    borderWidth: 2
-                }]
-            };
-
-            const config = {
-                type: 'radar',
-                data: data,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            min: 0,
-                            max: 100,
-                            ticks: { display: false },
-                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                            angleLines: { color: 'rgba(255, 255, 255, 0.05)' },
-                            pointLabels: {
-                                color: 'rgba(255, 255, 255, 0.4)',
-                                font: { family: 'Space Grotesk', size: 10 }
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false }
-                    }
-                }
-            };
-            new Chart(ctx, config);
-        };
-    </script>
 </body>
 </html>
