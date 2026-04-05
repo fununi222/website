@@ -1,80 +1,361 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html class="dark" lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【技術レポート】OpenClaw 外部通信疎通トラブルシュート | FunUni-lab</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-
-    <meta name="description" content="XServer VPS 上の OpenClaw で fetch failed が発生した原因を、VPS 特有のパケットフィルター制約から切り分けて解決した技術レポート。">
-    <meta property="og:site_name" content="FunUni-lab">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="【技術レポート】OpenClaw 外部通信疎通トラブルシュート | FunUni-lab">
-    <meta property="og:description" content="VPS 環境で browser-js や外部通信が fetch failed になる問題を、インフラ制約に焦点を当てて解説。">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="【技術レポート】OpenClaw 外部通信疎通トラブルシュート | FunUni-lab">
-    <meta name="twitter:description" content="VPS 環境で browser-js や外部通信が fetch failed になる問題を、インフラ制約に焦点を当てて解説。">
+    <title>Universe Spec Debug 2026 | FunUni-lab Synthetic Edition</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#aaa4ff',
+                        'primary-dim': '#6a5cf9',
+                        'secondary': '#00d2ff',
+                        'tertiary': '#b0aaff',
+                        'background': '#060e20',
+                        'surface': '#0f1930',
+                        'surface-container': '#141f38',
+                        'on-surface': '#dee5ff',
+                        'on-surface-variant': '#a3aac4',
+                        'outline': '#6d758c'
+                    },
+                    fontFamily: {
+                        headline: ['Space Grotesk'],
+                        body: ['Inter']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .cyber-glow { box-shadow: 0 0 40px rgba(108, 92, 231, 0.04); }
+        .mesh-gradient {
+            background-image:
+                radial-gradient(at 0% 0%, rgba(170, 164, 255, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 210, 255, 0.05) 0px, transparent 50%);
+        }
+        .chart-container { position: relative; width: 100%; height: 350px; }
+        .timeline-bullet::before {
+            content: '';
+            position: absolute;
+            left: -1.75rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            background: #00d2ff;
+            border-radius: 50%;
+            top: 0.5rem;
+            box-shadow: 0 0 10px #00d2ff;
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <header class="animate-in">
-            <a href="index.html" class="nav-link">← cd ..</a>
-            <h1>OpenClaw Network Troubleshoot</h1>
-            <p class="subtitle">VPS 環境におけるパケットフィルターの罠と解決策</p>
-        </header>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
+    <!-- Top Nav -->
+    <nav class="fixed top-0 z-50 flex justify-between items-center px-8 h-16 w-full bg-surface/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300 ease-out font-headline tracking-tight shadow-lg">
+        <div class="flex items-center gap-8">
+            <a class="text-xl font-bold tracking-tighter text-primary" href="../index.html">FunUni-lab.js</a>
+            <div class="hidden md:flex items-center gap-6 text-[10px] uppercase tracking-widest font-bold">
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../it/index.html">Infrastructure</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../points/index.html">Finance</a>
+                <a class="text-secondary border-b-2 border-secondary pb-1" href="index.html">AI & Agents</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../lpo/index.html">LPO</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../glossary.html">Glossary</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-xs font-bold text-primary uppercase tracking-widest hidden sm:block">Diagnostic Mode</span>
+            <span class="material-symbols-outlined text-primary">analytics</span>
+        </div>
+    </nav>
 
-        <main class="article-content animate-in" style="animation-delay: 0.2s;">
-            <p><span class="syntax-comment">// XServer VPS 上で OpenClaw の外部通信が失敗した事象を、インフラ起点で切り分けた実戦ログ</span></p>
+    <!-- Sidebar -->
+    <aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col py-20 px-4 space-y-2 bg-surface z-40 border-r border-white/5">
+        <div class="mb-8 px-4">
+            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">UNI_SPEC_AUDIT</div>
+            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.05</div>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="index.html">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Back to Index</span>
+            </a>
+            <hr class="border-white/5 my-2">
+            <div class="px-4 py-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold">Diagnostics</div>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#summary">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Overview</span>
+            </a>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#diagnostics">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Anomaly Logs</span>
+            </a>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#patchnotes">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Patch Notes</span>
+            </a>
+        </nav>
+    </aside>
 
-            <h2>1. 発生した現象と環境</h2>
-            <ul>
-                <li><strong>対象:</strong> OpenClaw v2026.4.1（XServer VPS / Ubuntu）</li>
-                <li><strong>現象:</strong> <code>openclaw skills check</code> ではツールが Ready に見えるが、<code>browser-js</code> の外部アクセスがタイムアウト / <code>fetch failed</code>。</li>
-                <li><strong>補足:</strong> サーバー内の <code>curl</code> は無反応、<code>nslookup</code> だけ成功。</li>
-            </ul>
+    <main class="lg:pl-64 pt-20 flex-grow">
+        <article class="max-w-6xl mx-auto px-8 py-12">
+            <!-- HERO -->
+            <header class="mb-16 border-l-4 border-primary pl-6">
+                <div class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-2">Universe Specification Verify</div>
+                <h1 class="text-5xl font-black font-headline tracking-tighter text-on-surface mb-6 leading-tight">
+                    宇宙仕様書検証レポート <span class="text-primary opacity-50">v2026.04</span>
+                </h1>
+                <p class="text-slate-400 font-body text-lg leading-relaxed max-w-2xl opacity-80 italic">
+                    "私たちは現在、物理法則という名の「仕様書」の中で生きています。"
+                </p>
+            </header>
 
-            <h2>2. 主因：VPS 固有のパケットフィルター仕様</h2>
-            <p>今回のボトルネックは OS やモデル能力ではなく、<strong>VPS 事業者側のインフラフィルター</strong>でした。XServer VPS のパケットフィルターが ON の場合、許可ポート以外は双方向で遮断されます。</p>
-            <ul>
-                <li><strong>DNS（UDP 53）が通る理由:</strong> 管理用途で 53 番が既定許可されるケースが多いため。</li>
-                <li><strong>HTTP/HTTPS（TCP 80/443）が失敗する理由:</strong> 外向きリクエストの戻りパケットも明示許可が必要で、フィルターにより遮断されるため。</li>
-            </ul>
-            <p>ローカル PC や家庭用ルーターのステートフル通信とは挙動が異なるため、<strong>VPS 特有の制約</strong>として扱う必要があります。</p>
+            <!-- EXECUTIVE SUMMARY -->
+            <section id="summary" class="bg-surface-container rounded-3xl p-10 mb-20 cyber-glow border border-white/5">
+                <div class="flex items-start space-x-6">
+                    <div class="bg-primary/20 text-primary rounded-full p-3 mt-1 shrink-0">
+                        <span class="material-symbols-outlined">description</span>
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold font-headline text-on-surface">超要約：Simulation Hypothesis</h3>
+                        <p class="text-on-surface-variant leading-relaxed opacity-90">
+                            本レポートは、近年の理論物理学および観測データ（JWST等）を統合し、「私たちの宇宙が高度な情報処理システムである」という仮説に基づくファクトチェックとデバッグ情報のまとめです。物理定数の空間的偏りや初期宇宙の急速な銀河形成など、従来の標準模型では説明が難しい観測結果をシステムの「バグ」や「パッチ適用時の不整合」として再解釈し、その動向を可視化します。
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-            <h2>3. 解決ステップ</h2>
-            <h3>ステップ1：Scope 権限を解放</h3>
-            <pre><code>openclaw devices list
-openclaw devices approve &lt;REQUEST_ID&gt;</code></pre>
+            <!-- ANOMALY DIAGNOSTICS -->
+            <section id="diagnostics" class="mb-24 space-y-12">
+                <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-8">
+                    <div class="max-w-2xl">
+                        <h2 class="text-3xl font-bold font-headline text-secondary mb-4 flex items-center gap-3">
+                            <span class="material-symbols-outlined">data_object</span>
+                            異常値診断システム
+                        </h2>
+                        <p class="text-on-surface-variant text-sm opacity-80 leading-relaxed">
+                            基本パラメータにおける微小な揺らぎを検証します。これらは、システムの「丸め誤差」や「レンダリングの不具合」を示唆している可能性があります。
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2" id="chart-controls">
+                        <button data-dataset="alpha" class="px-4 py-2 bg-surface text-primary border border-primary/30 rounded font-bold text-[10px] uppercase tracking-widest hover:bg-primary/10 transition-colors focus:ring-1 focus:ring-primary shadow-lg">α-Variation</button>
+                        <button data-dataset="hubble" class="px-4 py-2 bg-background/50 text-slate-500 border border-white/5 rounded font-bold text-[10px] uppercase tracking-widest hover:bg-surface transition-colors focus:ring-1 focus:ring-secondary shadow-lg">Hubble Tension</button>
+                        <button data-dataset="cmb" class="px-4 py-2 bg-background/50 text-slate-500 border border-white/5 rounded font-bold text-[10px] uppercase tracking-widest hover:bg-surface transition-colors focus:ring-1 focus:ring-tertiary shadow-lg">CMB Artifact</button>
+                    </div>
+                </div>
 
-            <h3>ステップ2：DNS の安定化</h3>
-            <pre><code>echo "nameserver 8.8.8.8" &gt; /etc/resolv.conf</code></pre>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 bg-surface-container p-8 rounded-3xl border border-white/5">
+                        <div class="chart-container"><canvas id="diagnosticChart"></canvas></div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-surface-container p-8 rounded-3xl border border-white/5 h-full flex flex-col">
+                            <h3 id="insight-title" class="text-lg font-bold font-headline text-on-surface mb-4 border-b border-white/5 pb-4">微細構造定数 (α)</h3>
+                            <p id="insight-text" class="text-on-surface-variant text-xs leading-loose opacity-80 flex-grow">
+                                宇宙の方向によって定数αが変動する「双極子バグ」の疑い。空間レンダリングにおける特定軸方向の勾配エラーの可能性。
+                            </p>
+                            <div class="mt-8 p-6 bg-background/40 rounded-2xl border border-white/5 flex flex-col gap-4">
+                                <div class="flex justify-between items-center text-[10px] font-bold">
+                                    <span class="text-slate-500 uppercase tracking-widest">System Status:</span>
+                                    <span id="system-status" class="text-primary px-2 py-1 bg-primary/10 rounded">WARNING</span>
+                                </div>
+                                <div class="flex justify-between items-center text-[10px] font-bold">
+                                    <span class="text-slate-500 uppercase tracking-widest">Severity Level:</span>
+                                    <span id="severity-level" class="text-orange-500 px-2 py-1 bg-orange-500/10 rounded">HIGH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <h3>ステップ3：インフラ・フィルターを開放（最重要）</h3>
-            <ol>
-                <li>管理パネルの「パケットフィルター」を一時的に OFF。</li>
-                <li>または「TCP 80 / 443」を接続許可ポートへ追加。</li>
-            </ol>
+            <!-- PATCH NOTES -->
+            <section id="patchnotes" class="max-w-4xl mx-auto space-y-12">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold font-headline text-primary mb-4">宇宙パッチノート (System Updates)</h2>
+                    <p class="text-on-surface-variant text-sm opacity-60">宇宙の歴史をシステムアップデートとして解釈した記録。</p>
+                </div>
 
-            <h2>4. 診断コマンド（切り分けの定番）</h2>
-            <pre><code># DNS（UDP 53）
-nslookup google.com
+                <div class="relative pl-12 border-l-2 border-white/5 space-y-16">
+                    <!-- Update 1 -->
+                    <div class="timeline-bullet relative">
+                        <div class="flex items-center gap-4 mb-2">
+                            <h3 class="text-xl font-bold font-headline text-on-surface">Version 1.0: ビッグバン・リリース</h3>
+                            <span class="bg-surface px-2 py-1 rounded text-[10px] font-mono text-slate-500">T=0</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm leading-relaxed opacity-80">
+                            初期リリース。極度の高温高密度状態。4つの基本相互作用が統合されており、直後に致命的な物質・反物質の非対称性（CP対称性の破れ）が発生。
+                        </p>
+                    </div>
 
-# TCP ハンドシェイク（80/443）
-curl -v --connect-timeout 5 https://www.google.com</code></pre>
-            <p>この2本をセットで見ることで、<strong>名前解決と外部通信のどちらが詰まっているか</strong>を高速に切り分けできます。</p>
+                    <!-- Hotfix 2 -->
+                    <div class="timeline-bullet relative">
+                        <div class="flex items-center gap-4 mb-2">
+                            <h3 class="text-xl font-bold font-headline text-secondary">Hotfix 1.0.1: インフレーション</h3>
+                            <span class="bg-surface px-2 py-1 rounded text-[10px] font-mono text-slate-500">T=10^-36秒</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm leading-relaxed opacity-80">
+                            地平線・平坦性問題を解消するための緊急パッチ。空間を指数関数的に強制拡張させ、描画領域の均一性を担保。
+                        </p>
+                    </div>
 
-            <h2>5. 結論</h2>
-            <p>今回の失敗要因は LLM ではなく、純粋なネットワーク・インフラ制約でした。<code>gemini-3.1-flash-lite-preview</code> のような軽量モデルでも、インフラが整えば実運用レベルで十分にツール連携できます。</p>
-            <p><strong>「SSH が開いている = 外部通信できる」ではない</strong>点は、VPS 構築で必ず押さえるべきチェックポイントです。</p>
-        </main>
+                    <!-- Update 3 -->
+                    <div class="timeline-bullet relative">
+                        <div class="flex items-center gap-4 mb-2">
+                            <h3 class="text-xl font-bold font-headline text-tertiary">Update 2.3: 宇宙の晴れ上がり</h3>
+                            <span class="bg-surface px-2 py-1 rounded text-[10px] font-mono text-slate-500">T=38万年</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm leading-relaxed opacity-80">
+                            光子の挙動に関する仕様変更。プラズマ状態の解消に伴い、光子が直進可能に。視覚仕様（CMB）が確定。
+                        </p>
+                    </div>
 
-        <footer class="animate-in" style="animation-delay: 0.4s;">
-            <p>&copy; 2026 FunUni-lab. Built with <span class="syntax-keyword">Agent.js</span> and Persistence.</p>
-        </footer>
-    </div>
+                    <!-- Patch 4 -->
+                    <div class="timeline-bullet relative">
+                        <div class="flex items-center gap-4 mb-2">
+                            <h3 class="text-xl font-bold font-headline text-primary">Patch 3.0: 加速膨張パッチ</h3>
+                            <span class="bg-surface px-2 py-1 rounded text-[10px] font-mono text-slate-500">T=約70億年</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm leading-relaxed opacity-80">
+                            謎のパラメータ「ダークエネルギー」の有効化。膨張速度が加速に転じ、将来の「引き裂き（Big Rip）」へ向けた仕様変更とされる。
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="lg:pl-64 w-full py-12 px-8 mt-auto bg-background/50 backdrop-blur-sm font-body text-xs border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
+            <div class="flex flex-col gap-2">
+                <span class="text-slate-400">© 2026 FunUni-lab Synthetic Edition. Cosmic Debug Division.</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="../index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Portal_Home</a>
+                <a href="../glossary.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Glossary</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const chartData = {
+            alpha: {
+                label: '微細構造定数の変動 (Δα/α)',
+                labels: ['方向A', '方向B', '方向C', '方向D', '方向E'],
+                data: [0.5, 0.2, -0.1, -0.6, -1.0],
+                type: 'bar',
+                color: 'rgba(170, 164, 255, 0.7)',
+                border: '#aaa4ff',
+                title: '微細構造定数 (α) の空間依存性',
+                insight: '空間の方向によって定数αの値がわずかに変化していることが観測されています。これは物理法則が一様でない可能性、すなわち宇宙空間というレンダリング・グリッドにおける「軸方向の勾配バグ」を示唆しています。',
+                status: 'WARNING',
+                severity: 'HIGH'
+            },
+            hubble: {
+                label: 'ハッブル定数の差 (km/s/Mpc)',
+                labels: ['初期宇宙予測', 'TRGB観測', '超新星観測', '重力レンズ'],
+                data: [67.4, 69.8, 73.0, 73.3],
+                type: 'line',
+                color: 'rgba(0, 210, 255, 0.2)',
+                border: '#00d2ff',
+                title: 'ハッブル・テンション (膨張率不整合)',
+                insight: '初期宇宙のデータに基づく予測値と、近傍宇宙の直接観測値の間に重大な不整合が生じています。宇宙膨張のアルゴリズムに未定義の定数パッチがあるか、ダークエネルギーの実装ロジックに不備がある可能性が高いです。',
+                status: 'CRITICAL ERROR',
+                severity: 'MAX'
+            },
+            cmb: {
+                label: 'CMBコールドスポット偏位 (μK)',
+                labels: ['中心', '1°', '2°', '3°', '4°', '5°'],
+                data: [-70, -50, -15, 5, 20, 5],
+                type: 'bar',
+                color: 'rgba(176, 170, 255, 0.7)',
+                border: '#b0aaff',
+                title: 'CMBコールドスポット・アーティファクト',
+                insight: '宇宙背景放射に残る巨大な温度低下領域。理論上の統計確率を大きく逸脱しており、他プロセス（他宇宙）との衝突によるメモリ破壊、あるいは初期化時のボクセル欠落の証拠と考えられています。',
+                status: 'DIAGNOSING',
+                severity: 'MEDIUM'
+            }
+        };
+
+        const ctx = document.getElementById('diagnosticChart').getContext('2d');
+        let currentChart;
+
+        function initChart(datasetKey) {
+            const data = chartData[datasetKey];
+            if (currentChart) currentChart.destroy();
+
+            currentChart = new Chart(ctx, {
+                type: data.type,
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: data.label,
+                        data: data.data,
+                        backgroundColor: data.color,
+                        borderColor: data.border,
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: data.type === 'line',
+                        borderRadius: data.type === 'bar' ? 6 : 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#141f38',
+                            titleColor: '#00d2ff',
+                            borderColor: 'rgba(255,255,255,0.1)',
+                            borderWidth: 1,
+                            padding: 12
+                        }
+                    },
+                    scales: {
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { color: '#6d758c', font: { size: 10 } }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#6d758c', font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+
+            document.getElementById('insight-title').textContent = data.title;
+            document.getElementById('insight-text').textContent = data.insight;
+            const statusEl = document.getElementById('system-status');
+            statusEl.textContent = data.status;
+            statusEl.className = 'px-2 py-1 rounded ' + (datasetKey === 'hubble' ? 'text-red-500 bg-red-500/10' : 'text-primary bg-primary/10');
+            
+            const severityEl = document.getElementById('severity-level');
+            severityEl.textContent = data.severity;
+            severityEl.className = 'px-2 py-1 rounded ' + (datasetKey === 'hubble' ? 'text-red-500 bg-red-500/10' : (datasetKey === 'alpha' ? 'text-orange-500 bg-orange-500/10' : 'text-green-500 bg-green-500/10'));
+        }
+
+        const buttons = document.querySelectorAll('#chart-controls button');
+        buttons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                buttons.forEach(btn => {
+                    btn.classList.replace('bg-surface', 'bg-background/50');
+                    btn.classList.replace('text-primary', 'text-slate-500');
+                    btn.classList.replace('border-primary/30', 'border-white/5');
+                });
+                e.target.classList.replace('bg-background/50', 'bg-surface');
+                e.target.classList.replace('text-slate-500', 'text-primary');
+                e.target.classList.replace('border-white/5', 'border-primary/30');
+                initChart(e.target.dataset.dataset);
+            });
+        });
+
+        initChart('alpha');
+    </script>
 </body>
 </html>

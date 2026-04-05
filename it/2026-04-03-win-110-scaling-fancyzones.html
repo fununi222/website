@@ -1,84 +1,153 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html class="dark" lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【Windows設定】110%スケール＆マウスのみの6画面分割 | FunUni-lab</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-
-    <meta name="description" content="Windowsの表示スケールを110%に調整しつつ、FancyZonesで6画面分割を実現する設定手順を紹介。">
-    <meta property="og:site_name" content="FunUni-lab">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="【Windows設定】110%スケール＆マウスのみの6画面分割 | FunUni-lab">
-    <meta property="og:description" content="Windowsの表示スケールを110%に調整しつつ、FancyZonesで6画面分割を実現する設定手順を紹介。">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="【Windows設定】110%スケール＆マウスのみの6画面分割 | FunUni-lab">
-    <meta name="twitter:description" content="Windowsの表示スケールを110%に調整しつつ、FancyZonesで6画面分割を実現する設定手順を紹介。">
+    <title>Win11 4K 110% スケールと FancyZones | FunUni-lab Synthetic Edition</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#aaa4ff',
+                        'primary-dim': '#6a5cf9',
+                        'secondary': '#00d2ff',
+                        'tertiary': '#b0aaff',
+                        'background': '#060e20',
+                        'surface': '#0f1930',
+                        'surface-container': '#141f38',
+                        'on-surface': '#dee5ff',
+                        'on-surface-variant': '#a3aac4',
+                        'outline': '#6d758c'
+                    },
+                    fontFamily: {
+                        headline: ['Space Grotesk'],
+                        body: ['Inter']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .cyber-glow { box-shadow: 0 0 40px rgba(108, 92, 231, 0.04); }
+        .mesh-gradient {
+            background-image:
+                radial-gradient(at 0% 0%, rgba(170, 164, 255, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 210, 255, 0.05) 0px, transparent 50%);
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <header class="animate-in">
-            <a href="index.html" class="nav-link">← cd ..</a>
-            <h1>Windows Optimization</h1>
-            <p class="subtitle">【Windows設定】かゆい所に手が届く！画面表示「110%」＆マウスだけで完結する「6画面分割」の作り方</p>
-        </header>
-
-        <main class="article-content animate-in" style="animation-delay: 0.2s;">
-            <p><span class="syntax-comment">// デスクトップ環境の快適性を極限まで高めるカスタマイズ</span></p>
-            
-            <p>Windows PCを使っていて、「100%だと文字が小さいけど、125%だとデカすぎる…」とか、「画面を分割したいけど、いちいちShiftキーを押すのが面倒…」と感じたことはありませんか？</p>
-
-            <p>特に、大画面モニターを広々と使いたい時や、ROG AllyのようなキーボードがないハンドヘルドPCを使っている時、マウス（またはタッチ）操作だけでサクサクと快適な環境を作れると最高ですよね。今回は、実際に試して「これだ！」と感動したカスタマイズ方法をご紹介します。</p>
-
-            <h2>1. 絶妙なサイズ感！画面の表示スケールを「110%」にする方法</h2>
-            <p>Windows 11/10の「ディスプレイの拡大縮小」設定は、標準だと100%、125%、150%といった25%刻みになっています。しかし、これだと「100%と125%の間が欲しい！」という絶妙なニーズを満たせません。</p>
-            <p>実は<span class="syntax-type">「カスタムスケーリング」</span>という機能を使えば、110%に設定することが可能です。</p>
-
-            <div class="code-block">
-                <p><strong>設定手順:</strong></p>
-                <ol>
-                    <li><span class="syntax-keyword">Win</span> + <span class="syntax-keyword">I</span> キーで「設定」アプリを開く。</li>
-                    <li>左メニューの「システム」＞「ディスプレイ」をクリック。</li>
-                    <li>「拡大縮小とレイアウト」の中にある「拡大縮小」をクリックして詳細を開く。</li>
-                    <li>「カスタム スケール」の入力欄に <span class="syntax-string">110</span> と入力し、チェックマークをクリック。</li>
-                    <li>「今すぐサインアウト」をクリックして再起動。</li>
-                </ol>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
+    <!-- Top Nav -->
+    <nav class="fixed top-0 z-50 flex justify-between items-center px-8 h-16 w-full bg-surface/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300 ease-out font-headline tracking-tight shadow-lg">
+        <div class="flex items-center gap-8">
+            <a class="text-xl font-bold tracking-tighter text-primary" href="../index.html">FunUni-lab.js</a>
+            <div class="hidden md:flex items-center gap-6 text-[10px] uppercase tracking-widest font-bold">
+                <a class="text-secondary border-b-2 border-secondary pb-1" href="index.html">Infrastructure</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../points/index.html">Finance</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../ai/index.html">AI & Agents</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../lpo/index.html">LPO</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../glossary.html">Glossary</a>
             </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-xs font-bold text-primary uppercase tracking-widest hidden sm:block">Workplace Optimization</span>
+            <span class="material-symbols-outlined text-primary">desktop_windows</span>
+        </div>
+    </nav>
 
-            <blockquote>
-                <p><strong>💡 注意点:</strong> カスタムスケーリングを使用すると、一部の古いアプリでレイアウトが崩れることがあります。気になった場合は元の設定に戻せます。</p>
-            </blockquote>
+    <!-- Sidebar -->
+    <aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col py-20 px-4 space-y-2 bg-surface z-40 border-r border-white/5">
+        <div class="mb-8 px-4">
+            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">WORKSPACE_SETUP</div>
+            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.05</div>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="index.html">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Back to Index</span>
+            </a>
+            <hr class="border-white/5 my-2">
+            <div class="px-4 py-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold">Navigation</div>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#strategy">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Scaling Strategy</span>
+            </a>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#tips">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">FancyZones Tips</span>
+            </a>
+        </nav>
+    </aside>
 
-            <h2>2. Shiftキーは不要！マウスだけで完結する「6画面分割」</h2>
-            <p>Microsoft公式の無料拡張ツール<span class="syntax-type">「PowerToys」</span>。その中にある「FancyZones」という機能は、自分好みのレイアウトを作れる最強ツールです。しかし、初期設定のままだと「Shiftキーを押しながらドラッグ」する必要があり、マウスだけで完結しません。</p>
-            <p>そこで、<strong>「マウスの右クリック」だけで分割エリアを呼び出せる</strong>ように設定を変更します。</p>
+    <main class="lg:pl-64 pt-20 flex-grow">
+        <article class="max-w-4xl mx-auto px-8 py-12">
+            <header class="mb-16 border-l-4 border-secondary pl-6">
+                <div class="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-2">Workplace Hack</div>
+                <h1 class="text-5xl font-black font-headline tracking-tighter text-on-surface mb-6 leading-tight">
+                    Win11 4K 110% スケールと<br>FancyZones
+                </h1>
+                <p class="text-slate-400 font-body text-lg leading-relaxed max-w-2xl opacity-80 italic">
+                    "広大な作業領域と視認性のトレードオフ。110%という絶妙なカスタムスケーリングへの到達。"
+                </p>
+            </header>
 
-            <h3>設定のポイント</h3>
-            <ul>
-                <li>PowerToys の<strong>「FancyZones」</strong>メニューを開き、有効化する。</li>
-                <li><strong>「ゾーンの動作」</strong>項目で、以下の 2 箇所を変更：</li>
-                <ul>
-                    <li>❌ 「Shiftキーを押してゾーンをアクティブにする」のチェックを<strong>外す</strong></li>
-                    <li>✅ 「マウスの主ボタンでウィンドウをドラッグ時に、副ボタンをクリックしてアクティブ化を切り替える」にチェックを<strong>入れる</strong></li>
-                </ul>
-            </ul>
+            <div class="space-y-12 text-on-surface-variant leading-relaxed opacity-90" id="strategy">
+                <div class="bg-surface-container rounded-3xl p-10 mb-20 cyber-glow border border-white/5">
+                    <h3 class="text-lg font-bold text-on-surface m-0 mb-4 font-headline">1. なぜ「110%」なのか</h3>
+                    <p class="text-sm">
+                        Windows 11 の 4K モニター環境において、標準の 100% は文字が小さすぎて目が疲れ、125% は作業領域が削られすぎると感じることがあります。
+                    </p>
+                    <p class="text-sm mt-4">
+                        設定の「カスタムスケーリング」から直接 **110** を入力することで、ドットバイドットのキレを維持しつつ、実用的な視認性を確保する「黄金比」に到達しました。
+                    </p>
+                </div>
 
-            <p>これだけで、ウィンドウを左クリックでドラッグしながら<span class="syntax-keyword">右クリック</span>を 1 回押すだけで、分割エリアが浮かび上がります！</p>
+                <div class="space-y-6" id="tips">
+                    <h2 class="text-2xl font-bold font-headline text-secondary border-b border-white/10 pb-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined">grid_view</span>
+                        2. FancyZones による完璧な配置
+                    </h2>
+                    
+                    <div class="p-8 bg-surface-container/50 rounded-2xl border border-white/5 space-y-6">
+                        <p class="text-sm">PowerToys の中で最も重要な機能である **FancyZones**。これを使い、ブラウザ、ターミナル、エディタをミリ単位で固定配置しています。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-background/50 rounded-xl border border-white/5">
+                                <h4 class="text-xs font-bold text-primary mb-2">Main Zone (Middle)</h4>
+                                <p class="text-[10px]">VS Code or Main Browser. width: 60%</p>
+                            </div>
+                            <div class="p-4 bg-background/50 rounded-xl border border-white/5">
+                                <h4 class="text-xs font-bold text-secondary mb-2">Side Zones</h4>
+                                <p class="text-[10px]">Slack, Terminal, or Reference. width: 20% each</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <h2>まとめ</h2>
-            <p>表示スケールは「カスタムスケーリング」で110%に微調整し、画面分割は「FancyZones」の右クリック設定でマウスのみの操作にする。この2つを設定するだけで、文字の見やすさが向上し、ウィンドウの整理もサクサク終わるようになります。</p>
+                <div class="bg-surface-container/30 p-8 rounded-2xl border border-white/5">
+                    <h3 class="text-lg font-bold text-on-surface m-0 mb-4 font-headline">3. カスタムスケーリングの注意点</h3>
+                    <p class="text-sm m-0 italic">
+                        カスタムスケーリングを使用すると、一部の古いアプリで表示がボケる（DPIスケーリングの非対応）ことがありますが、最新のブラウザや開発ツールであれば全く問題ありません。設定反映にはサインアウトが必須です。
+                    </p>
+                </div>
+            </div>
+        </article>
+    </main>
 
-            <p><span class="syntax-keyword">const</span> result = <span class="syntax-string">"快適なデスクトップ環境の完成"</span>;</p>
-            <p>自分だけの最適なPC環境を作りたい方は、ぜひ試してみてくださいね！</p>
-        </main>
-
-        <footer class="animate-in" style="animation-delay: 0.4s;">
-            <p>&copy; 2026 FunUni-lab. Built with <span class="syntax-keyword">DisplayScale.js</span> and PowerToys.</p>
-        </footer>
-    </div>
+    <footer class="lg:pl-64 w-full py-12 px-8 mt-auto bg-background/50 backdrop-blur-sm font-body text-xs border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
+            <div class="flex flex-col gap-2">
+                <span class="text-slate-400">© 2026 FunUni-lab Synthetic Edition. Workplace Optimization.</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="../index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Portal_Home</a>
+                <a href="index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Infra_Index</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

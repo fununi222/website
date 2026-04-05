@@ -1,63 +1,146 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html class="dark" lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modernizing Infrastructure: A 2026 OSS Automation Stack | FunUni-lab</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-
-    <meta name="description" content="2026年のインフラ自動化で注目すべきOSSスタックを、用途別に比較しながら整理。">
-    <meta property="og:site_name" content="FunUni-lab">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Modernizing Infrastructure: A 2026 OSS Automation Stack | FunUni-lab">
-    <meta property="og:description" content="2026年のインフラ自動化で注目すべきOSSスタックを、用途別に比較しながら整理。">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Modernizing Infrastructure: A 2026 OSS Automation Stack | FunUni-lab">
-    <meta name="twitter:description" content="2026年のインフラ自動化で注目すべきOSSスタックを、用途別に比較しながら整理。">
+    <title>注目のOSS自動化ツール群 | FunUni-lab Synthetic Edition</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#aaa4ff',
+                        'primary-dim': '#6a5cf9',
+                        'secondary': '#00d2ff',
+                        'tertiary': '#b0aaff',
+                        'background': '#060e20',
+                        'surface': '#0f1930',
+                        'surface-container': '#141f38',
+                        'on-surface': '#dee5ff',
+                        'on-surface-variant': '#a3aac4',
+                        'outline': '#6d758c'
+                    },
+                    fontFamily: {
+                        headline: ['Space Grotesk'],
+                        body: ['Inter']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .cyber-glow { box-shadow: 0 0 40px rgba(108, 92, 231, 0.04); }
+        .mesh-gradient {
+            background-image:
+                radial-gradient(at 0% 0%, rgba(170, 164, 255, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 210, 255, 0.05) 0px, transparent 50%);
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <header class="animate-in">
-            <a href="index.html" class="nav-link">← cd ..</a>
-            <h1>OSS Automation Stack</h1>
-            <p class="subtitle">Modernizing Infrastructure: A 2026 OSS Automation Stack</p>
-        </header>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
+    <!-- Top Nav -->
+    <nav class="fixed top-0 z-50 flex justify-between items-center px-8 h-16 w-full bg-surface/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300 ease-out font-headline tracking-tight shadow-lg">
+        <div class="flex items-center gap-8">
+            <a class="text-xl font-bold tracking-tighter text-primary" href="../index.html">FunUni-lab.js</a>
+            <div class="hidden md:flex items-center gap-6 text-[10px] uppercase tracking-widest font-bold">
+                <a class="text-secondary border-b-2 border-secondary pb-1" href="index.html">Infrastructure</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../points/index.html">Finance</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../ai/index.html">AI & Agents</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../lpo/index.html">LPO</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../glossary.html">Glossary</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-xs font-bold text-primary uppercase tracking-widest hidden sm:block">Internal Toolkit</span>
+            <span class="material-symbols-outlined text-primary">terminal</span>
+        </div>
+    </nav>
 
-        <main class="article-content animate-in" style="animation-delay: 0.2s;">
-            <p><span class="syntax-comment">// 2026年のインフラ自動化に不可欠なオープンソースツールのリサーチ記録</span></p>
-            
-            <p>システム運用の現場において、自動化と可観測性は切り離せないテーマです。今日は、最新のインフラ構築と運用を支える OSS スタックを調査し、それらをどのように組み合わせるべきかまとめました。</p>
+    <!-- Sidebar -->
+    <aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col py-20 px-4 space-y-2 bg-surface z-40 border-r border-white/5">
+        <div class="mb-8 px-4">
+            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">OPEN_SOURCE_SCAN</div>
+            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.05</div>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="index.html">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Back to Index</span>
+            </a>
+            <hr class="border-white/5 my-2">
+            <div class="px-4 py-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold">Tool Nodes</div>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#tools">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Core Toolkit</span>
+            </a>
+        </nav>
+    </aside>
 
-            <h2>1. 構成管理と IaC の三本柱</h2>
-            <p>インフラをコードで管理することで、再現性と変更の追跡が容易になります。
-            <ul>
-                <li><strong>Ansible</strong>: エージェントレスで構築。vSphere との親和性も高く、定型作業の自動化に最適。</li>
-                <li><strong>Terraform</strong>: インフラリソースのコード化。Provider を利用した宣言的なリソース管理に必須。</li>
-                <li><strong>Pulumi</strong>: Python 等の汎用言語でインフラを管理できる次世代ツール。</li>
-            </ul></p>
+    <main class="lg:pl-64 pt-20 flex-grow">
+        <article class="max-w-4xl mx-auto px-8 py-12">
+            <header class="mb-16 border-l-4 border-primary pl-6">
+                <div class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-2">Research Paper</div>
+                <h1 class="text-5xl font-black font-headline tracking-tighter text-on-surface mb-6 leading-tight">
+                    注目のOSS<br>自動化ツール群
+                </h1>
+                <p class="text-slate-400 font-body text-lg leading-relaxed max-w-2xl opacity-80 italic">
+                    "モダンなインフラ運用を支える、強力なオープンソースソリューションの比較検討。"
+                </p>
+            </header>
 
-            <h2>2. モダンな可観測性 (Observability)</h2>
-            <p>単なる「監視」から、システムの状態を深く理解する「可観測性」へ。
-            <ul>
-                <li><strong>Prometheus + Grafana</strong>: メトリクス監視のデファクト。vSphere Exporter を通じた詳細な可視化が可能。</li>
-                <li><strong>Zabbix</strong>: 通知やアクションの柔軟性が高く、既存のレガシー環境との共存にも強い。</li>
-                <li><strong>Netdata</strong>: リアルタイムなパフォーマンス解析に威力を発揮する軽量ツール。</li>
-            </ul></p>
+            <div class="space-y-12 text-on-surface-variant leading-relaxed opacity-90" id="tools">
+                <section>
+                    <h3 class="text-lg font-bold text-on-surface mb-6 font-headline border-b border-white/5 pb-2 uppercase tracking-widest">Infrastructure as Code (IaC)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-surface-container rounded-xl border border-white/5">
+                            <h4 class="font-bold text-secondary text-xs uppercase tracking-widest mb-3">Terraform</h4>
+                            <p class="text-xs">あらゆるクラウド、オンプレミス、SaaS製品を宣言的に定義。現代のデファクトスタンダード。</p>
+                        </div>
+                        <div class="p-6 bg-surface-container rounded-xl border border-white/5">
+                            <h4 class="font-bold text-secondary text-xs uppercase tracking-widest mb-3">Ansible</h4>
+                            <p class="text-xs">エージェントレスで構成管理を実現。OS設定、ミドルウェアのデプロイに威力を発揮。</p>
+                        </div>
+                    </div>
+                </section>
 
-            <h2>3. ワークフロー統合: n8n の活用</h2>
-            <p>監視と自動是正を繋ぐ「ハブ」として、<span class="syntax-keyword">n8n</span> のようなワークフロー自動化ツールが注目されています。異常を検知した際に Slack 通知を行い、必要に応じて是正スクリプトを自動実行するフローを構築することで、運用の「初動対応」を完全自動化できます。</p>
+                <section>
+                    <h3 class="text-lg font-bold text-on-surface mb-6 font-headline border-b border-white/5 pb-2 uppercase tracking-widest">CI/CD & Orchestration</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-surface-container rounded-xl border border-white/5">
+                            <h4 class="font-bold text-tertiary text-xs uppercase tracking-widest mb-3">Jenkins</h4>
+                            <p class="text-xs">圧倒的な拡張性を誇る自動化サーバー。あらゆるワークフローの『司令塔』として機能。</p>
+                        </div>
+                        <div class="p-6 bg-surface-container rounded-xl border border-white/5">
+                            <h4 class="font-bold text-tertiary text-xs uppercase tracking-widest mb-3">ArgoCD</h4>
+                            <p class="text-xs">Kubernetes環境におけるGitOpsの代名詞。Gitの状態をリアルタイムにクラスタへ同期。</p>
+                        </div>
+                    </div>
+                </section>
 
-            <p><span class="syntax-keyword">const</span> strategy = <span class="syntax-string">"ツールを組み合わせ、自律的なインフラを構築する"</span>;</p>
-            <p>これら OSS の知見を活かし、現在の自動化 PoC をより高度なレベルへと引き上げていく予定です。</p>
-        </main>
+                <div class="bg-surface-container/30 p-8 rounded-2xl border border-white/5">
+                    <h3 class="text-lg font-bold text-on-surface m-0 mb-4 font-headline">Conclusion</h3>
+                    <p class="text-sm m-0">
+                        OSSツールは日々進化しています。単一のツールに固執せず、**「やりたいこと（ゴール）に対して最適なツールの組み合わせ」**を常に模索し続ける柔軟さが、モダンな運用エンジニアには求められます。
+                    </p>
+                </div>
+            </div>
+        </article>
+    </main>
 
-        <footer class="animate-in" style="animation-delay: 0.4s;">
-            <p>&copy; 2026 FunUni-lab. Built with <span class="syntax-keyword">Core.js</span> and Passion.</p>
-        </footer>
-    </div>
+    <footer class="lg:pl-64 w-full py-12 px-8 mt-auto bg-background/50 backdrop-blur-sm font-body text-xs border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
+            <div class="flex flex-col gap-2">
+                <span class="text-slate-400">© 2026 FunUni-lab Synthetic Edition. Infrastructure Division.</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="../index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Portal_Home</a>
+                <a href="index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Infra_Index</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

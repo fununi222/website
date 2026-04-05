@@ -1,71 +1,164 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html class="dark" lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>altra-recommender 制作記録 | FunUni-lab</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-
-    <meta name="description" content="altra-recommender の制作背景、レコメンド設計で考えたこと、UI とロジックの学びをまとめた制作記録。">
-    <meta property="og:site_name" content="FunUni-lab">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="altra-recommender 制作記録 | FunUni-lab">
-    <meta property="og:description" content="レコメンド系 Web アプリを通して学んだ、推薦ロジック、データ構造、結果の見せ方を振り返る記事。">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="altra-recommender 制作記録 | FunUni-lab">
-    <meta name="twitter:description" content="レコメンド機能付き Web アプリの制作過程と、今ならどう改善するかを整理したふりかえり。">
+    <title>altra-recommender 制作記録 | FunUni-lab Synthetic Edition</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#aaa4ff',
+                        'primary-dim': '#6a5cf9',
+                        'secondary': '#00d2ff',
+                        'tertiary': '#b0aaff',
+                        'background': '#060e20',
+                        'surface': '#0f1930',
+                        'surface-container': '#141f38',
+                        'on-surface': '#dee5ff',
+                        'on-surface-variant': '#a3aac4',
+                        'outline': '#6d758c'
+                    },
+                    fontFamily: {
+                        headline: ['Space Grotesk'],
+                        body: ['Inter']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .cyber-glow { box-shadow: 0 0 40px rgba(108, 92, 231, 0.04); }
+        .mesh-gradient {
+            background-image:
+                radial-gradient(at 0% 0%, rgba(170, 164, 255, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 210, 255, 0.05) 0px, transparent 50%);
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <header class="animate-in">
-            <a href="index.html" class="nav-link">← cd ..</a>
-            <h1>altra-recommender</h1>
-            <p class="subtitle">レコメンドロジックと UI の両立を学んだ Web アプリ制作のふりかえり</p>
-        </header>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
+    <!-- Top Nav -->
+    <nav class="fixed top-0 z-50 flex justify-between items-center px-8 h-16 w-full bg-surface/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300 ease-out font-headline tracking-tight shadow-lg">
+        <div class="flex items-center gap-8">
+            <a class="text-xl font-bold tracking-tighter text-primary" href="../index.html">FunUni-lab.js</a>
+            <div class="hidden md:flex items-center gap-6 text-[10px] uppercase tracking-widest font-bold">
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../it/index.html">Infrastructure</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../points/index.html">Finance</a>
+                <a class="text-secondary border-b-2 border-secondary pb-1" href="index.html">AI & Agents</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../lpo/index.html">LPO</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../glossary.html">Glossary</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-xs font-bold text-tertiary uppercase tracking-widest hidden sm:block">Retrospective</span>
+            <span class="material-symbols-outlined text-tertiary">history_edu</span>
+        </div>
+    </nav>
 
-        <main class="article-content animate-in" style="animation-delay: 0.2s;">
-            <p><span class="syntax-comment">// レコメンド機能付き Web アプリを、設計意図と学びの観点から振り返る記録</span></p>
+    <!-- Sidebar -->
+    <aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col py-20 px-4 space-y-2 bg-surface z-40 border-r border-white/5">
+        <div class="mb-8 px-4">
+            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">BUILD_LOG</div>
+            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.05</div>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="index.html">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Back to Index</span>
+            </a>
+            <hr class="border-white/5 my-2">
+            <div class="px-4 py-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold">Navigation</div>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#intro">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Background</span>
+            </a>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#learning">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Learnings</span>
+            </a>
+        </nav>
+    </aside>
 
-            <p>過去に制作した <span class="syntax-type">altra-recommender</span> は、ユーザーごとに合いそうな候補を提示することを意識して作ったレコメンド系の Web アプリです。見た目だけではなく、<strong>「どうやって候補を出すか」</strong> と <strong>「どう見せれば使いやすいか」</strong> の両方を考える必要があり、ロジックと UI をつなぐ難しさを学べた制作でした。</p>
+    <main class="lg:pl-64 pt-20 flex-grow">
+        <article class="max-w-4xl mx-auto px-8 py-12">
+            <header class="mb-16 border-l-4 border-tertiary pl-6">
+                <div class="text-[10px] font-bold text-tertiary uppercase tracking-[0.2em] mb-2">Web Application Retro</div>
+                <h1 class="text-5xl font-black font-headline tracking-tighter text-on-surface mb-6 leading-tight">
+                    altra-recommender<br>制作記録
+                </h1>
+                <p class="text-slate-400 font-body text-lg leading-relaxed max-w-2xl opacity-80 italic">
+                    "ロジックと UI の両立を学んだ Web アプリ制作のふりかえり"
+                </p>
+            </header>
 
-            <h2>1. 制作背景</h2>
-            <p>一覧をそのまま見せるのではなく、利用者に合わせて情報を絞り込んだり、候補を提案したりする仕組みに興味があり、このアプリに取り組みました。普段使っているサービスでは当たり前に見えるレコメンド機能も、自分で作る側に回ると、データの扱い方、条件分岐、結果の見せ方まで含めて考えることが多くあります。</p>
-            <p>そのため、この制作ではアルゴリズムだけに寄らず、<strong>推薦結果をどう体験として届けるか</strong> を大きなテーマにしていました。</p>
+            <div class="space-y-12 text-on-surface-variant leading-relaxed opacity-90" id="intro">
+                <p>
+                    過去に制作した <span class="text-primary font-bold">altra-recommender</span> は、ユーザーごとに合いそうな候補を提示することを意識して作ったレコメンド系の Web アプリです。見た目だけではなく、<strong>「どうやって候補を出すか」</strong> と <strong>「どう見せれば使いやすいか」</strong> の両方を考える必要があり、ロジックと UI をつなぐ難しさを学べた制作でした。
+                </p>
 
-            <h2>2. 制作で意識したこと</h2>
-            <h3>ロジックと UI を分けて考えすぎない</h3>
-            <p>レコメンド機能は、裏側で正しい結果を返せば終わりではありません。ユーザーにとっては、結果がどう並び、何が見えて、次にどう行動できるかまで含めて体験になります。そのため、推薦ロジックと表示設計を別物にしすぎず、画面上でどう受け取られるかを考えながら実装しました。</p>
+                <div class="bg-surface-container/50 p-8 rounded-2xl border border-white/5">
+                    <h3 class="text-lg font-bold text-on-surface m-0 mb-4 font-headline">1. 制作背景</h3>
+                    <p class="text-sm m-0">
+                        一覧をそのまま見せるのではなく、利用者に合わせて情報を絞り込んだり、候補を提案したりする仕組みに興味があり、このアプリに取り組みました。普段使っているサービスでは当たり前に見えるレコメンド機能も、自分で作る側に回ると、データの扱い方、条件分岐、結果の見せ方まで含めて考えることが多くあります。
+                    </p>
+                </div>
 
-            <h3>情報の出し方を整理する</h3>
-            <p>推薦結果が多すぎると、かえって選びづらくなります。そこで、どの情報を先に見せるか、どこまで詳細を出すか、一覧性と理解しやすさのバランスを意識しました。レコメンドは精度だけでなく、<strong>結果の読みやすさ</strong> も重要だと感じました。</p>
+                <div class="space-y-6" id="learning">
+                    <h2 class="text-2xl font-bold font-headline text-on-surface border-b border-white/10 pb-2">2. 制作で意識したこと</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-surface-container rounded-xl border border-white/5">
+                            <h4 class="font-bold text-secondary text-xs uppercase tracking-widest mb-3">Experience-First</h4>
+                            <p class="text-xs">レコメンド機能は裏側で正しい結果を返せば終わりではありません。画面上でどう受け取られるかを考えながら実装しました。</p>
+                        </div>
+                        <div class="p-6 bg-surface-container rounded-xl border border-white/5">
+                            <h4 class="font-bold text-secondary text-xs uppercase tracking-widest mb-3">Balance</h4>
+                            <p class="text-xs">情報が多すぎると選びづらくなります。どの情報を先に見せるか、一覧性と理解しやすさのバランスを意識しました。</p>
+                        </div>
+                    </div>
+                </div>
 
-            <h3>データ構造を意識して実装する</h3>
-            <p>条件分岐や候補の絞り込みを進める中で、データ構造が整理されていないと修正しづらくなる場面が多くありました。そのため、機能追加を見据えて、どこに何の情報を持たせるかを意識するようになりました。これは今の開発にもつながっている学びです。</p>
+                <div class="bg-surface-container/50 p-8 rounded-2xl border border-white/5">
+                    <h3 class="text-lg font-bold text-on-surface m-0 mb-4 font-headline">3. 制作を通して学んだこと</h3>
+                    <p class="text-sm m-0">
+                        フロントエンドだけでなく、ロジック設計まで含めてアプリ全体を見る視点が身についたことです。特に、推奨結果の理由や納得感（Explainability）まで含めて設計する重要性を、この制作で実感しました。
+                    </p>
+                </div>
 
-            <h2>3. 制作を通して学んだこと</h2>
-            <p>この制作で大きかったのは、フロントエンドだけでなく、ロジック設計まで含めてアプリ全体を見る視点が身についたことです。特に、推薦結果の質だけを追うのではなく、<strong>ユーザーが結果をどう受け取るか</strong> を考えることで、実装の優先順位や画面設計の考え方が大きく変わりました。</p>
-            <p>また、レコメンド機能は「何をおすすめするか」だけでなく、「なぜそれが出てきたのか」が見えないと使いにくくなる場面もあります。結果の理由や納得感まで含めて設計する重要性を、この制作で実感しました。</p>
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold font-headline text-on-surface border-b border-white/10 pb-2">4. 今ならこう改善する</h2>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 推薦の理由を UI 上で伝え、納得感を高める</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> データ構造とロジックを整理し、保守しやすくする</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 結果一覧の見せ方を改善し、比較しやすい画面にする</li>
+                    </ul>
+                </div>
 
-            <h2>4. 今ならこう改善する</h2>
-            <ol>
-                <li>推薦の理由を UI 上で伝え、納得感を高める</li>
-                <li>データ構造とロジックを整理し、保守しやすくする</li>
-                <li>結果一覧の見せ方を改善し、比較しやすい画面にする</li>
-            </ol>
+                <div class="pt-8 border-t border-white/10">
+                    <a href="https://github.com/fumiya5222/altra-recommender" class="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors font-bold text-sm">
+                        <span class="material-symbols-outlined">code</span>
+                        Visit GitHub Repository
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
 
-            <p>過去制作として振り返ると、altra-recommender は完成度以上に、<strong>少し難しいテーマに自分で踏み込んだこと</strong> に価値があると感じています。挑戦の過程で、UI、データ、ロジックを横断して考える経験ができたことが、この制作の一番大きな収穫でした。</p>
-
-            <h2>5. リンク</h2>
-            <p><a href="https://github.com/fumiya5222/altra-recommender">GitHub: fumiya5222/altra-recommender</a></p>
-        </main>
-
-        <footer class="animate-in" style="animation-delay: 0.4s;">
-            <p>&copy; 2026 FunUni-lab. Built with <span class="syntax-keyword">Logic</span> and Curiosity.</p>
-        </footer>
-    </div>
+    <footer class="lg:pl-64 w-full py-12 px-8 mt-auto bg-background/50 backdrop-blur-sm font-body text-xs border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
+            <div class="flex flex-col gap-2">
+                <span class="text-slate-400">© 2026 FunUni-lab Synthetic Edition. Retrospective.</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="../index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Portal_Home</a>
+                <a href="index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">AI_Index</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

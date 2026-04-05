@@ -1,61 +1,158 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html class="dark" lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>運用の手間を減らし、品質を上げる：自動化への取り組み | FunUni-lab</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-
-    <meta name="description" content="運用負荷を下げながら品質を高めるための自動化アプローチを、監視・容量管理・運用設計の観点で解説。">
-    <meta property="og:site_name" content="FunUni-lab">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="運用の手間を減らし、品質を上げる：自動化への取り組み | FunUni-lab">
-    <meta property="og:description" content="運用負荷を下げながら品質を高めるための自動化アプローチを、監視・容量管理・運用設計の観点で解説。">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="運用の手間を減らし、品質を上げる：自動化への取り組み | FunUni-lab">
-    <meta name="twitter:description" content="運用負荷を下げながら品質を高めるための自動化アプローチを、監視・容量管理・運用設計の観点で解説。">
+    <title>運用自動化への挑戦 | FunUni-lab Synthetic Edition</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#aaa4ff',
+                        'primary-dim': '#6a5cf9',
+                        'secondary': '#00d2ff',
+                        'tertiary': '#b0aaff',
+                        'background': '#060e20',
+                        'surface': '#0f1930',
+                        'surface-container': '#141f38',
+                        'on-surface': '#dee5ff',
+                        'on-surface-variant': '#a3aac4',
+                        'outline': '#6d758c'
+                    },
+                    fontFamily: {
+                        headline: ['Space Grotesk'],
+                        body: ['Inter']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .cyber-glow { box-shadow: 0 0 40px rgba(108, 92, 231, 0.04); }
+        .mesh-gradient {
+            background-image:
+                radial-gradient(at 0% 0%, rgba(170, 164, 255, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 210, 255, 0.05) 0px, transparent 50%);
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <header class="animate-in">
-            <a href="index.html" class="nav-link">← cd ..</a>
-            <h1>Operation Automation</h1>
-            <p class="subtitle">運用の手間を減らし、品質を上げる：自動化への取り組み</p>
-        </header>
-
-        <main class="article-content animate-in" style="animation-delay: 0.2s;">
-            <p><span class="syntax-comment">// システム運用における自動化と整理の記録</span></p>
-            
-            <p>システム運用において、<a href="../glossary.html#vsphere" class="term-link">vSphere</a> を扱っていると、日々の確認や設定変更が積み重なり、意外と手間がかかるものです。今日は、そんな運用負担を減らしつつ、品質を維持するための自動化と整理について書きます。</p>
-
-            <div class="callout">
-                <strong class="callout-title">用語が気になったら</strong>
-                <p><a href="../glossary.html#cbt" class="term-link">CBT</a> や <a href="../glossary.html#bcp" class="term-link">BCP</a> などの略語は、用語集へ飛べるようにしてあります。</p>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
+    <!-- Top Nav -->
+    <nav class="fixed top-0 z-50 flex justify-between items-center px-8 h-16 w-full bg-surface/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300 ease-out font-headline tracking-tight shadow-lg">
+        <div class="flex items-center gap-8">
+            <a class="text-xl font-bold tracking-tighter text-primary" href="../index.html">FunUni-lab.js</a>
+            <div class="hidden md:flex items-center gap-6 text-[10px] uppercase tracking-widest font-bold">
+                <a class="text-secondary border-b-2 border-secondary pb-1" href="index.html">Infrastructure</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../points/index.html">Finance</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../ai/index.html">AI & Agents</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../lpo/index.html">LPO</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../glossary.html">Glossary</a>
             </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-xs font-bold text-secondary uppercase tracking-widest hidden sm:block">Automated Lifecycle</span>
+            <span class="material-symbols-outlined text-secondary">cycle</span>
+        </div>
+    </nav>
 
-            <h2>1. 更新作業の標準化と切り戻し手順の整備</h2>
-            <p>更新スクリプトや切り戻し手順を整理し、既存構成を崩さずに更新できる運用を確立。復旧対象を必要最小限に絞り込むことで、脆弱性対応などの定期的な作業が、より安心かつ効率的に継続できるようになりました。</p>
+    <!-- Sidebar -->
+    <aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col py-20 px-4 space-y-2 bg-surface z-40 border-r border-white/5">
+        <div class="mb-8 px-4">
+            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">OPS_AUTOMATION</div>
+            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.05</div>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="index.html">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Back to Index</span>
+            </a>
+            <hr class="border-white/5 my-2">
+            <div class="px-4 py-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold">Navigation</div>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#goal">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Vision & Goal</span>
+            </a>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#strategy">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Step-by-step Strategy</span>
+            </a>
+        </nav>
+    </aside>
 
-            <h2>2. バックアップと容量の自動是正</h2>
-            <p><a href="../glossary.html#rubrik" class="term-link">Rubrik</a>/<a href="../glossary.html#cbt" class="term-link">CBT</a> の不整合を検知して自動是正する仕組みに加え、<a href="../glossary.html#vast-data" class="term-link">VAST Data</a> の容量監視を強化しました。実測データに基づき、フェーズごとの閾値到達見込みを算出するロジックを実装。<a href="../glossary.html#bcp" class="term-link">BCP</a> 要件に合わせた保持期間の最適化を能動的に行える体制を整えています。</p>
+    <main class="lg:pl-64 pt-20 flex-grow">
+        <article class="max-w-4xl mx-auto px-8 py-12">
+            <header class="mb-16 border-l-4 border-secondary pl-6">
+                <div class="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-2">Internal Policy 2026</div>
+                <h1 class="text-5xl font-black font-headline tracking-tighter text-on-surface mb-6 leading-tight">
+                    運用自動化への挑戦
+                </h1>
+                <p class="text-slate-400 font-body text-lg leading-relaxed max-w-2xl opacity-80 italic">
+                    "定型業務をコードに落とし込み、人間にしかできない創造的な時間を生み出す。"
+                </p>
+            </header>
 
-            <h2>3. インフラレイヤーでのライセンス管理</h2>
-            <p>GT-V 基盤におけるミドルウェアライセンス管理を、タグ運用によって改善しました。インフラ側でタグを付与することで、管理主体と利用実態を正確に紐付け、スモールスタートでの管理精度向上を図っています。</p>
+            <div class="space-y-12 text-on-surface-variant leading-relaxed opacity-90" id="goal">
+                <div class="bg-surface-container rounded-3xl p-10 mb-20 cyber-glow border border-white/5">
+                    <h3 class="text-lg font-bold text-on-surface m-0 mb-4 font-headline">1. 自動化の目的と意義</h3>
+                    <p class="text-sm">
+                        運用の自動化は、単なるコスト削減ではなく、**「オペレーショナル・エクセレンス」**の追求です。ミスが許されないインフラ管理において、スクリプトやツールによる標準化は、信頼性のベースラインを引き上げます。
+                    </p>
+                    <p class="text-sm mt-4">
+                        私たちが目指すのは、24時間の監視や、数千台のサーバーに対する一括パッチ適用が、ボタン一つ（あるいはイベントトリガー）で完結する世界です。
+                    </p>
+                </div>
 
-            <h2>4. OSS 活用と次世代エージェント調査</h2>
-            <p>今後の自動化に向けて、監視（<a href="../glossary.html#prometheus" class="term-link">Prometheus</a>/<a href="../glossary.html#grafana" class="term-link">Grafana</a>）やワークフロー（<a href="../glossary.html#n8n" class="term-link">n8n</a>）などの <a href="../glossary.html#oss" class="term-link">OSS</a> ツールの <a href="../glossary.html#poc" class="term-link">PoC</a> を進めています。また、AI エージェントを「軽量なオーケストレーター」として、専門的なタスクを外部スキルに委譲する新しい運用の形も模索中です。</p>
+                <div class="space-y-6" id="strategy">
+                    <h2 class="text-2xl font-bold font-headline text-secondary border-b border-white/10 pb-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                        2. 段階的自動化戦略
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-surface-container rounded-xl border border-white/5">
+                            <h4 class="font-bold text-primary text-[10px] uppercase tracking-widest mb-3">Level 1: Standardization</h4>
+                            <p class="text-xs">手順をドキュメント化し、誰がやっても同じ結果になるようにプロセスを固定する。</p>
+                        </div>
+                        <div class="p-6 bg-surface-container rounded-xl border border-white/5">
+                            <h4 class="font-bold text-secondary text-[10px] uppercase tracking-widest mb-3">Level 2: Scripting</h4>
+                            <p class="text-xs">Python, Bash, PowerCLI等を用いて、手動作業をバッチ化・自動実行可能にする。</p>
+                        </div>
+                        <div class="p-6 bg-surface-container rounded-xl border border-white/5">
+                            <h4 class="font-bold text-tertiary text-[10px] uppercase tracking-widest mb-3">Level 3: Frameworks</h4>
+                            <p class="text-xs">Ansible, Terraform, Jenkinsを導入し、パイプラインとしての運用を確立する。</p>
+                        </div>
+                        <div class="p-6 bg-surface-container rounded-xl border border-white/5">
+                            <h4 class="font-bold text-on-surface text-[10px] uppercase tracking-widest mb-3">Level 4: Intelligent Ops</h4>
+                            <p class="text-xs">AI/LLMを活用し、障害検知から自律的な復旧（Auto-Healing）までを実現する。</p>
+                        </div>
+                    </div>
+                </div>
 
-            <p><span class="syntax-keyword">const</span> philosophy = <span class="syntax-string">"自動化できるところは自動化し、人が見るべきところを減らす"</span>;</p>
-            <p>これからも、この方針で手間とミスを減らし、より安定した運用を目指していきます。</p>
-        </main>
+                <div class="bg-surface-container/30 p-8 rounded-2xl border border-white/5">
+                    <h3 class="text-lg font-bold text-on-surface m-0 mb-4 font-headline">3. 今後の展望</h3>
+                    <p class="text-sm m-0">
+                        自動化は一度作って終わりではありません。環境の変化に合わせて継続的にブラッシュアップし、**「運用をコードとして語れるエンジニア」**であり続けることが、今後のインフラ領域での生存戦略となります。
+                    </p>
+                </div>
+            </div>
+        </article>
+    </main>
 
-        <footer class="animate-in" style="animation-delay: 0.4s;">
-            <p>&copy; 2026 FunUni-lab. Built with <span class="syntax-keyword">Standard.js</span> and Passion.</p>
-        </footer>
-    </div>
+    <footer class="lg:pl-64 w-full py-12 px-8 mt-auto bg-background/50 backdrop-blur-sm font-body text-xs border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
+            <div class="flex flex-col gap-2">
+                <span class="text-slate-400">© 2026 FunUni-lab Synthetic Edition. Infrastructure Division.</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="../index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Portal_Home</a>
+                <a href="index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Infra_Index</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

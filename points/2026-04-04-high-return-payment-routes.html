@@ -1,188 +1,240 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html class="dark" lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【最新版】高還元決済ルート完全攻略 | FunUni-lab</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <title>High-Return Payment Routes | FunUni-lab Synthetic Edition</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
         mermaid.initialize({ 
-            startOnLoad: true, 
+            startOnLoad: true,
             theme: 'dark',
             securityLevel: 'loose',
-            fontFamily: 'Inter, Noto Sans JP',
+            fontFamily: 'Space Grotesk, Inter'
         });
+        window.addEventListener('load', () => mermaid.run());
+    </script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#aaa4ff',
+                        'primary-dim': '#6a5cf9',
+                        'secondary': '#00d2ff',
+                        'tertiary': '#b0aaff',
+                        'background': '#060e20',
+                        'surface': '#0f1930',
+                        'surface-container': '#141f38',
+                        'on-surface': '#dee5ff',
+                        'on-surface-variant': '#a3aac4',
+                        'outline': '#6d758c'
+                    },
+                    fontFamily: {
+                        headline: ['Space Grotesk'],
+                        body: ['Inter']
+                    }
+                }
+            }
+        }
     </script>
     <style>
+        .cyber-glow { box-shadow: 0 0 40px rgba(108, 92, 231, 0.04); }
+        .mesh-gradient {
+            background-image:
+                radial-gradient(at 0% 0%, rgba(170, 164, 255, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 210, 255, 0.05) 0px, transparent 50%);
+        }
         .mermaid {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(15, 25, 48, 0.6);
             padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            border: 1px solid var(--accent-border);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(170, 164, 255, 0.1);
+            backdrop-filter: blur(8px);
             display: flex;
             justify-content: center;
         }
-        .hero-callout {
-            background: linear-gradient(135deg, rgba(86, 156, 214, 0.1), rgba(78, 201, 176, 0.1));
-            border-left: 4px solid var(--syntax-type);
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 0 12px 12px 0;
+        .route-path {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px dashed rgba(0, 210, 255, 0.3);
         }
-        .hero-callout h3 {
-            margin-top: 0 !important;
-            color: var(--syntax-type) !important;
-            border: none !important;
-        }
-        .route-step {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 0.5rem;
-        }
-        .route-step .number {
-            background: var(--accent-secondary);
-            color: var(--text-bright);
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .route-path::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 8px;
+            height: 8px;
+            background: #00d2ff;
             border-radius: 50%;
-            font-size: 0.8rem;
-            font-family: 'JetBrains Mono', monospace;
-        }
-        .update-note {
-            background: linear-gradient(135deg, rgba(255, 180, 90, 0.12), rgba(170, 164, 255, 0.08));
-            border-left: 4px solid #ffb45a;
-            padding: 1.3rem 1.5rem;
-            margin: 1.8rem 0;
-            border-radius: 0 12px 12px 0;
-        }
-        .update-note h3 {
-            margin-top: 0 !important;
-            color: #ffcf8a !important;
-            border: none !important;
+            box-shadow: 0 0 10px #00d2ff;
         }
     </style>
-
-    <meta name="description" content="2026年4月時点の高還元決済ルートを整理し、主要サービスを組み合わせた還元率最大化の考え方を解説。">
-    <meta property="og:site_name" content="FunUni-lab">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="【最新版】高還元決済ルート完全攻略 | FunUni-lab">
-    <meta property="og:description" content="2026年4月時点の高還元決済ルートを整理し、主要サービスを組み合わせた還元率最大化の考え方を解説。">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="【最新版】高還元決済ルート完全攻略 | FunUni-lab">
-    <meta name="twitter:description" content="2026年4月時点の高還元決済ルートを整理し、主要サービスを組み合わせた還元率最大化の考え方を解説。">
 </head>
-<body>
-    <div class="container">
-        <header class="animate-in">
-            <a href="index.html" class="nav-link">← cd ..</a>
-            <h1>High-Return Routes</h1>
-            <p class="subtitle">【最新版】ポイ活ガチ勢必見！三井住友・楽天・ファミペイを駆使した超高還元決済ルート完全攻略</p>
-        </header>
-
-        <main class="article-content animate-in" style="animation-delay: 0.2s;">
-            <p><span class="syntax-comment">// 2026年最新のキャッシュレス決済最適化戦略</span></p>
-            
-            <p>ポイ活やキャッシュレス決済のルートは日々進化し、時には「封鎖」と呼ばれるルートの閉鎖を乗り越えながら、よりお得な方法が模索されています。今回は、ガチ勢の間で話題の最新決済ルート図を読み解き、日常の買い物を劇的にお得にする最強ルートを解説します。</p>
-
-            <div class="update-note">
-                <h3>Update: 2026年3月改定を反映</h3>
-                <p>この記事の初版では <code>JAL Pay</code> や <code>au PAY</code> を経由するルートを主力として紹介していましたが、2026年3月1日利用分から三井住友カードの100万円修行対象外となりました。現在は「高還元決済の考え方」を残しつつ、修行ルートとしては <code>Revolut → ANA Pay</code> などへの読み替えが必要です。</p>
-                <p>修行ルートの整理は <a href="2026-04-05-smbc-million-challenge-revolut-route.html">こちらの更新記事</a> に分離しています。</p>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
+    <!-- Top Nav -->
+    <nav class="fixed top-0 z-50 flex justify-between items-center px-8 h-16 w-full bg-surface/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300 ease-out font-headline tracking-tight shadow-lg">
+        <div class="flex items-center gap-8">
+            <a class="text-xl font-bold tracking-tighter text-primary" href="../index.html">FunUni-lab.js</a>
+            <div class="hidden md:flex items-center gap-6 text-[10px] uppercase tracking-widest font-bold">
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../it/index.html">Infrastructure</a>
+                <a class="text-secondary border-b-2 border-secondary pb-1" href="index.html">Finance</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../ai/index.html">AI & Agents</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../lpo/index.html">LPO</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../glossary.html">Glossary</a>
             </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-xs font-bold text-secondary uppercase tracking-widest hidden sm:block">Economic Optimization</span>
+            <span class="material-symbols-outlined text-secondary">account_balance_wallet</span>
+        </div>
+    </nav>
 
-            <h2>🗺️ 決済ルート全体図 (2026.04)</h2>
-            <div class="mermaid">
-                graph TD
-                A["三井住友OG(M)<br>三井住友G(M)<br>年100万"]
-                I((Revolut))
-                J((ANAPay))
-                N((楽天Edy))
-                F["ファミペイ<br>(ローン契約)"]
-                RG((楽天ギフト))
-                O((楽天Cash))
-                P((楽天Pay))
-                W{{店<br>3.5~8.5%}}
-                X{{公共料金<br>2.0~10%}}
-                AA{{楽天証券<br>3.0~8.0%}}
-                T{{交通系<br>2.0%}}
-                L{{VISA加盟店<br>2.0%}}
-                LP["LawsonPonta+<br>(M)"]
-                S{{OKストア等<br>13%}}
-                OL["OliveG(V)"]
-                H{{コンビニ・カフェ等<br>10.5%}}
+    <!-- Sidebar -->
+    <aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col py-20 px-4 space-y-2 bg-surface z-40 border-r border-white/5">
+        <div class="mb-8 px-4">
+            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">FINANCIAL_GRAPH</div>
+            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.05</div>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="index.html">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Back to Index</span>
+            </a>
+            <hr class="border-white/5 my-2">
+            <div class="px-4 py-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold">Navigation</div>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#map">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Route Map</span>
+            </a>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#strategy">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Core Strategy</span>
+            </a>
+        </nav>
+    </aside>
 
-                A ==>|1.5%| I
-                I ==>|0.0%| J
-                J ==>|0.5%| N
-                N ==>|0.0%| O
+    <main class="lg:pl-64 pt-20 flex-grow">
+        <article class="max-w-6xl mx-auto px-8 py-12">
+            <header class="mb-16 border-l-4 border-secondary pl-6">
+                <div class="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-2">Finance Strategy 2026</div>
+                <h1 class="text-5xl font-black font-headline tracking-tighter text-on-surface mb-6 leading-tight">
+                    高還元決済ルート<br>完全攻略
+                </h1>
+                <p class="text-slate-400 font-body text-lg leading-relaxed max-w-2xl opacity-80 italic">
+                    "三井住友・楽天・ファミペイを駆使した超高還元決済ルートを読み解く。"
+                </p>
+            </header>
 
-                J -->|0.5%| T
-                J -->|0.5%| L
+            <div class="space-y-12 text-on-surface-variant leading-relaxed opacity-90">
+                <div class="bg-surface-container/50 p-8 rounded-2xl border border-white/5 border-l-4 border-primary">
+                    <h3 class="text-sm font-bold text-primary uppercase tracking-widest mb-4">Update: 2026年3月改定を反映</h3>
+                    <p class="text-xs m-0 leading-relaxed">
+                        三井住友カードの100万円修行条件が改定されました。現在は「JAL Pay」経由が対象外となり、**「Revolut → ANA Pay」**などへの読み替えが必要です。
+                        詳細は<a href="2026-04-05-smbc-million-challenge-revolut-route.html" class="text-secondary hover:underline ml-1">更新記事</a>を参照。
+                    </p>
+                </div>
 
-                LP ==>|13%| S  
-                OL ==>|10.5%| H  
+                <section id="map" class="space-y-6">
+                    <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-2">
+                        <span class="material-symbols-outlined">map</span>
+                        決済ルート全体図 (2026.04)
+                    </h2>
+                    <div class="mermaid">
+                        graph TD
+                        A["三井住友OG(M)<br>三井住友G(M)<br>年100万"]
+                        I((Revolut))
+                        J((ANAPay))
+                        N((楽天Edy))
+                        F["ファミペイ<br>(ローン契約)"]
+                        RG((楽天ギフト))
+                        O((楽天Cash))
+                        P((楽天Pay))
+                        W{{店<br>3.5~8.5%}}
+                        X{{公共料金<br>2.0~10%}}
+                        AA{{楽天証券<br>3.0~8.0%}}
+                        T{{交通系<br>2.0%}}
+                        L{{VISA加盟店<br>2.0%}}
+                        LP["LawsonPonta+<br>(M)"]
+                        S{{OKストア等<br>13%}}
+                        OL["OliveG(V)"]
+                        H{{コンビニ・カフェ等<br>10.5%}}
 
-                F ==>|7.0%| RG
-                RG ==>|0.0%| O
-                F ==>|10%| X
+                        A ==>|1.5%| I
+                        I ==>|0.0%| J
+                        J ==>|0.5%| N
+                        N ==>|0.0%| O
 
-                O ==>|0.0%| P
-                O ==>|1.0%| AA
-                P ==>|1.5%| W
-                P -->|0.5%| X
+                        J -->|0.5%| T
+                        J -->|0.5%| L
+
+                        LP ==>|13%| S  
+                        OL ==>|10.5%| H  
+
+                        F ==>|7.0%| RG
+                        RG ==>|0.0%| O
+                        F ==>|10%| X
+
+                        O ==>|0.0%| P
+                        O ==>|1.0%| AA
+                        P ==>|1.5%| W
+                        P -->|0.5%| X
+                    </div>
+                </section>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="strategy">
+                    <div class="bg-surface-container rounded-3xl p-10 cyber-glow border border-white/5">
+                        <h3 class="text-lg font-bold text-secondary mb-4 font-headline">楽天経済圏攻略</h3>
+                        <div class="space-y-4">
+                            <div class="route-path"><p class="text-xs">三井住友G (M) <strong>1.5%</strong></p></div>
+                            <div class="route-path"><p class="text-xs">Revolut チャージ</p></div>
+                            <div class="route-path"><p class="text-xs">ANA Pay チャージ <strong>0.5%</strong></p></div>
+                            <div class="route-path"><p class="text-xs">楽天Edy → Cash <strong>0.0%</strong></p></div>
+                            <div class="route-path border-none"><p class="text-xs">楽天ペイ決済 <strong>1.5%</strong></p></div>
+                        </div>
+                        <p class="mt-6 text-xl font-bold text-on-surface font-headline">Total: 3.5%</p>
+                    </div>
+
+                    <div class="bg-surface-container rounded-3xl p-10 border border-white/5 flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-primary mb-4 font-headline">驚異の 8.5% 還元</h3>
+                        <p class="text-xs text-on-surface-variant leading-loose">
+                            ファミペイ（ローン契約特典）を活用し、実質 <strong>7.0%</strong> で楽天ギフトカードを調達。楽天ペイ決済（1.5%）と合わせることで <strong>最大 8.5%</strong> に達する現状最強のルートです。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-surface-container/30 p-8 rounded-2xl border border-white/5 space-y-6">
+                    <h3 class="text-lg font-bold text-on-surface m-0 font-headline">特定店舗直撃ルート</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-400">OKストア / スシロー / 松屋等</span>
+                            <span class="text-primary font-bold">13% (Lawson Ponta+)</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-400">コンビニ3社 / マクドナルド等</span>
+                            <span class="text-secondary font-bold">10.5%〜 (Olive Gold)</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </article>
+    </main>
 
-            <div class="hero-callout">
-                <h3>✨ 驚異の 8.5% 還元：ファミペイ（ローン）ルート</h3>
-                <p>現在、最も高い還元率を誇るのがこのルートです。ローン契約特典を活用することで、実質 <strong>7.0%</strong> で楽天ギフトカードを調達し、楽天ペイ決済（1.5%）と合わせることで <strong>合計 8.5%</strong> に達します。</p>
+    <footer class="lg:pl-64 w-full py-12 px-8 mt-auto bg-background/50 backdrop-blur-sm font-body text-xs border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
+            <div class="flex flex-col gap-2">
+                <span class="text-slate-400">© 2026 FunUni-lab Synthetic Edition. Financial Engineering.</span>
             </div>
-
-            <h2>1. 楽天経済圏を攻略！「楽天キャッシュ」錬金術</h2>
-            <p>日常の買い物や投資信託の積立に欠かせない「楽天キャッシュ」をお得に調達する最強の布陣です。</p>
-
-            <h3>現行の主力候補: 三井住友ゴールド(M) → Revolut → ANA Pay</h3>
-            <div class="route-step"><span class="number">1</span><span>三井住友G (Mastercard) <strong>1.5%</strong> (修行込)</span></div>
-            <div class="route-step"><span class="number">2</span><span>Revolut チャージ <strong>修行対象候補</strong></span></div>
-            <div class="route-step"><span class="number">3</span><span>ANA Pay チャージ <strong>0.5%</strong></span></div>
-            <div class="route-step"><span class="number">4</span><span>楽天Edy → 楽天キャッシュ <strong>0.0%</strong></span></div>
-            <div class="route-step"><span class="number">5</span><span>楽天ペイ決済 <strong>1.5%</strong></span></div>
-            <p><strong>合計還元率: 3.5%</strong>（三井住友 1.5% + ANA Pay 0.5% + 楽天ペイ 1.5%）</p>
-            <p>旧来の <code>JAL Pay → ANA Pay</code> ルートは、2026年3月1日利用分以降は修行の主力として扱えません。現在は <code>Revolut</code> を経由しつつ、ANA Pay 側の月次上限やブランド手数料を見ながら運用するのが実務的です。</p>
-            <p>出口側の目安は、楽天ペイ加盟店で <strong>3.5%</strong>、楽天証券の楽天キャッシュ積立で <strong>3.0%</strong>、楽天ペイ請求書払いで <strong>2.0%</strong> です。</p>
-
-            <h2>2. 交通系IC & VISA加盟店：2.6% ルート</h2>
-            <p>楽天ペイが使えない店舗や、電車移動で威力を発揮するルートです。ただし、旧来の <code>JAL Pay → au PAY → VポイントPay</code> は修行ルートとしては失効しました。</p>
-            <ul>
-                <li>旧ルート: 三井住友G(M) → JAL Pay → au PAYプリペイド → VポイントPay</li>
-                <li>現行の実運用候補: 三井住友G(M) → Revolut → ANA Pay → Suica / PASMO / VISA加盟店</li>
-                <li><strong>現行ルートの合計還元率は 2.0%</strong>（三井住友 1.5% + ANA Pay 0.5%）</li>
-            </ul>
-            <p>この領域は還元率の数字そのものより、どのチャージが「修行対象か」「手数料なしで維持できるか」で実質価値が変わります。古い図表をそのまま信じず、都度アップデート前提で見てください。</p>
-
-            <h2>3. 特定店舗で爆発！直撃 10.5% 〜 13%</h2>
-            <p>面倒な経由不要、カードをかざすだけで高還元を受けられる特化型ルートです。</p>
-            <ul>
-                <li><strong>Lawson Ponta プラス (13%)</strong>: OKストア、スシロー、松屋 等</li>
-                <li><strong>Olive ゴールド (10.5%〜)</strong>: コンビニ3社、マクドナルド、サイゼリヤ 等</li>
-            </ul>
-
-            <p><span class="syntax-keyword">const</span> strategy = <span class="syntax-string">"どこで・何を使って支払うかで未来の資産が変わる"</span>;</p>
-            <p>ポイ活のルートは常に変化します。特に三井住友カードの100万円修行を絡める場合は、入口だけでなく出口側の合計還元率も最新条件で再計算するのが大切です。</p>
-        </main>
-
-        <footer class="animate-in" style="animation-delay: 0.4s;">
-            <p>&copy; 2026 FunUni-lab. Powered by <span class="syntax-keyword">FinancialEngineering.js</span></p>
-        </footer>
-    </div>
+            <div class="flex gap-6">
+                <a href="../index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Portal_Home</a>
+                <a href="index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Finance_Index</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

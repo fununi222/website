@@ -1,47 +1,127 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html class="dark" lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VMware CBT不整合の自動検知と是正 | FunUni-lab</title>
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-
-    <meta name="description" content="VMware環境で発生するCBT不整合を自動検知・自動是正する設計と運用フローを解説。">
-    <meta property="og:site_name" content="FunUni-lab">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="VMware CBT不整合の自動検知と是正 | FunUni-lab">
-    <meta property="og:description" content="VMware環境で発生するCBT不整合を自動検知・自動是正する設計と運用フローを解説。">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="VMware CBT不整合の自動検知と是正 | FunUni-lab">
-    <meta name="twitter:description" content="VMware環境で発生するCBT不整合を自動検知・自動是正する設計と運用フローを解説。">
+    <title>VMware CBT不整合の自動検知と是正 | FunUni-lab Synthetic Edition</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#aaa4ff',
+                        'primary-dim': '#6a5cf9',
+                        'secondary': '#00d2ff',
+                        'tertiary': '#b0aaff',
+                        'background': '#060e20',
+                        'surface': '#0f1930',
+                        'surface-container': '#141f38',
+                        'on-surface': '#dee5ff',
+                        'on-surface-variant': '#a3aac4',
+                        'outline': '#6d758c'
+                    },
+                    fontFamily: {
+                        headline: ['Space Grotesk'],
+                        body: ['Inter']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .cyber-glow { box-shadow: 0 0 40px rgba(108, 92, 231, 0.04); }
+        .mesh-gradient {
+            background-image:
+                radial-gradient(at 0% 0%, rgba(170, 164, 255, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 210, 255, 0.05) 0px, transparent 50%);
+        }
+    </style>
 </head>
-<body>
-    <div class="container" style="max-width: 800px;">
-        <header class="animate-in">
-            <a href="index.html" class="nav-link">← カテゴリに戻る</a>
-            <h1 style="margin-top: 2rem; font-size: clamp(2rem, 6vw, 3.5rem);">自動化に向けたCTK監視是正</h1>
-            <p class="subtitle">VMware vSphere環境におけるバックアップトラブルを防ぐ。CBT（Changed Block Tracking）不整合の検知と是正を自動化する実践手法。</p>
-        </header>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
+    <!-- Top Nav -->
+    <nav class="fixed top-0 z-50 flex justify-between items-center px-8 h-16 w-full bg-surface/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300 ease-out font-headline tracking-tight shadow-lg">
+        <div class="flex items-center gap-8">
+            <a class="text-xl font-bold tracking-tighter text-primary" href="../index.html">FunUni-lab.js</a>
+            <div class="hidden md:flex items-center gap-6 text-[10px] uppercase tracking-widest font-bold">
+                <a class="text-secondary border-b-2 border-secondary pb-1" href="index.html">Infrastructure</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../points/index.html">Finance</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../ai/index.html">AI & Agents</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../lpo/index.html">LPO</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../glossary.html">Glossary</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-xs font-bold text-secondary uppercase tracking-widest hidden sm:block">Automation Active</span>
+            <span class="material-symbols-outlined text-secondary">settings_suggest</span>
+        </div>
+    </nav>
 
-        <main class="article-content animate-in" style="animation-delay: 0.2s;">
-            <section>
-                <h2>背景：なぜCBT/CTKは不整合を起こすのか</h2>
-                <p>VMwareの増分バックアップに不可欠な機能であるCBT（Changed Block Tracking）は、仮想マシンの構成パラメータ（ctkEnabled）と実際の仮想ディスク（scsiX:Y.ctkEnabled）の不整合により、予期せず無効化されることがあります。</p>
-                <p>主な原因として、スナップショットの頻繁な作成・削除、VMの強制終了、あるいは一部の移行作業に伴う設定情報の不一致が挙げられます。これが起きると、バックアップソフトはデータの整合性を保つためにフルスキャン（事実上のフルバックアップ）にフォールバックし、バックアップ時間とストレージ容量を圧迫します。</p>
-            </section>
+    <!-- Sidebar -->
+    <aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col py-20 px-4 space-y-2 bg-surface z-40 border-r border-white/5">
+        <div class="mb-8 px-4">
+            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">INFRA_ORCHESTRATION</div>
+            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.05</div>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="index.html">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Back to Index</span>
+            </a>
+            <hr class="border-white/5 my-2">
+            <div class="px-4 py-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold">Navigation</div>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#mechanism">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">CBT Mechanism</span>
+            </a>
+            <a class="flex items-center gap-3 py-2 px-4 text-slate-400 hover:text-secondary transition-colors" href="#script">
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span class="font-headline text-[10px] uppercase tracking-widest">Remediation Log</span>
+            </a>
+        </nav>
+    </aside>
 
-            <section>
-                <h2>技術スタック：PowerCLI × Jenkins</h2>
-                <p>手動での確認を排除するため、PowerCLIを使用して全VMのCBTステータスを走査し、不整合（パラメータがFalse、あるいは欠落）を検知した場合に自動的にリセットするフローを構築しました。</p>
-                <p>Jenkinsを用いることで、毎日12:00（バックアップ実行前）の定期実行と、是正結果の通知を一元管理しています。</p>
-            </section>
+    <main class="lg:pl-64 pt-20 flex-grow">
+        <article class="max-w-4xl mx-auto px-8 py-12">
+            <header class="mb-16 border-l-4 border-secondary pl-6">
+                <div class="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-2">Technical Report</div>
+                <h1 class="text-5xl font-black font-headline tracking-tighter text-on-surface mb-6 leading-tight">
+                    VMware CBT不整合の<br>自動検知と是正
+                </h1>
+                <p class="text-slate-400 font-body text-lg leading-relaxed max-w-2xl opacity-80 italic">
+                    "VMware vSphere環境におけるバックアップトラブルを防ぐ。CBT（Changed Block Tracking）不整合の検知と是正を自動化する実践手法。"
+                </p>
+            </header>
 
-            <section>
-                <h2>自動是正スクリプトの実装例</h2>
-                <span class="code-header">PowerCLI Script (CBT Reset logic)</span>
-<pre><code># CBTの不整合をチェックし、必要に応じてリセットする
+            <div class="space-y-12 text-on-surface-variant leading-relaxed opacity-90" id="mechanism">
+                <div class="bg-surface-container rounded-3xl p-10 mb-20 cyber-glow border border-white/5">
+                    <h3 class="text-lg font-bold text-on-surface m-0 mb-4 font-headline">1. 背景：なぜCBT/CTKは不整合を起こすのか</h3>
+                    <p class="text-sm">
+                        VMwareの増分バックアップに不可欠な機能であるCBTは、仮想マシンの構成パラメータ（ctkEnabled）と実際の仮想ディスク（scsiX:Y.ctkEnabled）の不整合により、予期せず無効化されることがあります。
+                    </p>
+                    <p class="text-sm mt-4">
+                        不整合が起きると、バックアップソフトはデータの整合性を保つためにフルスキャン（事実上のフルバックアップ）にフォールバックし、バックアップ時間とストレージ容量を圧迫します。
+                    </p>
+                </div>
+
+                <div class="bg-surface-container/50 p-8 rounded-2xl border border-white/5">
+                    <h3 class="text-lg font-bold text-on-surface m-0 mb-4 font-headline">2. 技術スタック：PowerCLI × Jenkins</h3>
+                    <p class="text-sm m-0">
+                        手動での確認を排除するため、PowerCLIを使用して全VMのCBTステータスを走査し、不整合を検知した場合に自動的にリセットするフローを構築しました。Jenkinsを用いることで、毎日12:00（バックアップ実行前）の定期実行と通知を一元管理しています。
+                    </p>
+                </div>
+
+                <div class="space-y-6" id="script">
+                    <h2 class="text-2xl font-bold font-headline text-secondary border-b border-white/10 pb-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined">terminal</span>
+                        3. 自動是正スクリプトの実装例
+                    </h2>
+                    <div class="bg-background/80 rounded-2xl p-8 border border-white/5">
+                        <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4 font-headline">PowerCLI_Script.ps1</div>
+                        <pre class="text-xs text-primary leading-relaxed overflow-x-auto"><code># CBTの不整合をチェックし、必要に応じてリセットする
 $vmlist = Get-VM | Where-Object { $_.PowerState -eq "PoweredOn" }
 
 foreach ($vm in $vmlist) {
@@ -57,21 +137,31 @@ foreach ($vm in $vmlist) {
         # 設定を反映させるために一時的なスナップショットを作成・削除
         $snap = New-Snapshot -VM $vm -Name "CBT-Reset-Temp"
         Remove-Snapshot $snap -Confirm:$false
-        
-        Write-Host "CBT for $($vm.Name) has been restored."
     }
 }</code></pre>
-            </section>
+                    </div>
+                </div>
 
-            <section>
-                <h2>運用上の注意点と今後の展望</h2>
-                <p>この自動是正は非常に強力ですが、高負荷なワークロード（DBサーバー等）に対しスナップショットを頻繁に作成・削除すると、スタン（一瞬のフリーズ）が発生する可能性があるため、実行タイミングには注意が必要です。今後はAIを活用し、バックアップの過去ログから不整合の兆候を予測検知する仕組みを検討しています。</p>
-            </section>
-        </main>
+                <div class="bg-surface-container/30 p-8 rounded-2xl border border-white/5">
+                    <h3 class="text-lg font-bold text-on-surface m-0 mb-4 font-headline">4. 運用上の注意点</h3>
+                    <p class="text-sm m-0">
+                        スナップショットを頻繁に作成・削除するとスタンが発生する可能性があるため、バックアップ実行直前かつ低負荷な時間帯を選んで実行する必要があります。
+                    </p>
+                </div>
+            </div>
+        </article>
+    </main>
 
-        <footer class="animate-in" style="animation-delay: 0.4s;">
-            <p>&copy; 2026 FunUni-lab | IT Infrastructure Excellence</p>
-        </footer>
-    </div>
+    <footer class="lg:pl-64 w-full py-12 px-8 mt-auto bg-background/50 backdrop-blur-sm font-body text-xs border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
+            <div class="flex flex-col gap-2">
+                <span class="text-slate-400">© 2026 FunUni-lab Synthetic Edition. Infrastructure Division.</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="../index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Portal_Home</a>
+                <a href="index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Infra_Index</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
