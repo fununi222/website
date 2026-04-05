@@ -54,7 +54,7 @@ Markdown と HTML の二重管理を解消するため、**Synthetic Content Eng
    - ただし、Markdownエンジン（Marked.js）の誤判定（コードブロック化）を防ぐため、**MD内にHTMLタグ（`<div...>`等）を記述する際は、行頭のインデント（スペース4つ等）を絶対に付けず、左詰めで記述**してください。
 4. **画像の配置とスタイリングのルール**:
    - ユーザーから原稿と一緒に画像が提供された場合、単なるMarkdownの画像記法ではなく、現在のモダンなUIテーマ（ダーク/サイバー）に馴染むように**HTMLの `<figure>` タグとTailwindクラスを用いて美しく配置**してください。
-   - 推奨レイアウト例: `<figure class="my-10 max-w-4xl mx-auto cyber-glow"> <img src="..." class="rounded-2xl shadow-xl border border-white/10 hover:border-primary/50 transition-colors"> </figure>`
+   - 推奨レイアウト例: `<figure class="my-10 max-w-4xl mx-auto cyber-glow"> <img src="assets/img/image-name.jpg" class="rounded-2xl shadow-xl border border-white/10 hover:border-primary/50 transition-colors"> </figure>`
    - （※AI自身はローカルに画像を保存できない場合があるため、その際は上記のような仮パスでのプレースホルダーを記述して対応します）。
 5. （もうHTMLのスタブ作成は不要です！単一の `.md` ファイルを作成するだけで完了します。）
 6. 対象カテゴリの `index.html` にある記事一覧グリッド（`div#latest`内等）へ、作成したMDファイルへのリンクを追記します。
