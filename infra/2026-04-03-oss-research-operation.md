@@ -1,11 +1,12 @@
 ---
 title: "OSS自動化リサーチ運用フロー"
-date: "2026-04-03"
+date: "2026-04-06"
 category: "Process"
-description: "定期的に最新トレンドやPoCに関連するツール情報をリサーチするための運用フロー定義。"
+description: "定期的に最新トレンドや[PoC](../glossary/index.html)に関連するツール情報をリサーチするための運用フロー定義。"
 ---
 
 # 🔄 OSS自動化リサーチ運用フロー
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
 
 定期的に最新のトレンドや、今回のPoCに関連するツール情報をリサーチし、FunUni-labに反映するための運用フローを定義する。
 
@@ -38,3 +39,7 @@ description: "定期的に最新トレンドやPoCに関連するツール情報
 
 ---
 *「FunUni」運用ガイドライン：OSSキャッチアップ運用*
+
+
+## 変更履歴 (Changelog)
+- **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデートを実施。

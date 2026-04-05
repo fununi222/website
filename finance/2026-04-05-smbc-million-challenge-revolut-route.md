@@ -1,11 +1,12 @@
 ---
-title: "SMBC 100万円修行：Revolutルートと最適解"
-date: "2026-04-05"
+title: "SMBC 100万円[修行](../glossary/index.html)：Revolutルートと最適解"
+date: "2026-04-06"
 category: "Finance"
 description: "三井住友カード ゴールド（NL）の100万円修行における、Revolutや各種電子マネーチャージの活用術。"
 ---
 
 # SMBC 100万円修行：Revolutルートと最適解整理
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
 
 三井住友カード ゴールド（NL）などで定番だった「100万円修行」は、2026年3月1日利用分から一部チャージ先が年間利用額集計とポイント付与の対象外になり、従来ルートの見直しが必要になりました。
 
@@ -91,3 +92,7 @@ ANA Pay → 楽天Edy → 楽天キャッシュ
 
 出典:
 - https://note.com/tanayan_poi/n/nf889f1477813
+
+
+## 変更履歴 (Changelog)
+- **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデートを実施。

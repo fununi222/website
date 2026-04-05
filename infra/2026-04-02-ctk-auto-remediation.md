@@ -1,11 +1,12 @@
 ---
-title: "VMware CBT不整合の自動検知と是正"
-date: "2026-04-02"
+title: "VMware [CBT](../glossary/index.html)不整合の自動検知と是正"
+date: "2026-04-06"
 category: "Infrastructure"
 description: "VMware vSphere環境におけるバックアップトラブルを防ぐ。CBT（Changed Block Tracking）不整合の検知とは是正を自動化する実践手法。"
 ---
 
 # VMware CBT不整合の自動検知と是正
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
 
 VMware vSphere環境におけるバックアップトラブルを防ぐ。CBT（Changed Block Tracking）不整合の検知と是正を自動化する実践手法。
 
@@ -45,3 +46,7 @@ foreach ($vm in $vmlist) {
 ## 4. 運用上の注意点
 
 スナップショットを頻繁に作成・削除するとスタンが発生する可能性があるため、バックアップ実行直前かつ低負荷な時間帯を選んで実行する必要があります。
+
+
+## 変更履歴 (Changelog)
+- **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデートを実施。

@@ -1,11 +1,12 @@
 ---
-title: "OpenClaw 外部通信トラブルシュート（VPS編）"
-date: "2026-04-04"
+title: "OpenClaw 外部通信[トラブルシュート](../glossary/index.html)（VPS編）"
+date: "2026-04-06"
 category: "Network"
 description: "VPS パケットフィルター制約による fetch failed を切り分け、復旧まで整理。"
 ---
 
 # 【技術レポート】OpenClaw 外部通信疎通トラブルシュート
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
 ## ～ VPS 環境におけるパケットフィルターの罠と解決策 ～
 
 本レポートでは、XServer VPS 環境に **OpenClaw** を構築する際、ブラウザ操作（`browser-js`）や外部通信が `fetch failed` で失敗する問題の特定と解決プロセスを記録します。
@@ -65,3 +66,7 @@ curl -v --connect-timeout 5 https://www.google.com
 今回のケースでは、AI モデル（LLM）の能力不足ではなく、純粋な**ネットワーク・インフラの制約**がボトルネックとなっていました。実際、OpenClaw は `gemini-3.1-flash-lite-preview` のような軽量モデルでも、インフラが適切に整っていれば十分に高度なツール操作を実行可能です。
 
 VPS での構築においては、**「サーバーの SSH ポートが開いている ＝ 外の世界と通信できる」ではない** という点に留意する必要があります。
+
+
+## 変更履歴 (Changelog)
+- **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデートを実施。
