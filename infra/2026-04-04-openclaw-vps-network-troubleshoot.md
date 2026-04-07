@@ -5,11 +5,11 @@ category: "Infrastructure"
 description: "VPS パケットフィルター制約による fetch failed を切り分け、復旧まで整理。"
 ---
 
-# 【技術レポート】OpenClaw 外部通信疎通[トラブルシュート](../glossary/index.html)
+# 【技術レポート】OpenClaw 外部通信疎通トラブルシュート
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
 
 ## 超要約
-本レポートは、[VPS (Virtual Private Server)](../glossary/index.html) 環境に構築した [OpenClaw](../glossary/index.html) において、外部通信（HTTP/HTTPS）がタイムアウトする原因と解決プロセスをまとめたものです。OS内部ではなく「事業者の[パケットフィルター](../glossary/index.html)」による双方向通信の遮断を特定し、[DNS (UDP 53)](../glossary/index.html) は通るが [TCP 80/443](../glossary/index.html) が落ちるという特殊な挙動に対する具体的対策を提示します。
+本レポートは、[VPS (Virtual Private Server)](../glossary/index.html) 環境に構築した [OpenClaw](../glossary/index.html) において、外部通信（HTTP/HTTPS）がタイムアウトする原因と[トラブルシュート](../glossary/index.html)プロセスをまとめたものです。OS内部ではなく「事業者の[パケットフィルター](../glossary/index.html)」による双方向通信の遮断を特定し、[DNS (UDP 53)](../glossary/index.html) は通るが [TCP 80/443](../glossary/index.html) が落ちるという特殊な挙動に対する具体的対策を提示します。
 
 ---
 
@@ -20,7 +20,7 @@ description: "VPS パケットフィルター制約による fetch failed を切
   - エージェントがブラウザ（`browser-js`）を起動しても、外部サイトへのアクセスがすべてタイムアウトまたは `fetch failed` になる。
   - サーバー内からの `curl` も無反応。ただし [DNS](../glossary/index.html)（名前解決）のみ成功する。
 
-## 2. トラブルの主因：[VPS](../glossary/index.html) 固有の[パケットフィルター](../glossary/index.html)
+## 2. トラブルの主因：VPS 固有のパケットフィルター
 今回の最大の問題は、OS 内部の設定ではなく、**[VPS](../glossary/index.html) 事業者側（インフラ層）の[パケットフィルター](../glossary/index.html)仕様**にありました。
 
 ### インフラ・レイヤー：双方向遮断の壁
@@ -42,7 +42,7 @@ openclaw devices list
 openclaw devices approve <REQUEST_ID>
 ```
 
-### ステップ2：[DNS](../glossary/index.html) の安定化
+### ステップ2：DNS の安定化
 外部通信の信頼性を高めるため、名前解決の参照先を Google 公開 DNS に固定します。
 
 ```bash

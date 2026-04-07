@@ -21,9 +21,9 @@ VMwareの増分[バックアップ](../glossary/index.html)に不可欠な機能
 
 不整合が起きると、[バックアップ](../glossary/index.html)ソフトはデータの整合性を保つためにフルスキャン（事実上のフルバックアップ）にフォールバックし、[バックアップ](../glossary/index.html)時間とストレージ容量を圧迫します。
 
-## 2. 技術スタック：[PowerShell](../glossary/index.html) × [Jenkins](../glossary/index.html)
+## 2. 技術スタック：PowerShell × Jenkins
 
-手動での確認を排除するため、PowerCLIを使用して全VMの [CBT](../glossary/index.html) ステータスを走査し、不整合を検知した場合に自動的にリセットするフローを構築しました。[Jenkins](../glossary/index.html) を用いることで、毎日12:00（バックアップ実行前）の定期実行と通知を一元管理しています。
+手動での確認を排除するため、[PowerShell](../glossary/index.html) (PowerCLI) を使用して全VMの [CBT](../glossary/index.html) ステータスを走査し、不整合を検知した場合に自動的にリセットするフローを構築しました。[Jenkins](../glossary/index.html) を用いることで、毎日12:00（バックアップ実行前）の定期実行と通知を一元管理しています。
 
 ## 3. 自動是正スクリプトの実装例
 

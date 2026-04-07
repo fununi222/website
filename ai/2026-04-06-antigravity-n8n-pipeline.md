@@ -4,7 +4,7 @@ date: "2026-04-06"
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-06</div>
 
-# 自律修復パイプライン完全解剖 - [Antigravity](../glossary/index.html) × [n8n](../glossary/index.html)
+# 自律修復パイプライン完全解剖 - Antigravity × n8n
 
 ## 超要約
 Gemini 3 Proを搭載した[Antigravity](../glossary/index.html)と[n8n](../glossary/index.html)を連携し、エラーの検知からコードの推論、修正パッチの生成、GitHubへのPull Request作成までを完全自動化するシステムの構築手順と導入効果の解説です。設定ファイルからコードの依存関係まで理解できる自律修復パイプラインを構築します。

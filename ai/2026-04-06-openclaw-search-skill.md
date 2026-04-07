@@ -4,10 +4,11 @@ date: "2026-04-06"
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-06</div>
 
-# [OpenClaw](../glossary/index.html) 検索スキル構築ガイド - Yahoo!リアルタイム検索の活用
+# OpenClaw 検索スキル構築ガイド - Yahoo!リアルタイム検索の活用
 
 ## 超要約
-[X](../glossary/index.html) [API](../glossary/index.html)の高額な費用やアカウント制約、凍結リスクを回避し、[Yahoo!リアルタイム検索](https://search.yahoo.co.jp/realtime)をデータソースとして活用する[AIエージェント](../glossary/index.html)のスキル構築ガイドです。[Playwright](../glossary/index.html)によるスクレイピングと、[LLM](../glossary/index.html)を用いた高度なフィルタリングを組み合わせ、価値の高い「推し活」情報を自動で抽出・要約するシステムを構築します。
+[X](../glossary/index.html) [API](../glossary/index.html)の高額な費用やアカウント制約、凍結リスクを回避し、[Yahoo!リアルタイム検索](https://search.yahoo.co.jp/realtime)をデータソースとして活用する、[OpenClaw](../glossary/index.html) ベースの[AIエージェント](../glossary/index.html)スキル構築ガイドです。
+[Playwright](../glossary/index.html)によるスクレイピングと、[LLM](../glossary/index.html)を用いた高度なフィルタリングを組み合わせ、価値の高い「推し活」情報を自動で抽出・要約するシステムを構築します。
 
 ## 1. 手法の比較分析
 なぜ公式の [X](../glossary/index.html) [API](../glossary/index.html) ではなく「Yahoo!リアルタイム検索」を採用するのかを分析します。以下のレーダーチャートは、個人開発者がエージェントを構築する際の主要な指標に基づいた比較です。

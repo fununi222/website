@@ -72,6 +72,13 @@ description: "ブログ内で登場する専門用語や略語を、記事を読
 | MTTR | Process / Ops | Mean Time To Recovery（平均修復時間）の略。システム障害やバグが発生してから、原因を特定し復旧・修正するまでにかかる平均的な時間を示す指標。 |
 | Sentry | Infra / Obs | アプリケーションのエラーや例外をリアルタイムに監視・収集し、スタックトレース等の詳細情報を提供するモニタリングツール。 |
 | Datadog | Infra / Obs | インフラからアプリケーションまで、システム全体のメトリクス、ログ、トレースを統合的に監視するクラウドベースの可視化プラットフォーム。 |
+| CMDB | Infra / ServiceNow | Configuration Management Database。IT資産（CI）の構成情報とその関係性を一元管理するデータベース。ServiceNowプラットフォームの中核。 |
+| CSDM | Infra / ServiceNow | Common Service Data Model。ServiceNowが推奨する、サービス管理のための共通データモデルのフレームワーク。ビジネスとインフラを繋ぐ設計図。 |
+| CI | Infra / ServiceNow | Configuration Item（構成項目）。CMDBで管理される、サービス提供に不可欠な独立したコンポーネント（サーバー、アプリ、サービス等）。 |
+| IRE | Infra / ServiceNow | Identification and Reconciliation Engine。重複する構成データを識別し、ルールに基づいて整合性を保ちながら統合する信頼性維持のためのエンジン。 |
+| RaptorDB | Infra / ServiceNow | ServiceNowが導入した、AIワークロードや数千万件規模の大規模データ向けの高パフォーマンスな次世代データベースエンジン。 |
+| デジタルツイン | AI / Infra | 物理的な資産やシステムの、デジタル空間上の複製。リアルタイムなデータ連携により、監視・シミュレーション・予測に活用される。 |
+| Service Graph Connectors | Infra / ServiceNow | 外部ソース（Azure, AWS, SCCM等）からのデータを、ServiceNowのベストプラクティスに基づいた形式でCMDBに自動取り込みするための専用コネクタ群。 |
 
 
 
