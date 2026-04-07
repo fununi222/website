@@ -6,7 +6,6 @@
 *.log
 CHANGELOG.md
 SKILL.md
-node_modules/
 .openclaw/
 
 # Environment variables
