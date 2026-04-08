@@ -1,5 +1,8 @@
 ---
+title: "2026年春 決済・ポイ活戦略ダッシュボード"
 date: "2026-04-09"
+category: "Finance"
+description: "Vポイント統合、三井住友カード修行の封鎖、ファミペイ改定など、2026年春の激変する決済環境への対策まとめ。"
 ---
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
@@ -7,7 +10,7 @@ date: "2026-04-09"
 # 2026年春 決済・ポイ活戦略ダッシュボード - 新生活の最適解
 
 ## 超要約
-[三井住友カード](../glossary/index.html)の[100万円修行](../glossary/index.html)対象外拡大、[ファミペイ](../glossary/index.html)のPOSA還元ルール改定、転機となる[Vポイント](../glossary/index.html)・[WAON](../glossary/index.html)の統合。2026年春は決済インフラが「広範なバラ撒き（量）」から「特定経済圏への囲い込み（質）」へと劇的にシフトした転換点です。本レポートでは、この荒波を乗りこなすための最新ルートと防衛策を整理します。
+[三井住友カード](../glossary/index.html)の[100万円修行](../glossary/index.html)対象外拡大、[ファミペイ](../glossary/index.html)のPOSA還元ルール改定、転機となる[Vポイント](../glossary/index.html)・[WAON](../glossary/index.html)の統合。2026年春は決済インフラが「広範なバラ撒き（量）」から「特定経済圏への囲い込み（質）」へと劇的にシフトした転換点です。本レポートでは、この荒波を乗りこなすための最新ルートと[ポイ活](../glossary/index.html)防衛策を整理します。
 
 ---
 
@@ -64,7 +67,7 @@ date: "2026-04-09"
 <h3 class="text-lg font-bold text-on-surface mb-4 font-headline uppercase tracking-widest text-[11px] text-on-surface-variant">4月以降の環境変化</h3>
 <div class="space-y-3">
 <div class="flex justify-between items-center text-sm border-b border-white/5 pb-2">
-<span class="text-on-surface-variant">JQエポスG 還元率</span>
+<span class="text-on-surface-variant">[JQエポスG](../glossary/index.html) 還元率</span>
 <span class="text-secondary font-bold">1.5% → 1.0%</span>
 </div>
 <div class="flex justify-between items-center text-sm border-b border-white/5 pb-2">

@@ -112,7 +112,7 @@ STEP 2: Revolutチャージ後の出口ルート
 ポイ活ガチ勢に「Androidサブ機」が必須な理由
 </h2>
 <p class="text-[11px] text-on-surface-variant mb-6 leading-relaxed">
-iPhoneユーザーであっても、おサイフケータイ対応のAndroid端末（中古サブ機）を1台持つことが強く推奨されます。上記の「楽天Edy ➡️ 楽天キャッシュ」ルートは、AndroidのFeliCa機能がないと物理的に実行不可能なためです。
+iPhoneユーザーであっても、おサイフケータイ対応のAndroid端末（中古サブ機）を1台持つことが強く推奨されます。上記の「[楽天Edy](../glossary/index.html) ➡️ [楽天キャッシュ](../glossary/index.html)」ルートは、AndroidのFeliCa機能がないと物理的に実行不可能なためです。
 </p>
 <ul class="space-y-3 text-[11px] text-on-surface leading-loose">
 <li class="flex items-start gap-3">
@@ -179,8 +179,8 @@ const contentData = {
     },
     routes: {
         android: {
-            title: "還元率維持に最適！楽天証券つみたてルート",
-            note: "<strong>解説：</strong> Androidのおサイフケータイ機能を活用し、楽天Edyを経由して楽天キャッシュに変換するルートです。これにより、楽天証券での投信積立（月5万円まで）に充当でき、安定してポイント還元を受けつつ残高を現金化に近い形で消化できます。",
+            title: "還元率維持に最適！楽天Edy ➡️ 楽天キャッシュルート",
+            note: "<strong>解説：</strong> Androidのおサイフケータイ機能を活用し、[楽天Edy](../glossary/index.html)を経由して[楽天キャッシュ](../glossary/index.html)に変換するルートです。これにより、楽天証券での投信積立（月5万円まで）に充当でき、安定してポイント還元を受けつつ残高を現金化に近い形で消化できます。",
             nodes: [
                 { name: "Revolut", icon: "💳", color: "bg-surface" },
                 { name: "ANA Pay", icon: "✈️", color: "bg-blue-900/20" },
