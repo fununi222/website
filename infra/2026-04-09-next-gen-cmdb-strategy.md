@@ -254,170 +254,203 @@ description: "IT資産管理から「自律型デジタルツイン」へ。Serv
 </div>
 
 <script>
-setTimeout(() => {
-    // UI Orchestrator
-    const navButtons = document.querySelectorAll('.nav-btn');
-    const sections = document.querySelectorAll('.tab-content');
-    const stepButtons = document.querySelectorAll('.step-btn');
-    const stepContents = document.querySelectorAll('.step-content');
-
-    // Horizontal Tab Switcher
-    navButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-target');
-            
-            navButtons.forEach(b => { 
-                b.classList.remove('active', 'bg-white/10', 'text-on-surface'); 
-                b.classList.add('text-on-surface-variant'); 
-            });
-            this.classList.add('active', 'bg-white/10', 'text-on-surface');
-            this.classList.remove('text-on-surface-variant');
-
-            sections.forEach(s => { s.classList.add('hide-content'); s.classList.remove('fade-in'); });
-            const section = document.getElementById(targetId);
-            section.classList.remove('hide-content');
-            void section.offsetWidth;
-            section.classList.add('fade-in');
-        });
-    });
-
-    // Step Switcher
-    stepButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-step');
-            stepButtons.forEach(b => { 
-                b.classList.remove('active', 'bg-primary/20', 'border-primary', 'text-primary'); 
-                b.classList.add('bg-white/5', 'border-white/10', 'text-on-surface-variant'); 
-                b.style.boxShadow = 'none';
-            });
-            this.classList.add('active', 'bg-primary/20', 'border-primary', 'text-primary');
-            this.classList.remove('bg-white/5', 'border-white/10', 'text-on-surface-variant');
-            this.style.boxShadow = '0 0 15px rgba(170,164,255,0.2)';
-
-            stepContents.forEach(c => { c.classList.add('hide-content'); c.classList.remove('fade-in'); });
-            const content = document.getElementById(targetId);
-            content.classList.remove('hide-content');
-            void content.offsetWidth;
-            content.classList.add('fade-in');
-        });
-    });
-
-    // Chart.js - Enhanced Visualization
-    const chartDefaults = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: { 
-            y: { display: false, grid: { display: false } }, 
-            x: { 
-                grid: { display: false },
-                ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 10, family: 'monospace' } } 
-            } 
-        }
+(() => {
+    // Helper to destroy existing charts (essential for SME re-renders)
+    const destroyChart = (id) => {
+        const chart = Chart.getChart(id);
+        if (chart) chart.destroy();
     };
 
-    const ctxMttr = document.getElementById('mttrChart').getContext('2d');
-    new Chart(ctxMttr, {
-        type: 'bar',
-        data: {
-            labels: ['LEGACY_OPS', 'IRE_AUGMENTED'],
-            datasets: [{
-                data: [600, 100],
-                backgroundColor: ['rgba(255,255,255,0.05)', '#aaa4ff'],
-                borderRadius: 8,
-                barThickness: 60
-            }]
-        },
-        options: {
-            ...chartDefaults,
-            plugins: { 
-                tooltip: { backgroundColor: '#0f172a', titleFont: { size: 12 }, bodyFont: { size: 14 } } 
-            }
-        }
-    });
+    setTimeout(() => {
+        // UI Orchestrator
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.tab-content');
+        const stepButtons = document.querySelectorAll('.step-btn');
+        const stepContents = document.querySelectorAll('.step-content');
 
-    const ctxRoi = document.getElementById('roiChart').getContext('2d');
-    new Chart(ctxRoi, {
-        type: 'doughnut',
-        data: {
-            labels: ['BASE_LINE', 'ROI_GAIN'],
-            datasets: [{
-                data: [1, 4.5],
-                backgroundColor: ['rgba(255,255,255,0.1)', '#00d2ff'],
-                borderWidth: 0,
-                hoverOffset: 15
-            }]
-        },
-        options: {
-            ...chartDefaults,
-            cutout: '85%',
-            plugins: { legend: { display: false } }
-        }
-    });
-
-    const ctxDb = document.getElementById('dbChart').getContext('2d');
-    new Chart(ctxDb, {
-        type: 'line',
-        data: {
-            labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'],
-            datasets: [
-                {
-                    label: 'Legacy DB',
-                    data: [80, 85, 90, 88, 95, 92],
-                    borderColor: 'rgba(255,255,255,0.2)',
-                    borderDash: [5, 5],
-                    fill: false,
-                    tension: 0.4
-                },
-                {
-                    label: 'RaptorDB',
-                    data: [12, 10, 15, 11, 14, 12],
-                    borderColor: '#aaa4ff',
-                    backgroundColor: 'rgba(170,164,255,0.1)',
-                    fill: true,
-                    tension: 0.4,
-                    pointRadius: 5,
-                    pointHoverRadius: 8
-                }
-            ]
-        },
-        options: {
-            ...chartDefaults,
-            scales: {
-                y: { display: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.3)' } },
-                x: { display: true, grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.3)' } }
-            }
-        }
-    });
-
-    // Impact Radius Simulator v2
-    const nodes = document.querySelectorAll('.ci-node');
-    const resetSim = document.getElementById('resetDemo');
-    nodes.forEach(node => {
-        node.addEventListener('click', function() {
-            nodes.forEach(n => { 
-                n.className = 'ci-node px-4 py-6 border border-white/10 rounded-2xl text-center cursor-pointer bg-white/5 text-[10px] uppercase font-bold tracking-wider leading-tight flex items-center justify-center min-h-[64px]'; 
-            });
-            this.className = 'ci-node px-4 py-6 border-2 border-red-500 rounded-2xl text-center cursor-pointer bg-red-500/20 text-white font-black tracking-wider shadow-[0_0_25px_rgba(239,68,68,0.5)] scale-105 z-10 leading-tight flex items-center justify-center min-h-[64px]';
-            
-            const deps = this.getAttribute('data-deps');
-            if(deps) {
-                deps.split(',').forEach(id => {
-                    const el = document.getElementById(id.trim());
-                    if(el) {
-                        el.className = 'ci-node px-4 py-6 border border-amber-400 rounded-2xl text-center cursor-pointer bg-amber-400/20 text-amber-200 font-bold animate-pulse shadow-[0_0_20px_rgba(251,191,36,0.3)] z-10 leading-tight flex items-center justify-center min-h-[64px]';
-                    }
+        // Horizontal Tab Switcher
+        navButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                
+                navButtons.forEach(b => { 
+                    b.classList.remove('active', 'bg-white/10', 'text-on-surface'); 
+                    b.classList.add('text-on-surface-variant'); 
                 });
-            }
-        });
-    });
-    resetSim.addEventListener('click', () => {
-        nodes.forEach(n => { 
-            n.className = 'ci-node px-4 py-6 border border-white/10 rounded-2xl text-center cursor-pointer bg-white/5 text-[10px] uppercase font-bold tracking-wider leading-tight flex items-center justify-center min-h-[64px]'; 
-        });
-    });
+                this.classList.add('active', 'bg-white/10', 'text-on-surface');
+                this.classList.remove('text-on-surface-variant');
 
-}, 300);
+                sections.forEach(s => { s.classList.add('hide-content'); s.classList.remove('fade-in'); });
+                const section = document.getElementById(targetId);
+                if (section) {
+                    section.classList.remove('hide-content');
+                    void section.offsetWidth;
+                    section.classList.add('fade-in');
+                    // Trigger chart resize
+                    window.dispatchEvent(new Event('resize'));
+                }
+            });
+        });
+
+        // Step Switcher
+        stepButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-step');
+                stepButtons.forEach(b => { 
+                    b.classList.remove('active', 'bg-primary/20', 'border-primary', 'text-primary'); 
+                    b.classList.add('bg-white/5', 'border-white/10', 'text-on-surface-variant'); 
+                    b.style.boxShadow = 'none';
+                });
+                this.classList.add('active', 'bg-primary/20', 'border-primary', 'text-primary');
+                this.classList.remove('bg-white/5', 'border-white/10', 'text-on-surface-variant');
+                this.style.boxShadow = '0 0 15px rgba(170,164,255,0.2)';
+
+                stepContents.forEach(c => { c.classList.add('hide-content'); c.classList.remove('fade-in'); });
+                const content = document.getElementById(targetId);
+                if (content) {
+                    content.classList.remove('hide-content');
+                    void content.offsetWidth;
+                    content.classList.add('fade-in');
+                }
+            });
+        });
+
+        // Chart.js - Enhanced Visualization
+        const chartDefaults = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { 
+                legend: { display: false } 
+            },
+            scales: { 
+                y: { display: false, grid: { display: false } }, 
+                x: { 
+                    grid: { display: false },
+                    ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 10, family: 'monospace' } } 
+                } 
+            }
+        };
+
+        // MTTR Chart
+        destroyChart('mttrChart');
+        const ctxMttr = document.getElementById('mttrChart');
+        if (ctxMttr) {
+            new Chart(ctxMttr, {
+                type: 'bar',
+                data: {
+                    labels: ['LEGACY_OPS', 'IRE_AUGMENTED'],
+                    datasets: [{
+                        label: 'MTTR (Minutes)',
+                        data: [600, 100],
+                        backgroundColor: ['rgba(255,255,255,0.05)', '#aaa4ff'],
+                        borderRadius: 8,
+                        barThickness: 60
+                    }]
+                },
+                options: {
+                    ...chartDefaults,
+                    plugins: { 
+                        legend: { display: false },
+                        tooltip: { backgroundColor: '#0f172a', titleFont: { size: 12 }, bodyFont: { size: 14 } } 
+                    }
+                }
+            });
+        }
+
+        // ROI Chart
+        destroyChart('roiChart');
+        const ctxRoi = document.getElementById('roiChart');
+        if (ctxRoi) {
+            new Chart(ctxRoi, {
+                type: 'doughnut',
+                data: {
+                    labels: ['BASE_LINE', 'ROI_GAIN'],
+                    datasets: [{
+                        data: [1, 4.5],
+                        backgroundColor: ['rgba(255,255,255,0.1)', '#00d2ff'],
+                        borderWidth: 0,
+                        hoverOffset: 15
+                    }]
+                },
+                options: {
+                    ...chartDefaults,
+                    cutout: '85%',
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        // DB Chart
+        destroyChart('dbChart');
+        const ctxDb = document.getElementById('dbChart');
+        if (ctxDb) {
+            new Chart(ctxDb, {
+                type: 'line',
+                data: {
+                    labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'],
+                    datasets: [
+                        {
+                            label: 'Legacy DB',
+                            data: [80, 85, 90, 88, 95, 92],
+                            borderColor: 'rgba(255,255,255,0.2)',
+                            borderDash: [5, 5],
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'RaptorDB',
+                            data: [12, 10, 15, 11, 14, 12],
+                            borderColor: '#aaa4ff',
+                            backgroundColor: 'rgba(170,164,255,0.1)',
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 5,
+                            pointHoverRadius: 8
+                        }
+                    ]
+                },
+                options: {
+                    ...chartDefaults,
+                    scales: {
+                        y: { display: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.3)' } },
+                        x: { display: true, grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.3)' } }
+                    }
+                }
+            });
+        }
+
+        // Impact Radius Simulator v2
+        const nodes = document.querySelectorAll('.ci-node');
+        const resetSim = document.getElementById('resetDemo');
+        nodes.forEach(node => {
+            node.addEventListener('click', function() {
+                nodes.forEach(n => { 
+                    n.className = 'ci-node px-4 py-6 border border-white/10 rounded-2xl text-center cursor-pointer bg-white/5 text-[10px] uppercase font-bold tracking-wider leading-tight flex items-center justify-center min-h-[64px]'; 
+                });
+                this.className = 'ci-node px-4 py-6 border-2 border-red-500 rounded-2xl text-center cursor-pointer bg-red-500/20 text-white font-black tracking-wider shadow-[0_0_25px_rgba(239,68,68,0.5)] scale-105 z-10 leading-tight flex items-center justify-center min-h-[64px]';
+                
+                const deps = this.getAttribute('data-deps');
+                if(deps) {
+                    deps.split(',').forEach(id => {
+                        const el = document.getElementById(id.trim());
+                        if(el) {
+                            el.className = 'ci-node px-4 py-6 border border-amber-400 rounded-2xl text-center cursor-pointer bg-amber-400/20 text-amber-200 font-bold animate-pulse shadow-[0_0_20px_rgba(251,191,36,0.3)] z-10 leading-tight flex items-center justify-center min-h-[64px]';
+                        }
+                    });
+                }
+            });
+        });
+        if (resetSim) {
+            resetSim.addEventListener('click', () => {
+                nodes.forEach(n => { 
+                    n.className = 'ci-node px-4 py-6 border border-white/10 rounded-2xl text-center cursor-pointer bg-white/5 text-[10px] uppercase font-bold tracking-wider leading-tight flex items-center justify-center min-h-[64px]'; 
+                });
+            });
+        }
+
+    }, 400);
+})();
+</script>
 </script>
 
 ## 参考文献
