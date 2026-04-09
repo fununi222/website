@@ -11,16 +11,10 @@ themes: ["other:travel", "other:retrospective"]
 
 
 ## 超要約
-本記事では、ウルトラライトハイキング情報を発信するYouTuber「HIKERTIME JK」が絶賛するシューズショップ「STRIDE LAB ニセコ」での極上の接客体験を取り上げます。山道具メーカーで長年の接客経験を持つJK氏が「日本一」と評する店長・マコト氏の真摯な姿勢とギアへの深い愛情は、単なる靴選びを超えた価値を提供します。自身に最適な一足（[ALTRA](article.html?md=glossary/system-glossary.md#:~:text="ALTRA")など）を見つけるための究極の店舗として紹介されています。
-
----
-
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
 <img src="assets/img/niseko-altra-guide.jpg" alt="なぜALTRAなのか？プロが教える最高のシューズ選び" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-<figcaption class="text-center text-sm text-on-surface-variant mt-3 italic pb-2 border-b border-white/5 inline-block w-full">
-自然な歩行を実現するゼロドロップ、プロの知識による最高のフィッティング、[UL](article.html?md=glossary/system-glossary.md#:~:text="UL")ハイカーに最適な軽量性と機能性の融合
-</figcaption>
 </figure>
+本記事では、ウルトラライトハイキング情報を発信するYouTuber「HIKERTIME JK」が絶賛するシューズショップ「STRIDE LAB ニセコ」での極上の接客体験を取り上げます。山道具メーカーで長年の接客経験を持つJK氏が「日本一」と評する店長・マコト氏の真摯な姿勢とギアへの深い愛情は、単なる靴選びを超えた価値を提供します。自身に最適な一足（[ALTRA](article.html?md=glossary/system-glossary.md#:~:text="ALTRA")など）を見つけるための究極の店舗として紹介されています。
 
 ## ハイキングスタイルに最適な靴を求めて
 ハイキングを快適に楽しむために、自分にぴったりのシューズを選ぶことは非常に重要です。動画の投稿者であるJKさんは、自身のハイキングスタイルに合った靴（[ALTRA](article.html?md=glossary/system-glossary.md#:~:text="ALTRA")シューズなど）を見つけるため、北海道ニセコにある「STRIDE LAB」の店長、マコトちゃんに相談しました。
