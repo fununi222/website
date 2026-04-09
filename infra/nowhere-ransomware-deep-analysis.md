@@ -13,6 +13,7 @@ themes: ["infra:security", "infra:network"]
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
 <img src="assets/img/nowhere-ransomware-hero.png" alt="Engineering the Silent Threat: Nowhere Ransomware Mechanics" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
 従来のランサムウェアがデータの「可用性」を人質にするのに対し、最新の[ノーウェアランサム](article.html?md=glossary/system-glossary.md#:~:text="ノーウェアランサム")は「機密性」の暴露を武器にする。この手口では、データの暗号化を完全に省略することで、従来のセキュリティ製品の振る舞い検知をすり抜け、超高速な情報窃取（[エクスフィルトレーション](article.html?md=glossary/system-glossary.md#:~:text="エクスフィルトレーション")）を完遂する。バックアップを保持していても情報流出は防げないという「バックアップのパラドックス」に直面する中、企業は[MFA](article.html?md=glossary/system-glossary.md#:~:text="MFA")による境界防衛の徹底と、[EDR](article.html?md=glossary/system-glossary.md#:~:text="EDR")や[NDR](article.html?md=glossary/system-glossary.md#:~:text="NDR")等のAI主導型検知アーキテクチャへの移行が急務となっている。
 
 
