@@ -1,11 +1,13 @@
 ---
-title: "Glossary"
-date: "2026-04-06"
+title: "Glossary | システム用語集 & ナレッジベース v2026.04.09"
+date: "2026-04-09"
 category: "System"
 description: "ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。"
+themes: ["other:glossary", "other:spec"]
 ---
 
-# System Glossary
+# Glossary | システム用語集 & ナレッジベース v2026.04.09
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。
 以下の表は、各ヘッダーをクリックしてソートしたり、キーワードで検索することができます。
@@ -24,7 +26,7 @@ description: "ブログ内で登場する専門用語や略語を、記事を読
 | CBT | VMware / Infra | Changed Block Trackingの略。バックアップ製品が「前回以降に変化したブロックだけ」を特定し高速にバックアップするためのトラッキング機構。 |
 | LPO | Analytics | Landing Page Optimizationの略。訪問者のコンバージョン率を最大化するために、ページ設計や文言のABテスト・分析を行うプロセス。 |
 | Terraform | Infra | サーバーやネットワークなどのインフラ構築をプログラムの形で記述・管理（IaC）するOSSツール。 |
-| Ansible | Infra | サーバーの設定作業やアプリケーションのデプロイを自動化するための構成管理ツール。 |
+| Ansible | Infra | サーバーの設定作業やアプリケーション deproy を自動化するための構成管理ツール。 |
 | ハルシネーション | AI | AIが、事実に基づかないもっともらしい嘘を出力してしまう現象のこと。 |
 | IaC | Infra | Infrastructure as Code の略。サーバー構成などを手動ではなくコードで定義・構築・管理する手法。 |
 | 自己回帰モデル | AI | 直前までの入力データ（文脈）をもとに、次に続く確率が最も高いデータ（単語など）を順番に予測して生成出力するAIの言語モデル形式。 |
@@ -71,7 +73,7 @@ description: "ブログ内で登場する専門用語や略語を、記事を読
 | スナップショット | Infra / Ops | ある時点でのシステムやデータの状態を丸ごと保存した記録。VMware等の仮想化基盤では、更新前のバックアップや切り戻し用に頻繁に利用される。 |
 | GitHub Actions | Dev / Ops | GitHub上でCI/CD（継続的インテグレーション/デリバリー）を実現するための自動化プラットフォーム。 |
 | Cron | Ops | Unix系OSにおいて、スクリプトやコマンドを特定の時刻や間隔で自動実行するためのスケジュール管理システム。 |
-| PowerToys | Windows / Ops | Microsoftが開発・提供する、パワーユーザー向けのオープンソース・システムユーティリティ群。ウィンドウ配置の最適化やファイル名の一括変更など、標準機能にはない高度なカスタマイズが可能。 |
+| PowerToys | Windows / Ops | Microsoftが開発・提供する、パワーユーザー向けのオープンソース・システムユーティリティ群。ウィンドウ配置の最適化やファイル名の一括変更など、標準機能にはない高度なカスタマズが可能。 |
 | FancyZones | Windows / Ops | PowerToysに含まれるウィンドウ管理ツール。画面を任意のレイアウト（ゾーン）に分割し、ウィンドウをドラッグするだけで素早く配置できる機能。 |
 | DNS | Network / Ops | Domain Name System（ドメイン名システム）。「google.com」のような人間が理解しやすい名前（ドメイン名）を、コンピュータが理解できるIPアドレスに変換する仕組み。 |
 | NAT | Network / Ops | Network Address Translation。プライベートIPアドレスとグローバルIPアドレスを相互に変換する技術。 |
@@ -103,14 +105,6 @@ description: "ブログ内で登場する専門用語や略語を、記事を読
 | 楽天Edy | Finance | 楽天グループが提供するプリペイド型電子マネー。AndroidのFeliCa機能を活用したチャージ・交換ルートの中継点として重宝される。 |
 | iAEON / イオンPay | Finance | イオングループの共通アプリおよび決済サービス。WAON POINTの統合管理や、スマホ決済としての活用が進んでいる。 |
 
-
-
-
-
-
-
-
-
-
-
-
+## 変更履歴 (Changelog)
+- **2026-04-09**: 全体的な標準化アップデート。「Synthetic Edition」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。
+- **2026-04-06**: 用語の追加および整理、超要約・コンテンツ整理を実施。

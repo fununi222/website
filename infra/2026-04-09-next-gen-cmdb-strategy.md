@@ -3,15 +3,14 @@ title: "次世代CMDB戦略 2026 | 自律型デジタルツインへの道"
 date: "2026-04-09"
 category: "Infrastructure"
 description: "IT資産管理から「自律型デジタルツイン」へ。ServiceNowが示すロードマップと5つの衝撃的転換点。"
+themes: ["infra:cmdb", "infra:servicenow", "ai:digital-twin"]
 ---
 
-# 次世代CMDB戦略 2026：自律型デジタルツインへの道
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2 transition-opacity hover:opacity-100 uppercase">SYS_LOG: 2026-04-07_01 // ACCESS_LEVEL: ALPHA</div>
+# 次世代CMDB戦略 2026 | 自律型デジタルツインへの道
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 本記事は、進化し続ける ServiceNow プラットフォームの中核である CMDB の 2026 年に向けた戦略的ロードマップを解説します。単なる「IT資産の在庫リスト」としての役割を超え、IRE による高いデータ品質、CSDM 5.0 によるビジネス価値の紐付け、そして RaptorDB やエージェント型 AI による自律的な意思決定エンジン（デジタルツイン）へと昇華する 5 つの転換点を詳解します。
-
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ---
 
@@ -463,8 +462,8 @@ description: "IT資産管理から「自律型デジタルツイン」へ。Serv
 ---
 
 ## 変更履歴 (Changelog)
-- 2026-04-09: `SKILL.md` の運用ルールに合わせ、更新日表示を追加。
-- **2026-04-07 v2.0**:
+- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
+- 2026-04-07 v2.0:
   - レイアウトの抜本的改善：垂直ナビゲーションから水平「コマンドセンター」タブへの移行を実施。
   - タイポグラフィの強化：ベースフォントサイズを `text-base` へ引き上げ、行間とコントラストを最適化。
   - デザインのプレミアム化：`backdrop-blur-xl` と独自の `cyber-glow` 効果を用いた「Synthetic Edition」ガラスモーフィズムを適用。

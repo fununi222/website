@@ -18,7 +18,7 @@
     <script src="../assets/js/tw-config.js"></script>
     <link rel="stylesheet" href="../assets/css/synthetic.css">
 </head>
-<body class="bg-background text-on-surface font-body min-h-screen flex flex-col mesh-gradient">
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary overflow-x-hidden mesh-gradient">
     <!-- Top Nav -->
     <nav class="fixed top-0 z-50 flex justify-between items-center px-8 h-16 w-full bg-surface/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300 ease-out font-headline tracking-tight shadow-lg">
         <div class="flex items-center gap-8">
@@ -42,8 +42,8 @@
     <!-- Sidebar -->
     <aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col py-20 px-4 space-y-2 bg-surface z-40 border-r border-white/5">
         <div class="mb-8 px-4">
-            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">INFRA_SYSTEM_LOG</div>
-            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.05</div>
+            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">GLOSSARY_AUDIT_LOG</div>
+            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.09</div>
         </div>
         <nav class="flex-1 space-y-1">
       <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../infra/index.html">
@@ -62,15 +62,23 @@
         <span class="material-symbols-outlined text-lg">diamond</span>
         <span class="font-headline text-[10px] uppercase tracking-widest">Finance</span>
       </a>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../lpo/index.html">
+        <span class="material-symbols-outlined text-lg">rocket_launch</span>
+        <span class="font-headline text-[10px] uppercase tracking-widest">Optimization</span>
+      </a>
       <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../other/index.html">
         <span class="material-symbols-outlined text-lg">folder_open</span>
         <span class="font-headline text-[10px] uppercase tracking-widest">Other / Misc</span>
+      </a>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../glossary/index.html">
+        <span class="material-symbols-outlined text-lg">menu_book</span>
+        <span class="font-headline text-[10px] uppercase tracking-widest">Glossary</span>
       </a>
     </nav>
     </aside>
     <main class="lg:pl-64 pt-20 flex-grow">
         <article class="max-w-4xl mx-auto px-8 py-12">
-            <div id="sme-content" data-src="2026-04-06-system-glossary.md">
+            <div id="sme-content" data-src="2026-04-09-system-glossary.md">
                 <div class="p-8 animate-pulse text-primary font-bold text-[10px] uppercase tracking-widest">Accessing Node...</div>
             </div>
         </article>
@@ -84,7 +92,7 @@
             // 1. Styling the Table
             table.classList.add('w-full', 'text-left', 'border-collapse', 'mt-6');
             table.querySelectorAll('th').forEach(th => {
-                th.classList.add('p-3', 'border-b', 'border-white/10', 'text-slate-400', 'font-bold', 'cursor-pointer', 'hover:text-secondary', 'transition-colors', 'select-none');
+                th.classList.add('p-3', 'border-b', 'border-white/10', 'text-slate-400', 'font-bold', 'cursor-pointer', 'hover:text-secondary', 'transition-colors', 'select-none', 'uppercase', 'text-[10px]', 'tracking-widest');
                 th.innerHTML += ' <span class="text-xs opacity-50 ml-1">↕</span>';
             });
             table.querySelectorAll('td').forEach(td => td.classList.add('p-3', 'border-b', 'border-white/5', 'text-on-surface-variant', 'text-sm'));

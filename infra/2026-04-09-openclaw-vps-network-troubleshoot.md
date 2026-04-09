@@ -1,12 +1,13 @@
 ---
-title: "OpenClaw 外部通信トラブルシュート（VPS編）"
-date: "2026-04-06"
+title: "OpenClaw | VPS外部通信トラブルシュート 2026"
+date: "2026-04-09"
 category: "Infrastructure"
 description: "VPS パケットフィルター制約による fetch failed を切り分け、復旧まで整理。"
+themes: ["infra:network", "infra:vps", "other:troubleshoot"]
 ---
 
-# 【技術レポート】OpenClaw 外部通信疎通トラブルシュート
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
+# OpenClaw | VPS外部通信トラブルシュート 2026
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 本レポートは、[VPS (Virtual Private Server)](../glossary/index.html) 環境に構築した [OpenClaw](../glossary/index.html) において、外部通信（HTTP/HTTPS）がタイムアウトする原因と[トラブルシュート](../glossary/index.html)プロセスをまとめたものです。OS内部ではなく「事業者の[パケットフィルター](../glossary/index.html)」による双方向通信の遮断を特定し、[DNS (UDP 53)](../glossary/index.html) は通るが [TCP 80/443](../glossary/index.html) が落ちるという特殊な挙動に対する具体的対策を提示します。
@@ -71,4 +72,5 @@ curl -v --connect-timeout 5 https://www.google.com
 
 
 ## 変更履歴 (Changelog)
+- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約・コンテンツ整理を実施。

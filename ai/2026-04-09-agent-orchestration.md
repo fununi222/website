@@ -1,12 +1,13 @@
 ---
-title: "AIエージェント・オーケストレーション：最新動向と実践的分析"
-date: "2026-04-06"
+title: "AIエージェント | オーケストレーションの最新動向 2026"
+date: "2026-04-09"
 category: "AI & Agents"
 description: "単一のLLMから、複数の特化型エージェントを束ねるオーケストレーションへの転換とその技術的背景。"
+themes: ["ai:orchestration", "ai:agent", "ai:architecture"]
 ---
 
-# AIエージェント・オーケストレーション：最新動向と実践的分析
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
+# AIエージェント | オーケストレーションの最新動向 2026
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 本記事では、AI開発の最前線である「[オーケストレーター](../glossary/index.html)」による複数エージェントの統合管理について解説します。単一モデルの限界を、役割分担（Manager, Specialist等）によって克服し、信頼性と拡張性を両立させる「Graph型」への進化が、次世代のAI運用において不可欠な視点となることを示します。
@@ -41,4 +42,5 @@ description: "単一のLLMから、複数の特化型エージェントを束ね
 
 
 ## 変更履歴 (Changelog)
+- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。

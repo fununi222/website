@@ -1,12 +1,13 @@
 ---
-title: "VMware CBT不整合の自動検知と是正"
-date: "2026-04-06"
+title: "VMware vSphere | CBT不整合の自動検知と是非 2026"
+date: "2026-04-09"
 category: "Infrastructure"
-description: "VMware vSphere環境におけるバックアップトラブルを防ぐ。CBT（Changed Block Tracking）不整合の検知とは是正を自動化する実践手法。"
+description: "VMware vSphere環境におけるバックアップトラブルを防ぐ。CBT（Changed Block Tracking）不整合の検知と是正を自動化する実践手法。"
+themes: ["infra:backup", "infra:automation", "infra:virtualization"]
 ---
 
-# VMware CBT不整合の自動検知と是正
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
+# VMware vSphere | CBT不整合の自動検知と是正 2026
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 本レポートは、[VMware vSphere](../glossary/index.html) 基盤における増分[バックアップ](../glossary/index.html)の生命線である [CBT (Changed Block Tracking)](../glossary/index.html) の不整合問題を解決する自動化手法について解説します。不整合発生によるフルスキャンのフォールバックを防ぐため、[PowerShell](../glossary/index.html) (PowerCLI) と [Jenkins](../glossary/index.html) を組み合わせ、[スナップショット](../glossary/index.html)生成を介したステータスの自動リセットフローを構築し、運用の安定性を向上させます。
@@ -54,4 +55,5 @@ foreach ($vm in $vmlist) {
 
 
 ## 変更履歴 (Changelog)
+- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約・コンテンツ整理を実施。

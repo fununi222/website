@@ -1,17 +1,16 @@
 ---
-title: "VAST Data 基礎知識 | ユニバーサル・ストレージ調査"
+title: "VAST Data | ユニバーサル・ストレージの構造と経済性調査 2026"
 date: "2026-04-09"
 category: "Infrastructure"
 description: "VAST Data の DASE アーキテクチャ、経済性、ユースケースをインタラクティブに整理した基礎知識ノート。"
+themes: ["infra:storage", "infra:hpc", "ai:infrastructure"]
 ---
 
-# VAST Data 基礎知識：ユニバーサル・ストレージ調査
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2 transition-opacity hover:opacity-100 uppercase">SYS_LOG: 2026-04-09_03 // DOMAIN: UNIVERSAL_STORAGE</div>
+# VAST Data | ユニバーサル・ストレージの構造と経済性調査 2026
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 VAST Data は「高性能なら高コスト、低コストなら低速」というストレージ設計の常識を崩し、QLC フラッシュと SCM、そして分離共有型アーキテクチャを組み合わせて単一の大規模フラッシュ基盤を成立させます。本記事では DASE、経済性、代表ユースケースを対話的に整理します。
-
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ---
 
@@ -362,3 +361,6 @@ Universal Storage Research Node
   });
 })();
 </script>
+
+## 変更履歴 (Changelog)
+- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。新規作成。

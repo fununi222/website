@@ -1,12 +1,13 @@
 ---
-title: "突如実用化した1ビットLLM「Bonsai-8B」の衝撃"
-date: "2026-04-06"
+title: "1ビットLLM | Bonsai-8Bがもたらす推論パラダイムシフト 2026"
+date: "2026-04-09"
 category: "AI Research"
 description: "推論に高価なGPUはほぼ不要になる。究極の軽量化技術「1ビット量子化」がもたらすAIパラダイムシフトと、その先に待つ未来を読み解く。"
+themes: ["ai:research", "ai:llm", "ai:hardware"]
 ---
 
-# 突如実用化した1ビットLLM「Bonsai-8B」の衝撃
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
+# 1ビットLLM | Bonsai-8Bがもたらす推論パラダイムシフト 2026
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 本レポートでは、16ビットの浮動小数点(FP16)を「-1, 0, 1」の3値（実質1.58ビット）へと極限圧縮する「1ビット量子化技術」と、その実用モデルである「Bonsai-8B」の衝撃について解説します。
@@ -255,4 +256,5 @@ insightBox.style.opacity = 1;
 
 
 ## 変更履歴 (Changelog)
+- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: HTMLレイアウト（インデント除去）の修正、[VRAM](../glossary/index.html) / [GPU](../glossary/index.html) 等の用語紐付けを追加し、SPAエンジンでの描画精度を向上。

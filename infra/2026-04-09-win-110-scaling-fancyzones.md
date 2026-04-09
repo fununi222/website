@@ -1,12 +1,13 @@
 ---
-title: "Windows 11表示スケール110%設定とFancyZones活用"
-date: "2026-04-06"
+title: "Windows 11 | 表示スケール110%設定とFancyZones活用 2026"
+date: "2026-04-09"
 category: "Infrastructure"
 description: "大画面モニターやROG Allyでの作業効率を最大化する、カスタムスケーリングとマウスのみでの画面分割手法。"
+themes: ["infra:os", "infra:automation", "windows:config"]
 ---
 
-# 【Windows設定】かゆい所に手が届く！画面表示「110%」＆マウスだけで完結する「6画面分割」の作り方
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
+# Windows 11 | 表示スケール110%設定とFancyZones活用 2026
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 本記事は、Windows 11環境における視認性と作業効率を極限まで高めるカスタマイズ手法の記録です。標準設定にはない「110%」の[カスタムスケーリング](../glossary/index.html)を適用し、[PowerToys](../glossary/index.html) の [FancyZones](../glossary/index.html) 機能をマウスの副ボタン（右クリック）のみで呼び出せるよう調整することで、キーボードを介さない直感的なマルチウィンドウ環境を構築します。
@@ -84,4 +85,5 @@ Windows 11/10の「ディスプレイの拡大縮小」設定は、標準だと1
 
 
 ## 変更履歴 (Changelog)
+- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。

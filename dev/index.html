@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT & Infrastructure | FunUni-lab Synthetic Edition</title>
+    <title>Development & Systems | FunUni-lab Synthetic Edition</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -35,8 +35,8 @@
     <!-- Sidebar -->
     <aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col py-20 px-4 space-y-2 bg-surface z-40 border-r border-white/5">
         <div class="mb-8 px-4">
-            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">INFRA_SYSTEM_LOG</div>
-            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.05</div>
+            <div class="text-primary font-bold text-xs uppercase tracking-widest font-headline">DEV_RESEARCH_LOG</div>
+            <div class="text-slate-500 text-[10px] uppercase tracking-widest font-body mt-1">v2026.04.09</div>
         </div>
         <nav class="flex-1 space-y-1">
       <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../infra/index.html">
@@ -55,9 +55,17 @@
         <span class="material-symbols-outlined text-lg">diamond</span>
         <span class="font-headline text-[10px] uppercase tracking-widest">Finance</span>
       </a>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../lpo/index.html">
+        <span class="material-symbols-outlined text-lg">rocket_launch</span>
+        <span class="font-headline text-[10px] uppercase tracking-widest">Optimization</span>
+      </a>
       <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../other/index.html">
         <span class="material-symbols-outlined text-lg">folder_open</span>
         <span class="font-headline text-[10px] uppercase tracking-widest">Other / Misc</span>
+      </a>
+      <a class="flex items-center gap-3 py-2.5 px-4 text-slate-500 hover:bg-surface-container hover:text-primary transition-all hover:translate-x-1 duration-200" href="../glossary/index.html">
+        <span class="material-symbols-outlined text-lg">menu_book</span>
+        <span class="font-headline text-[10px] uppercase tracking-widest">Glossary</span>
       </a>
     </nav>
     </aside>
@@ -72,21 +80,21 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="latest">
-                <a href="../article.html?md=dev/2026-04-05-freeman-project-hp-retrospective.md" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-secondary/30 transition-all cyber-glow">
+                <a href="../article.html?md=dev/2026-04-09-freeman-project-hp-retrospective.md" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-secondary/30 transition-all cyber-glow">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-2xl">🌐</span>
                         <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Frontend</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">Freeman Project HP 制作記録</h3>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">Development | Freeman プロジェクトのホームページ制作記録 2026</h3>
                     <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">情報設計、可読性、レスポンシブ対応の観点から過去制作のホームページを振り返る。</p>
                 </a>
 
-                <a href="../article.html?md=dev/2026-04-05-altra-recommender-retrospective.md" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
+                <a href="../article.html?md=dev/2026-04-09-altra-recommender-retrospective.md" class="group block p-6 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cyber-glow">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-2xl">🎯</span>
                         <span class="text-[10px] font-bold text-tertiary uppercase tracking-widest">Retrospective</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-tertiary transition-colors">altra-recommender 制作記録</h3>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-tertiary transition-colors">Development | altra-recommender 開発の舞台裏と推薦ロジック 2026</h3>
                     <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">推薦ロジック、データ構造、結果の見せ方を振り返るレコメンド系 Web アプリの制作記録。</p>
                 </a>
 
@@ -97,7 +105,7 @@
     <footer class="lg:pl-64 w-full py-12 px-8 mt-auto bg-background/50 backdrop-blur-sm font-body text-xs border-t border-white/5">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
             <div class="flex flex-col gap-2">
-                <span class="text-slate-400">© 2026 FunUni-lab Synthetic Edition. IT & Infrastructure Division.</span>
+                <span class="text-slate-400">© 2026 FunUni-lab Synthetic Edition. Development Systems Division.</span>
             </div>
             <div class="flex gap-6">
                 <a href="../index.html" class="hover:text-primary transition-colors uppercase tracking-[0.2em]">Portal_Home</a>

@@ -1,15 +1,15 @@
 ---
-title: "宇宙仕様書検証レポート v2026.04"
+title: "Other | 宇宙仕様書検証レポート v2026.04"
 date: "2026-04-09"
 category: "Other / Misc"
 description: "物理法則をシステムの「仕様書」として再解釈し、観測データの異常値をデバッグ情報としてまとめたレポート。"
+themes: ["other:physics", "other:spec"]
 ---
 
-# 宇宙仕様書検証レポート v2026.04
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-09</div>
+# Other | 宇宙仕様書検証レポート v2026.04
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
-
 本レポートは、最新の宇宙観測データ（[JWST](../glossary/index.html)等）を基に、「宇宙そのものが高度な情報処理システム（シミュレーション）である」という仮説の下、[標準模型](../glossary/index.html)では説明困難な不整合をシステムの「バグ」や「パッチ未適用」として分析したものです。ハッブル・テンションや [CMB](../glossary/index.html) の異常値を、物理法則という名の「仕様書」に対するデバッグ報告として可視化します。
 
 ---
@@ -173,4 +173,5 @@ initChart('alpha');
 謎のパラメータ「ダークエネルギー」の有効化。膨張速度が加速に転じ、将来の「引き裂き（Big Rip）」へ向けた仕様変更とされる。
 
 ## 変更履歴 (Changelog)
-- 2026-04-09: `SKILL.md` の運用ルールに合わせ、変更履歴セクションを追加。
+- **2026-04-09**: 全体的な標準化アップデート。「Synthetic Edition」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。
+- **2026-04-06**: `SKILL.md` の運用ルールに合わせ、変更履歴セクションを追加。

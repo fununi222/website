@@ -1,12 +1,13 @@
 ---
-title: "AIの「知ったかぶり」と使い分け術"
-date: "2026-04-06"
+title: "AIハルシネーション | ポチョムキン理解の克服とモデル使い分け術 2026"
+date: "2026-04-09"
 category: "AI & Agents"
 description: "最新LLMの「ポチョムキン理解」の仕組みと、弱点を補うための最適な「使い分け」術を検証・解説します。"
+themes: ["ai:llm", "ai:hallucination", "ai:orchestration"]
 ---
 
-# AIの「知ったかぶり」と使い分け術
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
+# AIハルシネーション | ポチョムキン理解の克服とモデル使い分け術 2026
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 本レポートは、最新のAIが論理的破綻に気づかず出力してしまう「ポチョムキン理解（見せかけの理解）」のメカニズムを解明し、それを防ぐためのハードウェア（推論特化型モデル等）とソフトウェア（ガードレール等）の両面からの最新アプローチを整理しています。合わせて、各分野（コーディング・論理構築・検索・クリエイティブ）へ最適なAIモデルを割り振る「使い分け（オーケストレーション）」のベストプラクティスを、インタラクティブなチャートUIを通じて解説します。
@@ -339,4 +340,5 @@ radarChart.update();
 </script>
 
 ## 変更履歴 (Changelog)
+- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: HTMLレイアウト（インデント除去）の修正を適用。SPAエンジンでの描画の信頼性を向上。

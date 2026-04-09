@@ -1,12 +1,13 @@
 ---
-title: "altra-recommender 制作記録"
-date: "2026-04-06"
+title: "Development | altra-recommender 開発の舞台裏と推薦ロジック 2026"
+date: "2026-04-09"
 category: "Development"
 description: "推薦ロジック、データ構造、結果の見せ方を振り返るレコメンド系 Web アプリの制作記録。"
+themes: ["dev:webapp", "dev:algorithm", "other:retrospective"]
 ---
 
-# altra-recommender 制作記録
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06</div>
+# Development | altra-recommender 開発の舞台裏と推薦ロジック 2026
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 本記事は、過去に制作したレコメンドエンジン「altra-recommender」の開発プロセスを振り返ったものです。単なる[アルゴリズム](../glossary/index.html)の実装にとどまらず、推薦結果の「納得感」や「可読性」といった [UI](../glossary/index.html) 体験、および[フロントエンド](../glossary/index.html)とロジックを密結合させないデータ構造の設計について、実務に繋がる学びをまとめています。
@@ -57,4 +58,5 @@ description: "推薦ロジック、データ構造、結果の見せ方を振り
 
 
 ## 変更履歴 (Changelog)
+- **2026-04-09**: 全体的な標準化アップデート。「Synthetic Edition」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。

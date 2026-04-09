@@ -1,12 +1,13 @@
 ---
-title: "Home Radar Update Guide"
-date: "2026-04-06"
+title: "LPO | 80点円による自己最適化フレームワーク 2026"
+date: "2026-04-09"
 category: "LPO"
-description: "ホームのレーダーチャートとサマリーバーを更新するための運用ガイド。"
+description: "ホームのレーダーチャートとサマリーバーを更新するための運用ガイドと評価基準。"
+themes: ["lpo:framework", "lpo:optimization", "dev:automation"]
 ---
 
-# 🚀 Home Radar Update Guide
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono mt-2">Last Updated: 2026-04-06 04:35</div>
+# LPO | 80点円による自己最適化フレームワーク 2026
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 このページは、ホーム画面のレーダーチャートと3本のサマリーバーを更新するための記事です。`index.html` はこのMarkdown内のスコア行を直接読み取り、ホーム表示へ反映します。
@@ -88,6 +89,7 @@ description: "ホームのレーダーチャートとサマリーバーを更新
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-04-09**: 全体的な標準化アップデート。「Synthetic Edition」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。
 - **2026-04-06 04:35**: `lpo-system.md` を、ホームのレーダーチャート更新方法を説明する運用記事へ再構成。ホームが参照するスコア定義は維持。
 - **2026-04-06 04:15**: Mentor Agentによる自律評価更新。サイト全体の合成移行（Synthetic Migration）およびDashboard改善の実績を反映し、技術適応力・推進力・課題解決を+5上方修正。
 - **2026-04-06 00:00**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびにファイル名の小文字化、フロントマター及びメタデータ（Last Updated / Changelog）の標準コンプライアンス修正を実施。

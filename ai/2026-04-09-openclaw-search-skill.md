@@ -1,10 +1,13 @@
 ---
-date: "2026-04-06"
+title: "OpenClaw | Yahoo!リアルタイム検索を活用した動的スキルの構築"
+date: "2026-04-09"
+category: "AI & Agents"
+description: "X APIの高騰を回避し、Yahoo!リアルタイム検索をデータソースとして活用するAIエージェントスキルの実装ガイド。"
+themes: ["ai:agent", "ai:tool-integration", "ai:automation"]
 ---
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-06</div>
-
-# OpenClaw 検索スキル構築ガイド - Yahoo!リアルタイム検索の活用
+# OpenClaw | Yahoo!リアルタイム検索を活用した動的スキルの構築
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 [X](../glossary/index.html) [API](../glossary/index.html)の高額な費用やアカウント制約、凍結リスクを回避し、[Yahoo!リアルタイム検索](https://search.yahoo.co.jp/realtime)をデータソースとして活用する、[OpenClaw](../glossary/index.html) ベースの[AIエージェント](../glossary/index.html)スキル構築ガイドです。
@@ -288,4 +291,5 @@ window.runOpenClawDemo = runOpenClawDemo;
 </script>
 
 ## 変更履歴 (Changelog)
-- 2026-04-06: 新規作成。Yahoo!リアルタイム検索を用いたOpenClawスキル実装ガイド。
+- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
+- **2026-04-06**: 新規作成。Yahoo!リアルタイム検索を用いたOpenClawスキル実装ガイド。

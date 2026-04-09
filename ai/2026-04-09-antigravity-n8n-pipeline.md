@@ -1,10 +1,13 @@
 ---
-date: "2026-04-06"
+title: "Antigravity × n8n | 自律修復パイプラインの構築と完全解剖"
+date: "2026-04-09"
+category: "AI & Agents"
+description: "Gemini 3 Proを搭載したAntigravityとn8nを連携し、エラー検知から修正PR作成までを完全自動化するパイプライン解説。"
+themes: ["ai:agent", "ai:automation", "dev:devops"]
 ---
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-06</div>
-
-# 自律修復パイプライン完全解剖 - Antigravity × n8n
+# Antigravity × n8n | 自律修復パイプラインの構築と完全解剖
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
 Gemini 3 Proを搭載した[Antigravity](../glossary/index.html)と[n8n](../glossary/index.html)を連携し、エラーの検知からコードの推論、修正パッチの生成、GitHubへのPull Request作成までを完全自動化するシステムの構築手順と導入効果の解説です。設定ファイルからコードの依存関係まで理解できる自律修復パイプラインを構築します。
@@ -261,4 +264,5 @@ document.head.appendChild(style);
 </script>
 
 ## 変更履歴 (Changelog)
-- 2026-04-06: HTML原稿よりMarkdown（SME構成）へ再構築
+- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
+- **2026-04-06**: HTML原稿よりMarkdown（SME構成）へ再構築。
