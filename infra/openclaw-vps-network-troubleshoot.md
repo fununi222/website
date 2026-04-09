@@ -10,7 +10,7 @@ themes: ["infra:network", "infra:vps", "other:troubleshoot"]
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
-本レポートは、[VPS (Virtual Private Server)](/article.html?md=glossary/system-glossary.md#:~:text=VPS (Virtual Private Server)) 環境に構築した [OpenClaw](/article.html?md=glossary/system-glossary.md#:~:text=OpenClaw) において、外部通信（HTTP/HTTPS）がタイムアウトする原因と[トラブルシュート](/article.html?md=glossary/system-glossary.md#:~:text=トラブルシュート)プロセスをまとめたものです。OS内部ではなく「事業者の[パケットフィルター](/article.html?md=glossary/system-glossary.md#:~:text=パケットフィルター)」による双方向通信の遮断を特定し、[DNS (UDP 53)](/article.html?md=glossary/system-glossary.md#:~:text=DNS (UDP 53)) は通るが [TCP 80/443](/article.html?md=glossary/system-glossary.md#:~:text=TCP 80/443) が落ちるという特殊な挙動に対する具体的対策を提示します。
+本レポートは、[VPS (Virtual Private Server)](/article.html?md=glossary/system-glossary.md#:~:text=VPS (Virtual Private Server)) 環境に構築した [OpenClaw](/article.html?md=glossary/system-glossary.md#:~:text=OpenClaw) において、外部通信（HTTP/HTTPS）がタイムアウトする原因と[トラブルシュート](/article.html?md=glossary/system-glossary.md#:~:text=%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%88)プロセスをまとめたものです。OS内部ではなく「事業者の[パケットフィルター](/article.html?md=glossary/system-glossary.md#:~:text=%E3%83%91%E3%82%B1%E3%83%83%E3%83%88%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC)」による双方向通信の遮断を特定し、[DNS (UDP 53)](/article.html?md=glossary/system-glossary.md#:~:text=DNS (UDP 53)) は通るが [TCP 80/443](/article.html?md=glossary/system-glossary.md#:~:text=TCP 80/443) が落ちるという特殊な挙動に対する具体的対策を提示します。
 
 ---
 
@@ -22,13 +22,13 @@ themes: ["infra:network", "infra:vps", "other:troubleshoot"]
   - サーバー内からの `curl` も無反応。ただし [DNS](/article.html?md=glossary/system-glossary.md#:~:text=DNS)（名前解決）のみ成功する。
 
 ## 2. トラブルの主因：VPS 固有のパケットフィルター
-今回の最大の問題は、OS 内部の設定ではなく、**[VPS](/article.html?md=glossary/system-glossary.md#:~:text=VPS) 事業者側（インフラ層）の[パケットフィルター](/article.html?md=glossary/system-glossary.md#:~:text=パケットフィルター)仕様**にありました。
+今回の最大の問題は、OS 内部の設定ではなく、**[VPS](/article.html?md=glossary/system-glossary.md#:~:text=VPS) 事業者側（インフラ層）の[パケットフィルター](/article.html?md=glossary/system-glossary.md#:~:text=%E3%83%91%E3%82%B1%E3%83%83%E3%83%88%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC)仕様**にありました。
 
 ### インフラ・レイヤー：双方向遮断の壁
-XServer [VPS](/article.html?md=glossary/system-glossary.md#:~:text=VPS) の[パケットフィルター](/article.html?md=glossary/system-glossary.md#:~:text=パケットフィルター)が「ON」の場合、許可したポート（デフォルトでは SSH 用の 22番など）以外の通信を**双方向で遮断**します。
+XServer [VPS](/article.html?md=glossary/system-glossary.md#:~:text=VPS) の[パケットフィルター](/article.html?md=glossary/system-glossary.md#:~:text=%E3%83%91%E3%82%B1%E3%83%83%E3%83%88%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC)が「ON」の場合、許可したポート（デフォルトでは SSH 用の 22番など）以外の通信を**双方向で遮断**します。
 
 - **[DNS](/article.html?md=glossary/system-glossary.md#:~:text=DNS)（UDP 53）が通った理由:** 多くの [VPS](/article.html?md=glossary/system-glossary.md#:~:text=VPS) プロバイダーでは管理用に 53番ポートをデフォルトで開放しているため、名前解決までは成功します。
-- **HTTP/HTTPS（TCP 80/443）が死んだ理由:** サーバーから外へリクエストを投げた際、その「戻りパケット」がフィルターに阻まれます。一般的な PC やホームルーター（[NAT](/article.html?md=glossary/system-glossary.md#:~:text=NAT) / ステートフル・インスペクション機能付き）では自動で許可される通信ですが、**厳格な [VPS](/article.html?md=glossary/system-glossary.md#:~:text=VPS) の[パケットフィルター](/article.html?md=glossary/system-glossary.md#:~:text=パケットフィルター)では「戻り」も明示的な許可、あるいはフィルターの全解除が必要**になります。
+- **HTTP/HTTPS（TCP 80/443）が死んだ理由:** サーバーから外へリクエストを投げた際、その「戻りパケット」がフィルターに阻まれます。一般的な PC やホームルーター（[NAT](/article.html?md=glossary/system-glossary.md#:~:text=NAT) / ステートフル・インスペクション機能付き）では自動で許可される通信ですが、**厳格な [VPS](/article.html?md=glossary/system-glossary.md#:~:text=VPS) の[パケットフィルター](/article.html?md=glossary/system-glossary.md#:~:text=%E3%83%91%E3%82%B1%E3%83%83%E3%83%88%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC)では「戻り」も明示的な許可、あるいはフィルターの全解除が必要**になります。
 
 > **PC ユーザーとの違い:**
 > ローカル PC や Mac で [OpenClaw](/article.html?md=glossary/system-glossary.md#:~:text=OpenClaw) を動かす場合、通常は [NAT](/article.html?md=glossary/system-glossary.md#:~:text=NAT) 内側にいるためこの問題は発生しません。これは [VPS](/article.html?md=glossary/system-glossary.md#:~:text=VPS) という「インターネット直結の仮想サーバー」特有の制約です。
@@ -52,7 +52,7 @@ echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
 ### ステップ3：インフラ・フィルターの開放（最重要）
 XServer [VPS](/article.html?md=glossary/system-glossary.md#:~:text=VPS) 管理パネルにて以下のいずれかを実施します。
-1. **「[パケットフィルター](/article.html?md=glossary/system-glossary.md#:~:text=パケットフィルター)」を一時的に OFF に設定。**
+1. **「[パケットフィルター](/article.html?md=glossary/system-glossary.md#:~:text=%E3%83%91%E3%82%B1%E3%83%83%E3%83%88%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC)」を一時的に OFF に設定。**
 2. **「TCP 80 / 443」を接続許可ポートとして追加。**
 
 ## 4. 診断用コマンド（疎通確認のベストプラクティス）

@@ -10,7 +10,7 @@ themes: ["dev:webapp", "dev:algorithm", "other:retrospective"]
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
-本記事は、過去に制作したレコメンドエンジン「altra-recommender」の開発プロセスを振り返ったものです。単なる[アルゴリズム](/article.html?md=glossary/system-glossary.md#:~:text=アルゴリズム)の実装にとどまらず、推薦結果の「納得感」や「可読性」といった [UI](/article.html?md=glossary/system-glossary.md#:~:text=UI) 体験、および[フロントエンド](/article.html?md=glossary/system-glossary.md#:~:text=フロントエンド)とロジックを密結合させないデータ構造の設計について、実務に繋がる学びをまとめています。
+本記事は、過去に制作したレコメンドエンジン「altra-recommender」の開発プロセスを振り返ったものです。単なる[アルゴリズム](/article.html?md=glossary/system-glossary.md#:~:text=%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0)の実装にとどまらず、推薦結果の「納得感」や「可読性」といった [UI](/article.html?md=glossary/system-glossary.md#:~:text=UI) 体験、および[フロントエンド](/article.html?md=glossary/system-glossary.md#:~:text=%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89)とロジックを密結合させないデータ構造の設計について、実務に繋がる学びをまとめています。
 
 ---
 
@@ -20,7 +20,7 @@ themes: ["dev:webapp", "dev:algorithm", "other:retrospective"]
 
 一覧をそのまま見せるのではなく、利用者に合わせて情報を絞り込んだり、候補を提案したりする仕組みに興味があり、このアプリに取り組みました。普段使っているサービスでは当たり前に見えるレコメンド機能も、自分で作る側に回ると、データの扱い方、条件分岐、結果の見せ方まで含めて考えることが多くあります。
 
-そのため、この制作では[アルゴリズム](/article.html?md=glossary/system-glossary.md#:~:text=アルゴリズム)だけに寄らず、**推薦結果をどう体験として届けるか** を大きなテーマにしていました。
+そのため、この制作では[アルゴリズム](/article.html?md=glossary/system-glossary.md#:~:text=%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0)だけに寄らず、**推薦結果をどう体験として届けるか** を大きなテーマにしていました。
 
 ## 制作で意識したこと
 
@@ -38,7 +38,7 @@ themes: ["dev:webapp", "dev:algorithm", "other:retrospective"]
 
 ## 制作を通して学んだこと
 
-この制作で大きかったのは、[フロントエンド](/article.html?md=glossary/system-glossary.md#:~:text=フロントエンド)だけでなく、ロジック設計まで含めてアプリ全体を見る視点が身についたことです。特に、推薦結果の質だけを追うのではなく、**ユーザーが結果をどう受け取るか** を考えることで、実装の優先順位や画面設計の考え方が大きく変わりました。
+この制作で大きかったのは、[フロントエンド](/article.html?md=glossary/system-glossary.md#:~:text=%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89)だけでなく、ロジック設計まで含めてアプリ全体を見る視点が身についたことです。特に、推薦結果の質だけを追うのではなく、**ユーザーが結果をどう受け取るか** を考えることで、実装の優先順位や画面設計の考え方が大きく変わりました。
 
 また、レコメンド機能は「何をおすすめするか」だけでなく、「なぜそれが出てきたのか」が見えないと使いにくくなる場面もあります。結果の理由や納得感まで含めて設計する重要性を、この制作で実感しました。
 

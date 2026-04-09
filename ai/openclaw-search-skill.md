@@ -10,7 +10,7 @@ themes: ["ai:agent", "ai:tool-integration", "ai:automation"]
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
-[X](/article.html?md=glossary/system-glossary.md#:~:text=X) [API](/article.html?md=glossary/system-glossary.md#:~:text=API)の高額な費用やアカウント制約、凍結リスクを回避し、[Yahoo!リアルタイム検索](https://search.yahoo.co.jp/realtime)をデータソースとして活用する、[OpenClaw](/article.html?md=glossary/system-glossary.md#:~:text=OpenClaw) ベースの[AIエージェント](/article.html?md=glossary/system-glossary.md#:~:text=AIエージェント)スキル構築ガイドです。
+[X](/article.html?md=glossary/system-glossary.md#:~:text=X) [API](/article.html?md=glossary/system-glossary.md#:~:text=API)の高額な費用やアカウント制約、凍結リスクを回避し、[Yahoo!リアルタイム検索](https://search.yahoo.co.jp/realtime)をデータソースとして活用する、[OpenClaw](/article.html?md=glossary/system-glossary.md#:~:text=OpenClaw) ベースの[AIエージェント](/article.html?md=glossary/system-glossary.md#:~:text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88)スキル構築ガイドです。
 [Playwright](/article.html?md=glossary/system-glossary.md#:~:text=Playwright)によるスクレイピングと、[LLM](/article.html?md=glossary/system-glossary.md#:~:text=LLM)を用いた高度なフィルタリングを組み合わせ、価値の高い「推し活」情報を自動で抽出・要約するシステムを構築します。
 
 ## 1. 手法の比較分析

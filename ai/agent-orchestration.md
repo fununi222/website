@@ -10,17 +10,17 @@ themes: ["ai:orchestration", "ai:agent", "ai:architecture"]
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
-本記事では、AI開発の最前線である「[オーケストレーター](/article.html?md=glossary/system-glossary.md#:~:text=オーケストレーター)」による複数エージェントの統合管理について解説します。単一モデルの限界を、役割分担（Manager, Specialist等）によって克服し、信頼性と拡張性を両立させる「Graph型」への進化が、次世代のAI運用において不可欠な視点となることを示します。
+本記事では、AI開発の最前線である「[オーケストレーター](/article.html?md=glossary/system-glossary.md#:~:text=%E3%82%AA%E3%83%BC%E3%82%B1%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%BF%E3%83%BC)」による複数エージェントの統合管理について解説します。単一モデルの限界を、役割分担（Manager, Specialist等）によって克服し、信頼性と拡張性を両立させる「Graph型」への進化が、次世代のAI運用において不可欠な視点となることを示します。
 
 ---
 
-2026年の[AIエージェント](/article.html?md=glossary/system-glossary.md#:~:text=AIエージェント)開発における最大のパラダイムシフトは、単独のLLM（Large Language Model）による対話から、**「複数の特化型エージェントを束ねるオーケストレーションシステム」**への転換にあります。
+2026年の[AIエージェント](/article.html?md=glossary/system-glossary.md#:~:text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88)開発における最大のパラダイムシフトは、単独のLLM（Large Language Model）による対話から、**「複数の特化型エージェントを束ねるオーケストレーションシステム」**への転換にあります。
 
 ## 1. オーケストレーションの必要性
 
 単一のAIモデルがすべてのタスク（推論、検索、コーディング、外部ツール操作など）を完璧にこなすには限界があります。システム全体を階層化・役割分担させることで、以下のメリットが得られます。
 
-- **信頼性の向上**: 個々のエージェントに専門特化させることで、[ハルシネーション](/article.html?md=glossary/system-glossary.md#:~:text=ハルシネーション)（もっともらしい嘘）のリスクを低減。
+- **信頼性の向上**: 個々のエージェントに専門特化させることで、[ハルシネーション](/article.html?md=glossary/system-glossary.md#:~:text=%E3%83%8F%E3%83%AB%E3%82%B7%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3)（もっともらしい嘘）のリスクを低減。
 - **拡張性**: 必要な機能に応じて、新しいエージェントやツールを動的に追加可能。
 - **コスト最適化**: 単純なタスクには軽量モデルを、高度な推論には高性能モデルを使い分ける。
 
