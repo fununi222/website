@@ -9,6 +9,10 @@ themes: ["ai:llm", "ai:ops", "ai:agents"]
 # 大企業におけるMarkdownベースのナレッジ管理とAIデータ活用の現実：組織構造から紐解く次世代知識基盤の構築戦略
 
 ## 超要約
+<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+  <img src="../assets/img/enterprise-md-knowledge.png" alt="Enterprise Knowledge Management Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+</figure>
+
 大企業におけるAI活用の成否は、PDF等の非構造化データに依存する既存の[](article.html?md=glossary/system-glossary.md#:~:text="")アーキテクチャの限界をいかに突破するかにかかっている。本レポートでは、[](article.html?md=glossary/system-glossary.md#:~:text="")との親和性が高いMarkdownベースのナレッジ管理、分散型データ所有権を提唱する[](article.html?md=glossary/system-glossary.md#:~:text="")、そして自動化されたガバナンスを実現する[](article.html?md=glossary/system-glossary.md#:~:text="")戦略を詳解。知識を単なるファイルから「戦略的インフラ」へと格上げし、2026年のナレッジ・インテリジェンス時代を勝ち抜くための組織変革ロードマップを提示する。
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
