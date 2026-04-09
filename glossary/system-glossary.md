@@ -1,16 +1,29 @@
 ---
-title: "Glossary | システム用語集 & ナレッジベース v2026.04.09"
-date: "2026-04-09"
+title: "Glossary | システム用語集 & ナレッジベース v2026.04.10.1"
+date: "2026-04-10"
 category: "glossary"
 description: "ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。"
 themes: ["other:glossary", "other:spec"]
 ---
 
-# Glossary | システム用語集 & ナレッジベース v2026.04.09
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
+# Glossary | システム用語集 & ナレッジベース v2026.04.10.1
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-10</div>
 
 ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。
 以下の表は、各ヘッダーをクリックしてソートしたり、キーワードで検索することができます。
+
+<div class="mb-12 relative group">
+  <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+  <div class="relative flex items-center bg-surface-container rounded-xl border border-white/10 px-4 py-3 shadow-2xl">
+    <span class="material-symbols-outlined text-primary mr-3 opacity-60">search</span>
+    <input type="text" id="glossarySearch" placeholder="用語・技術名またはカテゴリでフィルター..." 
+      class="bg-transparent border-none text-on-surface text-sm w-full focus:ring-0 placeholder:text-slate-500 placeholder:text-[10px] placeholder:uppercase placeholder:tracking-widest">
+    <div id="searchCounter" class="text-[9px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4">
+      Total: 144 Definitions
+    </div>
+  </div>
+</div>
+
 
 | 用語・技術名 | カテゴリ | 概要・詳細 |
 |---|---|---|
@@ -148,7 +161,59 @@ themes: ["other:glossary", "other:spec"]
 | "Runbook Automation" | Infra / Ops | 熟練のエンジニアが持つ標準作業手順（ランブック）を自動化し、安全かつ再現性のある形で実行する仕組み。 |
 | "MTTA" | Process / Ops | Mean Time To Acknowledge（平均確認時間）の略。インシデントが発生してから、担当者がその発生を認識（応答）するまでの平均時間。 |
 | "インシデント管理" | Process / Ops | サービスの中断や品質低下を伴う予期せぬ不具合（インシデント）を迅速に解決し、正常な状態に復旧させるための一連の管理プロセス。 |
+| "Atlas/Ceres" | Infra / Security | Rubrik 社が開発した、独自かつ不変（Immutable）なファイルシステムの名称。データの改ざんや削除を物理レベルで防止する。 |
+| "SLA Domain" | Infra / Security | バックアップの頻度、保持期間、レプリケーション先などを一括定義する Rubrik の宣言型ポリシーエンジン。ジョブベースではなく「あるべき状態」を定義する。 |
+| "Retention Lock" | Infra / Security | バックアップデータの保持期間内における、管理者を含むあらゆるユーザーによるデータ削除を不可能にする機能。ランサムウェアによる証跡抹消を防御する。 |
+| "Live Mount" | Infra / Security | バックアップデータをストレージから直接サーバーにマウントし、データのリストア（書き戻し）を待たずに数分でシステムを即時稼働させる機能。 |
+| "AWS RDS" | Infra | Amazon Relational Database Service (マネージド型リレーショナルデータベースサービス)。リソースタグ等に基づいた[SLA Domain](../article.html?md=glossary/system-glossary.md#:~:text="SLA%20Domain")の自動適用（オートプロテクション）が可能。 |
+| "Amazon Aurora" | Infra | クラウド向けに構築された、Amazon RDS の MySQL および PostgreSQL と互換性のあるリレーショナルデータベース。クラスタ単位での保護に対応。 |
+| "PITR" | Infra | Point-in-Time Recovery。バックアップ時点だけでなく、トランザクションログを活用して過去の任意の時点までデータを復旧する機能。 |
+| "KMS" | Security / Infra | Key Management Service。AWS での暗号化キー管理サービス。クロスアカウント/リージョンでのリストア時に、移行先へキーの使用権限を付与する必要がある。 |
+| "IAM Role" | Security / Infra | 特定の権限を定義し、AWSのリソースやユーザーに一時的に付与するための仕組み。Rubrik と AWS の接続（AssumeRole）や権限管理の中核となる。 |
+| "DSPM" | Security / Data | Data Security Posture Management（データセキュリティ態勢管理）。データ自体の機密性、場所、アクセス権を可視化し、リスクを管理する手法。 |
+| "PII" | Security / Data | Personally Identifiable Information（個人情報）。氏名、住所、電話番号など、特定の個人を識別できる情報。 |
+| "PCI" | Security / Data | Payment Card Industry。クレジットカード情報の安全な取り扱いを目的としたセキュリティ基準（PCI DSS）に関連するデータ領域。 |
+| "Multi-AZ" | Infra | AWS RDS 等における可用性向上のための機能。複数のアベイラビリティゾーンにデータベースを冗長配置し、自動故障検知とフェイルオーバーを実現する。 |
 
 ## 変更履歴 (Changelog)
+- **2026-04-10**: 用語の追加 (Rubrik関連: Atlas, SLA Domain, Retention Lock, Live Mount, Multi-AZ)。最新リサーチ記事の統合に伴うアップデート。
+- **2026-04-10**: リアルタイムフィルター機能の追加。ブラウザ上での瞬時の用語検索を可能にする動的スクリプトを統合。
 - **2026-04-09**: 全体的な標準化アップデート。「Synthetic Edition」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。PagerDutyアーキテクチャ記事の追加に伴い、PagerDuty、AIOps、SRE、Event Orchestration、Runbook Automation、MTTA、インシデント管理を追加。さらに宇宙仕様書TRDおよびアウトドア小売戦略レポの各専門用語も反映。
+
+<script>
+(() => {
+    const searchInput = document.getElementById('glossarySearch');
+    const counter = document.getElementById('searchCounter');
+    const table = document.querySelector('table');
+    if (!searchInput || !table) return;
+
+    const rows = Array.from(table.querySelectorAll('tbody tr'));
+    const totalCount = rows.length;
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (text.includes(query)) {
+                row.style.display = '';
+                visibleCount++;
+            } else {
+                row.style.display = 'none';
+            }
+        });
+
+        // Update Counter
+        if (query === '') {
+            counter.textContent = `Total: ${totalCount} Definitions`;
+            counter.className = "text-[9px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4";
+        } else {
+            counter.textContent = `Match: ${visibleCount} / ${totalCount}`;
+            counter.className = "text-[9px] font-bold text-secondary uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4";
+        }
+    });
+})();
+</script>
+
 - **2026-04-06**: 用語の追加および整理、超要約・コンテンツ整理を実施。
