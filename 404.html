@@ -12,32 +12,36 @@
       (function() {
         var path = window.location.pathname;
         var origin = window.location.origin;
-        var repoName = path.split('/')[1] || 'website';
+        
+        // Robust Repo Name Detection
+        var repoName = "";
+        if (path.startsWith("/website/")) {
+            repoName = "website";
+        }
+        
+        var baseUrl = origin + (repoName ? "/" + repoName : "");
         
         // 1. Detect if this is a request for a potential article node
-        // Pattern matches: /repo/folder/filename.html OR /repo/folder/YYYY-MM-DD-filename.html
         var htmlMatch = path.match(/\/([^\/]+\/)([^\/]+)\.html$/);
         
         if (htmlMatch) {
-          var folder = htmlMatch[1]; // e.g. "ai/"
-          var filename = htmlMatch[2]; // e.g. "2026-04-09-file"
+          var folder = htmlMatch[1]; 
+          var filename = htmlMatch[2];
           
-          // 2. Normalize folder names (legacy 'it' -> 'infra', 'points' -> 'finance')
+          // 2. Normalize folder names
           folder = folder.replace(/^it\//, 'infra/').replace(/^points\//, 'finance/');
           
-          // 3. Date-Blind Regex: Strip leading YYYY-MM-DD- if present
+          // 3. Date-Blind Regex
           var dateStrippedFilename = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
           
-          // 4. Construct the target SPA URL
+          // 4. Construct target SPA URL using the detected base
           var targetMd = folder + dateStrippedFilename + ".md";
-          var redirectUrl = origin + "/" + repoName + "/article.html?md=" + targetMd;
+          var redirectUrl = baseUrl + "/article.html?md=" + targetMd;
           
-          console.log("SPA Router: Redirecting to stable node ->", redirectUrl);
+          console.log("SPA Router: Redirecting to ->", redirectUrl);
           window.location.replace(redirectUrl);
         } else {
-          // 5. Fallback for non-HTML paths or broken links: Return to Portal Home
-          console.log("SPA Router: Path unrecognized, returning to Portal Home");
-          window.location.replace(origin + "/" + repoName + "/index.html");
+          window.location.replace(baseUrl + "/index.html");
         }
       })();
     </script>

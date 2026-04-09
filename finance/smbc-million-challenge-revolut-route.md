@@ -10,7 +10,7 @@ description: "「100万円修行」を効率的に達成するための最適解
 # 三井住友カード × Revolut 攻略ダッシュボード
 
 ## 超要約
-[三井住友カード](../article.html?md=glossary/system-glossary.md#:~:text=%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89)から[Revolut](../article.html?md=glossary/system-glossary.md#:~:text=Revolut)へのチャージは、2024年6月の手数料改定により、**Mastercardブランドなら完全無料**、**VisaブランドでもOliveデビットモードなら無料**で修行（100万円利用）にカウント可能です。本ダッシュボードでは、お持ちのブランドに応じた最適設定と、チャージ後の「高還元な出口戦略」をシミュレートできます。
+[三井住友カード](article.html?md=glossary/system-glossary.md#:~:text=%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89)から[Revolut](article.html?md=glossary/system-glossary.md#:~:text=Revolut)へのチャージは、2024年6月の手数料改定により、**Mastercardブランドなら完全無料**、**VisaブランドでもOliveデビットモードなら無料**で修行（100万円利用）にカウント可能です。本ダッシュボードでは、お持ちのブランドに応じた最適設定と、チャージ後の「高還元な出口戦略」をシミュレートできます。
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
@@ -24,7 +24,7 @@ description: "「100万円修行」を効率的に達成するための最適解
 STEP 1: カードブランド別 手数料シミュレーター
 </h2>
 <p class="text-[11px] text-on-surface-variant leading-relaxed">
-お持ちの三井住友カード（またはOlive）のブランドを選択してください。[Revolut](../article.html?md=glossary/system-glossary.md#:~:text=Revolut)へのチャージにかかる手数料と最適な設定方法をご案内します。
+お持ちの三井住友カード（またはOlive）のブランドを選択してください。[Revolut](article.html?md=glossary/system-glossary.md#:~:text=Revolut)へのチャージにかかる手数料と最適な設定方法をご案内します。
 </p>
 </div>
 
@@ -75,7 +75,7 @@ Olive (Visa)
 STEP 2: Revolutチャージ後の出口ルート
 </h2>
 <p class="text-[11px] text-on-surface-variant leading-relaxed">
-[Revolut](../article.html?md=glossary/system-glossary.md#:~:text=Revolut)にチャージした残高をどう使うか？お使いの端末OSによって最適な攻略ルートが異なります。
+[Revolut](article.html?md=glossary/system-glossary.md#:~:text=Revolut)にチャージした残高をどう使うか？お使いの端末OSによって最適な攻略ルートが異なります。
 </p>
 </div>
 
@@ -112,7 +112,7 @@ STEP 2: Revolutチャージ後の出口ルート
 ポイ活ガチ勢に「Androidサブ機」が必須な理由
 </h2>
 <p class="text-[11px] text-on-surface-variant mb-6 leading-relaxed">
-iPhoneユーザーであっても、おサイフケータイ対応のAndroid端末（中古サブ機）を1台持つことが強く推奨されます。上記の「[楽天Edy](../article.html?md=glossary/system-glossary.md#:~:text=%E6%A5%BD%E5%A4%A9Edy) ➡️ [楽天キャッシュ](../article.html?md=glossary/system-glossary.md#:~:text=%E6%A5%BD%E5%A4%A9%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5)」ルートは、AndroidのFeliCa機能がないと物理的に実行不可能なためです。
+iPhoneユーザーであっても、おサイフケータイ対応のAndroid端末（中古サブ機）を1台持つことが強く推奨されます。上記の「[楽天Edy](article.html?md=glossary/system-glossary.md#:~:text=%E6%A5%BD%E5%A4%A9Edy) ➡️ [楽天キャッシュ](article.html?md=glossary/system-glossary.md#:~:text=%E6%A5%BD%E5%A4%A9%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5)」ルートは、AndroidのFeliCa機能がないと物理的に実行不可能なためです。
 </p>
 <ul class="space-y-3 text-[11px] text-on-surface leading-loose">
 <li class="flex items-start gap-3">
@@ -180,7 +180,7 @@ const contentData = {
     routes: {
         android: {
             title: "還元率維持に最適！楽天Edy ➡️ 楽天キャッシュルート",
-            note: "<strong>解説：</strong> Androidのおサイフケータイ機能を活用し、[楽天Edy](../article.html?md=glossary/system-glossary.md#:~:text=%E6%A5%BD%E5%A4%A9Edy)を経由して[楽天キャッシュ](../article.html?md=glossary/system-glossary.md#:~:text=%E6%A5%BD%E5%A4%A9%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5)に変換するルートです。これにより、楽天証券での投信積立（月5万円まで）に充当でき、安定してポイント還元を受けつつ残高を現金化に近い形で消化できます。",
+            note: "<strong>解説：</strong> Androidのおサイフケータイ機能を活用し、[楽天Edy](article.html?md=glossary/system-glossary.md#:~:text=%E6%A5%BD%E5%A4%A9Edy)を経由して[楽天キャッシュ](article.html?md=glossary/system-glossary.md#:~:text=%E6%A5%BD%E5%A4%A9%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5)に変換するルートです。これにより、楽天証券での投信積立（月5万円まで）に充当でき、安定してポイント還元を受けつつ残高を現金化に近い形で消化できます。",
             nodes: [
                 { name: "Revolut", icon: "💳", color: "bg-surface" },
                 { name: "ANA Pay", icon: "✈️", color: "bg-blue-900/20" },

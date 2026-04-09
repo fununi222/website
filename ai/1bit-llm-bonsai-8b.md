@@ -11,13 +11,13 @@ themes: ["ai:research", "ai:llm", "ai:hardware"]
 
 ## 超要約
 本レポートでは、16ビットの浮動小数点(FP16)を「-1, 0, 1」の3値（実質1.58ビット）へと極限圧縮する「1ビット量子化技術」と、その実用モデルである「Bonsai-8B」の衝撃について解説します。
-パラメータの簡略化により複雑な乗算処理が不要となり、[VRAM](../article.html?md=glossary/system-glossary.md#:~:text=VRAM) の消費量を激減させることで「数十万円の [GPU](../article.html?md=glossary/system-glossary.md#:~:text=GPU) なしに、普通のCPUやスマホで十分な速度の推論」が可能になります。この技術的ブレイクスルーは、エッジAIの爆発的普及やNVIDIA一強体制へのカウンターとなり、AIインフラのコスト構造やプライバシー要件に巨大なパラダイムシフトをもたらします。
+パラメータの簡略化により複雑な乗算処理が不要となり、[VRAM](article.html?md=glossary/system-glossary.md#:~:text=VRAM) の消費量を激減させることで「数十万円の [GPU](article.html?md=glossary/system-glossary.md#:~:text=GPU) なしに、普通のCPUやスマホで十分な速度の推論」が可能になります。この技術的ブレイクスルーは、エッジAIの爆発的普及やNVIDIA一強体制へのカウンターとなり、AIインフラのコスト構造やプライバシー要件に巨大なパラダイムシフトをもたらします。
 
 ---
 
 ## 1. パラダイムシフト：1ビット量子化とは？
 
-従来の [LLM](../article.html?md=glossary/system-glossary.md#:~:text=LLM) は、人間の脳のシナプスに相当する「パラメータ（重み）」を16ビットの浮動小数点（FP16）で保持していました。Bonsai-8Bなどの1ビット [LLM](../article.html?md=glossary/system-glossary.md#:~:text=LLM) は、これを「-1, 0, 1」の3値（実質1.58ビット）にまで極限圧縮します。これにより、複雑な「乗算」が不要になり、単純な「加算」のみで計算が可能になります。
+従来の [LLM](article.html?md=glossary/system-glossary.md#:~:text=LLM) は、人間の脳のシナプスに相当する「パラメータ（重み）」を16ビットの浮動小数点（FP16）で保持していました。Bonsai-8Bなどの1ビット [LLM](article.html?md=glossary/system-glossary.md#:~:text=LLM) は、これを「-1, 0, 1」の3値（実質1.58ビット）にまで極限圧縮します。これにより、複雑な「乗算」が不要になり、単純な「加算」のみで計算が可能になります。
 
 <div class="bg-surface-container rounded-xl p-6 text-center border border-white/5 my-8">
 <div class="flex justify-center mb-6 space-x-4">
@@ -33,7 +33,7 @@ themes: ["ai:research", "ai:llm", "ai:hardware"]
 </div>
 
 ## 2. パフォーマンスの劇的変化
-計算の軽量化は、[LLM](../article.html?md=glossary/system-glossary.md#:~:text=LLM) を動かすためのハードルを劇的に下げます。以下のグラフから、メモリ消費、推論速度、消費電力の観点で、従来のモデルといかに異なるかを確認してください。
+計算の軽量化は、[LLM](article.html?md=glossary/system-glossary.md#:~:text=LLM) を動かすためのハードルを劇的に下げます。以下のグラフから、メモリ消費、推論速度、消費電力の観点で、従来のモデルといかに異なるかを確認してください。
 <div class="bg-surface-container rounded-2xl border border-white/5 p-6 md:p-8 my-8 cyber-glow">
 <div class="flex flex-wrap justify-center gap-2 mb-8 border-b border-white/10 pb-4">
 <button class="chart-tab-btn px-4 py-2 rounded font-semibold transition-colors bg-surface text-primary border border-primary/30 text-[10px] uppercase tracking-widest" data-metric="memory">
@@ -56,7 +56,7 @@ themes: ["ai:research", "ai:llm", "ai:hardware"]
 </div>
 
 ## 3. その先に何が起きるか（未来予測）
-「推論に [GPU](../article.html?md=glossary/system-glossary.md#:~:text=GPU) が不要になる」という事実は、単なる技術的進歩にとどまらず、ビジネスモデル、ハードウェア市場、そして社会インフラに多大な影響を与えます。
+「推論に [GPU](article.html?md=glossary/system-glossary.md#:~:text=GPU) が不要になる」という事実は、単なる技術的進歩にとどまらず、ビジネスモデル、ハードウェア市場、そして社会インフラに多大な影響を与えます。
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
 <!-- Card 1 -->
 <div class="bg-surface-container p-6 rounded-xl border border-white/5 shadow-sm hover:border-primary/30 transition-all group relative overflow-hidden cyber-glow">
@@ -257,4 +257,4 @@ insightBox.style.opacity = 1;
 
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
-- **2026-04-06**: HTMLレイアウト（インデント除去）の修正、[VRAM](../article.html?md=glossary/system-glossary.md#:~:text=VRAM) / [GPU](../article.html?md=glossary/system-glossary.md#:~:text=GPU) 等の用語紐付けを追加し、SPAエンジンでの描画精度を向上。
+- **2026-04-06**: HTMLレイアウト（インデント除去）の修正、[VRAM](article.html?md=glossary/system-glossary.md#:~:text=VRAM) / [GPU](article.html?md=glossary/system-glossary.md#:~:text=GPU) 等の用語紐付けを追加し、SPAエンジンでの描画精度を向上。
