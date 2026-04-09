@@ -10,7 +10,7 @@ themes: ["dev:webapp", "other:retrospective"]
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
-本記事は、情報設計の原点となったホームページ「Freeman Project HP」の制作プロセスを振り返ったものです。派手な装飾よりも「情報の自然な流れ」と「可読性」を最優先し、[HTML](article.html?md=glossary/system-glossary.md#:~:text=HTML) / [CSS](article.html?md=glossary/system-glossary.md#:~:text=CSS) による構造化と、デバイスを選ばない[レスポンシブ](article.html?md=glossary/system-glossary.md#:~:text=%E3%83%AC%E3%82%B9%E3%83%9D%E3%83%B3%E3%82%B7%E3%83%96)対応の本質について、当時の学びを整理しています。
+本記事は、情報設計の原点となったホームページ「Freeman Project HP」の制作プロセスを振り返ったものです。派手な装飾よりも「情報の自然な流れ」と「可読性」を最優先し、[HTML](article.html?md=glossary/system-glossary.md#:~:text="HTML") / [CSS](article.html?md=glossary/system-glossary.md#:~:text="CSS") による構造化と、デバイスを選ばない[レスポンシブ](article.html?md=glossary/system-glossary.md#:~:text="レスポンシブ")対応の本質について、当時の学びを整理しています。
 
 ---
 
@@ -34,11 +34,11 @@ themes: ["dev:webapp", "other:retrospective"]
 
 ### 3. レスポンシブ対応
 
-PC だけでなくスマートフォンでも自然に見える「[レスポンシブ](article.html?md=glossary/system-glossary.md#:~:text=%E3%83%AC%E3%82%B9%E3%83%9D%E3%83%B3%E3%82%B7%E3%83%96)」対応を意識して調整しました。特に、画面幅が変わったときの余白や要素の並びは印象に直結するため、崩れないことだけでなく、**小さい画面でも読みやすいこと** を重視しました。
+PC だけでなくスマートフォンでも自然に見える「[レスポンシブ](article.html?md=glossary/system-glossary.md#:~:text="レスポンシブ")」対応を意識して調整しました。特に、画面幅が変わったときの余白や要素の並びは印象に直結するため、崩れないことだけでなく、**小さい画面でも読みやすいこと** を重視しました。
 
 ## 制作を通して学んだこと
 
-このホームページ制作を通して強く感じたのは、Web 制作では「作れること」と「伝わること」は別だという点です。[HTML](article.html?md=glossary/system-glossary.md#:~:text=HTML) や [CSS](article.html?md=glossary/system-glossary.md#:~:text=CSS) を使って形にするだけならある程度進められても、相手にとって見やすく、理解しやすい形に整えるには、もう一段深い視点が必要でした。
+このホームページ制作を通して強く感じたのは、Web 制作では「作れること」と「伝わること」は別だという点です。[HTML](article.html?md=glossary/system-glossary.md#:~:text="HTML") や [CSS](article.html?md=glossary/system-glossary.md#:~:text="CSS") を使って形にするだけならある程度進められても、相手にとって見やすく、理解しやすい形に整えるには、もう一段深い視点が必要でした。
 
 また、完成直後には気づけなかった改善点も、時間が経ってから見返すことで見えてきました。コードの整理、再利用しやすい構成、命名の統一など、今ならもっと保守しやすい形にできると思います。
 

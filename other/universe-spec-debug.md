@@ -10,7 +10,7 @@ themes: ["other:physics", "other:spec"]
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
-本レポートは、最新の宇宙観測データ（[JWST](article.html?md=glossary/system-glossary.md#:~:text=JWST)等）を基に、「宇宙そのものが高度な情報処理システム（シミュレーション）である」という仮説の下、[標準模型](article.html?md=glossary/system-glossary.md#:~:text=%E6%A8%99%E6%BA%96%E6%A8%A1%E5%9E%8B)では説明困難な不整合をシステムの「バグ」や「パッチ未適用」として分析したものです。ハッブル・テンションや [CMB](article.html?md=glossary/system-glossary.md#:~:text=CMB) の異常値を、物理法則という名の「仕様書」に対するデバッグ報告として可視化します。
+本レポートは、最新の宇宙観測データ（[JWST](article.html?md=glossary/system-glossary.md#:~:text="JWST")等）を基に、「宇宙そのものが高度な情報処理システム（シミュレーション）である」という仮説の下、[標準模型](article.html?md=glossary/system-glossary.md#:~:text="標準模型")では説明困難な不整合をシステムの「バグ」や「パッチ未適用」として分析したものです。ハッブル・テンションや [CMB](article.html?md=glossary/system-glossary.md#:~:text="CMB") の異常値を、物理法則という名の「仕様書」に対するデバッグ報告として可視化します。
 
 ---
 

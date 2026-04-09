@@ -182,16 +182,31 @@ function handleTextFragments() {
             }
         }
 
-        // Strategy B: Fallback DOM Walk
+        // Strategy B: Fallback DOM Walk with Smart Priority
         const walker = document.createTreeWalker(contentArea, NodeFilter.SHOW_TEXT, null, false);
         let node;
+        let firstSubstringMatch = null;
+
         while (node = walker.nextNode()) {
-            if (node.textContent.includes(decodedText)) {
-                const parent = node.parentElement;
-                parent.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                parent.classList.add('sme-highlight-target');
-                break;
+            const text = node.textContent;
+
+            // 1. Priority: Exact Match (Matches cell content exactly)
+            // This handles the "Trailing Space Trick" e.g. "LLM " matches exactly "LLM " cell
+            if (text.trim() === decodedText.trim() && text.includes(decodedText)) {
+                targetElement = node.parentElement;
+                break; // Found perfect match, exit loop
             }
+
+            // 2. Secondary: First Substring Match (Fallback)
+            if (!firstSubstringMatch && text.includes(decodedText)) {
+                firstSubstringMatch = node.parentElement;
+            }
+        }
+
+        const finalTarget = targetElement || firstSubstringMatch;
+        if (finalTarget) {
+            finalTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            finalTarget.classList.add('sme-highlight-target');
         }
     }, 200); 
 }
