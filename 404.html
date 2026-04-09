@@ -5,63 +5,41 @@
     <title>Routing Node | FunUni-lab Synthetic Edition</title>
     <!-- Synthetic Edition 404 Global Router & URL Migrator -->
     <script type="text/javascript">
-      // GitHub Pages SPA 404 Fallback Router
-      var path = window.location.pathname; 
-      
-      // Known Explicit File Migrations for moved content
-      var movedFiles = {
-        "ai/2026-04-04-universe-spec-debug": "other/2026-04-09-universe-spec-debug",
-        "infra/2026-04-05-freeman-project-hp-retrospective": "dev/2026-04-09-freeman-project-hp-retrospective",
-        "ai/2026-04-05-altra-recommender-retrospective": "dev/2026-04-09-altra-recommender-retrospective",
-        "ai/2026-04-04-openclaw-vps-network-troubleshoot": "infra/2026-04-09-openclaw-vps-network-troubleshoot",
-        "infra/2026-04-03-operation-automation": "ai/2026-04-09-operation-automation",
-        "infra/2026-04-03-oss-automation-tools": "ai/2026-04-09-oss-automation-tools",
-        "finance/2026-03-investment-hell-dashboard": "finance/2026-04-09-investment-hell-dashboard",
-        "finance/2026-04-05-smbc-million-challenge-revolut-route": "finance/2026-04-09-smbc-million-challenge-revolut-route",
-        "finance/2026-04-06-payment-poi-strategy-2026": "finance/2026-04-09-payment-poi-strategy-2026",
-        "finance/2026-04-07-stockpile-poi-strategy-apr": "finance/2026-04-09-stockpile-poi-strategy-apr",
-        "infra/2026-04-07-next-gen-cmdb-strategy": "infra/2026-04-09-next-gen-cmdb-strategy",
-        "other/2026-04-04-universe-spec-debug": "other/2026-04-09-universe-spec-debug"
-      };
-
-      if (path.endsWith('.html') && !path.endsWith('index.html')) {
-        // Extract the pattern like: /website/ai/xxxxx.html -> "ai/xxxxx"
-        var match = path.match(/\/([^\/]+\/[^\/]+)\.html$/);
-        if (match) {
-          var barePath = match[1]; // e.g. "ai/2026-04-04-universe-spec-debug"
-          var targetPath = barePath;
-
-          // 1. Convert legacy folder names 'it' -> 'infra', 'points' -> 'finance'
-          if (targetPath.startsWith('it/')) {
-            targetPath = targetPath.replace(/^it\//, 'infra/');
-          }
-          if (targetPath.startsWith('points/')) {
-            targetPath = targetPath.replace(/^points\//, 'finance/');
-          }
-
-          // 2. Check explicitly moved files and map to new path
-          // Need to check against barePath (original) and the converted path (targetPath)
-          if (movedFiles[barePath]) {
-            targetPath = movedFiles[barePath];
-          } else if (movedFiles[targetPath]) {
-            targetPath = movedFiles[targetPath];
-          }
-
-          // 3. Perform dynamic reconstruction to the SPA
-          // Resulting URL: /website/article.html?md=other/universe-spec-debug.md
+      /**
+       * GitHub Pages SPA 404 Fallback Router & Date-Blind Migrator
+       * Handles: /website/category/2026-04-09-file.html -> /website/article.html?md=category/file.md
+       */
+      (function() {
+        var path = window.location.pathname;
+        var origin = window.location.origin;
+        var repoName = path.split('/')[1] || 'website';
+        
+        // 1. Detect if this is a request for a potential article node
+        // Pattern matches: /repo/folder/filename.html OR /repo/folder/YYYY-MM-DD-filename.html
+        var htmlMatch = path.match(/\/([^\/]+\/)([^\/]+)\.html$/);
+        
+        if (htmlMatch) {
+          var folder = htmlMatch[1]; // e.g. "ai/"
+          var filename = htmlMatch[2]; // e.g. "2026-04-09-file"
           
-          // Assuming base path is /website/ (GitHub Pages repository name)
-          var repoName = path.split('/')[1]; 
-          var newUrl = window.location.origin + "/" + repoName + "/article.html?md=" + targetPath + ".md";
+          // 2. Normalize folder names (legacy 'it' -> 'infra', 'points' -> 'finance')
+          folder = folder.replace(/^it\//, 'infra/').replace(/^points\//, 'finance/');
           
-          window.location.replace(newUrl);
+          // 3. Date-Blind Regex: Strip leading YYYY-MM-DD- if present
+          var dateStrippedFilename = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+          
+          // 4. Construct the target SPA URL
+          var targetMd = folder + dateStrippedFilename + ".md";
+          var redirectUrl = origin + "/" + repoName + "/article.html?md=" + targetMd;
+          
+          console.log("SPA Router: Redirecting to stable node ->", redirectUrl);
+          window.location.replace(redirectUrl);
         } else {
-          window.location.replace(window.location.origin + "/" + path.split('/')[1] + "/index.html");
+          // 5. Fallback for non-HTML paths or broken links: Return to Portal Home
+          console.log("SPA Router: Path unrecognized, returning to Portal Home");
+          window.location.replace(origin + "/" + repoName + "/index.html");
         }
-      } else {
-        // Genuine 404, fallback to Home Page
-        window.location.replace(window.location.origin + "/" + path.split('/')[1] + "/index.html");
-      }
+      })();
     </script>
   </head>
   <body style="background-color: #060e20; color: #aaa4ff; font-family: monospace; display: flex; align-items: center; justify-content: center; height: 100vh;">
