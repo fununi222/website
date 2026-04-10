@@ -19,7 +19,7 @@ themes: ["other:glossary", "other:spec"]
     <input type="text" id="glossarySearch" placeholder="用語・技術名またはカテゴリでフィルター..." 
       class="bg-transparent border-none text-on-surface text-sm w-full focus:ring-0 placeholder:text-slate-500 placeholder:text-[10px] placeholder:uppercase placeholder:tracking-widest">
     <div id="searchCounter" class="text-[9px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4">
-      Total: 145 Definitions
+      Total: 155 Definitions
     </div>
   </div>
 </div>
@@ -175,6 +175,16 @@ themes: ["other:glossary", "other:spec"]
 | "PCI" | Security / Data | Payment Card Industry。クレジットカード情報の安全な取り扱いを目的としたセキュリティ基準（PCI DSS）に関連するデータ領域。 |
 | "Multi-AZ" | Infra | AWS RDS 等における可用性向上のための機能。複数のアベイラビリティゾーンにデータベースを冗長配置し、自動故障検知とフェイルオーバーを実現する。 |
 | "Rubrik Cloud Vault" | Security / Infra | Rubrikが提供するフルマネージドのイミュータブル（不変）なクラウドストレージ。AWS等からデータブロックを「引き抜いて（Vaulting）」格納し、アカウント侵害時にも削除不能な独立したバックアップを担保する。 |
+| "AWS Nitro System" | Security / Infra | ネットワーク、ストレージ、セキュリティ機能を専用ハードウェアにオフロードするAWSの基盤。ベアメタルに近い性能と高いセキュリティ分離を実現する。 |
+| "Amazon EC2" | Infra | Elastic Compute Cloud。クラウド上で安全でサイズ変更可能なコンピューティング容量を提供するWebサービス。 |
+| "AWS Lambda" | AI / Infra | サーバーのプロビジョニングや管理をせずに関数レベルでコードを実行できる、イベント駆動型のサーバーレスコンピューティングサービス。 |
+| "Amazon VPC" | Network / Infra | Virtual Private Cloud。AWSクラウド内の論理的に隔離された領域を定義し、仮想ネットワークを構築できるサービス。 |
+| "Amazon CloudWatch" | Infra / Obs | インフラ、アプリケーション、サービスをリアルタイムで監視し、メトリクスやログを収集・可視化するオブザーバビリティプラットフォーム。 |
+| "Amazon EventBridge" | Infra / Ops | AWSサービス、独自のアプリケーション、SaaSからのデータをルーティングし、イベント駆動型アプリケーションの構築を容易にするサーバーレスイベントバス。 |
+| "Amazon DevOps Guru" | AI / Obs | 機械学習を利用して、Amazon CloudWatch や AWS CloudTrail 等のデータを分析し、異常な動作の検知や解決策の提案を行うフルマネージドのAIOpsサービス。 |
+| "Boto3" | AI / Dev | Python用のAWS SDK。プログラムからAWSリソース（S3, EC2など）を自動操作・管理するための標準的なライブラリ。 |
+| "AWS CDK" | Infra | Cloud Development Kit。TypeScriptやPython等のプログラミング言語を使用してクラウドインフラを定義し、CloudFormationを通じてデプロイするIaCフレームワーク。 |
+| "AWS Well-Architected Framework" | Process / Infra | クラウド上での安全、高性能、高効率、かつ復元力のあるインフラを設計・運用するためのベストプラクティスに基づいたフレームワーク。 |
 
 ## 変更履歴 (Changelog)
 - **2026-04-10**: 用語の追加 (Rubrik関連: Atlas, SLA Domain, Retention Lock, Live Mount, Multi-AZ)。最新リサーチ記事の統合に伴うアップデート。
