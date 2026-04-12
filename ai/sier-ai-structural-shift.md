@@ -8,11 +8,11 @@ description: "生成AIがSIerの人月モデルをどう侵食し、NTTデータ
 # SIer業界の未来とAIの衝撃：NTTデータの事例から読み解く構造変化
 
 ## 超要約
-[生成AI](article.html?md=glossary/system-glossary.md#:~:text="生成AI")の普及は、[SIer](article.html?md=glossary/system-glossary.md#:~:text="SIer")の中核だった[人月](article.html?md=glossary/system-glossary.md#:~:text="人月")ビジネスを徐々に圧縮しつつあります。一方で、[NTTデータ](article.html?md=glossary/system-glossary.md#:~:text="NTTデータ")のような大手は、短期的にはAI導入支援やデータ整備の特需を取り込みつつ、中長期ではプラットフォーム提供やガバナンス支援へ軸足を移しています。本稿では、売上推移、構造的ジレンマ、2024年から2030年以降までの案件変化を、インタラクティブな可視化で整理します。
+[生成AI](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="生成AI")の普及は、[SIer](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="SIer")の中核だった[人月](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="人月")ビジネスを徐々に圧縮しつつあります。一方で、[NTTデータ](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="NTTデータ")のような大手は、短期的にはAI導入支援やデータ整備の特需を取り込みつつ、中長期ではプラットフォーム提供やガバナンス支援へ軸足を移しています。本稿では、売上推移、構造的ジレンマ、2024年から2030年以降までの案件変化を、インタラクティブな可視化で整理します。
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
-このレポートは、「自動修復されるツルハシ」が普及する時代において、既存の[SIer](article.html?md=glossary/system-glossary.md#:~:text="SIer")ビジネスがどのように再編されるのかを、[NTTデータ](article.html?md=glossary/system-glossary.md#:~:text="NTTデータ")の事例を軸に読み解く試みです。
+このレポートは、「自動修復されるツルハシ」が普及する時代において、既存の[SIer](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="SIer")ビジネスがどのように再編されるのかを、[NTTデータ](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="NTTデータ")の事例を軸に読み解く試みです。
 
 <div class="bg-surface-container/60 border border-white/5 rounded-3xl p-4 sm:p-6 my-8 shadow-2xl">
 <div class="flex flex-wrap gap-2 border-b border-white/5 pb-3 mb-6">
@@ -341,3 +341,4 @@ initSierCharts();
 
 ## 変更履歴 (Changelog)
 - 2026-04-09: ユーザー提供のHTML原稿を `SKILL.md` 準拠のMarkdown記事へ変換し、インタラクティブなタブ・グラフ・タイムラインを再構成。
+

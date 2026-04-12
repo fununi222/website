@@ -10,7 +10,7 @@ themes: ["ai:agent", "ai:automation", "dev:devops"]
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
-Gemini 3 Proを搭載した[Antigravity](article.html?md=glossary/system-glossary.md#:~:text="Antigravity")と[n8n](article.html?md=glossary/system-glossary.md#:~:text="n8n")を連携し、エラーの検知からコードの推論、修正パッチの生成、GitHubへのPull Request作成までを完全自動化するシステムの構築手順と導入効果の解説です。設定ファイルからコードの依存関係まで理解できる自律修復パイプラインを構築します。
+Gemini 3 Proを搭載した[Antigravity](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Antigravity")と[n8n](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="n8n")を連携し、エラーの検知からコードの推論、修正パッチの生成、GitHubへのPull Request作成までを完全自動化するシステムの構築手順と導入効果の解説です。設定ファイルからコードの依存関係まで理解できる自律修復パイプラインを構築します。
 
 ## 自律修復アーキテクチャ
 このセクションでは、エラー検知からコード修正、PR作成までの全体像を解説します。以下のパイプラインの各ステップをクリックして、背後で動く詳細なプロセスを確認してください。
@@ -266,3 +266,4 @@ document.head.appendChild(style);
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: HTML原稿よりMarkdown（SME構成）へ再構築。
+

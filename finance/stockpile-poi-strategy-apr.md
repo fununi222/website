@@ -10,7 +10,7 @@ description: "供給リスクへの備蓄と、Amazonセール等のポイ活を
 # 【4月版】備蓄とポイ活の二段構え戦略ダッシュボード
 
 ## 超要約
-3月の喧騒が過ぎ去り、4月は「[ポイ活](article.html?md=glossary/system-glossary.md#:~:text="ポイ活")の谷間」に見えますが、実は**「生活の防御力」**を高める絶好の局面です。世界情勢に起用する供給リスクへの「備蓄（守り）」と、Amazon新生活セール（4/6まで）や銀行キャンペーンを活用した「決済最適化（攻め）」の二段構えで、将来の不安を確かな安心に変えましょう。
+3月の喧騒が過ぎ去り、4月は「[ポイ活](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="ポイ活")の谷間」に見えますが、実は**「生活の防御力」**を高める絶好の局面です。世界情勢に起用する供給リスクへの「備蓄（守り）」と、Amazon新生活セール（4/6まで）や銀行キャンペーンを活用した「決済最適化（攻め）」の二段構えで、将来の不安を確かな安心に変えましょう。
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
@@ -349,3 +349,4 @@ setTimeout(() => {
 
 ## 変更履歴 (Changelog)
 - 2026-04-09: `SKILL.md` の運用ルールに合わせ、更新日表示と更新履歴を追記。
+

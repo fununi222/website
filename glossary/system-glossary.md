@@ -165,7 +165,7 @@ themes: ["other:glossary", "other:spec"]
 | "SLA Domain" | Infra / Security | バックアップの頻度、保持期間、レプリケーション先などを一括定義する Rubrik の宣言型ポリシーエンジン。ジョブベースではなく「あるべき状態」を定義する。 |
 | "Retention Lock" | Infra / Security | バックアップデータの保持期間内における、管理者を含むあらゆるユーザーによるデータ削除を不可能にする機能。ランサムウェアによる証跡抹消を防御する。 |
 | "Live Mount" | Infra / Security | バックアップデータをストレージから直接サーバーにマウントし、データのリストア（書き戻し）を待たずに数分でシステムを即時稼働させる機能。 |
-| "AWS RDS" | Infra | Amazon Relational Database Service (マネージド型リレーショナルデータベースサービス)。リソースタグ等に基づいた[SLA Domain](article.html?md=glossary/system-glossary.md#:~:text="SLA%20Domain")の自動適用（オートプロテクション）が可能。 |
+| "AWS RDS" | Infra | Amazon Relational Database Service (マネージド型リレーショナルデータベースサービス)。リソースタグ等に基づいた[SLA Domain](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="SLA%20Domain")の自動適用（オートプロテクション）が可能。 |
 | "Amazon Aurora" | Infra | クラウド向けに構築された、Amazon RDS の MySQL および PostgreSQL と互換性のあるリレーショナルデータベース。クラスタ単位での保護に対応。 |
 | "PITR" | Infra | Point-in-Time Recovery。バックアップ時点だけでなく、トランザクションログを活用して過去の任意の時点までデータを復旧する機能。 |
 | "KMS" | Security / Infra | Key Management Service。AWS での暗号化キー管理サービス。クロスアカウント/リージョンでのリストア時に、移行先へキーの使用権限を付与する必要がある。 |
@@ -237,3 +237,4 @@ themes: ["other:glossary", "other:spec"]
 </script>
 
 - **2026-04-06**: 用語の追加および整理、超要約・コンテンツ整理を実施。
+

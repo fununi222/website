@@ -9,7 +9,7 @@ themes: ["ai:llm", "ai:engineering", "infra:automation"]
 # OpenAI Codex 基礎知識：2026年エンジニアリング展望
 
 ## 超要約
-OpenAI Codex は、自然言語をコードに変換する [LLM](article.html?md=glossary/system-glossary.md#:~:text="LLM") の標準を確立しました。2026 年現在、そのエッセンスは [GPT-5](article.html?md=glossary/system-glossary.md#:~:text="GPT5") シリーズに統合され、エージェント型エンジニアリングへと進化しています。本レポートでは、Codex の基盤構造から最新の 2024-2026 ベンチマーク、およびセキュアな開発のための回避策を整理します。
+OpenAI Codex は、自然言語をコードに変換する [LLM](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="LLM") の標準を確立しました。2026 年現在、そのエッセンスは [GPT-5](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="GPT5") シリーズに統合され、エージェント型エンジニアリングへと進化しています。本レポートでは、Codex の基盤構造から最新の 2024-2026 ベンチマーク、およびセキュアな開発のための回避策を整理します。
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
@@ -71,7 +71,7 @@ OpenAI Codex は、自然言語をコードに変換する [LLM](article.html?md
 <span class="text-emerald-400">🚀</span> 1. Codex と 2026 年の LLM ラインアップ
 </h3>
 <p class="text-lg text-slate-300 leading-relaxed max-w-4xl mb-8">
-Codex の原著論文から 5 年が経過し、現在は [GPT-4o](article.html?md=glossary/system-glossary.md#:~:text="GPT4o") や GPT-5 などのマルチモーダル基盤モデルにその機能が完全に統合されています。エンジニアが今選ぶべきモデルの最適解は以下の通りです。
+Codex の原著論文から 5 年が経過し、現在は [GPT-4o](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="GPT4o") や GPT-5 などのマルチモーダル基盤モデルにその機能が完全に統合されています。エンジニアが今選ぶべきモデルの最適解は以下の通りです。
 </p>
 <div class="grid sm:grid-cols-2 gap-4">
 <div class="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/30">
@@ -346,3 +346,4 @@ LSP によるリアルタイムチェックと、テスト駆動開発 (TDD) と
 - **2026-04-09 (v3)**: 2026 年最新展望、GPT-5 系エンジニアリングガイド、詳細なデータパイプライン図を追加。性能指標を最新推計値へ更新。
 - **2026-04-09 (v2)**: スケーリング指標および言語別習熟度を追加。
 - **2026-04-09 (v1)**: 新規作成。
+

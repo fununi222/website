@@ -23,10 +23,10 @@ themes: ["other:physics", "other:spec", "other:research"]
 
 本セクションでは、物理世界を情報理論的な観点から工学的に解釈する。
 
-この設計思想の導入は、システム全体のリソース管理および計算効率を最適化する上で極めて戦略的な意義を持つ。例えば、物理法則の一貫性は、広大な実行領域内での「競合状態（Race Condition）」を防ぐための排他制御として機能し、[最小作用の原理](article.html?md=glossary/system-glossary.md#:~:text="最小作用の原理")は、計算コストを最小化するための「経路最適化アルゴリズム」または「遅延評価（Lazy Loading）」として解釈される。
+この設計思想の導入は、システム全体のリソース管理および計算効率を最適化する上で極めて戦略的な意義を持つ。例えば、物理法則の一貫性は、広大な実行領域内での「競合状態（Race Condition）」を防ぐための排他制御として機能し、[最小作用の原理](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="最小作用の原理")は、計算コストを最小化するための「経路最適化アルゴリズム」または「遅延評価（Lazy Loading）」として解釈される。
 
 ### 1.1 システム・パラダイムの定義
-宇宙は「物理的な実体」ではなく、極めて高精度な「計算実行環境」である。このパラダイムにおいて、物理法則はシステムの動作を規定するハードコードされたソースコードであり、我々が取得する観測データは、システムの稼働状況を監視するための「デバッグ情報（Telemetry）」として扱う。[JWST](article.html?md=glossary/system-glossary.md#:~:text="JWST")（ジェイムズ・ウェッブ宇宙望遠鏡）等の最新デバイスから得られる異常値は、物理的な謎ではなく、システムが設計限界に達していることを示すエラーログである。
+宇宙は「物理的な実体」ではなく、極めて高精度な「計算実行環境」である。このパラダイムにおいて、物理法則はシステムの動作を規定するハードコードされたソースコードであり、我々が取得する観測データは、システムの稼働状況を監視するための「デバッグ情報（Telemetry）」として扱う。[JWST](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="JWST")（ジェイムズ・ウェッブ宇宙望遠鏡）等の最新デバイスから得られる異常値は、物理的な謎ではなく、システムが設計限界に達していることを示すエラーログである。
 
 ### 1.2 設計原則の抽象化
 物理定数や4つの基本相互作用は、システム全体で共有される「共通プロトコル」である。これらが全領域で一貫して適用されることで、局所的な計算がグローバルなシステム状態に悪影響を及ぼさないよう設計されている。このプロトコル化の目的は、サブシステム間の相互運用性を確保しつつ、グローバルなステートロックを回避し、計算リソースを効率的に局所化することにある。
@@ -49,17 +49,17 @@ themes: ["other:physics", "other:spec", "other:research"]
 
 宇宙の歴史を、機能拡張とバグ修正の連続（パッチ適用履歴）として捉える。
 
-- **Version 1.0: 初期デプロイ (T=0)**: 「ビッグバン・リリース」。[CP対称性の破れ](article.html?md=glossary/system-glossary.md#:~:text="CP対称性の破れ")という重大な論理バグが発生。本来データは対消滅する仕様であったが、このバグが「データ永続性（物質世界の存在）」を可能にした。
+- **Version 1.0: 初期デプロイ (T=0)**: 「ビッグバン・リリース」。[CP対称性の破れ](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="CP対称性の破れ")という重大な論理バグが発生。本来データは対消滅する仕様であったが、このバグが「データ永続性（物質世界の存在）」を可能にした。
 - **Hotfix 1.0.1: インフレーション・パッチ (T=10^-36s)**: 「地平線・平坦性問題」を解決するための緊急パッチ。空間を指数関数的に強制拡張させ、描画領域の均一性を確保した。
-- **Update 2.3: 視覚仕様の確定 (T=38万年)**: 「宇宙の晴れ上がり」。光子の透過フラグが有効化され、視覚仕様が確定。[CMB](article.html?md=glossary/system-glossary.md#:~:text="CMB")（宇宙マイクロ波背景放射）は、このアップデート完了時のログ・ダンプである。
+- **Update 2.3: 視覚仕様の確定 (T=38万年)**: 「宇宙の晴れ上がり」。光子の透過フラグが有効化され、視覚仕様が確定。[CMB](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="CMB")（宇宙マイクロ波背景放射）は、このアップデート完了時のログ・ダンプである。
 - **Patch 3.0: 加速膨張パッチ (T=約70億年)**: 「ダークエネルギー」パラメータの有効化。システムを将来的にシャットダウンするためのリソース解放プロセスの開始とされる。
 
 ## 4. 現行システムのデバッグ状況と不整合分析 (Current System Debugging & Inconsistency Analysis)
 
-最新の観測データと仕様書（[標準模型](article.html?md=glossary/system-glossary.md#:~:text="標準模型")）の乖離をデバッグ情報として可視化する。
+最新の観測データと仕様書（[標準模型](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="標準模型")）の乖離をデバッグ情報として可視化する。
 
 ### 4.1 ハッブル・テンションの不整合分析
-[ハッブル・テンション](article.html?md=glossary/system-glossary.md#:~:text="ハッブル・テンション")は、初期宇宙のログ（CMB）という「キャッシュ」と、近傍宇宙の「ライブ・テレメトリ」間で見られる「キャッシングの不整合（Caching Inconsistency）」である。
+[ハッブル・テンション](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="ハッブル・テンション")は、初期宇宙のログ（CMB）という「キャッシュ」と、近傍宇宙の「ライブ・テレメトリ」間で見られる「キャッシングの不整合（Caching Inconsistency）」である。
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -226,3 +226,4 @@ initChart('hubble');
 ## 変更履歴 (Changelog)
 - **2026-04-09**: 体系的な技術要件定義書（TRD）形式へ大幅アップデート。設計思想、システム制約、アップデート履歴、デバッグ分析のセクションを追加。参考文献（References）の統合を実施。
 - **2026-04-06**: 新規作成。異常値診断チャート（Chart.js）を実装。
+

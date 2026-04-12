@@ -249,7 +249,7 @@ scores: [7, 10, 5, 4, 8]
 },
 search: {
 nameHTML: "Gemini<br><span class='text-lg text-slate-400 font-normal'>(1.5 Pro など)</span>",
-desc: "検索エンジンと強力に連携し、事実確認や最新情報の検索に強いです。一度に読み込める文章量（<a href='article.html?md=glossary/system-glossary.md' class='text-secondary hover:underline cursor-help'>コンテキストウィンドウ</a>）が圧倒的で、分厚いマニュアルの一括解析に最適です。",
+desc: "検索エンジンと強力に連携し、事実確認や最新情報の検索に強いです。一度に読み込める文章量（<a href='https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md' class='text-secondary hover:underline cursor-help'>コンテキストウィンドウ</a>）が圧倒的で、分厚いマニュアルの一括解析に最適です。",
 scores: [6, 7, 10, 7, 7]
 },
 creative: {
@@ -342,3 +342,4 @@ radarChart.update();
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: HTMLレイアウト（インデント除去）の修正を適用。SPAエンジンでの描画の信頼性を向上。
+

@@ -9,13 +9,13 @@ themes: ["ai:ops", "infra:automation", "other:workflow"]
 # 運用自動化 | vSphere基盤の効率化と品質改善 2026
 
 ## 超要約
-本記事では、[vSphere](article.html?md=glossary/system-glossary.md#:~:text="vSphere")環境を中心としたインフラ運用の効率化プロセスについて解説します。更新作業の標準化、バックアップの自動是正（検知から修正までの自動化）、および責任分界点の明確化を通じて、人的ミスを最小化し、保守性の高い「負債を残さない運用基盤」を構築した取り組みをまとめています。
+本記事では、[vSphere](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="vSphere")環境を中心としたインフラ運用の効率化プロセスについて解説します。更新作業の標準化、バックアップの自動是正（検知から修正までの自動化）、および責任分界点の明確化を通じて、人的ミスを最小化し、保守性の高い「負債を残さない運用基盤」を構築した取り組みをまとめています。
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ---
 
-システム運用において、**[vSphere](article.html?md=glossary/system-glossary.md#:~:text="vSphere")**（仮想マシンやホストを統合管理する基盤）を扱っていると、日々の確認や設定変更が積み重なり、意外と手間がかかるものです。今日は、そんな運用負担を減らしつつ、品質を維持するための自動化と整理について書きます。
+システム運用において、**[vSphere](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="vSphere")**（仮想マシンやホストを統合管理する基盤）を扱っていると、日々の確認や設定変更が積み重なり、意外と手間がかかるものです。今日は、そんな運用負担を減らしつつ、品質を維持するための自動化と整理について書きます。
 
 ### 1. 更新作業の標準化と切り戻し手順の整備
 更新スクリプトや切り戻し手順を整理し、既存構成を崩さずに更新できる運用を確立しました。また、復旧対象を必要最小限に絞り込むことで、誤操作によるリスクを低減。脆弱性対応などの定期的な作業が、より安心かつ効率的に継続できるようになりました。
@@ -36,3 +36,4 @@ themes: ["ai:ops", "infra:automation", "other:workflow"]
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。
+

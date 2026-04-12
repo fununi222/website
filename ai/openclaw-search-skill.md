@@ -10,11 +10,11 @@ themes: ["ai:agent", "ai:tool-integration", "ai:automation"]
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
 
 ## 超要約
-[X](article.html?md=glossary/system-glossary.md#:~:text="X") [API](article.html?md=glossary/system-glossary.md#:~:text="API")の高額な費用やアカウント制約、凍結リスクを回避し、[Yahoo!リアルタイム検索](https://search.yahoo.co.jp/realtime)をデータソースとして活用する、[OpenClaw](article.html?md=glossary/system-glossary.md#:~:text="OpenClaw") ベースの[AIエージェント](article.html?md=glossary/system-glossary.md#:~:text="AIエージェント")スキル構築ガイドです。
-[Playwright](article.html?md=glossary/system-glossary.md#:~:text="Playwright")によるスクレイピングと、[LLM](article.html?md=glossary/system-glossary.md#:~:text="LLM")を用いた高度なフィルタリングを組み合わせ、価値の高い「推し活」情報を自動で抽出・要約するシステムを構築します。
+[X](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="X") [API](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="API")の高額な費用やアカウント制約、凍結リスクを回避し、[Yahoo!リアルタイム検索](https://search.yahoo.co.jp/realtime)をデータソースとして活用する、[OpenClaw](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="OpenClaw") ベースの[AIエージェント](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AIエージェント")スキル構築ガイドです。
+[Playwright](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Playwright")によるスクレイピングと、[LLM](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="LLM")を用いた高度なフィルタリングを組み合わせ、価値の高い「推し活」情報を自動で抽出・要約するシステムを構築します。
 
 ## 1. 手法の比較分析
-なぜ公式の [X](article.html?md=glossary/system-glossary.md#:~:text="X") [API](article.html?md=glossary/system-glossary.md#:~:text="API") ではなく「Yahoo!リアルタイム検索」を採用するのかを分析します。以下のレーダーチャートは、個人開発者がエージェントを構築する際の主要な指標に基づいた比較です。
+なぜ公式の [X](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="X") [API](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="API") ではなく「Yahoo!リアルタイム検索」を採用するのかを分析します。以下のレーダーチャートは、個人開発者がエージェントを構築する際の主要な指標に基づいた比較です。
 
 <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 md:p-8 my-8 text-stone-800">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -293,3 +293,4 @@ window.runOpenClawDemo = runOpenClawDemo;
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 新規作成。Yahoo!リアルタイム検索を用いたOpenClawスキル実装ガイド。
+

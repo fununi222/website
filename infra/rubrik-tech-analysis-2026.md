@@ -153,24 +153,24 @@ setTimeout(initRubrikDetail, 300);
 - **ゼロトラストデータ管理アーキテクチャ:** バックアップインフラ自体を攻撃対象から隔離するため、論理的エアギャップとMFAを前提とした設計を採用。
 - **分散型スケールアウト構造:** クラスタ構成のノード（Brikまたは仮想アプライアンス）を追加するだけで、コンピュートとストレージがリニアに拡張するシェアードナッシング・アーキテクチャ。
 - **SaaS型コントロールプレーン（Rubrik Security Cloud）:** オンプレミス、エッジ、パブリッククラウド（AWS, Azure, GCP）、SaaS（M365等）に分散するデータ環境を統合管理し、メタデータをSaaS上で一元処理。
-- **イミュータブル・ファイルシステム（[Atlas/Ceres](article.html?md=glossary/system-glossary.md#:~:text="Atlas/Ceres")）:** 追記型（Append-only）の独自ファイルシステムを基盤とし、ストレージレベルでデータの改ざんやランサムウェアによる暗号化を防止。
-- **宣言型ポリシーエンジン（[SLA Domain](article.html?md=glossary/system-glossary.md#:~:text="SLA Domain")）:** 従来のバックアップジョブ（フル・増分などの実行スケジュール）を廃止し、RPO、データ保持期間、アーカイブ先などの要件を定義するだけで、システムがリソース状況に応じて実行を最適化・自動化。
+- **イミュータブル・ファイルシステム（[Atlas/Ceres](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Atlas/Ceres")）:** 追記型（Append-only）の独自ファイルシステムを基盤とし、ストレージレベルでデータの改ざんやランサムウェアによる暗号化を防止。
+- **宣言型ポリシーエンジン（[SLA Domain](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="SLA Domain")）:** 従来のバックアップジョブ（フル・増分などの実行スケジュール）を廃止し、RPO、データ保持期間、アーカイブ先などの要件を定義するだけで、システムがリソース状況に応じて実行を最適化・自動化。
 
 ## 2. 主要な基本機能一覧
-- **イミュータブル・バックアップと論理的エアギャップ:** 取得したバックアップデータをネットワークから論理的に切り離し、システム管理者であっても保持期間内のデータ削除を不可能にする機能（[Retention Lock](article.html?md=glossary/system-glossary.md#:~:text="Retention Lock")）。
-- **[Live Mount](article.html?md=glossary/system-glossary.md#:~:text="Live Mount")（インスタントリカバリ）:** バックアップデータをNFS/SMBデータストアとしてハイパーバイザやデータベースサーバーに直接提供（マウント）し、実データの転送を待たずに数分単位のRTOでシステムを即時起動する機能。
+- **イミュータブル・バックアップと論理的エアギャップ:** 取得したバックアップデータをネットワークから論理的に切り離し、システム管理者であっても保持期間内のデータ削除を不可能にする機能（[Retention Lock](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Retention Lock")）。
+- **[Live Mount](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Live Mount")（インスタントリカバリ）:** バックアップデータをNFS/SMBデータストアとしてハイパーバイザやデータベースサーバーに直接提供（マウント）し、実データの転送を待たずに数分単位のRTOでシステムを即時起動する機能。
 - **脅威の検知とデータ分類（Data Threat Analytics）:** 機械学習を活用してバックアップデータの異常な変更（暗号化の兆候）を検知し、被害範囲の特定と、機密データ（PIIなど）の露出状況を自動スキャンする機能。
 - **オートプロテクション:** vCenterのタグ設定やパブリッククラウドのクラウドリソースタグを自動検知し、新規リソース作成と同時に事前に設定したSLAポリシーを自動で割り当てる機能。
 
 ## 3. AIOps視点での評価
-- **[API](article.html?md=glossary/system-glossary.md#:~:text="API")ファースト・アーキテクチャによる高いプログラマビリティ:** 管理GUIで実行可能なすべての操作がRESTful API（データ・プレーン側）およびGraphQL（Rubrik Security Cloud側）として公開されており、[AIOps](article.html?md=glossary/system-glossary.md#:~:text="AIOps")ツールチェインへの組み込みが極めて容易。
-- **[IaC](article.html?md=glossary/system-glossary.md#:~:text="IaC")（Infrastructure as Code）のネイティブサポート:** 公式の[Terraform](article.html?md=glossary/system-glossary.md#:~:text="Terraform") Providerや[Ansible](article.html?md=glossary/system-glossary.md#:~:text="Ansible") Collectionが積極的にメンテナンスされている。これにより、システムデプロイメントパイプライン（CI/CD）の中にバックアップポリシーの適用をコードとして組み込み、運用を完全に自動化できる。
+- **[API](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="API")ファースト・アーキテクチャによる高いプログラマビリティ:** 管理GUIで実行可能なすべての操作がRESTful API（データ・プレーン側）およびGraphQL（Rubrik Security Cloud側）として公開されており、[AIOps](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AIOps")ツールチェインへの組み込みが極めて容易。
+- **[IaC](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="IaC")（Infrastructure as Code）のネイティブサポート:** 公式の[Terraform](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Terraform") Providerや[Ansible](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Ansible") Collectionが積極的にメンテナンスされている。これにより、システムデプロイメントパイプライン（CI/CD）の中にバックアップポリシーの適用をコードとして組み込み、運用を完全に自動化できる。
 - **イベント駆動型自動化との親和性:** Webhookを活用し、バックアップの失敗やランサムウェアの兆候検知をトリガーとして、ServiceNowでのインシデント自動起票や、Palo Alto XSOAR等のSOARツールを通じた感染サーバーのネットワーク隔離など、修復パイプラインを自動実行可能。
 - **データオブザーバビリティの獲得:** プラットフォーム自体が持つ異常検知アラートやキャパシティの時系列データを外部のSIEM（SplunkやDatadogなど）に集約させることで、IT運用全体の予測分析精度を向上させるAIOpsの強力なデータソースとして機能する。
 
 ### 【技術デモ】IaCによるSLA管理
 
-Rubrikの[SLA Domain](article.html?md=glossary/system-glossary.md#:~:text="SLA Domain")は、Terraformによって「あるべき状態」として記述可能です。以下の例では、AWS S3へのアーカイブを含むゴールドポリシーを定義し、特定のタグを持つVMに自動適用しています。
+Rubrikの[SLA Domain](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="SLA Domain")は、Terraformによって「あるべき状態」として記述可能です。以下の例では、AWS S3へのアーカイブを含むゴールドポリシーを定義し、特定のタグを持つVMに自動適用しています。
 
 ```terraform
 # SLAドメインの定義
@@ -204,7 +204,7 @@ resource "rubrik_vsphere_tag_assignment" "auto_protect" {
 
 ### 【技術デモ】APIによる自動復旧（Live Mount）
 
-インシデント発生時、[AIOps](article.html?md=glossary/system-glossary.md#:~:text="AIOps")ツールから直接[Live Mount](article.html?md=glossary/system-glossary.md#:~:text="Live Mount")をトリガーするPythonスニペットです。これにより、データ移動を待たずに数秒で業務継続が可能になります。
+インシデント発生時、[AIOps](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AIOps")ツールから直接[Live Mount](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Live Mount")をトリガーするPythonスニペットです。これにより、データ移動を待たずに数秒で業務継続が可能になります。
 
 ```python
 import rubrik_cdm
@@ -231,3 +231,4 @@ print(f"Live Mount started for {vm_name}. Output: {mount_result}")
 
 ## 変更履歴 (Changelog)
 - **2026-04-10**: AIOpsエンジニア向けプロンプト（Phase 1.1）を活用した、実機検証ベースのリサーチ結果に基づき新規作成。
+
