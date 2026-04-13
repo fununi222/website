@@ -6,6 +6,10 @@ description: "関東圏の私鉄・地下鉄で拡大するスマホタッチ決
 themes: ["finance:payments", "finance:cards", "finance:points"]
 ---
 
+# 【関東圏】三井住友カード「スマホタッチ決済で最大8%還元」の活用法と注意点
+
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.13</div>
+
 ## 超要約
 
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
