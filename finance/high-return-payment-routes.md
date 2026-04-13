@@ -56,7 +56,7 @@ H{{セブン,ローソン,ミニスト,ポプラ,セイマ<br>マクド,モス,K
 %% 三井住友メインルート（2026/3以降の候補）
 A ==>|0.5%+修行1.0%| I
 I ==>|0.0%| J
-J ==>|🤖0.5%| N
+J ==>|📱0.5%| N
 N ==>|0.0%| O
 
 %% ANA Payからの出口
@@ -93,8 +93,8 @@ P -->|0.5%| X
 1. **三井住友G（Mastercard）** [基本0.5% + [100万円修行](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="基本0.5% + [100万円修行")達成1.0% = **1.5%**]
 2. **[Revolut](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Revolut")** にチャージ [**修行対象候補**]
 3. **ANA Pay** にチャージ [**0.5%**]
-4. Android端末等で **楽天Edy** にチャージ（※Apple Payルートなど制限に注意）
-5. 楽天Edyから **楽天キャッシュ** にチャージ
+4. **楽天Edy** にチャージ（iPhone v9.12.0+ または Androidで対応）
+5. 楽天Edyから **楽天キャッシュ** にチャージ（iPhone / Android 対応）
 6. **[楽天ペイ](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="楽天ペイ")** で決済 [**1.5%**] 
 
 **✨ 合計還元率：3.5%**（三井住友 1.5% + ANA Pay 0.5% + 楽天ペイ 1.5%）
@@ -160,6 +160,7 @@ SuicaやPASMOなどの交通系電子マネーや、街のVISA加盟店で幅広
 
 
 ## 変更履歴 (Changelog)
+- **2026-04-14**: iPhoneでの楽天Edy→キャッシュ変換解禁に伴い、ルート解説と図解を更新。
 - **2026-04-09**: 全体的な標準化アップデート。「Synthetic Edition」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約・コンテンツ整理を実施。
 
