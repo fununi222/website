@@ -19,7 +19,7 @@ themes: ["other:glossary", "other:spec"]
     <input type="text" id="glossarySearch" placeholder="用語・技術名またはカテゴリでフィルター..." 
       class="bg-transparent border-none text-on-surface text-sm w-full focus:ring-0 placeholder:text-slate-500 placeholder:text-[10px] placeholder:uppercase placeholder:tracking-widest">
     <div id="searchCounter" class="text-[9px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4">
-      Total: 164 Definitions
+      Total: 168 Definitions
     </div>
   </div>
 </div>
@@ -27,6 +27,10 @@ themes: ["other:glossary", "other:spec"]
 
 | 用語・技術名 | カテゴリ | 概要・詳細 |
 |---|---|---|
+| "逗子" | Other | 神奈川県三浦半島に位置する、海と山に囲まれた自然豊かな街。別荘地としての歴史や、古都鎌倉に隣接する文化的な背景も持つ。 |
+| "熊野神社" | Other | 神奈川県逗子市山の根地区にある神社。和歌山の熊野三山を起源とし、古くから地区の鎮守（守り神）として親しまれている。 |
+| "やぐら" | Other | 鎌倉地方特有の横穴式墳墓・供養施設。中世の武士や僧侶が、硬い岩盤を掘り抜いて作らせた。 |
+| "三浦層群" | Other | 三浦半島周辺に広く分布する、数百万年前の海底に堆積した地層。縞模様が特徴で、散策時などの露頭で観察できる。 |
 | "ANA Pay" | Finance | ANAグループが提供するモバイル決済およびバーチャルプリペイドカードサービス。クレジットカードからのチャージ中継点として広く利用される。 |
 | "eKYC" | Security | electronic Know Your Customer の略。スマホと本人確認書類を用いてオンラインで完結する本人確認手続き。 |
 | "NFC" | Dev / Infra | Near Field Communication の略。近距離無線通信規格。非接触型決済やカード読み取りに利用される技術。 |
@@ -201,6 +205,7 @@ themes: ["other:glossary", "other:spec"]
 | "Google Drive Sync" | Infrastructure / Sync | Obsidianのコミュニティプラグインの一つ。Google Drive APIを介して、複数のデバイス間で保管庫（Vault）を同期するためのツール。 |
 
 ## 変更履歴 (Changelog)
+- **2026-04-14**: 用語の追加 (逗子, 熊野神社, やぐら, 三浦層群)。山の根散策記の統合に伴うアップデート。
 - **2026-04-14**: 用語の追加 (ANA Pay, eKYC, NFC, プレミアム型)。iPhone Edy変換解禁記事の統合に伴うアップデート。
 - **2026-04-13**: 用語の追加 (Obsidian, Vault, Google Drive Sync)。マルチプラットフォーム同期記事の統合に伴うアップデート。
 - **2026-04-10**: 用語の追加 (Rubrik関連: Atlas, SLA Domain, Retention Lock, Live Mount, Multi-AZ)。最新リサーチ記事の統合に伴うアップデート。

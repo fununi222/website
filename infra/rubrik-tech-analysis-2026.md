@@ -13,7 +13,7 @@ themes: ["infra:security", "infra:automation", "ai:ops"]
 ## 超要約
 
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
-<img src="assets/img/rubrik-tech-analysis-2026.png" alt="Rubrik Next-Gen Architecture Overview" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+<img src="assets/img/rubrik-tech-analysis-2026.jpg" alt="Rubrik Next-Gen Architecture Overview" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 Rubrikは、バックアップという既存概念を「データセキュリティ」へと再定義したプラットフォームである。本稿では、AIOpsエンジニアが把握すべきアーキテクチャの本質と、自動化パイプラインにおける連携の可能性を整理する。

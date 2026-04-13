@@ -10,7 +10,7 @@ themes: ["other:research", "dev:architecture", "ai:cognitive"]
 
 ## 超要約
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
-<img src="assets/img/kiss-principle-cognitive-limits.png" alt="KISS原則の真実：なぜ「単純さ」は究極の洗練なのか" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+<img src="assets/img/kiss-principle-cognitive-limits.jpg" alt="KISS原則の真実：なぜ「単純さ」は究極の洗練なのか" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 KISS（Keep It Simple, Stupid）原則は、設計における究極の目標でありながら、その達成には高度な専門性とメタ認知能力を要求します。本レポートでは、低能力者が必然的に「複雑さ」へと逃避するメカニズムを、ダニング＝クルーガー効果や認知的負荷理論、および「Simple vs Easy」の概念性相違から詳細に分析します。結論として、単純さとは決して初歩的なものではなく、不要な要素を削ぎ落とすという「減算の美学」に基づいた、最高レベルの知的活動の結果であることを論証します。

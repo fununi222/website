@@ -14,7 +14,7 @@ themes: ["dev:webapp", "dev:ux", "ai:agents"]
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-13</div>
 
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
-<img src="assets/img/synthetic-pet-simulation.png" alt="Synthetic Pet Handheld Device" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+<img src="assets/img/synthetic-pet-simulation.jpg" alt="Synthetic Pet Handheld Device" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 ---

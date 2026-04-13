@@ -10,7 +10,7 @@ themes: ["ai:llm", "ai:ops", "ai:agents"]
 
 ## 超要約
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
-  <img src="assets/img/enterprise-md-knowledge.png" alt="Enterprise Knowledge Management Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="assets/img/enterprise-md-knowledge.jpg" alt="Enterprise Knowledge Management Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 大企業におけるAI活用の成否は、PDF等の非構造化データに依存する既存の[RAG](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="RAG")アーキテクチャの限界をいかに突破するかにかかっている。本レポートでは、[LLM](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="LLM")との親和性が高いMarkdownベースのナレッジ管理、分散型データ所有権を提唱する[データメッシュ](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="データメッシュ")、そして自動化されたガバナンスを実現する[Docs-as-Code](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Docs-as-Code")戦略を詳解。知識を単なるファイルから「戦略的インフラ」へと格上げし、2026年のナレッジ・インテリジェンス時代を勝ち抜くための組織変革ロードマップを提示する。
