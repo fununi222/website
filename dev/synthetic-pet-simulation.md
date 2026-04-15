@@ -14,7 +14,7 @@ themes: ["dev:webapp", "dev:ux", "ai:agents"]
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-13</div>
 
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
-<img src="assets/img/synthetic-pet-simulation.jpg" alt="Synthetic Pet Handheld Device" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+<img src="../assets/img/dev/synthetic-pet-simulation.png" alt="Synthetic Pet Handheld Device" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 ---
@@ -31,10 +31,10 @@ themes: ["dev:webapp", "dev:ux", "ai:agents"]
 <span>SYNTH_OS v4.13-MINT</span>
 <span id="pet-battery">100%</span>
 </div>
-<div id="pet-screen" class="relative w-full h-56 bg-[#0a1a14] rounded-3xl border border-primary/20 overflow-hidden inner-glow flex items-center justify-center" style="background-image: url('assets/img/pet-bg-spring.png'); background-size: cover; background-position: center;">
+<div id="pet-screen" class="relative w-full h-56 bg-[#0a1a14] rounded-3xl border border-primary/20 overflow-hidden inner-glow flex items-center justify-center" style="background-image: url('../assets/img/dev/pet-bg-spring.png'); background-size: cover; background-position: center;">
 <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
 <div id="pet-container" class="relative z-10 w-32 h-32 flex items-center justify-center">
-<img id="pet-mascot" src="assets/img/mascot-v3-idle.png" class="w-24 h-24 object-contain pet-bobbing transition-all duration-300 chromakey-active" style="image-rendering: pixelated;">
+<img id="pet-mascot" src="../assets/img/dev/mascot-v3-idle.png" class="w-24 h-24 object-contain pet-bobbing transition-all duration-300 chromakey-active" style="image-rendering: pixelated;">
 </div>
 <div id="pet-emotion" class="absolute top-4 right-4 text-2xl animate-bounce"></div>
 <div class="absolute bottom-2 left-4 text-[8px] font-mono text-white tracking-widest uppercase bg-black/30 px-1 rounded">
@@ -121,10 +121,10 @@ filter: url(#chromakey);
 <script>
 const PET_STORAGE_KEY = 'fununi_synth_pet_v1';
 const SPRITES = {
-idle: 'assets/img/mascot-v3-idle.png',
-happy: 'assets/img/mascot-v3-happy.png',
-sad: 'assets/img/mascot-v3-sad.png',
-sleep: 'assets/img/mascot-v3-sleep.png'
+idle: '../assets/img/dev/mascot-v3-idle.png',
+happy: '../assets/img/dev/mascot-v3-happy.png',
+sad: '../assets/img/dev/mascot-v3-sad.png',
+sleep: '../assets/img/dev/mascot-v3-sleep.png'
 };
 let petState = {
 hunger: 100,

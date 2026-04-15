@@ -13,7 +13,7 @@ themes: ["infra:cloud", "infra:database", "ai:ops"]
 ## 超要約
 
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
-  <img src="assets/img/aws-rds-tech-deep-dive-2026.jpg" alt="Amazon RDS Technical Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../assets/img/infra/aws-rds-tech-deep-dive-2026.png" alt="Amazon RDS Technical Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 [AWS RDS](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AWS%20RDS")は、プロビジョニング、バックアップ、パッチ適用、および高可用性（[Multi-AZ](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Multi-AZ")）を自動化するマネージドサービスである。本稿では、その内部仕様、運用の勘所（Gotchas）、および [Boto3](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Boto3") を用いた [AIOps](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AIOps") ワークフローの構築方法を整理する。

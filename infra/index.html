@@ -80,6 +80,46 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="latest">
+                <a href="../article.html?md=infra/db-backup-transition-strategy.md" class="group block bg-surface-container/30 backdrop-blur rounded-2xl p-6 border border-secondary/30 transition-all hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl shadow-secondary/10">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl">🗄️</span>
+                        <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Migration_Strategy</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">Infra | Backup Modernization：基幹システムの基盤刷新とノイズ管理戦略</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">旧環境から新バックアップ基盤への移行。二段階の切替判定フローと、構成変更に伴う既知エラーを『ノイズ』として除外する判断基準。</p>
+                </a>
+                <a href="../article.html?md=infra/rubrik-m365-alert-tuning.md" class="group block bg-surface-container/30 backdrop-blur rounded-2xl p-6 border border-secondary/30 transition-all hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl shadow-secondary/10">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl">🔔</span>
+                        <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Ops_Noise_Tuning</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">Infra | クラウド基盤の保護：アラートノイズ抑制と運用監視の最適化 202X</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">システム制約に起因する多数の警告をどう整理するか。アラート疲れを防ぎ、真の障害を浮き彫りにするための戦略。</p>
+                </a>
+                <a href="../article.html?md=infra/vast-recovery-validation.md" class="group block bg-surface-container/30 backdrop-blur rounded-2xl p-6 border border-secondary/30 transition-all hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl shadow-secondary/10">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl">🗄️</span>
+                        <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Capacity_Audit</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">Infra | 高速ストレージ基盤：大規模削除後の実効容量回復と検証プロセス 202X</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">旧環境の撤去に伴う大規模なデータ削除イベント後、ストレージ容量はどう空くのか？DASEアーキテクチャ特有の挙動と、回復を証明する検証フロー。</p>
+                </a>
+                <a href="../article.html?md=infra/aws-minimal-iac-patterns.md" class="group block bg-surface-container/30 backdrop-blur rounded-2xl p-6 border border-primary/30 transition-all hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl shadow-primary/10">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl">🌩️</span>
+                        <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Minimal_IaC</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-primary transition-colors">Infra | AWS Minimalism：小規模案件向け S3/WAF/IAM 構築の自動化パターン 2026</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">「やりすぎない自動化」の最適解。CloudFormationを活用し、最小構成でセキュアな基盤を高速デリバリーするためのテンプレート設計。</p>
+                </a>
+                <a href="../article.html?md=infra/redmine-basic-knowledge.md" class="group block bg-surface-container/30 backdrop-blur rounded-2xl p-6 border border-secondary/30 transition-all hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl">📊</span>
+                        <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">IT_Management</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">Infra | Redmineの基本知識：チケット管理によるプロジェクト可視化</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">OSSの定番・Redmine。チケット管理、ガントチャート、Wikiによる情報一元化など、プロジェクト管理の土台を再定義。</p>
+                </a>
                 <!-- Obsidian Sync Card -->
                 <a href="../article.html?md=infra/obsidian-google-drive-sync.md" class="group block bg-surface-container/30 backdrop-blur rounded-2xl p-6 border border-white/5 transition-all hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl">
                     <div class="flex items-center justify-between mb-4">
@@ -103,8 +143,8 @@
                         <span class="text-2xl">📡</span>
                         <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Cyber_Defense</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">ノーウェアランサムの台頭と企業防衛のパラダイムシフト | 脅威分析 2026</h3>
-                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">データの暗号化を伴わない「ノーウェアランサム」の脅威構造と、既存のバックアップ戦略が通用しない過酷な現実。2026年の企業防衛における次世代アーキテクチャへの転換を提言。</p>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">ノーウェアランサムの台頭と企業防衛のパラダイムシフト 202X</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">データの暗号化を伴わない「ノーウェアランサム」の脅威構造。202X年の企業防衛における次世代アーキテクチャへの転換を提言。</p>
                 </a>
                 <a href="../article.html?md=infra/enterprise-it-paradigm-shift-2026.md" class="group block bg-surface-container/30 backdrop-blur rounded-2xl p-6 border border-white/5 transition-all hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl">
                     <div class="flex items-center justify-between mb-4">
@@ -120,7 +160,7 @@
                         <span class="text-2xl">🗄️</span>
                         <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Universal_Storage</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-primary transition-colors">VAST Data | ユニバーサル・ストレージの構造と経済性調査 2026</h3>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-primary transition-colors">Next-Gen Storage | ユニバーサル・ストレージの構造と経済性調査 202X</h3>
                     <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">DASE アーキテクチャ、QLC + SCM の経済性、主要ユースケースをインタラクティブに整理。</p>
                 </a>
 
@@ -129,8 +169,8 @@
                         <span class="text-2xl">🛡️</span>
                         <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Cyber_Recovery</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">Rubrik | ゼロトラスト・データセキュリティ基盤調査 2026</h3>
-                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">Rubrik の不変バックアップ、脅威ハンティング、Data Observability、復旧オーケストレーションをインタラクティブに整理。</p>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-secondary transition-colors">Modern Backup | ゼロトラスト・データセキュリティ基盤調査 202X</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">不変バックアップ、脅威ハンティング、Data Observability、復旧オーケストレーションをインタラクティブに整理。</p>
                 </a>
 
                 <a href="../article.html?md=infra/rubrik-tech-analysis-2026.md" class="group block bg-surface-container/30 backdrop-blur rounded-2xl p-6 border border-white/5 transition-all hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl shadow-primary/10">
@@ -138,8 +178,8 @@
                         <span class="text-xl">⚙️</span>
                         <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Deep_Dive</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-primary transition-colors">Rubrik | 次世代データ管理アーキテクチャの全容 2026</h3>
-                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">Atlas/Ceres ファイルシステム、SLAドメイン、AIOps連携。管理GUIを越えた「APIファースト」な設計の本質を解剖。</p>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-primary transition-colors">新バックアップ基盤 | 次世代データ管理アーキテクチャの全容 202X</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">不変ファイルシステム、SLAドメイン、AIOps連携。管理GUIを越えた「APIファースト」な設計の本質を解剖。</p>
                 </a>
 
                 <!-- RDS On-Premises Backup Research Card -->
@@ -148,8 +188,8 @@
                         <span class="text-xl">🔄</span>
                         <span class="text-[10px] font-bold text-primary uppercase tracking-widest">AIOps_Archive</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-primary transition-colors">RDS to On-Premises：バックアップ・アーカイブ統合調査 2026</h3>
-                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">Rubrik, Veeam, Commvault から VAST Data への転送まで。ハイブリッド環境でのデータ保護と AIOps 連携を解析。</p>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-primary transition-colors">Hybrid Cloud | バックアップ・アーカイブ統合調査 202X</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">クラウドからオンプレミス高速ストレージへの転送。ハイブリッド環境でのデータ保護と AIOps 連携を解析。</p>
                 </a>
 
                 <!-- Amazon RDS Deep Dive Card -->
@@ -176,8 +216,8 @@
                         <span class="text-xl">☁️</span>
                         <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Cloud_DB</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-primary transition-colors">Rubrik | AWS RDS クラウドネイティブ保護の技術詳解 2026</h3>
-                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">RDSスナップショットAPIのオーケストレーション、SLAドメインによる自動適用、Gotchasまで。RubrikによるAWSデータベース保護の最適解。</p>
+                    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 group-hover:text-primary transition-colors">Cloud Backup | DB保護の技術詳解 202X</h3>
+                    <p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed mb-4 opacity-80">SLAドメインによる自動適用、監視API連携まで。新バックアップ基盤によるAWSデータベース保護の最適解。</p>
                 </a>
 
                 <a href="../article.html?md=infra/next-gen-cmdb-strategy.md" class="group block bg-surface-container/30 backdrop-blur rounded-2xl p-6 border border-white/5 transition-all hover:bg-white/10 hover:scale-[1.02] hover:shadow-2xl">

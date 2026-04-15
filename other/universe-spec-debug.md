@@ -10,7 +10,7 @@ themes: ["other:physics", "other:spec", "other:research"]
 
 ## 超要約
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
-  <img src="assets/img/universe-spec-debug.jpg" alt="Universal Infrastructure System TRD Hero" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../assets/img/other/universe-spec-debug.png" alt="Universal Infrastructure System TRD Hero" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 本ドキュメントは、我々が「物理世界」と呼称する全領域を、高度に構造化された情報処理システム（[Universal Infrastructure System]）として再定義する技術要件定義書（TRD）である。物理法則を「実行仕様（Specification）」、宇宙を「ランタイム環境（Runtime Environment）」として扱い、最新の観測データに含まれる不整合をシステムの「バグ」や「パッチ未適用」として技術的に分析。初期デプロイ（Version 1.0）から最終仕様変更（Big Rip）に至るまでのシステムロードマップを詳解する。

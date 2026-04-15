@@ -13,7 +13,7 @@ themes: ["travel:hiking", "other:local"]
 ## 超要約
 
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
-  <img src="assets/img/zushi-yamanone-walk.jpg" alt="Zushi Yamanone Kumano Jinja Walk" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../assets/img/other/zushi-yamanone-walk.png" alt="Zushi Yamanone Kumano Jinja Walk" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 [逗子](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="逗子")といえば海のイメージが強いですが、駅のすぐ裏手に、驚くほど静かな散策路が存在します。山の根地区の鎮守「[熊野神社](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="熊野神社")」を起点に、中世の墓所である「[やぐら](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="やぐら")」や、鉄道ジオラマのような街の眺め、そして数百万年前の記憶を刻む[三浦層群](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="三浦層群")の地層を巡る、少し不思議な散歩道を紹介します。
@@ -26,11 +26,11 @@ themes: ["travel:hiking", "other:local"]
 
 JR逗子駅から線路沿いを少し歩き、住宅街の突き当たりまで進むと、立派な石鳥居が現れます。ここが山の根地区の守護神、[熊野神社](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="熊野神社")です。
 
-![熊野神社 参道](assets/img/zushi-yamanone-torii.jpg)
+![熊野神社 参道](../assets/img/other/zushi-yamanone-torii.png)
 
 鳥居をくぐり階段を上ると、山の緑に抱かれるように社殿が建っています。この日は瑞々しい緑に包まれており、落ち着いた境内に彩りを添えていました。
 
-![熊野神社 社殿を包む緑](assets/img/zushi-yamanone-shrine-flowers.jpg)
+![熊野神社 社殿を包む緑](../assets/img/other/zushi-yamanone-shrine-flowers.png)
 
 ## 2. 山の上から眺める「鉄道ジオラマ」
 
@@ -38,33 +38,33 @@ JR逗子駅から線路沿いを少し歩き、住宅街の突き当たりまで
 
 鬱蒼とした緑に囲まれた道は、どこを切り取っても絵になる自然な魅力に溢れています。
 
-![山の根から見下ろすJR逗子駅](assets/img/zushi-yamanone-railway-view.jpg)
+![山の根から見下ろすJR逗子駅](../assets/img/other/zushi-yamanone-railway-view.png)
 
 ちょうど横須賀線の電車が停まっているのが見え、街の活気がジオラマのように小さく感じられます。遠くには逗子の市街地や古刹・延命寺の屋根も一望でき、ここが海と山に囲まれた街であることを改めて実感させてくれます。
 
-![線路と横須賀線のジオラマ](assets/img/zushi-yamanone-railway-zoom.jpg)
+![線路と横須賀線のジオラマ](../assets/img/other/zushi-yamanone-railway-zoom.png)
 
 ## 3. [三浦層群](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="三浦層群")の記憶。歴史を刻む「横穴」
 
 このルートの最も興味深い見どころが、斜面に点在する「横穴」です。
 
-![歴史の断片：やぐら（横穴）](assets/img/zushi-yamanone-yagura-cave.jpg)
+![歴史の断片：やぐら（横穴）](../assets/img/other/zushi-yamanone-yagura-cave.png)
 
 これらは中世の墓所である「[やぐら](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="やぐら")」や、戦時中の防空壕跡だと言われています。一説には、こうした鎌倉地方によく見られる「横穴」の形状そのものが、あのトトロの住処（楠の木の根元の穴）のモデルになったとも言われているそうです。場所こそ違えど、この穴の奥にトトロが眠っているのではないか……そんな想像を掻き立てられる、不思議な存在感があります。
 
 壁面には見事な地層の縞模様（[三浦層群](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="三浦層群")）が刻まれていました。
 
-![三浦層群の地層とノミの跡](assets/img/zushi-yamanone-strata-detail.jpg)
+![三浦層群の地層とノミの跡](../assets/img/other/zushi-yamanone-strata-detail.png)
 
 ## 4. 山の神様に見守られて
 
 散策の終盤、道端にひっそりと鎮座する「山神社」に出会いました。
 
-![山神社と朱色の鳥居](assets/img/zushi-yamanone-sanjinja-torii.jpg)
+![山神社と朱色の鳥居](../assets/img/other/zushi-yamanone-sanjinja-torii.png)
 
 小さなお社ですが、手入れが行き届き、お酒も供えられていました。こうした山の神様への信仰が、今も地域の方々に大切に受け継がれているのを感じて、温かい気持ちになります。
 
-![山の神様 祠の近影](assets/img/zushi-yamanone-sanjinja-close.jpg)
+![山の神様 祠の近影](../assets/img/other/zushi-yamanone-sanjinja-close.png)
 
 ## 散策を終えて
 

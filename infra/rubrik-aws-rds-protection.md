@@ -13,7 +13,7 @@ themes: ["infra:cloud", "infra:database", "ai:ops"]
 ## 超要約
 
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
-  <img src="assets/img/rubrik-aws-rds-protection.jpg" alt="Rubrik AWS RDS Protection Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../assets/img/infra/rubrik-aws-rds-protection.png" alt="Rubrik AWS RDS Protection Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 Rubrikは、独自ストレージへのデータ転送ではなく、AWSネイティブの[AWS RDS](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AWS%20RDS")スナップショット[API](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="API")をオーケストレーションすることで、[IAM Role](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="IAM%20Role")ベースのセキュアかつスケーラブルなデータ保護を実現する。本稿では、最新の仕様に基づき、アーキテクチャ上の制約、論理バックアップへの対応、および運用の勘所（Gotchas）を整理する。

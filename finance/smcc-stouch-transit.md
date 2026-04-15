@@ -13,7 +13,7 @@ themes: ["finance:payments", "finance:cards", "finance:points"]
 ## 超要約
 
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
-  <img src="assets/img/smcc-stouch-transit.jpg" alt="Mitsui Sumitomo Card Smartphone Touch Payment at Kanto Transit Gate" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../assets/img/finance/smcc-stouch-transit.png" alt="Mitsui Sumitomo Card Smartphone Touch Payment at Kanto Transit Gate" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 日々の電車やバスの移動で、モバイルSuicaやPASMOを利用している方は多いと思います。現在、**全国の交通インフラ**において、新たな選択肢として「スマートフォンのタッチ決済」の導入が急速に進んでいます。

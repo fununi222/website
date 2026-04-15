@@ -10,7 +10,7 @@ themes: ["infra:ops", "ai:ops", "dev:dx"]
 
 ## 超要約
 <figure class="my-10 max-w-4xl mx-auto cyber-glow">
-  <img src="assets/img/pagerduty-architecture.jpg" alt="PagerDuty Digital Operations Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../assets/img/infra/pagerduty-architecture.png" alt="PagerDuty Digital Operations Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 本レポートでは、モダンエンタープライズにおける[インシデント管理](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="インシデント管理")のパラダイムシフトを牽引する [PagerDuty](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="PagerDuty") の技術アーキテクチャを深掘りする。[AIOps](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AIOps") エンジンによるノイズ削減から、[Event Orchestration](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Event Orchestration") による自動トリアージ、そして最新の生成AI基盤「PagerDuty Advance」が実現する自律型運用（Autonomous Operations）へのロードマップを詳解。単なる通知ツールを超え、マシンスピードで修復をオーケストレーションする次世代の運用基盤としての戦略的価値を論証する。
