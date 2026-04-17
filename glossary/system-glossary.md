@@ -273,10 +273,11 @@ themes: ["other:glossary", "other:spec"]
 | "SOAR" | Security | Security Orchestration, Automation and Responseの略。インシデントへの対応プロセス全般を自動化し、SOC運用を効率化するプラットフォーム。 |
 | "GraphQL" | Dev / API | クライアントが必要なデータ（フィールド）だけを過不足なく指定して取得できるAPIアーキテクチャ。不要なデータの転送（オーバーフェッチ）を防ぐ。 |
 | "RSC" | Infra / Security | Rubrik Security Cloudの略。世界中に分散するRubrikクラスタを単一のSaaS画面から統合管理するためのプラットフォーム。 |
-| "XSOAR" | Security | Palo Alto Networks社が提供する強力なSOARソリューション（Cortex XSOAR）。自動化プレイブックを活用しSOCのMTTRを劇的に短縮する。 |
-| "SOC" | Security | Security Operation Centerの略。サイバー攻撃の検知、分析、対応を24時間365日体制で行う専門チームまたは拠点。 |
+| "JAL Pay" | Finance | 日本航空（JAL）が提供する、JALマイレージバンク（JMB）アプリ一体型のスマホ決済サービス。Mastercard/Visaのバーチャルカード機能も持ち、高還元ルートの中継点として重用される。 |
+| "au PAY" | Finance | KDDIが提供するコード決済・プリペイドカード決済サービス。Pontaポイント経済圏の中核であり、他決済サービスへのチャージハブとしても機能する。 |
 
 ## 変更履歴 (Changelog)
+- **2026-04-18**: 用語の追加 (JAL Pay, au PAY)。エスコンフィールド予算別VIPガイドの公開に伴う金融（ポイ活）用語の補完。
 - **2026-04-16**: 用語の追加 (CockroachDB, SOAR, GraphQL, RSC, XSOAR, SOC)。Rubrikスケーリング戦略および運用自動化シリーズの公開に伴うアップデート。
 - **2026-04-16**: 用語の追加 (Devcontainer, Harbor, Docker Hub, プロキシキャッシュ, Trivy, SBOM, DevSecOps)。Devcontainer×Harbor連載記事の統合に伴うアップデート。
 - **2026-04-16**: 用語の追加 (インクリメンタル・インデクシング, FinOps, PTU, Batch API)。Enterprise AI Opsクラスター（技術・コスト編）の構築に伴うアップデート。
