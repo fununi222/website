@@ -27,7 +27,7 @@ themes: ["finance:route", "finance:poi"]
 
 そのため、この記事は「高還元決済の考え方」を中心に残しつつ、修行ルートとしては `Revolut → ANA Pay` などへの読み替えが必要です。
 
-- **[三井住友カード100万円修行の最新版はこちら](article.html?md=finance/smbc-million-challenge-revolut-route.md)**
+- **[三井住友カード100万円修行の最新版はこちら](https://fununi222.github.io/website/article.html?md=finance/smbc-million-challenge-revolut-route.md)**
 
 ---
 
@@ -158,9 +158,8 @@ SuicaやPASMOなどの交通系電子マネーや、街のVISA加盟店で幅広
 **⚠️ 注意点**
 [ポイ活](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="ポイ活")のルートは常に最新の情報をチェックし、臨機応変に切り替えていくことが重要です。特に三井住友カードの[100万円修行](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="100万円修行")を絡める場合は、古いルートをそのまま使わず、入口だけでなく出口側の合計還元率も最新条件で再計算してください。
 
-
 ## 変更履歴 (Changelog)
 - **2026-04-14**: iPhoneでの楽天Edy→キャッシュ変換解禁に伴い、ルート解説と図解を更新。
-- **2026-04-09**: 全体的な標準化アップデート。「Synthetic Edition」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。
+- **2026-04-09**: 全体的な標準化アップデート。「Technical Archive」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約・コンテンツ整理を実施。
 

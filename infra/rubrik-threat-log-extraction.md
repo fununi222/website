@@ -1,4 +1,4 @@
-﻿---
+---
 title: "【完全ガイド】Rubrik脅威監視で検体を特定！詳細ログの取得方法と仕組み"
 date: "2026-04-16"
 category: "infra"
@@ -8,13 +8,11 @@ themes: ["infra:security", "infra:automation", "infra:operations"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# 【完全ガイド】Rubrik脅威監視で検体を特定！詳細ログの取得方法と仕組み
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/infra/rubrik-threat-log-extraction.png" alt="Rubrik検体ログ取得の仕組み" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# 【完全ガイド】Rubrik脅威監視で検体を特定！詳細ログの取得方法と仕組み
 
 [Rubrik](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Rubrik")の脅威監視ダッシュボード（シアターモニター）で、悪意のある検体を発見できた！
 これは素晴らしい成果です。

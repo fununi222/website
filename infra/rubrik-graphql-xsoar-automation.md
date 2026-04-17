@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Rubrikログ抽出を完全自動化！GraphQLとXSOAR連携による次世代SOC運用"
 date: "2026-04-16"
 category: "infra"
@@ -8,13 +8,11 @@ themes: ["infra:security", "infra:automation", "infra:api"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# Rubrikログ抽出を完全自動化！GraphQLとXSOAR連携による次世代SOC運用
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/infra/rubrik-graphql-xsoar-automation.png" alt="GraphQLとXSOARの連携" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# Rubrikログ抽出を完全自動化！GraphQLとXSOAR連携による次世代SOC運用
 
 前回の記事で、[Rubrik API Code Capture](./rubrik-api-code-capture.md)を活用して確実なログを抽出する方法をご紹介しました。
 （※ログ取得の基礎から振り返りたい方は[こちら](./rubrik-threat-log-extraction.md)）

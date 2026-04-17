@@ -1,4 +1,4 @@
-﻿---
+---
 title: "【関東圏】三井住友カード「スマホタッチ決済で最大8%還元」の活用法と注意点"
 date: "2026-04-13"
 category: "finance"
@@ -8,13 +8,11 @@ themes: ["finance:payments", "finance:cards", "finance:points"]
 
 # 【関東圏】三井住友カード「スマホタッチ決済で最大8%還元」の活用法と注意点
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.13</div>
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/finance/smcc-stouch-transit.png" alt="Mitsui Sumitomo Card Smartphone Touch Payment at Kanto Transit Gate" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.13</div>
 
 日々の電車やバスの移動で、モバイルSuicaやPASMOを利用している方は多いと思います。現在、**全国の交通インフラ**において、新たな選択肢として「スマートフォンのタッチ決済」の導入が急速に進んでいます。
 

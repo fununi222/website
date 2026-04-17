@@ -46,7 +46,6 @@ themes: ["infra:automation", "other:research", "infra:workflow"]
 ---
 *「FunUni」運用ガイドライン：OSSキャッチアップ運用*
 
-
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。

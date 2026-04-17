@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Rubrikのバックアップ負荷分散ガイド！リソース制限ができない時の対策"
 date: "2026-04-16"
 category: "infra"
@@ -8,13 +8,11 @@ themes: ["infra:backup", "infra:tuning", "infra:architecture"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# Rubrikのバックアップ負荷分散ガイド！リソース制限ができない時の対策
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/infra/rubrik-backup-load-balancing.png" alt="Rubrikバックアップ負荷分散" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# Rubrikのバックアップ負荷分散ガイド！リソース制限ができない時の対策
 
 [Rubrik](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Rubrik")を導入してバックアップを自動化したものの、**「バックアップ中に本番ストレージの負荷が100%に張り付いてしまう」「Rubrik側でネットワークの帯域制限（スロットリング）が設定できずに困っている」**と悩んでいませんか？
 

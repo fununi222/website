@@ -57,8 +57,7 @@ themes: ["dev:webapp", "dev:algorithm", "other:retrospective"]
 
 - GitHub: https://github.com/fumiya5222/altra-recommender
 
-
 ## 変更履歴 (Changelog)
-- **2026-04-09**: 全体的な標準化アップデート。「Synthetic Edition」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。
+- **2026-04-09**: 全体的な標準化アップデート。「Technical Archive」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。
 

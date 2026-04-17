@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Infra | AWS：クラウドレジリエンスと AIOps を支える基盤設計 2026"
 date: "2026-04-10"
 category: "infra"
@@ -8,13 +8,11 @@ themes: ["infra:cloud", "ai:ops", "infra:hybrid"]
 
 # Infra | AWS：クラウドレジリエンスと AIOps を支える基盤設計 2026
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/infra/aws-tech-analysis-2026.png" alt="AWS Technical Architecture deep-dive" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
 
 [AWS](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AWS%20RDS")は、単なる仮想サーバーの提供を超え、[AWS Nitro System](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AWS%20Nitro%20System")による基盤の抽象化と、[Amazon EventBridge](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Amazon%20EventBridge")を中心としたイベント駆動型エコシステムにより、高い耐障害性と自律運用（[AIOps](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AIOps")）を実現するプラットフォームである。本稿では、そのアーキテクチャの本質と運用自動化への親和性を紐解く。
 

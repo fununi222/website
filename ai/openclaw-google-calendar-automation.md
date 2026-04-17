@@ -81,7 +81,6 @@ Google [API](https://fununi222.github.io/website/article.html?md=glossary/system
 
 カレンダー連携が安定すれば、たとえば「Web から収集したキャンペーン情報を自動でスケジュールに登録する」といった、さらに高度な自動化にもつなげやすくなります。[OpenClaw](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="OpenClaw") での実運用を考えている方は、まずこの構成から試すのが最短ルートです。
 
-
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。

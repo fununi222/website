@@ -33,7 +33,6 @@ themes: ["ai:automation", "infra:oss", "other:research"]
 2. **[Prometheus](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Prometheus") + [Grafana](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Grafana")で可視化を強化**
 3. **[n8n](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="n8n")を組み合わせて、検知後の初動対応を自動フロー化する**
 
-
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。

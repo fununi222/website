@@ -1,4 +1,4 @@
-﻿---
+---
 title: "【2026最新】鎌倉・逗子のランチ革命｜プロが分析する「高コスパ」の名店と行列回避術"
 date: "2026-04-16"
 category: "other"
@@ -8,11 +8,11 @@ themes: ["gourmet:kamakura", "gourmet:zushi", "strategy:cospa"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# 【2026最新】鎌倉・逗子のランチ革命｜プロが分析する「高コスパ」の名店と行列回避術
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
 <img src="../assets/img/other/kamakura-cospa-gourmet.png" alt="Kamakura Zushi Lunch Hub" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# 【2026最新】鎌倉・逗子のランチ革命｜プロが分析する「高コスパ」の名店と行列回避術
 
 「鎌倉のランチは高くて混んでいる」そう諦めてはいませんか？確かに、メイン通りには[ツーリスト・プレミアム](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="ツーリスト・プレミアム")の店が並びます。しかし、そのすぐ裏側には、**1,000円台で驚異的なクオリティを提供する「最強のコスパ店」**が隠れています。
 
@@ -41,7 +41,7 @@ themes: ["gourmet:kamakura", "gourmet:zushi", "strategy:cospa"]
 - **賢い利用法**: ネット予約を積極的に活用し、来店枠を確保するのが「勝ち組」の行動です。
 
 > **[詳細解説] 鎌倉ランチの聖地3選をさらに深堀り**
-> 詳細な特徴やアクセスは [記事②：鎌倉のコスパ飯 3選](article.html?md=other/kamakura-cospa-gourmet.md) をご覧ください。
+> 詳細な特徴やアクセスは [記事②：鎌倉のコスパ飯 3選](https://fununi222.github.io/website/article.html?md=other/kamakura-cospa-gourmet.md) をご覧ください。
 
 ---
 
@@ -65,11 +65,11 @@ themes: ["gourmet:kamakura", "gourmet:zushi", "strategy:cospa"]
 
 鎌倉から一歩足を延ばした逗子エリアは、さらに「実質剛健」な食文化が広がっています。
 
-- **[つく志](article.html?md=other/zushi-cospa-gourmet.md#:~:text=つく志)**（逗子）: 昭和26年創業。休憩なしの「通し営業」は、ランチ難民になった際の最強の味方です。1,100円前後で味わえる厚切り刺身定食は、鎌倉駅周辺では不可能なコスパを実現しています。
-- **[魚勝](article.html?md=other/zushi-cospa-gourmet.md)**（逗子）: 昭和4年創業。老舗の安定感と、三浦半島の鮮魚を適正価格で提供するインフラ的な存在です。
+- **[つく志](https://fununi222.github.io/website/article.html?md=other/zushi-cospa-gourmet.md#:~:text=つく志)**（逗子）: 昭和26年創業。休憩なしの「通し営業」は、ランチ難民になった際の最強の味方です。1,100円前後で味わえる厚切り刺身定食は、鎌倉駅周辺では不可能なコスパを実現しています。
+- **[魚勝](https://fununi222.github.io/website/article.html?md=other/zushi-cospa-gourmet.md)**（逗子）: 昭和4年創業。老舗の安定感と、三浦半島の鮮魚を適正価格で提供するインフラ的な存在です。
 
 > **[詳細解説] 逗子・葉山の通し営業名店リスト**
-> 逗子エリアの詳しい魅力と穴場レストラン情報は [記事③：逗子の最高のコスパ飯 3選](article.html?md=other/zushi-cospa-gourmet.md) をご覧ください。
+> 逗子エリアの詳しい魅力と穴場レストラン情報は [記事③：逗子の最高のコスパ飯 3選](https://fununi222.github.io/website/article.html?md=other/zushi-cospa-gourmet.md) をご覧ください。
 
 ---
 

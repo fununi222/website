@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Other | 顧客満足度分析レポート：アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略"
 date: "2026-04-09"
 category: "other"
@@ -8,8 +8,7 @@ themes: ["other:research", "business:strategy", "other:hiking"]
 
 # Other | 顧客満足度分析レポート：アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略
 
-## 超要約
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/other/stride-lab-niseko.png" alt="STRIDE LAB NISEKO 顧客満足度分析レポート" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 

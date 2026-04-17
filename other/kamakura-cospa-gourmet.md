@@ -1,4 +1,4 @@
-﻿---
+---
 title: "鎌倉のコスパ飯 3選 | 行列必至の老舗カレーから本格麻婆豆腐まで"
 date: "2026-04-15"
 category: "other"
@@ -8,13 +8,11 @@ themes: ["gourmet:kamakura", "other:local", "kamakura:lunch"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>
 
-# 鎌倉のコスパ飯 3選 | 行列必至の老舗カレーから本格麻婆豆腐まで
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/other/kamakura-cospa-gourmet.png" alt="Kamakura Cospa Gourmet Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# 鎌倉のコスパ飯 3選 | 行列必至の老舗カレーから本格麻婆豆腐まで
 
 鎌倉での食事は「高い・混む」というイメージがありますが、しっかりリサーチすれば1,000円台で驚くほどのクオリティに出会えます。今回は、地元民が「並んででも食べたい」と太鼓判を押すコスパ最強の3店を厳選しました。
 
@@ -43,8 +41,7 @@ themes: ["gourmet:kamakura", "other:local", "kamakura:lunch"]
 鎌倉のコスパ飯を攻略するには、ランチのピークタイムを少しずらすか、事前予約が可能な店舗を選ぶのが賢明です。今回紹介したお店はどれも人気が高いため、時間に余裕を持って訪れてみてください。
 
 > **💡 さらに広い視点で戦略を組むなら**
-> なぜこれらの店が「安いのに美味い」のか？行列を回避する立ち回りや周辺の逗子エリアとの比較など、よりマクロな視点でのランチ攻略戦略については、[記事①：鎌倉・逗子のランチ革命（全体ハブ）](article.html?md=other/kamakura-zushi-lunch-hub.md) をぜひお読みください。
-
+> なぜこれらの店が「安いのに美味い」のか？行列を回避する立ち回りや周辺の逗子エリアとの比較など、よりマクロな視点でのランチ攻略戦略については、[記事①：鎌倉・逗子のランチ革命（全体ハブ）](https://fununi222.github.io/website/article.html?md=other/kamakura-zushi-lunch-hub.md) をぜひお読みください。
 
 ## 変更履歴 (Changelog)
 - 2026-04-15: 新規作成。鎌倉エリアのコスバリサーチログを統合。

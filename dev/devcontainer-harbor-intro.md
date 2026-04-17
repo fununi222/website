@@ -1,4 +1,4 @@
-﻿---
+---
 title: "記事①：Devcontainer×Harbor入門！開発環境の課題と解決策を完全解説"
 date: "2026-04-16"
 category: "dev"
@@ -8,13 +8,11 @@ themes: ["dev:environment", "infra:container"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# 記事①：Devcontainer×Harbor入門！開発環境の課題と解決策を完全解説
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/dev/devcontainer-harbor-intro.png" alt="DevcontainerとHarborの構成" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# 記事①：Devcontainer×Harbor入門！開発環境の課題と解決策を完全解説
 
 「私のパソコンでは動くのに、本番環境では動かない…」
 「新しく入ったメンバーの環境構築に、毎回3日もかかっている…」

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "AIエージェント | オーケストレーションの最新動向 2026"
 date: "2026-04-09"
 category: "ai"
@@ -8,8 +8,7 @@ themes: ["ai:orchestration", "ai:agent", "ai:architecture"]
 
 # AIエージェント | オーケストレーションの最新動向 2026
 
-## 超要約
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/ai/agent-orchestration.png" alt="AI Agent Orchestration Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
@@ -44,7 +43,6 @@ themes: ["ai:orchestration", "ai:agent", "ai:architecture"]
 今後の展望として、人間が直接すべてのAI操作を指示するのではなく、**「目標を管理する人間と、それを実行するオーケストレーター」**の関係が一般化してくるでしょう。
 
 > "AIを使いこなすとは、AIを指揮することである。" 
-
 
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。

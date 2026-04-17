@@ -24,7 +24,6 @@ themes: ["other:glossary", "other:spec"]
   </div>
 </div>
 
-
 | 用語・技術名 | カテゴリ | 概要・詳細 |
 |---|---|---|
 | "逗子" | Other | 神奈川県三浦半島に位置する、海と山に囲まれた自然豊かな街。別荘地としての歴史や、古都鎌倉に隣接する文化的な背景も持つ。 |
@@ -295,7 +294,7 @@ themes: ["other:glossary", "other:spec"]
 - **2026-04-13**: 用語の追加 (Obsidian, Vault, Google Drive Sync)。マルチプラットフォーム同期記事の統合に伴うアップデート。
 - **2026-04-10**: 用語の追加 (Rubrik関連: Atlas, SLA Domain, Retention Lock, Live Mount, Multi-AZ)。最新リサーチ記事の統合に伴うアップデート。
 - **2026-04-10**: リアルタイムフィルター機能の追加。ブラウザ上での瞬時の用語検索を可能にする動的スクリプトを統合。
-- **2026-04-09**: 全体的な標準化アップデート。「Synthetic Edition」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。PagerDutyアーキテクチャ記事の追加に伴い、PagerDuty、AIOps、SRE、Event Orchestration、Runbook Automation、MTTA、インシデント管理を追加。さらに宇宙仕様書TRDおよびアウトドア小売戦略レポの各専門用語も反映。
+- **2026-04-09**: 全体的な標準化アップデート。「Technical Archive」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。PagerDutyアーキテクチャ記事の追加に伴い、PagerDuty、AIOps、SRE、Event Orchestration、Runbook Automation、MTTA、インシデント管理を追加。さらに宇宙仕様書TRDおよびアウトドア小売戦略レポの各専門用語も反映。
 
 <script>
 (() => {

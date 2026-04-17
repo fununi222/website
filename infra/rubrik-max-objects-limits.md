@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Rubrikの最大保護オブジェクト数は？VMのカウント基準と限界値を徹底解説"
 date: "2026-04-16"
 category: "infra"
@@ -8,13 +8,11 @@ themes: ["infra:sizing", "infra:architecture", "infra:edge"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# Rubrikの最大保護オブジェクト数は？VMのカウント基準と限界値を徹底解説
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/infra/rubrik-max-objects-limits.png" alt="保護オブジェクトのカウント基準" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# Rubrikの最大保護オブジェクト数は？VMのカウント基準と限界値を徹底解説
 
 [Rubrik](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Rubrik")の導入やリプレイスに向けてサイジング（容量見積もり）を行う際、「最大いくつのシステムまでバックアップできるのか？」という上限値は非常に重要です。
 

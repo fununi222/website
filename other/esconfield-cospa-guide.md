@@ -1,4 +1,4 @@
-﻿---
+---
 title: "【2026年最新】エスコンフィールド北海道の楽しみ方！試合がない日の最強コスパ攻略法"
 date: "2026-04-15"
 category: "other"
@@ -8,11 +8,11 @@ themes: ["travel:hokkaido", "baseball:fan", "stadium:gourmet", "spa:sauna", "kid
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# 【2026年最新】エスコンフィールド北海道 攻略法！
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
 <img src="../assets/img/other/esconfield-cospa-guide.png" alt="Es Con Field Cospa Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# 【2026年最新】エスコンフィールド北海道 攻略法！
 
 ## 「球場＝高い」を覆す、2026年の最強エンタメ空間
 

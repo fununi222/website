@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Infra | Amazon RDS：マネージドデータベースの核心と AIOps 自動修復 2026"
 date: "2026-04-10"
 category: "infra"
@@ -8,13 +8,11 @@ themes: ["infra:cloud", "infra:database", "ai:ops"]
 
 # Infra | Amazon RDS：マネージドデータベースの核心と AIOps 自動修復 2026
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/infra/aws-rds-tech-deep-dive-2026.png" alt="Amazon RDS Technical Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
 
 [AWS RDS](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AWS%20RDS")は、プロビジョニング、バックアップ、パッチ適用、および高可用性（[Multi-AZ](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Multi-AZ")）を自動化するマネージドサービスである。本稿では、その内部仕様、運用の勘所（Gotchas）、および [Boto3](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Boto3") を用いた [AIOps](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AIOps") ワークフローの構築方法を整理する。
 

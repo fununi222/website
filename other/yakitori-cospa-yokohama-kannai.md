@@ -1,4 +1,4 @@
-﻿---
+---
 title: "横浜・関内のコスパ最高焼き鳥屋 6選 | 満足度重視のリサーチログ 2026"
 date: "2026-04-15"
 category: "other"
@@ -8,13 +8,11 @@ themes: ["gourmet:yakitori", "other:local", "yokohama:kannai"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>
 
-# 横浜・関内のコスパ最高焼き鳥屋 6選 | 満足度重視のリサーチログ 2026
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/other/yakitori-cospa-yokohama-kannai.png" alt="Yokohama Kannai Yakitori Cospa Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# 横浜・関内のコスパ最高焼き鳥屋 6選 | 満足度重視のリサーチログ 2026
 
 [横浜](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="横浜")・[関内](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="関内")エリアは、日本屈指の焼き鳥激戦区です。高級店も多い中、今回は「価格以上の満足度（コスパ）」を軸に、平日でも満席必至の人気店をピックアップしました。炭火の香りに包まれながら、至福の時間を過ごせる厳選6店を紹介します。
 

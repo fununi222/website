@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Niseko 2026 | 2026年ニセコ湯めぐりパス攻略＆神仙沼・ジップライン体験記"
 date: "2026-04-16"
 category: "other"
@@ -10,7 +10,7 @@ themes: ["travel:activity", "niseko:onsen", "cospa"]
 
 # 2026年ニセコ湯めぐりパス攻略｜神仙沼から1.7kmジップラインまで「無料＆感動」体験記
 
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/other/niseko-onsen-activity.png" alt="Niseko Onsen & Activity Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 

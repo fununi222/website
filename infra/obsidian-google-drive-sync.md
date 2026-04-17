@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Obsidian | Google Drive Sync によるマルチプラットフォーム無料同期術 2026"
 date: "2026-04-13"
 category: "infra"
@@ -7,9 +7,7 @@ description: "ObsidianのメモをGoogle Drive Syncプラグインで同期。Wi
 
 # Obsidian | Google Drive Sync によるマルチプラットフォーム無料同期術 2026
 
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/infra/obsidian-google-drive-sync.png" alt="Obsidian Google Drive Sync Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 

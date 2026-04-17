@@ -1,4 +1,4 @@
-﻿---
+---
 title: "【2026年最新】倶知安の地元メシ探訪！ニセコ隣接のコスパ最強グルメと名水蕎麦の聖地"
 date: "2026-04-15"
 category: "other"
@@ -8,11 +8,11 @@ themes: ["gourmet:hokkaido", "other:local", "kutchan:soba", "potato:男爵いも
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# ニセコランチは高すぎる？隣町・倶知安（くっちゃん）の絶品＆高コスパグルメガイド
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
 <img src="../assets/img/other/kutchan-local-foods.png" alt="Kutchan Local Foods Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# ニセコランチは高すぎる？隣町・倶知安（くっちゃん）の絶品＆高コスパグルメガイド
 
 ## リゾート中心部の「インフレ」を避けて最高の北海道グルメへ
 

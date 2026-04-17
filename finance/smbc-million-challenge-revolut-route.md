@@ -1,4 +1,4 @@
-﻿---
+---
 title: "三井住友カード×Revolut 攻略ガイド"
 date: "2026-04-09"
 category: "finance"
@@ -7,13 +7,11 @@ description: "「100万円修行」を効率的に達成するための最適解
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.14</div>
 
-# 三井住友カード × Revolut 攻略ガイド
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/finance/smbc-million-challenge-revolut-route.png" alt="SMCC 100 Million Challenge & Revolut Route Dashboard" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# 三井住友カード × Revolut 攻略ガイド
 
 [三井住友カード](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="三井住友カード")から[Revolut](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Revolut")へのチャージは、2024年6月の手数料改定により、**Mastercardブランドなら完全無料**、**VisaブランドでもOliveデビットモードなら無料**で修行（100万円利用）にカウント可能です。本記事では、ブランド別の手数料実態と、チャージ後の「高還元な出口戦略」を体系的にまとめます。
 

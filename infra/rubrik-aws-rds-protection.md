@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Infra | Rubrik：AWS RDS クラウドネイティブ保護の技術詳解 2026"
 date: "2026-04-10"
 category: "infra"
@@ -8,13 +8,11 @@ themes: ["infra:cloud", "infra:database", "ai:ops"]
 
 # Infra | Rubrik：AWS RDS クラウドネイティブ保護の技術詳解 2026
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/infra/rubrik-aws-rds-protection.png" alt="Rubrik AWS RDS Protection Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
 
 Rubrikは、独自ストレージへのデータ転送ではなく、AWSネイティブの[AWS RDS](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="AWS%20RDS")スナップショット[API](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="API")をオーケストレーションすることで、[IAM Role](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="IAM%20Role")ベースのセキュアかつスケーラブルなデータ保護を実現する。本稿では、最新の仕様に基づき、アーキテクチャ上の制約、論理バックアップへの対応、および運用の勘所（Gotchas）を整理する。
 

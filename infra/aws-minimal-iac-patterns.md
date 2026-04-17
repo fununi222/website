@@ -1,4 +1,4 @@
-﻿---
+---
 title: "AWS Minimalism | 小規模開発向け S3/WAF/IAM 構築の自動化パターン"
 date: "2026-04-15"
 category: "infra"
@@ -8,13 +8,11 @@ themes: ["infra:aws", "iac:minimalism", "security:waf"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>
 
-# AWS Minimalism | 小規模開発向け S3/WAF/IAM 構築の自動化パターン
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/infra/aws-minimal-iac-patterns.png" alt="AWS Minimal IaC Patterns" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# AWS Minimalism | 小規模開発向け S3/WAF/IAM 構築の自動化パターン
 
 新規サービス立ち上げやAPベンダー向けのアカウント構築において、過剰な共通基盤設計は逆にデリバリー速度を低下させます。本稿では、[S3](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="S3") / [WAF](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="WAF") / [IAM](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="IAM%20Role") をコアとした、シンプルかつ再利用性の高い[IaC](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="IaC")の実装パターンを提案します。
 

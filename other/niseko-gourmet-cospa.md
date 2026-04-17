@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Niseko 2026 | ニセコ価格を完全ハック！地元スーパー活用術とランチ名店15選"
 date: "2026-04-16"
 category: "other"
@@ -10,7 +10,7 @@ themes: ["travel:gourmet", "niseko:food", "cospa"]
 
 # ニセコ価格を完全ハック！地元スーパー活用術と「驚異のコスパ」ランチ名店15選
 
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/other/niseko-gourmet-cospa.png" alt="Niseko Gourmet Cospa Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 

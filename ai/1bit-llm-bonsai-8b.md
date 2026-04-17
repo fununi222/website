@@ -1,4 +1,4 @@
-﻿---
+---
 title: "1ビットLLM | Bonsai-8Bがもたらす推論パラダイムシフト 2026"
 date: "2026-04-09"
 category: "ai"
@@ -8,8 +8,7 @@ themes: ["ai:research", "ai:llm", "ai:hardware"]
 
 # 1ビットLLM | Bonsai-8Bがもたらす推論パラダイムシフト 2026
 
-## 超要約
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/ai/1bit-llm-bonsai-8b.png" alt="1-bit LLM Bonsai-8B Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
@@ -258,7 +257,6 @@ insightBox.style.opacity = 1;
 }, 100);
 }
 </script>
-
 
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。

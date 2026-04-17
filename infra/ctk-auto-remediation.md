@@ -54,7 +54,6 @@ foreach ($vm in $vmlist) {
 
 [スナップショット](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="スナップショット")を頻繁に作成・削除するとスタンが発生する可能性があるため、[バックアップ](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="バックアップ")実行直前かつ低負荷な時間帯を選んで実行する必要があります。
 
-
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約・コンテンツ整理を実施。

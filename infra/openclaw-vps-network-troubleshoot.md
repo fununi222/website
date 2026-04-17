@@ -70,7 +70,6 @@ curl -v --connect-timeout 5 https://www.google.com
 
 [VPS](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="VPS") での構築においては、**「サーバーの SSH ポートが開いている ＝ 外の世界と通信できる」ではない** という点に留意する必要があります。
 
-
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約・コンテンツ整理を実施。

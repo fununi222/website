@@ -8,14 +8,13 @@ themes: ["dev:webapp", "dev:ux", "ai:agents"]
 
 # Development | Synthetic Pet Simulation：合成生命体の自律エージェント試論 2026
 
-## 超要約
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
+<img src="../assets/img/dev/synthetic-pet-simulation.png" alt="Synthetic Pet Handheld Device" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+</figure>
+
 本プロジェクトは、[フロントエンド](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="フロントエンド")技術のみで完結する「たまごっち風」の自律型エージェント・シミュレーターです。単なるゲーム制作にとどまらず、**「時間経過による状態（State）の減衰」**と**「localStorage による永続化」**の実装を通じて、デジタル環境における自律生命体の[UI](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="UI")/[UX](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="UX")設計を検証します。
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-13</div>
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
-<img src="../assets/img/dev/synthetic-pet-simulation.png" alt="Synthetic Pet Handheld Device" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
 
 ---
 
@@ -244,7 +243,7 @@ setTimeout(initSimulation, 500);
 ## 🛠️ Implementation Details
 
 ### Mascot Redesign
-最新の設計に基づき、マスコットを[ミント・ゴースト・キャット]へと刷新しました。このデジタル生命体は、透過性のあるボディとサイバーな配色が特徴で、FunUni-lab の Synthetic Edition の美学を体現しています。
+最新の設計に基づき、マスコットを[ミント・ゴースト・キャット]へと刷新しました。このデジタル生命体は、透過性のあるボディとサイバーな配色が特徴で、FunUni-lab の Technical Archive の美学を体現しています。
 
 ### Mint-Cyber Aesthetic
 キャラクターの変更に伴い、ハードウェア（UIフレーム）の配色もミントグリーン（#b2f2bb）ベースへと変更しました。これにより、春の背景とマスコットが視覚的にシームレスに統合されています。従来のクロマキー技術によるリアルタイム透過処理も継続して適用されています。

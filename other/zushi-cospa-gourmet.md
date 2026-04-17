@@ -1,4 +1,4 @@
-﻿---
+---
 title: "逗子のコスパ飯 3選 | 地元民が愛する新鮮魚介とボリューム満点の定食"
 date: "2026-04-15"
 category: "other"
@@ -8,13 +8,11 @@ themes: ["gourmet:seafood", "other:local", "zushi:lunch"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>
 
-# 逗子のコスパ飯 3選 | 地元民が愛する新鮮魚介とボリューム満点の定食
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/other/zushi-cospa-gourmet.png" alt="Zushi Cospa Gourmet Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# 逗子のコスパ飯 3選 | 地元民が愛する新鮮魚介とボリューム満点の定食
 
 [逗子](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="逗子")エリアで「安くて美味しい」を追求すると、必ず行き着くのが新鮮な魚料理です。今回は、観光客向けの派手な宣伝はないものの、地元民が日常的に利用する圧倒的コスパを誇る3店をリサーチしました。
 
@@ -43,8 +41,7 @@ themes: ["gourmet:seafood", "other:local", "zushi:lunch"]
 逗子のコスパ飯を巡るなら、バスや自転車で「小坪エリア」まで足を伸ばすのがコツです。駅前とは一味違う、漁師町の空気感とともに最高のランチが楽しめます。
 
 > **💡 さらに広い視点で戦略を組むなら**
-> 今回ご紹介した逗子エリア以外にも、鎌倉側の行列回避術や、両エリアの比較など、ランチ戦略の全体像を知りたい方は、[記事①：鎌倉・逗子のランチ革命（全体ハブ）](article.html?md=other/kamakura-zushi-lunch-hub.md) をご覧ください。通し営業の重要性など、よりマクロな視点を提供しています。
-
+> 今回ご紹介した逗子エリア以外にも、鎌倉側の行列回避術や、両エリアの比較など、ランチ戦略の全体像を知りたい方は、[記事①：鎌倉・逗子のランチ革命（全体ハブ）](https://fununi222.github.io/website/article.html?md=other/kamakura-zushi-lunch-hub.md) をご覧ください。通し営業の重要性など、よりマクロな視点を提供しています。
 
 ## 変更履歴 (Changelog)
 - 2026-04-15: 新規作成。逗子エリアのコスバリサーチログを統合。

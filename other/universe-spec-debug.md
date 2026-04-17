@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Other | 宇宙基盤システム 技術要件定義書 (Universal Infrastructure System TRD)"
 date: "2026-04-09"
 category: "other"
@@ -8,8 +8,7 @@ themes: ["other:physics", "other:spec", "other:research"]
 
 # Other | 宇宙基盤システム 技術要件定義書 (Universal Infrastructure System TRD)
 
-## 超要約
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/other/universe-spec-debug.png" alt="Universal Infrastructure System TRD Hero" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Niseko 2026 | 冬のニセコは「足」で決まる！最新交通規制・レンタカー・バス活用術"
 date: "2026-04-16"
 category: "other"
@@ -10,7 +10,7 @@ themes: ["travel:transport", "niseko:winter", "cospa"]
 
 # 冬のニセコは「足」で決まる！2026年最新の交通規制・レンタカー・バス活用術
 
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/other/niseko-transport-guide.png" alt="Niseko Transport Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 

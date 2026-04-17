@@ -1,5 +1,5 @@
 /**
- * FunUni-lab Synthetic Edition - Shared Tailwind Config
+ * FunUni-lab Technical Archive - Shared Tailwind Config
  */
 tailwind.config = {
     darkMode: 'class',

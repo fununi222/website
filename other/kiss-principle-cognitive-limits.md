@@ -1,4 +1,4 @@
-﻿---
+---
 title: "KISS原則と能力の限界 | なぜ「単純さ」は究極の洗練なのか"
 date: "2026-04-09"
 category: "other"
@@ -8,8 +8,7 @@ themes: ["other:research", "dev:architecture", "ai:cognitive"]
 
 # KISS原則と能力の限界 | なぜ「単純さ」は究極の洗練なのか
 
-## 超要約
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
 <img src="../assets/img/other/kiss-principle-cognitive-limits.png" alt="KISS原則の真実：なぜ「単純さ」は究極の洗練なのか" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 

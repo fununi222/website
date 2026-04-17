@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Enterprise Backup | クラウドOffice基盤のアラート「ノイズ抑制」と運用最適化"
 date: "202X-04-XX"
 category: "infra"
@@ -8,13 +8,11 @@ themes: ["infra:backup", "cloud:office", "ops:noise-reduction"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>
 
-# Enterprise Backup | クラウドOffice基盤のアラート「ノイズ抑制」と運用最適化
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/infra/rubrik-m365-alert-tuning.png" alt="Rubrik M365 Alert Tuning" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# Enterprise Backup | クラウドOffice基盤のアラート「ノイズ抑制」と運用最適化
 
 [クラウドOffice基盤]のデータ保護において、次世代バックアップ基盤は強力な不変バックアップを提供しますが、実運用ではシステム制約に起因する継続的な「Warning」が監視のノイズとなる課題があります。本稿では、アラートを機械的に処理するのではなく、ビジネスリスクに基づいて分類し、運用負荷を最小化する設計指針を整理します。
 

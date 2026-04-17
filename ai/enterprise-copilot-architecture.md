@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Enterprise AI Architecture | クラウドAI基盤 vs. 独自エージェントの選択肢と制約"
 date: "202X-04-XX"
 category: "ai"
@@ -8,13 +8,11 @@ themes: ["ai:architecture", "enterprise:agent", "cloud:ai"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>
 
-# Enterprise AI Architecture | クラウドAI基盤 vs. 独自エージェントの選択肢と制約
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/ai/enterprise-copilot-architecture.png" alt="Enterprise Copilot Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# Enterprise AI Architecture | クラウドAI基盤 vs. 独自エージェントの選択肢と制約
 
 [生成AI](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="生成AI")を社内業務に統合する際、[AIエージェント開発基盤](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Copilot%20Studio")は迅速な開発を可能にしますが、ライセンス体系に起因する「外部ユーザー（BP）公開の制約」が普及の壁となる場合があります。本稿では、社外連携プロジェクトの知見をもとに、現実的な公開アーキテクチャを比較検討します。
 

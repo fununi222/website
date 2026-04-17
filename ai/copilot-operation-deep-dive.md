@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Enterprise AI Ops | 実運用で判明した『知識の陳腐化』と権限管理の勘所"
 date: "2026-04-16"
 category: "ai"
@@ -8,13 +8,11 @@ themes: ["ai:operation", "knowledge:decay", "enterprise:ai"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# Enterprise AI Ops | 実運用で判明した『知識の陳腐化』と権限管理の勘所
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/ai/copilot-operation-deep-dive.png" alt="Copilot Operation Deep-Dive" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# Enterprise AI Ops | 実運用で判明した『知識の陳腐化』と権限管理の勘所
 
 導入初期の興奮が過ぎ、実務運用フェーズへ移行した[生成AI](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="生成AI")活用において、最も重要なのは「プロンプト」ではなく「参照データのライフサイクル管理」であることが見えてきました。本稿では、[Notebook (AI)](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Notebook%20(AI)")を活用した社内向けAIエージェントの本格運用を開始して数日が経過しました。本稿では、日常的なコミュニケーションツールでの返信支援や自動リサーチの実践を通じて見えてきた、エンタープライズ特有の運用課題について整理します。
 

@@ -1,6 +1,6 @@
 /** 
- * Synthetic Content Engine (SME) v1.0.0
- * Dynamically renders Markdown files into the Synthetic Edition shell.
+ * Static Metadata Engine (SME) v1.0.0
+ * Dynamically renders Markdown files into the Technical Archive shell.
  */
 
 async function loadMarkdown() {
@@ -96,7 +96,7 @@ async function loadMarkdown() {
 
 
         // Handle dynamic metadata (Title, Category, Date) from frontmatter
-        if (metadata.title) document.title = `${metadata.title} | FunUni-lab Synthetic Edition`;
+        if (metadata.title) document.title = `${metadata.title} | FunUni-lab Technical Archive`;
         
         // Trigger library re-initialization (Prism, Mermaid, etc.)
         if (typeof Prism !== 'undefined') {
@@ -158,8 +158,8 @@ function decorateActiveUI(mdPath) {
         const hrefSplit = a.href.split('/');
         const hrefCat = hrefSplit[hrefSplit.length - 2]; // either folder or filename
         
-        // Ensure "FunUni-lab.js" absolute root doesn't get swept
-        if (a.textContent.includes('FunUni-lab.js')) return;
+        // Ensure "FunUni-lab" absolute root doesn't get swept
+        if (a.textContent.includes('FunUni-lab')) return;
 
         if (a.href.includes(category + '/index.html')) {
             a.classList.remove(...inactiveNavClass);
@@ -237,6 +237,7 @@ function initLightbox() {
         lightbox = document.createElement('div');
         lightbox.className = 'sme-lightbox';
         lightbox.innerHTML = `
+            <a class="text-xl font-bold tracking-tighter text-primary" href="../index.html">FunUni-lab</a>
             <span class="sme-lightbox-close material-symbols-outlined">close</span>
             <img src="" alt="Lightbox Image">
         `;

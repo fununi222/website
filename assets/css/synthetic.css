@@ -1,4 +1,4 @@
-/* FunUni-lab Synthetic Edition - Shared UI Styles */
+/* FunUni-lab Technical Archive - Shared UI Styles */
 
 .cyber-glow { box-shadow: 0 0 40px rgba(108, 92, 231, 0.04); }
 
@@ -12,11 +12,11 @@
 #sme-content {
     font-family: 'Inter', sans-serif;
     color: #a3aac4;
-    font-size: 0.95rem;
+    font-size: 15px;
     line-height: 1.8;
 }
 
-#sme-content h1, #sme-content h2, #sme-content h3 {
+#sme-content h1, #sme-content h2, #sme-content h3, #sme-content h4, #sme-content h5, #sme-content h6 {
     font-family: 'Space Grotesk', sans-serif;
     color: #dee5ff;
     font-weight: 700;
@@ -25,10 +25,13 @@
     margin-bottom: 1.25rem;
 }
 
-#sme-content h1 { font-size: 2.5rem; border-left: 4px solid #00d2ff; padding-left: 1rem; }
-#sme-content h2 { font-size: 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem; }
-#sme-content h3 { font-size: 1.25rem; color: #aaa4ff; }
-#sme-content p { margin-bottom: 1.5rem; }
+#sme-content h1 { font-size: 1.7em; border-left: 4px solid #00d2ff; padding-left: 1rem; }
+#sme-content h2 { font-size: 1.5em; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem; }
+#sme-content h3 { font-size: 1.3em; color: #aaa4ff; }
+#sme-content h4 { font-size: 1.1em; }
+#sme-content h5 { font-size: 1.0em; }
+#sme-content h6 { font-size: 0.85em; }
+#sme-content p { font-size: 1.0em; margin-bottom: 1.5rem; }
 #sme-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
 #sme-content li { margin-bottom: 0.5rem; }
 #sme-content blockquote { border-left: 4px solid #aaa4ff; padding-left: 1.5rem; font-style: italic; color: #828a9c; margin: 2rem 0; }
@@ -110,4 +113,18 @@
 
 .sme-lightbox-close:hover {
     opacity: 1;
+}
+
+/* Mobile optimization to match Zenn font sizes */
+@media (max-width: 768px) {
+    #sme-content {
+        font-size: 14.25px;
+    }
+    #sme-content h1 { font-size: 1.6em; }
+    #sme-content h2 { font-size: 1.4em; }
+    #sme-content h3 { font-size: 1.2em; }
+    #sme-content h4 { font-size: 1.1em; }
+    #sme-content h5 { font-size: 1.0em; }
+    #sme-content h6 { font-size: 0.85em; }
+    #sme-content p { font-size: 0.95em; }
 }

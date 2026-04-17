@@ -467,5 +467,5 @@ themes: ["infra:cmdb", "infra:servicenow", "ai:digital-twin"]
 - 2026-04-07 v2.0:
   - レイアウトの抜本的改善：垂直ナビゲーションから水平「コマンドセンター」タブへの移行を実施。
   - タイポグラフィの強化：ベースフォントサイズを `text-base` へ引き上げ、行間とコントラストを最適化。
-  - デザインのプレミアム化：`backdrop-blur-xl` と独自の `cyber-glow` 効果を用いた「Synthetic Edition」ガラスモーフィズムを適用。
+  - デザインのプレミアム化：`backdrop-blur-xl` と独自の `cyber-glow` 効果を用いた「Technical Archive」ガラスモーフィズムを適用。
   - インタラクティブ要素の安定化：依存関係シミュレーターのグリッドレイアウトを刷新し、視認性を向上。

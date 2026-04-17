@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Redmine APIの使用方法 | REST APIによる自動化とデータ連携の詳解"
 date: "2026-04-15"
 category: "dev"
@@ -8,13 +8,11 @@ themes: ["dev:api", "redmine:automation", "integration:json"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>
 
-# Redmine APIの使用方法 | REST APIによる自動化とデータ連携の詳解
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/dev/redmine-api-usage.png" alt="Redmine API Usage Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# Redmine APIの使用方法 | REST APIによる自動化とデータ連携の詳解
 
 [Redmine](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="Redmine")の[REST API](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="REST%20API")を有効活用することで、チケットの自動起票や外部ダッシュボードへのデータ集約など、プロジェクト管理の自動化を強力に推進できます。本稿では、高度な抽出シナリオ（Basic認証、クエリ活用、[生成AI](https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="生成AI")投入用データ整備）について解説します。
 

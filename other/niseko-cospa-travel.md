@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Niseko 2026 | ニセコを賢く遊び尽くす「ハイブリッド旅行」完全攻略ガイド"
 date: "2026-04-16"
 category: "other"
@@ -10,9 +10,7 @@ themes: ["travel:niseko", "cospa", "strategy:hybrid"]
 
 # 【2026最新】ニセコを賢く遊び尽くす「ハイブリッド旅行」完全攻略ガイド｜インフレに負けないコスパ最大化術
 
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/other/niseko-cospa-travel.png" alt="Niseko Hybrid Travel Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 

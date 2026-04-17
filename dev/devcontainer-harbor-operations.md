@@ -1,4 +1,4 @@
-﻿---
+---
 title: "記事②：Docker Hubの制限を回避！Harborプロキシキャッシュと運用術"
 date: "2026-04-16"
 category: "dev"
@@ -8,13 +8,11 @@ themes: ["dev:operations", "infra:container", "finops"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# 記事②：Docker Hubの制限を回避！Harborプロキシキャッシュと運用術
-
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/dev/devcontainer-harbor-operations.png" alt="Harborプロキシキャッシュ図解" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# 記事②：Docker Hubの制限を回避！Harborプロキシキャッシュと運用術
 
 前回の記事では、DevcontainerとHarborの基礎について解説しました。
 （※基礎をおさらいしたい方は[こちら](./devcontainer-harbor-intro.md)）

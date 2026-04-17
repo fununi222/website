@@ -1,4 +1,4 @@
-﻿---
+---
 title: "【コスト編】予算を勝ち取る生成AIのROI算定式とFinOps戦略"
 date: "2026-04-16"
 category: "ai"
@@ -8,11 +8,11 @@ themes: ["finops:roi", "ai:finops"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# 【コスト編】予算を勝ち取る生成AIのROI算定式とFinOps戦略
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
 <img src="../assets/img/ai/ai-roi-finops-azure.png" alt="FinOps & ROI Optimization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
+
+# 【コスト編】予算を勝ち取る生成AIのROI算定式とFinOps戦略
 
 「AIを入れたけれど、結局いくら儲かったのか？」
 経営層からのこの問いに、明確な数値で答えるためのROI（投資対効果）算出法と、クラウドコストを劇的に抑えるテクニックを公開します。
@@ -50,6 +50,6 @@ Microsoft 365 Copilot一択ではなく、用途に応じてDustやSana、Amazon
 AI導入は「技術投資」ではなく「経営投資」です。コストを管理し、価値を可視化すること。これが2026年のAI Opsに求められる最後のピースです。
 
 > **💡 次に読むべき記事**
-> - [記事①：全体のリサーチ手法から学びたい方はこちら](article.html?md=ai/enterprise-ai-ops-rag.md)
-> - [記事②：精度の問題でお悩みの方はこちら](article.html?md=ai/rag-incremental-indexing.md)
-> - [記事③：外部公開のセキュリティを知りたい方はこちら](article.html?md=ai/multi-tenant-rag-security.md)
+> - [記事①：全体のリサーチ手法から学びたい方はこちら](https://fununi222.github.io/website/article.html?md=ai/enterprise-ai-ops-rag.md)
+> - [記事②：精度の問題でお悩みの方はこちら](https://fununi222.github.io/website/article.html?md=ai/rag-incremental-indexing.md)
+> - [記事③：外部公開のセキュリティを知りたい方はこちら](https://fununi222.github.io/website/article.html?md=ai/multi-tenant-rag-security.md)

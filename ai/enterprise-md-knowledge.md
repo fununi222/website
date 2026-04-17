@@ -1,4 +1,4 @@
-﻿---
+---
 title: "大企業におけるMarkdownベースのナレッジ管理とAIデータ活用の現実 | 組織構造から紐解く次世代知識基盤の構築戦略"
 date: "2026-04-09"
 category: "ai"
@@ -8,8 +8,7 @@ themes: ["ai:llm", "ai:ops", "ai:agents"]
 
 # 大企業におけるMarkdownベースのナレッジ管理とAIデータ活用の現実：組織構造から紐解く次世代知識基盤の構築戦略
 
-## 超要約
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/ai/enterprise-md-knowledge.png" alt="Enterprise Knowledge Management Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "iPhone 楽天Edy→楽天キャッシュ 変換解禁ガイド"
 date: "2026-04-14"
 category: "finance"
@@ -10,9 +10,7 @@ themes: ["finance:payments", "finance:points", "finance:investing"]
 
 # iPhone 楽天Edy→楽天キャッシュ 変換解禁ガイド
 
-## 超要約
-
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/finance/iphone-edy-cash-release.png" alt="iPhone Rakuten Edy to Cash Conversion Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 

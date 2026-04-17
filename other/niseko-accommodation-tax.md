@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Niseko 2026 | 2026年版ニセコ宿泊税ガイド：1泊7,900円の最強拠点"
 date: "2026-04-16"
 category: "other"
@@ -10,7 +10,7 @@ themes: ["travel:accommodation", "niseko:tax", "cospa"]
 
 # 2026年版ニセコ宿泊税ガイド｜1泊7,900円の「最強拠点」と新税制の賢い歩き方
 
-<figure class="my-10 max-w-4xl mx-auto cyber-glow">
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../assets/img/other/niseko-accommodation-tax.png" alt="Niseko Accommodation Tax Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
