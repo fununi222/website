@@ -17,7 +17,19 @@ async function loadMarkdown() {
     decorateActiveUI(mdPath);
 
     try {
-        const response = await fetch(mdPath);
+        let response = await fetch(mdPath);
+        
+        // Backward compatibility: If the file isn't found at the root-relative path,
+        // it might have been moved to the md/ directory.
+        if (!response.ok && !mdPath.startsWith('md/')) {
+            const fallbackPath = 'md/' + mdPath;
+            console.log(`[SME] Path not found: ${mdPath}. Trying fallback: ${fallbackPath}`);
+            response = await fetch(fallbackPath);
+            if (response.ok) {
+                mdPath = fallbackPath; // Update mdPath for correct relative asset resolution
+            }
+        }
+
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         let mdText = await response.text();
 
@@ -339,9 +351,10 @@ function resolvePath(relPath, mdPath) {
     let result = stack.join('/');
     
     // Conversion Logic for Standard HTML entry points
+    // Converts internal source links (md/category/name.md) to public links (html/category/name.html)
     if (result.startsWith('md/') && result.endsWith('.md')) {
-        // Strip the md/ prefix and change extension to .html, moving to html/ folder
-        result = 'html/' + result.substring(3).replace('.md', '.html');
+        const baseArticle = result.substring(3).replace('.md', '.html');
+        result = 'html/' + baseArticle;
     }
     
     return result;
