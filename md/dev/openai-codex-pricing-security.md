@@ -1,0 +1,80 @@
+---
+title: "Dev | OpenAI Codex 料金体系とエンタープライズ・セキュリティ 2026"
+date: "2026-04-18"
+category: "dev"
+description: "サブスクリプションとAPI従量課金のハイブリッド体系、コンテナベースの隔離環境、およびAIOpsによる自動脆弱性診断（Codex Security）の実践リサーチ。"
+themes: ["dev:ai", "ai:llm", "security:audit", "finance:roi"]
+---
+
+<div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.18</div>
+
+# OpenAI Codex 料金体系とエンタープライズ・セキュリティ 2026
+
+## はじめに
+
+「AIの便利さはわかったけど、会社で使うにはお金もセキュリティも心配…」
+
+AIコーディングツールの導入を検討する企業担当者様から、最も多く寄せられる悩みです。
+社外秘のソースコードをAIに読み込ませて、情報が漏れたりしないのでしょうか？
+
+この記事では、2026年最新の「OpenAI Codexの料金体系」と、企業が安心して導入できる「強固なセキュリティ機能」について徹底解説します。
+
+これを読めば、上司や決済者を説得するための材料がすべて揃います。
+
+## 解決策：サブスクと従量課金のハイブリッド
+
+2026年現在、OpenAI Codexの料金システムは非常に柔軟に設計されており、用途に合わせて無駄なく利用できます。
+
+### 1. サブスクリプションプラン（定額制）
+
+個人の開発者や、まずは試してみたい企業向けです。
+「ChatGPT Plus / Pro / Business / Enterprise」などの有料プランに加入していれば、**追加料金なし**でCodexの機能を利用できます。
+
+*   **注意点:** 無制限ではありません。利用上限に達した場合は、追加のクレジットを購入する必要があります。
+
+### 2. APIの従量課金プラン（使った分だけ）
+
+自社のシステムにAIを組み込んだり、チーム全体で大規模に利用したい場合（ChatGPT Business等）は、利用したデータ量（トークン）に応じた課金となります。
+
+*   **[GPT-5](https://fununi222.github.io/websi../../article.html?md=glossary/system-glossary.md#:~:text="GPT-5").3-Codex:** 100万入力[トークン](https://fununi222.github.io/websi../../article.html?md=glossary/system-glossary.md#:~:text="Token")あたり $1.75
+*   **GPT-5.1-Codex-Mini:** 100万入力[トークン](https://fununi222.github.io/websi../../article.html?md=glossary/system-glossary.md#:~:text="Token")あたり $0.25（コスパ重視の小規模タスク向け）
+*   **コンテナ（隔離環境）:** 1GBあたり $0.03（20分のセッションごと）
+
+用途に合わせてモデルを切り替えることで、コストを劇的に抑えることが可能です。
+
+## ベネフィット：AIが自らセキュリティを守る時代へ
+
+「セキュリティリスク」を心配する声に対して、OpenAIは画期的な回答を出しました。
+それが、2026年にプレビュー公開された**「Codex Security」**です。
+
+### Codex Securityの驚異的な実力
+
+AIがコードを書く際に脆弱性を作り出してしまうのではなく、逆に**AIがセキュリティ専門家としてシステムを守ってくれます**。
+
+1.  **自動で脅威を分析:** プロジェクト全体を読み込み、どこが攻撃されやすいかを自動でリストアップします。
+2.  **実証と修正:** 単なる警告ではなく、隔離された環境で実際に攻撃のテスト（[PoC](https://fununi222.github.io/websi../../article.html?md=glossary/system-glossary.md#:~:text="PoC")）を行い、安全な修正パッチまで提案してくれます。
+3.  **確かな実績:** わずか30日間のベータテストで、有名なオープンソースプロジェクトから792件のクリティカルな脆弱性（[CVE](https://fununi222.github.io/websi../../article.html?md=glossary/system-glossary.md#:~:text="CVE")）を発見しました。
+
+### 情報漏洩の防止策
+
+Codexは「[サンドボックス](https://fununi222.github.io/websi../../article.html?md=glossary/system-glossary.md#:~:text="Sandbox")」と呼ばれる、インターネットから完全に隔離された安全なコンテナ環境で動作します。
+また、OpenAIの厳格なプライバシーポリシーにより、法人のAPI利用データがAIの再学習に使われることはありません。
+
+## FAQ（よくある質問）
+
+**Q. 学生向けの割引はありますか？**
+A. はい。2026年から米国・カナダの大学生向けに「Codex for Students」プログラムが開始され、$100分（2,500クレジット）が無料で提供されています。
+
+**Q. 間違ってデータを全消去（rm -rfなど）されないか不安です。**
+A. ご安心ください。最新のモデルは「破壊的なアクション」を避ける特別な訓練を受けており、危険な操作を実行する前には必ず人間の確認を求める設計になっています。
+
+## まとめ：今すぐAI開発の波に乗ろう
+
+OpenAI Codexは、コストを抑えつつ、人間の手では不可能なレベルのセキュリティ監査と開発スピードを実現します。
+
+企業にとって、AIの導入はもはや「コスト」ではなく、生き残るための「投資」です。
+
+まずは個人で「ChatGPT Plus」を試してみるか、開発チームで「ChatGPT Business」の導入を検討してみてはいかがでしょうか？
+
+👉 **[公式] [ChatGPTの料金プラン詳細・お申し込みはこちら](https://openai.com/chatgpt/pricing)**
+

@@ -335,5 +335,14 @@ function resolvePath(relPath, mdPath) {
             stack.push(part);
         }
     }
-    return stack.join('/');
+
+    let result = stack.join('/');
+    
+    // Conversion Logic for Standard HTML entry points
+    if (result.startsWith('md/') && result.endsWith('.md')) {
+        // Strip the md/ prefix and change extension to .html, moving to html/ folder
+        result = 'html/' + result.substring(3).replace('.md', '.html');
+    }
+    
+    return result;
 }

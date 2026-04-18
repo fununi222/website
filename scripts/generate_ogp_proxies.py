@@ -3,8 +3,10 @@ import re
 import sys
 
 # Configuration
-CONTENT_DIRS = ['infra', 'dev', 'ai', 'finance', 'lpo', 'other']
+CONTENT_DIRS = ['infra', 'dev', 'ai', 'finance', 'lpo', 'other', 'glossary']
 ROOT_DIR = '.'
+SOURCE_DIR = 'md'  # Markdown sources
+OUTPUT_DIR = 'html' # Dedicated folder for HTML articles
 TEMPLATE = """<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -17,7 +19,7 @@ TEMPLATE = """<!DOCTYPE html>
     <meta property="og:title" content="{title} | FunUni-lab" />
     <meta property="og:description" content="{description}" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://fununi222.github.io/website/article.html?md={md_path}" />
+    <meta property="og:url" content="https://fununi222.github.io/website/html/{md_path_html}" />
     <meta property="og:site_name" content="FunUni-lab" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="{title} | FunUni-lab" />
@@ -25,7 +27,7 @@ TEMPLATE = """<!DOCTYPE html>
 
     <!-- Redirect to the dynamic viewer -->
     <script>
-        window.location.href = 'article.html?md={md_path}';
+        window.location.href = '../../article.html?md=md/{md_path}';
     </script>
     
     <style>
@@ -53,44 +55,57 @@ def parse_frontmatter(content):
     fm_text = match.group(1)
     for line in fm_text.split('\n'):
         if ':' in line:
-            key, val = line.split(':', 1)
-            data[key.strip()] = val.strip().strip('"').strip("'")
+            parts = line.split(':', 1)
+            data[parts[0].strip()] = parts[1].strip().strip('"').strip("'")
     return data
 
 def main():
-    print("Generating OGP Proxy Files...")
+    print(f"Generating OGP Proxy Files in {OUTPUT_DIR}/ folders...")
     count = 0
     
     for category in CONTENT_DIRS:
-        cat_path = os.path.join(ROOT_DIR, category)
-        if not os.path.exists(cat_path):
+        # Markdown sources are in md/{category}
+        src_cat_path = os.path.join(ROOT_DIR, SOURCE_DIR, category)
+        # HTML output will be in html/{category}/
+        out_cat_path = os.path.join(ROOT_DIR, OUTPUT_DIR, category)
+        
+        if not os.path.exists(src_cat_path):
             continue
             
-        for filename in os.listdir(cat_path):
+        if not os.path.exists(out_cat_path):
+            os.makedirs(out_cat_path)
+            
+        for filename in os.listdir(src_cat_path):
             if filename.endswith('.md'):
-                md_rel_path = f"{category}/{filename}"
-                with open(os.path.join(cat_path, filename), 'r', encoding='utf-8') as f:
+                # Base relative markers
+                cat_md_rel = f"{category}/{filename}"
+                cat_html_rel = f"{category}/{filename.replace('.md', '.html')}"
+                
+                with open(os.path.join(src_cat_path, filename), 'r', encoding='utf-8') as f:
                     content = f.read()
                     
                 metadata = parse_frontmatter(content)
                 title = metadata.get('title', 'Technical Archive')
                 description = metadata.get('description', 'FunUni-lab Research Log')
                 
-                # HTML filename (matching the MD basename)
+                # HTML filename
                 html_name = filename.replace('.md', '.html')
-                html_path = os.path.join(ROOT_DIR, html_name)
+                html_path = os.path.join(out_cat_path, html_name)
                 
                 # Render template
+                # og:url needs 'html/' + cat_html_rel
+                # redirect needs 'md/' + cat_md_rel
                 output = TEMPLATE.format(
                     title=title,
                     description=description,
-                    md_path=md_rel_path
+                    md_path=cat_md_rel,
+                    md_path_html=cat_html_rel
                 )
                 
                 with open(html_path, 'w', encoding='utf-8') as f:
                     f.write(output)
                 
-                print(f"  [CREATED] {html_name}")
+                print(f"  [CREATED] {OUTPUT_DIR}/{cat_html_rel}")
                 count += 1
 
     print(f"\nDone! Generated {count} proxy files.")
