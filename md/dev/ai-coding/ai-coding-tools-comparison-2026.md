@@ -78,3 +78,5 @@ themes: ["dev:ai", "ai:llm", "ai:agents", "dev:cursor", "dev:copilot"]
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。WindsurfとClaude Codeを比較対象に加え、用途別の最強選定マトリクスを導入。2026年現在のAIコーディングツールの立ち位置を明確化。
 
 
+
+

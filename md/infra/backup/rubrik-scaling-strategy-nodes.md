@@ -71,3 +71,5 @@ RSCは、世界中にあるRubrikクラスタを、SaaS型の1つの画面で統
 👉 **[Rubrikの最大保護オブジェクト数は？VMのカウント基準と限界値を徹底解説](./rubrik-max-objects-limits.md)**
 
 
+
+

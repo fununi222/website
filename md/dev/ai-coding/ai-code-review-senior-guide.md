@@ -34,3 +34,5 @@ AIを専門家モードに切り替えた後は、具体的な言語（Java/Java
 ## 変更履歴 (Changelog)
 - **2026-04-24**: [AIコードレビュー](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AIコードレビュー")の質を向上させるためのペルソナ指定とCoTプロンプトの解説記事を新規作成。
 
+
+

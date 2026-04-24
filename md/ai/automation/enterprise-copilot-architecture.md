@@ -2,7 +2,7 @@
 title: "Enterprise AI Architecture | クラウドAI基盤 vs. 独自エージェントの選択肢と制約"
 date: "202X-04-XX"
 category: "ai"
-description: "外部パートナー利用不可というライセンス制約をどう回避するか。Project-Aで浮き彫りになった、エンタープライズAI公開戦略の比較。"
+description: "外部パートナー利用不可というライセンス制約をどう回避するか。AI Knowledge Conciergeで浮き彫りになった、エンタープライズAI公開戦略の比較。"
 themes: ["ai:architecture", "enterprise:agent", "cloud:ai"]
 ---
 
@@ -38,11 +38,11 @@ themes: ["ai:architecture", "enterprise:agent", "cloud:ai"]
 | **AIエージェント開発基盤** | ローコード開発、プラグイン連携。 | 不可 (License制約) | 中 |
 | **Custom Agent (RAG)** | クラウドAPI + Web App等で独自開発。 | **可能 (Auth制御次第)** | 高 |
 
-## 3. Project-Aプロジェクトのハイブリッド戦略
+## 3. AI Knowledge Conciergeプロジェクトのハイブリッド戦略
 
 社外連携プロジェクトでは、以下のハイブリッド構成によるPoCを推進しています。
 
-1. **データソースの正規化**: [Redmine](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Redmine") APIや T-UP からチケットを抽出し、[JSONL](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="JSONL")形式で汎用性を確保。
+1. **データソースの正規化**: [Redmine](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Redmine") APIや Jira からチケットを抽出し、[JSONL](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="JSONL")形式で汎用性を確保。
 2. **先行PoC (Studio)**: まずは社内ユーザー向けに [AIエージェント開発基盤](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Copilot%20Studio") で「回答の精度」を検証。
 3. **拡張フェーズ (Custom)**: 精度が確認された後、BP向けの公開が必要な範囲に絞り、APIベースの独自フロントエンド（カスタムエージェント）へ移行。
 
@@ -53,6 +53,9 @@ themes: ["ai:architecture", "enterprise:agent", "cloud:ai"]
 
 ## 変更履歴 (Changelog)
 - 2026-04-15: 新規作成。Copilot Studio の公開制約とカスタムエージェント戦略のリサーチ結果を統合。
+
+
+
 
 
 

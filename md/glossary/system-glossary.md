@@ -221,7 +221,7 @@ themes: ["other:glossary", "other:spec"]
 | "CloudFormation" | Infra / IaC | AWSリソースの構成をテンプレート（JSON/YAML）で記述し、自動的にプロビジョニング・管理するためのIaCサービス。 |
 | "JSONL" | Data / AI | JSON Linesの略。1つのJSONオブジェクトを1行で記述する形式。ストリーム処理や大規模データセットのLLMトレーニングに適している。 |
 | "Basic認証" | Security / Auth | HTTPプロトコル標準の認証方式。ユーザー名とパスワードをBase64エンコードして送信する。シンプルだが、暗号化（HTTPS）との併用が必須。 |
-| "Project-A" | AI / Project | 過去の問い合わせナレッジ（Redmine等）を[生成AI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="生成AI")で武装させ、回答自動化を支援する社内PoCプロジェクトのコードネーム。 |
+| "AI Knowledge Concierge" | AI / Project | 過去の問い合わせナレッジ（Jira, Redmine等）を[生成AI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="生成AI")で構造化・検索可能にし、回答の自律的な生成を支援するナレッジ最適化エンジンの名称。 |
 | "旧バックアップ環境" | Infra / Security | データの仮想化技術を中心に展開していた旧製品群。新基盤へのリプレース対象。 |
 | "post-thaw-script" | VMware / Infra | スナップショット後、DBの静止化を解除するカスタムスクリプト。移行時には「既知の無害なエラー」を適切に除外する必要がある。 |
 | "統合監視ツール" | Infra / Obs | 国内で広く普及している統合運用管理ツール。ジョブスケジュール管理やバックアップ監視の中心となる。 |
@@ -348,12 +348,12 @@ themes: ["other:glossary", "other:spec"]
 | "CDK" | Cloud / AWS | Cloud Development Kit。プログラミング言語（TypeScript, Python等）を使用してクラウドインフラを定義・構築できるツール。 |
 | "Terraform" | Dev / Ops | HashiCorp社が提供する、インフラをコードで宣言的に管理するためのオープンソースツール。マルチクラウド環境でのIaC標準として広く普及。 |
 | "ゾンビバックアップ" | Backup / Ops | Zombie Backups。サーバ本体は削除・廃棄されているのに、バックアップ設定だけが残り続け、不要な課金やストレージ消費が発生している状態。 |
-| "T-UP" | Business / Ops | 国内で広く利用されているIT資産管理ツールの名称。ハードウェア、ソフトウェア、ライセンスのライフサイクル管理を行う。 |
+| "Jira" | Business / Ops | Atlassian社が提供するタスク・プロジェクト管理ツール。資産管理や廃棄ワークフローの「真実のソース」として機能し、APIを通じてインフラ基盤と同期される。 |
 | "真実のソース" | System / Arch | Source of Truth (SoT)。システム全体において、ある特定のデータ項目に対して唯一の信頼できる情報源（マスタ）として定義された場所。 |
 | "名寄せ" | Data / Ops | 複数の異なるデータベースや台帳から、同一の対象（サーバ等）を特定し、情報を統合・突合する作業。UUIDなどの一意識別子が重要となる。 |
 
 ## 変更履歴 (Changelog)
-- **2026-04-24**: ゾンビバックアップ解消と資産管理連携シリーズの追加に伴う用語追加 (ゾンビバックアップ, T-UP, 真実のソース, 名寄せ)。
+- **2026-04-24**: ゾンビバックアップ解消と資産管理連携シリーズの追加に伴う用語追加 (ゾンビバックアップ, Jira, 真実のソース, 名寄せ)。
 - **2026-04-24**: AWS運用自動化および不変バックアップ連載の追加に伴う用語追加 (Object Lock, Vault Lock, 不変バックアップ, IaC, Glacier, CDK, Terraform)。
 - **2026-04-24**: GitLab MR × AI自動レビュー「安全弁」設計シリーズの追加に伴う用語追加 (安全弁, 自動原因切り分け)。
 - **2026-04-24**: Rubrik × Linux LVMリストア戦略連載の追加に伴う用語追加 (インスタントリカバリ, RTO, RPO, BCP)。
@@ -425,6 +425,8 @@ themes: ["other:glossary", "other:spec"]
 </script>
 
 - **2026-04-06**: 用語の追加および整理、超要約・コンテンツ整理を実施。
+
+
 
 
 

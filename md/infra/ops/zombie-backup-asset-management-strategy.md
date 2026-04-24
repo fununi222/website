@@ -1,12 +1,12 @@
 ---
-title: "ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（T-UP）の自動化戦略"
+title: "ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（Jira）の自動化戦略"
 date: "2026-04-24"
 category: "infra"
-description: "削除漏れのサーバがコストを食いつぶす「ゾンビバックアップ」問題を技術的に解決。T-UPとRubrik APIを連携させ、不整合ゼロのIT資産管理を実現する戦略を詳解。"
+description: "削除漏れのサーバがコストを食いつぶす「ゾンビバックアップ」問題を技術的に解決。JiraとRubrik APIを連携させ、不整合ゼロのIT資産管理を実現する戦略を詳解。"
 themes: ["infra:rubrik", "ops:asset-management", "ops:automation"]
 ---
 
-# ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（T-UP）の自動化戦略
+# ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（Jira）の自動化戦略
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
   <img src="../../../../assets/img/infra/zombie-backup-strategy.png" alt="Zombie Backup Eradication Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-tertiary/50 transition-colors duration-300">
@@ -16,7 +16,7 @@ themes: ["infra:rubrik", "ops:asset-management", "ops:automation"]
 
 数千台規模のインフラを運用する現場で、誰もが一度は直面する**「[ゾンビバックアップ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ゾンビバックアップ")（Zombie Backups）」**。この問題は、単なるストレージの無駄遣いにとどまらず、ITガバナンスの欠如と運用コストの深刻な漏洩を意味します。
 
-本記事では、資産管理ツール「[T-UP](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="T-UP")」とRubrikをAPIで直結し、**不整合を自動で検知・解消する次世代の資産管理戦略**をプロの視点で解説します。
+本記事では、資産管理ツール「[Jira](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Jira")」とRubrikをAPIで直結し、**不整合を自動で検知・解消する次世代の資産管理戦略**をプロの視点で解説します。
 
 ---
 
@@ -39,7 +39,7 @@ themes: ["infra:rubrik", "ops:asset-management", "ops:automation"]
 ### 3層クロスチェック・ロジック
 以下の3つのデータを定期的に自動で突合し、不整合をアラート化します。
 
-1.  **[T-UP](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="T-UP")（資産台帳）**: 「あるべき姿」のマスターデータ。
+1.  **[Jira](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Jira")（資産台帳）**: 「あるべき姿」のマスターデータ。
 2.  **vSphere/Cloud**: 「現在動いている」実機データ。
 3.  **Rubrik**: 「現在保護されている」データ。
 
@@ -70,7 +70,7 @@ vSphereから削除されたVMをRubrikは「Relic（遺物）」として保持
 
 システムによる事後検知だけでなく、**廃棄フローそのものにAPIを組み込む**のが最高レベルの自動化です。
 
-1.  **廃棄申請**: ユーザーがT-UPでVMの廃棄を申請。
+1.  **廃棄申請**: ユーザーがJiraでVMの廃棄を申請。
 2.  **自動査定**: Rubrik APIが当該VMの「最終リストアポイント」と「現在の保存容量（Cost）」を申請書に自動追記。
 3.  **自動実行**: 承認が下りた瞬間、vSphereのVM削除とRubrikのアーカイブ移行が同時に実行される。
 
@@ -87,11 +87,14 @@ vSphereから削除されたVMをRubrikは「Relic（遺物）」として保持
 この戦略を導入することで、インフラ運用は「守り」から、経営に貢献する「攻め」の資産最適化へと進化します。
 
 ### 📌 次のステップ：構築ガイド
-具体的なAPIの叩き方や、T-UPとのスクリプト連携手順については、以下の実践ガイドをご覧ください。
+具体的なAPIの叩き方や、Jiraとのスクリプト連携手順については、以下の実践ガイドをご覧ください。
 
-👉 **[【実践編】APIで繋ぐ！T-UP × Rubrik不整合検知システムの構築ガイド](https://fununi222.github.io/website/html/infra/ops/t-up-rubrik-api-integration-guide.html)**
+👉 **[【実践編】APIで繋ぐ！Jira × Rubrik不整合検知システムの構築ガイド](https://fununi222.github.io/website/html/infra/ops/Jira-rubrik-api-integration-guide.html)**
 
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づきリライト。コスト削減の財務的インパクトと、UUIDベースの堅牢な自動化ロジックを強調。
+
+
+
 
 

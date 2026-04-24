@@ -81,3 +81,5 @@ themes: ["finance:payments", "finance:cards", "finance:points"]
 - **2026-04-13**: 新規作成。関東圏の交通系決済アップデートに伴う還元ルートの解説を追加。
 
 
+
+

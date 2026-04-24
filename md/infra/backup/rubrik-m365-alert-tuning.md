@@ -52,3 +52,5 @@ themes: ["infra:backup", "cloud:office", "ops:noise-reduction"]
 - 202X-04: 新規作成。クラウドOffice基盤バックアップ運用におけるアラート最適化リサーチ。
 
 
+
+

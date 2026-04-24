@@ -75,3 +75,5 @@ themes: ["gourmet:yakitori", "other:local", "yokohama:kannai"]
 - 2026-04-15: 新規作成。横浜駅・関内駅周辺のコスパ焼き鳥リダイレクトログを統合。
 
 
+
+

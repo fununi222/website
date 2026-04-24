@@ -42,3 +42,5 @@ themes: ["infra:storage", "capacity:audit", "backup:recovery"]
 - 202X-04: 新規作成。次世代ストレージ容量推移と削除イベント後の実効評価リサーチ。
 
 
+
+
