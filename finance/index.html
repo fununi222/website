@@ -200,6 +200,20 @@
       </div>
     </section>
 
+    <!-- Full Archive List -->
+    <section class="mb-24">
+      <div class="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
+        <h2 class="text-xl font-bold font-headline tracking-tighter text-white">Full Finance Archive</h2>
+        <span id="archive-count" class="text-[10px] font-bold text-amber-400 uppercase tracking-[0.2em] border border-amber-400/20 px-2 py-1 rounded bg-amber-400/5">0 LOGS</span>
+      </div>
+      <div id="archive-list" class="min-h-[200px]">
+        <div class="animate-pulse flex items-center gap-4 text-slate-500">
+            <span class="material-symbols-outlined text-xl animate-spin">sync</span>
+            <span class="font-mono text-xs">Loading research logs...</span>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="py-20 border-t border-white/5 bg-obsidian/50 mt-auto">
@@ -214,6 +228,6 @@
       </div>
     </div>
   </footer>
-
+  <script src="../assets/js/archive-loader.js"></script>
 </body>
 </html>

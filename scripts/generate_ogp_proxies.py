@@ -1,11 +1,13 @@
 import os
 import re
 import sys
+import json
 
 # Configuration
 ROOT_DIR = '.'
 SOURCE_DIR = 'md'  # Markdown sources
 OUTPUT_DIR = 'html' # Dedicated folder for HTML articles
+JSON_OUT_PATH = 'assets/data/article_index.json' # Global JSON index
 TEMPLATE = """<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -68,6 +70,8 @@ def main():
         print(f"Error: {SOURCE_DIR} directory not found.")
         return
 
+    articles_index = []
+
     for root, dirs, files in os.walk(src_root):
         for filename in files:
             if filename.endswith('.md'):
@@ -113,10 +117,32 @@ def main():
                 with open(out_path, 'w', encoding='utf-8') as f:
                     f.write(output)
                 
+                # Append to JSON index
+                articles_index.append({
+                    "title": title,
+                    "description": description,
+                    "date": metadata.get('date', '1970-01-01'),
+                    "category": rel_path.split('/')[0] if '/' in rel_path else 'other',
+                    "path": html_rel_path
+                })
+                
                 print(f"  [CREATED] {OUTPUT_DIR}/{html_rel_path}")
                 count += 1
 
-    print(f"\nDone! Generated {count} proxy files.")
+    # Sort articles by date descending
+    articles_index.sort(key=lambda x: x['date'], reverse=True)
+    
+    # Write JSON index
+    json_path = os.path.join(ROOT_DIR, JSON_OUT_PATH)
+    json_dir = os.path.dirname(json_path)
+    if not os.path.exists(json_dir):
+        os.makedirs(json_dir)
+        
+    with open(json_path, 'w', encoding='utf-8') as f:
+        json.dump(articles_index, f, ensure_ascii=False, indent=2)
+    print(f"  [CREATED] {JSON_OUT_PATH} with {len(articles_index)} entries.")
+
+    print(f"\nDone! Generated {count} proxy files and 1 JSON index.")
 
 if __name__ == "__main__":
     main()
