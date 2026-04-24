@@ -9,7 +9,7 @@ themes: ["infra:security", "infra:network"]
 # ノーウェアランサムウェアの台頭と企業防衛メカニズムのパラダイムシフト：進化するサイバー脅威の深層分析
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-<img src="../../assets/img/infra/nowhere-ransomware-deep-analysis.png" alt="Engineering the Silent Threat: Nowhere Ransomware Mechanics" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+<img src="../../../assets/img/infra/nowhere-ransomware-deep-analysis.png" alt="Engineering the Silent Threat: Nowhere Ransomware Mechanics" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 従来のランサムウェアがデータの「可用性」を人質にするのに対し、最新の[ノーウェアランサム](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ノーウェアランサム")は「機密性」の暴露を武器にする。この手口では、データの暗号化を完全に省略することで、従来のセキュリティ製品の振る舞い検知をすり抜け、超高速な情報窃取（[エクスフィルトレーション](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="エクスフィルトレーション")）を完遂する。バックアップを保持していても情報流出は防げないという「バックアップのパラドックス」に直面する中、企業は[MFA](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="MFA")による境界防衛の徹底と、[EDR](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="EDR")や[NDR](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="NDR")等のAI主導型検知アーキテクチャへの移行が急務となっている。
@@ -109,5 +109,6 @@ themes: ["infra:security", "infra:network"]
 ## 変更履歴 (Changelog)
 - **2026-04-09**: プレミアム・インフォグラフィックの挿入およびグロッサリーリンクの全面的な修復。警察庁の最新統計資料に基づき、分析内容を最新化。[エクスフィルトレーション](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="エクスフィルトレーション")、[MFA](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="MFA")、[EDR](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="EDR")、[二重恐喝](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="二重恐喝")等のシンクロ率100%化を達成。
 - **2026-04-06**: 初版作成。ノーウェアランサムの基本概念と[二重恐喝](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="二重恐喝")の概要を掲載。
+
 
 

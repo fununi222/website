@@ -9,7 +9,7 @@ themes: ["ai:llm", "ai:ops", "ai:agents"]
 # 大企業におけるMarkdownベースのナレッジ管理とAIデータ活用の現実：組織構造から紐解く次世代知識基盤の構築戦略
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../assets/img/ai/enterprise-md-knowledge.png" alt="Enterprise Knowledge Management Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../assets/img/ai/enterprise-md-knowledge.png" alt="Enterprise Knowledge Management Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 大企業におけるAI活用の成否は、PDF等の非構造化データに依存する既存の[RAG](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="RAG")アーキテクチャの限界をいかに突破するかにかかっている。本レポートでは、[LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM")との親和性が高いMarkdownベースのナレッジ管理、分散型データ所有権を提唱する[データメッシュ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="データメッシュ")、そして自動化されたガバナンスを実現する[Docs-as-Code](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Docs-as-Code")戦略を詳解。知識を単なるファイルから「戦略的インフラ」へと格上げし、2026年のナレッジ・インテリジェンス時代を勝ち抜くための組織変革ロードマップを提示する。
@@ -183,5 +183,6 @@ Markdownに代表される軽量な構造化フォーマットは、検索精度
 - **[自律修復型](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="自律修復型")AIエコシステムの構築と「[ナレッジ・タックス](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ナレッジ・タックス")」の撤廃**: [n8n](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="n8n")や[Ollama](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Ollama")等のツールを組み合わせ、AIエージェントに情報の整合性を継続的に監視させ、従業員が重複作業に費やすコストを削減する [18]。
 
 生成AIとRAGアーキテクチャの進化は、企業に対して「どのようなデータをAIに食べさせるか」という根本的な問いを突きつけている。見栄えを重視した人間のための印刷用文書（PDF/Word）から、論理構造を重視した機械可読なデータ（Markdown）への移行は、AI時代において避けて通れない進化の過程である。
+
 
 

@@ -9,7 +9,7 @@ themes: ["infra:network", "infra:vps", "other:troubleshoot"]
 # OpenClaw復旧ガイド｜VPSネットワークの『見えない壁』を突破せよ
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../assets/img/infra/vps-network-troubleshoot.png" alt="VPS Network Layer Troubleshooting Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../assets/img/infra/vps-network-troubleshoot.png" alt="VPS Network Layer Troubleshooting Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「サーバーにはSSHで繋がるのに、AIエージェントが外部サイトを読み込めない」
@@ -82,3 +82,4 @@ OpenClawという強力な知性を活かすためには、その手足となる
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき、実戦的なトラブルシューティングガイドとして全面リライト。診断の黄金フロー（DNS ➡️ TCP ➡️ HTTPS）の導入と、パケットフィルターの概念図的解説を追加。
 - **2026-04-09**: 新規作成。
+

@@ -9,7 +9,7 @@ themes: ["dev:webapp", "dev:ux", "ai:agents"]
 # Development | Synthetic Pet Simulation：合成生命体の自律エージェント試論 2026
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-<img src="../../assets/img/dev/synthetic-pet-simulation.png" alt="Synthetic Pet Handheld Device" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+<img src="../../../assets/img/dev/synthetic-pet-simulation.png" alt="Synthetic Pet Handheld Device" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 本プロジェクトは、[フロントエンド](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="フロントエンド")技術のみで完結する「たまごっち風」の自律型エージェント・シミュレーターです。単なるゲーム制作にとどまらず、**「時間経過による状態（State）の減衰」**と**「localStorage による永続化」**の実装を通じて、デジタル環境における自律生命体の[UI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="UI")/[UX](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="UX")設計を検証します。
@@ -33,7 +33,7 @@ themes: ["dev:webapp", "dev:ux", "ai:agents"]
 <div id="pet-screen" class="relative w-full h-56 bg-[#0a1a14] rounded-3xl border border-primary/20 overflow-hidden inner-glow flex items-center justify-center" style="background-image: url('../../assets/img/dev/pet-bg-spring.png'); background-size: cover; background-position: center;">
 <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
 <div id="pet-container" class="relative z-10 w-32 h-32 flex items-center justify-center">
-<img id="pet-mascot" src="../../assets/img/dev/mascot-v3-idle.png" class="w-24 h-24 object-contain pet-bobbing transition-all duration-300 chromakey-active" style="image-rendering: pixelated;">
+<img id="pet-mascot" src="../../../assets/img/dev/mascot-v3-idle.png" class="w-24 h-24 object-contain pet-bobbing transition-all duration-300 chromakey-active" style="image-rendering: pixelated;">
 </div>
 <div id="pet-emotion" class="absolute top-4 right-4 text-2xl animate-bounce"></div>
 <div class="absolute bottom-2 left-4 text-[8px] font-mono text-white tracking-widest uppercase bg-black/30 px-1 rounded">
@@ -258,4 +258,5 @@ setTimeout(initSimulation, 500);
 - **2026-04-13**: 季節限定背景（春）の追加。クロマキーフィルタによるマスコットの透過実装。
 - **2026-04-13**: ビジュアルの全面刷新（さくらみこ風マスコット）。ドット絵スプライトシステムの実装。
 - **2026-04-13**: 初回デプロイ。ステート管理と永続化機能を実装。
+
 

@@ -9,7 +9,7 @@ themes: ["finance:payments", "finance:cards", "finance:points"]
 # 【関東圏】三井住友カード「スマホタッチ決済で最大8%還元」の活用法と注意点
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../assets/img/finance/smcc-stouch-transit.png" alt="Mitsui Sumitomo Card Smartphone Touch Payment at Kanto Transit Gate" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../assets/img/finance/smcc-stouch-transit.png" alt="Mitsui Sumitomo Card Smartphone Touch Payment at Kanto Transit Gate" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.13</div>
@@ -79,4 +79,5 @@ themes: ["finance:payments", "finance:cards", "finance:points"]
 ## 変更履歴 (Changelog)
 - **2026-04-14**: 参考文献・関連リンクの正式URLを追記。
 - **2026-04-13**: 新規作成。関東圏の交通系決済アップデートに伴う還元ルートの解説を追加。
+
 

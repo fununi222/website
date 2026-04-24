@@ -9,7 +9,7 @@ themes: ["ai:agent", "ai:automation", "dev:devops"]
 # 自律修復インフラの夜明け｜Antigravity×n8nで構築する完全自動復旧パイプライン
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../assets/img/ai/antigravity-n8n-pipeline.png" alt="Self-Healing Pipeline with Antigravity & n8n" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
+  <img src="../../../assets/img/ai/antigravity-n8n-pipeline.png" alt="Self-Healing Pipeline with Antigravity & n8n" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
 </figure>
 
 深夜3時、Slackが叫ぶ。「Critical: NullReferenceException in Payment API」。
@@ -80,3 +80,4 @@ Rules:
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき、技術解剖と価値提案を融合させた構成へリライト。Antigravityのコンテキスト注入能力と、MTTR削減の定量的インパクトを強調。
 - **2026-04-09**: デザイン統一アップデート。
 - **2026-04-06**: 新規作成。
+

@@ -9,7 +9,7 @@ themes: ["ai:automation", "infra:oss", "infra:iac"]
 # 脱ベンダーロックイン｜2026年最新 OSS自動化スタック選定ガイド
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../assets/img/ai/oss-automation-stack-2026.png" alt="Sovereign Automation Stack with OSS Tools" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
+  <img src="../../../assets/img/ai/oss-automation-stack-2026.png" alt="Sovereign Automation Stack with OSS Tools" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
 </figure>
 
 「商用SaaSのライセンス料が毎年上がり続けている……」
@@ -72,3 +72,4 @@ OSSスタックの導入は、単なるコスト削減ではありません。**
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。OpenTofuやOllamaなどの2026年最新ツールをスタックに追加し、ベンダーロックイン回避と自律運用にフォーカスした構成へ刷新。
 - **2026-04-09**: デザイン統一アップデート。
+

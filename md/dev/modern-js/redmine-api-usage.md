@@ -8,7 +8,7 @@ themes: ["dev:api", "redmine:automation", "integration:json"]
 
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../assets/img/dev/redmine-api-usage.png" alt="Redmine API Usage Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../assets/img/dev/redmine-api-usage.png" alt="Redmine API Usage Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 # Redmine APIの使用方法 | REST APIによる自動化とデータ連携の詳解
@@ -69,4 +69,5 @@ GET /issues.json?query_id=123&limit=100&offset=0
 - **2026-04-24**: 最新のSKILL.md基準（用語リンクの最適化、変更履歴の追加）に合わせて記事をブラッシュアップ。
 - **2026-04-15**: 第2版。Basic認証、query_id活用、LLM向けデータ整形術を追記。
 - **2026-04-15**: 新規作成。Redmine API連携の技術リサーチ結果を統合。
+
 

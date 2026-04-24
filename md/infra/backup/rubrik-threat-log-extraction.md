@@ -88,3 +88,4 @@ A. 例えば、分析が成功した場合は`ThreatMonitoringAnalysisSucceeded`
 
 👉 **[GUI画面のスクレイピングは時代遅れ？Rubrik API Code Captureの活用法](./rubrik-api-code-capture.md)**
 
+

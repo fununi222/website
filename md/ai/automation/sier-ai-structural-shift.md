@@ -9,7 +9,7 @@ themes: ["ai:strategy", "business:sier", "future:work"]
 # 人月商売の終焉｜AIが引き引き起こすSIer業界の『破壊的再編』と生存戦略
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../assets/img/ai/sier-structural-shift.png" alt="Structural Shift of SIer Industry in AI Era" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../assets/img/ai/sier-structural-shift.png" alt="Structural Shift of SIer Industry in AI Era" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「10人のエンジニアで10ヶ月かかります。見積もりは1億円です」
@@ -79,3 +79,4 @@ SIer業界は今、歴史的な分岐点にいます。
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき、思想的・戦略的解像度を高めてリライト。人月ビジネスの終焉と「死の谷」を越えるための具体的なスキルセットを強調。
 - **2026-04-09**: インタラクティブ・コンテンツ統合アップデート。
+

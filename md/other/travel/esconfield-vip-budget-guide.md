@@ -9,7 +9,7 @@ themes: ["other:ballpark", "other:vip", "finance:cashless"]
 # 【予算別】エスコンフィールドを遊び尽くす！松竹梅のVIP体験攻略ガイド
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../assets/img/other/esconfield-vip-budget-guide.png" alt="ES CON FIELD HOKKAIDO VIP Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../assets/img/other/esconfield-vip-budget-guide.png" alt="ES CON FIELD HOKKAIDO VIP Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「エスコンフィールドって野球を見る以外に何ができるの？」
@@ -77,3 +77,4 @@ themes: ["other:ballpark", "other:vip", "finance:cashless"]
 
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき、予算別比較表（松竹梅）を導入。2026年最新の「洞サウナ」や決済ルートの反映を行い、実用性とワクワク感を最大化。
+

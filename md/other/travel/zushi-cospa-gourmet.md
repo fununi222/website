@@ -42,3 +42,4 @@ themes: ["gourmet:seafood", "other:local", "zushi:lunch"]
 ## 変更履歴 (Changelog)
 - 2026-04-15: 新規作成。逗子エリアのコスバリサーチログを統合。
 
+

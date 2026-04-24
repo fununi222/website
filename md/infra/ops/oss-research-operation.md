@@ -51,3 +51,4 @@ themes: ["infra:automation", "other:research", "infra:workflow"]
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。
 
 
+

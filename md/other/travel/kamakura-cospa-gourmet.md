@@ -42,3 +42,4 @@ themes: ["gourmet:kamakura", "other:local", "kamakura:lunch"]
 ## 変更履歴 (Changelog)
 - 2026-04-15: 新規作成。鎌倉エリアのコスバリサーチログを統合。
 
+

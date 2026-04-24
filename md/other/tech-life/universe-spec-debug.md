@@ -9,7 +9,7 @@ themes: ["other:physics", "other:spec", "other:research"]
 # 宇宙基盤システム 技術要件定義書 (TRD)｜仕様をデバッグし、運命をハックせよ
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../assets/img/other/universe-spec-debug.png" alt="Universal Infrastructure System Technical Requirements Document" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../assets/img/other/universe-spec-debug.png" alt="Universal Infrastructure System Technical Requirements Document" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 本ドキュメントは、我々が「物理世界」と呼称する全領域を、高度に構造化された情報処理システム（**Universal Infrastructure System**）として再定義する技術要件定義書（TRD）である。
@@ -93,3 +93,4 @@ const chartConfig = {
 };
 // (注: 実際のサイトではSMEエンジンがスクリプトを実行)
 </script>
+

@@ -9,7 +9,7 @@ themes: ["travel:spa", "travel:gourmet", "niseko:local"]
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.18</div>
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../assets/img/other/niseko-onsen-gourmet-guide.png" alt="Niseko Hot Springs and Gourmet" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../assets/img/other/niseko-onsen-gourmet-guide.png" alt="Niseko Hot Springs and Gourmet" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 # ニセコ・蘭越の日帰り温泉＆絶品ランチ厳選7選！絶景と泥パックで癒やされる
@@ -68,4 +68,5 @@ themes: ["travel:spa", "travel:gourmet", "niseko:local"]
 
 ＞＞ トレッキング、温泉、グルメを全部楽しむには？次の記事で「1泊2日のおすすめモデルコース」をご紹介します！
 [【満足度・回遊編】 神仙沼・ニセコを巡る1泊2日ドライブモデルコース](https://fununi222.github.io/website/html/other/niseko-1night2day-course.html)
+
 

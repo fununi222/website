@@ -9,7 +9,7 @@ themes: ["infra:aws", "infra:storage", "ai:ops"]
 # Infra | AWS RDS to On-Premises：AIOps 向けバックアップ・アーカイブ統合基盤調査 2026
 
 <figure class="mb-12 cyber-glow">
-  <img src="../../assets/img/infra/rds-onprem-backup-solutions.png" alt="RDS to On-Premises Backup Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../assets/img/infra/rds-onprem-backup-solutions.png" alt="RDS to On-Premises Backup Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
@@ -325,5 +325,6 @@ if (document.readyState === 'loading') {
 
 ---
 **Standard Edition: v2026.04.10** | **Clinical Precision. Self-Contained.**
+
 
 

@@ -9,7 +9,7 @@ themes: ["travel:hokkaido", "baseball:fan", "stadium:gourmet", "spa:sauna", "kid
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.18</div>
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-<img src="../../assets/img/other/esconfield-cospa-guide.png" alt="Es Con Field Cospa Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+<img src="../../../assets/img/other/esconfield-cospa-guide.png" alt="Es Con Field Cospa Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 # 【2026年最新】エスコンフィールド北海道 攻略法！
@@ -95,4 +95,5 @@ themes: ["travel:hokkaido", "baseball:fan", "stadium:gourmet", "spa:sauna", "kid
 - [SKY WALK 新アクティビティ誕生](https://www.hkdballpark.com/)
 - [洞サウナ (DO SAUNA) 公式プレスリリース](https://prtimes.jp/)
 - [株式会社楽久屋 (絵空事)](https://rakuya-onsen.com/)
+
 

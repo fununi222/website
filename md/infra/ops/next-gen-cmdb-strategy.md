@@ -470,3 +470,4 @@ themes: ["infra:cmdb", "infra:servicenow", "ai:digital-twin"]
   - デザインのプレミアム化：`backdrop-blur-xl` と独自の `cyber-glow` 効果を用いた「Technical Archive」ガラスモーフィズムを適用。
   - インタラクティブ要素の安定化：依存関係シミュレーターのグリッドレイアウトを刷新し、視認性を向上。
 
+
