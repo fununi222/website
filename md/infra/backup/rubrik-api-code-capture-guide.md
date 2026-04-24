@@ -9,7 +9,7 @@ themes: ["infra:rubrik", "dev:api", "ops:automation"]
 # APIドキュメントはもう読まない｜Rubrik Code Captureで実現する『ポチポチ自動化』
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../assets/img/infra/rubrik-api-code-capture.png" alt="Rubrik API Code Capture Workflow" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../../assets/img/infra/rubrik-api-code-capture.png" alt="Rubrik API Code Capture Workflow" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「API自動化は便利そうだけど、英語のマニュアルを読み込む時間がない……」
@@ -72,4 +72,5 @@ API自動化は、もはや特別なスキルではありません。「Code Cap
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。ブラウザ操作からのコード生成手順を具体化し、AI支援型開発（Cursor連携等）による「爆速開発フロー」の概念を導入。
 - **2026-04-18**: 新規作成。
+
 

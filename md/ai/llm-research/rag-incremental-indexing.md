@@ -9,7 +9,7 @@ themes: ["ai:ops", "rag:staleness"]
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-<img src="../../../assets/img/ai/rag-incremental-indexing.png" alt="Data Gardening Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+<img src="../../../../assets/img/ai/rag-incremental-indexing.png" alt="Data Gardening Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 # 【技術編】精度を落とさない「データの庭師」アプローチと鮮度管理
@@ -62,5 +62,6 @@ AI運用は「作って終わり」ではなく、庭の手入れと同じ。新
 > - [記事①：全体のリサーチ手法から学びたい方はこちら](https://fununi222.github.io/website/html/ai/enterprise-ai-ops-rag.html)
 > - [記事③：外部公開のセキュリティを知りたい方はこちら](https://fununi222.github.io/website/html/ai/multi-tenant-rag-security.html)
 > - [記事④：コスト削減と予算確保の戦略はこちら](https://fununi222.github.io/website/html/ai/ai-roi-finops-azure.html)
+
 
 

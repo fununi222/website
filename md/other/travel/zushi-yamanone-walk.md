@@ -11,7 +11,7 @@ themes: ["travel:hiking", "other:local"]
 # 逗子の奥座敷「山の根」を歩く。熊野神社から歴史の横穴、見晴らしの良い山道へ
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../assets/img/other/zushi-yamanone-walk.png" alt="Zushi Yamanone Kumano Jinja Walk" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../../assets/img/other/zushi-yamanone-walk.png" alt="Zushi Yamanone Kumano Jinja Walk" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 [逗子](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="逗子")といえば海のイメージが強いですが、駅のすぐ裏手に、驚くほど静かな散策路が存在します。山の根地区の鎮守「[熊野神社](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="熊野神社")」を起点に、中世の墓所である「[やぐら](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="やぐら")」や、鉄道ジオラマのような街の眺め、そして数百万年前の記憶を刻む[三浦層群](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="三浦層群")の地層を巡る、少し不思議な散歩道を紹介します。
@@ -72,5 +72,6 @@ JR逗子駅から線路沿いを少し歩き、住宅街の突き当たりまで
 
 ## 変更履歴 (Changelog)
 - 2026-04-14: 新規作成。逗子・山の根エリアの散策リサーチログを統合。
+
 
 

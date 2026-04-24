@@ -9,7 +9,7 @@ themes: ["ai:orchestration", "ai:agent", "ai:architecture"]
 # AIエージェント | オーケストレーションの最新動向 2026
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../assets/img/ai/agent-orchestration.png" alt="AI Agent Orchestration Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../../assets/img/ai/agent-orchestration.png" alt="AI Agent Orchestration Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 本記事では、AI開発の最前線である「[オーケストレーター](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="オーケストレーター")」による複数エージェントの統合管理について解説します。単一モデルの限界を、役割分担（Manager, Specialist等）によって克服し、信頼性と拡張性を両立させる「Graph型」への進化が、次世代のAI運用において不可欠な視点となることを示します。
@@ -47,6 +47,7 @@ themes: ["ai:orchestration", "ai:agent", "ai:architecture"]
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。
+
 
 
 

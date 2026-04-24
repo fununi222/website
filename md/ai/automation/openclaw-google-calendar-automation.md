@@ -9,7 +9,7 @@ themes: ["ai:automation", "ai:tool-integration", "google:calendar"]
 # スケジュール管理をAIに丸投げする｜OpenClaw×Googleカレンダー連携完全ガイド
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../assets/img/ai/openclaw-calendar-automation.png" alt="AI Agent Google Calendar Automation" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../../assets/img/ai/openclaw-calendar-automation.png" alt="AI Agent Google Calendar Automation" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「明日の予定を、相手の都合に合わせて調整しておいて」
@@ -75,4 +75,5 @@ AIは自らPythonスクリプトを生成し、APIを叩き、あなたのカレ
 
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき、技術マニュアルから「価値提案」主導の記事へリライト。ローカル構築の優位性と、403エラーの確実な解決策を強調。
+
 

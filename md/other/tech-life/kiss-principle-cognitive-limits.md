@@ -9,7 +9,7 @@ themes: ["other:research", "dev:architecture", "ai:cognitive"]
 # KISS原則の深淵｜なぜ『単純さ』は高度な知性を必要とするのか
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../assets/img/other/kiss-principle-cognitive-limits.png" alt="Simplicity is the Ultimate Sophistication" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../../assets/img/other/kiss-principle-cognitive-limits.png" alt="Simplicity is the Ultimate Sophistication" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「なぜ、このシステムはこれほどまでに複雑なのか？」
@@ -57,4 +57,5 @@ themes: ["other:research", "dev:architecture", "ai:cognitive"]
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。Rich Hickeyの「Simple vs Easy」の概念と認知心理学的視点を統合し、エンジニアのプロ意識に訴えかける構造へ刷新。
 - **2026-04-09**: 新規作成。
+
 

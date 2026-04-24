@@ -9,7 +9,7 @@ themes: ["infra:strategy", "infra:cloud", "ai:enterprise"]
 # IT主権の奪還｜2026年エンタープライズITを支配する『4つのパラダイムシフト』
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../assets/img/infra/enterprise-it-paradigm-shift-2026.png" alt="Strategic Paradigm Shift of Enterprise IT in 2026" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../../assets/img/infra/enterprise-it-paradigm-shift-2026.png" alt="Strategic Paradigm Shift of Enterprise IT in 2026" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「すべてをクラウドへ投げれば最適化される」
@@ -250,4 +250,5 @@ themes: ["infra:strategy", "infra:cloud", "ai:enterprise"]
   setTimeout(init, 500);
 })();
 </script>
+
 

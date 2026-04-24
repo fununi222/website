@@ -9,7 +9,7 @@ themes: ["dev:webmethods", "infra:rubrik", "ops:resilience"]
 # webMethods×Rubrik連携の極致｜502エラーを『デザイン』するレジリエンス戦略
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../assets/img/infra/webmethods-rubrik-resilience.png" alt="Resilient API Integration Strategy with webMethods and Rubrik" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../../assets/img/infra/webmethods-rubrik-resilience.png" alt="Resilient API Integration Strategy with webMethods and Rubrik" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「APIの502エラーで、夜間ジョブがまた止まった……」
@@ -70,4 +70,5 @@ webMethodsの **[REPEAT-TRY-CATCH](https://fununi222.github.io/website/html/glos
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。502エラーの発生原因の深掘り、指数バックオフ ＋ ジッターの実装詳細、および「開始」と「確認」の判定分離という高度な運用設計を統合したマスターガイドへと昇華。
 - **2026-04-18**: 新規作成。
+
 

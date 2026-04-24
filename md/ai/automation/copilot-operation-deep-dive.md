@@ -9,7 +9,7 @@ themes: ["ai:operation", "knowledge:decay", "enterprise:ai"]
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../assets/img/ai/copilot-operation-deep-dive.png" alt="Copilot Operation Deep-Dive" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../../assets/img/ai/copilot-operation-deep-dive.png" alt="Copilot Operation Deep-Dive" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 # Enterprise AI Ops | 実運用で判明した『知識の陳腐化』と権限管理の勘所
@@ -50,5 +50,6 @@ AIに高性能なモデル（[LLM](https://fununi222.github.io/website/html/glos
 
 ## 変更履歴 (Changelog)
 - 2026-04-16: 新規作成。AIエージェント実運用における課題とナレッジ管理戦略。
+
 
 
