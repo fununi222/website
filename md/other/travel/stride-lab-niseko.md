@@ -9,7 +9,7 @@ themes: ["other:research", "business:strategy", "other:hiking"]
 # Other | 顧客満足度分析レポート：アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/other/stride-lab-niseko.png" alt="STRIDE LAB NISEKO 顧客満足度分析レポート" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="../../../../assets/img/other/travel/stride-lab-niseko.png" alt="STRIDE LAB NISEKO 顧客満足度分析レポート" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 本レポートでは、北海道・ニセコの「STRIDE LAB」における「日本一の接客」の構造を、CX（顧客体験）戦略とブランド防衛の観点から分析する。単なる販売から、個別の身体特性に基づいた「高付加価値カウンセリング」への昇華が、いかにしてCustomer Success（顧客の活動の成功）と強固なブランドロイヤリティを生み出すかを詳解。デジタル時代の店舗が目指すべき、コミュニティ・ハブとしての次世代リテールモデルを提示する。
@@ -112,6 +112,7 @@ themes: ["other:research", "business:strategy", "other:hiking"]
 ## 変更履歴 (Changelog)
 - **2026-04-09**: 顧客満足度分析レポートとして内容を大幅に更新。戦略的接客モデルの構造分析とブランド防衛の観点を追加。
 - **2026-04-06**: 新規作成。
+
 
 
 
