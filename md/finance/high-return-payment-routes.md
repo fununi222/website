@@ -23,7 +23,7 @@ themes: ["finance:payment", "poi:strategy", "card:smcc"]
 
 ```mermaid
 graph LR
-    A[三井住友カード/Olive] -- 0.5~1.0% --> B(Revolut)
+    A[三井住友カード/Olive] -- 0.5~1.5% --> B(Revolut)
     B -- 手数料0% --> C(ANA Pay)
     C -- 0.5% --> D[楽天Edy/キャッシュ]
     C -- 0.5% --> E[Suica/ID]
