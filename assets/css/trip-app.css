@@ -1,0 +1,293 @@
+/* 
+  Trip App Styles (Vanilla CSS)
+  Premium Dark Mode, Glassmorphism, and Fluid Animations
+*/
+
+:root {
+  --app-bg: #050505;
+  --app-surface: rgba(255, 255, 255, 0.03);
+  --app-border: rgba(255, 255, 255, 0.08);
+  --app-text: #e2e8f0;
+  --app-text-muted: #94a3b8;
+  
+  /* Accents */
+  --accent-la: #00d2ff;
+  --accent-la-glow: rgba(0, 210, 255, 0.4);
+  --accent-vegas: #ff007a;
+  --accent-vegas-glow: rgba(255, 0, 122, 0.4);
+  --accent-alert: #f43f5e;
+  --accent-success: #10b981;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+}
+
+body.trip-app-body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body.trip-app-body * {
+  box-sizing: border-box;
+}
+
+/* Background Mesh */
+.trip-bg-mesh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.04), transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(255, 0, 122, 0.04), transparent 50%);
+  pointer-events: none;
+}
+
+/* Typography */
+.trip-h1 { font-family: var(--font-display); font-size: clamp(3rem, 5vw, 5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.04em; margin: 0 0 1rem 0; }
+.trip-h2 { font-family: var(--font-display); font-size: clamp(2rem, 3vw, 3rem); font-weight: 700; letter-spacing: -0.02em; margin: 0 0 1rem 0; }
+.trip-h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin: 0 0 0.5rem 0; }
+.trip-text-gradient {
+  background: linear-gradient(135deg, var(--accent-la), var(--accent-vegas));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.trip-text-la { color: var(--accent-la); }
+.trip-text-vegas { color: var(--accent-vegas); }
+.trip-subtitle { color: var(--app-text-muted); font-size: 1.125rem; max-width: 600px; margin: 0 auto 2rem auto; }
+
+/* Layout */
+.trip-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.trip-section { padding: 8rem 0; position: relative; }
+.trip-grid-2 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+.trip-grid-3 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 768px) {
+  .trip-grid-2 { grid-template-columns: 1fr 1fr; }
+  .trip-grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Glass Cards */
+.trip-glass-card {
+  background: var(--app-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--app-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.trip-glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+.trip-glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+.trip-glass-card.la-glow:hover { border-color: var(--accent-la-glow); box-shadow: 0 20px 40px var(--accent-la-glow); }
+.trip-glass-card.vegas-glow:hover { border-color: var(--accent-vegas-glow); box-shadow: 0 20px 40px var(--accent-vegas-glow); }
+
+/* Badges & Tags */
+.trip-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(255,255,255,0.1);
+  margin-bottom: 1rem;
+}
+.trip-badge.alert { background: rgba(244, 63, 94, 0.1); color: var(--accent-alert); border: 1px solid rgba(244, 63, 94, 0.2); }
+.trip-badge.success { background: rgba(16, 185, 129, 0.1); color: var(--accent-success); border: 1px solid rgba(16, 185, 129, 0.2); }
+
+/* Timeline UI */
+.trip-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+.trip-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-la), var(--accent-vegas));
+  border-radius: 2px;
+}
+.trip-timeline-item {
+  position: relative;
+  padding-bottom: 3rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.trip-timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.trip-timeline-dot {
+  position: absolute;
+  left: -2.35rem; /* center on the 2px line which is at left:0 of .trip-timeline, padding is 2rem. wait, let's calculate:
+    timeline has padding-left: 2rem. The line is at left:0.
+    The item is inside timeline, so its left edge is at timeline's padding left.
+    To put dot on line, left should be -2rem. Subtract half dot width. */
+  left: calc(-2rem - 6px + 1px);
+  top: 0.5rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--app-bg);
+  border: 2px solid var(--accent-la);
+  box-shadow: 0 0 10px var(--accent-la-glow);
+  z-index: 2;
+}
+.trip-timeline-item:nth-child(n+4) .trip-timeline-dot {
+  border-color: var(--accent-vegas);
+  box-shadow: 0 0 10px var(--accent-vegas-glow);
+}
+
+/* Baggage Visualizer */
+.trip-bag-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  height: 300px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--app-border);
+}
+.trip-bag-bar {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px 12px 0 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px dashed var(--app-border);
+  border-bottom: none;
+}
+.trip-bag-fill {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  transition: height 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.trip-bag-fill.zipair { background: linear-gradient(0deg, #10b981, #34d399); }
+.trip-bag-fill.united { background: linear-gradient(0deg, #f43f5e, #fb7185); }
+.trip-bag-label {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Tipping Calculator */
+.trip-calc-wrapper {
+  background: rgba(0,0,0,0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+.trip-calc-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.trip-calc-input {
+  background: transparent;
+  border: 1px solid var(--app-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: white;
+  font-size: 1rem;
+  font-family: var(--font-display);
+  width: 100%;
+}
+.trip-calc-input:focus {
+  outline: none;
+  border-color: var(--accent-la);
+}
+.trip-calc-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.trip-calc-btn {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--app-border);
+  color: var(--app-text);
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+.trip-calc-btn.active, .trip-calc-btn:hover {
+  background: var(--accent-la);
+  border-color: var(--accent-la);
+  color: #000;
+}
+.trip-calc-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding-top: 1rem;
+  border-top: 1px solid var(--app-border);
+}
+.trip-calc-total {
+  font-size: 2rem;
+  color: var(--accent-la);
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mt-8 { margin-top: 2rem; }
+.text-sm { font-size: 0.875rem; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.icon-large { font-size: 2.5rem; margin-bottom: 1rem; }
+
+/* Micro-animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
