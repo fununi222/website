@@ -40,7 +40,9 @@ def fix_links_in_file(file_path):
     return False
 
 def main():
-    md_dir = r'c:\Users\fumiy\.openclaw\workspace\website\md'
+    scripts_dir = os.path.dirname(os.path.abspath(__file__))
+    workspace_dir = os.path.dirname(scripts_dir)
+    md_dir = os.path.join(workspace_dir, 'md')
     count = 0
     for root, dirs, files in os.walk(md_dir):
         for file in files:

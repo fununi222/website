@@ -2,7 +2,8 @@ param()
 
 Add-Type -AssemblyName System.Drawing
 
-$imgDir = "c:\Users\fumiy\.openclaw\workspace\website\assets\img"
+$workspaceDir = Split-Path -Parent $PSScriptRoot
+$imgDir = "$workspaceDir\assets\img"
 $jpgFiles = Get-ChildItem -Path $imgDir -Filter *.jpg
 
 foreach ($file in $jpgFiles) {
@@ -18,7 +19,7 @@ foreach ($file in $jpgFiles) {
     }
 }
 
-$workspaceDir = "c:\Users\fumiy\.openclaw\workspace\website"
+# $workspaceDir is defined at the beginning of the script
 $textFiles = Get-ChildItem -Path $workspaceDir -Include *.md,*.html,*.js -Recurse | Where-Object { -not $_.DirectoryName.Contains(".git") }
 
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)

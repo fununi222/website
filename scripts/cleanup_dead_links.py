@@ -1,7 +1,7 @@
 import os
 import re
 
-BASE_DIR = r'c:\Users\fumiy\.openclaw\workspace\website'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEAD_LINKS = {
     'infra/aws-minimal-iac-patterns.md': 'aws-minimal-iac-patterns.png',

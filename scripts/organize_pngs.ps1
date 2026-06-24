@@ -1,6 +1,6 @@
 param()
 
-$workspace = "c:\Users\fumiy\.openclaw\workspace\website"
+$workspace = Split-Path -Parent $PSScriptRoot
 $imgDir = "$workspace\assets\img"
 $categories = @("ai", "infra", "dev", "finance", "lpo", "other")
 

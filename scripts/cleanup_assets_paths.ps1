@@ -1,5 +1,5 @@
 param()
-$workspace = "c:\Users\fumiy\.openclaw\workspace\website"
+$workspace = Split-Path -Parent $PSScriptRoot
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 
 # 1. 漏れている特殊名・派生名画像の移動とパス更新

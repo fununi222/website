@@ -41,7 +41,7 @@ themes: ["infra:automation", "other:research", "infra:workflow"]
 
 ## 4. 自動化実装 (GitHub Actions / OpenClaw Cron)
 - [GitHub Actions](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GitHub Actions") や `openclaw cron` を使用し、月次でのリサーチタスクをスケジューリングする
-- リサーチ結果を要約して `fumiya` へ報告するフローを実装する
+- リサーチ結果を要約して管理者へ報告するフローを実装する
 
 ---
 *「FunUni」運用ガイドライン：OSSキャッチアップ運用*

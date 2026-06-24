@@ -2,7 +2,7 @@ import os
 import re
 
 CATEGORIES = ['infra', 'dev', 'ai', 'finance', 'lpo', 'other']
-BASE_DIR = r'c:\Users\fumiy\.openclaw\workspace\website'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ABSOLUTE_URL_BASE = 'https://fununi222.github.io/website/'
 
 def process_file(filepath):
