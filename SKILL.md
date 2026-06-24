@@ -1,0 +1,110 @@
+# FunUni-lab Technical Knowledge Management
+
+<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
+    <img src="assets/img/other/tech-life/universe-spec-debug.png" alt="Engineering Governance" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  </figure>
+
+This skill preserves the authoritative voice of the FunUni-lab engineering laboratory. Every entry must reflect the rigorous documentation standards of a **Top 1% SEO Strategist & Senior Systems Architect**.
+
+## Strategic Core Domains
+
+The archive is organized into four high-authority domains to maximize topical relevance and E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness).
+
+1.  **Autonomous Infrastructure**: Focus on AIOps, Self-healing systems (AWS, Rubrik, PagerDuty), and resilient architectural design.
+2.  **AI Engineering & Agents**: Focus on next-gen development (OpenAI Codex, Cursor, Claude Code), autonomous agents, and AI-native workflows.
+3.  **Finance & Asset Strategy**: Focus on financial engineering (POI-katsu), wealth protection against inflation, and algorithmic asset optimization.
+4.  **Strategic Travel & Life**: Focus on ROI-driven travel (Niseko Strategy, Es Con Field), and engineering-led lifestyle design (KISS Principle).
+
+### Architecture: Hybrid Static Indexing
+
+The portal uses a **Hybrid Static Architecture** to balance dynamic rendering flexibility with native social media compatibility (OGP).
+
+1.  **Markdown Sources (`md/`)**: All raw content resides here. This is the "Source of Truth".
+2.  **HTML Entry Points (`html/`)**: Static proxy files for SNS sharing, mirroring the `md/` structure.
+3.  **Dynamic Viewer (`article.html`)**: The unified rendering engine (`sme.js`) that processes Markdown into a premium, interactive UI.
+4.  **Dynamic Hub Engine (`archive-loader.js`)**: Processes the JSON index to fully automate the rendering of category hub pages (`infra/index.html` etc.), automatically sorting by latest and grouping by sub-categories without any manual HTML editing.
+
+## Content Strategy: Topic Cluster Ecosystem
+
+Every article must be treated as part of a **Topic Cluster** to distribute authority and maximize reader retention.
+
+### 1. Mandatory Execution Flow (SEO Top 1%)
+1.  **Intent Decomposition**: Categorize into Know (Understand), Do (Action), Compare (Strategy), and Buy (Conversion).
+2.  **Cluster Hub Creation**: Define a pillar article for each domain that connects all sub-topics.
+3.  **Competitor Outperformance**: supplement missing info with first-party engineering data and deep technical insights.
+4.  **Internal Link Ecosystem**: Connect cluster articles naturally to maximize recirculation. Every deep-dive MUST link back to its Hub.
+5.  **SEO Title Design**: CTR-optimized (~32 characters) with strategic keyword placement.
+6.  **Conversion Path (LPO)**: Align content with the funnel (Awareness -> Strategic Decision -> Action).
+
+### 2. Article Format Standards
+- **Hero Image**: cyber-glow styled visuals representing the theme.
+- **Intro**: Empathy -> Problem Statement (Pain Point) -> Strategic Solution -> Benefit.
+- **Body (H2/H3)**: High readability, bullet points, and **Interactive Dashboards** (Chart.js) where applicable.
+- **Verification**: Mandatory inclusion of official docs and research data.
+- **Changelog**: Every article must conclude with a `## 変更履歴`.
+
+## Asset & Design Standards
+
+- **Aesthetic Excellence**: Use curated color palettes (HSL), smooth gradients, and glassmorphism.
+- **Mirrored Asset Structure (Standard)**: To ensure scalability and manageability, image assets MUST mirror the Markdown directory hierarchy.
+    - **Markdown**: `md/[category]/[subcategory]/[article].md`
+    - **Image**: `assets/img/[category]/[subcategory]/[image-name].png`
+- **Relative Pathing Strategy**:
+    - **Category Level (Depth 3)**: Use `../../../assets/img/[category]/...`
+    - **Sub-category Level (Depth 4)**: Use `../../../../assets/img/[category]/[subcategory]/...`
+- **SME.js Engine**: Supports breadcrumbs and dynamic glossary linking.
+
+## Terminology & Governance (Nomenclature)
+
+To maintain a professional, high-authority technical archive, all articles must adhere to strict naming conventions. Avoid internal codenames or project-specific jargon that lacks external context.
+
+- **Asset & Ticket Management**: Always use **"Jira"** as the "Source of Truth" for operational workflows and asset lifecycle management. (Avoid: T-UP, internal tracker names).
+- **AI Systems**: Use **"AI Knowledge Concierge"** as the professional designation for internal autonomous knowledge engines and RAG-based support systems. (Avoid: Project-A, Project-X).
+- **Public-Grade Anonymization**: When documenting internal research logs, prioritize functional descriptions over specific internal project codes to preserve confidentiality while maximizing technical value.
+
+## Verification Checklist (Quality Gate)
+
+- [ ] **Topical Authority**: Does this article strengthen its assigned Strategic Core Domain?
+- [ ] **Professional Nomenclature**: Are internal codenames replaced with professional terms (Jira, AI Knowledge Concierge)?
+- [ ] **Intent Fulfillment**: Does it outperform top competitors in strategic depth?
+- [ ] **Cluster Integrity**: Is it properly linked within its topic cluster ecosystem?
+- [ ] **AIOps Integration**: Does it mention automation or AI agents where relevant?
+- [ ] **ROI Focus**: Does the reader gain a clear "Strategic Advantage" or "Action"?
+
+## ⚙️ Publishing Workflow (CRITICAL)
+
+Whenever a new article is added to the `md/` directory, the following command **MUST** be executed from the root directory:
+```bash
+python scripts/generate_ogp_proxies.py
+```
+This single command automatically performs three critical operations:
+1. Generates HTML proxy files in `html/` for OGP and SNS sharing.
+2. Extracts metadata from all Markdown files and updates `assets/data/article_index.json`.
+3. The `archive-loader.js` engine instantly parses this JSON to dynamically build beautifully categorized and sorted glass-card grids across all category hub pages, eliminating the need for manual HTML updates.
+
+## Critical Files & Directories
+
+- `md/` (Sources: `infra/`, `ai/`, `dev/`, `finance/`, `other/`)
+- `html/` (Public Proxies - Must mirror `md/` structure exactly)
+- `scripts/generate_ogp_proxies.py` (Recursive Publishing Tool)
+- `md/glossary/system-glossary.md` (The Archive's Technical Dictionary)
+- `SKILL.md` (This Governance Document)
+
+
+## 📊 System Optimization Dashboard (LPO)
+
+The following metrics power the "System Optimization Dashboard" radar chart on the portal's homepage. Update these values when you publish new strategic articles or achieve significant engineering milestones.
+
+### 💼 仕事のスキル (Professional)
+- **技術適応力**: 95
+- **プロジェクト推進力**: 85
+- **チーム貢献・SL力**: 75
+- **課題解決・改善提案**: 95
+- **ドメイン知識**: 85
+
+### 💻 IT・テクニカルスキル (Technical)
+- **IaC・構成管理**: 85
+- **監視・可観測性**: 85
+- **開発力(Frontend/Python)**: 90
+- **生成AI・LLM活用**: 85
+- **AIエージェント運用**: 85

@@ -70,7 +70,16 @@ def main():
         print(f"Error: {SOURCE_DIR} directory not found.")
         return
 
-    articles_index = []
+    articles_index = [
+        {
+            "title": "Mission: One-Bag US Trip 2026 | LA・ラスベガス攻略",
+            "description": "パッキング＆準備編・現地サバイバル編：米国出張・ワンバッグでLA・ラスベガス1週間を乗り切る最強の持ち物術と生存戦略シミュレーション。",
+            "date": "2026-06-02",
+            "category": "other",
+            "path": "other/usa-trip-2026.html"
+        }
+    ]
+
 
     for root, dirs, files in os.walk(src_root):
         for filename in files:

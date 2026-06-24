@@ -4,11 +4,13 @@
 .DS_Store
 *.tmp
 *.log
-CHANGELOG.md
-SKILL.md
-references/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 .openclaw/
 
 # Environment variables
 .env
 .env.local
+
