@@ -1,26 +1,5 @@
 [
   {
-    "title": "ahamoとIIJmioを徹底比較！JALモバイルで損しない回線選び",
-    "description": "JALモバイル powered by ahamoとIIJmioの料金、マイル還元、どこかにマイル1,500マイル特典、ダブルホルダー戦略を比較します。",
-    "date": "2026-06-27",
-    "category": "finance",
-    "path": "finance/jal-mobile-ahamo-iijmio-comparison.html"
-  },
-  {
-    "title": "JALモバイルどこかにマイルの使い方！アプリの隠しバナーを探せ",
-    "description": "JALモバイル会員限定のどこかにマイル1,500マイルクーポンをJMBアプリで見つけ、交換して予約する手順を解説します。",
-    "date": "2026-06-27",
-    "category": "finance",
-    "path": "finance/jal-mobile-dokokani-mile-coupon-guide.html"
-  },
-  {
-    "title": "2人で1500マイル旅！JALモバイルどこかにマイル同行者予約の手順",
-    "description": "JALモバイルのどこかにマイルを2人以上で使う際の同行者設定、マイル引き落とし承認、期限切れキャンセルの注意点を解説します。",
-    "date": "2026-06-27",
-    "category": "finance",
-    "path": "finance/jal-mobile-dokokani-mile-companion-guide.html"
-  },
-  {
     "title": "Enterprise AI Architecture | クラウドAI基盤 vs. 独自エージェントの選択肢と制約",
     "description": "外部パートナー利用不可というライセンス制約をどう回避するか。AI Knowledge Conciergeで浮き彫りになった、エンタープライズAI公開戦略の比較。",
     "date": "202X-04-XX",
@@ -40,6 +19,27 @@
     "date": "202X-04-XX",
     "category": "infra",
     "path": "infra/backup/rubrik-m365-alert-tuning.html"
+  },
+  {
+    "title": "JALモバイルどこかにマイルの使い方！アプリの隠しバナーを探せ",
+    "description": "JALモバイル会員限定のどこかにマイル1,500マイルクーポンをJMBアプリで見つけ、交換して予約する手順を解説します。",
+    "date": "2026-06-27",
+    "category": "finance",
+    "path": "finance/jal-mobile-dokokani-mile-coupon-guide.html"
+  },
+  {
+    "title": "ahamoとIIJmioを徹底比較！JALモバイルで損しない回線選び",
+    "description": "JALモバイル powered by ahamoとIIJmioの料金、マイル還元、どこかにマイル1,500マイル特典、ダブルホルダー戦略を比較します。",
+    "date": "2026-06-27",
+    "category": "finance",
+    "path": "finance/jal-mobile-ahamo-iijmio-comparison.html"
+  },
+  {
+    "title": "2人で1500マイル旅！JALモバイルどこかにマイル同行者予約の手順",
+    "description": "JALモバイルのどこかにマイルを2人以上で使う際の同行者設定、マイル引き落とし承認、期限切れキャンセルの注意点を解説します。",
+    "date": "2026-06-27",
+    "category": "finance",
+    "path": "finance/jal-mobile-dokokani-mile-companion-guide.html"
   },
   {
     "title": "Mission: One-Bag US Trip 2026 | LA・ラスベガス攻略",
