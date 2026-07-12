@@ -1,18 +1,18 @@
 ---
 title: "Scale-out Storage | 大規模データ削除後の「実効容量」回復と検証プロセス"
-date: "202X-04-XX"
+date: "2026-04-15"
 category: "infra"
 description: "バックアップ基盤の撤去に伴う大規模なデータ削除イベント後、ストレージ側でどのように空き容量が回復し、それをどう技術的に証明すべきか。"
 themes: ["infra:storage", "capacity:audit", "backup:recovery"]
 ---
 
-<div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v202X.XX.XX</div>
+<div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>
 
 # Scale-out Storage | 大規模データ削除後の「実効容量」回復と検証プロセス
 
-従来のストレージとは異なり、高度な類似データ削減機能を備える次世代ストレージ基盤において、旧バックアップ環境からの大量削除後の容量回復は、必ずしも直線的な推移を辿りません。
-...
-次世代ストレージ基盤のDASEアーキテクチャでは、データはグローバルな重複排除と類似性圧縮によって物理フットプリントが最小化されています。
+従来のストレージとは異なり、高度な重複排除・圧縮・Similarity-Based Data Reduction を備える次世代ストレージ基盤では、旧バックアップ環境からの大量削除後の容量回復が、削除量と1対1で直線的に見えるとは限りません。
+
+次世代ストレージ基盤のDASEアーキテクチャでは、データはグローバルな重複排除と類似性ベースの削減によって物理フットプリントが最小化されています。そのため、削除直後は「論理削除は完了しているが、物理解放・削減率再計算・表示反映は追随中」という中間状態を前提に評価します。
 
 ### なぜ即座に空かないのか？
 - **ガーベジコレクション (GC) の遅延**: ファイルシステム上から参照が削除されても、バックグラウンドでのブロック開放には時間がかかる場合があります。
@@ -35,11 +35,16 @@ themes: ["infra:storage", "capacity:audit", "backup:recovery"]
 
 ---
 
+## ファクトチェックメモ
+- VAST Data は DASE（Disaggregated, Shared-Everything）と Similarity-Based Data Reduction を訴求しており、容量評価では論理使用量だけでなく物理使用量、削減率、バックグラウンド処理後の安定値を合わせて見る必要があります。
+- ベンダー/バージョン/構成ごとに容量反映のタイミングは異なるため、本稿は一般化した運用観点として記載し、最終判断は実機メトリクスとサポート情報で確認します。
+
 ## 結論：監視から「評価」への転換
 ストレージの運用は「何％空いているか」を監視するだけでは不十分です。特に[VAST Data](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="VAST%20Data")のような高度なシステムでは、削除イベント後の回復ロジックを理解し、「将来のバックアップを許容できるか」を評価する視点が不可欠です。
 
 ## 変更履歴 (Changelog)
-- 202X-04: 新規作成。次世代ストレージ容量推移と削除イベント後の実効評価リサーチ。
+- 2026-04-15: 新規作成。次世代ストレージ容量推移と削除イベント後の実効評価リサーチ。
+- 2026-07-11: 日付を確定し、DASE/Similarity-Based Data Reduction 前提の容量評価に表現を整理。
 
 
 

@@ -1,3 +1,11 @@
+---
+title: "Rubrikの最大保護オブジェクト数は？VMのカウント基準と限界値を徹底解説"
+date: "2026-04-17"
+category: "infra"
+description: "Rubrik の保護対象オブジェクト定義、VM・DB・NAS のカウント基準、サイジング時の確認ポイントを整理。"
+themes: ["infra:backup", "rubrik:operations"]
+---
+
 # Rubrikの最大保護オブジェクト数は？VMのカウント基準と限界値を徹底解説
 
 ## 導入

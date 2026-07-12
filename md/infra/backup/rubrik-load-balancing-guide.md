@@ -1,3 +1,11 @@
+---
+title: "Rubrikのバックアップ負荷分散ガイド！リソース制限ができない時の対策"
+date: "2026-04-16"
+category: "infra"
+description: "Rubrik バックアップ時の本番ストレージ負荷を、OS QoS・ジョブ分散・SLA 設計で抑える実践ガイド。"
+themes: ["infra:backup", "rubrik:operations"]
+---
+
 # Rubrikのバックアップ負荷分散ガイド！リソース制限ができない時の対策
 
 ## 導入

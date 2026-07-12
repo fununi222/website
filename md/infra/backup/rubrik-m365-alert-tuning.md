@@ -1,6 +1,6 @@
 ---
 title: "Enterprise Backup | クラウドOffice基盤のアラート「ノイズ抑制」と運用最適化"
-date: "202X-04-XX"
+date: "2026-04-15"
 category: "infra"
 description: "クラウドOffice基盤の保護で頻発する監視ノイズを適切に整理し、重要アラートを見逃さないためのチューニング手法。"
 themes: ["infra:backup", "cloud:office", "ops:noise-reduction"]
@@ -10,9 +10,9 @@ themes: ["infra:backup", "cloud:office", "ops:noise-reduction"]
 
 # Enterprise Backup | クラウドOffice基盤のアラート「ノイズ抑制」と運用最適化
 
-[クラウドOffice基盤]のデータ保護において、次世代バックアップ基盤は強力な不変バックアップを提供しますが、実運用ではシステム制約に起因する継続的な「Warning」が監視のノイズとなる課題があります。本稿では、アラートを機械的に処理するのではなく、ビジネスリスクに基づいて分類し、運用負荷を最小化する設計指針を整理します。
+[クラウドOffice基盤](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Microsoft%20365")のデータ保護において、次世代バックアップ基盤は強力な不変バックアップを提供しますが、実運用ではシステム制約に起因する継続的な「Warning」が監視のノイズとなる課題があります。本稿では、アラートを機械的に処理するのではなく、ビジネスリスクに基づいて分類し、運用負荷を最小化する設計指針を整理します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 202X年 4月某日</div>
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-15</div>
 
 ---
 
@@ -23,7 +23,7 @@ themes: ["infra:backup", "cloud:office", "ops:noise-reduction"]
 ### 代表的な警告パターン
 - **Mailbox Full**: ユーザーのメールボックス容量が上限に達し、バックアップ基盤がメタデータの書き込みや特定のアイテムの処理に失敗するケース。
 - **Sync Issues**: [API](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="API")のスロットリング（流量制限）や、一時的なサービス断による一部アイテムのスキップ。
-- **Recoverable Itemsの肥大化**: 削除済みアイテムの保持ポリシーにより、隠しフォルダが肥大化しクォータを圧迫しているケース。
+- **Recoverable Itemsの肥大化**: 削除済みアイテムの保持ポリシーや訴訟ホールド等により、Recoverable Items が肥大化しクォータを圧迫しているケース。
 
 ## 2. 監視運用の最適化フロー
 
@@ -45,11 +45,16 @@ themes: ["infra:backup", "cloud:office", "ops:noise-reduction"]
 
 ---
 
+## ファクトチェックメモ
+- Microsoft Learn では、Exchange Online の Recoverable Items は通常 30GB、ホールド時は 100GB などのクォータが示されています。
+- Microsoft Graph はサービス保護のためスロットリングを行い、要求種別・アプリ・テナント・サービス固有条件で評価されます。バックアップ製品の Warning は、製品不具合だけでなく Microsoft 365 側のクォータ/スロットリング/一時状態も含めて切り分けます。
+
 ## 結論：可視性と保守性の両立
 [Rubrik](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Rubrik")を導入した目的は「データの確実な保護」です。ノイズを抑制することは、逆に言えば**「本当に守れていないデータ」を即座に特定できる環境を作る**ことに他なりません。
 
 ## 変更履歴 (Changelog)
-- 202X-04: 新規作成。クラウドOffice基盤バックアップ運用におけるアラート最適化リサーチ。
+- 2026-04-15: 新規作成。クラウドOffice基盤バックアップ運用におけるアラート最適化リサーチ。
+- 2026-07-11: 日付を確定し、Microsoft 365 のクォータ/Graph スロットリング観点を追記。
 
 
 

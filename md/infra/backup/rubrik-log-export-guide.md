@@ -1,3 +1,11 @@
+---
+title: "【完全ガイド】Rubrik脅威監視で検体を特定！詳細ログの取得方法と仕組み"
+date: "2026-04-16"
+category: "infra"
+description: "Rubrik Security Cloud の脅威監視ログを GUI スクレイピングではなく API ファーストで取得するための基礎ガイド。"
+themes: ["infra:backup", "rubrik:operations"]
+---
+
 # 【完全ガイド】Rubrik脅威監視で検体を特定！詳細ログの取得方法と仕組み
 
 ## 導入
