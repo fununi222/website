@@ -8,10 +8,6 @@ themes: ["infra:security", "infra:automation", "ai:ops"]
 
 # Infra | Rubrik：次世代データ管理アーキテクチャの全容 2026
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-<img src="https://placehold.co/800x450?text=rubrik-tech-analysis-2026" alt="Rubrik Next-Gen Architecture Overview" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
 
 Rubrikは、バックアップという既存概念を「データセキュリティ」へと再定義したプラットフォームである。本稿では、AIOpsエンジニアが把握すべきアーキテクチャの本質と、自動化パイプラインにおける連携の可能性を整理する。
@@ -229,10 +225,4 @@ print(f"Live Mount started for {vm_name}. Output: {mount_result}")
 
 ## 変更履歴 (Changelog)
 - **2026-04-10**: AIOpsエンジニア向けプロンプト（Phase 1.1）を活用した、実機検証ベースのリサーチ結果に基づき新規作成。
-
-
-
-
-
-
 

@@ -8,10 +8,6 @@ themes: ["infra:backup", "modernization:db", "migration:strategy"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=db-backup-transition-strategy" alt="DB Backup Transition Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 # DB Backup Modernization | 基幹システムのバックアップ刷新と『ノイズ除外』の判断基準
 
 販売管理等のミッションクリティカルなデータベース基盤を旧環境から新バックアップ基盤へ移行する際、単なる「設定完了」をゴールにすると、運用開始直後の警告多発により移行の成否判断が揺らぐリスクがあります。本稿では、既知の製品制約を「ノイズ」として定義し、真の切替成功を判定するためのゲート設計について整理します。
@@ -56,9 +52,4 @@ themes: ["infra:backup", "modernization:db", "migration:strategy"]
 
 ## 変更履歴 (Changelog)
 - 2026-04-16: 新規作成。基幹DBのバックアップ刷新判定フローとノイズ管理戦略を統合。
-
-
-
-
-
 

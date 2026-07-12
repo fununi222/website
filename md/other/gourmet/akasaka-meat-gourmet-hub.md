@@ -8,11 +8,6 @@ themes: ["other:gourmet", "other:akasaka"]
 
 # 【完全ガイド】赤坂の肉料理・焼肉おすすめ厳選！接待からデートまで
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=akasaka-meat-gourmet-hub" alt="Akasaka Meat Gourmet Hub" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
-
 東京・赤坂でおいしい「お肉」を食べたいけれど、お店が多すぎて迷っていませんか？
 
 赤坂は、政治家やエグゼクティブが通う超高級店から、若者に人気のコスパ抜群の肉バルまでが揃う激戦区です。
@@ -46,7 +41,4 @@ themes: ["other:gourmet", "other:akasaka"]
 ## 変更履歴
 - **2026-04-24**: `SKILL.md` 準拠のため、超要約・Heroイメージ・用語リンク・変更履歴を追加。
 - **2026-04-23**: 新規作成。
-
-
-
 

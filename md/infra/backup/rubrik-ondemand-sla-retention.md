@@ -8,11 +8,6 @@ themes: ["infra:cloud", "infra:storage", "infra:backup"]
 
 # 【Rubrik】オンデマンドバックアップが21日保持になる理由と解決策（SLAドメインの仕様）
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=rubrik-tech-analysis-2026" alt="Rubrik SLA Spec Analysis" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
-
 Rubrikで[オンデマンド](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="オンデマンド")バックアップ（手動[スナップショット](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="スナップショット")）を取得した際、「日次5世代、週次3世代」で設定している[SLAドメイン](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="SLA%20Domain")を割り当てたのに、**なぜか保持期間が「21日」になってしまった**という経験はありませんか？
 
 「設定を間違えた？」「システムのバグ？」と不安に思うかもしれません。
@@ -128,8 +123,4 @@ ITエンジニア特化型のエージェントを利用すれば、あなたの
 ## 変更履歴
 - **2026-04-24**: `SKILL.md` 準拠のため、超要約・Heroイメージ・用語リンク・変更履歴を追加。
 - **2026-04-23**: 新規作成。
-
-
-
-
 

@@ -6,10 +6,6 @@ date: "2026-04-28"
 
 # 【ニセコ・共和町】雨の日も笑顔！0〜3歳子連れランチ＆屋内お出かけスポット徹底ガイド
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-    <img src="https://placehold.co/800x450?text=niseko-rainy-day-kids" alt="Niseko Rainy Day Kids Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 せっかくの家族旅行、もし雨が降ってしまったら外遊びはできませんよね。でも、ニセコ・共和町エリアなら大丈夫です！雨の日でもお子様が全力で楽しめて、パパとママもゆっくりできる屋内の最強スポットがあります。
 
 ---

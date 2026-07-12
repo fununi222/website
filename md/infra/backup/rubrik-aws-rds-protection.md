@@ -8,10 +8,6 @@ themes: ["infra:cloud", "infra:database", "ai:ops"]
 
 # Infra | Rubrik：AWS RDS クラウドネイティブ保護の技術詳解 2026
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=rubrik-aws-rds-protection" alt="Rubrik AWS RDS Protection Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
 
 Rubrikは、独自ストレージへのデータ転送ではなく、AWSネイティブの[AWS RDS](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AWS%20RDS")スナップショット[API](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="API")をオーケストレーションすることで、[IAM Role](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="IAM%20Role")ベースのセキュアかつスケーラブルなデータ保護を実現する。本稿では、最新の仕様に基づき、アーキテクチャ上の制約、論理バックアップへの対応、および運用の勘所（Gotchas）を整理する。
@@ -131,10 +127,4 @@ def create_temp_rds_for_dump(snapshot_id, target_subnet_group, target_sg):
 - **2026-04-10**: 「スナップショット」と「引き抜き（Vaulting）」の技術的相違に関する解説（Tech Insight）を追記。
 - **2026-04-10**: 論理バックアップへの対応方針とAIOps自動化パイプラインに関する技術解説を統合。
 - **2026-04-10**: AWS RDSクラウドネイティブ保護に関する技術解説を独立記事として新規作成。
-
-
-
-
-
-
 

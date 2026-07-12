@@ -8,10 +8,6 @@ themes: ["infra:rubrik", "dev:api", "ops:automation"]
 
 # Rubrik APIの502エラー/タイムアウトを完全克服｜大規模運用の鉄則
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=rubrik-api-timeout-guide" alt="Rubrik API Performance Optimization Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 Rubrik Security Cloud（[RSC](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="RSC")）による自動化は、インフラ運用の「聖杯」です。しかし、数千台規模のVMや大規模なスナップショットを扱う際、**「[502 Bad Gateway](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="502%20Bad%20Gateway")」**という壁が、多くのエンジニアの安眠を妨げています。
 
 「APIが不安定だから自動化は無理だ」と諦めるのはまだ早いです。502エラーの正体はAPIの故障ではなく、**「サーバーのリソースを使い果たす過酷なリクエスト設計」に対する悲鳴**です。
@@ -81,7 +77,4 @@ Rubrik APIの安定化は、単なるコード修正ではなく、インフラ�
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。502エラーの内部構造解説と、アダプティブ・スロットリング、Jitter付きバックオフの実装指針を追加。
 - **2026-04-09**: デザイン統一アップデート。
-
-
-
 

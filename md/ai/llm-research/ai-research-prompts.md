@@ -8,10 +8,6 @@ themes: ["ai:prompt-engineering", "infra:automation", "dev:ops"]
 
 # AI | 【完全版】AIOpsエンジニア向け 業務自動化プロンプト大全
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=ai-research-prompts" alt="AIOps AI Research Prompts Hero" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
 
 本ナレッジベースは、[AIOps](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AIOps") エンジニアの業務ライフサイクルを「企画・稟議」「要件定義・設計」「構築・標準化」「障害対応・自律修復」の4つのパイプラインとして定義し、各フェーズで[生成AI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="生成AI")を [AIエージェント](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AIエージェント") 同様の知的ワークフォースとして機能させるためのプロンプト集である。
@@ -434,9 +430,4 @@ MTGメモや雑多な資料から、エンジニアが設計に使える構造�
 - **2026-04-09**: 更新。**【完全版】大全**として全プロンプトを再編。「導入要件定義書作成」「構築エビデンス記録」を新規追加し、4つの垂直統合パイプライン構造へ移行。
 - **2026-04-09**: 更新。「垂直統合」コンセプトに基づき、企画・障害対応の各ステップを統合。
 - **2026-04-09**: 新規作成。AIOpsエンジニア向けプロンプトの体系化を開始。
-
-
-
-
-
 

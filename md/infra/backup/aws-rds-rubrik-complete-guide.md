@@ -8,10 +8,6 @@ themes: ["infra:aws", "infra:backup", "security:ransomware", "ai:aiops"]
 
 # AWS RDSバックアップの通信費をハックせよ｜Rubrikで実現する最強のデータ保護
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=rubrik-aws-rds-protection" alt="AWS RDS Backup Strategy with Rubrik" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 「AWS Backupを使っているが、特権IDが乗っ取られたら全データが消えるのでは？」
 「オンプレミスにバックアップを引き抜きたいが、データ転送費（Egress）が怖くて踏み切れない」
 
@@ -98,8 +94,4 @@ Rubrikを導入することは、単なるツールの追加ではなく、イ�
 
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき、記事を全面的にリライト。通信費抑制のFinOps視点と、実務でのトラブル回避策を大幅に強化。
-
-
-
-
 

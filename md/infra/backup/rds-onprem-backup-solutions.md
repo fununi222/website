@@ -8,10 +8,6 @@ themes: ["infra:aws", "infra:storage", "ai:ops"]
 
 # Infra | AWS RDS to On-Premises：AIOps 向けバックアップ・アーカイブ統合基盤調査 2026
 
-<figure class="mb-12 cyber-glow">
-  <img src="https://placehold.co/800x450?text=rds-onprem-backup-solutions" alt="RDS to On-Premises Backup Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
 
 [AWS RDS](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text=%22AWS%20RDS%22) 上のデータをオンプレミスのインフラへ「持ち出す」理由は、単なるバックアップに留まらない。[AIOps](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text=%22AIOps%22) 用のデータレイク構築、コンプライアンス、あるいは[クラウド脱却（Could Exit）](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text=%22Cloud%20Exit%22)戦略の一環として、その重要性は増している。
@@ -325,10 +321,4 @@ if (document.readyState === 'loading') {
 
 ---
 **Standard Edition: v2026.04.10** | **Clinical Precision. Self-Contained.**
-
-
-
-
-
-
 

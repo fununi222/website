@@ -8,10 +8,6 @@ themes: ["dev:ai", "ai:llm", "ai:agents", "dev:codex"]
 
 # OpenAI Codex 徹底解剖 2026｜GPT-5.3が切り拓く自律開発の地平
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=openai-codex-guide-2026" alt="OpenAI Codex (GPT-5.3) Deep Dive" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 プログラミングは、もはや「構文を書く作業」から「目的を定義する作業」へと変貌しました。
 
 その変革の心臓部に位置するのが、OpenAIが誇るコーディング特化型モデル「[Codex](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Codex")」です。2026年現在、[GPT-5.3](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GPT-5")ベースの推論エンジンを搭載した最新モデルは、単なるコード生成を超え、自らエラーを修復し、テストを書き、デプロイまでを完遂する**「自律型エージェント」**へと進化を遂げました。
@@ -76,7 +72,4 @@ OpenAI Codexは、もはや単なる「ツール」ではありません。そ�
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。GPT-5.3-Codexの推論能力、APIパラメータ設定、自己修正ループなどの高度な技術解説を追加。
 - **2026-04-18**: 新規作成。
-
-
-
 

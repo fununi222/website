@@ -70,5 +70,3 @@ webMethodsには、非常に便利な組み込みサービスが用意されて�
 ## 変更履歴 (Changelog)
 - **2026-04-24**: webMethods Integration ServerにおけるHTTP 502エラーハンドリングの基礎ガイドを新規作成。
 
-
-

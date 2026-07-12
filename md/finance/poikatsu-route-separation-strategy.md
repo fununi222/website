@@ -147,11 +147,8 @@ JAL Pay改悪の穴を完璧に埋めるのが「Revolut」です。
 1. **第一優先:** VポイントPayを使った**スマホVISAタッチ または Suica**（最大2.5%）
 * *経路:* P-one(M) ⇒ JAL Pay ⇒ au PAY ⇒ VポイントPay
 
-
 2. **第二優先（残高不足・上限時）:** ANA Payを使った**iD または Suica**（最大2.0%）
 * *経路:* 三井住友/Olive ⇒ Revolut ⇒ ANA Pay
-
-
 
 レジ前では「VISAで」「Suicaで」「iDで」のいずれかを宣言するだけです。
 

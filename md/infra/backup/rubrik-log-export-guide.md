@@ -85,6 +85,3 @@ RubrikはAPIファースト設計であり、画面に出る情報はすべて�
 ### 次の記事はこちら！
 👉 [GUIのHTMLスクレイピングは時代遅れ？Rubrik API Code Captureの活用法](https://fununi222.github.io/website/html/infra/rubrik-api-code-capture-guide.html)
 
-
-
-

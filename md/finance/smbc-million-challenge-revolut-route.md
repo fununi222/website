@@ -8,10 +8,6 @@ themes: ["finance:payment", "poi:strategy", "card:smcc"]
 
 # 三井住友カード100万円修行を最速で終わらせる｜Revolut×ANA Pay出口戦略
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=smbc-million-challenge-revolut-route" alt="SMCC 100 Million Challenge Roadmap" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 「ゴールドカードの年会費を永年無料にしたいが、あと30万円足りない……」
 「無駄な浪費はしたくない。チャージだけで修行を終わらせる方法はないか？」
 
@@ -72,6 +68,4 @@ Revolutにチャージして満足してはいけません。その資金を有�
 
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づきリライト。Visaブランドユーザー向けの「Oliveデビットモード活用術」を強調し、楽天証券への投資ルートを最新化。
-
-
 

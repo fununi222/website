@@ -8,10 +8,6 @@ themes: ["dev:ai", "ai:llm", "ai:agents", "dev:cursor", "dev:copilot"]
 
 # AIコーディングツール徹底比較 2026｜Cursor, Windsurf, Copilotどれが正解？
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=ai-coding-tools-comparison-2026" alt="AI Coding Tools Comparison 2026 Dashboard" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 「AIツールが多すぎて、どれに課金すべきか選べない……」
 「結局、一番コードが書けるのはどれ？」
 
@@ -76,7 +72,4 @@ themes: ["dev:ai", "ai:llm", "ai:agents", "dev:cursor", "dev:copilot"]
 
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。WindsurfとClaude Codeを比較対象に加え、用途別の最強選定マトリクスを導入。2026年現在のAIコーディングツールの立ち位置を明確化。
-
-
-
 

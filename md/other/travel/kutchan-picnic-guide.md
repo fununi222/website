@@ -6,10 +6,6 @@ date: "2026-04-28"
 
 # 【完全無料】倶知安で子連れピクニック！おすすめ公園5選＆0円満喫モデルコース
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-    <img src="https://placehold.co/800x450?text=kutchan-picnic-guide" alt="Kutchan Picnic Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 休日は子どもをのびのび遊ばせたい！でも、毎週のお出かけはお財布への負担も気になりますよね。
 そんなパパ・ママに全力でおすすめしたいのが、ニセコエリアにある「倶知安町（くっちゃんちょう）」です。
 

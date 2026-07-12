@@ -84,6 +84,3 @@ Dockerの仕様上、同じ名前のタグ（例：v1.0）で新しいイメー�
 
 👉 **[DevSecOpsを自動化！Harbor×Devcontainerのセキュリティ戦略](./devcontainer-harbor-security.md)**
 
-
-
-

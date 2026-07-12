@@ -8,10 +8,6 @@ themes: ["ai:agent", "ai:automation", "business:productivity"]
 
 # AI驚き屋のコピペは卒業！自分の仕事を自動化して生産性を爆上げする鉄則
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=agent-orchestration" alt="Practical AI Work Automation" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
-</figure>
-
 SNSには、派手なAIデモがあふれています。ゲームを一瞬で作る、AI社員だけで会社を回す、映画のようなUIを生成する。どれも魅力的ですが、眺めて驚くだけでは、あなたの仕事は1ミリも楽になりません。
 
 本記事では、表面的なAI情報収集から抜け出し、自分の業務を本当に自動化するための実務マインドを整理します。

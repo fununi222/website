@@ -8,10 +8,6 @@ themes: ["infra:rubrik", "ops:asset-management", "ops:automation"]
 
 # ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（Jira）の自動化戦略
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=zombie-backup-strategy" alt="Zombie Backup Eradication Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-tertiary/50 transition-colors duration-300">
-</figure>
-
 「サーバは半年前に削除したはずなのに、バックアップの請求が止まらない……」
 
 数千台規模のインフラを運用する現場で、誰もが一度は直面する**「[ゾンビバックアップ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ゾンビバックアップ")（Zombie Backups）」**。この問題は、単なるストレージの無駄遣いにとどまらず、ITガバナンスの欠如と運用コストの深刻な漏洩を意味します。
@@ -93,8 +89,4 @@ vSphereから削除されたVMをRubrikは「Relic（遺物）」として保持
 
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づきリライト。コスト削減の財務的インパクトと、UUIDベースの堅牢な自動化ロジックを強調。
-
-
-
-
 

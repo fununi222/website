@@ -8,10 +8,6 @@ themes: ["finops:roi", "ai:finops", "cloud:azure"]
 
 # AI予算を勝ち取る『ROI算定式』とAzure FinOps最適化戦略
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=ai-roi-finops-azure" alt="AI FinOps & ROI Dashboard" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 「AIを導入したが、コストばかりが嵩み、効果が見えにくい……」
 「次年度の予算を確保するために、納得感のあるROIを提示したい」
 
@@ -65,7 +61,4 @@ Azure OpenAI等のクラウドコストは、設計次第で劇的に圧縮可�
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。ROI算出モデルの具体化、Azure OpenAIのBatch API/PTU活用術、および「経営投資としてのAI」という視点の導入。
 - **2026-04-16**: 新規作成。
-
-
-
 

@@ -8,10 +8,6 @@ themes: ["infra:storage", "infra:hpc", "ai:infrastructure"]
 
 # 階層化の終焉｜VAST Dataが拓くAI時代の『ユニバーサル・ストレージ』
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=vast-data-universal-storage" alt="VAST Data Universal Storage Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-sky-300 transition-colors duration-300">
-</figure>
-
 「頻繁に使うデータはSSDに、古いデータはHDDへ」
 過去30年、ストレージ設計の「聖典」とされてきた階層化管理（Tiering）が、今、AIの波に呑み込まれようとしています。
 
@@ -73,7 +69,4 @@ VAST Dataは、もはや単なる「データの入れ物」ではありませ�
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。DASEアーキテクチャの優位性とQLCフラッシュ活用術を深掘りし、AIインフラとしての戦略的価値を強調。
 - **2026-04-09**: デザイン統一アップデート。
-
-
-
 

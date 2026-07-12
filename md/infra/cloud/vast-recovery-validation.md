@@ -46,6 +46,3 @@ themes: ["infra:storage", "capacity:audit", "backup:recovery"]
 - 2026-04-15: 新規作成。次世代ストレージ容量推移と削除イベント後の実効評価リサーチ。
 - 2026-07-11: 日付を確定し、DASE/Similarity-Based Data Reduction 前提の容量評価に表現を整理。
 
-
-
-

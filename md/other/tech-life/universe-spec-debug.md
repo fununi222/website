@@ -8,10 +8,6 @@ themes: ["other:physics", "other:spec", "other:research"]
 
 # 宇宙基盤システム 技術要件定義書 (TRD)｜仕様をデバッグし、運命をハックせよ
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=universe-spec-debug" alt="Universal Infrastructure System Technical Requirements Document" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 本ドキュメントは、我々が「物理世界」と呼称する全領域を、高度に構造化された情報処理システム（**Universal Infrastructure System**）として再定義する技術要件定義書（TRD）である。
 
 物理法則を「実行仕様（Specification）」、宇宙を「ランタイム環境（Runtime Environment）」として扱い、最新の観測データに含まれる不整合をシステムの「バグ」や「キャッシュ不整合」として技術的に分析する。初期デプロイ（Version 1.0）から最終仕様変更（Big Rip）に至るまでのシステムロードマップを、エンジニアの視座から詳解する。
@@ -93,8 +89,4 @@ const chartConfig = {
 };
 // (注: 実際のサイトではSMEエンジンがスクリプトを実行)
 </script>
-
-
-
-
 

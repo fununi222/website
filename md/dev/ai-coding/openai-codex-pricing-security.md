@@ -6,7 +6,6 @@ description: "サブスクリプションとAPI従量課金のハイブリッド
 themes: ["dev:ai", "ai:llm", "security:audit", "finance:roi"]
 ---
 
-
 # OpenAI Codex 料金体系とエンタープライズ・セキュリティ 2026
 
 ## はじめに
@@ -80,7 +79,4 @@ OpenAI Codexは、コストを抑えつつ、人間の手では不可能なレ�
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 最新のSKILL.md基準（用語リンクの最適化、変更履歴の追加）に合わせて記事をブラッシュアップ。
 - **2026-04-18**: 2026年最新のOpenAI Codex料金体系と、Codex Securityによる脆弱性診断機能について新規作成。
-
-
-
 

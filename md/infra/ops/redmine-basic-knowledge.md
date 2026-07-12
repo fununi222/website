@@ -8,10 +8,6 @@ themes: ["management:redmine", "infra:oss", "ops:project"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=redmine-basic-knowledge" alt="Redmine Basic Knowledge Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 # Redmineの基本知識 | チケット管理によるプロジェクト可視化の核心
 
 [Redmine](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Redmine")は、Ruby on Railsで構築された強力なオープンソースのプロジェクト管理ツールです。すべての作業を「[チケット](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="チケット")」として管理し、[ガントチャート](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ガントチャート")による時系列表示やWiki機能によるナレッジ共有を統合することで、チームの生産性を最大化します。
@@ -49,9 +45,4 @@ Redmine運用の核心は、あらゆるタスク、バグ、要望を「[チケ
 
 ## 変更履歴 (Changelog)
 - 2026-04-15: 新規作成。Redmine基本知識の構成案を統合。
-
-
-
-
-
 

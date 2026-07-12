@@ -8,10 +8,6 @@ themes: ["travel:niseko", "cospa:strategy", "finance:tax"]
 
 # ニセコ完全攻略｜ラーメン3,000円の魔境を『賢く・贅沢に』楽しむコスパ戦略
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=niseko-cospa-travel" alt="Niseko Smart Travel Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-secondary/50 transition-colors duration-300">
-</figure>
-
 「ニセコに行きたいけれど、物価が高すぎて手が出ない……」
 「ラーメン一杯3,000円、海鮮丼6,000円なんて正気か？」
 
@@ -77,7 +73,4 @@ SNSで話題になるニセコの「インフレ」は事実です。しかし�
 
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づきリライト。倶知安ベースキャンプ戦略の具体化と、2026年導入の定率宿泊税への対策を追記。
-
-
-
 

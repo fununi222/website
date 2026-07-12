@@ -6,7 +6,6 @@ description: "開発環境の一貫性を担保するDevcontainerと、セキュ
 themes: ["dev:environment", "infra:container"]
 ---
 
-
 # 記事①：Devcontainer×Harbor入門！開発環境の課題と解決策を完全解説
 
 「私のパソコンでは動くのに、本番環境では動かない…」
@@ -78,7 +77,4 @@ Harborは、VMwareが開発し、現在はCloud Native Computing Foundation (CNC
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 最新のSKILL.md基準（用語リンクの最適化、変更履歴の追加）に合わせて記事をブラッシュアップ。
 - **2026-04-16**: Devcontainer×Harbor連載記事の第1弾として、環境構築の課題解決をテーマに新規作成。
-
-
-
 

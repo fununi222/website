@@ -1,9 +1,5 @@
 # FunUni-lab Technical Knowledge Management
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-    <img src="https://placehold.co/800x450?text=universe-spec-debug" alt="Engineering Governance" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-  </figure>
-
 This skill preserves the authoritative voice of the FunUni-lab engineering laboratory. Every entry must reflect the rigorous documentation standards of a **Top 1% SEO Strategist & Senior Systems Architect**.
 
 ## Strategic Core Domains
@@ -89,7 +85,6 @@ This single command automatically performs three critical operations:
 - `scripts/generate_ogp_proxies.py` (Recursive Publishing Tool)
 - `md/glossary/system-glossary.md` (The Archive's Technical Dictionary)
 - `SKILL.md` (This Governance Document)
-
 
 ## 📊 System Optimization Dashboard (LPO)
 

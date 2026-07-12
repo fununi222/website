@@ -71,6 +71,3 @@ Rubrikの管理画面から帯域自体は絞れませんが、同時に走る�
 
 👉 **[Rubrikのスケーリング戦略：クラスタ追加とノード追加のベストプラクティス](./rubrik-scaling-strategy-nodes.md)**
 
-
-
-

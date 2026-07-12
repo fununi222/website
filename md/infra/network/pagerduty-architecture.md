@@ -8,10 +8,6 @@ themes: ["infra:ops", "ai:ops", "dev:dx"]
 
 # インシデント管理の極致｜PagerDutyで作る『自律型』運用プラットフォーム
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=pagerduty-architecture" alt="PagerDuty Digital Operations Cloud Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 「深夜2時、重要度の低いアラートで叩き起こされる生活はもう終わりにしよう」
 
 システムが複雑化する2026年、エンジニアの「精神的レジリエンス」を守ることは、事業継続における最優先事項です。[PagerDuty](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PagerDuty")は、もはや単なる「オンコール通知ツール」ではありません。それは、マシンスピードでインシデントをトリアージし、自動修復を指示する、インフラの**「自律神経（Autonomic Nervous System）」**です。
@@ -64,8 +60,4 @@ PagerDutyを使いこなすことは、単なるツール導入ではありま�
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。AIOpsによるノイズ削減、自動修復（Auto-remediation）の具体フロー、およびAIエージェント（Advance）の活用シナリオを追加。
 - **2026-04-09**: 新規作成。
-
-
-
-
 

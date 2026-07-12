@@ -89,6 +89,3 @@ APIの取得方法が分かれば、あとは他のシステムと連携させ�
 
 👉 **[Rubrikログ抽出を完全自動化！GraphQLとXSOAR連携による次世代SOC運用](./rubrik-graphql-xsoar-automation.md)**
 
-
-
-

@@ -112,6 +112,3 @@ Rubrikのスレッドモニタリングおよび異常検知は、決して「�
 👉 [Lessons Learned Recovering from Ransomware (Official Whitepaper)](https://www.rubrik.com/content/dam/rubrik/en/resources/white-paper/rwp-lessons-learned-recovering-from-ransomware.pdf)
 👉 **[自社に最適なセキュリティ環境を構築する：無料相談・デモの申し込みはこちら]**
 
-
-
-

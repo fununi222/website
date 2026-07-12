@@ -71,6 +71,3 @@ Rubrik Edgeは論理容量（1TB〜10TBなど）に応じてライセンスさ�
 
 👉 **[Portal Home](../index.html)**
 
-
-
-

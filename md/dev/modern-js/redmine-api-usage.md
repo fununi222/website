@@ -6,11 +6,6 @@ description: "Redmineの強力なREST APIを使いこなし、外部ツールか
 themes: ["dev:api", "redmine:automation", "integration:json"]
 ---
 
-
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=redmine-api-usage" alt="Redmine API Usage Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 # Redmine APIの使用方法 | REST APIによる自動化とデータ連携の詳解
 
 [Redmine](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Redmine")の[REST API](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="REST%20API")を有効活用することで、チケットの自動起票や外部ダッシュボードへのデータ集約など、プロジェクト管理の自動化を強力に推進できます。本稿では、高度な抽出シナリオ（Basic認証、クエリ活用、[生成AI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="生成AI")投入用データ整備）について解説します。
@@ -69,8 +64,4 @@ GET /issues.json?query_id=123&limit=100&offset=0
 - **2026-04-24**: 最新のSKILL.md基準（用語リンクの最適化、変更履歴の追加）に合わせて記事をブラッシュアップ。
 - **2026-04-15**: 第2版。Basic認証、query_id活用、LLM向けデータ整形術を追記。
 - **2026-04-15**: 新規作成。Redmine API連携の技術リサーチ結果を統合。
-
-
-
-
 

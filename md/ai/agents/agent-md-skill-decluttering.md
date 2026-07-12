@@ -8,10 +8,6 @@ themes: ["ai:agent", "ai:context", "ai:automation"]
 
 # AIの精度を劇的に変える「Agent.md」と「スキル」の断捨離最適化術
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=enterprise-md-knowledge" alt="Agent.md Context Optimization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
-</figure>
-
 「AIをもっと賢く動かしたいから、設定ファイルにルールを大量に書く」。
 
 この発想は自然ですが、実務では逆効果になることがあります。Agent.md、MCP、スキルを盛り込みすぎると、AIの短期記憶であるコンテキストを圧迫し、指示の聞き取り精度を落とします。本記事では、AIの頭脳をクリアに保つための「引き算型」設定術を解説します。

@@ -8,10 +8,6 @@ themes: ["ai:strategy", "business:sier", "future:work"]
 
 # 人月商売の終焉｜AIが引き引き起こすSIer業界の『破壊的再編』と生存戦略
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=sier-structural-shift" alt="Structural Shift of SIer Industry in AI Era" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 「10人のエンジニアで10ヶ月かかります。見積もりは1億円です」
 
 この、四半世紀以上続いてきたSIerの「人月商売」が、音を立てて崩れ去ろうとしています。[生成AI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="生成AI")が10人分のコーディングを数分で終わらせ、[Antigravity](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Antigravity")のような自律型エージェントがバグを勝手に直す時代、工数を売るビジネスモデルはもはや「負債」でしかありません。
@@ -79,7 +75,4 @@ SIer業界は今、歴史的な分岐点にいます。
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき、思想的・戦略的解像度を高めてリライト。人月ビジネスの終焉と「死の谷」を越えるための具体的なスキルセットを強調。
 - **2026-04-09**: インタラクティブ・コンテンツ統合アップデート。
-
-
-
 

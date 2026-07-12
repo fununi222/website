@@ -8,10 +8,6 @@ themes: ["travel:itinerary", "niseko:drive", "seasonal:green"]
 
 # 【保存版】ニセコを遊び尽くす！1泊2日最強ドライブモデルコース
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=niseko-1night2day-course" alt="Niseko 1N2D Drive Course Timeline" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 「[ニセコ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ニセコ")に行きたいけれど、どこをどう回れば一番楽しめるの？」
 
 そんな疑問に答えるため、インフラ運用のプロが**「移動効率」と「体験密度」を極限まで追求した、1泊2日の黄金ルート**を作成しました。特に5月〜7月の新緑シーズンは、ニセコの美しさが頂点に達する時期。このスケジュールをそのままなぞるだけで、あなたの旅は120%成功します。
@@ -68,7 +64,4 @@ JRニセコ駅前の便利な立地。2日間の遊び疲れを最後に洗い�
 
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき、タイムライン形式へ刷新。2026年最新の宿泊税情報と、春〜初夏のベストスポット（神仙沼・芝ざくら）を強調。
-
-
-
 

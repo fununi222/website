@@ -8,10 +8,6 @@ themes: ["ai:research", "ai:llm", "ai:hardware"]
 
 # 1ビットLLM | Bonsai-8Bがもたらす推論パラダイムシフト 2026
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=1bit-llm-bonsai-8b" alt="1-bit LLM Bonsai-8B Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 本レポートでは、16ビットの浮動小数点(FP16)を「-1, 0, 1」の3値（実質1.58ビット）へと極限圧縮する「1ビット量子化技術」と、その実用モデルである「Bonsai-8B」の衝撃について解説します。
 パラメータの簡略化により複雑な乗算処理が不要となり、[VRAM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="VRAM") の消費量を激減させることで「数十万円の [GPU](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GPU") なしに、普通のCPUやスマホで十分な速度の推論」が可能になります。この技術的ブレイクスルーは、エッジAIの爆発的普及やNVIDIA一強体制へのカウンターとなり、AIインフラのコスト構造やプライバシー要件に巨大なパラダイムシフトをもたらします。
 
@@ -261,9 +257,4 @@ insightBox.style.opacity = 1;
 ## 変更履歴 (Changelog)
 - **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
 - **2026-04-06**: HTMLレイアウト（インデント除去）の修正、[VRAM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="VRAM") / [GPU](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GPU") 等の用語紐付けを追加し、SPAエンジンでの描画精度を向上。
-
-
-
-
-
 

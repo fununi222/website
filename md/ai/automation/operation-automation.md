@@ -8,10 +8,6 @@ themes: ["ai:ops", "infra:automation", "dev:sre"]
 
 # 『タスク自動化』から『運用自律化』へ｜vSphere基盤を負債にしない設計思想
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=operation-automation-strategy" alt="Autonomous Operation Roadmap 2026" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 「自動化スクリプトはたくさんあるのに、なぜか運用が楽にならない……」
 
 それは、あなたが自動化しているのが「運用」ではなく、断片的な「タスク」だからかもしれません。2026年、私たちが目指すべきは、人間がコマンドを叩く回数を減らすことではなく、**「システムが自ら正常な状態を定義し、維持し続ける」自律型運用（Autonomous Operations）**への転換です。
@@ -57,7 +53,4 @@ vSphere環境の安定稼働を支える、具体的かつ戦略的なアプロ�
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。単なる効率化の記録から、自律型運用（Autonomous Operations）へのロードマップへと視点を引き上げ。ガードレール設計やSelf-Healingの概念を導入。
 - **2026-04-09**: デザイン統一アップデート。
-
-
-
 

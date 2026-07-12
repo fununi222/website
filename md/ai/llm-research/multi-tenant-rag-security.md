@@ -8,10 +8,6 @@ themes: ["ai:security", "rag:multi-tenant"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-<img src="https://placehold.co/800x450?text=multi-tenant-rag-security" alt="Secure Multi-tenant Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 # 【セキュリティ編】外部パートナー向けマルチテナントRAGの構築と漏洩攻撃対策
 
 大規模な外部連携プロジェクトのように、外部パートナー（BP）とAIを共有する際、最大の懸念は「情報の混ざり」です。A社の社員がB社の機密にアクセスできてしまう事故を防ぐための、堅牢なアーキテクチャを解説します。
@@ -57,8 +53,4 @@ A：カスタムインターフェース（API経由）を構築すれば、高�
 > - [記事①：全体のリサーチ手法から学びたい方はこちら](https://fununi222.github.io/website/html/ai/enterprise-ai-ops-rag.html)
 > - [記事②：精度の問題でお悩みの方はこちら](https://fununi222.github.io/website/html/ai/rag-incremental-indexing.html)
 > - [記事④：コスト削減と予算確保の戦略はこちら](https://fununi222.github.io/website/html/ai/ai-roi-finops-azure.html)
-
-
-
-
 

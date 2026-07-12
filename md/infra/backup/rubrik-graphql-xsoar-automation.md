@@ -8,10 +8,6 @@ themes: ["infra:security", "infra:automation", "infra:api"]
 
 # 自律型データ保護の完成｜Rubrik×XSOARで作る『止まらない』セキュリティ運用
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=rubrik-xsoar-automation" alt="Autonomous Data Protection with Rubrik & XSOAR" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
-</figure>
-
 「ランサムウェアを検知したが、担当者が気づいたのは3時間後だった……」
 「管理画面が多すぎて、インシデント発生時の初動が遅れる……」
 
@@ -64,7 +60,4 @@ Cortex XSOAR上に構築すべき、自律型インシデント対応のワー�
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。GraphQLによる高速抽出の優位性と、XSOARを用いた「自律的防御プレイブック」の具体的なステップを追加。
 - **2026-04-16**: 新規作成。
-
-
-
 

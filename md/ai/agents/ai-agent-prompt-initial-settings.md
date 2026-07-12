@@ -8,10 +8,6 @@ themes: ["ai:agent", "ai:automation", "ai:prompt"]
 
 # AIエージェントを思い通りに動かす「4点セット」と必須の初期設定
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=ai-research-prompts" alt="AI Agent Prompt Settings" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
-</figure>
-
 「話題のAIエージェントを使ってみたけれど、思った通りの成果物が出てこない」。
 
 そう悩む原因は、AI知識の不足ではなく、**指示の出し方が雑すぎること**と、**自動化に必要な初期設定を確認していないこと**にあります。本記事では、CodexなどのAIエージェントを「優秀な右腕」に変えるためのプロンプト設計と、安全に自動化を始めるための設定チェックを整理します。

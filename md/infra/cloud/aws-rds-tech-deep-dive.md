@@ -8,10 +8,6 @@ themes: ["infra:cloud", "infra:database", "ai:ops"]
 
 # Amazon RDS 徹底解剖｜AIOpsによる自律修復と高可用性の極致
 
-<figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="https://placehold.co/800x450?text=aws-rds-tech-deep-dive-2026" alt="Amazon RDS Technical Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
-</figure>
-
 「データベースは、止まらないことが当たり前」
 その当たり前を、数千、数万リクエストの世界で実現するのが、[Amazon RDS](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AWS%20RDS")の真骨頂です。
 
@@ -84,8 +80,4 @@ def autonomous_remediation(db_id, target_class):
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。Multi-AZクラスターの内部構造（Quorumベース）の詳解と、Boto3を用いた自律スケーリングの実践的実装を追加。
 - **2026-04-10**: 新規作成。
-
-
-
-
 

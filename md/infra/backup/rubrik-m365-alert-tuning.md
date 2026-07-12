@@ -56,6 +56,3 @@ themes: ["infra:backup", "cloud:office", "ops:noise-reduction"]
 - 2026-04-15: 新規作成。クラウドOffice基盤バックアップ運用におけるアラート最適化リサーチ。
 - 2026-07-11: 日付を確定し、Microsoft 365 のクォータ/Graph スロットリング観点を追記。
 
-
-
-
