@@ -12,6 +12,8 @@ AIツールに毎月お金を払うなら、失敗したくないですよね。
 
 2026年7月上旬、OpenAIはGPT-5.6とChatGPT Workを発表しました。一方でAnthropicも、Claude Sonnet 5、Claude Fable 5、ClaudeのReflect機能、利用制限やクレジット周りのアップデートを進めています。
 
+> **ファクトチェック（2026-07-11時点）**: OpenAI公式のGPT-5.6/ChatGPT Work/Codex情報と、Anthropic公式のClaude Sonnet 5、Fable 5、Reflect、Claude利用制限ヘルプを確認しました。モデル名・上限・料金・提供対象は変わりやすいため、この記事では「選び方の軸」を中心に整理します。
+
 つまり、AI業界は今、**「どのAIを仕事の中心にするか」**をめぐる本格的な競争に入っています。
 
 この記事では、GPT-5.6とClaudeのどちらに課金すべきかを、実務目線でわかりやすく比較します。
@@ -35,7 +37,7 @@ AIツールに毎月お金を払うなら、失敗したくないですよね。
 
 | 比較軸 | GPT-5.6 / ChatGPT Work | Claude |
 | :--- | :--- | :--- |
-| 代表的な新機能 | Sol/Terra/Luna、ChatGPT Work、Codex統合 | Sonnet 5、Fable 5、Reflect、Claude Code |
+| 代表的な新機能 | Sol/Terra/Luna、ChatGPT Work、Codex連携 | Sonnet 5、Fable 5、Reflect、Claude Code |
 | 得意領域 | 業務エージェント、開発、アプリ・ファイル連携 | 長文読解、文章作成、内省的な整理、コーディング |
 | モデル設計 | 用途別にSol/Terra/Lunaを選ぶ | Sonnet、Opus、Fableなど目的別に選ぶ |
 | 開発支援 | CodexがChatGPTデスクトップに統合 | Claude Codeが強力 |
@@ -45,7 +47,7 @@ AIツールに毎月お金を払うなら、失敗したくないですよね。
 
 ### 1. Chat、Work、Codexがまとまりつつある
 
-OpenAIは、新しいChatGPTデスクトップアプリでChat、Work、Codexをまとめると説明しています。
+OpenAIは、ChatGPTの中でChat、Work、Codexを用途に応じて使い分ける体験を案内しています。
 
 これは大きな変化です。
 
@@ -91,7 +93,7 @@ AI活用を習慣化したい人にとって、使い方を振り返れるのは
 
 ### 3. Claude Codeも強力
 
-AnthropicはClaude Codeの利用制限や機能改善も進めています。Claude Codeを普段使っている開発者にとっては、既存ワークフローを維持したまま強化できる点が魅力です。
+AnthropicはClaude CodeをPro/Maxなどの有料プランでも利用できるようにし、Claude本体とClaude Codeの利用が同じ上限にカウントされる点もヘルプで案内しています。Claude Codeを普段使っている開発者にとっては、既存ワークフローを維持したまま強化できる点が魅力です。
 
 ## 料金・利用制限を見るときの注意点
 
@@ -192,10 +194,12 @@ AI選びで大切なのは、ニュースの派手さではなく、あなたの
 * [OpenAI: ChatGPT is now a partner for your most ambitious work](https://openai.com/index/chatgpt-for-your-most-ambitious-work/)
 * [OpenAI API Pricing](https://openai.com/api/pricing/)
 * [Anthropic: Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5)
-* [Anthropic: Claude Fable 5](https://www.anthropic.com/claude/fable)
+* [Anthropic: Redeploying Claude Fable 5](https://www.anthropic.com/news/redeploying-fable-5)
+* [Anthropic: Reflect with Claude](https://www.anthropic.com/news/reflect-with-claude)
 * [Anthropic Claude Apps Release Notes](https://docs.anthropic.com/en/release-notes/claude-apps)
 * [Anthropic Help: Understanding usage and length limits](https://support.anthropic.com/en/articles/11647753-understanding-usage-and-length-limits)
 
 ## 変更履歴
 
 * 2026-07-11: 初版公開。GPT-5.6とClaudeの選び方を、業務自動化、文章作成、開発、料金・利用制限の観点で整理。
+* 2026-07-11: OpenAI・Anthropic公式情報を確認し、比較表と利用制限の注意書きを更新。

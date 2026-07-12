@@ -1,3 +1,11 @@
+---
+title: "Rubrikのスケーリング戦略：クラスタ追加 vs ノード追加のベストプラクティス"
+date: "2026-04-17"
+category: "infra"
+description: "Rubrik 環境を拡張する際にクラスタ追加とノード追加を比較し、重複排除効率と運用性の観点で整理。"
+themes: ["infra:backup", "rubrik:operations"]
+---
+
 # Rubrikのスケーリング戦略：クラスタ追加 vs ノード追加のベストプラクティス
 
 ## 導入
