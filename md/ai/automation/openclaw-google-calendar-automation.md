@@ -9,7 +9,7 @@ themes: ["ai:automation", "ai:tool-integration", "google:calendar"]
 # スケジュール管理をAIに丸投げする｜OpenClaw×Googleカレンダー連携完全ガイド
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/ai/openclaw-calendar-automation.png" alt="AI Agent Google Calendar Automation" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=openclaw-calendar-automation" alt="AI Agent Google Calendar Automation" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「明日の予定を、相手の都合に合わせて調整しておいて」

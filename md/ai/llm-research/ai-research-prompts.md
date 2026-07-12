@@ -9,7 +9,7 @@ themes: ["ai:prompt-engineering", "infra:automation", "dev:ops"]
 # AI | 【完全版】AIOpsエンジニア向け 業務自動化プロンプト大全
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/ai/ai-research-prompts.png" alt="AIOps AI Research Prompts Hero" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=ai-research-prompts" alt="AIOps AI Research Prompts Hero" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>

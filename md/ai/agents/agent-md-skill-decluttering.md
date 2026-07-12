@@ -9,7 +9,7 @@ themes: ["ai:agent", "ai:context", "ai:automation"]
 # AIの精度を劇的に変える「Agent.md」と「スキル」の断捨離最適化術
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/ai/enterprise-md-knowledge.png" alt="Agent.md Context Optimization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=enterprise-md-knowledge" alt="Agent.md Context Optimization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
 </figure>
 
 「AIをもっと賢く動かしたいから、設定ファイルにルールを大量に書く」。

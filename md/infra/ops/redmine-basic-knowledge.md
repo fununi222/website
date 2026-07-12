@@ -9,7 +9,7 @@ themes: ["management:redmine", "infra:oss", "ops:project"]
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/ops/redmine-basic-knowledge.png" alt="Redmine Basic Knowledge Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=redmine-basic-knowledge" alt="Redmine Basic Knowledge Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 # Redmineの基本知識 | チケット管理によるプロジェクト可視化の核心

@@ -9,7 +9,7 @@ themes: ["infra:rubrik", "dev:api", "ops:automation"]
 # APIドキュメントはもう読まない｜Rubrik Code Captureで実現する『ポチポチ自動化』
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/rubrik-api-code-capture.png" alt="Rubrik API Code Capture Workflow" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=rubrik-api-code-capture" alt="Rubrik API Code Capture Workflow" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「API自動化は便利そうだけど、英語のマニュアルを読み込む時間がない……」

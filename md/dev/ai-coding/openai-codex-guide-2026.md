@@ -9,7 +9,7 @@ themes: ["dev:ai", "ai:llm", "ai:agents", "dev:codex"]
 # OpenAI Codex 徹底解剖 2026｜GPT-5.3が切り拓く自律開発の地平
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/dev/openai-codex-guide-2026.png" alt="OpenAI Codex (GPT-5.3) Deep Dive" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=openai-codex-guide-2026" alt="OpenAI Codex (GPT-5.3) Deep Dive" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 プログラミングは、もはや「構文を書く作業」から「目的を定義する作業」へと変貌しました。

@@ -7,7 +7,7 @@ date: "2026-04-28"
 # 【0〜3歳連れ】神仙沼ピクニック完全ガイド！ベビーカーOKで大自然を満喫するコツ
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-    <img src="../../../assets/img/other/travel/shinsenmarsh-kids-picnic.png" alt="Shinsenmarsh Kids Picnic Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+    <img src="https://placehold.co/800x450?text=shinsenmarsh-kids-picnic" alt="Shinsenmarsh Kids Picnic Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 0〜3歳の小さなお子様を連れてのピクニック。「途中でぐずったらどうしよう」「トイレやおむつ替えは大丈夫？」など、不安が尽きないパパとママも多いのではないでしょうか。

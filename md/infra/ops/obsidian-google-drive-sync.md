@@ -8,7 +8,7 @@ description: "ObsidianのメモをGoogle Drive Syncプラグインで同期。Wi
 # Obsidian | Google Drive Sync によるマルチプラットフォーム無料同期術 2026
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/ops/obsidian-google-drive-sync.png" alt="Obsidian Google Drive Sync Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=obsidian-google-drive-sync" alt="Obsidian Google Drive Sync Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 [Obsidian](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Obsidian") は優れたローカルファーストの知識管理ツールですが、モバイル端末との同期には通常 `Obsidian Sync`（有料サブスクリプション）が必要です。本記事では、コミュニティプラグイン **[Google Drive Sync](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Google Drive Sync")** を活用し、Windows PC、Android、iOS の 3OS 間で [Vault](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Vault (保管庫)") を無料で完全同期する手法を解説します。

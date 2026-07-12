@@ -9,7 +9,7 @@ themes: ["infra:cloud", "infra:database", "ai:ops"]
 # Amazon RDS 徹底解剖｜AIOpsによる自律修復と高可用性の極致
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/cloud/aws-rds-tech-deep-dive-2026.png" alt="Amazon RDS Technical Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=aws-rds-tech-deep-dive-2026" alt="Amazon RDS Technical Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「データベースは、止まらないことが当たり前」

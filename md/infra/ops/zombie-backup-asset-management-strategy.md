@@ -9,7 +9,7 @@ themes: ["infra:rubrik", "ops:asset-management", "ops:automation"]
 # ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（Jira）の自動化戦略
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/zombie-backup-strategy.png" alt="Zombie Backup Eradication Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-tertiary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=zombie-backup-strategy" alt="Zombie Backup Eradication Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-tertiary/50 transition-colors duration-300">
 </figure>
 
 「サーバは半年前に削除したはずなのに、バックアップの請求が止まらない……」

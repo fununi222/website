@@ -11,7 +11,7 @@ themes: ["finance:payments", "finance:points", "finance:investing"]
 # iPhone 楽天Edy→楽天キャッシュ 変換解禁ガイド
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../assets/img/finance/iphone-edy-cash-release.png" alt="iPhone Rakuten Edy to Cash Conversion Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=iphone-edy-cash-release" alt="iPhone Rakuten Edy to Cash Conversion Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 2026年2月16日の[楽天ペイ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="楽天ペイ")アプリ更新により、iPhone単体で[楽天Edy](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="楽天Edy")から[楽天キャッシュ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="楽天キャッシュ")へのチャージが正式解禁されました。これにより、これまでAndroid端末が必須だった「高還元チャージルート」の出口がiPhone 1台で完結。楽天証券での投信積立など、[ポイ活](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ポイ活")投資戦略において極めて重要なアップデートとなっています。

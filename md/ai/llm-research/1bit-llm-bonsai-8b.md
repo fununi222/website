@@ -9,7 +9,7 @@ themes: ["ai:research", "ai:llm", "ai:hardware"]
 # 1ビットLLM | Bonsai-8Bがもたらす推論パラダイムシフト 2026
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/ai/1bit-llm-bonsai-8b.png" alt="1-bit LLM Bonsai-8B Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=1bit-llm-bonsai-8b" alt="1-bit LLM Bonsai-8B Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 本レポートでは、16ビットの浮動小数点(FP16)を「-1, 0, 1」の3値（実質1.58ビット）へと極限圧縮する「1ビット量子化技術」と、その実用モデルである「Bonsai-8B」の衝撃について解説します。

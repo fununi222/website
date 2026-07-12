@@ -9,7 +9,7 @@ themes: ["dev:webmethods", "infra:rubrik", "ops:resilience"]
 # webMethods×Rubrik連携の極致｜502エラーを『デザイン』するレジリエンス戦略
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/webmethods-rubrik-resilience.png" alt="Resilient API Integration Strategy with webMethods and Rubrik" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=webmethods-rubrik-resilience" alt="Resilient API Integration Strategy with webMethods and Rubrik" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「APIの502エラーで、夜間ジョブがまた止まった……」

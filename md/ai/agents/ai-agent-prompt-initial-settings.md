@@ -9,7 +9,7 @@ themes: ["ai:agent", "ai:automation", "ai:prompt"]
 # AIエージェントを思い通りに動かす「4点セット」と必須の初期設定
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/ai/ai-research-prompts.png" alt="AI Agent Prompt Settings" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=ai-research-prompts" alt="AI Agent Prompt Settings" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
 </figure>
 
 「話題のAIエージェントを使ってみたけれど、思った通りの成果物が出てこない」。

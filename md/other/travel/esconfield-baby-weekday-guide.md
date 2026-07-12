@@ -7,7 +7,7 @@ date: "2026-04-28"
 # 【0〜3歳児】エスコンフィールドは「試合のない平日」が最強！親の負担激減の完全攻略ガイド
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-    <img src="../../../assets/img/other/travel/esconfield-baby-weekday-guide.png" alt="Es Con Field Baby Weekday Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+    <img src="https://placehold.co/800x450?text=esconfield-baby-weekday-guide" alt="Es Con Field Baby Weekday Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 赤ちゃん連れのお出かけって、準備も移動も大変ですよね。せっかくお出かけしても、すぐに泣き出してしまったり、予定通りにいかなかったりと、親も子も疲れてしまうことが多いのではないでしょうか。

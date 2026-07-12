@@ -9,7 +9,7 @@ themes: ["infra:security", "infra:automation", "ai:ops"]
 # Infra | Rubrik：次世代データ管理アーキテクチャの全容 2026
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-<img src="../../../../assets/img/infra/backup/rubrik-tech-analysis-2026.png" alt="Rubrik Next-Gen Architecture Overview" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+<img src="https://placehold.co/800x450?text=rubrik-tech-analysis-2026" alt="Rubrik Next-Gen Architecture Overview" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>

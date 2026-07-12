@@ -14,3 +14,13 @@ __pycache__/
 .env
 .env.local
 
+# Image Assets (Avoid repository bloating)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.ico
+*.svg
+
+

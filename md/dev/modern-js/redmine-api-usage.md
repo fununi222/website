@@ -8,7 +8,7 @@ themes: ["dev:api", "redmine:automation", "integration:json"]
 
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/dev/redmine-api-usage.png" alt="Redmine API Usage Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=redmine-api-usage" alt="Redmine API Usage Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 # Redmine APIの使用方法 | REST APIによる自動化とデータ連携の詳解

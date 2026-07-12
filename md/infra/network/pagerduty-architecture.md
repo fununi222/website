@@ -9,7 +9,7 @@ themes: ["infra:ops", "ai:ops", "dev:dx"]
 # インシデント管理の極致｜PagerDutyで作る『自律型』運用プラットフォーム
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/network/pagerduty-architecture.png" alt="PagerDuty Digital Operations Cloud Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=pagerduty-architecture" alt="PagerDuty Digital Operations Cloud Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「深夜2時、重要度の低いアラートで叩き起こされる生活はもう終わりにしよう」

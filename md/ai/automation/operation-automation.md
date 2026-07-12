@@ -9,7 +9,7 @@ themes: ["ai:ops", "infra:automation", "dev:sre"]
 # 『タスク自動化』から『運用自律化』へ｜vSphere基盤を負債にしない設計思想
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/ai/operation-automation-strategy.png" alt="Autonomous Operation Roadmap 2026" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=operation-automation-strategy" alt="Autonomous Operation Roadmap 2026" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「自動化スクリプトはたくさんあるのに、なぜか運用が楽にならない……」

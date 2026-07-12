@@ -9,7 +9,7 @@ themes: ["ai:agent", "ai:automation", "dev:devops"]
 # 自律修復インフラの夜明け｜Antigravity×n8nで構築する完全自動復旧パイプライン
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/ai/antigravity-n8n-pipeline.png" alt="Self-Healing Pipeline with Antigravity & n8n" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=antigravity-n8n-pipeline" alt="Self-Healing Pipeline with Antigravity & n8n" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
 </figure>
 
 深夜3時、Slackが叫ぶ。「Critical: NullReferenceException in Payment API」。

@@ -9,7 +9,7 @@ themes: ["finops:roi", "ai:finops", "cloud:azure"]
 # AI予算を勝ち取る『ROI算定式』とAzure FinOps最適化戦略
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/ai/ai-roi-finops-azure.png" alt="AI FinOps & ROI Dashboard" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=ai-roi-finops-azure" alt="AI FinOps & ROI Dashboard" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「AIを導入したが、コストばかりが嵩み、効果が見えにくい……」

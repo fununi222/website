@@ -9,7 +9,7 @@ themes: ["infra:cloud", "infra:storage", "infra:backup"]
 # 【Rubrik】オンデマンドバックアップが21日保持になる理由と解決策（SLAドメインの仕様）
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/backup/rubrik-tech-analysis-2026.png" alt="Rubrik SLA Spec Analysis" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=rubrik-tech-analysis-2026" alt="Rubrik SLA Spec Analysis" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 

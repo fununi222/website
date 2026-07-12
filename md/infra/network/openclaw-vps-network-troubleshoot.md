@@ -9,7 +9,7 @@ themes: ["infra:network", "infra:vps", "other:troubleshoot"]
 # OpenClaw復旧ガイド｜VPSネットワークの『見えない壁』を突破せよ
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/vps-network-troubleshoot.png" alt="VPS Network Layer Troubleshooting Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=vps-network-troubleshoot" alt="VPS Network Layer Troubleshooting Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「サーバーにはSSHで繋がるのに、AIエージェントが外部サイトを読み込めない」

@@ -9,7 +9,7 @@ themes: ["travel:niseko", "cospa:strategy", "finance:tax"]
 # ニセコ完全攻略｜ラーメン3,000円の魔境を『賢く・贅沢に』楽しむコスパ戦略
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/other/niseko-cospa-travel.png" alt="Niseko Smart Travel Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-secondary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=niseko-cospa-travel" alt="Niseko Smart Travel Strategy" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-secondary/50 transition-colors duration-300">
 </figure>
 
 「ニセコに行きたいけれど、物価が高すぎて手が出ない……」

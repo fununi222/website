@@ -9,7 +9,7 @@ themes: ["ai:llm", "ai:ops", "ai:agents"]
 # 大企業におけるMarkdownベースのナレッジ管理とAIデータ活用の現実：組織構造から紐解く次世代知識基盤の構築戦略
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/ai/enterprise-md-knowledge.png" alt="Enterprise Knowledge Management Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=enterprise-md-knowledge" alt="Enterprise Knowledge Management Visualization" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 大企業におけるAI活用の成否は、PDF等の非構造化データに依存する既存の[RAG](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="RAG")アーキテクチャの限界をいかに突破するかにかかっている。本レポートでは、[LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM")との親和性が高いMarkdownベースのナレッジ管理、分散型データ所有権を提唱する[データメッシュ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="データメッシュ")、そして自動化されたガバナンスを実現する[Docs-as-Code](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Docs-as-Code")戦略を詳解。知識を単なるファイルから「戦略的インフラ」へと格上げし、2026年のナレッジ・インテリジェンス時代を勝ち抜くための組織変革ロードマップを提示する。

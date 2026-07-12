@@ -9,7 +9,7 @@ themes: ["infra:security", "infra:automation", "infra:api"]
 # 自律型データ保護の完成｜Rubrik×XSOARで作る『止まらない』セキュリティ運用
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/rubrik-xsoar-automation.png" alt="Autonomous Data Protection with Rubrik & XSOAR" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=rubrik-xsoar-automation" alt="Autonomous Data Protection with Rubrik & XSOAR" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-emerald-500 transition-colors duration-300">
 </figure>
 
 「ランサムウェアを検知したが、担当者が気づいたのは3時間後だった……」

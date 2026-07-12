@@ -9,7 +9,7 @@ themes: ["infra:storage", "infra:hpc", "ai:infrastructure"]
 # 階層化の終焉｜VAST Dataが拓くAI時代の『ユニバーサル・ストレージ』
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/vast-data-universal-storage.png" alt="VAST Data Universal Storage Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-sky-300 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=vast-data-universal-storage" alt="VAST Data Universal Storage Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-sky-300 transition-colors duration-300">
 </figure>
 
 「頻繁に使うデータはSSDに、古いデータはHDDへ」

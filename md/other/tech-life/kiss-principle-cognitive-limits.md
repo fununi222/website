@@ -9,7 +9,7 @@ themes: ["other:research", "dev:architecture", "ai:cognitive"]
 # KISS原則の深淵｜なぜ『単純さ』は高度な知性を必要とするのか
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/other/tech-life/kiss-principle-cognitive-limits.png" alt="Simplicity is the Ultimate Sophistication" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=kiss-principle-cognitive-limits" alt="Simplicity is the Ultimate Sophistication" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「なぜ、このシステムはこれほどまでに複雑なのか？」

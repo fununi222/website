@@ -9,7 +9,7 @@ themes: ["travel:nature", "niseko:hiking", "security:wildlife"]
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.18</div>
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/other/travel/shinsenmarsh-trekking-guide.png" alt="Shinsenmarsh High Altitude Wetland" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=shinsenmarsh-trekking-guide" alt="Shinsenmarsh High Altitude Wetland" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 # 【2026年最新】神仙沼トレッキング完全ガイド！初心者向けの服装とヒグマ対策

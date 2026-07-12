@@ -9,7 +9,7 @@ themes: ["travel:itinerary", "niseko:drive", "seasonal:green"]
 # 【保存版】ニセコを遊び尽くす！1泊2日最強ドライブモデルコース
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/other/niseko-1night2day-course.png" alt="Niseko 1N2D Drive Course Timeline" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=niseko-1night2day-course" alt="Niseko 1N2D Drive Course Timeline" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「[ニセコ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ニセコ")に行きたいけれど、どこをどう回れば一番楽しめるの？」

@@ -1,7 +1,7 @@
 # FunUni-lab Technical Knowledge Management
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-    <img src="assets/img/other/tech-life/universe-spec-debug.png" alt="Engineering Governance" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+    <img src="https://placehold.co/800x450?text=universe-spec-debug" alt="Engineering Governance" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
   </figure>
 
 This skill preserves the authoritative voice of the FunUni-lab engineering laboratory. Every entry must reflect the rigorous documentation standards of a **Top 1% SEO Strategist & Senior Systems Architect**.

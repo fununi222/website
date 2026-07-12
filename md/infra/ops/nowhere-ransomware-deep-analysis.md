@@ -9,7 +9,7 @@ themes: ["infra:security", "infra:network"]
 # ノーウェアランサムウェアの台頭と企業防衛メカニズムのパラダイムシフト：進化するサイバー脅威の深層分析
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-<img src="../../../../assets/img/infra/ops/nowhere-ransomware-deep-analysis.png" alt="Engineering the Silent Threat: Nowhere Ransomware Mechanics" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+<img src="https://placehold.co/800x450?text=nowhere-ransomware-deep-analysis" alt="Engineering the Silent Threat: Nowhere Ransomware Mechanics" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 従来のランサムウェアがデータの「可用性」を人質にするのに対し、最新の[ノーウェアランサム](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ノーウェアランサム")は「機密性」の暴露を武器にする。この手口では、データの暗号化を完全に省略することで、従来のセキュリティ製品の振る舞い検知をすり抜け、超高速な情報窃取（[エクスフィルトレーション](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="エクスフィルトレーション")）を完遂する。バックアップを保持していても情報流出は防げないという「バックアップのパラドックス」に直面する中、企業は[MFA](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="MFA")による境界防衛の徹底と、[EDR](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="EDR")や[NDR](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="NDR")等のAI主導型検知アーキテクチャへの移行が急務となっている。

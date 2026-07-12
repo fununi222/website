@@ -9,7 +9,7 @@ themes: ["infra:aws", "security:kms", "finance:cost-optimization"]
 # AWS KMSの料金を99%削減する｜エンベロープ暗号化による最強のコストハック
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/infra/aws-kms-envelope-encryption.png" alt="AWS KMS Envelope Encryption Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-secondary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=aws-kms-envelope-encryption" alt="AWS KMS Envelope Encryption Architecture" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-secondary/50 transition-colors duration-300">
 </figure>
 
 「AWSのデータをKMSで暗号化したら、サーバー代を上回るAPI利用料が請求された……」

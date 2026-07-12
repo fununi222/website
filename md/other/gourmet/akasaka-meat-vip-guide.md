@@ -9,7 +9,7 @@ themes: ["other:gourmet", "other:akasaka", "other:vip"]
 # 【絶対失敗しない】赤坂の個室×肉料理（接待・記念日向け高級店）
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/other/gourmet/akasaka-meat-vip-guide.png" alt="Akasaka Meat VIP Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=akasaka-meat-vip-guide" alt="Akasaka Meat VIP Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 

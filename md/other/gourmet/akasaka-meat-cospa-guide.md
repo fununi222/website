@@ -9,7 +9,7 @@ themes: ["other:gourmet", "other:akasaka", "other:cospa"]
 # 【コスパ最強】赤坂の安い＆おしゃれな肉バル・焼肉（デート・女子会向け）
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/other/akasaka-meat-cospa-guide.png" alt="Akasaka Meat Cospa Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=akasaka-meat-cospa-guide" alt="Akasaka Meat Cospa Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「赤坂でおしゃれにディナーしたいけど、予算はおさえたい」

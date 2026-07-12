@@ -9,7 +9,7 @@ themes: ["dev:code-review", "ai:prompt", "dev:optimization"]
 # AIを最強のシニアエンジニアに変える｜即戦力コードレビュー・プロンプト集
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-  <img src="../../../../assets/img/dev/ai-code-review-practical-prompts.png" alt="Expert AI Code Review Prompts" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+  <img src="https://placehold.co/800x450?text=ai-code-review-practical-prompts" alt="Expert AI Code Review Prompts" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「AIにレビューを頼んでも『概ね良好です』としか言われない」

@@ -7,7 +7,7 @@ date: "2026-04-28"
 # 【完全ガイド】エスコンフィールドは子供の遊び場天国！無料で遊べるエリア＆ポイ活でお得に満喫する裏ワザ
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-    <img src="../../../assets/img/other/travel/esconfield-kids-guide.png" alt="Es Con Field Family Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+    <img src="https://placehold.co/800x450?text=esconfield-kids-guide" alt="Es Con Field Family Guide" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
 </figure>
 
 「エスコンフィールドって、野球好きじゃないと楽しめないのでは？」

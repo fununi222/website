@@ -1,7 +1,7 @@
 # Design System Reference
 
 <figure class="mb-10 max-w-4xl mx-auto cyber-glow">
-    <img src="../assets/img/filename.png" alt="Descriptive Alt Text" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
+    <img src="https://placehold.co/800x450?text=filename" alt="Descriptive Alt Text" class="w-full rounded-2xl shadow-xl border border-white/10 object-cover hover:border-primary/50 transition-colors duration-300">
   </figure>
 
 Use this reference when a task changes layout, component styling, article presentation, or global UI direction.
