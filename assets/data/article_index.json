@@ -1,12 +1,5 @@
 [
   {
-    "title": "【従来のバックアップはなぜ破綻するのか？】Rubrikが実現するZero Trustイミュータブルバックアップとランサムウェア時代の復旧戦略",
-    "description": "ランサムウェアがバックアップを先に破壊する時代に、RubrikのZero Trust Data Security、イミュータブル構造、機械学習によるClean Recovery Point特定が復旧戦略をどう変えるかを解説。",
-    "date": "2026-08-01",
-    "category": "infra",
-    "path": "infra/backup/rubrik-immutable-zero-trust-recovery-strategy.html"
-  },
-  {
     "title": "Kimi K3をAPI＆ローカル環境で動かす：超長文コンテキストとAgenticワークフロー実践構築",
     "description": "Kimi K3のOpenAI SDK互換API、リポジトリ読解、レビューBOT、ローカル/プライベート実行の現実性を開発者向けにまとめる実践ガイド。",
     "date": "2026-08-01",
@@ -19,6 +12,13 @@
     "date": "2026-08-01",
     "category": "ai",
     "path": "ai/llm-research/kimi-k3-open-weight-model-research.html"
+  },
+  {
+    "title": "【従来のバックアップはなぜ破綻するのか？】Rubrikが実現するZero Trustイミュータブルバックアップとランサムウェア時代の復旧戦略",
+    "description": "ランサムウェアがバックアップを先に破壊する時代に、RubrikのZero Trust Data Security、イミュータブル構造、機械学習によるClean Recovery Point特定が復旧戦略をどう変えるかを解説。",
+    "date": "2026-08-01",
+    "category": "infra",
+    "path": "infra/backup/rubrik-immutable-zero-trust-recovery-strategy.html"
   },
   {
     "title": "Other | 30代男子の鶴岡夜ご飯！男3人旅・出張で行きたいおすすめ居酒屋",
