@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     // Safety check for known categories
-    const validCategories = ['infra', 'dev', 'ai', 'finance', 'other', 'lpo'];
+    const validCategories = ['infra', 'dev', 'ai', 'finance', 'other', 'lpo', 'youtube'];
     if (!validCategories.includes(category)) {
         category = 'other';
     }
@@ -74,21 +74,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             'backup': '🛡️', 'cloud': '☁️', 'network': '🌐', 'ops': '⚙️',
             'automation': '🤖', 'llm-research': '🧠', 'ai-coding': '💻',
             'container': '⚓', 'modern-js': '⚛️', 'finance': '💰',
-            'travel': '✈️', 'gourmet': '🍽️', 'tech-life': '🌌', 'other': '📁'
+            'travel': '✈️', 'gourmet': '🍽️', 'tech-life': '🌌', 'other': '📁',
+            'analytics': '📊', 'growth': '📈', 'youtube': '▶️', 'video': '🎥'
         };
 
         const themeMap = {
             'backup': 'primary', 'cloud': 'secondary', 'network': 'tertiary', 'ops': 'primary',
             'automation': 'secondary', 'llm-research': 'tertiary', 'ai-coding': 'secondary',
             'container': 'primary', 'modern-js': 'tertiary', 'finance': 'amber-400',
-            'travel': 'emerald-400', 'gourmet': 'emerald-500', 'tech-life': 'slate-400', 'other': 'white'
+            'travel': 'emerald-400', 'gourmet': 'emerald-500', 'tech-life': 'slate-400', 'other': 'white',
+            'analytics': 'red-500', 'growth': 'rose-400', 'youtube': 'red-500', 'video': 'red-500'
         };
 
         let html = '';
         for (const [subCat, arts] of Object.entries(grouped)) {
             const displayCat = subCat.charAt(0).toUpperCase() + subCat.slice(1).replace(/-/g, ' ');
-            const theme = themeMap[subCat] || 'primary';
-            const icon = iconMap[subCat] || '📄';
+            const theme = themeMap[subCat] || 'red-500';
+            const icon = iconMap[subCat] || '🎬';
             
             html += `
             <section class="mb-24">
@@ -101,12 +103,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             arts.forEach(article => {
                 const linkHref = `../html/${article.path}`;
-                // Avoid using tailwind arbitrary values inside template literals if possible, but standard colors like text-primary work.
-                // Note: emerald-400, amber-400 are valid tailwind colors, but our CSS vars are primary, secondary.
-                // We'll use inline styles for the border colors to avoid missing dynamic classes.
                 const colorHexMap = {
                     'primary': '#aaa4ff', 'secondary': '#00d2ff', 'tertiary': '#00ffca',
-                    'amber-400': '#fbbf24', 'emerald-400': '#34d399', 'emerald-500': '#10b981', 'slate-400': '#94a3b8', 'white': '#ffffff'
+                    'amber-400': '#fbbf24', 'emerald-400': '#34d399', 'emerald-500': '#10b981', 'slate-400': '#94a3b8', 'white': '#ffffff',
+                    'red-500': '#ef4444', 'rose-400': '#f43f5e'
                 };
                 const colorHex = colorHexMap[theme] || '#aaa4ff';
 

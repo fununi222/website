@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Analytics & Channel Insights | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="YouTube Research: チャンネルアナリティクス、動画パフォーマンス分析、アルゴリズム攻略、視聴維持率・CTR改善の検証ログ。" />
+  <meta property="og:title" content="YouTube Analytics & Channel Insights | FunUni-lab" />
+  <meta property="og:description" content="YouTube Research: チャンネルアナリティクス、動画パフォーマンス分析、アルゴリズム攻略、視聴維持率・CTR改善の検証ログ。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-youtube: #ef4444;
+      --accent-rose: #f43f5e;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 24px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .glass-card:hover { border-color: rgba(239, 68, 68, 0.3); background: rgba(255, 255, 255, 0.05); transform: translateY(-4px); box-shadow: 0 10px 40px -10px rgba(239, 68, 68, 0.15); }
+    
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.07) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(244, 63, 94, 0.05) 0%, transparent 50%); }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--obsidian); }
+    ::-webkit-scrollbar-thumb { background: var(--border-glass); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(239, 68, 68, 0.2); }
+  </style>
+</head>
+<body class="font-body selection:bg-red-500/30 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../infra/index.html" class="hover:text-primary transition-colors">Infrastructure</a>
+          <a href="../dev/index.html" class="hover:text-secondary transition-colors">Development</a>
+          <a href="../ai/index.html" class="hover:text-tertiary transition-colors">AI Research</a>
+          <a href="../finance/index.html" class="hover:text-amber-400 transition-colors">Finance</a>
+          <a href="../lpo/index.html" class="hover:text-purple-400 transition-colors">Optimization</a>
+          <a href="../other/index.html" class="hover:text-emerald-400 transition-colors">Strategic Life</a>
+          <a href="../youtube/index.html" class="text-red-500 border-b-2 border-red-500 pb-1">YouTube Lab</a>
+          <a href="https://fununi222.github.io/website/html/glossary/system-glossary.html" class="hover:text-white transition-colors">Glossary</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="hidden md:flex flex-col items-end">
+          <span class="text-[9px] font-bold text-red-500 tracking-[0.2em] uppercase">Domain_07_Active</span>
+          <span class="text-[10px] text-slate-500 font-mono tracking-tighter">YouTube_Node_Online</span>
+        </div>
+        <div class="w-10 h-10 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500 cyber-glow">
+          <span class="material-symbols-outlined">play_circle</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-20 max-w-7xl mx-auto px-8">
+    
+    <!-- Hero / Status Panel -->
+    <header class="mb-20 relative">
+      <div class="flex flex-col md:flex-row items-end justify-between gap-8">
+        <div class="space-y-4 max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 text-red-500 border border-red-500/20 text-[10px] font-bold tracking-[0.3em] uppercase">
+            Strategic_Domain_07
+          </div>
+          <h1 class="text-6xl md:text-8xl font-bold font-headline tracking-tighter text-white leading-[0.9]">
+            YouTube <br/><span class="text-red-500">Analytics & Insights</span>
+          </h1>
+          <p class="text-lg text-slate-400 leading-relaxed max-w-2xl pt-4">
+            動画投稿後のアナリティクス検証、クリック率（CTR）・平均視聴維持率の深掘り、アルゴリズム推薦ロジックの攻略ログ。動画更新と完全連動するチャンネル分析ラボ。
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Channel KPI Overview Grid -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+      <div class="glass-card p-6">
+        <div class="flex items-center justify-between text-slate-400 mb-3">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider">Analysis Logs</span>
+          <span class="material-symbols-outlined text-red-500 text-xl">video_library</span>
+        </div>
+        <div class="text-3xl font-bold font-mono text-white mb-1" id="kpi-logs-count">1</div>
+        <span class="text-[10px] text-slate-500">投稿動画検証レポート総数</span>
+      </div>
+
+      <div class="glass-card p-6">
+        <div class="flex items-center justify-between text-slate-400 mb-3">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider">Target CTR</span>
+          <span class="material-symbols-outlined text-rose-400 text-xl">ads_click</span>
+        </div>
+        <div class="text-3xl font-bold font-mono text-rose-400 mb-1">6.5% - 10.0%</div>
+        <span class="text-[10px] text-slate-500">目標インプレッションクリック率</span>
+      </div>
+
+      <div class="glass-card p-6">
+        <div class="flex items-center justify-between text-slate-400 mb-3">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider">Retention Rate</span>
+          <span class="material-symbols-outlined text-amber-400 text-xl">query_stats</span>
+        </div>
+        <div class="text-3xl font-bold font-mono text-amber-400 mb-1">&gt; 45%</div>
+        <span class="text-[10px] text-slate-500">目標平均視聴持続率</span>
+      </div>
+
+      <div class="glass-card p-6">
+        <div class="flex items-center justify-between text-slate-400 mb-3">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider">Algorithm Index</span>
+          <span class="material-symbols-outlined text-emerald-400 text-xl">auto_awesome</span>
+        </div>
+        <div class="text-3xl font-bold font-mono text-emerald-400 mb-1">OPTIMIZED</div>
+        <span class="text-[10px] text-slate-500">関連動画＆ブラウジング推奨状態</span>
+      </div>
+    </section>
+
+    <!-- Full Archive List -->
+    <section class="mb-24">
+      <div class="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
+        <h2 class="text-xl font-bold font-headline tracking-tighter text-white">YouTube Analysis Logs</h2>
+        <span id="archive-count" class="text-[10px] font-bold text-red-500 uppercase tracking-[0.2em] border border-red-500/20 px-2 py-1 rounded bg-red-500/5">0 LOGS</span>
+      </div>
+      <div id="archive-list" class="min-h-[200px]">
+        <div class="animate-pulse flex items-center gap-4 text-slate-500">
+            <span class="material-symbols-outlined text-xl animate-spin">sync</span>
+            <span class="font-mono text-xs">Loading YouTube research logs...</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-20 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab YouTube Research Division</span>
+        <span class="opacity-40">Channel Growth & Analytics Optimization.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../index.html" class="hover:text-white">Dashboard</a>
+        <a href="https://fununi222.github.io/website/html/glossary/system-glossary.html" class="hover:text-white">Glossary</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/article-data.js"></script>
+  <script src="../assets/js/archive-loader.js"></script>
+</body>
+</html>
