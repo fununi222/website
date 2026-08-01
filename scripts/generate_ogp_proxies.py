@@ -25,6 +25,8 @@ TEMPLATE = """<!DOCTYPE html>
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="{title} | FunUni-lab" />
     <meta name="twitter:description" content="{description}" />
+    <link rel="canonical" href="https://fununi222.github.io/website/html/{md_path_html}" />
+    <meta http-equiv="refresh" content="0;url={rel_root}article.html?md=md/{md_path}">
 
     <!-- Redirect to the dynamic viewer -->
     <script>
@@ -70,15 +72,7 @@ def main():
         print(f"Error: {SOURCE_DIR} directory not found.")
         return
 
-    articles_index = [
-        {
-            "title": "Mission: One-Bag US Trip 2026 | LA・ラスベガス攻略",
-            "description": "パッキング＆準備編・現地サバイバル編：米国出張・ワンバッグでLA・ラスベガス1週間を乗り切る最強の持ち物術と生存戦略シミュレーション。",
-            "date": "2026-06-02",
-            "category": "other",
-            "path": "other/usa-trip-2026.html"
-        }
-    ]
+    articles_index = []
 
 
     for root, dirs, files in os.walk(src_root):

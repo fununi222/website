@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     // Safety check for known categories
-    const validCategories = ['infra', 'dev', 'ai', 'finance', 'other'];
+    const validCategories = ['infra', 'dev', 'ai', 'finance', 'other', 'lpo'];
     if (!validCategories.includes(category)) {
         category = 'other';
     }
