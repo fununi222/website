@@ -7,6 +7,13 @@
         "path":  "dev/ai-coding/kimi-k3-api-agentic-workflow-guide.html"
     },
     {
+        "title":  "【Google Antigravity徹底解剖】Antigravity 2.0 / IDE / CLI の違いと使い分け：VS Codeから移行する次世代マルチエージェント開発術",
+        "description":  "Google Antigravityの3つの形態（2.0 Agent Canvas / IDE / CLI）の完全比較と使い分け。VS Codeからの移行手順、マルチエージェント連携、コスト比較からライフスタイル革命まで徹底解説。",
+        "date":  "2026-08-01",
+        "category":  "dev",
+        "path":  "dev/ai-coding/google-antigravity-usage-comparison.html"
+    },
+    {
         "title":  "【2.8兆パラメータ】Moonshot AI「Kimi K3」の実力とは？1MコンテキストとAgentic Coding性能を徹底解説",
         "description":  "Moonshot AIのオープンウェイトモデルKimi K3を、MoE/KDA/1Mコンテキスト/API/ローカル運用/セキュリティ観点から整理するAI Research向け技術速報。",
         "date":  "2026-08-01",
@@ -28,13 +35,6 @@
         "path":  "other/gourmet/tsuruoka-izakaya-men-three-guide.html"
     },
     {
-        "title":  "【2026最新】GPT-5.6とChatGPT Workで何が変わる？ AIエージェントの破壊力を解説",
-        "description":  "GPT-5.6 Sol/Terra/LunaとChatGPT Work、Codex連携で何が変わるのか。AIエージェント時代の実務メリット、使い分け、注意点を中学生にもわかる言葉で解説。",
-        "date":  "2026-07-11",
-        "category":  "ai",
-        "path":  "ai/automation/gpt-56-chatgpt-work-agent-guide.html"
-    },
-    {
         "title":  "どっちが買い？ GPT-5.6 vs Claude最新比較 | 利用制限・新機能・選び方",
         "description":  "GPT-5.6とClaudeを、業務自動化、文章作成、コーディング、料金・利用制限の観点で比較。ChatGPT WorkとClaude Reflect/Claude Codeの違いから選び方を解説。",
         "date":  "2026-07-11",
@@ -54,6 +54,13 @@
         "date":  "2026-07-11",
         "category":  "dev",
         "path":  "dev/ai-coding/github-knowledge-management-non-engineers.html"
+    },
+    {
+        "title":  "【2026最新】GPT-5.6とChatGPT Workで何が変わる？ AIエージェントの破壊力を解説",
+        "description":  "GPT-5.6 Sol/Terra/LunaとChatGPT Work、Codex連携で何が変わるのか。AIエージェント時代の実務メリット、使い分け、注意点を中学生にもわかる言葉で解説。",
+        "date":  "2026-07-11",
+        "category":  "ai",
+        "path":  "ai/automation/gpt-56-chatgpt-work-agent-guide.html"
     },
     {
         "title":  "AIエージェントを思い通りに動かす「4点セット」と必須の初期設定",
@@ -133,11 +140,11 @@
         "path":  "other/travel/kutchan-kids-gourmet.html"
     },
     {
-        "title":  "【ニセコ・共和町】雨の日も笑顔！ 0〜3歳子連れランチ＆屋内お出かけスポット徹底ガイド",
-        "description":  "ニセコ旅行が雨でも大丈夫！キッズルーム完備のカフェ、子羊と触れ合える屋内施設、無料の屋内プールなど、0〜3歳児を飽きさせない雨天用レスキュープランを紹介。",
+        "title":  "【0〜3歳連れ】神仙沼ピクニック完全ガイド！ベビーカーOKで大自然を満喫するコツ",
+        "description":  "駐車場から展望台までわずか200m。ベビーカーでアクセス可能な神仙沼は、0〜3歳児のピクニックデビューに最適！授乳室・オムツ替え情報から、無添加パンの調達、モデルプランまで。",
         "date":  "2026-04-28",
         "category":  "other",
-        "path":  "other/travel/niseko-rainy-day-kids.html"
+        "path":  "other/travel/shinsenmarsh-kids-picnic.html"
     },
     {
         "title":  "【完全ガイド】エスコンフィールドは子供の遊び場天国！無料で遊べるエリア＆ポイ活でお得に満喫する裏ワザ",
@@ -147,60 +154,11 @@
         "path":  "other/travel/esconfield-kids-guide.html"
     },
     {
-        "title":  "【0〜3歳連れ】神仙沼ピクニック完全ガイド！ベビーカーOKで大自然を満喫するコツ",
-        "description":  "駐車場から展望台までわずか200m。ベビーカーでアクセス可能な神仙沼は、0〜3歳児のピクニックデビューに最適！授乳室・オムツ替え情報から、無添加パンの調達、モデルプランまで。",
+        "title":  "【ニセコ・共和町】雨の日も笑顔！ 0〜3歳子連れランチ＆屋内お出かけスポット徹底ガイド",
+        "description":  "ニセコ旅行が雨でも大丈夫！キッズルーム完備のカフェ、子羊と触れ合える屋内施設、無料の屋内プールなど、0〜3歳児を飽きさせない雨天用レスキュープランを紹介。",
         "date":  "2026-04-28",
         "category":  "other",
-        "path":  "other/travel/shinsenmarsh-kids-picnic.html"
-    },
-    {
-        "title":  "APIドキュメントはもう読まない｜Rubrik Code Captureで実現する『ポチポチ自動化』",
-        "description":  "ブラウザの操作をそのままAPIコードに変換。Rubrik API Code Captureを使い、プログラミング未経験から数分で自動化スクリプトを生成する裏技を公開。",
-        "date":  "2026-04-24",
-        "category":  "infra",
-        "path":  "infra/backup/rubrik-api-code-capture-guide.html"
-    },
-    {
-        "title":  "【技術編】APIで繋ぐ！ Jira × Rubrik不整合検知システムの構築ガイド",
-        "description":  "資産管理ツールJiraとRubrik APIを連携させ、ゾンビバックアップを自動検知・解消するシステムの実装ガイド。Pythonによる名寄せロジックと主要APIエンドポイントを詳解。",
-        "date":  "2026-04-24",
-        "category":  "infra",
-        "path":  "infra/ops/jira-rubrik-api-integration-guide.html"
-    },
-    {
-        "title":  "AWSのデータ転送料で『クラウド破産』しないために｜200TB超えDBの最適解",
-        "description":  "AWSのデータ転送費（Egress）の罠と、大規模DB運用を支えるAmazon Auroraの真のメリットを解説。200TB超のデータ保護を、コストを抑えつつ実現する設計術。",
-        "date":  "2026-04-24",
-        "category":  "infra",
-        "path":  "infra/cloud/aws-egress-cost-aurora-benefits.html"
-    },
-    {
-        "title":  "KISS原則の深淵｜なぜ『単純さ』は高度な知性を必要とするのか",
-        "description":  "「Keep It Simple, Stupid」を守れないのは、知的能力の欠如か。認知心理学と設計論から、複雑さに逃避するメカニズムを解体し、単純さという究極の知性に至る道を説く。",
-        "date":  "2026-04-24",
-        "category":  "other",
-        "path":  "other/tech-life/kiss-principle-cognitive-limits.html"
-    },
-    {
-        "title":  "【2026決定版】最大還元率を叩き出すキャッシュレス決済ルート完全攻略",
-        "description":  "三井住友カード、Olive、Revolut、ANA Payを駆使した2026年最新の高還元決済ルートを公開。iPhone/Android別の最適解と手数料回避術。",
-        "date":  "2026-04-24",
-        "category":  "finance",
-        "path":  "finance/high-return-payment-routes.html"
-    },
-    {
-        "title":  "AWS KMSの料金を99%削減する｜エンベロープ暗号化による最強のコストハック",
-        "description":  "KMSのAPI呼び出しコストによるクラウド破産を回避する設計術。データキーのキャッシュ、エンベロープ暗号化、隔離環境（Vault）の最適解をプロが詳解。",
-        "date":  "2026-04-24",
-        "category":  "infra",
-        "path":  "infra/cloud/aws-kms-cost-envelope-encryption.html"
-    },
-    {
-        "title":  "【予算別】エスコンフィールドを遊び尽くす！松竹梅のVIP体験攻略ガイド",
-        "description":  "エスコンフィールド北海道を120%楽しむための『松竹梅』戦略。予算別の最強プランから最新サウナ、決済ハックまで、公式には載らないROI最大化の秘訣を詳解。",
-        "date":  "2026-04-24",
-        "category":  "other",
-        "path":  "other/travel/esconfield-vip-budget-guide.html"
+        "path":  "other/travel/niseko-rainy-day-kids.html"
     },
     {
         "title":  "自律型データ保護の完成｜Rubrik×XSOARで作る『止まらない』セキュリティ運用",
@@ -210,11 +168,46 @@
         "path":  "infra/backup/rubrik-graphql-xsoar-automation.html"
     },
     {
-        "title":  "AWS RDSバックアップの通信費をハックせよ｜Rubrikで実現する最強のデータ保護",
-        "description":  "エグレスコスト（通信費）の罠、KMS暗号化の盲点、APIによる論理バックアップ自動化。200TB規模の運用で培った実戦ノウハウを凝縮した、AWSエンジニア必携の完全ガイド。",
+        "title":  "【技術編】APIで繋ぐ！ Jira × Rubrik不整合検知システムの構築ガイド",
+        "description":  "資産管理ツールJiraとRubrik APIを連携させ、ゾンビバックアップを自動検知・解消するシステムの実装ガイド。Pythonによる名寄せロジックと主要APIエンドポイントを詳解。",
         "date":  "2026-04-24",
         "category":  "infra",
-        "path":  "infra/backup/aws-rds-rubrik-complete-guide.html"
+        "path":  "infra/ops/jira-rubrik-api-integration-guide.html"
+    },
+    {
+        "title":  "AWS KMSの料金を99%削減する｜エンベロープ暗号化による最強のコストハック",
+        "description":  "KMSのAPI呼び出しコストによるクラウド破産を回避する設計術。データキーのキャッシュ、エンベロープ暗号化、隔離環境（Vault）の最適解をプロが詳解。",
+        "date":  "2026-04-24",
+        "category":  "infra",
+        "path":  "infra/cloud/aws-kms-cost-envelope-encryption.html"
+    },
+    {
+        "title":  "【2026決定版】最大還元率を叩き出すキャッシュレス決済ルート完全攻略",
+        "description":  "三井住友カード、Olive、Revolut、ANA Payを駆使した2026年最新の高還元決済ルートを公開。iPhone/Android別の最適解と手数料回避術。",
+        "date":  "2026-04-24",
+        "category":  "finance",
+        "path":  "finance/high-return-payment-routes.html"
+    },
+    {
+        "title":  "AWSのデータ転送料で『クラウド破産』しないために｜200TB超えDBの最適解",
+        "description":  "AWSのデータ転送費（Egress）の罠と、大規模DB運用を支えるAmazon Auroraの真のメリットを解説。200TB超のデータ保護を、コストを抑えつつ実現する設計術。",
+        "date":  "2026-04-24",
+        "category":  "infra",
+        "path":  "infra/cloud/aws-egress-cost-aurora-benefits.html"
+    },
+    {
+        "title":  "【予算別】エスコンフィールドを遊び尽くす！松竹梅のVIP体験攻略ガイド",
+        "description":  "エスコンフィールド北海道を120%楽しむための『松竹梅』戦略。予算別の最強プランから最新サウナ、決済ハックまで、公式には載らないROI最大化の秘訣を詳解。",
+        "date":  "2026-04-24",
+        "category":  "other",
+        "path":  "other/travel/esconfield-vip-budget-guide.html"
+    },
+    {
+        "title":  "KISS原則の深淵｜なぜ『単純さ』は高度な知性を必要とするのか",
+        "description":  "「Keep It Simple, Stupid」を守れないのは、知的能力の欠如か。認知心理学と設計論から、複雑さに逃避するメカニズムを解体し、単純さという究極の知性に至る道を説く。",
+        "date":  "2026-04-24",
+        "category":  "other",
+        "path":  "other/tech-life/kiss-principle-cognitive-limits.html"
     },
     {
         "title":  "RubrikでLinux LVMのリストアが失敗する原因と「確実」な救出手順",
@@ -222,6 +215,20 @@
         "date":  "2026-04-24",
         "category":  "infra",
         "path":  "infra/backup/rubrik-linux-lvm-restore-guide.html"
+    },
+    {
+        "title":  "【原因編】RubrikでLinux+LVMのリストアが失敗する技術的真相",
+        "description":  "LVM環境でファイル単位リストア（FLR）が失敗するメカニズムを深掘り。UUIDの重複、メタデータの断片化、OSレベルのマウント制限など、インフラ運用で避けて通れない制約を解明。",
+        "date":  "2026-04-24",
+        "category":  "infra",
+        "path":  "infra/backup/rubrik-linux-lvm-flr-cause-guide.html"
+    },
+    {
+        "title":  "AWS RDSバックアップの通信費をハックせよ｜Rubrikで実現する最強のデータ保護",
+        "description":  "エグレスコスト（通信費）の罠、KMS暗号化の盲点、APIによる論理バックアップ自動化。200TB規模の運用で培った実戦ノウハウを凝縮した、AWSエンジニア必携の完全ガイド。",
+        "date":  "2026-04-24",
+        "category":  "infra",
+        "path":  "infra/backup/aws-rds-rubrik-complete-guide.html"
     },
     {
         "title":  "宇宙基盤システム 技術要件定義書 (TRD)｜仕様をデバッグし、運命をハックせよ",
@@ -238,18 +245,11 @@
         "path":  "infra/cloud/aws-minimal-iac-patterns.html"
     },
     {
-        "title":  "【原因編】RubrikでLinux+LVMのリストアが失敗する技術的真相",
-        "description":  "LVM環境でファイル単位リストア（FLR）が失敗するメカニズムを深掘り。UUIDの重複、メタデータの断片化、OSレベルのマウント制限など、インフラ運用で避けて通れない制約を解明。",
+        "title":  "APIドキュメントはもう読まない｜Rubrik Code Captureで実現する『ポチポチ自動化』",
+        "description":  "ブラウザの操作をそのままAPIコードに変換。Rubrik API Code Captureを使い、プログラミング未経験から数分で自動化スクリプトを生成する裏技を公開。",
         "date":  "2026-04-24",
         "category":  "infra",
-        "path":  "infra/backup/rubrik-linux-lvm-flr-cause-guide.html"
-    },
-    {
-        "title":  "三井住友カード100万円修行を最速で終わらせる｜Revolut×ANA Pay出口戦略",
-        "description":  "「100万円修行」を無駄な買い物なしで達成するための最適解。ブランド別の手数料回避術と、チャージ残高を楽天証券の積立に回す高還元ルートを解説。",
-        "date":  "2026-04-24",
-        "category":  "finance",
-        "path":  "finance/smbc-million-challenge-revolut-route.html"
+        "path":  "infra/backup/rubrik-api-code-capture-guide.html"
     },
     {
         "title":  "【2026最新】ポイ活・決済戦略ダッシュボード｜Vポイント統合後の最適解",
@@ -257,6 +257,13 @@
         "date":  "2026-04-24",
         "category":  "finance",
         "path":  "finance/payment-poi-strategy-2026.html"
+    },
+    {
+        "title":  "三井住友カード100万円修行を最速で終わらせる｜Revolut×ANA Pay出口戦略",
+        "description":  "「100万円修行」を無駄な買い物なしで達成するための最適解。ブランド別の手数料回避術と、チャージ残高を楽天証券の積立に回す高還元ルートを解説。",
+        "date":  "2026-04-24",
+        "category":  "finance",
+        "path":  "finance/smbc-million-challenge-revolut-route.html"
     },
     {
         "title":  "Amazon RDS 徹底解剖｜AIOpsによる自律修復と高可用性の極致",
@@ -273,11 +280,18 @@
         "path":  "infra/backup/rubrik-api-502-timeout-guide.html"
     },
     {
-        "title":  "自律修復インフラの夜明け｜Antigravity×n8nで構築する完全自動復旧パイプライン",
-        "description":  "Gemini 3 Proを搭載したAntigravityとn8nを連携。エラー検知からコード解析、修正PR作成までを完全自動化する『自律修復パイプライン』の全貌を解剖。",
+        "title":  "webMethodsのHTTP 502エラー完全ガイド：原因と標準リトライの実装手順",
+        "description":  "Integration Serverでの502エラー検知から、throwExceptionForRetryを用いた標準リトライの実装、メモリリークを防ぐ設定まで徹底解説。",
         "date":  "2026-04-24",
-        "category":  "ai",
-        "path":  "ai/automation/antigravity-n8n-pipeline.html"
+        "category":  "infra",
+        "path":  "infra/network/webmethods-http-502-guide.html"
+    },
+    {
+        "title":  "API Gateway連携での罠「リトライストーム」を防ぐwebMethods設計術",
+        "description":  "マルチレイヤー環境におけるカスケード障害「リトライストーム」の原因と対策。Gatewayへのリトライ責任集約とべき等性の担保について。",
+        "date":  "2026-04-24",
+        "category":  "infra",
+        "path":  "infra/network/webmethods-retry-storm-gateway.html"
     },
     {
         "title":  "ニセコ完全攻略｜ラーメン3,000円の魔境を『賢く・贅沢に』楽しむコスパ戦略",
@@ -287,11 +301,11 @@
         "path":  "other/travel/niseko-cospa-travel.html"
     },
     {
-        "title":  "Enterprise AI Ops完全ガイド2026｜RAGの精度・コスト・ガバナンスを突破する",
-        "description":  "エンタープライズにおける生成AI実運用の決定版ガイド。RAGの精度低下を招く「知識の陳腐化」対策、マルチテナント設計、ROI算出ロジックをプロの視点で詳解。",
+        "title":  "AIを最強のシニアエンジニアに変える｜即戦力コードレビュー・プロンプト集",
+        "description":  "Linterでは見落とすバグをAIに暴かせる。Javaのリソース漏れ、JSのメモリリーク、セキュリティ脆弱性を特定し、品質を劇的に高めるための厳選プロンプトテンプレート。",
         "date":  "2026-04-24",
-        "category":  "ai",
-        "path":  "ai/llm-research/enterprise-ai-ops-rag.html"
+        "category":  "dev",
+        "path":  "dev/ai-coding/ai-code-review-practical-prompts.html"
     },
     {
         "title":  "GitLab×AIコードレビューの精度を極限まで高める｜DevContainer連携の真価",
@@ -308,18 +322,18 @@
         "path":  "infra/network/webmethods-exponential-backoff-repeat.html"
     },
     {
-        "title":  "webMethodsのHTTP 502エラー完全ガイド：原因と標準リトライの実装手順",
-        "description":  "Integration Serverでの502エラー検知から、throwExceptionForRetryを用いた標準リトライの実装、メモリリークを防ぐ設定まで徹底解説。",
+        "title":  "『タスク自動化』から『運用自律化』へ｜vSphere基盤を負債にしない設計思想",
+        "description":  "「作業」を自動化するだけでは、運用は楽にならない。vSphere基盤を例に、人的ミスを根絶し、AIと共に歩むための自律型運用ロードマップを詳解。",
         "date":  "2026-04-24",
-        "category":  "infra",
-        "path":  "infra/network/webmethods-http-502-guide.html"
+        "category":  "ai",
+        "path":  "ai/automation/operation-automation.html"
     },
     {
-        "title":  "API Gateway連携での罠「リトライストーム」を防ぐwebMethods設計術",
-        "description":  "マルチレイヤー環境におけるカスケード障害「リトライストーム」の原因と対策。Gatewayへのリトライ責任集約とべき等性の担保について。",
+        "title":  "webMethods×Rubrik連携の極致｜502エラーを『デザイン』するレジリエンス戦略",
+        "description":  "「リトライがシステムを殺す」事態を防ぐ。webMethods Integration Serverによる指数バックオフ実装と、運用の平穏を守るエラー判定分離のマスターガイド。",
         "date":  "2026-04-24",
         "category":  "infra",
-        "path":  "infra/network/webmethods-retry-storm-gateway.html"
+        "path":  "infra/network/webmethods-rubrik-502-master-guide.html"
     },
     {
         "title":  "スケジュール管理をAIに丸投げする｜OpenClaw×Googleカレンダー連携完全ガイド",
@@ -329,11 +343,11 @@
         "path":  "ai/automation/openclaw-google-calendar-automation.html"
     },
     {
-        "title":  "webMethods×Rubrik連携の極致｜502エラーを『デザイン』するレジリエンス戦略",
-        "description":  "「リトライがシステムを殺す」事態を防ぐ。webMethods Integration Serverによる指数バックオフ実装と、運用の平穏を守るエラー判定分離のマスターガイド。",
+        "title":  "Enterprise AI Ops完全ガイド2026｜RAGの精度・コスト・ガバナンスを突破する",
+        "description":  "エンタープライズにおける生成AI実運用の決定版ガイド。RAGの精度低下を招く「知識の陳腐化」対策、マルチテナント設計、ROI算出ロジックをプロの視点で詳解。",
         "date":  "2026-04-24",
-        "category":  "infra",
-        "path":  "infra/network/webmethods-rubrik-502-master-guide.html"
+        "category":  "ai",
+        "path":  "ai/llm-research/enterprise-ai-ops-rag.html"
     },
     {
         "title":  "人月商売の終焉｜AIが引き起こすSIer業界の『破壊的再編』と生存戦略",
@@ -350,11 +364,11 @@
         "path":  "ai/automation/oss-automation-tools.html"
     },
     {
-        "title":  "『タスク自動化』から『運用自律化』へ｜vSphere基盤を負債にしない設計思想",
-        "description":  "「作業」を自動化するだけでは、運用は楽にならない。vSphere基盤を例に、人的ミスを根絶し、AIと共に歩むための自律型運用ロードマップを詳解。",
+        "title":  "OpenClaw復旧ガイド｜VPSネットワークの『見えない壁』を突破せよ",
+        "description":  "「名前解決はできるのにWebアクセスが落ちる」――VPS特有のパケットフィルター制約とOpenClaw通信エラーを根本から解決する、診断と復旧の全手順。",
         "date":  "2026-04-24",
-        "category":  "ai",
-        "path":  "ai/automation/operation-automation.html"
+        "category":  "infra",
+        "path":  "infra/network/openclaw-vps-network-troubleshoot.html"
     },
     {
         "title":  "インシデント管理の極致｜PagerDutyで作る『自律型』運用プラットフォーム",
@@ -364,18 +378,18 @@
         "path":  "infra/network/pagerduty-architecture.html"
     },
     {
+        "title":  "ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（Jira）の自動化戦略",
+        "description":  "削除漏れのサーバがコストを食いつぶす「ゾンビバックアップ」問題を技術的に解決。JiraとRubrik APIを連携させ、不整合ゼロのIT資産管理を実現する戦略を詳解。",
+        "date":  "2026-04-24",
+        "category":  "infra",
+        "path":  "infra/ops/zombie-backup-asset-management-strategy.html"
+    },
+    {
         "title":  "IT主権の奪還｜2026年エンタープライズITを支配する『4つのパラダイムシフト』",
         "description":  "パブリッククラウドの限界、AI翻訳の罠、自律エージェントの光と影。2026年、ITリーダーが直面する破壊的変化と、次世代の生存戦略を徹底解剖。",
         "date":  "2026-04-24",
         "category":  "infra",
         "path":  "infra/cloud/enterprise-it-paradigm-shift-2026.html"
-    },
-    {
-        "title":  "OpenClaw復旧ガイド｜VPSネットワークの『見えない壁』を突破せよ",
-        "description":  "「名前解決はできるのにWebアクセスが落ちる」――VPS特有のパケットフィルター制約とOpenClaw通信エラーを根本から解決する、診断と復旧の全手順。",
-        "date":  "2026-04-24",
-        "category":  "infra",
-        "path":  "infra/network/openclaw-vps-network-troubleshoot.html"
     },
     {
         "title":  "階層化の終焉｜VAST Dataが拓くAI時代の『ユニバーサル・ストレージ』",
@@ -385,18 +399,18 @@
         "path":  "infra/cloud/vast-data-universal-storage-research.html"
     },
     {
-        "title":  "ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（Jira）の自動化戦略",
-        "description":  "削除漏れのサーバがコストを食いつぶす「ゾンビバックアップ」問題を技術的に解決。JiraとRubrik APIを連携させ、不整合ゼロのIT資産管理を実現する戦略を詳解。",
-        "date":  "2026-04-24",
-        "category":  "infra",
-        "path":  "infra/ops/zombie-backup-asset-management-strategy.html"
-    },
-    {
         "title":  "OpenAI Codex 徹底解剖 2026｜GPT-5.3が切り拓く自律開発の地平",
         "description":  "単なる補完から『自律型デジタル従業員』へ。OpenAI Codex (GPT-5.3-Codex) の内部構造、256kコンテキスト活用術、APIによる高度な制御までをエンジニア視点で解説。",
         "date":  "2026-04-24",
         "category":  "dev",
         "path":  "dev/ai-coding/openai-codex-guide-2026.html"
+    },
+    {
+        "title":  "自律修復インフラの夜明け｜Antigravity×n8nで構築する完全自動復旧パイプライン",
+        "description":  "Gemini 3 Proを搭載したAntigravityとn8nを連携。エラー検知からコード解析、修正PR作成までを完全自動化する『自律修復パイプライン』の全貌を解剖。",
+        "date":  "2026-04-24",
+        "category":  "ai",
+        "path":  "ai/automation/antigravity-n8n-pipeline.html"
     },
     {
         "title":  "AIコーディングツール徹底比較 2026｜Cursor, Windsurf, Copilotどれが正解？",
@@ -413,11 +427,11 @@
         "path":  "dev/ai-coding/ai-code-review-senior-guide.html"
     },
     {
-        "title":  "AIを最強のシニアエンジニアに変える｜即戦力コードレビュー・プロンプト集",
-        "description":  "Linterでは見落とすバグをAIに暴かせる。Javaのリソース漏れ、JSのメモリリーク、セキュリティ脆弱性を特定し、品質を劇的に高めるための厳選プロンプトテンプレート。",
+        "title":  "AI予算を勝ち取る『ROI算定式』とAzure FinOps最適化戦略",
+        "description":  "「AIでいくら儲かったのか？」という問いに答える。削減時間額の算出モデルから、Azure OpenAIコストを最大50%削減するFinOps実践術までを網羅。",
         "date":  "2026-04-24",
-        "category":  "dev",
-        "path":  "dev/ai-coding/ai-code-review-practical-prompts.html"
+        "category":  "ai",
+        "path":  "ai/automation/ai-roi-finops-azure.html"
     },
     {
         "title":  "【保存版】ニセコを遊び尽くす！ 1泊2日最強ドライブモデルコース",
@@ -427,11 +441,11 @@
         "path":  "other/travel/niseko-1night2day-course.html"
     },
     {
-        "title":  "AI予算を勝ち取る『ROI算定式』とAzure FinOps最適化戦略",
-        "description":  "「AIでいくら儲かったのか？」という問いに答える。削減時間額の算出モデルから、Azure OpenAIコストを最大50%削減するFinOps実践術までを網羅。",
-        "date":  "2026-04-24",
-        "category":  "ai",
-        "path":  "ai/automation/ai-roi-finops-azure.html"
+        "title":  "Other | 【絶対失敗しない】赤坂の個室×肉料理（接待・記念日向け高級店）",
+        "description":  "大事な接待や特別な記念日に最適な、赤坂の高級肉料理・個室焼肉・鉄板焼きを厳選。プライバシーが守られる最高峰のお店を紹介します。",
+        "date":  "2026-04-23",
+        "category":  "other",
+        "path":  "other/gourmet/akasaka-meat-vip-guide.html"
     },
     {
         "title":  "Infra | 【Rubrik】オンデマンドバックアップが21日保持になる理由と解決策（SLAドメインの仕様）",
@@ -439,13 +453,6 @@
         "date":  "2026-04-23",
         "category":  "infra",
         "path":  "infra/backup/rubrik-ondemand-sla-retention.html"
-    },
-    {
-        "title":  "Other | 【絶対失敗しない】赤坂の個室×肉料理（接待・記念日向け高級店）",
-        "description":  "大事な接待や特別な記念日に最適な、赤坂の高級肉料理・個室焼肉・鉄板焼きを厳選。プライバシーが守られる最高峰のお店を紹介します。",
-        "date":  "2026-04-23",
-        "category":  "other",
-        "path":  "other/gourmet/akasaka-meat-vip-guide.html"
     },
     {
         "title":  "Other | 【完全ガイド】赤坂の肉料理・焼肉おすすめ厳選！接待からデートまで",
@@ -595,18 +602,18 @@
         "path":  "infra/backup/rubrik-backup-load-balancing.html"
     },
     {
-        "title":  "Rubrikのスケーリング戦略：クラスタ追加とノード追加のベストプラクティス",
-        "description":  "Rubrikの拡張戦略において、クラスタの追加がなぜアンチパターンとなるのか、ノード追加によるスケールアウトの利点とCockroachDBアーキテクチャを紐解きます。",
-        "date":  "2026-04-16",
-        "category":  "infra",
-        "path":  "infra/backup/rubrik-scaling-strategy-nodes.html"
-    },
-    {
         "title":  "Rubrikの最大保護オブジェクト数は？ VMのカウント基準と限界値を徹底解説",
         "description":  "Rubrikによる仮想マシン（VM）等の保護オブジェクトのカウント基準と、物理クラスタ・Edge環境における最大値の仕様を徹底解説します。",
         "date":  "2026-04-16",
         "category":  "infra",
         "path":  "infra/backup/rubrik-max-objects-limits.html"
+    },
+    {
+        "title":  "Rubrikのスケーリング戦略：クラスタ追加とノード追加のベストプラクティス",
+        "description":  "Rubrikの拡張戦略において、クラスタの追加がなぜアンチパターンとなるのか、ノード追加によるスケールアウトの利点とCockroachDBアーキテクチャを紐解きます。",
+        "date":  "2026-04-16",
+        "category":  "infra",
+        "path":  "infra/backup/rubrik-scaling-strategy-nodes.html"
     },
     {
         "title":  "GUI画面のスクレイピングは時代遅れ？ Rubrik API Code Captureの活用法",
