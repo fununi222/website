@@ -1,5 +1,12 @@
 [
   {
+    "title": "【YouTubeアナリティクス分析】動画投稿初期100時間の数値データ検証とアルゴリズムインプレッション攻略",
+    "description": "YouTubeチャンネル最新動画の投稿直後におけるクリック率(CTR)、平均視聴維持率、トラフィックソース（インプレッション・関連動画）のデータ分析と改善施策。",
+    "date": "2026-08-02",
+    "category": "youtube",
+    "path": "youtube/analytics/sample-video-analysis.html"
+  },
+  {
     "title": "Glossary | システム用語集 & ナレッジベース v2026.08.02.1",
     "description": "ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。",
     "date": "2026-08-02",
