@@ -85,7 +85,7 @@ vSphereから削除されたVMをRubrikは「Relic（遺物）」として保持
 ### 📌 次のステップ：構築ガイド
 具体的なAPIの叩き方や、Jiraとのスクリプト連携手順については、以下の実践ガイドをご覧ください。
 
-👉 **[【実践編】APIで繋ぐ！Jira × Rubrik不整合検知システムの構築ガイド](https://fununi222.github.io/website/html/infra/ops/Jira-rubrik-api-integration-guide.html)**
+👉 **[【実践編】APIで繋ぐ！ Jira × Rubrik不整合検知システムの構築ガイド](https://fununi222.github.io/website/html/infra/ops/Jira-rubrik-api-integration-guide.html)**
 
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 「SEOトップ1%戦略」に基づきリライト。コスト削減の財務的インパクトと、UUIDベースの堅牢な自動化ロジックを強調。

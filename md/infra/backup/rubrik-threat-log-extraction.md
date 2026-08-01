@@ -86,5 +86,5 @@ A. 例えば、分析が成功した場合は`ThreatMonitoringAnalysisSucceeded`
 では、実際にどうやってAPIを使えばいいのでしょうか？
 プログラミングの知識がなくても、Rubrik公式の便利なツールを使えば一瞬で解決します。
 
-👉 **[GUI画面のスクレイピングは時代遅れ？Rubrik API Code Captureの活用法](./rubrik-api-code-capture.md)**
+👉 **[GUI画面のスクレイピングは時代遅れ？ Rubrik API Code Captureの活用法](./rubrik-api-code-capture.md)**
 

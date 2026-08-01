@@ -1,5 +1,5 @@
 ---
-title: "記事②：Docker Hubの制限を回避！Harborプロキシキャッシュと運用術"
+title: "記事②：Docker Hubの制限を回避！ Harborプロキシキャッシュと運用術"
 date: "2026-04-16"
 category: "dev"
 description: "Harborのプロキシキャッシュやタグ管理機能を使い、Docker HubのAPI制限を回避しつつコストを最適化する運用術。"
@@ -8,7 +8,7 @@ themes: ["dev:operations", "infra:container", "finops"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# 記事②：Docker Hubの制限を回避！Harborプロキシキャッシュと運用術
+# 記事②：Docker Hubの制限を回避！ Harborプロキシキャッシュと運用術
 
 前回の記事では、DevcontainerとHarborの基礎について解説しました。
 （※基礎をおさらいしたい方は[こちら](./devcontainer-harbor-intro.md)）
@@ -82,5 +82,5 @@ Dockerの仕様上、同じ名前のタグ（例：v1.0）で新しいイメー�
 運用基盤が整ったら、最後は「セキュリティ」です。
 次の記事では、現代の開発に必須の「DevSecOps」をいかに自動化するかを解説します。
 
-👉 **[DevSecOpsを自動化！Harbor×Devcontainerのセキュリティ戦略](./devcontainer-harbor-security.md)**
+👉 **[DevSecOpsを自動化！ Harbor×Devcontainerのセキュリティ戦略](./devcontainer-harbor-security.md)**
 

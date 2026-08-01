@@ -1,5 +1,5 @@
 ---
-title: "GUI画面のスクレイピングは時代遅れ？Rubrik API Code Captureの活用法"
+title: "GUI画面のスクレイピングは時代遅れ？ Rubrik API Code Captureの活用法"
 date: "2026-04-16"
 category: "infra"
 description: "GUIの裏側で実行されるAPIを可視化するブラウザ拡張機能「Rubrik API Code Capture」の使い方と、Postmanを用いた検証方法を解説します。"
@@ -8,7 +8,7 @@ themes: ["infra:api", "infra:automation", "infra:security"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# GUI画面のスクレイピングは時代遅れ？Rubrik API Code Captureの活用法
+# GUI画面のスクレイピングは時代遅れ？ Rubrik API Code Captureの活用法
 
 前回の記事で、「[Rubrik](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Rubrik")のログ抽出にGUI画面のHTMLスクレイピングは不要」とお伝えしました。
 （※ログ取得の基礎から振り返りたい方は[こちら](./rubrik-threat-log-extraction.md)）
@@ -87,5 +87,5 @@ A. はい。API自体は言語に依存しないため、PowerShellやGo言語�
 APIの取得方法が分かれば、あとは他のシステムと連携させるだけです。
 次はいよいよ、SOARツールなどを用いた「完全自動化」の世界へご案内します。
 
-👉 **[Rubrikログ抽出を完全自動化！GraphQLとXSOAR連携による次世代SOC運用](./rubrik-graphql-xsoar-automation.md)**
+👉 **[Rubrikログ抽出を完全自動化！ GraphQLとXSOAR連携による次世代SOC運用](./rubrik-graphql-xsoar-automation.md)**
 
