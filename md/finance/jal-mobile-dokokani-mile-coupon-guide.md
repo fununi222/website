@@ -101,4 +101,4 @@ JALモバイル専用の導線から予約しているか、クーポンが予�
 JALモバイルのどこかにマイル特典は、バナーの場所とクーポン適用画面さえ理解すれば難しくありません。交換後の有効期限と予約導線だけ注意し、1,500マイルの旅を確実に使い切りましょう。
 
 **次に読むべき記事**  
-[2人で1500マイル旅！JALモバイルどこかにマイル同行者予約の手順](https://fununi222.github.io/website/html/finance/jal-mobile-dokokani-mile-companion-guide.html)
+[2人で1500マイル旅！ JALモバイルどこかにマイル同行者予約の手順](https://fununi222.github.io/website/html/finance/jal-mobile-dokokani-mile-companion-guide.html)

@@ -72,7 +72,7 @@ Harborは、VMwareが開発し、現在はCloud Native Computing Foundation (CNC
 
 基礎が分かったところで、次は「実運用」での悩みである**「ネットワークコストの削減」と「Docker Hubの制限回避」**について見ていきましょう。
 
-👉 **[Docker Hubの制限を回避！Harborプロキシキャッシュと運用術](./devcontainer-harbor-operations.md)**
+👉 **[Docker Hubの制限を回避！ Harborプロキシキャッシュと運用術](./devcontainer-harbor-operations.md)**
 
 ## 変更履歴 (Changelog)
 - **2026-04-24**: 最新のSKILL.md基準（用語リンクの最適化、変更履歴の追加）に合わせて記事をブラッシュアップ。

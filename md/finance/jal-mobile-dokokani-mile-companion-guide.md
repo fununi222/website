@@ -1,10 +1,10 @@
 ---
-title: "2人で1500マイル旅！JALモバイルどこかにマイル同行者予約の手順"
+title: "2人で1500マイル旅！ JALモバイルどこかにマイル同行者予約の手順"
 description: "JALモバイルのどこかにマイルを2人以上で使う際の同行者設定、マイル引き落とし承認、期限切れキャンセルの注意点を解説します。"
 date: "2026-06-27"
 ---
 
-# 2人で1500マイル旅！JALモバイルどこかにマイル同行者予約の手順
+# 2人で1500マイル旅！ JALモバイルどこかにマイル同行者予約の手順
 
 JALモバイルのどこかにマイルを、夫婦・家族・友人と一緒に使いたい人向けの実践ガイドです。
 
@@ -88,4 +88,4 @@ JALカード家族プログラムでは家族マイルの合算ができるケ�
 翌日23:59の期限を意識し、同行者と連絡を取りながら進めれば、夫婦・友人との1,500マイル旅を安心して楽しめます。
 
 **そもそも回線をまだ選んでいない方はこちら**  
-[ahamoとIIJmioを徹底比較！JALモバイルで損しない回線選び](https://fununi222.github.io/website/html/finance/jal-mobile-ahamo-iijmio-comparison.html)
+[ahamoとIIJmioを徹底比較！ JALモバイルで損しない回線選び](https://fununi222.github.io/website/html/finance/jal-mobile-ahamo-iijmio-comparison.html)

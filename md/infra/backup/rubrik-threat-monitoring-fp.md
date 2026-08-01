@@ -72,7 +72,7 @@ Rubrikの異常検知（Anomaly Detection）は、あらかじめ決められた
 
 ※参照データ: [Rubrik Anomaly Detection Adds Behavioral Analysis to Dynamically Identify Ransomware Extensions](https://www.rubrik.com/blog/technology/25/12/rubrik-anomaly-detection-adds-behavioral-analysis-to-dynamically-identify-ransomware-extensions)
 
-## さらに誤検知をゼロに近づける！Rubrikの運用チューニング設定
+## さらに誤検知をゼロに近づける！ Rubrikの運用チューニング設定
 
 RubrikのAIは非常に優秀ですが、導入初期や特殊なシステム環境下では、意図しないアラートが鳴ることもゼロではありません。
 しかし、Rubrikにはシステム管理者が簡単にノイズを消せる強力なチューニング機能が備わっています。

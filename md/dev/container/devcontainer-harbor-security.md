@@ -1,5 +1,5 @@
 ---
-title: "記事③：DevSecOpsを自動化！Harbor×Devcontainerのセキュリティ戦略"
+title: "記事③：DevSecOpsを自動化！ Harbor×Devcontainerのセキュリティ戦略"
 date: "2026-04-16"
 category: "dev"
 description: "脆弱性スキャンの自動化(Trivy)、SBOMの生成、Cosignによる署名など、コンテナ開発におけるDevSecOpsの実現方法を解説します。"
@@ -8,7 +8,7 @@ themes: ["dev:security", "infra:container", "security:devsecops"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# 記事③：DevSecOpsを自動化！Harbor×Devcontainerのセキュリティ戦略
+# 記事③：DevSecOpsを自動化！ Harbor×Devcontainerのセキュリティ戦略
 
 これまでの記事で、[Devcontainer](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Devcontainer")と[Harbor](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Harbor")の基礎、そしてコストを下げる運用術を解説しました。
 （※前回の記事は[こちら](./devcontainer-harbor-operations.md)）

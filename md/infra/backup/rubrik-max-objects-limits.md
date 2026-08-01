@@ -1,5 +1,5 @@
 ---
-title: "Rubrikの最大保護オブジェクト数は？VMのカウント基準と限界値を徹底解説"
+title: "Rubrikの最大保護オブジェクト数は？ VMのカウント基準と限界値を徹底解説"
 date: "2026-04-16"
 category: "infra"
 description: "Rubrikによる仮想マシン（VM）等の保護オブジェクトのカウント基準と、物理クラスタ・Edge環境における最大値の仕様を徹底解説します。"
@@ -8,7 +8,7 @@ themes: ["infra:sizing", "infra:architecture", "infra:edge"]
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
-# Rubrikの最大保護オブジェクト数は？VMのカウント基準と限界値を徹底解説
+# Rubrikの最大保護オブジェクト数は？ VMのカウント基準と限界値を徹底解説
 
 [Rubrik](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Rubrik")の導入やリプレイスに向けてサイジング（容量見積もり）を行う際、「最大いくつのシステムまでバックアップできるのか？」という上限値は非常に重要です。
 
@@ -44,7 +44,7 @@ Rubrikの世界では、「オブジェクト（Snappable）」とは、バッ�
 
 グローバル企業の中には、1つのクラスタに100ノード以上を束ね、数万単位のオブジェクトを単一システムで運用しているケースもあります。**物理クラスタを導入する限り、オブジェクト数の上限を心配する必要は皆無**と言ってよいでしょう。
 
-## 要注意！Rubrik Edge（仮想アプライアンス）の厳格な制限
+## 要注意！ Rubrik Edge（仮想アプライアンス）の厳格な制限
 
 一方で、小規模な支店やエッジ環境向けに提供されている仮想版の「Rubrik Edge」を導入する場合は、**非常に厳格なハードリミット（上限）**が存在します。
 

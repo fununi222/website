@@ -1,5 +1,5 @@
 ---
-title: "【2026最新】GPT-5.6とChatGPT Workで何が変わる？AIエージェントの破壊力を解説"
+title: "【2026最新】GPT-5.6とChatGPT Workで何が変わる？ AIエージェントの破壊力を解説"
 date: "2026-07-11"
 category: "ai"
 description: "GPT-5.6 Sol/Terra/LunaとChatGPT Work、Codex連携で何が変わるのか。AIエージェント時代の実務メリット、使い分け、注意点を中学生にもわかる言葉で解説。"
@@ -38,7 +38,7 @@ themes: ["ai:agents", "ai:automation", "dev:ai-coding"]
 
 これまでのChatGPTは、質問に答える「会話相手」として使われることが中心でした。これからは、調査し、考え、ファイルや資料の形にまとめる「実務パートナー」として使う場面が増えます。
 
-## GPT-5.6とは？3つの新しい「脳みそ」を解説
+## GPT-5.6とは？ 3つの新しい「脳みそ」を解説
 
 GPT-5.6は、用途に合わせて3つのモデルに分かれています。
 
@@ -177,7 +177,7 @@ Codexはレビューの見落としを減らす補助として使えます。た
 
 「Claudeと比べてどちらを選ぶべきか」を知りたい方は、比較記事で詳しく整理しています。
 
-👉 [どっちが買い？GPT-5.6 vs Claude最新比較！利用制限・新機能・選び方](../../../html/ai/automation/gpt-56-vs-claude-comparison.html)
+👉 [どっちが買い？ GPT-5.6 vs Claude最新比較！利用制限・新機能・選び方](../../../html/ai/automation/gpt-56-vs-claude-comparison.html)
 
 ## FAQ
 
