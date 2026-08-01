@@ -1,13 +1,13 @@
 ---
-title: "Glossary | システム用語集 & ナレッジベース v2026.04.13.1"
-date: "2026-04-13"
+title: "Glossary | システム用語集 & ナレッジベース v2026.08.02.1"
+date: "2026-08-02"
 category: "glossary"
 description: "ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。"
 themes: ["other:glossary", "other:spec"]
 ---
 
-# Glossary | システム用語集 & ナレッジベース v2026.04.10.1
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-14</div>
+# Glossary | システム用語集 & ナレッジベース v2026.08.02.1
+<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-08-02</div>
 
 ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。
 以下の表は、各ヘッダーをクリックしてソートしたり、キーワードで検索することができます。
@@ -19,13 +19,22 @@ themes: ["other:glossary", "other:spec"]
     <input type="text" id="glossarySearch" placeholder="用語・技術名またはカテゴリでフィルター..." 
       class="bg-transparent border-none text-on-surface text-sm w-full focus:ring-0 placeholder:text-slate-500 placeholder:text-[10px] placeholder:uppercase placeholder:tracking-widest">
     <div id="searchCounter" class="text-[9px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4">
-      Total: 251 Definitions
+      Total Definitions
     </div>
   </div>
 </div>
 
 | 用語・技術名 | カテゴリ | 概要・詳細 |
 |---|---|---|
+| "浸透圧 (Osmotic Pressure)" | Science / Food | 塩分(16-18%)や高糖度により、侵入した細菌の細胞内から水分を物理的に脱水し、細胞膜を破壊して殺菌・防腐する化学現象。 |
+| "水分活性 (Aw)" | Science / Food | 微生物が繁殖に利用できる「自由水」の割合。Aw < 0.80 に低下させることで、腐敗菌やカビの生育を阻止する。 |
+| "パスチャライゼーション" | Science / Food | 65℃〜80℃以上の低温加熱殺菌。営業前後のタレの火入れや、炭火で熱された肉をくぐらせることで日常的に行われる。 |
+| "指数関数的減衰" | Math / Science | 継ぎ足しによって創業時の古いタレの割合 P(t) = r^t が時間とともに急激に小さくなり、数ヶ月で分子レベルまで完全に入れ替わる数学モデル。 |
+| "定常状態 (Steady State)" | Math / Science | エキスの流入速度と流出速度が均衡し、タレ中の旨味濃度が無限に濃くならず理論最高値 C_max = S*V/x に自然収束して安定する状態。 |
+| "CSTRモデル" | Math / Science | Continuous Stirred Tank Reactor（連続槽型反応器）。壺内で液体が均一に撹拌されながら連続的に流出入する流体力学モデル。 |
+| "Antigravity 2.0" | AI / Dev | Google DeepMindが開発する次世代自律AI開発環境。Agent Canvas, IDE, CLIの3形態でマルチエージェントオーケストレーションを実現。 |
+| "Kimi K3" | AI / LLM | Moonshot AIが開発した2.8兆パラメータのオープンウェイトMoEモデル。1M超長文コンテキストとAgentic Coding性能を誇る。 |
+| "イミュータブルバックアップ" | Infra / Security | 一度書き込んだデータを管理権限であっても変更・削除不能にするゼロトラスト時代の不変データ保護構造。 |
 | "逗子" | Other | 神奈川県三浦半島に位置する、海と山に囲まれた自然豊かな街。別荘地としての歴史や、古都鎌倉に隣接する文化的な背景も持つ。 |
 | "横浜" | Other | 神奈川県の県庁所在地であり、日本を代表する港町。横浜駅周辺は巨大な商業圏を形成し、グルメからビジネスまで多様な文化が交差する。 |
 | "関内" | Other | 横浜港開港以来の歴史を持つエリア。行政機関やオフィスが立ち並ぶ一方、老舗の飲食店や馬車道などの情緒ある街並みが残る。 |
@@ -183,7 +192,7 @@ themes: ["other:glossary", "other:spec"]
 | "SLA Domain" | Infra / Security | バックアップの頻度、保持期間、レプリケーション先などを一括定義する Rubrik の宣言型ポリシーエンジン。ジョブベースではなく「あるべき状態」を定義する。 |
 | "Retention Lock" | Infra / Security | バックアップデータの保持期間内における、管理者を含むあらゆるユーザーによるデータ削除を不可能にする機能。ランサムウェアによる証跡抹消を防御する。 |
 | "Live Mount" | Infra / Security | バックアップデータをストレージから直接サーバーにマウントし、データのリストア（書き戻し）を待たずに数分でシステムを即時稼働させる機能。 |
-| "AWS RDS" | Infra | Amazon Relational Database Service (マネージド型リレーショナルデータベースサービス)。リソースタグ等に基づいた[SLA Domain](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="SLA%20Domain")の自動適用（オートプロテクション）が可能。 |
+| "AWS RDS" | Infra | Amazon Relational Database Service (マネージド型リレーショナルデータベースサービス)。リソースタグ等に基づいたSLA Domainの自動適用（オートプロテクション）が可能。 |
 | "Amazon Aurora" | Infra | クラウド向けに構築された、Amazon RDS の MySQL および PostgreSQL と互換性のあるリレーショナルデータベース。クラスタ単位での保護に対応。 |
 | "PITR" | Infra | Point-in-Time Recovery。バックアップ時点だけでなく、トランザクションログを活用して過去の任意の時点までデータを復旧する機能。 |
 | "KMS" | Security / Infra | Key Management Service。AWS での暗号化キー管理サービス。クロスアカウント/リージョンでのリストア時に、移行先へキーの使用権限を付与する必要がある。 |
@@ -221,7 +230,7 @@ themes: ["other:glossary", "other:spec"]
 | "CloudFormation" | Infra / IaC | AWSリソースの構成をテンプレート（JSON/YAML）で記述し、自動的にプロビジョニング・管理するためのIaCサービス。 |
 | "JSONL" | Data / AI | JSON Linesの略。1つのJSONオブジェクトを1行で記述する形式。ストリーム処理や大規模データセットのLLMトレーニングに適している。 |
 | "Basic認証" | Security / Auth | HTTPプロトコル標準の認証方式。ユーザー名とパスワードをBase64エンコードして送信する。シンプルだが、暗号化（HTTPS）との併用が必須。 |
-| "AI Knowledge Concierge" | AI / Project | 過去の問い合わせナレッジ（Jira, Redmine等）を[生成AI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="生成AI")で構造化・検索可能にし、回答の自律的な生成を支援するナレッジ最適化エンジンの名称。 |
+| "AI Knowledge Concierge" | AI / Project | 過去の問い合わせナレッジ（Jira, Redmine等）を生成AIで構造化・検索可能にし、回答の自律的な生成を支援するナレッジ最適化エンジンの名称。 |
 | "旧バックアップ環境" | Infra / Security | データの仮想化技術を中心に展開していた旧製品群。新基盤へのリプレース対象。 |
 | "post-thaw-script" | VMware / Infra | スナップショット後、DBの静止化を解除するカスタムスクリプト。移行時には「既知の無害なエラー」を適切に除外する必要がある。 |
 | "統合監視ツール" | Infra / Obs | 国内で広く普及している統合運用管理ツール。ジョブスケジュール管理やバックアップ監視の中心となる。 |
@@ -242,11 +251,9 @@ themes: ["other:glossary", "other:spec"]
 | "泥パック" | Travel / Spa | 温泉の副産物である天然の泥を顔や体に塗る美容・健康法。雪秩父の女性専用露天風呂で体験可能。 |
 | "ヒグマ" | Travel / Nature | 北海道に生息する日本最大の陸生哺乳類。山歩きやトレッキングの際は音出し（鈴）やスプレー等の対策が必須。 |
 | "三島さんの芝ざくら" | Travel / Seasonal | 倶知安町の個人宅庭園。例年5月下旬〜6月上旬に広大なピンクの芝桜と羊蹄山のコントラストが楽しめる。 |
-
 | "洞サウナ" | Travel / Spa | DO SAUNA。2026年5月にエスコンフィールドにオープン予定のサウナ施設。ミストサウナ「雪洞」とドライサウナ「石洞」を備える。 |
 | "Fマイル" | Travel / Finance | Fビレッジ公式アプリと連携したポイントプログラム。施設内での決済で貯まり、割引クーポン等に交換可能。 |
 | "Non-Gameday" | Travel / Ballpark | プロ野球の試合が開催されない日。エスコンフィールドでは駐車料金の割引や入場無料エリアの開放など、独自の恩恵がある。 |
-
 | "男爵いも" | Travel / Local | 倶知安町の名産であるジャガイモ。羊蹄山の麓で栽培され、ホクホクとした食感と甘みが特徴。 |
 | "豪雪うどん" | Travel / Local | ジャガイモのデンプンを80%練り込んだ倶知安独自の麺。半透明のビジュアルと強靭なモチモチ感が特徴の郷土料理。 |
 | "五四〇" | Travel / Local | ゴーヨンマル。本間松蔵商店が生み出した、専用の貯蔵庫で540日間熟成させた究極のジャガイモ。強烈な甘みとコクを持つ。 |
@@ -257,22 +264,19 @@ themes: ["other:glossary", "other:spec"]
 | "接待" | Other / Business | 取引先をもてなし、親睦を深めるための会食。赤坂エリアはこの需要が非常に高い。 |
 | "鉄板焼き" | Other / Gourmet | 目の前の鉄板でシェフが食材を焼き上げる料理スタイル。接待や記念日の定番。 |
 | "すき焼き" | Other / Gourmet | 薄切り肉を醤油・砂糖などで煮焼きする日本の代表的な肉料理。老舗「ざくろ」などの名物。 |
-
 | "SKY WALK" | Travel / Activity | ES CON FIELD SKY WALK。2026年5月開業の空中散歩アクティビティ。地上約50mの球場屋根付近を歩く体験。 |
 | "雪洞" | Travel / Spa | Shirayuki。洞サウナ内にあるホワイトミストサウナ。オーロラのような光演出による没入体験が特徴。 |
 | "石洞" | Travel / Spa | Ishidou。洞サウナ内にあるブラックドライサウナ。オートロウリュ完備の本格派。 |
 | "絵空事" | Travel / Gourmet | Esoragoto。洞サウナ併設の回復食処。清宮克幸氏がプロデュースする完全グルテンフリーな玄米うどんを提供。 |
-
 | "ツーリスト・プレミアム" | Travel / Finance | 観光地において、家賃や観光客向けのマーケティング費用が上乗せされることで生じる「観光地価格」のこと。 |
 | "立地アービトラージ" | Business / Finance | 裁定取引の応用。メインストリートの法外な家賃を避け、一本路地裏に入ることで浮いたコストを「食材原価」や「ボリューム」に還元する経営戦略。 |
 | "かかん" | Travel / Gourmet | 鎌倉西口（御成町）にある、本格的な麻婆豆腐が人気の名店。LINEを使ったデジタル順番待ちシステムで観光と両立できる。 |
 | "鎌倉海鮮 碧海 umi" | Travel / Gourmet | 鎌倉・若宮大路沿いの海鮮店。限定数を設けることで食材の歩留まりロスをゼロにし、高品質なネタ（天然本マグロ等）を適正価格で提供する。 |
 | "つく志" | Travel / Gourmet | 逗子駅近くにある昭和26年創業の大衆食堂。「通し営業」を行っており、ランチ難民になった際の強力なインフラとして機能する。 |
 | "魚勝" | Travel / Gourmet | 逗子にある昭和4年創業の魚屋兼定食屋。三浦半島の鮮魚を適正価格で提供する安定感抜群の老舗。 |
-
 | "インクリメンタル・インデクシング" | AI / Data | Incremental Indexing。更新や追加があったデータのみを検知してナレッジベース（インデックス）に追加・更新する手法。全体の再インデックスを避け、計算コストを削減しつつ情報の鮮度を保つ。 |
 | "FinOps" | Business / Cloud | Financial Operationsの略。クラウドやAIインフラのコストを可視化し、エンジニアリングと財務が連携して継続的に投資対効果（ROI）を最適化する実践手法。 |
-| "PTU" | AI / FinOps | Provisioned Throughput Units。Azure OpenAI等で提供される、一定の処理能力（スループット）を期間予約で買い取り、安定したパフォーマンスとコストの予見性を確保する契約モデル。 |
+| "PTU" | AI / FinOps | Provisioned Throughput Units。Azure OpenAI等で提供される、一定の処理能力（スロットリング）を期間予約で買い取り、安定したパフォーマンスとコストの予見性を確保する契約モデル。 |
 | "Batch API" | AI / FinOps | 即時性を求められない大量のタスクを非同期にまとめて処理するAPI。標準APIの半額程度のコストで実行できるため、FinOpsの強力な手段となる。 |
 | "Devcontainer" | Dev | 開発環境をコンテナ（Docker等）上に構築し、設定ファイル（devcontainer.json）で一元管理してチーム内で一貫した環境を提供する仕組み。 |
 | "Harbor" | Infra / Security | CNCF Graduatedプロジェクトのコンテナレジストリ。脆弱性スキャンやRBAC、プロキシキャッシュ機能を備えエンタープライズで広く利用される。 |
@@ -310,8 +314,6 @@ themes: ["other:glossary", "other:spec"]
 | "ReaR" | Linux / DR | Relax-and-Recover。Linux用のディザスタリカバリツール。Rubrikと連携してベアメタル復旧を実現する。 |
 | "CDM" | Backup / Rubrik | Cloud Data Management。Rubrikのデータ保護プラットフォームの名称。 |
 | "RBS" | Backup / Rubrik | Rubrik Backup Service。バックアップ対象のホストにインストールするRubrik専用のエージェントソフトウェア。 |
-| "GraphQL" | Dev / API | APIのためのクエリ言語。クライアントが必要なデータ構造を明示的に指定でき、効率的なデータ取得が可能。 |
-| "RSC" | Backup / Rubrik | Rubrik Security Cloud。Rubrikが提供する、データ保護、脅威検知、復旧を統合管理するSaaSプラットフォーム。 |
 | "宣言的フェッチ" | Dev / API | Declarative Fetching。クライアントが必要なフィールドを明示してリクエストする手法。通信量の削減とパフォーマンス向上に寄与する。 |
 | "ページネーション" | Dev / API | Pagination。大量のデータを分割して取得する仕組み。サーバー負荷の軽減とクライアントのレスポンス向上に繋がる。 |
 | "Webhook" | Dev / Web | 特定のイベント発生時に、サーバー側から外部システムへリアルタイムにプッシュ通知を行う仕組み。 |
@@ -320,7 +322,6 @@ themes: ["other:glossary", "other:spec"]
 | "ポーリング" | Dev / Ops | Polling。一定間隔でサーバーの状態を繰り返し確認する手法。負荷増大の原因になりやすく、Webhookへの移行が推奨される場合が多い。 |
 | "CoT" | AI | Chain-of-Thought（思考の連鎖）。AIに思考の過程を段階的に出力させることで、複雑な推論の精度を向上させる手法。 |
 | "MCP" | AI / Dev | Model Context Protocol。AIモデルが外部のリポジトリやデータベース、ツールにセキュアかつ自律的にアクセスするための標準プロトコル。 |
-| "RAG" | AI | Retrieval-Augmented Generation（検索拡張生成）。外部知識ベースから関連情報を検索し、生成AIの回答に組み込むことで情報の鮮度と正確性を高める仕組み。 |
 | "Memory Bank" | AI / Dev | プロジェクトの文脈や規約をAIに「長期記憶」として保持させる設計パターン。大規模リポジトリの継続的な理解に不可欠。 |
 | "Linter" | Dev | ソースコードを静的に解析し、バグやスタイル違反、潜在的な問題を検出するツール。 |
 | "CWE" | Security | Common Weakness Enumeration。ソフトウェアの脆弱性や弱点を体系的に分類・整理した共通の辞書。 |
@@ -330,7 +331,6 @@ themes: ["other:glossary", "other:spec"]
 | "LSP" | Dev / IDE | Language Server Protocol。エディタとプログラム言語サポートツール間の通信標準。型定義の参照や定義元へのジャンプ、補完機能をAIに提供するために重要。 |
 | "Tree-sitter" | Dev / Compilers | 多くのプログラミング言語を高速に解析できるパーサージェネレータ。コードを構造的に理解し、「リポジトリマップ」を作成してAIに渡す文脈を最適化するために用いられる。 |
 | "MR" | Dev / Git | Merge Request。GitLabにおいて、コードの変更を本番ブランチ等へ反映させるための承認依頼。GitHubにおけるPull Request（PR）に相当。 |
-| "ハルシネーション" | AI | AIがもっともらしい嘘をつく現象。コードレビューにおいては、存在しない型やライブラリの仕様を前提とした誤った指摘を指す。 |
 | "リポジトリマップ" | AI / Dev | リポジトリ全体の構造や主要な定義、依存関係を要約したデータ。AIがリポジトリ全体の「文脈」を理解するための地図として機能する。 |
 | "REPEAT-TRY-CATCH" | Dev / webMethods | webMethods Flowサービスにおけるエラーハンドリングの標準的な構造。リトライループ、主処理、例外処理を階層的に管理する。 |
 | "Fail-Safe" | System / Ops | フェイルセーフ。システムの一部に故障やエラーが発生しても、被害を最小限に抑え、安全な状態（ジョブのスキップ等）で動作を継続させる設計思想。 |
@@ -343,86 +343,61 @@ themes: ["other:glossary", "other:spec"]
 | "Object Lock" | Cloud / AWS | S3の機能。一度書き込んだデータを一定期間または無期限に削除・上書き不能にする「WORM」モデルを実現する不変ストレージ機能。 |
 | "Vault Lock" | Cloud / AWS | AWS Backupの機能。バックアップを保持する「ボルト」に対して強力な保護ポリシーを適用し、不変なバックアップを保証する。ランサムウェア対策に有効。 |
 | "不変バックアップ" | Backup / Ops | Immutable Backup。一度作成されたら削除や改ざんが一切不可能なバックアップデータ。ランサムウェア攻撃からデータを確実に守るための最後の砦。 |
-| "IaC" | Dev / Ops | Infrastructure as Code。コードによってインフラの構築や管理を自動化する手法。TerraformやAWS CDKなどが代表的なツール。 |
 | "Glacier" | Cloud / AWS | Amazon S3のストレージクラス。長期間のアーカイブデータを極めて低コストで保存できる。復旧には数分から数時間の時間がかかる。 |
 | "CDK" | Cloud / AWS | Cloud Development Kit。プログラミング言語（TypeScript, Python等）を使用してクラウドインフラを定義・構築できるツール。 |
-| "Terraform" | Dev / Ops | HashiCorp社が提供する、インフラをコードで宣言的に管理するためのオープンソースツール。マルチクラウド環境でのIaC標準として広く普及。 |
 | "ゾンビバックアップ" | Backup / Ops | Zombie Backups。サーバ本体は削除・廃棄されているのに、バックアップ設定だけが残り続け、不要な課金やストレージ消費が発生している状態。 |
 | "Jira" | Business / Ops | Atlassian社が提供するタスク・プロジェクト管理ツール。資産管理や廃棄ワークフローの「真実のソース」として機能し、APIを通じてインフラ基盤と同期される。 |
 | "真実のソース" | System / Arch | Source of Truth (SoT)。システム全体において、ある特定のデータ項目に対して唯一の信頼できる情報源（マスタ）として定義された場所。 |
 | "名寄せ" | Data / Ops | 複数の異なるデータベースや台帳から、同一の対象（サーバ等）を特定し、情報を統合・突合する作業。UUIDなどの一意識別子が重要となる。 |
 
-## 変更履歴 (Changelog)
-- **2026-04-24**: ゾンビバックアップ解消と資産管理連携シリーズの追加に伴う用語追加 (ゾンビバックアップ, Jira, 真実のソース, 名寄せ)。
-- **2026-04-24**: AWS運用自動化および不変バックアップ連載の追加に伴う用語追加 (Object Lock, Vault Lock, 不変バックアップ, IaC, Glacier, CDK, Terraform)。
-- **2026-04-24**: GitLab MR × AI自動レビュー「安全弁」設計シリーズの追加に伴う用語追加 (安全弁, 自動原因切り分け)。
-- **2026-04-24**: Rubrik × Linux LVMリストア戦略連載の追加に伴う用語追加 (インスタントリカバリ, RTO, RPO, BCP)。
-- **2026-04-24**: webMethods × Rubrik 502エラー対策マスターガイドの追加に伴う用語追加 (REPEAT-TRY-CATCH, Fail-Safe)。
-- **2026-04-24**: GitLab CI × DevContainer連携ガイドの追加に伴う用語追加 (GitLab CI, LSP, Tree-sitter, MR, ハルシネーション, リポジトリマップ)。
-- **2026-04-24**: AIコードレビュー高度化シリーズの追加に伴う用語追加 (CoT, MCP, RAG, Memory Bank, Linter, CWE, SPA, AIコードレビュー)。
-- **2026-04-24**: Rubrik APIタイムアウト対策ガイドの追加に伴う用語追加 (GraphQL, RSC, 宣言的フェッチ, ページネーション, Webhook, ジッター, Thundering Herd, ポーリング)。
-- **2026-04-24**: Rubrik Linux LVMリストア解説記事の追加に伴う用語追加 (LVM, FLR, UUID, Live Mount, Helper VM, BMR, ReaR, CDM, RBS)。
-- **2026-04-24**: webMethods連携およびエラーハンドリング関連記事の追加に伴う用語追加 (webMethods, Integration Server, API Gateway, 502 Bad Gateway, 指数バックオフ, リトライストーム, べき等性)。
-- **2026-04-24**: 開発・環境構築関連記事の更新に伴う用語追加 (RBAC)。
-- **2026-04-24**: インフラ関連記事の更新に伴う用語追加 (IAM, エグレス料金)。
-- **2026-04-24**: AIコーディングツール連載記事の更新に伴う用語追加 (プロンプト, トークン, CVE, サンドボックス)。
-- **2026-04-24**: 赤坂肉料理ガイドおよびRubrik SLA解説記事の公開に伴う用語の追加 (オンデマンド, パージ, 接待, 鉄板焼き, すき焼き)。
-- **2026-04-18**: ニセコ・神仙沼コンテンツの刷新に伴う用語の大量追加 (神仙沼, パノラマライン, 五色温泉, 雪秩父, 泥パック, ヒグマ, 三島さんの芝ざくら)。
-- **2026-04-18**: 用語の追加 (JAL Pay, au PAY)。エスコンフィールド予算別VIPガイドの公開に伴う金融（ポイ活）用語の補完。
-- **2026-04-16**: 用語の追加 (CockroachDB, SOAR, GraphQL, RSC, XSOAR, SOC)。Rubrikスケーリング戦略および運用自動化シリーズの公開に伴うアップデート。
-- **2026-04-16**: 用語の追加 (Devcontainer, Harbor, Docker Hub, プロキシキャッシュ, Trivy, SBOM, DevSecOps)。Devcontainer×Harbor連載記事の統合に伴うアップデート。
-- **2026-04-16**: 用語の追加 (インクリメンタル・インデクシング, FinOps, PTU, Batch API)。Enterprise AI Opsクラスター（技術・コスト編）の構築に伴うアップデート。
-- **2026-04-16**: 用語の追加 (SKY WALK, 雪洞, 石洞, 絵空事)。エスコンフィールド最新ガイドの更なる詳細化に伴うアップデート。
-- **2026-04-15**: 用語の追加 (男爵いも, 豪雪うどん, 五四〇, &cafe NISEKO)。倶知安の地元メシ探訪レポート刷新に伴うアップデート。
-- **2026-04-15**: 用語の追加 (洞サウナ, Fマイル, Non-Gameday)。エスコンフィールド最新ガイドへの刷新に伴うアップデート。
-- **2026-04-15**: 用語の追加 (知識の陳腐化, データの庭師, AIライブラリアン, 漏洩攻撃, Silo/Bridge/Pool Pattern, 宿泊税, にこっとBUS)。AI Opsおよびニセコ・ハイブリッド旅行術のリサーチログ統合に伴うアップデート。
-- **2026-04-15**: 用語の追加 (post-thaw-script, 統合監視ツール, Notebook AI)。04-14の日記内容を統合。
-- **2026-04-15**: 用語の追加 (Rubrik, Microsoft 365, Copilot Studio, S3, WAF, CloudFormation, JSONL, Basic認証)。最新リサーチログの統合に伴うアップデート。
-- **2026-04-15**: 用語の追加 (ニセコ, 倶知安, エスコンフィールド北海道, えふめし)。北海道コスパ旅行リサーチログの統合に伴うアップデート。
-- **2026-04-15**: 用語の追加 (Redmine, チケット, ガントチャート, REST API)。Redmine関連リサーチログの統合に伴うアップデート。
-- **2026-04-15**: 用語の追加 (横浜, 関内)。横浜・関内エリアのコスパ焼き鳥リサーチログの統合に伴うアップデート。
-- **2026-04-14**: 用語の追加 (逗子, 熊野神社, やぐら, 三浦層群)。山の根散策記の統合に伴うアップデート。
-- **2026-04-14**: 用語の追加 (ANA Pay, eKYC, NFC, プレミアム型)。iPhone Edy変換解禁記事の統合に伴うアップデート。
-- **2026-04-13**: 用語の追加 (Obsidian, Vault, Google Drive Sync)。マルチプラットフォーム同期記事の統合に伴うアップデート。
-- **2026-04-10**: 用語の追加 (Rubrik関連: Atlas, SLA Domain, Retention Lock, Live Mount, Multi-AZ)。最新リサーチ記事の統合に伴うアップデート。
-- **2026-04-10**: リアルタイムフィルター機能の追加。ブラウザ上での瞬時の用語検索を可能にする動的スクリプトを統合。
-- **2026-04-09**: 全体的な標準化アップデート。「Technical Archive」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。PagerDutyアーキテクチャ記事の追加に伴い、PagerDuty、AIOps、SRE、Event Orchestration、Runbook Automation、MTTA、インシデント管理を追加。さらに宇宙仕様書TRDおよびアウトドア小売戦略レポの各専門用語も反映。
+---
+
+## 📝 変更履歴 (Changelog)
+- **2026-08-02**: 「秘伝のタレが腐らない理由」科学×数学解説、Antigravity 2.0、Kimi K3、イミュータブルバックアップ等の最新技術用語を追加。テーブルの表示崩れ（不要な空行）を完全修復。
+- **2026-04-24**: ゾンビバックアップ解消と資産管理連携シリーズの追加に伴う用語追加。
+- **2026-04-18**: ニセコ・神仙沼コンテンツの刷新に伴う用語追加。
+- **2026-04-16**: Devcontainer×Harbor, Enterprise AI Ops クラスターに伴う用語追加。
+- **2026-04-13**: マルチプラットフォーム同期・システム用語集の動的検索機能を統合。
 
 <script>
 (() => {
     const searchInput = document.getElementById('glossarySearch');
     const counter = document.getElementById('searchCounter');
     const table = document.querySelector('table');
-    if (!searchInput || !table) return;
+    if (!table) return;
 
     const rows = Array.from(table.querySelectorAll('tbody tr'));
     const totalCount = rows.length;
 
-    searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
-        let visibleCount = 0;
+    if (counter) {
+        counter.textContent = `Total: ${totalCount} Definitions`;
+    }
 
-        rows.forEach(row => {
-            const text = row.textContent.toLowerCase();
-            if (text.includes(query)) {
-                row.style.display = '';
-                visibleCount++;
-            } else {
-                row.style.display = 'none';
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            if (counter) {
+                if (query === '') {
+                    counter.textContent = `Total: ${totalCount} Definitions`;
+                    counter.className = "text-[9px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4";
+                } else {
+                    counter.textContent = `Match: ${visibleCount} / ${totalCount}`;
+                    counter.className = "text-[9px] font-bold text-secondary uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4";
+                }
             }
         });
-
-        // Update Counter
-        if (query === '') {
-            counter.textContent = `Total: ${totalCount} Definitions`;
-            counter.className = "text-[9px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4";
-        } else {
-            counter.textContent = `Match: ${visibleCount} / ${totalCount}`;
-            counter.className = "text-[9px] font-bold text-secondary uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4";
-        }
-    });
+    }
 })();
 </script>
-
-- **2026-04-06**: 用語の追加および整理、超要約・コンテンツ整理を実施。
-
