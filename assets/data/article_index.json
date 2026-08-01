@@ -1,12 +1,5 @@
 [
   {
-    "title": "Other | 30代男子の鶴岡夜ご飯！男3人旅・出張で行きたいおすすめ居酒屋",
-    "description": "山形県鶴岡市で30代男性3人の夜ご飯におすすめの居酒屋を厳選。海鮮、地酒、肉料理、個室や駅近など、旅・出張の夜に使いやすいお店選びを紹介。",
-    "date": "2026-08-01",
-    "category": "other",
-    "path": "other/gourmet/tsuruoka-izakaya-men-three-guide.html"
-  },
-  {
     "title": "Kimi K3をAPI＆ローカル環境で動かす：超長文コンテキストとAgenticワークフロー実践構築",
     "description": "Kimi K3のOpenAI SDK互換API、リポジトリ読解、レビューBOT、ローカル/プライベート実行の現実性を開発者向けにまとめる実践ガイド。",
     "date": "2026-08-01",
@@ -19,6 +12,13 @@
     "date": "2026-08-01",
     "category": "ai",
     "path": "ai/llm-research/kimi-k3-open-weight-model-research.html"
+  },
+  {
+    "title": "Other | 30代男子の鶴岡夜ご飯！男3人旅・出張で行きたいおすすめ居酒屋",
+    "description": "山形県鶴岡市で30代男性3人の夜ご飯におすすめの居酒屋を厳選。海鮮、地酒、肉料理、個室や駅近など、旅・出張の夜に使いやすいお店選びを紹介。",
+    "date": "2026-08-01",
+    "category": "other",
+    "path": "other/gourmet/tsuruoka-izakaya-men-three-guide.html"
   },
   {
     "title": "【完全版】GitHubでがんばらないナレッジ管理 | 非エンジニアも挫折しない3つの運用ルール",
