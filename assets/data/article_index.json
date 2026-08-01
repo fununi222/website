@@ -1,5 +1,12 @@
 [
   {
+    "title": "Glossary | システム用語集 & ナレッジベース v2026.08.02.1",
+    "description": "ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。",
+    "date": "2026-08-02",
+    "category": "glossary",
+    "path": "glossary/system-glossary.html"
+  },
+  {
     "title": "【Google Antigravity徹底解剖】Antigravity 2.0 / IDE / CLI の違いと使い分け：VS Codeから移行する次世代マルチエージェント開発術",
     "description": "Google Antigravityの3つの形態（2.0 Agent Canvas / IDE / CLI）の完全比較と使い分け。VS Codeからの移行手順、マルチエージェント連携、コスト比較からライフスタイル革命まで徹底解説。",
     "date": "2026-08-01",
@@ -733,13 +740,6 @@
     "date": "2026-04-13",
     "category": "finance",
     "path": "finance/smcc-stouch-transit.html"
-  },
-  {
-    "title": "Glossary | システム用語集 & ナレッジベース v2026.04.13.1",
-    "description": "ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。",
-    "date": "2026-04-13",
-    "category": "glossary",
-    "path": "glossary/system-glossary.html"
   },
   {
     "title": "Obsidian | Google Drive Sync によるマルチプラットフォーム無料同期術 2026",
