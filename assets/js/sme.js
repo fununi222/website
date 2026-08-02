@@ -148,6 +148,9 @@ async function loadMarkdown() {
         // 8. Initialize Lightbox for all images
         initLightbox();
 
+        // 9. Generate Table of Contents
+        generateTableOfContents();
+
     } catch (error) {
         console.error('SME Error:', error);
         contentArea.innerHTML = `<div class="p-8 border border-red-500/20 bg-red-500/10 rounded-2xl text-red-400 text-xs font-mono">
@@ -438,4 +441,84 @@ function updateBreadcrumbs(mdPath, title) {
     breadcrumbs.push(`<span class="text-primary truncate max-w-[200px]">${title || 'Article'}</span>`);
 
     breadcrumbArea.innerHTML = breadcrumbs.join(' ');
+}
+
+/**
+ * Dynamically generates a Table of Contents (TOC) sidebar and sets up scroll tracking.
+ */
+function generateTableOfContents() {
+    const tocList = document.getElementById('sme-toc-list');
+    const tocWrapper = document.getElementById('sme-toc-wrapper');
+    const contentArea = document.getElementById('sme-content');
+    if (!tocList || !contentArea) return;
+
+    const headings = contentArea.querySelectorAll('h1, h2, h3');
+    if (headings.length < 2) {
+        if (tocWrapper) tocWrapper.style.display = 'none';
+        return;
+    }
+    if (tocWrapper) tocWrapper.style.display = 'block';
+
+    tocList.innerHTML = '';
+    headings.forEach((heading, idx) => {
+        if (!heading.id) {
+            heading.id = 'sme-toc-heading-' + idx;
+        }
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + heading.id;
+        a.textContent = heading.textContent.replace(/^#+\s*/, '');
+        
+        if (heading.tagName === 'H1' || heading.tagName === 'H2') {
+            a.className = 'block text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors truncate py-1';
+        } else {
+            a.className = 'block text-xs text-slate-400 hover:text-cyan-400 transition-colors truncate pl-3 border-l border-white/10 py-1';
+        }
+
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.getElementById(heading.id);
+            if (target) {
+                const navHeight = 90;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = target.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - navHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+    });
+
+    // Active heading tracking on scroll
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    tocList.querySelectorAll('a').forEach(link => {
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('text-cyan-400', 'font-bold');
+                            link.classList.remove('text-slate-300', 'text-slate-400');
+                        } else {
+                            link.classList.remove('text-cyan-400', 'font-bold');
+                            if (link.classList.contains('pl-3')) {
+                                link.classList.add('text-slate-400');
+                            } else {
+                                link.classList.add('text-slate-300');
+                            }
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-90px 0px -70% 0px' });
+
+        headings.forEach(heading => observer.observe(heading));
+    }
 }

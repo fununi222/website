@@ -81,20 +81,32 @@
       </div>
     </nav>
 
-    <main class="pt-32 pb-20 flex-grow max-w-4xl mx-auto w-full px-8">
-        <article class="bg-surface-glass backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-2xl">
-            <!-- Breadcrumbs -->
-            <nav id="sme-breadcrumbs" class="mb-12 flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-slate-500"></nav>
-            
-            <div id="sme-content" data-src="" class="article-body">
-                <div class="flex items-center justify-center h-64">
-                    <div class="animate-pulse flex flex-col items-center gap-4">
-                        <span class="material-symbols-outlined text-4xl text-primary animate-spin">sync</span>
-                        <span class="text-primary font-bold text-[10px] uppercase tracking-widest">Accessing Memory Node...</span>
+    <main class="pt-28 pb-20 flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+        <div class="flex gap-10 items-start justify-center">
+            <!-- Article Body -->
+            <article class="bg-surface-glass backdrop-blur-xl rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl flex-1 min-w-0 max-w-4xl">
+                <!-- Breadcrumbs -->
+                <nav id="sme-breadcrumbs" class="mb-8 flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-slate-500"></nav>
+                
+                <div id="sme-content" data-src="" class="article-body">
+                    <div class="flex items-center justify-center h-64">
+                        <div class="animate-pulse flex flex-col items-center gap-4">
+                            <span class="material-symbols-outlined text-4xl text-primary animate-spin">sync</span>
+                            <span class="text-primary font-bold text-[10px] uppercase tracking-widest">Accessing Memory Node...</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </article>
+            </article>
+
+            <!-- Table of Contents Sidebar (Desktop) -->
+            <aside id="sme-toc-wrapper" class="hidden xl:block w-72 shrink-0 sticky top-28 bg-surface-glass backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-white/5 max-h-[calc(100vh-140px)] overflow-y-auto">
+                <div class="flex items-center gap-2 pb-3 mb-3 border-b border-white/10 text-xs font-bold uppercase tracking-wider text-slate-300">
+                    <span class="material-symbols-outlined text-sm text-tertiary">toc</span>
+                    <span>目次 (Contents)</span>
+                </div>
+                <ul id="sme-toc-list" class="space-y-1"></ul>
+            </aside>
+        </div>
     </main>
 
     <footer class="w-full py-12 px-8 mt-auto bg-obsidian/50 backdrop-blur-sm border-t border-white/5">
