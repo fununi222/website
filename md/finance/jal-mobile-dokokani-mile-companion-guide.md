@@ -90,3 +90,8 @@ JALカード家族プログラムでは家族マイルの合算ができるケ�
 
 **そもそも回線をまだ選んでいない方はこちら**  
 [ahamoとIIJmioを徹底比較！ JALモバイルで損しない回線選び](https://fununi222.github.io/website/html/finance/jal-mobile-ahamo-iijmio-comparison.html)
+
+
+## 変更履歴 (Changelog)
+- **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
+- **2026-04-09**: メタデータおよび標準化。

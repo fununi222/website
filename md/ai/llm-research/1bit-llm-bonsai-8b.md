@@ -61,7 +61,7 @@ updated: "2026-08-02"
 <div class="bg-surface-container p-6 rounded-xl border border-white/5 shadow-sm hover:border-primary/30 transition-all group relative overflow-hidden cyber-glow">
 <div class="absolute top-0 left-0 w-1 h-full bg-primary/80"></div>
 <div class="text-3xl mb-3">📱</div>
-<h3 class="text-xl font-bold font-headline text-on-surface mb-3">エッジAIの爆発的普及</h3>
+### エッジAIの爆発的普及
 <p class="text-on-surface-variant text-sm leading-relaxed mb-4">
 スマートフォン、IoT家電、自動車など、あらゆるエッジデバイス上で高度な LLM がローカル動作可能になります。クラウドとの通信遅延（レイテンシ）や圏外の問題が解消されます。
 </p>
@@ -75,7 +75,7 @@ updated: "2026-08-02"
 <div class="bg-surface-container p-6 rounded-xl border border-white/5 shadow-sm hover:border-secondary/30 transition-all group relative overflow-hidden cyber-glow">
 <div class="absolute top-0 left-0 w-1 h-full bg-secondary/80"></div>
 <div class="text-3xl mb-3">📉</div>
-<h3 class="text-xl font-bold font-headline text-on-surface mb-3">NVIDIA一強体制への影響</h3>
+### NVIDIA一強体制への影響
 <p class="text-on-surface-variant text-sm leading-relaxed mb-4">
 学習（トレーニング）工程においては依然として GPU が必須ですが、爆発的に市場が拡大する「推論（インファレンス）」において、高価なH100等の GPU が不要になります。
 </p>
@@ -89,7 +89,7 @@ updated: "2026-08-02"
 <div class="bg-surface-container p-6 rounded-xl border border-white/5 shadow-sm hover:border-tertiary/30 transition-all group relative overflow-hidden cyber-glow">
 <div class="absolute top-0 left-0 w-1 h-full bg-tertiary/80"></div>
 <div class="text-3xl mb-3">🔒</div>
-<h3 class="text-xl font-bold font-headline text-on-surface mb-3">究極のプライバシー保護</h3>
+### 究極のプライバシー保護
 <p class="text-on-surface-variant text-sm leading-relaxed mb-4">
 機密情報や個人情報をクラウドのAPIに送信することなく、手元の端末内でAI処理が完結します。セキュリティ要件の厳しい医療、金融、行政での LLM 導入が進みます。
 </p>
@@ -103,7 +103,7 @@ updated: "2026-08-02"
 <div class="bg-surface-container p-6 rounded-xl border border-white/5 shadow-sm hover:border-orange-500/30 transition-all group relative overflow-hidden cyber-glow">
 <div class="absolute top-0 left-0 w-1 h-full bg-orange-500/80"></div>
 <div class="text-3xl mb-3">💰</div>
-<h3 class="text-xl font-bold font-headline text-on-surface mb-3">運用コストの劇的低下</h3>
+### 運用コストの劇的低下
 <p class="text-on-surface-variant text-sm leading-relaxed mb-4">
 LLM サービス提供者のインフラコストが激減します。消費電力が下がることで、データセンターの維持費や環境負荷（カーボンフットプリント）も大幅に改善されます。
 </p>

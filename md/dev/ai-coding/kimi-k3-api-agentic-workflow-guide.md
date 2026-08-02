@@ -108,3 +108,8 @@ Kimi K3は、Development領域では「大きなチャットAI」ではなく、
 
 - [Kimi API Platform Quickstart](https://platform.kimi.ai/docs/api/quickstart)
 - [Moonshot AI Kimi K3 Tech Blog](https://www.kimi.com/blog/kimi-k3)
+
+
+## 変更履歴 (Changelog)
+- **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
+- **2026-04-09**: メタデータおよび標準化。

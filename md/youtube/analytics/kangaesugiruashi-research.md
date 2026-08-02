@@ -91,3 +91,8 @@ YouTubeで急成長している教養系チャンネル「[考えすぎる葦](h
   * 『[なぜ「女は上書き保存、男は名前をつけて保存」するのか？【進化心理学×脳科学】](https://www.youtube.com/watch?v=GzKtPxIiFLE)』
   * 『[なぜ識字率が上がると国が滅びるのか【政治学×脳科学】](https://www.youtube.com/watch?v=syE-bnCbBvE)』
 * **データ管理台帳**: [考えすぎる葦 - 動画管理台帳](https://docs.google.com/spreadsheets/d/1o_vIQPa70hvIJLmKX_9iZT_OHtokgdshOb5lrqMOfSk/edit)
+
+
+## 変更履歴 (Changelog)
+- **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
+- **2026-04-09**: メタデータおよび標準化。

@@ -83,3 +83,8 @@ Dockerの仕様上、同じ名前のタグ（例：v1.0）で新しいイメー�
 
 👉 **[DevSecOpsを自動化！ Harbor×Devcontainerのセキュリティ戦略](./devcontainer-harbor-security.md)**
 
+
+
+## 変更履歴 (Changelog)
+- **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
+- **2026-04-09**: メタデータおよび標準化。

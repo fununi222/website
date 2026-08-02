@@ -41,7 +41,7 @@ updated: "2026-08-02"
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 my-10">
   <div class="lg:col-span-2 bg-surface-container p-6 rounded-2xl border border-white/10">
-    <h3 class="text-xl font-bold mb-4 text-primary font-mono uppercase tracking-widest">Diagnostic Chart: System Inconsistency</h3>
+    ### Diagnostic Chart: System Inconsistency
     <div style="position: relative; width: 100%; height: 300px;"><canvas id="diagnosticChart"></canvas></div>
     <div class="flex gap-2 mt-4">
       <button onclick="updateChart('hubble')" class="px-3 py-1 bg-primary/20 border border-primary/40 rounded text-[10px] text-primary font-bold">HUBBLE TENSION</button>

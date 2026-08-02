@@ -101,3 +101,8 @@ Kimi K3の価値は「2.8兆」という数字だけではありません。1M c
 - [Moonshot AI Kimi K3 Tech Blog](https://www.kimi.com/blog/kimi-k3)
 - [Kimi API Platform Quickstart](https://platform.kimi.ai/docs/api/quickstart)
 - [Kimi K3 Quickstart](https://platform.kimi.com/docs/guide/kimi-k3-quickstart)
+
+
+## 変更履歴 (Changelog)
+- **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
+- **2026-04-09**: メタデータおよび標準化。

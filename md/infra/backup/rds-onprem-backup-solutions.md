@@ -73,7 +73,7 @@ updated: "2026-08-02"
 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
 <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.3em]">Interactive_Simulation</span>
 </div>
-<h2 class="text-2xl font-black text-on-surface tracking-tighter uppercase m-0 p-0 border-none">Analysis Dashboard</h2>
+## Analysis Dashboard
 </div>
 <nav class="flex flex-wrap gap-2 p-1 bg-black/20 rounded-xl border border-white/5">
 <button onclick="rdsShowSection('overview')" id="rds-nav-overview" class="rds-nav-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-lg border border-transparent hover:bg-white/5">Overview</button>
@@ -118,14 +118,14 @@ const toolData = {
 rubrik: {
 title: "Rubrik Security Cloud (RSC)",
 html: `
-<h3>1. Rubrikの技術仕様</h3>
+### 1. Rubrikの技術仕様
 <ul>
 <li><strong>アーキテクチャ:</strong> AWS上にデプロイされたRubrik Security Cloud (RSC)が、AWS BackupまたはネイティブAPIを経由してRDSのスナップショットを取得・管理する。</li>
 <li><strong>オンプレ転送メカニズム (CloudOut):</strong> 取得したスナップショットデータ（S3に一時保管）を、オンプレミスのRubrikアプライアンス、またはS3互換/NFSターゲットへ <a href="https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text=%22SLA%20Domain%22" class="text-primary hover:underline">SLA Domain</a> ポリシーに基づいて自動的にレプリケーション（アーカイブ）する。</li>
 <li><strong>対応データベース:</strong> Amazon Aurora, RDS for PostgreSQL, MySQL, Oracle, SQL Server。</li>
 <li><strong>制約事項:</strong> クラウド上で取得したRDSネイティブスナップショット形式のままオンプレミスへ転送されるため、オンプレミスのベアメタルサーバーへ直接インスタンスとして復元することはできない。</li>
 </ul>
-<h3>2. 実行デモ（コード / コマンド例）</h3>
+### 2. 実行デモ（コード / コマンド例）
 <ul>
 <li><strong>概要:</strong> Rubrik GraphQL APIを利用し、指定したRDSインスタンスのオンデマンドスナップショットを取得し、オンプレミスアーカイブ用のSLAドメインを即座に割り当てるPythonスクリプト。</li>
 </ul>
@@ -149,12 +149,12 @@ variables = { "id": "RDS_UUID", "slaId": "SLA_ID" }
 response = requests.post(url, json={'query': query, 'variables': variables}, headers=headers)
 print(json.dumps(response.json(), indent=2))
 </code></pre>
-<h3>3. 運用上の注意点（Gotchas）</h3>
+### 3. 運用上の注意点（Gotchas）
 <ul>
 <li><strong>AWS Egressコスト:</strong> VPCエンドポイントおよびDirect Connectのルーティング設計が不十分だとコストが膨大になる。</li>
 <li><strong>保持期間の競合:</strong> AWS側の保持期間とオンプレ側の保持期間の不整合に注意。</li>
 </ul>
-<h3>4. 参考文献</h3>
+### 4. 参考文献
 <ul>
 <li><a href="https://build.rubrik.com/" target="_blank" class="text-primary hover:underline">Rubrik Developer Portal (GraphQL API)</a></li>
 <li><a href="https://www.rubrik.com/resources/user-guides" target="_blank" class="text-primary hover:underline">Rubrik Security Cloud User Guide - AWS Protection</a></li>
@@ -163,13 +163,13 @@ print(json.dumps(response.json(), indent=2))
 vast: {
 title: "VAST Data Platform",
 html: `
-<h3>1. VAST Dataの技術仕様</h3>
+### 1. VAST Dataの技術仕様
 <ul>
 <li><strong>アーキテクチャ:</strong> AIOps基盤のデータレイクターゲットとして機能するオールフラッシュ・エクサバイトスケールストレージ。</li>
 <li><strong>オンプレ転送メカニズム:</strong> RDS の「S3へのエクスポート (<a href="https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text=%22Parquet%22" class="text-primary hover:underline">Parquet</a> 形式)」と <a href="https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text=%22AWS%20DataSync%22" class="text-primary hover:underline">AWS DataSync</a> を組み合わせてオンプレミスへ同期。</li>
 <li><strong>AIOps連携:</strong> 保存された Parquet データは、Trino や Spark から直接クエリ可能。</li>
 </ul>
-<h3>2. 実行デモ（コード / コマンド例）</h3>
+### 2. 実行デモ（コード / コマンド例）
 <ul>
 <li><strong>概要:</strong> AWS CLI を使用して、RDS スナップショットを S3 へエクスポートし、DataSync タスクを開始するフロー。</li>
 </ul>
@@ -179,12 +179,12 @@ aws rds start-export-task --export-task-identifier "task-001" --s3-bucket-name "
 # 2. DataSyncタスクを開始
 aws datasync start-task-execution --task-arn "arn:aws:datasync:task/001"
 </code></pre>
-<h3>3. 運用上の注意点（Gotchas）</h3>
+### 3. 運用上の注意点（Gotchas）
 <ul>
 <li><strong>KMS暗号化エラー:</strong> DataSync の IAM ロールに <code>kms:Decrypt</code> 権限が必要。</li>
 <li><strong>ネットワーク帯域:</strong> 書き込み性能が高いため、Direct Connect の帯域占有に注意。</li>
 </ul>
-<h3>4. 参考文献</h3>
+### 4. 参考文献
 <ul>
 <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html" target="_blank" class="text-primary hover:underline">AWS RDS Export to S3</a></li>
 <li><a href="https://vastdata.com/" target="_blank" class="text-primary hover:underline">VAST Data Architecture Whitepaper</a></li>
@@ -193,13 +193,13 @@ aws datasync start-task-execution --task-arn "arn:aws:datasync:task/001"
 veeam: {
 title: "Veeam Backup & Replication",
 html: `
-<h3>1. Veeamの技術仕様</h3>
+### 1. Veeamの技術仕様
 <ul>
 <li><strong>アーキテクチャ:</strong> \`Veeam Backup for AWS\` が S3 に保存したデータを、オンプレミスからプル。</li>
 <li><strong>オンプレ転送メカニズム:</strong> Backup Copy Job を実行し、ブロックレベルでデータを同期。</li>
 <li><strong>AIOps連携:</strong> Veeam Explorer を用いた細粒度リストアが可能。</li>
 </ul>
-<h3>2. 実行デモ（コード / コマンド例）</h3>
+### 2. 実行デモ（コード / コマンド例）
 <ul>
 <li><strong>概要:</strong> オンプレミスの VBR サーバーでコピージョブを開始する PowerShell スクリプト。</li>
 </ul>
@@ -207,12 +207,12 @@ html: `
 $job = Get-VBRJob -Name "RDS_CopyJob"
 Start-VBRJob -Job $job
 </code></pre>
-<h3>3. 運用上の注意点（Gotchas）</h3>
+### 3. 運用上の注意点（Gotchas）
 <ul>
 <li><strong>S3 APIコスト:</strong> 差分計算時に大量の API コールが発生し、費用が高騰する可能性がある。</li>
 <li><strong>不変性の不整合:</strong> オンプレとクラウドの保持ポリシーの不整合に注意。</li>
 </ul>
-<h3>4. 参考文献</h3>
+### 4. 参考文献
 <ul>
 <li><a href="https://helpcenter.veeam.com/docs/vbaws/guide/" target="_blank" class="text-primary hover:underline">Veeam Backup for AWS Guide</a></li>
 <li><a href="https://helpcenter.veeam.com/docs/backup/powershell/" target="_blank" class="text-primary hover:underline">Veeam PowerShell Reference</a></li>
@@ -221,12 +221,12 @@ Start-VBRJob -Job $job
 commvault: {
 title: "Commvault Cloud",
 html: `
-<h3>1. Commvaultの技術仕様</h3>
+### 1. Commvaultの技術仕様
 <ul>
 <li><strong>アーキテクチャ:</strong> Access Node が RDS API と連携し、MediaAgent へデータを転送。</li>
 <li><strong>オンプレ転送メカニズム:</strong> 重複排除エンジンにより最適化されたブロックデータを転送。</li>
 </ul>
-<h3>2. 実行デモ（コード / コマンド例）</h3>
+### 2. 実行デモ（コード / コマンド例）
 <ul>
 <li><strong>概要:</strong> REST API を用いてバックアップタスクを作成するリクエスト例。</li>
 </ul>
@@ -234,12 +234,12 @@ html: `
      -H "Authtoken: &lt;TOKEN&gt;" \\
      -d '{"taskInfo": {"associations": [{"subclientId": 101}]}}'
 </code></pre>
-<h3>3. 運用上の注意点（Gotchas）</h3>
+### 3. 運用上の注意点（Gotchas）
 <ul>
 <li><strong>通信ポート:</strong> 双方向のポート開放（8400, 8403等）が必要。</li>
 <li><strong>DDBの性能:</strong> 重複排除データベース配置ディスクの IOPS がボトルネックになりやすい。</li>
 </ul>
-<h3>4. 参考文献</h3>
+### 4. 参考文献
 <ul>
 <li><a href="https://api.commvault.com/" target="_blank" class="text-primary hover:underline">Commvault REST API Reference</a></li>
 </ul>`
@@ -294,7 +294,7 @@ detail.classList.remove('hidden');
 const data = toolData[id];
 detail.innerHTML = `
 <div class="mb-4 flex items-center justify-between">
-<h2 class="text-xl font-bold text-on-surface m-0 p-0 border-none">${data.title}</h2>
+## ${data.title}
 <span class="px-2 py-0.5 rounded bg-primary/10 border border-primary/20 text-[9px] font-bold text-primary uppercase">Deep_Dive</span>
 </div>
 ${data.html}
@@ -323,3 +323,8 @@ if (document.readyState === 'loading') {
 ---
 **Standard Edition: v2026.04.10** | **Clinical Precision. Self-Contained.**
 
+
+
+## 変更履歴 (Changelog)
+- **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
+- **2026-04-09**: メタデータおよび標準化。

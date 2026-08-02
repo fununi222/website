@@ -75,3 +75,8 @@ Rubrik Edgeは論理容量（1TB〜10TBなど）に応じてライセンスさ�
 ### 次のステップはこちら！
 👉 [【プロが解説】Rubrik脅威モニタリングは誤検知しやすい？精度とノイズ対策の全貌](https://fununi222.github.io/website/html/infra/rubrik-false-positive-analysis-guide.html)
 
+
+
+## 変更履歴 (Changelog)
+- **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
+- **2026-04-09**: メタデータおよび標準化。

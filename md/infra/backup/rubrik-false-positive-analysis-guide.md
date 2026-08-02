@@ -114,3 +114,8 @@ Rubrikのスレッドモニタリングおよび異常検知は、決して「�
 *   👉 [公式ホワイトペーパー: Ransomware Recovery Lessons Learned](https://www.rubrik.com/content/dam/rubrik/en/resources/white-paper/rwp-lessons-learned-recovering-from-ransomware.pdf)
 *   **[▶ 【無料相談】自社に最適なセキュリティ環境を構築する：無料相談・デモの申し込みはこちら](#)**
 
+
+
+## 変更履歴 (Changelog)
+- **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
+- **2026-04-09**: メタデータおよび標準化。

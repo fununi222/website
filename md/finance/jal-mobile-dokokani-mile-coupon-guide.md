@@ -103,3 +103,8 @@ JALモバイルのどこかにマイル特典は、バナーの場所とクー�
 
 **次に読むべき記事**  
 [2人で1500マイル旅！ JALモバイルどこかにマイル同行者予約の手順](https://fununi222.github.io/website/html/finance/jal-mobile-dokokani-mile-companion-guide.html)
+
+
+## 変更履歴 (Changelog)
+- **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
+- **2026-04-09**: メタデータおよび標準化。

@@ -87,3 +87,8 @@ A. 例えば、分析が成功した場合は`ThreatMonitoringAnalysisSucceeded`
 
 👉 **[GUI画面のスクレイピングは時代遅れ？ Rubrik API Code Captureの活用法](./rubrik-api-code-capture.md)**
 
+
+
+## 変更履歴 (Changelog)
+- **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
+- **2026-04-09**: メタデータおよび標準化。

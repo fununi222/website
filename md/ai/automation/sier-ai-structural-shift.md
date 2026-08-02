@@ -22,7 +22,7 @@ updated: "2026-08-02"
 現在、大手SIerの業績は好調です。しかし、これは「AIによって効率化した」結果ではなく、**「AIを導入するための準備（データ整備やPoC）」という特需**に支えられているに過ぎません。
 
 <div class="bg-surface-container rounded-2xl p-6 border border-white/5 my-8">
-  <h3 class="text-lg font-bold mb-4">NTTデータグループの売上予測と現実</h3>
+  ### NTTデータグループの売上予測と現実
   <canvas id="sierRevenueChart" class="h-64"></canvas>
   <p class="text-xs text-on-surface-variant mt-4 leading-relaxed">
     短期的にはAI導入コンサルで売上は伸びますが、2020年代後半には「構築そのもの」の単価が下落し、人月モデルは構造的な限界を迎えます。
@@ -53,7 +53,7 @@ SIerは今、究極のジレンマに直面しています。自社にAIを導�
 | **完全転換期** | 2030〜 | 「言われた通り作る」こと | 成果報酬型、プラットフォーム提供 |
 
 <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-8">
-  <h3 class="text-xl font-bold mb-4">エンジニアが「新種」へ進化するための3条件</h3>
+  ### エンジニアが「新種」へ進化するための3条件
   <ul class="space-y-3 text-sm">
     <li class="flex items-start gap-2">✅ <strong>ドメイン知識の深化</strong>: コードではなく「業務の型」を定義できる力。</li>
     <li class="flex items-start gap-2">✅ <strong>AIオーケストレーション</strong>: 複数のAIエージェントを使いこなし、成果を統合する力。</li>
