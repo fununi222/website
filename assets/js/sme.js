@@ -483,7 +483,7 @@ function generateTableOfContents() {
     const contentArea = document.getElementById('sme-content');
     if (!tocList || !contentArea) return;
 
-    const headings = contentArea.querySelectorAll('h1, h2, h3');
+    const headings = contentArea.querySelectorAll('h2, h3');
     if (headings.length < 2) {
         if (tocWrapper) tocWrapper.style.display = 'none';
         return;
@@ -500,7 +500,7 @@ function generateTableOfContents() {
         a.href = '#' + heading.id;
         a.textContent = heading.textContent.replace(/^#+\s*/, '');
         
-        if (heading.tagName === 'H1' || heading.tagName === 'H2') {
+        if (heading.tagName === 'H2') {
             a.className = 'block text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors truncate py-1';
         } else {
             a.className = 'block text-xs text-slate-400 hover:text-cyan-400 transition-colors truncate pl-3 border-l border-white/10 py-1';
