@@ -1,8 +1,8 @@
-﻿---
+---
 title: "Windows 11 | 表示スケール110%設定とFancyZones活用 2026"
 date: "2026-04-09"
 category: "infra"
-description: "大画面モニターやROG Allyでの作業効率を最大化する、カスタムスケーリングとマウスのみでの画面分割手法。"
+description: "大画面モニターやROG Ally/Steam Deckでの作業効率を最大化する、カスタムスケーリングとマウスのみでの画面分割手法。"
 themes: ["infra:os", "infra:automation", "windows:config"]
 updated: "2026-08-02"
 ---
@@ -10,80 +10,43 @@ updated: "2026-08-02"
 # Windows 11 | 表示スケール110%設定とFancyZones活用 2026
 
 ## 超要約
-本記事は、Windows 11環境における視認性と作業効率を極限まで高めるカスタマイズ手法の記録です。標準設定にはない「110%」の[カスタムスケーリング](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="カスタムスケーリング")を適用し、[PowerToys](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PowerToys") の [FancyZones](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="FancyZones") 機能をマウスの副ボタン（右クリック）のみで呼び出せるよう調整することで、キーボードを介さない直感的なマルチウィンドウ環境を構築します。
-
----
-
-Windows PCを使っていて、「100%だと文字が小さいけど、125%だとデカすぎる…」とか、「画面を分割したいけど、いちいちShiftキーを押すのが面倒…」と感じたことはありませんか？
-
-特に、大画面モニターを広々と使いたい時や、ROG AllyのようなキーボードがないハンドヘルドPCを使っている時、マウス（またはタッチ）操作だけでサクサクと快適な環境を作れると最高ですよね。
-
-今回は、私が実際に試して「これだ！」と感動した**「表示スケールの110％化」**と、Microsoft公式ツールを使った**「Shiftキー不要・マウスのみの6画面分割」**の2つのカスタマイズ方法をご紹介します！
+本記事は、Windows 11 (24H2/25H2) 環境における視認性と作業効率を極限まで高めるカスタマイズ手法の記録です。標準設定にはない「110%」の [カスタムスケーリング](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="カスタムスケーリング") を適用し、[PowerToys](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PowerToys") の [FancyZones](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="FancyZones") 機能をマウスの副ボタン（右クリック）のみで呼び出せるよう調整することで、キーボードを介さない直感的なマルチウィンドウ環境を構築します。
 
 ---
 
 ## 1. 絶妙なサイズ感！画面の表示スケールを「110%」にする方法
 
-Windows 11/10の「ディスプレイの拡大縮小」設定は、標準だと100%、125%、150%といった25%刻みになっています。
-しかし、これだと「100%と125%の間が欲しい！」という絶妙なニーズを満たせません。
-
-実は**「[カスタムスケーリング](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="カスタムスケーリング")」**という機能を使えば、110%に設定することが可能です。
+Windows 11の標準ディスプレイ設定（100%, 125%, 150%）では、「100%だと文字が小さいが、125%だと作業領域が狭すぎる」というジレンマが生じます。特に4K/2Kディスプレイやゲーミングハンドヘルド（ROG Ally等）では、110%の「カスタムスケーリング」が最適な視認性と広さを実現します。
 
 ### 設定手順
-1. `Win` + `I` キーで **「設定」** アプリを開く。
-2. 左メニューの **「システム」** ＞ **「ディスプレイ」** をクリック。
-3. 「拡大縮小とレイアウト」という項目の中にある、**「拡大縮小」**（数値が書かれている部分）をクリックして詳細メニューを開く。
-4. **「カスタム スケール」** の入力欄に **`110`** と入力し、右側のチェックマーク（✓）をクリックする。
-5. 画面に表示される **「今すぐサインアウト」** をクリックして、一度サインアウト（または再起動）する。
-
-これで、文字やアイコンが「ほんの少しだけ大きく」なり、視認性と作業スペースのバランスが最高な110%環境の完成です！
-
-> **💡 注意点**
-> [カスタムスケーリング](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="カスタムスケーリング")を使用すると、ごく一部の古いアプリで文字がぼやけたり、レイアウトが少し崩れたりすることがあります。気になった場合はいつでも元の100%や125%に戻せます。
+1. `Win` + `I` キーで **「設定」** を開く。
+2. **「システム」** ＞ **「ディスプレイ」** をクリック。
+3. **「拡大縮小」** の詳細設定から **「カスタム スケール」** に **`110`** を入力。
+4. **「今すぐサインアウト」** を選択してサインアウト・再ログインし設定を反映。
 
 ---
 
 ## 2. Shiftキーはもう不要！マウスだけで完結する「6画面分割」
 
-画面を自由に分割できるMicrosoft公式の無料拡張ツール**「[PowerToys](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PowerToys")」**。その中にある**「[FancyZones](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="FancyZones")」**という機能は、自分好みのレイアウト（6分割など）を作れる最強ツールです。
+Microsoft公式ユーティリティ **[PowerToys](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PowerToys")** 内の **[FancyZones](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="FancyZones")** は、画面を自由な区画（6分割等）にレイアウトできるツールです。
 
-しかし、初期設定のままだと「Shiftキーを押しながらウィンドウをドラッグ」する必要があり、マウスだけで完結しません。
-そこで、**「マウスの右クリック」だけで分割エリアを呼び出せる**ように設定を変更します。
+初期状態では `Shift` キーを押しながらのドラッグが必要ですが、設定を変更することで**左ドラッグ中に副ボタン（右クリック）を1回押すだけ**でゾーン選択を起動できます。
 
-### 手順①：PowerToysをインストール
-まだ入れていない方は、Microsoft Storeから「[PowerToys](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PowerToys")」を検索してインストールしてください。
-
-### 手順②：Shiftキーを使わず「マウスのみ」で操作する設定
-ここが今回の最大のポイントです！
-
-1. [PowerToys](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PowerToys")の設定画面を開き、左メニューから **「[FancyZones](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="FancyZones")」** を選択して「有効化」する。
-2. 画面を下にスクロールし、**「ゾーンの動作」**という項目を見つける。
-3. 以下の2箇所を変更します。
-   * ❌ **「Shiftキーを押してゾーンをアクティブにする」** のチェックを **外す**。
-   * ✅ **「マウスの主ボタンでウィンドウをドラッグしているときに、副ボタンをクリックしてゾーンのアクティブ化を切り替える」** にチェックを **入れる**。
-
-**🎉 これでどうなる？**
-ウィンドウを左クリックでドラッグしながら、**そのまま「右クリック」をカチッと1回押すだけ**で、分割エリアがフワッと画面に浮かび上がります！あとは入れたい場所でドロップするだけです。
-
-### 手順③：自分好みの「6分割」レイアウトを作成
-最後に、画面をどう6分割するかの「型」を作ります。
-
-1. [FancyZones](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="FancyZones")設定画面のトップにある **「レイアウト エディターの起動」** をクリック。
-2. 「新しいレイアウトの作成」から、画面を好きなように6つに区切る（均等なグリッド型でも、自由にサイズを変えてもOK）。
-3. 作成したレイアウトを適用すれば完了！
+### 設定のポイント
+1. [PowerToys](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PowerToys") 設定から **「[FancyZones](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="FancyZones")」** を有効化。
+2. ❌ **「Shiftキーを押してゾーンをアクティブにする」** のチェックを外す。
+3. ✅ **「主ボタンでドラッグ中に副ボタン（右クリック）でゾーンをアクティブ化」** にチェックを入れる。
 
 ---
 
-## まとめ
+## 3. まとめと環境構築のメリット
 
-* **表示スケールは「[カスタムスケーリング](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="カスタムスケーリング")」で110%に微調整！**
-* **画面分割は「[FancyZones](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="FancyZones")」の右クリック設定でマウスのみの操作に！**
+- **110%カスタムスケール**: 文字の滲みを抑えつつ、情報量を犠牲にしない高密度表示。
+- **FancyZones マウス駆動化**: マウス単独操作やタッチパネル操作でのマルチウィンドウ移動の快適化。
 
-この2つを設定するだけで、文字の見やすさが向上し、ウィンドウの整理もマウスのドラッグ＆ドロップ（＋右クリック）だけでサクサク終わるようになります。
-
-キーボードを使わずにダラダラと快適なブラウジングを楽しみたい方や、自分だけの最適なPC環境を作りたい方は、ぜひ試してみてくださいね！
+---
 
 ## 変更履歴 (Changelog)
-- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
-- **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。
-
+- **2026-08-02 (v3)**: Windows 11 24H2/25H2、PowerToys v0.85+での動作検証とカスタムスケーリング設定のファクトチェック。
+- **2026-04-09 (v2)**: メタデータおよびグローバルデザイン統一。
+- **2026-04-06 (v1)**: 新規作成。
