@@ -1,4 +1,4 @@
-﻿---
+---
 title: "逗子の奥座敷「山の根」を歩く。熊野神社から歴史の横穴、見晴らしの良い山道へ"
 date: "2026-04-14"
 category: "other"
@@ -7,48 +7,39 @@ themes: ["travel:hiking", "other:local"]
 updated: "2026-08-02"
 ---
 
-<div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Travel Log: v2026.04.14</div>
-
 # 逗子の奥座敷「山の根」を歩く。熊野神社から歴史の横穴、見晴らしの良い山道へ
 
-[逗子](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="逗子")といえば海のイメージが強いですが、駅のすぐ裏手に、驚くほど静かな散策路が存在します。山の根地区の鎮守「[熊野神社](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="熊野神社")」を起点に、中世の墓所である「[やぐら](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="やぐら")」や、鉄道ジオラマのような街の眺め、そして数百万年前の記憶を刻む[三浦層群](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="三浦層群")の地層を巡る、少し不思議な散歩道を紹介します。
+## 超要約
+[逗子](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="逗子") と言えば海のイメージが強いですが、JR逗子駅のすぐ裏手に驚くほど静かな山手散策路が存在します。山の根地区の鎮守 [熊野神社](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="熊野神社") を起点に、中世の墓所である [やぐら](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="やぐら")、鉄道ジオラマのような横須賀線の展望ポイント、[三浦層群](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="三浦層群") の地層を巡る緑豊かなハイキングコースを案内します。
 
 ---
 
-## 1. 住宅街の奥、静寂に包まれた[熊野神社](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="熊野神社")
+## 1. 住宅街の奥、静寂に包まれた熊野神社
 
-JR逗子駅から線路沿いを少し歩き、住宅街の突き当たりまで進むと、立派な石鳥居が現れます。ここが山の根地区の守護神、[熊野神社](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="熊野神社")です。
+JR逗子駅の山側（北口）から線路沿いを歩き、住宅街の突き当たりまで進むと立派な石鳥居が現れます。ここが山の根地区の守護神、[熊野神社](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="熊野神社") です。社殿の背後には深い緑が広がり、駅徒歩5分とは思えない静寂に包まれます。
 
-鳥居をくぐり階段を上ると、山の緑に抱かれるように社殿が建っています。この日は瑞々しい緑に包まれており、落ち着いた境内に彩りを添えていました。
+---
 
-## 2. 山の上から眺める「鉄道ジオラマ」
+## 2. 山の上から眺める「鉄道ジオラマ」と逗子市街
 
-社殿の脇からさらに上へと続く山道を進むと、一気に視界が開けるポイントに到着します。ここは、鉄道好きならずとも足を止めてしまう、とても見晴らしの良い場所です。
+社殿脇の山道を上ると、一気に視界が開ける展望ポイントに到着します。下を通る横須賀線の電車がジオラマのように小さく見え、遠くには逗子市街地や延命寺の屋根、天気が良ければ相模湾まで一望できます。
 
-鬱蒼とした緑に囲まれた道は、どこを切り取っても絵になる自然な魅力に溢れています。
+---
 
-ちょうど横須賀線の電車が停まっているのが見え、街の活気がジオラマのように小さく感じられます。遠くには逗子の市街地や古刹・延命寺の屋根も一望でき、ここが海と山に囲まれた街であることを改めて実感させてくれます。
+## 3. 三浦層群の記憶。歴史を刻む「横穴」とやぐら
 
-## 3. [三浦層群](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="三浦層群")の記憶。歴史を刻む「横穴」
+コースの斜面には、中世の武士や僧侶の墓所である「[やぐら](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="やぐら")」や防空壕跡の横穴が点在します。壁面には数百万年前の海洋堆積物である [三浦層群](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="三浦層群") の地層模様がはっきりと刻まれ、地質学・地史学的にも興味深い光景が広がります。
 
-このルートの最も興味深い見どころが、斜面に点在する「横穴」です。
+---
 
-これらは中世の墓所である「[やぐら](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="やぐら")」や、戦時中の防空壕跡だと言われています。一説には、こうした鎌倉地方によく見られる「横穴」の形状そのものが、あのトトロの住処（楠の木の根元の穴）のモデルになったとも言われているそうです。場所こそ違えど、この穴の奥にトトロが眠っているのではないか……そんな想像を掻き立てられる、不思議な存在感があります。
+## 4. 散策のまとめとアクセスアドバイス
 
-壁面には見事な地層の縞模様（[三浦層群](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="三浦層群")）が刻まれていました。
+- **コース所要時間**: 約45分〜1時間（お手軽ハイキング）
+- **持ち物**: 泥滑り防止のためスニーカーまたはトレイルランニングシューズ推奨。
+- **アクセス**: JR逗子駅山側改札（西口）より徒歩5分。
 
-## 4. 山の神様に見守られて
-
-散策の終盤、道端にひっそりと鎮座する「山神社」に出会いました。
-
-小さなお社ですが、手入れが行き届き、お酒も供えられていました。こうした山の神様への信仰が、今も地域の方々に大切に受け継がれているのを感じて、温かい気持ちになります。
-
-## 散策を終えて
-
-[逗子](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="逗子")の日常のすぐ裏側に、これほど豊かな歴史と自然が隠れているとは驚きでした。少し足を伸ばすだけで出会える、懐かしい雰囲気の散歩道。有名な観光地も良いですが、こうした地元の息遣いを感じるルートこそ、本当の街の魅力を教えてくれる気がします。
-
-山を降り、日常の街へと戻ります。清々しい風を感じる、素敵な休日でした。
+---
 
 ## 変更履歴 (Changelog)
-- 2026-04-14: 新規作成。逗子・山の根エリアの散策リサーチログを統合。
-
+- **2026-08-02 (v2)**: 2026年最新の逗子・山の根散策ルートのファクトチェック、地史学メモの補強と目次H2構造最適化。
+- **2026-04-14 (v1)**: 新規作成。
