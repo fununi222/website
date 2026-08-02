@@ -515,14 +515,23 @@ function generateTableOfContents() {
 
         const createNavItem = (isMobile = false) => {
             const li = document.createElement('li');
+            li.className = 'w-full min-w-0';
             const a = document.createElement('a');
             a.href = '#' + heading.id;
             a.textContent = heading.textContent.replace(/^#+\s*/, '');
             
-            if (heading.tagName === 'H2') {
-                a.className = 'block text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors truncate py-1';
+            if (isMobile) {
+                if (heading.tagName === 'H2') {
+                    a.className = 'block text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors py-1.5 break-words whitespace-normal leading-relaxed';
+                } else {
+                    a.className = 'block text-xs text-slate-400 hover:text-cyan-400 transition-colors pl-3 border-l border-white/10 py-1 break-words whitespace-normal leading-relaxed';
+                }
             } else {
-                a.className = 'block text-xs text-slate-400 hover:text-cyan-400 transition-colors truncate pl-3 border-l border-white/10 py-1';
+                if (heading.tagName === 'H2') {
+                    a.className = 'block text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors truncate py-1';
+                } else {
+                    a.className = 'block text-xs text-slate-400 hover:text-cyan-400 transition-colors truncate pl-3 border-l border-white/10 py-1';
+                }
             }
 
             a.addEventListener('click', (e) => {
