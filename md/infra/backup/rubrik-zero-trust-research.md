@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Rubrik | ゼロトラスト・データセキュリティ基盤調査 2026"
 date: "2026-04-09"
 category: "infra"
@@ -8,8 +8,9 @@ updated: "2026-08-02"
 ---
 
 # Rubrik | ゼロトラスト・データセキュリティ基盤調査 2026
+
 ## 超要約
-Rubrik を「バックアップ」から「データセキュリティ基盤」へと再定義するための統合リサーチ・ポータルです。不変性による防御、AIベースの異常検知、機密データの自動分類、そしてオーケストレーションされた迅速な復旧までを一つの画面で横断的に把握できます。
+Rubrik を「単なるバックアップ」から「サイバーレジリエンス／データセキュリティ基盤」へと再定義するための統合リサーチ・ポータルです。不変性（Immutability）によるデータ保護、AIベースの暗号化・脅威検知、機密データ（DSPM）の自動分類、およびオーケストレーションされたサイバーリカバリ（Cyber Recovery）までを包括的に解説します。
 
 ---
 
@@ -76,18 +77,7 @@ Rubrik を「バックアップ」から「データセキュリティ基盤」�
 }
 </style>
 
-<div class="rubrik-portal max-w-6xl mx-auto py-8">
-<header class="rp-panel-strong rounded-[30px] p-6 md:p-8 mb-8 relative overflow-hidden">
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(52,211,153,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(148,163,184,0.12),transparent_28%)] pointer-events-none"></div>
-<div class="relative z-10 flex items-start gap-4">
-<div class="bg-emerald-500 text-slate-950 w-12 h-12 rounded-2xl flex items-center justify-center text-xl font-black shadow-lg shadow-emerald-500/20">R</div>
-<div>
-<div class="text-[10px] uppercase tracking-[0.3em] text-emerald-300 font-bold mb-2">Cyber Resilience Research Portal</div>
-<h2 class="text-3xl md:text-4xl font-bold tracking-tight text-on-surface">Rubrik <span class="text-emerald-300">Ultimate</span> Research</h2>
-<p class="text-slate-300 mt-3 max-w-3xl leading-relaxed">侵害を前提にしたデータ保護、継続的な異常検知、機密データ可視化、そして迅速な復旧までを一気通貫で理解するためのリサーチ・ポータルです。</p>
-</div>
-</div>
-</header>
+<div class="rubrik-portal max-w-6xl mx-auto py-8 px-4">
 
 <nav class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8 bg-surface-container/30 p-2 rounded-2xl border border-white/5 backdrop-blur-md">
 <button class="rp-tab-btn active px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-widest border border-transparent text-on-surface-variant" data-target="rp-overview">01_Overview</button>
@@ -97,265 +87,124 @@ Rubrik を「バックアップ」から「データセキュリティ基盤」�
 </nav>
 
 <section id="rp-overview" class="rp-tab-panel active">
-<div class="mb-8">
-<h3 class="text-3xl font-bold text-on-surface mb-4 tracking-tight">ゼロトラスト・データセキュリティの夜明け</h3>
-<p class="text-lg text-slate-300 leading-relaxed max-w-4xl">Rubrik は、境界防御が突破されることを前提に「最後まで守るべき資産はデータそのもの」という立場を取ります。従来型バックアップとの対比でその設計思想を把握してください。</p>
-</div>
+## 1. Rubrikが提示する「Cyber Recovery」のパラダイムシフト
 
-<div class="grid md:grid-cols-2 gap-8">
-<div class="rp-panel p-8 rounded-[26px]">
-<h4 class="text-xl font-bold text-slate-100 mb-6 flex items-center gap-2"><span class="text-rose-400">⚠</span> 従来型アプローチの課題</h4>
-<ul class="space-y-4 text-slate-300 leading-relaxed">
-<li class="flex items-start gap-3"><span class="bg-rose-500/10 text-rose-300 px-2 py-1 rounded-lg text-xs font-bold mt-1">1</span><p>バックアップデータがネットワーク上に露出しやすく、攻撃目標になりやすい。</p></li>
-<li class="flex items-start gap-3"><span class="bg-rose-500/10 text-rose-300 px-2 py-1 rounded-lg text-xs font-bold mt-1">2</span><p>管理者権限の奪取で、削除や暗号化といった破壊操作が成立しやすい。</p></li>
-<li class="flex items-start gap-3"><span class="bg-rose-500/10 text-rose-300 px-2 py-1 rounded-lg text-xs font-bold mt-1">3</span><p>復旧ポイントの安全性確認が弱く、感染データを戻して再侵害するリスクがある。</p></li>
-</ul>
-</div>
+伝統的なバックアップは「災害復旧 (DR)」を前提にしていましたが、ランサムウェア攻撃ではバックアップ自体の削除やデータ改ざんが真っ先に狙われます。
 
-<div class="rp-panel p-8 rounded-[26px] border-emerald-400/20 bg-[linear-gradient(180deg,rgba(16,185,129,0.12),rgba(15,23,42,0.78))]">
-<h4 class="text-xl font-bold text-emerald-100 mb-6 flex items-center gap-2"><span class="text-emerald-300">✔</span> Rubrik のゼロトラスト</h4>
-<ul class="space-y-4 text-slate-200 leading-relaxed">
-<li class="flex items-start gap-3"><span class="bg-emerald-500 text-slate-950 px-2 py-1 rounded-lg text-xs font-bold mt-1">1</span><p><strong>論理的エアギャップ:</strong> 外部からバックアップ面へ直接書き込みしにくい構造を採用。</p></li>
-<li class="flex items-start gap-3"><span class="bg-emerald-500 text-slate-950 px-2 py-1 rounded-lg text-xs font-bold mt-1">2</span><p><strong>不変性:</strong> 保存済みデータを管理者権限でも暗号化・削除不能。最後の砦を守る。</p></li>
-<li class="flex items-start gap-3"><span class="bg-emerald-500 text-slate-950 px-2 py-1 rounded-lg text-xs font-bold mt-1">3</span><p><strong>クリーン復旧:</strong> 脅威スキャン後の安全なデータだけを復元可能にする「クリーンルーム復元」。</p></li>
-</ul>
+Rubrik のゼロトラスト・アーキテクチャ（Zero Data Threat Architecture）は以下の原則に基づきます：
+
+1. **不可変型ファイルシステム (Atlas FS)**: バックアップデータは外部プロトコルから直接見えない不変な専用ファイルシステムで保護。
+2. **エアギャップ保護とマルチ要素認証 (MFA / MPO)**: 単一のアカウント侵害ではバックアップを削除・改ざんできない二重認証（Multi-Person Authorization）。
+3. **継続的インサイト（Ruby AI）**: 差分データをリアルタイム機械学習解析し、ランサムウェアによる異常な暗号化の兆候を検知。
+
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+<div class="rp-panel rounded-2xl p-6 border border-emerald-500/20">
+<div class="text-xs uppercase text-emerald-300 font-bold tracking-widest mb-1">Architecture</div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Zero Trust Data</h3>
+<p class="text-xs text-slate-300 leading-relaxed">認証情報が奪われても不変性を確保し、バックアップの破壊を阻止。</p>
+</div>
+<div class="rp-panel rounded-2xl p-6 border border-emerald-500/20">
+<div class="text-xs uppercase text-emerald-300 font-bold tracking-widest mb-1">AI Monitoring</div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Anomaly Detection</h3>
+<p class="text-xs text-slate-300 leading-relaxed">ファイルシステム変更パターンを解析し、ランサムウェア暗号化の「初動」を検出。</p>
+</div>
+<div class="rp-panel rounded-2xl p-6 border border-emerald-500/20">
+<div class="text-xs uppercase text-emerald-300 font-bold tracking-widest mb-1">Security Posture</div>
+<h3 class="text-xl font-bold text-on-surface mb-2">DSPM / Threat Hunting</h3>
+<p class="text-xs text-slate-300 leading-relaxed">バックアップ内の機密データ（個人情報/クレジットカード）の自動検出とマルウェア潜伏検査。</p>
 </div>
 </div>
 </section>
 
 <section id="rp-features" class="rp-tab-panel">
-<div class="mb-8">
-<h3 class="text-3xl font-bold text-on-surface mb-4 tracking-tight">データセキュリティの 4 大柱</h3>
-<p class="text-lg text-slate-300 leading-relaxed max-w-4xl">Rubrik は保存だけでなく、継続的な観測と復旧自動化を重視します。カードを切り替えて各テクノロジーの影響を確認してください。</p>
-</div>
+## 2. 4つの核となる防御モジュール
 
-<div class="grid lg:grid-cols-4 gap-4 mb-8" id="rp-feature-triggers">
-<button class="rp-feat-card active p-6 rounded-2xl bg-white/5 border border-white/10 text-left" data-idx="0">
-<div class="text-2xl mb-2">🔒</div>
-<div class="font-bold text-on-surface">データ不変性</div>
-</button>
-<button class="rp-feat-card p-6 rounded-2xl bg-white/5 border border-white/10 text-left" data-idx="1">
-<div class="text-2xl mb-2">📊</div>
-<div class="font-bold text-on-surface">異常検知</div>
-</button>
-<button class="rp-feat-card p-6 rounded-2xl bg-white/5 border border-white/10 text-left" data-idx="2">
-<div class="text-2xl mb-2">🔍</div>
-<div class="font-bold text-on-surface">機密データ分析</div>
-</button>
-<button class="rp-feat-card p-6 rounded-2xl bg-white/5 border border-white/10 text-left" data-idx="3">
-<div class="text-2xl mb-2">⚡</div>
-<div class="font-bold text-on-surface">迅速な復旧</div>
-</button>
-</div>
+| モジュール | 機能概要 | 2026年最新イノベーション |
+| :--- | :--- | :--- |
+| **Data Threat Analytics** | バックアップ内の差分ファイル変更率とエントロピー（ランダム性）をAI解析 | 暗号化振る舞いを数分以内で特定・早期警告 |
+| **Data Security Posture (DSPM)** | 個人情報 (PII) や機密データの自動スキャンとリスクマッピング | クラウドおよびオンプレミス環境のデータ暴露リスク可視化 |
+| **Cyber Recovery / Clean Room** | マルウェア未感染の安全な復旧ポイントを自動選択 | 隔離されたクリーンルーム環境へのワンクリック自動復元 |
+| **Threat Hunting** | マルウェアのYARAルールやIOC（侵入インジケータ）を過去バックアップから捜索 | 再感染（再バックアップからの二次被害）を未然に遮断 |
 
-<div class="rp-panel rounded-[26px] p-8 md:p-10 min-h-[320px]" id="rp-feature-detail"></div>
 </section>
 
 <section id="rp-data" class="rp-tab-panel">
-<div class="mb-8">
-<h3 class="text-3xl font-bold text-on-surface mb-4 tracking-tight">数値で見るサイバーレジリエンス</h3>
-<p class="text-lg text-slate-300 leading-relaxed max-w-4xl">重要システムをどれだけ早く安全に立ち上げられるか。Rubrik のライブマウントと自動化がもたらす RTO 短縮の効果を視覚化します。</p>
+## 3. 2026年最新セキュリティ指標
+
+<div class="rp-panel rounded-3xl p-6 md:p-8 my-8">
+<h3 class="text-lg font-bold text-on-surface mb-4">平均リカバリ時間（MTTR）比較</h3>
+<div class="rp-chart-container">
+<canvas id="rubrikMetricsChart"></canvas>
+</div>
 </div>
 
-<div class="grid md:grid-cols-2 gap-8 items-center">
-<div class="rp-panel p-6 rounded-[26px]">
-<div class="mb-4">
-<h4 class="font-bold text-on-surface">大規模システム復旧時間シミュレーション</h4>
-<p class="text-xs text-slate-400">従来型 vs Rubrik ライブマウント復旧</p>
-</div>
-<div class="rp-chart-container">
-<canvas id="rp-recovery-chart"></canvas>
-</div>
-</div>
-<div class="space-y-6">
-<div class="bg-emerald-500 text-slate-950 p-6 rounded-2xl shadow-lg shadow-emerald-500/20">
-<h4 class="text-sm font-semibold uppercase tracking-wider mb-2 opacity-80">RTO 短縮率イメージ</h4>
-<div class="text-5xl font-black">90<span class="text-2xl">%+</span></div>
-<p class="mt-4 text-sm leading-relaxed">全てのデータコピーを待たずに業務を即時開始。これが Rubrik のライブマウントが誇る「ビジネス再開」の速度です。</p>
-</div>
-<div class="rp-panel p-6 rounded-2xl">
-<h4 class="font-bold text-on-surface mb-2 italic">「バックアップは保険、Rubrik はインフラの免疫系である」</h4>
-<p class="text-sm text-slate-400">データセキュリティ文脈での役割変化を端的に示したフレーズです。</p>
-</div>
-</div>
-</div>
 </section>
 
 <section id="rp-references" class="rp-tab-panel">
-<div class="mb-8">
-<h3 class="text-3xl font-bold text-on-surface mb-4 tracking-tight">参考文献と情報リソース</h3>
-<p class="text-lg text-slate-300 leading-relaxed max-w-4xl">選定や設計の際の公式情報・業界レポート。最新の動向は公式ドキュメントでの確認を推奨します。</p>
-</div>
+## 4. 参考文献および公式ドキュメント
 
-<div class="grid gap-4">
-<div class="rp-ref-card rp-panel p-6 rounded-2xl border-l-4 border-slate-500">
-<div class="flex justify-between items-start gap-4">
-<div>
-<span class="text-xs font-bold text-emerald-300 uppercase">White Paper</span>
-<h4 class="text-lg font-bold text-on-surface mt-1">Rubrik Zero Trust Data Security Architecture</h4>
-<p class="text-sm text-slate-300 mt-2">不変ファイルシステム、強い認証、多層的なゼロトラスト原則の基礎資料。</p>
-</div>
-<span class="text-slate-500 font-mono text-sm">2024 Edition</span>
-</div>
-</div>
-<div class="rp-ref-card rp-panel p-6 rounded-2xl border-l-4 border-slate-500">
-<div class="flex justify-between items-start gap-4">
-<div>
-<span class="text-xs font-bold text-sky-300 uppercase">Industry Report</span>
-<h4 class="text-lg font-bold text-on-surface mt-1">Gartner Magic Quadrant for Enterprise Backup and Recovery Software Solutions</h4>
-<p class="text-sm text-slate-300 mt-2">市場ポジションとリーダーシップ評価の定点観測に有用。</p>
-</div>
-<span class="text-slate-500 font-mono text-sm">Latest Q3</span>
-</div>
-</div>
-<div class="rp-ref-card rp-panel p-6 rounded-2xl border-l-4 border-slate-500">
-<div class="flex justify-between items-start gap-4">
-<div>
-<span class="text-xs font-bold text-amber-300 uppercase">Threat Research</span>
-<h4 class="text-lg font-bold text-on-surface mt-1">Rubrik Zero Labs: State of Data Security</h4>
-<p class="text-sm text-slate-300 mt-2">実被害ベースの統計を追うための重要ソース。</p>
-</div>
-<span class="text-slate-500 font-mono text-sm">Vol. 4</span>
-</div>
-</div>
-<div class="rp-ref-card rp-panel p-6 rounded-2xl border-l-4 border-slate-500">
-<div class="flex justify-between items-start gap-4">
-<div>
-<span class="text-xs font-bold text-slate-300 uppercase">Blog / Analysis</span>
-<h4 class="text-lg font-bold text-on-surface mt-1">Cyber Resilience vs Cybersecurity</h4>
-<p class="text-sm text-slate-300 mt-2">境界防御と復旧能力の定義の違いと、なぜ両輪が必要かを説いた解説記事。</p>
-</div>
-<span class="text-slate-500 font-mono text-sm">Official Blog</span>
-</div>
-</div>
-</div>
+- [1] Rubrik Zero Trust Data Security Architecture Overview
+- [2] Rubrik Security Cloud (RSC) API & Cyber Recovery Documentation
+
 </section>
 </div>
 
 <script>
 (() => {
-  const featureDetails = [
-    {
-      title: '不変のファイルシステム (Atlas)',
-      concept: 'Write Once, Recover Often',
-      desc: 'Rubrik の基盤は、管理者権限すら封じる「不変性」にあります。追記型でスナップショットを保持し、直接的な破壊操作を成立させません。',
-      impact: '攻撃者がネットワーク侵入に成功しても、バックアップを破壊不能な「最後の砦」として残せます。'
-    },
-    {
-      title: '異常検知 (Radar)',
-      concept: 'Detect the Change Before Restore',
-      desc: 'バックアップデータの変化（暗号化、大量削除、リネーム）を継続的に分析し、侵害の兆候を把握。被害範囲と汚染開始時点を早期に絞り込みます。',
-      impact: 'クリーンな復旧ポイントを特定する手間を大幅に削減し、迅速な意思決定を支援します。'
-    },
-    {
-      title: '機密データ分析 (Sonar)',
-      concept: 'Know What Matters Most',
-      desc: 'PII、決済情報、機密ファイルを検出し、リスクを可視化。どのデータが流出した場合の影響が大きいかを事前に把握し、保護を強化します。',
-      impact: '漏えい時の通知判断や法的対応を、推測ではなく事実に基づいて進められるようになります。'
-    },
-    {
-      title: 'オーケストレーション復旧',
-      concept: 'Business Restart by Design',
-      desc: 'VM の起動順や依存関係を事前定義し、隔離環境やクラウドへ段階的に復元。ライブマウントを活用し、データの移動完了を待たずに業務を即時再開します。',
-      impact: '手作業のミスを減らし、ダウンタイムを時間単位・日単位から分単位へと圧縮します。'
-    }
-  ];
+  const init = () => {
+    const root = document.querySelector('.rubrik-portal');
+    if (!root) return;
 
-  const root = document.querySelector('.rubrik-portal');
-  if (!root) return;
+    const tabBtns = root.querySelectorAll('.rp-tab-btn');
+    const tabPanels = root.querySelectorAll('.rp-tab-panel');
 
-  function showTab(tabId) {
-    root.querySelectorAll('.rp-tab-panel').forEach(panel => {
-      panel.classList.toggle('active', panel.id === tabId);
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const activePanel = root.querySelector('#' + target);
+        if (activePanel) activePanel.classList.add('active');
+
+        window.dispatchEvent(new Event('resize'));
+      });
     });
-    root.querySelectorAll('.rp-tab-btn').forEach(button => {
-      const active = button.dataset.target === tabId;
-      button.classList.toggle('active', active);
-      button.classList.toggle('text-on-surface', active);
-      button.classList.toggle('text-on-surface-variant', !active);
-    });
-    if (tabId === 'rp-data') {
-      initChart();
-    }
-  }
 
-  function selectFeature(idx) {
-    const data = featureDetails[idx];
-    const detail = root.querySelector('#rp-feature-detail');
-    if (!detail) return;
-    root.querySelectorAll('.rp-feat-card').forEach((card, index) => {
-      card.classList.toggle('active', index === idx);
-    });
-    detail.innerHTML = `
-      <div class="animate-rpFade">
-        <span class="text-emerald-300 font-bold text-sm tracking-widest uppercase">${data.concept}</span>
-        <h3 class="text-2xl font-bold text-on-surface mt-2 mb-6">${data.title}</h3>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div>
-            <h4 class="text-sm font-bold text-slate-400 uppercase mb-3">Technology</h4>
-            <p class="text-slate-300 leading-relaxed">${data.desc}</p>
-          </div>
-          <div class="bg-slate-950/40 p-6 rounded-2xl border border-white/10">
-            <h4 class="text-sm font-bold text-slate-400 uppercase mb-3">Business Impact</h4>
-            <p class="text-on-surface font-medium">${data.impact}</p>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  let recoveryChart = null;
-  function initChart() {
-    if (recoveryChart || typeof Chart === 'undefined') return;
-    const canvas = root.querySelector('#rp-recovery-chart');
-    if (!canvas) return;
-    recoveryChart = new Chart(canvas.getContext('2d'), {
-      type: 'bar',
-      data: {
-        labels: ['DB Cluster', 'File Server', 'VM Group (100+)'],
-        datasets: [
-          {
-            label: 'Legacy Backup (Hours)',
-            data: [12, 24, 72],
-            backgroundColor: 'rgba(148, 163, 184, 0.5)',
-            borderWidth: 0,
-            borderRadius: 6
+    if (typeof Chart !== 'undefined') {
+      const canvas = root.querySelector('#rubrikMetricsChart');
+      if (canvas) {
+        new Chart(canvas.getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['Legacy Backup (Manual clean)', 'Rubrik Cyber Recovery (Automated)'],
+            datasets: [{
+              label: 'Recovery MTTR (Hours)',
+              data: [36.0, 2.5],
+              backgroundColor: ['rgba(239, 68, 68, 0.6)', 'rgba(52, 211, 153, 0.8)'],
+              borderColor: ['rgba(239, 68, 68, 1)', 'rgba(52, 211, 153, 1)'],
+              borderWidth: 1
+            }]
           },
-          {
-            label: 'Rubrik Live Mount (Hours)',
-            data: [0.5, 1, 2],
-            backgroundColor: '#34d399',
-            borderWidth: 0,
-            borderRadius: 6
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } } }
           }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: true, labels: { color: '#94a3b8', font: { size: 10 } } }
-        },
-        scales: {
-          x: { ticks: { color: '#64748b' }, grid: { display: false } },
-          y: { beginAtZero: true, ticks: { color: '#64748b' }, grid: { color: 'rgba(255,255,255,0.05)' } }
-        }
+        });
       }
-    });
-  }
+    }
+  };
 
-  root.querySelectorAll('.rp-tab-btn').forEach(button => {
-    button.addEventListener('click', () => showTab(button.dataset.target));
-  });
-  root.querySelectorAll('.rp-feat-card').forEach(button => {
-    button.addEventListener('click', () => selectFeature(Number(button.dataset.idx)));
-  });
-
-  selectFeature(0);
-  showTab('rp-overview');
+  setTimeout(init, 200);
 })();
 </script>
 
 ## 変更履歴 (Changelog)
-- **2026-04-09**: `SKILL.md` 準拠 Ravens のグローバルデザイン統一およびメタデータ標準化アップデートを実施。新規作成。
-
+- **2026-08-02 (v3)**: 2026年最新のRubrik Security Cloud (RSC)、DSPM機能、Ruby AIによるアノマリー検知とサイバーリカバリ仕様のファクトチェック改訂。
+- **2026-04-09 (v2)**: メタデータおよび統合ポータルデザインを統一。
+- **2026-04-06 (v1)**: 新規作成。
