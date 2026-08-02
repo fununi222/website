@@ -24,24 +24,46 @@ $mdFiles = Get-ChildItem -Path $srcDir -Recurse -Filter "*.md"
 
 foreach ($file in $mdFiles) {
     $relPath = $file.FullName.Substring($srcDir.Length + 1).Replace('\', '/')
-    $content = Get-Content -Path $file.FullName -Raw -Encoding UTF8
+    $content = [System.IO.File]::ReadAllText($file.FullName, [System.Text.Encoding]::UTF8)
     
     # Parse frontmatter
-    $title = "Technical Archive"
-    $description = "FunUni-lab Research Log"
-    $date = "1970-01-01"
+    $title = ""
+    $description = ""
+    $date = "2026-08-02"
+    $updated = "2026-08-02"
     
-    if ($content -match '(?s)^---\s*(.*?)\s*---') {
-        $fmText = $Matches[1]
-        foreach ($line in ($fmText -split "`n")) {
-            if ($line -match '^\s*([^:]+):\s*(.*)$') {
-                $key = $Matches[1].Trim()
-                $val = $Matches[2].Trim().Trim('"').Trim("'")
-                if ($key -eq 'title') { $title = $val }
-                elseif ($key -eq 'description') { $description = $val }
-                elseif ($key -eq 'date') { $date = $val }
+    if ($content.StartsWith("---")) {
+        $parts = $content.Split("---")
+        if ($parts.Count -ge 3) {
+            $fmLines = $parts[1].Split("`n")
+            foreach ($rawLine in $fmLines) {
+                $line = $rawLine.Trim()
+                if ($line -match '^title:\s*(.*)$') {
+                    $title = $Matches[1].Trim().Trim('"').Trim("'")
+                }
+                elseif ($line -match '^description:\s*(.*)$') {
+                    $description = $Matches[1].Trim().Trim('"').Trim("'")
+                }
+                elseif ($line -match '^date:\s*(.*)$') {
+                    $date = $Matches[1].Trim().Trim('"').Trim("'")
+                }
+                elseif ($line -match '^updated:\s*(.*)$') {
+                    $updated = $Matches[1].Trim().Trim('"').Trim("'")
+                }
             }
         }
+    }
+    
+    if ([string]::IsNullOrWhiteSpace($title)) {
+        if ($content -match "(?m)^#\s+(.+)$") {
+            $title = $Matches[1].Trim()
+        } else {
+            $title = $file.BaseName
+        }
+    }
+
+    if ([string]::IsNullOrWhiteSpace($description)) {
+        $description = "$title - FunUni-lab Technical Archive"
     }
     
     $htmlRelPath = $relPath -replace '\.md$', '.html'
@@ -105,6 +127,7 @@ foreach ($file in $mdFiles) {
         title = $title
         description = $description
         date = $date
+        updated = $updated
         category = $category
         path = $htmlRelPath
     }
@@ -112,11 +135,11 @@ foreach ($file in $mdFiles) {
     $count++
 }
 
-# Sort descending by date
-$articlesIndex = $articlesIndex | Sort-Object -Property date -Descending
+# Sort descending by date, updated
+$articlesIndex = $articlesIndex | Sort-Object -Property @{Expression="date"; Descending=$true}, @{Expression="updated"; Descending=$true}
 
 # Convert to JSON
-$jsonContent = $articlesIndex | ConvertTo-Json -Depth 5
+$jsonContent = ($articlesIndex | ConvertTo-Json -Depth 10).Replace("\u0026", "&")
 
 $jsonDir = Split-Path -Parent $jsonOutPath
 if (-not (Test-Path $jsonDir)) { New-Item -ItemType Directory -Path $jsonDir -Force | Out-Null }
@@ -130,7 +153,7 @@ Write-Host " [CREATED] $jsArticlePath with $($articlesIndex.Count) entries."
 
 # Extract skill data from SKILL.md
 if (Test-Path $skillMdPath) {
-    $skillContent = Get-Content -Path $skillMdPath -Raw -Encoding UTF8
+    $skillContent = [System.IO.File]::ReadAllText($skillMdPath, [System.Text.Encoding]::UTF8)
     $skillMap = [ordered]@{}
     $lines = $skillContent -split "`n"
     foreach ($l in $lines) {
@@ -146,4 +169,4 @@ if (Test-Path $skillMdPath) {
     Write-Host " [CREATED] $jsSkillPath with $($skillMap.Count) skills."
 }
 
-Write-Host "`nDone! Successfully processed $count markdown files."
+Write-Host "`nDone! Successfully processed $count markdown and HTML files."
