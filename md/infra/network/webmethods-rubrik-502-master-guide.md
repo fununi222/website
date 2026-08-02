@@ -1,4 +1,4 @@
-﻿---
+---
 title: "webMethods×Rubrik連携の極致｜502エラーを『デザイン』するレジリエンス戦略"
 date: "2026-04-24"
 category: "infra"
@@ -9,62 +9,44 @@ updated: "2026-08-02"
 
 # webMethods×Rubrik連携の極致｜502エラーを『デザイン』するレジリエンス戦略
 
-「APIの502エラーで、夜間ジョブがまた止まった……」
-
-エンタープライズな自動化基盤を[webMethods](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="webMethods")で構築しているエンジニアにとって、[Rubrik](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Rubrik")のようなSaaS型APIとの連携は、常に「不確実性」との戦いです。しかし、場当たり的なリトライ設定は、時にサーバーを攻撃する「リトライ・ストーム」へと変貌し、システムを崩壊させます。
-
-2026年、私たちが目指すべきは、単なるエラーの「回避」ではなく、**不確実性を前提とした「エラーのデザイン」**です。本ガイドでは、webMethods Integration Server（IS）を核とした、強靭な連携基盤の構築術を伝授します。
+## 超要約
+[webMethods](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="webMethods") [Integration Server](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Integration%20Server") (IS) と [Rubrik](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Rubrik") Security Cloud (RSC) の API 連携において発生する [HTTP 502 Bad Gateway](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="502%20Bad%20Gateway") / 504 Gateway Timeout に対し、単なる手動再試行や無制限リトライは二次障害（リトライストーム）を引き起こします。本稿では、[REPEAT-TRY-CATCH](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="REPEAT-TRY-CATCH") による指数バックオフ＋ジッター実装と、「開始処理」と「状態確認ポーリング」のエラー判定分離設計を解説します。
 
 ---
 
-## 1. 502 Bad Gatewayの解剖：なぜリトライが必要なのか？
+## 1. 502 Bad Gateway / 504 Gateway Timeout の発生要因
 
-502エラーは、Rubrikの[API](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="API")ゲートウェイがバックエンドの重い処理を待ちきれずに接続を切ったサインです。
-
-*   **100秒の壁**: 多くのAPIゲートウェイは100秒前後でタイムアウトします。
-*   **一過性の負荷**: SaaS側のメンテナンスや瞬間的な高負荷が原因であり、数分後には回復している可能性が極めて高いのが特徴です。
+- **100秒タイムアウトの壁**: API Gateway またはロードバランサーがバックエンドの重い集計/GraphQL処理の応答を100秒前後で打ち切る。
+- **一時的負荷スパイク**: SaaS側のバックグラウンド処理やインデックス更新に伴う過渡的レイテンシ低下。
 
 ---
 
-## 2. 黄金の構造：REPEAT-TRY-CATCHによる『指数バックオフ』
+## 2. 黄金のパターン：REPEAT-TRY-CATCH による指数バックオフ＋ジッター
 
-既存の共通HTTP部品を変更することなく、呼び出し側のFlow Serviceで高度な制御を実装する「黄金のパターン」です。
-
-### 実装のコア・ロジック
-webMethodsの **[REPEAT-TRY-CATCH](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="REPEAT-TRY-CATCH")** 構造を以下のように構築します。
-
-1.  **REPEAT**: 最大試行回数（3〜5回）を設定。
-2.  **TRY**: 共通部品を呼び出し、HTTP 200以外を検知したら `EXIT` でCATCHへ飛ばす。
-3.  **CATCH**: 待機時間を `pub.flow:wait` で動的に調整。
-    *   **指数バックオフ**: 待機時間を「60s ➡️ 120s ➡️ 240s」と倍増させる。
-    *   **[ジッター](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ジッター")**: 待機時間に ±10% のランダムな揺らぎを加える。これにより、複数のジョブが一斉にリトライしてサーバーを再パンクさせる「リトライ・ストーム」を物理的に回避します。
+1. **`REPEAT`**: 最大試行回数（3〜5回）を指定。
+2. **`TRY`**: 共通HTTP通信サービスを呼び出し、ステータス非200で例外スロー。
+3. **`CATCH`**: `pub.flow:wait` を用い、指数バックオフ（`60s ➔ 120s ➔ 240s`）＋ [ジッター](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ジッター") (±10〜20%の無作為な揺らぎ) を動的計算して適用。
 
 ---
 
-## 3. 運用哲学：『開始成功』と『確認失敗』を分ける知性
+## 3. エラーハンドリング運用分離：開始処理 (Mutation) vs 状態確認 (Query)
 
-すべてのエラーを一律に「異常終了」として扱うのは、二流の設計です。
-
-| フェーズ | アクション | 重要度 | 失敗時の処置 |
+| 処理種別 | API要求 | 失敗時のビジネスインパクト | 障害対処方針 |
 | :--- | :--- | :--- | :--- |
-| **開始 (Mutation)** | バックアップ指示 | **高** | **即座にアラート（Error）**。保護に穴が開くため。 |
-| **確認 (Query)** | ステータス確認 | **低** | **静観または警告（Warning）**。ジョブ自体は動いているため。 |
-
-ステータス確認の失敗は、リトライ上限に達しても「[Fail-Safe](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Fail-Safe")」として処理を継続させ、次回のポーリングに結果を委ねるのが、運用コストを最小化する極意です。
+| **開始指示 (Mutation)** | オンデマンドバックアップ要求 | **高** (保護未実行リスク) | 即時アラート通知 & 最大限の自動リトライ |
+| **状態確認 (Query)** | バックアップ進捗ポーリング | **低** (ジョブ自体は非同期実行中) | 警告扱い & 次回ポーリングへ静観引継ぎ ([Fail-Safe](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Fail-Safe")) |
 
 ---
 
-## 4. まとめ：強靭なシステムは「エラー」を味方にする
+## 4. まとめ
 
-1.  **リトライに知能を**: 指数バックオフ ＋ [ジッター](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ジッター") で、サーバーと共存する。
-2.  **部品を守る**: 共通部品の外側で [REPEAT-TRY-CATCH] を構成し、影響を最小化する。
-3.  **運用をデザインする**: 「今すぐ直すべきもの」と「放っておいても良いもの」を定義する。
+1. **ジッター付きバックオフ**: リトライストームを防ぎAPI負荷を分散。
+2. **処理の性質に応じた分岐**: Mutation (指示) と Query (確認) の重要度分け。
+3. **レジリエンス設計**: システム全体として一時通信エラーを自己吸収。
 
-このマスターガイドに沿った設計を導入することで、あなたの連携システムは、深夜のアラートに怯えることのない、真に「自律的で強靭な」インフラへと進化します。
-
-👉 **[さらに深掘り：APIのタイムアウト問題を解決する、Rubrik側の最適化設定はこちら](https://fununi222.github.io/website/html/infra/backup/rubrik-api-502-timeout-guide.html)**
+---
 
 ## 変更履歴 (Changelog)
-- **2026-04-24**: 「SEOトップ1%戦略」に基づき全面リライト。502エラーの発生原因の深掘り、指数バックオフ ＋ ジッターの実装詳細、および「開始」と「確認」の判定分離という高度な運用設計を統合したマスターガイドへと昇華。
-- **2026-04-18**: 新規作成。
-
+- **2026-08-02 (v3)**: 2026年最新のwebMethods Integration Server 10.x/11.x, Rubrik Security Cloud API 502/504タイムアウト、Fail-Safe運用のファクトチェックと目次H2構造最適化。
+- **2026-04-24 (v2)**: SEOトップ1%戦略に基づきリライト。
+- **2026-04-18 (v1)**: 初版作成。

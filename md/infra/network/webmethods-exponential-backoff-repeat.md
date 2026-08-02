@@ -1,4 +1,4 @@
-﻿---
+---
 title: "webMethods実践：REPEATステップと指数バックオフで作る最強のリトライ処理"
 date: "2026-04-24"
 category: "infra"
@@ -9,59 +9,55 @@ updated: "2026-08-02"
 
 # webMethods実践：REPEATステップと指数バックオフで作る最強のリトライ処理
 
-前回の記事では、[webMethods](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="webMethods")の標準機能を使った簡単なリトライ手法を解説しました。
-しかし、トラフィックが多い本番環境では、標準機能の「固定間隔のリトライ」は致命的なシステム障害を引き起こす危険性を持っています。
+## 超要約
+[webMethods](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="webMethods") [Integration Server](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Integration%20Server") で外部APIを呼出す際、一定間隔での単純再試行は Thundering Herd（群衆の暴走）を引き起こし、バックエンド障害を増幅させます。本稿では、`REPEAT` ステップと [指数バックオフ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="指数バックオフ") (Exponential Backoff + Full Jitter) を用いた強靭な自己回復リトライ処理の構築手順とパイプラインロールバックの注意点を解説します。
 
-「相手のサーバーを二次災害（リトライの集中攻撃）から守りたい」
-「より柔軟でプロフェッショナルなリトライ制御を実装したい」
+---
 
-この記事では、中〜上級者向けに、**「REPEATステップ」と「[指数バックオフ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="指数バックオフ")（Exponential Backoff）」**を用いた、エンタープライズ水準の自律的リトライロジックの実装手順を解説します。
+## 1. なぜ指数バックオフ（Exponential Backoff）とジッター（Jitter）が必要なのか？
 
-## なぜ「指数バックオフ」が必要なのか？
+外部サービスで [502 Bad Gateway](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="502%20Bad%20Gateway") や 503/429 エラーが起きた際、複数のリクエストが一斉に固定間隔（例: 5秒ごと）で再試行を行うと、アクセススパイクが原因で復旧中のバックエンドが再びダウンします。
 
-[HTTP 502エラー](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="502%20Bad%20Gateway")が起きた際、複数のクライアントが「正確に5秒後」に一斉にリトライを行うとどうなるでしょうか？
-相手のサーバーにトラフィックのスパイク（急増）が発生し、再びサーバーがダウンします。これは**「Thundering Herd（群衆の暴走）問題」**と呼ばれます。
+- **指数バックオフ**: 待機時間を `1s ➔ 2s ➔ 4s ➔ 8s` と倍々で延ばす。
+- **フル・ジッター (Full Jitter)**: 待機時間にランダムな揺らぎを加算し、リクエストタイミングの重複を分散。
 
-これを解決するのが[指数バックオフ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="指数バックオフ")です。
-1回目のリトライは1秒後、2回目は2秒後、3回目は4秒後…というように、再試行の間隔を指数関数的に伸ばしていく戦略です。
+---
 
-さらに、タイミングが完全に被らないよう、ランダムな揺らぎ（ジッター）を加えるのがベストプラクティスです。
+## 2. REPEAT ステップを活用した実装手順
 
-## REPEATステップを活用した実装手順
+1. **`REPEAT` ステップの配置とプロパティ設定**:
+   - `Repeat on`: `FAILURE`（例外または失敗時に繰り返し）
+   - `Count`: 最大再試行回数（例: 5回）
+   - `Repeat interval`: `%waitTime%`（動的パイプライン変数を指定）
+2. **フロー内部ロジック**:
+   - `pub.client:http` 呼び出し。
+   - HTTPステータスが 502/503/429 の場合、例外をスロー。
+   - 次回 `%waitTime%` を `Base * (2 ^ Count) + RandomJitter` で再計算しパイプラインへ保持。
 
-[webMethods](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="webMethods")のフローサービス内でこれを実現するには、`REPEAT` ステップを使用します 。
+> [!WARNING]
+> **パイプライン変数ロールバックの注意点**  
+> `REPEAT` が失敗して次の反復に移る際、トップレベルの変数状態は反復開始時に自動戻り（ロールバック）します。しかし、深層の IData ドキュメント内変数の変更は巻き戻らないため、データ不整合に注意が必要です。
 
-### 1. REPEATステップの設定
-フローサービスに `REPEAT` ステップを配置し、プロパティを以下のように設定します。
+---
 
-- **Repeat on**: `FAILURE`（失敗した場合に繰り返す）
-- **Count**: 最大リトライ回数（例：5回）
-- **Repeat interval**: `%waitTime%`（変数を指定することで、動的に待機時間を変更できます）
+## 3. サーバースレッド（IS Thread Pool）の枯渇リスクと回避策
 
-### 2. 子ステップの構成
-`REPEAT` ステップの下に、以下の処理を配置します。
+長時間（数分〜数十分）に及ぶ `REPEAT` + Sleep ループを過剰に実行すると、[Integration Server](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Integration%20Server") のワーカースレッドが枯渇し、サーバー全体の応答が停止します。
 
-1. **外部API呼び出し**: `pub.client:http` を実行。
-2. **成功判定**: 502エラーが起きた場合は、例外をスローして `REPEAT` を失敗させます。
-3. **待機時間の計算**: 現在の実行回数から、次回の `%waitTime%` を計算してパイプラインにセットします。
+- **使い分けの基準**:
+  - 短時間（数秒〜数十秒）のスパイク障害 ➔ `REPEAT` によるインラインバックオフ。
+  - 長時間の中断が想定される場合 ➔ Messaging (UM/MQ) キューへ退避させ非同期リスナーで再試行。
 
-⚠️ **プロの注意点：ロールバックの罠**
-`REPEAT` ステップが失敗して次のイテレーション（反復）に移る際、パイプラインの変数は「反復開始時の状態」に自動的にロールバックされます。
-しかし、ロールバックされるのは「第一階層の変数（Top-level variables）」のみです 。深い階層のドキュメント（IData内のデータ）に対する変更は元に戻らないため、データ不整合に注意が必要です。
+---
 
-## スレッド枯渇リスクへの対策
+## 4. まとめ
 
-`REPEAT` と待機（Sleep）を使ったリトライは強力ですが、待機中は[Integration Server](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Integration%20Server")のサーバースレッドを占有し続けます。
+1. **Jitter付き指数バックオフ**: 外部システム保護のための必須デザイン。
+2. **パイプライン設計の注意**: トップレベル変数のロールバック挙動を考慮。
+3. **スレッドプール管理**: 長時間待機は非同期キューイングへオフロード。
 
-数分から数十分の長いバックオフループが大量に発生すると、ISの全スレッドが枯渇し、IS自体がダウンしてしまいます。
-そのため、この手法は「数秒〜数十秒で解決する一時エラー」に限定し、長時間の障害が疑われる場合は非同期処理（キューへの退避など）に切り替える設計が必須です。
-
-## 次のステップ：システム全体のエラー設計
-
-IS単体でのリトライは完璧でも、その前段に[API Gateway](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="API%20Gateway")が存在する場合、システム全体を揺るがす「[リトライストーム](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="リトライストーム")」の罠が潜んでいます。
-
-👉 **[【応用編】API Gateway連携での罠「リトライストーム」を防ぐ設計術へ](https://fununi222.github.io/website/html/infra/webmethods-retry-storm-gateway.html)**
+---
 
 ## 変更履歴 (Changelog)
-- **2026-04-24**: REPEATステップと指数バックオフを用いた高度なリトライ実装ガイドを新規作成。
-
+- **2026-08-02 (v3)**: 2026年最新のwebMethods Integration Server 10.x/11.x, Exponential Backoff + Jitter, REPEATステップロールバック仕様のファクトチェックと目次H2構造最適化。
+- **2026-04-24 (v2)**: 新規作成。
