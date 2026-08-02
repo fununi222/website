@@ -8,6 +8,14 @@
     "path": "ai/llm-research/ai-hallucination.html"
   },
   {
+    "title": "大企業におけるMarkdownベースのナレッジ管理とAIデータ活用の現実 | 組織構造から紐解く次世代知識基盤の構築戦略",
+    "description": "RAGの限界からデータメッシュ、Docs-as-Codeまで。大企業がAI時代に直面する「知識のインフラ化」の障壁と、次世代の知識インテリジェンスへの移行戦略。",
+    "date": "2026-04-09",
+    "updated": "2026-08-02",
+    "category": "ai",
+    "path": "ai/llm-research/enterprise-md-knowledge.html"
+  },
+  {
     "title": "Bonsai 8B | スマホ（Llama.cpp）導入ガイド 2026",
     "description": "Xiaomi/HyperOS 端末の Termux 上で 1-bit LLM『Bonsai 8B』を動作させ、エッジAIの真髄を体験するためのガイド。",
     "date": "2026-04-09",
@@ -38,6 +46,22 @@
     "updated": "2026-08-02",
     "category": "infra",
     "path": "infra/ops/nowhere-ransomware-deep-analysis.html"
+  },
+  {
+    "title": "Rubrik | ゼロトラスト・データセキュリティ基盤調査 2026",
+    "description": "Rubrik のゼロトラスト設計、不変バックアップ、脅威ハンティング、機密データ分析を統合した、究極のデータセキュリティ・リサーチ・ポータル。",
+    "date": "2026-04-09",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-zero-trust-research.html"
+  },
+  {
+    "title": "Other | 顧客満足度分析レポート：アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略",
+    "description": "アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略の構造分析。STRIDE LAB ニセコの事例から、Customer Successとブランド防衛のメカニズムを紐解く。",
+    "date": "2026-04-09",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/travel/stride-lab-niseko.html"
   },
   {
     "title": "Technical Archive",
@@ -461,14 +485,6 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "ai",
-    "path": "ai/llm-research/enterprise-md-knowledge.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "ai",
     "path": "ai/llm-research/kimi-k3-open-weight-model-research.html"
   },
   {
@@ -630,14 +646,6 @@
     "updated": "2026-08-02",
     "category": "infra",
     "path": "infra/backup/db-backup-transition-strategy.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-zero-trust-research.html"
   },
   {
     "title": "Technical Archive",
@@ -974,14 +982,6 @@
     "updated": "2026-08-02",
     "category": "other",
     "path": "other/travel/shinsenmarsh-trekking-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/stride-lab-niseko.html"
   },
   {
     "title": "Technical Archive",
