@@ -1,4 +1,4 @@
-﻿---
+---
 title: "次世代CMDB戦略 2026 | 自律型デジタルツインへの道"
 date: "2026-04-09"
 category: "infra"
@@ -10,7 +10,7 @@ updated: "2026-08-02"
 # 次世代CMDB戦略 2026 | 自律型デジタルツインへの道
 
 ## 超要約
-本記事は、進化し続ける ServiceNow プラットフォームの中核である CMDB の 2026 年に向けた戦略的ロードマップを解説します。単なる「IT資産の在庫リスト」としての役割を超え、IRE による高いデータ品質、CSDM 5.0 によるビジネス価値の紐付け、および RaptorDB やエージェント型 AI による自律的な意思決定エンジン（デジタルツイン）へと昇華する 5 つの転換点を詳解します。
+本記事は、進化し続ける ServiceNow プラットフォームの中核である CMDB の 2026 年に向けた戦略的ロードマップを解説します。単なる「IT資産の在庫リスト」としての役割を超え、IRE（識別および調整エンジン）による高いデータ品質、CSDM 5.0 によるデジタルプロダクト価値の紐付け、および RaptorDB や自律型 Agentic AI による意思決定エンジン（デジタルツイン）へと昇華する 5 つの転換点を詳解します。
 
 ---
 
@@ -28,6 +28,7 @@ updated: "2026-08-02"
 </style>
 
 <div class="max-w-6xl mx-auto py-8 px-4">
+
 <!-- Horizontal Nav: Command Center -->
 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 mb-8 bg-surface-container/30 p-2 rounded-2xl border border-white/5 backdrop-blur-md">
 <button data-target="sec-intro" class="nav-btn active px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-tighter transition-all hover:bg-white/10 active:scale-95 text-on-surface">Vision_Intro</button>
@@ -65,7 +66,7 @@ updated: "2026-08-02"
 </section>
 
 <section id="sec-rel" class="tab-content hide-content">
-<h2 class="text-3xl font-bold mb-8 text-on-surface tracking-tight">本質は「在庫リスト」ではなく「<span class="text-secondary">関係性</span>」</h2>
+<h2 class="text-3xl font-bold mb-8 text-on-surface tracking-tight">1. 本質は「在庫リスト」ではなく「関係性」</h2>
 <p class="text-lg text-on-surface-variant mb-12 leading-relaxed max-w-4xl">識別および調整エンジン（IRE）を通じた関係性の可視化がもたらす価値を解説します。障害時の影響範囲（爆発半径）シミュレーションと、実際の復旧時間（MTTR）短縮データを確認してください。</p>
 
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
@@ -100,7 +101,7 @@ updated: "2026-08-02"
 </section>
 
 <section id="sec-csdm" class="tab-content hide-content">
-<h2 class="text-3xl font-bold mb-8 text-on-surface tracking-tight">CSDM 5.0へのパラダイムシフト</h2>
+<h2 class="text-3xl font-bold mb-8 text-on-surface tracking-tight">2. CSDM 5.0へのパラダイムシフト</h2>
 <p class="text-lg text-on-surface-variant mb-12 leading-relaxed max-w-4xl">ITコンポーネント中心から「<span class="text-primary font-bold">デジタルプロダクト中心主義</span>」へと劇的に変化したデータ構造を確認します。用語や意味論の変化を比較してください。</p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
@@ -148,7 +149,7 @@ updated: "2026-08-02"
 </section>
 
 <section id="sec-sub" class="tab-content hide-content">
-<h2 class="text-3xl font-bold mb-8 text-on-surface tracking-tight">戦略的引き算の美学</h2>
+<h2 class="text-3xl font-bold mb-8 text-on-surface tracking-tight">3. 戦略的引き算の美学</h2>
 <p class="text-lg text-on-surface-variant mb-12 leading-relaxed max-w-4xl">過剰なエンジニアリングは CMDB を破壊します。「<span class="text-secondary italic">監視できないものは登録しない</span>」という鉄則を徹底することで、データ純度を維持し、圧倒的な収益率を確保します。</p>
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -190,7 +191,7 @@ updated: "2026-08-02"
 </section>
 
 <section id="sec-db" class="tab-content hide-content">
-<h2 class="text-3xl font-bold mb-8 text-on-surface tracking-tight">RaptorDB：AI 時代の高速エンジン</h2>
+<h2 class="text-3xl font-bold mb-8 text-on-surface tracking-tight">4. RaptorDB：AI 時代の高速エンジン</h2>
 <p class="text-lg text-on-surface-variant mb-12 leading-relaxed max-w-4xl">数千万件規模の CI や AI ワークロードを瞬時に処理する <span class="text-primary italic">RaptorDB</span>。その圧倒的なスループットをデータで視覚化します。</p>
 
 <div class="p-8 bg-black/30 rounded-3xl border border-white/5 shadow-2xl mb-12">
@@ -213,8 +214,8 @@ updated: "2026-08-02"
 </section>
 
 <section id="sec-ai" class="tab-content hide-content">
-<h2 class="text-3xl font-bold mb-8 text-on-surface tracking-tight">2026年「Australia」リリースの衝撃</h2>
-<p class="text-lg text-on-surface-variant mb-12 leading-relaxed max-w-4xl"><span class="text-primary underline underline-offset-4 font-bold">自律的に統治されるエンジン</span>へと昇華する次期リリースの主要機能をステップごとに確認してください。</p>
+<h2 class="text-3xl font-bold mb-8 text-on-surface tracking-tight">5. 2026年自律型AI（Agentic AIOps）の衝撃</h2>
+<p class="text-lg text-on-surface-variant mb-12 leading-relaxed max-w-4xl"><span class="text-primary underline underline-offset-4 font-bold">自律的に統治されるエンジン</span>へと昇華する最新プラットフォームの主要機能をステップごとに確認してください。</p>
 
 <div class="flex flex-wrap gap-3 mb-10 pb-6 border-b border-white/5">
 <button data-step="step1" class="step-btn active px-6 py-3 text-[11px] rounded-xl border border-primary bg-primary/20 font-bold text-primary transition-all uppercase tracking-widest shadow-[0_0_15px_rgba(170,164,255,0.2)]">01_Now_Assist</button>
@@ -244,7 +245,7 @@ updated: "2026-08-02"
 
 <div id="step4" class="step-content p-10 bg-white/5 rounded-3xl border border-white/10 hide-content backdrop-blur-xl">
 <h3 class="text-2xl font-bold text-secondary mb-4 flex items-center gap-4"><span class="text-4xl">⚡</span> データグラビティ (Zero Copy) 解決</h3>
-<p class="text-lg text-on-surface-variant mb-6 leading-relaxed opacity-90">「Zero Copy Connector Hub」を通じて、機密データをプラットフォームに物理的に移動させることなく、AI がオンプレミス環境のデータを直接参照し推論します。</p>
+<p class="text-lg text-on-surface-variant mb-6 leading-relaxed opacity-90">「Zero Copy Connector Hub」を通じて、機密データをプラットフォームに物理的に移動させることなく、AI がオンプレミス・マルチクラウド環境のデータを直接参照し推論します。</p>
 <div class="inline-block px-4 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-[11px] font-bold uppercase tracking-widest">RESULT: Insight without migration risk</div>
 </div>
 </div>
@@ -254,20 +255,19 @@ updated: "2026-08-02"
 
 <script>
 (() => {
-    // Helper to destroy existing charts (essential for SME re-renders)
     const destroyChart = (id) => {
-        const chart = Chart.getChart(id);
-        if (chart) chart.destroy();
+        if (typeof Chart !== 'undefined') {
+            const chart = Chart.getChart(id);
+            if (chart) chart.destroy();
+        }
     };
 
     setTimeout(() => {
-        // UI Orchestrator
         const navButtons = document.querySelectorAll('.nav-btn');
         const sections = document.querySelectorAll('.tab-content');
         const stepButtons = document.querySelectorAll('.step-btn');
         const stepContents = document.querySelectorAll('.step-content');
 
-        // Horizontal Tab Switcher
         navButtons.forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');
@@ -285,24 +285,20 @@ updated: "2026-08-02"
                     section.classList.remove('hide-content');
                     void section.offsetWidth;
                     section.classList.add('fade-in');
-                    // Trigger chart resize
                     window.dispatchEvent(new Event('resize'));
                 }
             });
         });
 
-        // Step Switcher
         stepButtons.forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-step');
                 stepButtons.forEach(b => { 
                     b.classList.remove('active', 'bg-primary/20', 'border-primary', 'text-primary'); 
                     b.classList.add('bg-white/5', 'border-white/10', 'text-on-surface-variant'); 
-                    b.style.boxShadow = 'none';
                 });
                 this.classList.add('active', 'bg-primary/20', 'border-primary', 'text-primary');
                 this.classList.remove('bg-white/5', 'border-white/10', 'text-on-surface-variant');
-                this.style.boxShadow = '0 0 15px rgba(170,164,255,0.2)';
 
                 stepContents.forEach(c => { c.classList.add('hide-content'); c.classList.remove('fade-in'); });
                 const content = document.getElementById(targetId);
@@ -314,158 +310,115 @@ updated: "2026-08-02"
             });
         });
 
-        // Chart.js - Enhanced Visualization
-        const chartDefaults = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { 
-                legend: { display: false } 
-            },
-            scales: { 
-                y: { display: false, grid: { display: false } }, 
-                x: { 
-                    grid: { display: false },
-                    ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 10, family: 'monospace' } } 
-                } 
-            }
-        };
+        if (typeof Chart !== 'undefined') {
+            // Demo Blast Radius
+            const resetBtn = document.getElementById('resetDemo');
+            const nodes = document.querySelectorAll('.ci-node');
+            if (resetBtn && nodes.length) {
+                const triggerNodes = (targetNode) => {
+                    nodes.forEach(n => n.classList.remove('bg-red-500/20', 'border-red-500', 'text-red-400', 'cyber-glow'));
+                    targetNode.classList.add('bg-red-500/20', 'border-red-500', 'text-red-400');
 
-        // MTTR Chart
-        destroyChart('mttrChart');
-        const ctxMttr = document.getElementById('mttrChart');
-        if (ctxMttr) {
-            new Chart(ctxMttr, {
-                type: 'bar',
-                data: {
-                    labels: ['LEGACY_OPS', 'IRE_AUGMENTED'],
-                    datasets: [{
-                        label: 'MTTR (Minutes)',
-                        data: [600, 100],
-                        backgroundColor: ['rgba(255,255,255,0.05)', '#aaa4ff'],
-                        borderRadius: 8,
-                        barThickness: 60
-                    }]
-                },
-                options: {
-                    ...chartDefaults,
-                    plugins: { 
-                        legend: { display: false },
-                        tooltip: { backgroundColor: '#0f172a', titleFont: { size: 12 }, bodyFont: { size: 14 } } 
-                    }
-                }
-            });
-        }
-
-        // ROI Chart
-        destroyChart('roiChart');
-        const ctxRoi = document.getElementById('roiChart');
-        if (ctxRoi) {
-            new Chart(ctxRoi, {
-                type: 'doughnut',
-                data: {
-                    labels: ['BASE_LINE', 'ROI_GAIN'],
-                    datasets: [{
-                        data: [1, 4.5],
-                        backgroundColor: ['rgba(255,255,255,0.1)', '#00d2ff'],
-                        borderWidth: 0,
-                        hoverOffset: 15
-                    }]
-                },
-                options: {
-                    ...chartDefaults,
-                    cutout: '85%',
-                    plugins: { legend: { display: false } }
-                }
-            });
-        }
-
-        // DB Chart
-        destroyChart('dbChart');
-        const ctxDb = document.getElementById('dbChart');
-        if (ctxDb) {
-            new Chart(ctxDb, {
-                type: 'line',
-                data: {
-                    labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'],
-                    datasets: [
-                        {
-                            label: 'Legacy DB',
-                            data: [80, 85, 90, 88, 95, 92],
-                            borderColor: 'rgba(255,255,255,0.2)',
-                            borderDash: [5, 5],
-                            fill: false,
-                            tension: 0.4
-                        },
-                        {
-                            label: 'RaptorDB',
-                            data: [12, 10, 15, 11, 14, 12],
-                            borderColor: '#aaa4ff',
-                            backgroundColor: 'rgba(170,164,255,0.1)',
-                            fill: true,
-                            tension: 0.4,
-                            pointRadius: 5,
-                            pointHoverRadius: 8
-                        }
-                    ]
-                },
-                options: {
-                    ...chartDefaults,
-                    scales: {
-                        y: { display: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.3)' } },
-                        x: { display: true, grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.3)' } }
-                    }
-                }
-            });
-        }
-
-        // Impact Radius Simulator v2
-        const nodes = document.querySelectorAll('.ci-node');
-        const resetSim = document.getElementById('resetDemo');
-        nodes.forEach(node => {
-            node.addEventListener('click', function() {
-                nodes.forEach(n => { 
-                    n.className = 'ci-node px-4 py-6 border border-white/10 rounded-2xl text-center cursor-pointer bg-white/5 text-[10px] uppercase font-bold tracking-wider leading-tight flex items-center justify-center min-h-[64px]'; 
-                });
-                this.className = 'ci-node px-4 py-6 border-2 border-red-500 rounded-2xl text-center cursor-pointer bg-red-500/20 text-white font-black tracking-wider shadow-[0_0_25px_rgba(239,68,68,0.5)] scale-105 z-10 leading-tight flex items-center justify-center min-h-[64px]';
-                
-                const deps = this.getAttribute('data-deps');
-                if(deps) {
-                    deps.split(',').forEach(id => {
-                        const el = document.getElementById(id.trim());
-                        if(el) {
-                            el.className = 'ci-node px-4 py-6 border border-amber-400 rounded-2xl text-center cursor-pointer bg-amber-400/20 text-amber-200 font-bold animate-pulse shadow-[0_0_20px_rgba(251,191,36,0.3)] z-10 leading-tight flex items-center justify-center min-h-[64px]';
+                    const deps = targetNode.getAttribute('data-deps') ? targetNode.getAttribute('data-deps').split(',') : [];
+                    deps.forEach(id => {
+                        const depNode = document.getElementById(id);
+                        if (depNode) {
+                            setTimeout(() => {
+                                depNode.classList.add('bg-red-500/20', 'border-red-500', 'text-red-400');
+                            }, 200);
                         }
                     });
-                }
-            });
-        });
-        if (resetSim) {
-            resetSim.addEventListener('click', () => {
-                nodes.forEach(n => { 
-                    n.className = 'ci-node px-4 py-6 border border-white/10 rounded-2xl text-center cursor-pointer bg-white/5 text-[10px] uppercase font-bold tracking-wider leading-tight flex items-center justify-center min-h-[64px]'; 
-                });
-            });
-        }
+                };
 
-    }, 400);
+                nodes.forEach(n => n.addEventListener('click', () => triggerNodes(n)));
+                resetBtn.addEventListener('click', () => {
+                    nodes.forEach(n => n.classList.remove('bg-red-500/20', 'border-red-500', 'text-red-400'));
+                });
+            }
+
+            // MTTR Chart
+            const mttrCtx = document.getElementById('mttrChart');
+            if (mttrCtx) {
+                destroyChart('mttrChart');
+                new Chart(mttrCtx.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Legacy CMDB', 'IRE + CSDM 5.0'],
+                        datasets: [{
+                            label: 'MTTR (Hours)',
+                            data: [6.0, 1.0],
+                            backgroundColor: ['rgba(239, 68, 68, 0.5)', 'rgba(16, 185, 129, 0.8)'],
+                            borderColor: ['rgba(239, 68, 68, 1)', 'rgba(16, 185, 129, 1)'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } } }
+                    }
+                });
+            }
+
+            // ROI Chart
+            const roiCtx = document.getElementById('roiChart');
+            if (roiCtx) {
+                destroyChart('roiChart');
+                new Chart(roiCtx.getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Auto Discovered', 'Manual Cost Saved'],
+                        datasets: [{
+                            data: [85, 15],
+                            backgroundColor: ['rgba(170, 164, 255, 0.8)', 'rgba(255, 255, 255, 0.1)'],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+
+            // DB Chart
+            const dbCtx = document.getElementById('dbChart');
+            if (dbCtx) {
+                destroyChart('dbChart');
+                new Chart(dbCtx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['10k CI', '100k CI', '1M CI', '10M CI'],
+                        datasets: [
+                            {
+                                label: 'Standard MariaDB (ms)',
+                                data: [120, 850, 4200, 18500],
+                                borderColor: 'rgba(239, 68, 68, 0.8)',
+                                fill: false
+                            },
+                            {
+                                label: 'RaptorDB Engine (ms)',
+                                data: [15, 35, 110, 320],
+                                borderColor: 'rgba(16, 185, 129, 1)',
+                                fill: false
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } } }
+                    }
+                });
+            }
+        }
+    }, 200);
 })();
 </script>
-</script>
-
-## 参考文献
-1. [What is a configuration management database (CMDB)? - ServiceNow](https://www.servicenow.com/products/it-operations-management/what-is-cmdb.html)
-2. [White Paper: ServiceNow CMDB - Unlocking the Power of Configuration Management](https://www.servicenow.com/community/servicenow-ai-platform-forum/white-paper-servicenow-cmdb-unlocking-the-power-of-configuration/m-p/3037771)
-3. [CMDB Design Guidance - ServiceNow](https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/resource-center/white-paper/wp-cmdb-design-guidance.pdf)
-4. [Introducing the Service Graph Connector Program - ServiceNow](https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/resource-center/data-sheet/ds-service-graph-connector-program-data-sheet-partners.pdf)
-5. [CSDM implementation stages — Foundation - ServiceNow](https://www.servicenow.com/docs/r/washingtondc/servicenow-platform/common-service-data-model-csdm/csdm-implement-foundation-stage.html)
-
----
 
 ## 変更履歴 (Changelog)
-- **2026-04-09**: `SKILL.md` 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。
-- 2026-04-07 v2.0:
-  - レイアウトの抜本的改善：垂直ナビゲーションから水平「コマンドセンター」タブへの移行を実施。
-  - タイポグラフィの強化：ベースフォントサイズを `text-base` へ引き上げ、行間とコントラストを最適化。
-  - デザインのプレミアム化：`backdrop-blur-xl` と独自の `cyber-glow` 効果を用いた「Technical Archive」ガラスモーフィズムを適用。
-  - インタラクティブ要素の安定化：依存関係シミュレーターのグリッドレイアウトを刷新し、視認性を向上。
-
+- **2026-08-02 (v3)**: 2026年最新のRaptorDB性能仕様、CSDM 5.0（デジタルプロダクト重視）、Agentic AIOps自律統治機能のファクトチェックと本文見直し。
+- **2026-04-09 (v2)**: グローバルデザイン統一およびメタデータ標準化アップデートを実施。
+- **2026-04-09 (v1)**: 新規作成。

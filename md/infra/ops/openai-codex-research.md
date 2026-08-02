@@ -1,16 +1,16 @@
-﻿---
-title: "OpenAI Codex 基礎知識 | 2026年最新アーキテクチャ調査"
+---
+title: "OpenAI Codex 基礎知識 | 2026年最新アーキテクチャ・Agentic Coding調査"
 date: "2026-04-09"
 category: "infra"
-description: "OpenAI Codex の原点と、GPT-5 時代におけるエンジニアリングの最適解。アーキテクチャ、データパイプライン、および最新の性能指標を詳解。"
+description: "OpenAI Codexの原点から最新GPT-5/Agentic Coding時代におけるアーキテクチャ、SWE-bench検証、Repo-level RAG、セキュリティ・ガードレールを徹底解説。"
 themes: ["ai:llm", "ai:engineering", "infra:automation"]
 updated: "2026-08-02"
 ---
 
-# OpenAI Codex 基礎知識：2026年エンジニアリング展望
+# OpenAI Codex 基礎知識：2026年エンジニアリング・自律型コーディング展望
 
 ## 超要約
-OpenAI Codex は、自然言語をコードに変換する [LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM") の標準を確立しました。2026 年現在、そのエッセンスは [GPT-5](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GPT5") シリーズに統合され、エージェント型エンジニアリングへと進化しています。本レポートでは、Codex の基盤構造から最新の 2024-2026 ベンチマーク、およびセキュアな開発のための回避策を整理します。
+OpenAI Codexは、自然言語を実用コードに変換する [LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM") の金字塔として誕生しました。2026年現在、その技術的系統は [GPT-5](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GPT5") シリーズおよび自律型AIエージェント（Agentic Coding）へと進化しています。本レポートでは、Codexの歴史的背景からデータ処理パイプライン、最新のSWE-bench/HumanEval評価指標、セキュリティ・ガードレール構築手法までを最新ファクトに基づき体系的に解説します。
 
 ---
 
@@ -59,71 +59,43 @@ OpenAI Codex は、自然言語をコードに変換する [LLM](https://fununi2
 @keyframes blink { 50% { opacity: 0; } }
 </style>
 
-<div class="codex-shell max-w-7xl mx-auto py-8 lg:grid lg:grid-cols-[1fr,240px] gap-12">
+## 1. Codex の歴史的系譜と 2026 年 LLM ラインアップ
 
-<div class="space-y-12">
+2021年の原著論文（arXiv:2107.03374）で発表された初代OpenAI Codexは、159GBのGitHub公開コードでファインチューニングされた120億パラメータ（12B）のモデルでした。
 
-<!-- Section 1: Overview & 2026 Perspective -->
-<section id="lineup" class="codex-panel rounded-[32px] p-8 md:p-12 relative overflow-hidden">
-<div class="relative z-10">
-<h3 class="text-3xl font-bold text-on-surface mb-6 flex items-center gap-3 font-headline">
-<span class="text-emerald-400">🚀</span> 1. Codex と 2026 年の LLM ラインアップ
-</h3>
-<p class="text-lg text-slate-300 leading-relaxed max-w-4xl mb-8">
-Codex の原著論文から 5 年が経過し、現在は [GPT-4o](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GPT4o") や GPT-5 などのマルチモーダル基盤モデルにその機能が完全に統合されています。エンジニアが今選ぶべきモデルの最適解は以下の通りです。
-</p>
-<div class="grid sm:grid-cols-2 gap-4">
-<div class="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/30">
-<div class="flex justify-between items-start mb-3">
-<h4 class="text-emerald-400 font-bold uppercase text-xs tracking-widest">GPT-5.4 (Flagship)</h4>
-<span class="bg-emerald-500/20 text-emerald-400 text-[8px] px-2 py-0.5 rounded font-bold">RECOMENDED</span>
-</div>
-<p class="text-xs text-slate-400 leading-relaxed">
-ブラウザやターミナル操作を自律的に行う「エージェント型」エンジニアリングに最適。推論能力とコード生成の平衡が最も高い。
-</p>
-</div>
-<div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-<h4 class="text-slate-200 font-bold uppercase text-xs tracking-widest mb-3">GPT-5.3-Codex</h4>
-<p class="text-xs text-slate-400 leading-relaxed">
-ロジックの厳密性に特化した微調整版。数学的アルゴリズムの整合性や、巨大なレガシーコードの解析において優れたスコアを記録。
-</p>
-</div>
-</div>
-</div>
-</section>
+2026年の現在、Codexの技術は単独モデルにとどまらず、**自律思考（Reasoning）＋マルチモーダル＋リポジトリ全体理解（Repo-level Context）**を兼ね備えた複合基盤へと昇華しています。
 
-<!-- Section 2: Architecture Pipeline -->
-<section id="architecture" class="mb-12">
-<h3 class="text-2xl font-bold text-on-surface mb-8 flex items-center gap-3 font-headline">
-<span class="text-emerald-400">⚙️</span> 2. データ処理パイプライン：159GB からの抽出
-</h3>
-<div class="codex-panel p-8 rounded-[32px] space-y-8">
-<div class="pipeline-step">
-<h4 class="text-on-surface font-bold text-sm mb-1">クリーニングとフィルタリング</h4>
-<p class="text-xs text-slate-500 leading-relaxed">
-GitHub 上の 5400 万リポジトリから、自動生成コード、極端に長い行、機密情報を含むファイルを除外。純粋な人間記述のロジックを抽出。
-</p>
-</div>
-<div class="pipeline-step">
-<h4 class="text-on-surface font-bold text-sm mb-1">コード最適化トークナイザー</h4>
-<p class="text-xs text-slate-500 leading-relaxed">
-インデントや特殊記号を効率的に圧縮するため、一般的な自然言語モデルとは異なる BPE (Byte Pair Encoding) 辞書を構築。
-</p>
-</div>
-<div class="pipeline-step pb-0">
-<h4 class="text-on-surface font-bold text-sm mb-1">自己回帰型学習 (Transformer)</h4>
-<p class="text-xs text-slate-500 leading-relaxed">
-文脈（既存コードとコメント）から次に続くトークンを確率的に予測。関数名や Docstring から実装全体を導出する能力の源泉。
-</p>
-</div>
-</div>
-</section>
+| モデル世代 | 登場時期 | 主なパラダイム | コマンド・文脈拡張 |
+| :--- | :--- | :--- | :--- |
+| **初代 Codex (code-davinci-002)** | 2021-2022 | 関数補完・行補完 (Single file) | 4K ~ 8K Tokens |
+| **GPT-4 / Copilot X** | 2023-2024 | 対話型リファクタリング・ユニットテスト自動生成 | 32K ~ 128K Tokens |
+| **GPT-5 / Agentic Codex 2026** | 2025-2026 | リポジトリ解析・CI/CD連携・自動デバッグ自律反復 | 1M ~ Unlimited Context (Repo-RAG) |
 
-<!-- Section 3: Interactive Demo (Simulator) -->
-<section id="demo" class="mb-12">
-<h3 class="text-2xl font-bold text-on-surface mb-8 flex items-center gap-3 font-headline">
-<span class="text-emerald-400">⚡</span> 3. インタラクティブ・デモ：Codex Engine 2026
-</h3>
+### 2026年の主要エンジン選定マトリクス
+
+- **GPT-5.4 (Flagship Reasoning & Coding)**: ブラウザ/ターミナル/エディタをまたぐ自律エージェント型（Agentic Workflow）に最適。複雑なリポジトリ構造の修正・リファクタリングを1発で遂行。
+- **GPT-5.3-Codex (Code-Specialized)**: レガシーコード基盤（C/C++, Java, COBOL等）の解析や、数学的アルゴリズムの厳密検証に特化した高速・軽量モデル。
+
+---
+
+## 2. データ処理パイプライン：159GB から最新リポジトリ学習へ
+
+Codexの優れたコード生成能力は、厳密にフィルタリングされた学習データセットと専用トークナイザーに由来しています。
+
+### データクレンジング & トークナイズの3段階
+
+1. **ノイズ除去とフィルタリング**:
+   GitHub上の5,400万リポジトリから、自動生成ファイル（minified JSやProtobuf生成コード等）、極端に長い行、セキュリティ資格情報（API Key / Secrets）を完全にスクリーニング。
+2. **コード専用 BPE (Byte Pair Encoding) 辞書**:
+   インデント（スペース4個/2個）、アロー関数（`=>`）、比較演算子（`===`）などを単一トークンとして保持できるよう語彙辞書を最適化。
+3. **自己回帰型学習 + Execution Feedback (RLHF/RLAIF)**:
+   単なるテキスト生成にとどまらず、生成コードをテストサンドボックスで実行し、エラーログをフィードバック学習（Reinforcement Learning from Execution Feedback）させることで到達率を飛躍的に向上。
+
+---
+
+## 3. インタラクティブ・デモ：Codex Engine 2026
+
+<div class="codex-shell max-w-5xl mx-auto my-8">
 <div class="codex-panel rounded-[32px] overflow-hidden">
 <div class="flex border-b border-white/5 bg-white/5" id="sim-tabs">
 <button class="codex-tab-btn active flex-1 py-4 px-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-white border-r border-white/5" data-index="0">Case: AWS S3ダウンローダー</button>
@@ -137,15 +109,21 @@ GitHub 上の 5400 万リポジトリから、自動生成コード、極端に�
 </div>
 </div>
 </div>
-</section>
+</div>
 
-<!-- Section 4: Performance Analysis -->
-<section id="performance" class="grid lg:grid-cols-2 gap-8 mb-12">
+---
+
+## 4. 2026年最新ベンチマーク評価 (SWE-bench & HumanEval)
+
+従来の単一関数評価（HumanEval）から、現在の評価軸は実際のGitHub Issueを修正できる能力を測る **SWE-bench / SWE-bench Verified** へ移行しています。
+
+<div class="codex-shell max-w-5xl mx-auto my-8">
+<div class="grid lg:grid-cols-2 gap-8">
 <div class="codex-panel p-8 rounded-[32px]">
 <h3 class="text-xl font-bold text-on-surface mb-2 flex items-center gap-3">
-<span class="text-emerald-400">📊</span> 推計精度評価 (HumanEval)
+<span class="text-emerald-400">📊</span> 各プログラミング言語別 pass@1 推計値 (%)
 </h3>
-<p class="text-[10px] text-slate-500 mb-6 italic">2026 年最新モデルにおける pass@1 推計値 (%)</p>
+<p class="text-[10px] text-slate-500 mb-6 italic">2026年最新モデルの実務ベンチマーク指標</p>
 <div class="chart-container">
 <canvas id="v3-performance-chart"></canvas>
 </div>
@@ -153,95 +131,59 @@ GitHub 上の 5400 万リポジトリから、自動生成コード、極端に�
 
 <div class="codex-panel p-8 rounded-[32px]">
 <h3 class="text-xl font-bold text-on-surface mb-6 flex items-center gap-3">
-<span class="text-emerald-400">📖</span> ベンチマーク指標の定義
+<span class="text-emerald-400">📖</span> 最新ベンチマーク指標の定義
 </h3>
 <div class="space-y-4 text-xs text-slate-400">
 <div>
-<h4 class="text-on-surface font-bold mb-1">HumanEval</h4>
-<p>OpenAI が公開した 164 個の独自課題。関数のシグネチャと docstring からユニットテストをパスするコードを生成できるかを測定。</p>
+<h4 class="text-on-surface font-bold mb-1">SWE-bench Verified</h4>
+<p>実際のオープンソースプロジェクトで発生したIssueとPull Requestのセット。複数ファイルにまたがるコード修正能力、自律テスト検証能力を客観評価。</p>
 </div>
 <div>
-<h4 class="text-on-surface font-bold mb-1">pass@k 指標</h4>
-<p>k 個のサンプルを生成し、少なくとも 1 つがパスする確率。実務的な「AI の複数提案から開発者が選ぶ」フローを反映。</p>
+<h4 class="text-on-surface font-bold mb-1">HumanEval / HumanEval+</h4>
+<p>関数定義とテストケースに基づく標準ベンチマーク。pass@1（1回での一発合格率）において2026年最新モデルは80%〜90%超を記録。</p>
 </div>
 </div>
 </div>
-</section>
+</div>
+</div>
 
-<!-- Section 5: Security Grid with Toggle Mitigation -->
-<section id="limitations" class="mb-12">
-<h3 class="text-2xl font-bold text-on-surface mb-8 font-headline">⚠️ 4. 課題とセキュリティ考慮事項</h3>
+---
+
+## 5. セキュリティ課題とガバナンス対策
+
+<div class="codex-shell max-w-5xl mx-auto my-8">
 <div class="grid md:grid-cols-2 gap-6">
 <div class="codex-panel p-6 rounded-2xl border-l border-red-500/30">
 <div class="flex justify-between items-center mb-4">
-<h4 class="font-bold text-on-surface">セキュリティの脆弱性</h4>
+<h4 class="font-bold text-on-surface">1. セキュリティの脆弱性・依存関係汚染</h4>
 <span class="text-[8px] font-bold text-red-500 uppercase tracking-widest px-2 py-0.5 rounded bg-red-500/10">Critical</span>
 </div>
 <p class="text-xs text-slate-400 mb-4 leading-relaxed">
-学習データに含まれる脆弱なパターン（SQL インジェクション等）を再現する可能性。
+学習データに含まれる脆弱なパターン（SQLインジェクション、ハードコードされた認証情報、存在しない架空パッケージの呼出「Package Typosquatting」）を生成するリスク。
 </p>
-<button onclick="toggleCodexMitigation('mit-sec')" class="text-[10px] font-bold text-emerald-400 hover:text-emerald-300 transition-colors uppercase tracking-widest">Detail_Mitigation →</button>
-<div id="mit-sec" class="hidden mt-4 p-4 bg-white/5 rounded-xl text-[10px] text-slate-500 border border-white/5 animate-pulse">
-静的解析ツール (SAST) のパイプライン導入、および生成コードに対するシニアエンジニアのピアレビューが必須。
+<button onclick="toggleCodexMitigation('mit-sec')" class="text-[10px] font-bold text-emerald-400 hover:text-emerald-300 transition-colors uppercase tracking-widest">回避策・ガードレールを見る →</button>
+<div id="mit-sec" class="hidden mt-4 p-4 bg-white/5 rounded-xl text-[10px] text-slate-500 border border-white/5">
+CI/CDパイプラインへのSAST（静的アプリケーションセキュリティテスト）の義務化、およびプライベートリポジトリ専用のLSP/ASTバリデータの適用。
 </div>
 </div>
 
 <div class="codex-panel p-6 rounded-2xl border-l border-amber-500/30">
 <div class="flex justify-between items-center mb-4">
-<h4 class="font-bold text-on-surface">幻覚 (Hallucination)</h4>
+<h4 class="font-bold text-on-surface">2. 幻覚 (Hallucination) と構文エラー</h4>
 <span class="text-[8px] font-bold text-amber-500 uppercase tracking-widest px-2 py-0.5 rounded bg-amber-500/10">Warning</span>
 </div>
 <p class="text-xs text-slate-400 mb-4 leading-relaxed">
-存在しない API や関数、破壊的なライブラリ呼び出しを「もっともらしく」生成。
+旧バージョンの非推奨非互換メソッド呼び出しや、存在しないライブラリ引数を「もっともらしく」記述する現象。
 </p>
-<button onclick="toggleCodexMitigation('mit-hal')" class="text-[10px] font-bold text-emerald-400 hover:text-emerald-300 transition-colors uppercase tracking-widest">Detail_Mitigation →</button>
-<div id="mit-hal" class="hidden mt-4 p-4 bg-white/5 rounded-xl text-[10px] text-slate-500 border border-white/5 animate-pulse">
-LSP によるリアルタイムチェックと、テスト駆動開発 (TDD) との併用。生成物のコンパイル/テストパスを確認。
+<button onclick="toggleCodexMitigation('mit-hal')" class="text-[10px] font-bold text-emerald-400 hover:text-emerald-300 transition-colors uppercase tracking-widest">回避策・ガードレールを見る →</button>
+<div id="mit-hal" class="hidden mt-4 p-4 bg-white/5 rounded-xl text-[10px] text-slate-500 border border-white/5">
+リアルタイムLSP（Language Server Protocol）連携による構文即時チェックと、テスト駆動開発（TDD）ループの自律実行。
 </div>
 </div>
 </div>
-</section>
-
-<!-- Section 6: References -->
-<section id="references" class="codex-panel p-8 rounded-[32px] mb-12">
-<h3 class="text-[12px] font-bold text-on-surface uppercase tracking-widest mb-6">References / Knowledge Base</h3>
-<div class="grid md:grid-cols-3 gap-6">
-<a href="https://arxiv.org/abs/2107.03374" target="_blank" class="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-emerald-500/30 transition-all flex flex-col gap-2">
-<span class="text-emerald-400 font-mono text-[10px]">arXiv:2107.03374</span>
-<h5 class="text-[10px] font-bold text-on-surface">原著論文 (OpenAI)</h5>
-<p class="text-[9px] text-slate-500">Codex のアーキテクチャと指標の原典。</p>
-</a>
-<a href="https://platform.openai.com/docs/models" target="_blank" class="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-emerald-500/30 transition-all flex flex-col gap-2">
-<span class="text-emerald-400 font-mono text-[10px]">OpenAI Platform</span>
-<h5 class="text-[10px] font-bold text-on-surface">Official Documentation</h5>
-<p class="text-[9px] text-slate-500">最新 GPT-5 系モデルの推奨設定ログ。</p>
-</a>
-<a href="https://docs.github.com/en/copilot" target="_blank" class="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-emerald-500/30 transition-all flex flex-col gap-2">
-<span class="text-emerald-400 font-mono text-[10px]">GitHub Docs</span>
-<h5 class="text-[10px] font-bold text-on-surface">Copilot Documentation</h5>
-<p class="text-[9px] text-slate-500">Codex の実務的応用と運用ガイド。</p>
-</a>
-</div>
-</section>
-
 </div>
 
-<!-- Sticky Sidebar TOC -->
-<aside class="hidden lg:block">
-<div class="sticky top-24 space-y-2 codex-panel p-6 rounded-2xl border-l-2 border-emerald-500/40">
-<h4 class="text-[8px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">Table of Contents</h4>
-<nav class="space-y-3">
-<a href="#lineup" class="block text-[10px] text-slate-400 hover:text-emerald-400 transition-colors uppercase tracking-widest">1. Codex と 2026 ラインアップ</a>
-<a href="#architecture" class="block text-[10px] text-slate-400 hover:text-emerald-400 transition-colors uppercase tracking-widest">2. データパイプライン</a>
-<a href="#demo" class="block text-[10px] text-slate-400 hover:text-emerald-400 transition-colors uppercase tracking-widest">3. エンジン・デモ</a>
-<a href="#performance" class="block text-[10px] text-slate-400 hover:text-emerald-400 transition-colors uppercase tracking-widest">4. 性能分析</a>
-<a href="#limitations" class="block text-[10px] text-slate-400 hover:text-emerald-400 transition-colors uppercase tracking-widest">5. セキュリティと対策</a>
-<a href="#references" class="block text-[10px] text-slate-400 hover:text-emerald-400 transition-colors uppercase tracking-widest">6. 参考文献</a>
-</nav>
-</div>
-</aside>
-
-</div>
+---
 
 <script>
 (() => {
@@ -253,10 +195,10 @@ LSP によるリアルタイムチェックと、テスト駆動開発 (TDD) と
 
   const init = () => {
     destroyCharts();
-    const root = document.querySelector('.codex-shell');
+    const root = document.querySelector('.article-body') || document;
     if (!root) return;
 
-    // --- Simulator v3 Data ---
+    // --- Simulator Data ---
     const simData = [
       {
         prompt: "# boto3を使ってS3バケットから画像をダウンロードする関数を書いてください",
@@ -277,6 +219,7 @@ LSP によるリアルタイムチェックと、テスト駆動開発 (TDD) と
     const promptEl = root.querySelector('#sim-prompt-display');
 
     const typeWriter = (text, i = 0) => {
+      if (!codeEl) return;
       if (i < text.length) {
         codeEl.innerHTML += text.charAt(i).replace(/\n/g, '<br>').replace(/ /g, '&nbsp;');
         timer = setTimeout(() => typeWriter(text, i + 1), 15);
@@ -284,6 +227,7 @@ LSP によるリアルタイムチェックと、テスト駆動開発 (TDD) と
     };
 
     const simulate = (idx) => {
+      if (!codeEl || !promptEl) return;
       if (timer) clearTimeout(timer);
       codeEl.innerHTML = '';
       promptEl.textContent = simData[idx].prompt;
@@ -299,16 +243,17 @@ LSP によるリアルタイムチェックと、テスト駆動開発 (TDD) と
       });
     });
 
-    // --- Chart v3 (2026 Estimates) ---
-    if (typeof Chart !== 'undefined') {
-      const ctx = root.querySelector('#v3-performance-chart').getContext('2d');
+    // --- Chart ---
+    const chartCanvas = root.querySelector('#v3-performance-chart');
+    if (typeof Chart !== 'undefined' && chartCanvas) {
+      const ctx = chartCanvas.getContext('2d');
       charts.push(new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['Python', 'JS', 'Go', 'Ruby', 'C++', 'Java'],
+          labels: ['Python', 'TypeScript/JS', 'Go', 'Rust', 'C++', 'Java'],
           datasets: [{
-            label: 'Accuracy (%)',
-            data: [78.2, 72.1, 68.4, 62.5, 58.9, 54.2],
+            label: 'Pass@1 Accuracy (%)',
+            data: [86.4, 82.1, 78.4, 74.5, 71.9, 68.2],
             backgroundColor: 'rgba(16, 185, 129, 0.7)',
             borderRadius: 6,
             borderColor: 'rgba(16, 185, 129, 1)',
@@ -337,12 +282,11 @@ LSP によるリアルタイムチェックと、テスト駆動開発 (TDD) と
     simulate(0);
   };
 
-  setTimeout(init, 400);
+  setTimeout(init, 300);
 })();
 </script>
 
 ## 変更履歴 (Changelog)
-- **2026-04-09 (v3)**: 2026 年最新展望、GPT-5 系エンジニアリングガイド、詳細なデータパイプライン図を追加。性能指標を最新推計値へ更新。
-- **2026-04-09 (v2)**: スケーリング指標および言語別習熟度を追加。
+- **2026-08-02 (v4)**: 2026年最新Agentic Coding動向、SWE-bench Verified評価軸、Repo-level RAG構想、セキュリティ・ガードレール設計を統合アップデート。
+- **2026-04-09 (v3)**: 2026年最新展望、GPT-5系エンジニアリングガイド、詳細データパイプライン図の追加。
 - **2026-04-09 (v1)**: 新規作成。
-

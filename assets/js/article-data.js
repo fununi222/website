@@ -1000,8 +1000,8 @@
         "path":  "infra/ops/nowhere-ransomware-deep-analysis.html"
     },
     {
-        "title":  "OpenAI Codex 基礎知識 | 2026年最新アーキテクチャ調査",
-        "description":  "OpenAI Codex の原点と、GPT-5 時代におけるエンジニアリングの最適解。アーキテクチャ、データパイプライン、および最新の性能指標を詳解。",
+        "title":  "OpenAI Codex 基礎知識 | 2026年最新アーキテクチャ・Agentic Coding調査",
+        "description":  "OpenAI Codexの原点から最新GPT-5/Agentic Coding時代におけるアーキテクチャ、SWE-bench検証、Repo-level RAG、セキュリティ・ガードレールを徹底解説。",
         "date":  "2026-04-09",
         "updated":  "2026-08-02",
         "category":  "infra",
