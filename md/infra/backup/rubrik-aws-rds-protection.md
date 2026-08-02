@@ -1,9 +1,10 @@
----
+﻿---
 title: "Infra | Rubrik：AWS RDS クラウドネイティブ保護の技術詳解 2026"
 date: "2026-04-10"
 category: "infra"
 description: "RDSスナップショットAPIのオーケストレーション、DSPMによる機密データ発見、論理バックアップ抽出パイプラインからGotchasまで。"
 themes: ["infra:cloud", "infra:database", "ai:ops"]
+updated: "2026-08-02"
 ---
 
 # Infra | Rubrik：AWS RDS クラウドネイティブ保護の技術詳解 2026

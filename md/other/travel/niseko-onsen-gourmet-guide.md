@@ -1,9 +1,10 @@
----
+﻿---
 title: "Other | ニセコ・蘭越の日帰り温泉＆絶品ランチ厳選7選！絶景と泥パックで癒やされる"
 date: "2026-04-18"
 category: "other"
 description: "トレッキング後の疲労回復に最適な「温泉のデパ地下」ニセコエリアを攻略。雪秩父の天然泥パックから、倶知安名物の豪雪うどんまで、2026年最新の料金と営業情報を網羅。"
 themes: ["travel:spa", "travel:gourmet", "niseko:local"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.18</div>

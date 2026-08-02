@@ -1,9 +1,10 @@
----
+﻿---
 title: "Rubrikのスケーリング戦略：クラスタ追加とノード追加のベストプラクティス"
 date: "2026-04-16"
 category: "infra"
 description: "Rubrikの拡張戦略において、クラスタの追加がなぜアンチパターンとなるのか、ノード追加によるスケールアウトの利点とCockroachDBアーキテクチャを紐解きます。"
 themes: ["infra:architecture", "infra:scaling", "infra:database"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

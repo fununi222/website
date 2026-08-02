@@ -1,9 +1,10 @@
----
+﻿---
 title: "AIを最強のシニアエンジニアに変える｜即戦力コードレビュー・プロンプト集"
 date: "2026-04-24"
 category: "dev"
 description: "Linterでは見落とすバグをAIに暴かせる。Javaのリソース漏れ、JSのメモリリーク、セキュリティ脆弱性を特定し、品質を劇的に高めるための厳選プロンプトテンプレート。"
 themes: ["dev:code-review", "ai:prompt", "dev:optimization"]
+updated: "2026-08-02"
 ---
 
 # AIを最強のシニアエンジニアに変える｜即戦力コードレビュー・プロンプト集

@@ -1,9 +1,10 @@
----
+﻿---
 title: "Enterprise AI Architecture | クラウドAI基盤 vs. 独自エージェントの選択肢と制約"
 date: "2026-04-15"
 category: "ai"
 description: "外部パートナー利用不可というライセンス制約をどう回避するか。AI Knowledge Conciergeで浮き彫りになった、エンタープライズAI公開戦略の比較。"
 themes: ["ai:architecture", "enterprise:agent", "cloud:ai"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>

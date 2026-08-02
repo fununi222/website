@@ -1,9 +1,10 @@
----
+﻿---
 title: "逗子の奥座敷「山の根」を歩く。熊野神社から歴史の横穴、見晴らしの良い山道へ"
 date: "2026-04-14"
 category: "other"
 description: "JR逗子駅のすぐ裏手に広がる、静かな歴史の散策路「山の根」。鎮守・熊野神社から鉄道ジオラマのような眺望、中世の「やぐら」を巡る、トトロが出てきそうな緑のルートを歩く。"
 themes: ["travel:hiking", "other:local"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Travel Log: v2026.04.14</div>

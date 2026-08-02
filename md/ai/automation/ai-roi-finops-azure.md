@@ -1,9 +1,10 @@
----
+﻿---
 title: "AI予算を勝ち取る『ROI算定式』とAzure FinOps最適化戦略"
 date: "2026-04-24"
 category: "ai"
 description: "「AIでいくら儲かったのか？」という問いに答える。削減時間額の算出モデルから、Azure OpenAIコストを最大50%削減するFinOps実践術までを網羅。"
 themes: ["finops:roi", "ai:finops", "cloud:azure"]
+updated: "2026-08-02"
 ---
 
 # AI予算を勝ち取る『ROI算定式』とAzure FinOps最適化戦略

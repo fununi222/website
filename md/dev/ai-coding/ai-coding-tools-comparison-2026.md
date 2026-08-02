@@ -1,9 +1,10 @@
----
+﻿---
 title: "AIコーディングツール徹底比較 2026｜Cursor, Windsurf, Copilotどれが正解？"
 date: "2026-04-24"
 category: "dev"
 description: "AI開発ツールの迷いを断つ。Cursor, Windsurf, Claude Code, GitHub Copilotの4大ツールを徹底比較。2026年、エンジニアが選ぶべき『最強の相棒』を決定します。"
 themes: ["dev:ai", "ai:llm", "ai:agents", "dev:cursor", "dev:copilot"]
+updated: "2026-08-02"
 ---
 
 # AIコーディングツール徹底比較 2026｜Cursor, Windsurf, Copilotどれが正解？

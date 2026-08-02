@@ -1,9 +1,10 @@
----
+﻿---
 title: "Other | 【2026年最新】神仙沼トレッキング完全ガイド！初心者向けの服装とヒグマ対策"
 date: "2026-04-18"
 category: "other"
 description: "高層湿原の神秘を安全に味わうためのリサーチログ。2026年最新の道路開通情報、にこっとバス予約システム、およびヒグマ対策の具体的装備を解説。"
 themes: ["travel:nature", "niseko:hiking", "security:wildlife"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.18</div>

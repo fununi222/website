@@ -1,9 +1,10 @@
----
+﻿---
 title: "ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（Jira）の自動化戦略"
 date: "2026-04-24"
 category: "infra"
 description: "削除漏れのサーバがコストを食いつぶす「ゾンビバックアップ」問題を技術的に解決。JiraとRubrik APIを連携させ、不整合ゼロのIT資産管理を実現する戦略を詳解。"
 themes: ["infra:rubrik", "ops:asset-management", "ops:automation"]
+updated: "2026-08-02"
 ---
 
 # ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（Jira）の自動化戦略

@@ -1,9 +1,10 @@
----
+﻿---
 title: "【2026最新】鎌倉・逗子のランチ革命｜プロが分析する「高コスパ」の名店と行列回避術"
 date: "2026-04-16"
 category: "other"
 description: "鎌倉・逗子ランチ完全攻略ガイド。「観光地価格」を回避し、行列をスキップする経営構造の秘密とビジネスモデルを徹底分析。"
 themes: ["gourmet:kamakura", "gourmet:zushi", "strategy:cospa"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

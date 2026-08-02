@@ -1,9 +1,10 @@
----
+﻿---
 title: "AWS Minimalism｜小規模開発を加速させる『実利主義的IaC』の設計パターン"
 date: "2026-04-24"
 category: "infra"
 description: "過剰なLanding Zone設計は不要。小規模案件において、スピードとセキュリティを両立させるための最小限のIaC標準化アプローチを詳解。"
 themes: ["infra:aws", "iac:minimalism", "security:waf"]
+updated: "2026-08-02"
 ---
 
 # AWS Minimalism｜小規模開発を加速させる『実利主義的IaC』の設計パターン

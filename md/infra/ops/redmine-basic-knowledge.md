@@ -1,9 +1,10 @@
----
+﻿---
 title: "Redmineの基本知識 | チケット管理によるプロジェクト可視化の核心"
 date: "2026-04-15"
 category: "infra"
 description: "オープンソースのプロジェクト管理ツールRedmine。タスクを『チケット』として捉え、ガントチャートやWikiと連携させる運用の基礎を解説。"
 themes: ["management:redmine", "infra:oss", "ops:project"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>

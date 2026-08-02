@@ -1,9 +1,10 @@
----
+﻿---
 title: "【記事①】完全版：RubrikでAWS RDSをバックアップする構成ベストプラクティス"
 date: "2026-04-17"
 category: "infra"
 description: "Rubrik と AWS RDS を組み合わせる際のアカウント分離、Egress 抑制、マルチAZ/Aurora 前提の設計原則。"
 themes: ["infra:backup", "rubrik:operations"]
+updated: "2026-08-02"
 ---
 
 # 【記事①】完全版：RubrikでAWS RDSをバックアップする構成ベストプラクティス

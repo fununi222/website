@@ -1,9 +1,10 @@
----
+﻿---
 title: "Enterprise AI Ops | 実運用で判明した『知識の陳腐化』と権限管理の勘所"
 date: "2026-04-16"
 category: "ai"
 description: "業務チャットやメール等での返信支援における実践例を紹介。AIエージェント運用で直面する回答精度の低下課題と対策。"
 themes: ["ai:operation", "knowledge:decay", "enterprise:ai"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

@@ -1,9 +1,10 @@
----
+﻿---
 title: "Rubrikログ抽出を完全自動化！ GraphQLとXSOAR連携による次世代SOC運用"
 date: "2026-04-17"
 category: "infra"
 description: "Rubrik Security Cloud の GraphQL と SOAR/XSOAR を連携し、脅威検知後のログ抽出を自動化する運用設計。"
 themes: ["infra:backup", "rubrik:operations"]
+updated: "2026-08-02"
 ---
 
 # Rubrikログ抽出を完全自動化！ GraphQLとXSOAR連携による次世代SOC運用

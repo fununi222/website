@@ -1,9 +1,10 @@
----
+﻿---
 title: "記事③：DevSecOpsを自動化！ Harbor×Devcontainerのセキュリティ戦略"
 date: "2026-04-16"
 category: "dev"
 description: "脆弱性スキャンの自動化(Trivy)、SBOMの生成、Cosignによる署名など、コンテナ開発におけるDevSecOpsの実現方法を解説します。"
 themes: ["dev:security", "infra:container", "security:devsecops"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

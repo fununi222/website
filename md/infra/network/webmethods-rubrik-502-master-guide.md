@@ -1,9 +1,10 @@
----
+﻿---
 title: "webMethods×Rubrik連携の極致｜502エラーを『デザイン』するレジリエンス戦略"
 date: "2026-04-24"
 category: "infra"
 description: "「リトライがシステムを殺す」事態を防ぐ。webMethods Integration Serverによる指数バックオフ実装と、運用の平穏を守るエラー判定分離のマスターガイド。"
 themes: ["dev:webmethods", "infra:rubrik", "ops:resilience"]
+updated: "2026-08-02"
 ---
 
 # webMethods×Rubrik連携の極致｜502エラーを『デザイン』するレジリエンス戦略

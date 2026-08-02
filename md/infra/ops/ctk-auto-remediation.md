@@ -1,9 +1,10 @@
----
+﻿---
 title: "VMware vSphere | CBT不整合の自動検知と是正 2026"
 date: "2026-04-09"
 category: "infra"
 description: "VMware vSphere環境におけるバックアップトラブルを防ぐ。CBT（Changed Block Tracking）不整合の検知と是正を自動化する実践手法。"
 themes: ["infra:backup", "infra:automation", "infra:virtualization"]
+updated: "2026-08-02"
 ---
 
 # VMware vSphere | CBT不整合の自動検知と是正 2026

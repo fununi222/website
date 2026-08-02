@@ -1,9 +1,10 @@
----
+﻿---
 title: "【2026年最新】Spark Gemini完全活用ガイド：24時間自律型AIエージェントの仕組みと導入手順"
 date: "2026-08-02"
 category: "ai"
 description: "Googleの24時間稼働自律型AIエージェント「Spark Gemini」の基本概念、従来チャットAIとの違い、Google AntigravityやMCP連携によるクロスアプリ自動化の実践導入手順を徹底解説。"
 themes: ["ai:agent", "ai:spark-gemini", "ai:automation"]
+updated: "2026-08-02"
 ---
 
 # 【2026年最新】Spark Gemini完全活用ガイド：24時間自律型AIエージェントの仕組みと導入手順

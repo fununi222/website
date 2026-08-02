@@ -1,9 +1,10 @@
----
+﻿---
 title: "OpenClaw | Yahoo!リアルタイム検索を活用した動的スキルの構築"
 date: "2026-04-09"
 category: "ai"
 description: "X APIの高騰を回避し、Yahoo!リアルタイム検索をデータソースとして活用するAIエージェントスキルの実装ガイド。"
 themes: ["ai:agent", "ai:tool-integration", "ai:automation"]
+updated: "2026-08-02"
 ---
 
 # OpenClaw | Yahoo!リアルタイム検索を活用した動的スキルの構築

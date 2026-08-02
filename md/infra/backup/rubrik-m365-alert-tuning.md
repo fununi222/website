@@ -1,9 +1,10 @@
----
+﻿---
 title: "Enterprise Backup | クラウドOffice基盤のアラート「ノイズ抑制」と運用最適化"
 date: "2026-04-15"
 category: "infra"
 description: "クラウドOffice基盤の保護で頻発する監視ノイズを適切に整理し、重要アラートを見逃さないためのチューニング手法。"
 themes: ["infra:backup", "cloud:office", "ops:noise-reduction"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>

@@ -1,9 +1,10 @@
----
+﻿---
 title: "【プロが解説】Rubrik脅威モニタリングは誤検知しやすい？精度とノイズ対策の全貌"
 date: "2026-04-16"
 category: "infra"
 description: "Rubrikの脅威モニタリングや異常検知における誤検知率の低さと、その技術的裏付け、そして運用時のノイズ対策について解説します。"
 themes: ["infra:security", "cloud:backup", "ops:noise-reduction"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

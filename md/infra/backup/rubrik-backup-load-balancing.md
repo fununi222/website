@@ -1,9 +1,10 @@
----
+﻿---
 title: "Rubrikのバックアップ負荷分散ガイド！リソース制限ができない時の対策"
 date: "2026-04-16"
 category: "infra"
 description: "Rubrikネイティブで帯域制限（スロットリング）ができない理由と、バックアップ時の本番ストレージ過負荷を防ぐための4つのベストプラクティスを解説します。"
 themes: ["infra:backup", "infra:tuning", "infra:architecture"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

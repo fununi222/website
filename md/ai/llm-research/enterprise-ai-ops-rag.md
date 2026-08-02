@@ -1,9 +1,10 @@
----
+﻿---
 title: "Enterprise AI Ops完全ガイド2026｜RAGの精度・コスト・ガバナンスを突破する"
 date: "2026-04-24"
 category: "ai"
 description: "エンタープライズにおける生成AI実運用の決定版ガイド。RAGの精度低下を招く「知識の陳腐化」対策、マルチテナント設計、ROI算出ロジックをプロの視点で詳解。"
 themes: ["ai:ops", "rag:governance", "security:multi-tenant"]
+updated: "2026-08-02"
 ---
 
 # Enterprise AI Ops完全ガイド2026｜RAGの精度・コスト・ガバナンスを突破する

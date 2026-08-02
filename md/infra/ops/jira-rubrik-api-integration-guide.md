@@ -1,9 +1,10 @@
----
+﻿---
 title: "【技術編】APIで繋ぐ！ Jira × Rubrik不整合検知システムの構築ガイド"
 date: "2026-04-24"
 category: "infra"
 description: "資産管理ツールJiraとRubrik APIを連携させ、ゾンビバックアップを自動検知・解消するシステムの実装ガイド。Pythonによる名寄せロジックと主要APIエンドポイントを詳解。"
 themes: ["dev:api", "infra:rubrik", "ops:automation"]
+updated: "2026-08-02"
 ---
 
 # APIで繋ぐ！ Jira × Rubrik不整合検知システムの構築ガイド

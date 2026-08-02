@@ -1,9 +1,10 @@
----
+﻿---
 title: "OpenAI Codex 基礎知識 | 2026年最新アーキテクチャ調査"
 date: "2026-04-09"
 category: "infra"
 description: "OpenAI Codex の原点と、GPT-5 時代におけるエンジニアリングの最適解。アーキテクチャ、データパイプライン、および最新の性能指標を詳解。"
 themes: ["ai:llm", "ai:engineering", "infra:automation"]
+updated: "2026-08-02"
 ---
 
 # OpenAI Codex 基礎知識：2026年エンジニアリング展望

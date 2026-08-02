@@ -1,8 +1,9 @@
----
+﻿---
 title: "【4月版】備蓄とポイ活の二段構え戦略ダッシュボード"
 date: "2026-04-09"
 category: "finance"
 description: "供給リスクへの備蓄と、Amazonセール等のポイ活を組み合わせた4月の最優先生存戦略。"
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono text-amber-500/80">Edition: 2024-04 Strategy</div>

@@ -1,9 +1,10 @@
----
+﻿---
 title: "AIハルシネーション | ポチョムキン理解の克服とモデル使い分け術 2026"
 date: "2026-04-09"
 category: "ai"
 description: "最新LLMの「ポチョムキン理解」の仕組みと、弱点を補うための最適な「使い分け」術を検証・解説します。"
 themes: ["ai:llm", "ai:hallucination", "ai:orchestration"]
+updated: "2026-08-02"
 ---
 
 # AIハルシネーション | ポチョムキン理解の克服とモデル使い分け術 2026

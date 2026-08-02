@@ -1,9 +1,10 @@
----
+﻿---
 title: "Dev | OpenAI Codex 料金体系とエンタープライズ・セキュリティ 2026"
 date: "2026-04-18"
 category: "dev"
 description: "サブスクリプションとAPI従量課金のハイブリッド体系、コンテナベースの隔離環境、およびAIOpsによる自動脆弱性診断（Codex Security）の実践リサーチ。"
 themes: ["dev:ai", "ai:llm", "security:audit", "finance:roi"]
+updated: "2026-08-02"
 ---
 
 # OpenAI Codex 料金体系とエンタープライズ・セキュリティ 2026

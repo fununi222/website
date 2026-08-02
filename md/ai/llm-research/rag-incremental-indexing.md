@@ -1,9 +1,10 @@
----
+﻿---
 title: "【技術編】精度を落とさない「データの庭師」アプローチと鮮度管理"
 date: "2026-04-16"
 category: "ai"
 description: "RAGの精度向上に向けた運用ノウハウ。インクリメンタル・インデクシングとAIライブラリアンの実践的アプローチ。"
 themes: ["ai:ops", "rag:staleness"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

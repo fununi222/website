@@ -1,9 +1,10 @@
----
+﻿---
 title: "Rubrik APIの502エラー/タイムアウトを完全克服｜大規模運用の鉄則"
 date: "2026-04-24"
 category: "infra"
 description: "RSC APIで頻発する502 Bad Gatewayやタイムアウトを根本解決。GraphQLクエリの最適化、アダプティブ・スロットリング、Jitter付きバックオフ戦略を詳解。"
 themes: ["infra:rubrik", "dev:api", "ops:automation"]
+updated: "2026-08-02"
 ---
 
 # Rubrik APIの502エラー/タイムアウトを完全克服｜大規模運用の鉄則

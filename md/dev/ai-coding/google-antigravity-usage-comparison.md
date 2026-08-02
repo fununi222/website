@@ -1,8 +1,9 @@
----
+﻿---
 title: "【Google Antigravity徹底解剖】Antigravity 2.0 / IDE / CLI の違いと使い分け：VS Codeから移行する次世代マルチエージェント開発術"
 description: "Google Antigravityの3つの形態（2.0 Agent Canvas / IDE / CLI）の完全比較と使い分け。VS Codeからの移行手順、マルチエージェント連携、コスト比較からライフスタイル革命まで徹底解説。"
 date: "2026-08-01"
 category: "dev"
+updated: "2026-08-02"
 ---
 
 # 【Google Antigravity徹底解剖】Antigravity 2.0 / IDE / CLI の違いと使い分け：VS Codeから移行する次世代マルチエージェント開発術

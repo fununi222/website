@@ -1,9 +1,10 @@
----
+﻿---
 title: "『タスク自動化』から『運用自律化』へ｜vSphere基盤を負債にしない設計思想"
 date: "2026-04-24"
 category: "ai"
 description: "「作業」を自動化するだけでは、運用は楽にならない。vSphere基盤を例に、人的ミスを根絶し、AIと共に歩むための自律型運用ロードマップを詳解。"
 themes: ["ai:ops", "infra:automation", "dev:sre"]
+updated: "2026-08-02"
 ---
 
 # 『タスク自動化』から『運用自律化』へ｜vSphere基盤を負債にしない設計思想

@@ -1,9 +1,10 @@
----
+﻿---
 title: "Development | altra-recommender 開発の舞台裏と推薦ロジック 2026"
 date: "2026-04-09"
 category: "dev"
 description: "推薦ロジック、データ構造、結果の見せ方を振り返るレコメンド系 Web アプリの制作記録。"
 themes: ["dev:webapp", "dev:algorithm", "other:retrospective"]
+updated: "2026-08-02"
 ---
 
 # Development | altra-recommender 開発の舞台裏と推薦ロジック 2026

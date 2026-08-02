@@ -1,9 +1,10 @@
----
+﻿---
 title: "【完全ガイド】Rubrik脅威監視で検体を特定！詳細ログの取得方法と仕組み"
 date: "2026-04-16"
 category: "infra"
 description: "Rubrikの脅威監視ダッシュボードにおける検体ログ取得の基礎知識。GUIスクレイピングが非推奨である理由とAPIファースト設計の利点を解説します。"
 themes: ["infra:security", "infra:automation", "infra:operations"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

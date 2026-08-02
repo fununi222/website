@@ -1,9 +1,10 @@
----
+﻿---
 title: "OpenAI Codex 徹底解剖 2026｜GPT-5.3が切り拓く自律開発の地平"
 date: "2026-04-24"
 category: "dev"
 description: "単なる補完から『自律型デジタル従業員』へ。OpenAI Codex (GPT-5.3-Codex) の内部構造、256kコンテキスト活用術、APIによる高度な制御までをエンジニア視点で解説。"
 themes: ["dev:ai", "ai:llm", "ai:agents", "dev:codex"]
+updated: "2026-08-02"
 ---
 
 # OpenAI Codex 徹底解剖 2026｜GPT-5.3が切り拓く自律開発の地平

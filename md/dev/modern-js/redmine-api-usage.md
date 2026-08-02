@@ -1,9 +1,10 @@
----
+﻿---
 title: "Redmine APIの使用方法 | REST APIによる自動化とデータ連携の詳解"
 date: "2026-04-15"
 category: "dev"
 description: "Redmineの強力なREST APIを使いこなし、外部ツールからのチケット操作やレポート自動出力を実現する技術ガイド。"
 themes: ["dev:api", "redmine:automation", "integration:json"]
+updated: "2026-08-02"
 ---
 
 # Redmine APIの使用方法 | REST APIによる自動化とデータ連携の詳解

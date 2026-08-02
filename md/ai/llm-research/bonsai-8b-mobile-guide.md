@@ -1,9 +1,10 @@
----
+﻿---
 title: "Bonsai 8B | スマホ（Llama.cpp）導入ガイド 2026"
 date: "2026-04-09"
 category: "ai"
 description: "Xiaomi/HyperOS 端末の Termux 上で 1-bit LLM『Bonsai 8B』を動作させ、エッジAIの真髄を体験するためのガイド。"
 themes: ["ai:llm", "ai:edge", "other:tutorial"]
+updated: "2026-08-02"
 ---
 
 # Bonsai 8B | スマホ（Llama.cpp）導入ガイド 2026

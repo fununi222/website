@@ -1,9 +1,10 @@
----
+﻿---
 title: "Infra | 【Rubrik】オンデマンドバックアップが21日保持になる理由と解決策（SLAドメインの仕様）"
 date: "2026-04-23"
 category: "infra"
 description: "RubrikのオンデマンドバックアップにおけるSLAドメイン仕様（最大保持期間の強制適用）と、ストレージ圧迫を防ぎ、意図した期間で保持するためのメーカー推奨の解決策を解説します。"
 themes: ["infra:cloud", "infra:storage", "infra:backup"]
+updated: "2026-08-02"
 ---
 
 # 【Rubrik】オンデマンドバックアップが21日保持になる理由と解決策（SLAドメインの仕様）

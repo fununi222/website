@@ -125,6 +125,7 @@ def main():
                     "title": title,
                     "description": description,
                     "date": metadata.get('date', '1970-01-01'),
+                    "updated": metadata.get('updated', metadata.get('date', '2026-08-02')),
                     "category": rel_path.split('/')[0] if '/' in rel_path else 'other',
                     "path": html_rel_path
                 })

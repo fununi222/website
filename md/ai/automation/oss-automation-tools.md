@@ -1,9 +1,10 @@
----
+﻿---
 title: "脱ベンダーロックイン｜2026年最新 OSS自動化スタック選定ガイド"
 date: "2026-04-24"
 category: "ai"
 description: "特定のクラウドに依存しない、自律型インフラの構築。OpenTofu, Ansible, n8n, そしてLocal LLMを組み合わせた最強のOSSエコシステムを詳解。"
 themes: ["ai:automation", "infra:oss", "infra:iac"]
+updated: "2026-08-02"
 ---
 
 # 脱ベンダーロックイン｜2026年最新 OSS自動化スタック選定ガイド

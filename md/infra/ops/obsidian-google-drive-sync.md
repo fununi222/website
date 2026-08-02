@@ -1,8 +1,9 @@
----
+﻿---
 title: "Obsidian | Google Drive Sync によるマルチプラットフォーム無料同期術 2026"
 date: "2026-04-13"
 category: "infra"
 description: "ObsidianのメモをGoogle Drive Syncプラグインで同期。Windows、Android、iOS間での構築手順と運用ルールを詳解。"
+updated: "2026-08-02"
 ---
 
 # Obsidian | Google Drive Sync によるマルチプラットフォーム無料同期術 2026

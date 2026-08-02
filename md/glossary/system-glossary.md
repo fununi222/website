@@ -1,9 +1,10 @@
----
+﻿---
 title: "Glossary | システム用語集 & ナレッジベース v2026.08.02.1"
 date: "2026-08-02"
 category: "glossary"
 description: "ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。"
 themes: ["other:glossary", "other:spec"]
+updated: "2026-08-02"
 ---
 
 # Glossary | システム用語集 & ナレッジベース v2026.08.02.1

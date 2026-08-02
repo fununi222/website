@@ -1,9 +1,10 @@
----
+﻿---
 title: "Infra | AWS：クラウドレジリエンスと AIOps を支える基盤設計 2026"
 date: "2026-04-10"
 category: "infra"
 description: "AWS Nitro SystemからEventBridgeによる自律修復まで。モダンITインフラのデファクトスタンダード、AWSのアーキテクチャをAIOps視点で再定義する。"
 themes: ["infra:cloud", "ai:ops", "infra:hybrid"]
+updated: "2026-08-02"
 ---
 
 # Infra | AWS：クラウドレジリエンスと AIOps を支える基盤設計 2026

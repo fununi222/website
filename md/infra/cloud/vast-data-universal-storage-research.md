@@ -1,9 +1,10 @@
----
+﻿---
 title: "階層化の終焉｜VAST Dataが拓くAI時代の『ユニバーサル・ストレージ』"
 date: "2026-04-24"
 category: "infra"
 description: "「高性能は高コスト」という常識を破壊。DASEアーキテクチャとQLCフラッシュを駆使し、全データを単一フラッシュ層へ統合するVAST Dataの衝撃。"
 themes: ["infra:storage", "infra:hpc", "ai:infrastructure"]
+updated: "2026-08-02"
 ---
 
 # 階層化の終焉｜VAST Dataが拓くAI時代の『ユニバーサル・ストレージ』

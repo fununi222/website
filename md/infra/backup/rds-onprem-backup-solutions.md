@@ -1,9 +1,10 @@
----
+﻿---
 title: "Infra | AWS RDS to On-Premises：AIOps 向けバックアップ・アーカイブ統合基盤調査 2026"
 date: "2026-04-10"
 category: "infra"
 description: "Rubrik, VAST Data, Veeam などの主要ソリューションを比較。AWS RDS データをオンプレミスへ「持ち出し」、AIOps データレイクとして活用するための技術基盤を解析。"
 themes: ["infra:aws", "infra:storage", "ai:ops"]
+updated: "2026-08-02"
 ---
 
 # Infra | AWS RDS to On-Premises：AIOps 向けバックアップ・アーカイブ統合基盤調査 2026

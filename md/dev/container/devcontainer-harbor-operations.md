@@ -1,9 +1,10 @@
----
+﻿---
 title: "記事②：Docker Hubの制限を回避！ Harborプロキシキャッシュと運用術"
 date: "2026-04-16"
 category: "dev"
 description: "Harborのプロキシキャッシュやタグ管理機能を使い、Docker HubのAPI制限を回避しつつコストを最適化する運用術。"
 themes: ["dev:operations", "infra:container", "finops"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

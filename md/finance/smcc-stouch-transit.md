@@ -1,9 +1,10 @@
----
+﻿---
 title: "【関東圏】三井住友カード「スマホタッチ決済で最大8%還元」の活用法と注意点"
 date: "2026-04-13"
 category: "finance"
 description: "関東圏の私鉄・地下鉄で拡大するスマホタッチ決済を活用し、Vポイント還元を最大化するための実用ガイド。注意点や Olive の運用についても詳解。"
 themes: ["finance:payments", "finance:cards", "finance:points"]
+updated: "2026-08-02"
 ---
 
 # 【関東圏】三井住友カード「スマホタッチ決済で最大8%還元」の活用法と注意点

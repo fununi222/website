@@ -1,9 +1,10 @@
----
+﻿---
 title: "webMethodsのHTTP 502エラー完全ガイド：原因と標準リトライの実装手順"
 date: "2026-04-24"
 category: "infra"
 description: "Integration Serverでの502エラー検知から、throwExceptionForRetryを用いた標準リトライの実装、メモリリークを防ぐ設定まで徹底解説。"
 themes: ["dev:webmethods", "infra:api", "error-handling"]
+updated: "2026-08-02"
 ---
 
 # webMethodsのHTTP 502エラー完全ガイド：原因と標準リトライの実装手順

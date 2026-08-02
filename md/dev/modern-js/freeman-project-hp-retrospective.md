@@ -1,9 +1,10 @@
----
+﻿---
 title: "Development | Freeman プロジェクトのホームページ制作記録 2026"
 date: "2026-04-09"
 category: "dev"
 description: "情報設計と見やすさを意識したホームページ制作のふりかえり。可読性とレスポンシブ対応の重要性。"
 themes: ["dev:webapp", "other:retrospective"]
+updated: "2026-08-02"
 ---
 
 # Development | Freeman プロジェクトのホームページ制作記録 2026

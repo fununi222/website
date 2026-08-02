@@ -1,9 +1,10 @@
----
+﻿---
 title: "2026年最新ポイ活ルート完全図解：JAL Pay改悪を乗り越える「分離戦略」と実践マニュアル"
 date: "2026-05-09"
 category: "finance"
 description: "JAL Pay改悪対応の最新ポイ活戦略。日常決済と投資（楽天キャッシュ）を完全に分離し、RevolutとP-oneカードを起点としたストレスゼロの決済システムを完全図解。"
 themes: ["finance:payment", "poi:strategy", "card:smcc"]
+updated: "2026-08-02"
 ---
 
 # 2026年最新ポイ活ルート完全図解：JAL Pay改悪を乗り越える「分離戦略」と実践マニュアル

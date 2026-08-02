@@ -1,9 +1,10 @@
----
+﻿---
 title: "自律修復インフラの夜明け｜Antigravity×n8nで構築する完全自動復旧パイプライン"
 date: "2026-04-24"
 category: "ai"
 description: "Gemini 3 Proを搭載したAntigravityとn8nを連携。エラー検知からコード解析、修正PR作成までを完全自動化する『自律修復パイプライン』の全貌を解剖。"
 themes: ["ai:agent", "ai:automation", "dev:devops"]
+updated: "2026-08-02"
 ---
 
 # 自律修復インフラの夜明け｜Antigravity×n8nで構築する完全自動復旧パイプライン

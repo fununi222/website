@@ -1,9 +1,10 @@
----
+﻿---
 title: "【原因編】RubrikでLinux+LVMのリストアが失敗する技術的真相"
 date: "2026-04-24"
 category: "infra"
 description: "LVM環境でファイル単位リストア（FLR）が失敗するメカニズムを深掘り。UUIDの重複、メタデータの断片化、OSレベルのマウント制限など、インフラ運用で避けて通れない制約を解明。"
 themes: ["infra:rubrik", "linux:lvm", "ops:resilience"]
+updated: "2026-08-02"
 ---
 
 # 【原因編】RubrikでLinux+LVMのリストアが失敗する技術的真相

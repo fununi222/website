@@ -1,9 +1,10 @@
----
+﻿---
 title: "Infra | Rubrik：次世代データ管理アーキテクチャの全容 2026"
 date: "2026-04-10"
 category: "infra"
 description: "不変バリア、分散スケールアウト、SLAドメイン。ゼロトラスト時代のデータセキュリティ基盤「Rubrik」の実践的技術解説。"
 themes: ["infra:security", "infra:automation", "ai:ops"]
+updated: "2026-08-02"
 ---
 
 # Infra | Rubrik：次世代データ管理アーキテクチャの全容 2026

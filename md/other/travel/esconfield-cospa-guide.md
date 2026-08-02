@@ -1,9 +1,10 @@
----
+﻿---
 title: "【2026年最新】エスコンフィールド北海道の楽しみ方！試合がない日の最強コスパ攻略法"
 date: "2026-04-15"
 category: "other"
 description: "「チケット代が高い」イメージを覆す攻略リサーチ。2026年最新の料金設定、新アクティビティ『SKY WALK』、究極の『洞サウナ』まで、中学生でもわかる最強コスパ術。"
 themes: ["travel:hokkaido", "baseball:fan", "stadium:gourmet", "spa:sauna", "kids:free"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.18</div>

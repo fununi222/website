@@ -1,9 +1,10 @@
----
+﻿---
 title: "KISS原則の深淵｜なぜ『単純さ』は高度な知性を必要とするのか"
 date: "2026-04-24"
 category: "other"
 description: "「Keep It Simple, Stupid」を守れないのは、知的能力の欠如か。認知心理学と設計論から、複雑さに逃避するメカニズムを解体し、単純さという究極の知性に至る道を説く。"
 themes: ["other:research", "dev:architecture", "ai:cognitive"]
+updated: "2026-08-02"
 ---
 
 # KISS原則の深淵｜なぜ『単純さ』は高度な知性を必要とするのか

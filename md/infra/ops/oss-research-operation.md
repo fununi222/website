@@ -1,9 +1,10 @@
----
+﻿---
 title: "OSS自動化リサーチ | 運用フロー標準化 2026"
 date: "2026-04-09"
 category: "infra"
 description: "定期的に最新トレンドや PoC に関連するツール情報をリサーチするための運用フロー定義。"
 themes: ["infra:automation", "other:research", "infra:workflow"]
+updated: "2026-08-02"
 ---
 
 # OSS自動化リサーチ | 運用フロー標準化 2026

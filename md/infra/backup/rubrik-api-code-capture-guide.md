@@ -1,9 +1,10 @@
----
+﻿---
 title: "APIドキュメントはもう読まない｜Rubrik Code Captureで実現する『ポチポチ自動化』"
 date: "2026-04-24"
 category: "infra"
 description: "ブラウザの操作をそのままAPIコードに変換。Rubrik API Code Captureを使い、プログラミング未経験から数分で自動化スクリプトを生成する裏技を公開。"
 themes: ["infra:rubrik", "dev:api", "ops:automation"]
+updated: "2026-08-02"
 ---
 
 # APIドキュメントはもう読まない｜Rubrik Code Captureで実現する『ポチポチ自動化』

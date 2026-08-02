@@ -1,9 +1,10 @@
----
+﻿---
 title: "逗子のコスパ飯 3選 | 地元民が愛する新鮮魚介とボリューム満点の定食"
 date: "2026-04-15"
 category: "other"
 description: "海と山に囲まれた逗子。観光地価格に惑わされない、圧倒的な鮮度とコスパを誇るランチの名店を厳選。"
 themes: ["gourmet:seafood", "other:local", "zushi:lunch"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>

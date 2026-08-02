@@ -1,9 +1,10 @@
----
+﻿---
 title: "【2026決定版】最大還元率を叩き出すキャッシュレス決済ルート完全攻略"
 date: "2026-04-24"
 category: "finance"
 description: "三井住友カード、Olive、Revolut、ANA Payを駆使した2026年最新の高還元決済ルートを公開。iPhone/Android別の最適解と手数料回避術。"
 themes: ["finance:payment", "poi:strategy", "card:smcc"]
+updated: "2026-08-02"
 ---
 
 # 【2026決定版】最大還元率を叩き出すキャッシュレス決済ルート完全攻略

@@ -1,9 +1,10 @@
----
+﻿---
 title: "【セキュリティ編】外部パートナー向けマルチテナントRAGの構築と漏洩攻撃対策"
 date: "2026-04-16"
 category: "ai"
 description: "生成AIを社外に公開する際のセキュリティ構造。漏洩攻撃の遮断とデータ分離の3パターン。"
 themes: ["ai:security", "rag:multi-tenant"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

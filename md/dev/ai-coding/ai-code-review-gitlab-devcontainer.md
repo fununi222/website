@@ -1,9 +1,10 @@
----
+﻿---
 title: "GitLab×AIコードレビューの精度を極限まで高める｜DevContainer連携の真価"
 date: "2026-04-24"
 category: "dev"
 description: "GitLab CIとDevContainer、LSPを組み合わせ、リポジトリ全体の型定義や文脈を理解した高精度なAIコードレビュー基盤の構築手法を詳解。ノイズを排し、本質的な指摘を引き出す設計。"
 themes: ["dev:gitlab-ci", "dev:devcontainer", "ai:code-review"]
+updated: "2026-08-02"
 ---
 
 # GitLab×AIコードレビューの精度を極限まで高める｜DevContainer連携の真価

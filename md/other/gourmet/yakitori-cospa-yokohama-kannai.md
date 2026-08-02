@@ -1,9 +1,10 @@
----
+﻿---
 title: "横浜・関内のコスパ最高焼き鳥屋 6選 | 満足度重視のリサーチログ 2026"
 date: "2026-04-15"
 category: "other"
 description: "横浜駅・関内駅周辺で『本当にコスパが良い』焼き鳥屋を厳選。仕事帰りのサク飲みから、内容重視のコースまで、地元民に愛される名店をリサーチ。"
 themes: ["gourmet:yakitori", "other:local", "yokohama:kannai"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>

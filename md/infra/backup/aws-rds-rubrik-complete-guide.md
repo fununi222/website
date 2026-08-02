@@ -1,9 +1,10 @@
----
+﻿---
 title: "AWS RDSバックアップの通信費をハックせよ｜Rubrikで実現する最強のデータ保護"
 date: "2026-04-24"
 category: "infra"
 description: "エグレスコスト（通信費）の罠、KMS暗号化の盲点、APIによる論理バックアップ自動化。200TB規模の運用で培った実戦ノウハウを凝縮した、AWSエンジニア必携の完全ガイド。"
 themes: ["infra:aws", "infra:backup", "security:ransomware", "ai:aiops"]
+updated: "2026-08-02"
 ---
 
 # AWS RDSバックアップの通信費をハックせよ｜Rubrikで実現する最強のデータ保護

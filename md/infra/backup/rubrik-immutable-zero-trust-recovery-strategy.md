@@ -1,9 +1,10 @@
----
+﻿---
 title: "【従来のバックアップはなぜ破綻するのか？】Rubrikが実現するZero Trustイミュータブルバックアップとランサムウェア時代の復旧戦略"
 date: "2026-08-01"
 category: "infra"
 description: "ランサムウェアがバックアップを先に破壊する時代に、RubrikのZero Trust Data Security、イミュータブル構造、機械学習によるClean Recovery Point特定が復旧戦略をどう変えるかを解説。"
 themes: ["infra:backup", "infra:rubrik", "ai:ml", "finance:bcp", "life:strategy"]
+updated: "2026-08-02"
 ---
 
 # 【従来のバックアップはなぜ破綻するのか？】Rubrikが実現するZero Trustイミュータブルバックアップとランサムウェア時代の復旧戦略

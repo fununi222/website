@@ -1,9 +1,10 @@
----
+﻿---
 title: "【完全版】GitHubでがんばらないナレッジ管理 | 非エンジニアも挫折しない3つの運用ルール"
 date: "2026-07-11"
 category: "dev"
 description: "GitHubをドキュメント管理・社内マニュアル共有に使うための完全ガイド。ブラウザ編集、自由なコミット、直書き運用、Discussions、Issue Templates、復旧手順まで非エンジニア向けに解説。"
 themes: ["dev:ai-coding", "ai:ops", "infra:ops"]
+updated: "2026-08-02"
 ---
 
 # 【完全版】GitHubで「がんばらない」ナレッジ管理！非エンジニアも挫折しない3つの運用ルール

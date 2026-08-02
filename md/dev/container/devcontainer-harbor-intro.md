@@ -1,9 +1,10 @@
----
+﻿---
 title: "記事①：Devcontainer×Harbor入門！開発環境の課題と解決策を完全解説"
 date: "2026-04-16"
 category: "dev"
 description: "開発環境の一貫性を担保するDevcontainerと、セキュアなコンテナレジストリHarborの基礎を分かりやすく解説します。"
 themes: ["dev:environment", "infra:container"]
+updated: "2026-08-02"
 ---
 
 # 記事①：Devcontainer×Harbor入門！開発環境の課題と解決策を完全解説

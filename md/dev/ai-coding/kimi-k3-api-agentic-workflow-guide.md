@@ -1,9 +1,10 @@
----
+﻿---
 title: "Kimi K3をAPI＆ローカル環境で動かす：超長文コンテキストとAgenticワークフロー実践構築"
 date: "2026-08-01"
 category: "dev"
 description: "Kimi K3のOpenAI SDK互換API、リポジトリ読解、レビューBOT、ローカル/プライベート実行の現実性を開発者向けにまとめる実践ガイド。"
 themes: ["dev:ai-coding", "ai:agents", "infra:gpu"]
+updated: "2026-08-02"
 ---
 
 # Kimi K3をAPI＆ローカル環境で動かす：Agenticワークフロー実践構築

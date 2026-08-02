@@ -1,9 +1,10 @@
----
+﻿---
 title: "API Gateway連携での罠「リトライストーム」を防ぐwebMethods設計術"
 date: "2026-04-24"
 category: "infra"
 description: "マルチレイヤー環境におけるカスケード障害「リトライストーム」の原因と対策。Gatewayへのリトライ責任集約とべき等性の担保について。"
 themes: ["infra:api-gateway", "dev:webmethods", "system-design"]
+updated: "2026-08-02"
 ---
 
 # API Gateway連携での罠「リトライストーム」を防ぐwebMethods設計術

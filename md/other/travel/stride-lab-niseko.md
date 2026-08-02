@@ -1,9 +1,10 @@
----
+﻿---
 title: "Other | 顧客満足度分析レポート：アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略"
 date: "2026-04-09"
 category: "other"
 description: "アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略の構造分析。STRIDE LAB ニセコの事例から、Customer Successとブランド防衛のメカニズムを紐解く。"
 themes: ["other:research", "business:strategy", "other:hiking"]
+updated: "2026-08-02"
 ---
 
 # Other | 顧客満足度分析レポート：アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略

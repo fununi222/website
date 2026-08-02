@@ -133,8 +133,9 @@ async function loadMarkdown() {
             });
         }
         
-        // 7. Handle Breadcrumbs
+        // 7. Handle Breadcrumbs & Article Dates Metadata
         updateBreadcrumbs(mdPath, metadata.title);
+        renderArticleHeaderMeta(metadata);
 
         // Emit Custom Event for and-hoc scripts
         const event = new CustomEvent('sme-loaded', { 
@@ -441,6 +442,36 @@ function updateBreadcrumbs(mdPath, title) {
     breadcrumbs.push(`<span class="text-primary truncate max-w-[200px]">${title || 'Article'}</span>`);
 
     breadcrumbArea.innerHTML = breadcrumbs.join(' ');
+}
+
+/**
+ * Renders publication date and updated date badges below breadcrumbs.
+ */
+function renderArticleHeaderMeta(metadata) {
+    const breadcrumbArea = document.getElementById('sme-breadcrumbs');
+    if (!breadcrumbArea) return;
+
+    let metaArea = document.getElementById('sme-article-meta-banner');
+    if (!metaArea) {
+        metaArea = document.createElement('div');
+        metaArea.id = 'sme-article-meta-banner';
+        metaArea.className = 'flex flex-wrap items-center gap-3 my-4 pb-4 border-b border-white/10 text-xs font-mono text-slate-400';
+        breadcrumbArea.parentNode.insertBefore(metaArea, breadcrumbArea.nextSibling);
+    }
+
+    const pubDate = metadata.date || '2026-04-09';
+    const updDate = metadata.updated || metadata.updated_date || '2026-08-02';
+
+    metaArea.innerHTML = `
+        <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1 rounded-full text-slate-300">
+            <span class="material-symbols-outlined text-sm text-slate-400">calendar_today</span>
+            <span>公開日: ${pubDate}</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full font-semibold">
+            <span class="material-symbols-outlined text-sm text-cyan-400">update</span>
+            <span>最終更新日: ${updDate}</span>
+        </div>
+    `;
 }
 
 /**

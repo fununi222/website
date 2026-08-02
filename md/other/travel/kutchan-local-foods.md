@@ -1,9 +1,10 @@
----
+﻿---
 title: "【2026年最新】倶知安の地元メシ探訪！ニセコ隣接のコスパ最強グルメと名水蕎麦の聖地"
 date: "2026-04-15"
 category: "other"
 description: "「ニセコランチは高すぎる」を解決するリサーチログ。羊蹄山の名水蕎麦、雪室熟成ジャガイモ、巨大シャリの寿司から最新リノベカフェまで、倶知安の底力を徹底解説。"
 themes: ["gourmet:hokkaido", "other:local", "kutchan:soba", "potato:男爵いも"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

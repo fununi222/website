@@ -1,9 +1,10 @@
----
+﻿---
 title: "AWS KMSの料金を99%削減する｜エンベロープ暗号化による最強のコストハック"
 date: "2026-04-24"
 category: "infra"
 description: "KMSのAPI呼び出しコストによるクラウド破産を回避する設計術。データキーのキャッシュ、エンベロープ暗号化、隔離環境（Vault）の最適解をプロが詳解。"
 themes: ["infra:aws", "security:kms", "finance:cost-optimization"]
+updated: "2026-08-02"
 ---
 
 # AWS KMSの料金を99%削減する｜エンベロープ暗号化による最強のコストハック

@@ -1,9 +1,10 @@
----
+﻿---
 title: "【米国株主要3指数 日次トレンド統合レポート】S&P 500・NASDAQ・SOX指数：Big Tech好決算とAI実需が牽引する強気シナリオ"
 date: "2026-08-02"
 category: "finance"
 description: "S&P 500 (7,490), NASDAQ (25,373), SOX指数 (11,311) の統合トレンド分析。Amazon・Alphabet等の好決算とAIクラウド設備投資(Capex)増大による株高シナリオを検証。"
 themes: ["finance:market-trends", "finance:investment"]
+updated: "2026-08-02"
 ---
 
 # 【米国株主要3指数 日次トレンド統合レポート】S&P 500・NASDAQ・SOX指数：Big Tech好決算とAI実需が牽引する強気シナリオ

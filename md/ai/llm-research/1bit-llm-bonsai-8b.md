@@ -1,9 +1,10 @@
----
+﻿---
 title: "1ビットLLM | Bonsai-8Bがもたらす推論パラダイムシフト 2026"
 date: "2026-04-09"
 category: "ai"
 description: "推論に高価なGPUはほぼ不要になる。究極の軽量化技術「1ビット量子化」がもたらすAIパラダイムシフトと、その先に待つ未来を読み解く。"
 themes: ["ai:research", "ai:llm", "ai:hardware"]
+updated: "2026-08-02"
 ---
 
 # 1ビットLLM | Bonsai-8Bがもたらす推論パラダイムシフト 2026

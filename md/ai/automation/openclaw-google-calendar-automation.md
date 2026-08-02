@@ -1,9 +1,10 @@
----
+﻿---
 title: "スケジュール管理をAIに丸投げする｜OpenClaw×Googleカレンダー連携完全ガイド"
 date: "2026-04-24"
 category: "ai"
 description: "AIエージェントに自分の時間を管理させる。Google Calendar APIの連携手順から、OAuth認証エラー（403）の確実な解消法まで、2026年最新の自動化バイブル。"
 themes: ["ai:automation", "ai:tool-integration", "google:calendar"]
+updated: "2026-08-02"
 ---
 
 # スケジュール管理をAIに丸投げする｜OpenClaw×Googleカレンダー連携完全ガイド

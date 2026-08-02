@@ -1,9 +1,10 @@
----
+﻿---
 title: "GUI画面のスクレイピングは時代遅れ？ Rubrik API Code Captureの活用法"
 date: "2026-04-16"
 category: "infra"
 description: "GUIの裏側で実行されるAPIを可視化するブラウザ拡張機能「Rubrik API Code Capture」の使い方と、Postmanを用いた検証方法を解説します。"
 themes: ["infra:api", "infra:automation", "infra:security"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

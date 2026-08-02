@@ -1,9 +1,10 @@
----
+﻿---
 title: "webMethods実践：REPEATステップと指数バックオフで作る最強のリトライ処理"
 date: "2026-04-24"
 category: "infra"
 description: "Thundering Herd問題を回避するための指数バックオフ実装術。REPEATステップの使い方とパイプラインロールバックの注意点を詳解。"
 themes: ["dev:webmethods", "ops:resilience", "backoff-strategy"]
+updated: "2026-08-02"
 ---
 
 # webMethods実践：REPEATステップと指数バックオフで作る最強のリトライ処理

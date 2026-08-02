@@ -1,9 +1,10 @@
----
+﻿---
 title: "【2026最新】GPT-5.6とChatGPT Workで何が変わる？ AIエージェントの破壊力を解説"
 date: "2026-07-11"
 category: "ai"
 description: "GPT-5.6 Sol/Terra/LunaとChatGPT Work、Codex連携で何が変わるのか。AIエージェント時代の実務メリット、使い分け、注意点を中学生にもわかる言葉で解説。"
 themes: ["ai:agents", "ai:automation", "dev:ai-coding"]
+updated: "2026-08-02"
 ---
 
 # 【2026最新】GPT-5.6とChatGPT Workで何が変わる？進化したAIエージェントの破壊力をプロが解説

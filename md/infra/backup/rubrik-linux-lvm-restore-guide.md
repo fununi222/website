@@ -1,9 +1,10 @@
----
+﻿---
 title: "RubrikでLinux LVMのリストアが失敗する原因と「確実」な救出手順"
 date: "2026-04-24"
 category: "infra"
 description: "LVM環境でファイル単位リストア（FLR）が失敗するUUID競合のメカニズムを解明。Live MountとHelper VMを駆使した高度な救出手順、BMR時の致命的な落とし穴をプロが詳解。"
 themes: ["infra:rubrik", "linux:lvm", "backup:dr"]
+updated: "2026-08-02"
 ---
 
 # RubrikでLinux LVMのリストアが失敗する原因と「確実」な救出手順

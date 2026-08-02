@@ -1,9 +1,10 @@
----
+﻿---
 title: "AI | 【完全版】AIOpsエンジニア向け 業務自動化プロンプト大全"
 date: "2026-04-10"
 category: "ai"
 description: "新規導入、要件定義、構築、障害対応。エンジニアの業務ライフサイクルを4つのパイプラインで自動化する、AIOpsエンジニア向けプロンプトの決定版。"
 themes: ["ai:prompt-engineering", "infra:automation", "dev:ops"]
+updated: "2026-08-02"
 ---
 
 # AI | 【完全版】AIOpsエンジニア向け 業務自動化プロンプト大全

@@ -1,9 +1,10 @@
----
+﻿---
 title: "インシデント管理の極致｜PagerDutyで作る『自律型』運用プラットフォーム"
 date: "2026-04-24"
 category: "infra"
 description: "「アラート疲れ」からエンジニアを解放する。PagerDutyのAIOps、Event Orchestration、そしてAIエージェントによる自動修復戦略を詳解。"
 themes: ["infra:ops", "ai:ops", "dev:dx"]
+updated: "2026-08-02"
 ---
 
 # インシデント管理の極致｜PagerDutyで作る『自律型』運用プラットフォーム

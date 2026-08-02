@@ -1,9 +1,10 @@
----
+﻿---
 title: "DB Backup Modernization | 基幹システムのバックアップ刷新と『ノイズ除外』の判断基準"
 date: "2026-04-16"
 category: "infra"
 description: "基幹システムのデータベースを旧環境から新バックアップ基盤へ移行する際の戦略。二段階の切替判定と、既知の製品制約に対する運用整理。"
 themes: ["infra:backup", "modernization:db", "migration:strategy"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

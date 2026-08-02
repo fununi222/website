@@ -1,9 +1,10 @@
----
+﻿---
 title: "AIエージェント | オーケストレーションの最新動向 2026"
 date: "2026-04-09"
 category: "ai"
 description: "単一のLLMから、複数の特化型エージェントを束ねるオーケストレーションへの転換とその技術的背景。"
 themes: ["ai:orchestration", "ai:agent", "ai:architecture"]
+updated: "2026-08-02"
 ---
 
 # AIエージェント | オーケストレーションの最新動向 2026

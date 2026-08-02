@@ -1,9 +1,10 @@
----
+﻿---
 title: "AIコードレビューを「シニア級」に変えるプロンプト術：ペルソナ指定と思考の連鎖（CoT）の威力"
 date: "2026-04-24"
 category: "dev"
 description: "AIによるコードレビューの質を劇的に向上させる手法を解説。専門家ペルソナの指定とChain-of-Thought（CoT）を組み合わせ、表面的な指摘を超えた本質的なバグ検知を実現。"
 themes: ["ai:prompt-engineering", "dev:code-review", "ai:cot"]
+updated: "2026-08-02"
 ---
 
 # AIコードレビューを「シニア級」に変えるプロンプト術：ペルソナ指定と思考の連鎖（CoT）の威力

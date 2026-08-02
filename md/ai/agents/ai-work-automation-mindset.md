@@ -1,9 +1,10 @@
----
+﻿---
 title: "AI驚き屋のコピペは卒業！自分の仕事を自動化して生産性を爆上げする鉄則"
 date: "2026-07-11"
 category: "ai"
 description: "SNS映えするAIデモから卒業し、ニュース調査、経理、定型メールなど実務自動化にAIエージェントを落とし込むための思考法。"
 themes: ["ai:agent", "ai:automation", "business:productivity"]
+updated: "2026-08-02"
 ---
 
 # AI驚き屋のコピペは卒業！自分の仕事を自動化して生産性を爆上げする鉄則

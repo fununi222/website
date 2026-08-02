@@ -1,9 +1,10 @@
----
+﻿---
 title: "鎌倉のコスパ飯 3選 | 行列必至の老舗カレーから本格麻婆豆腐まで"
 date: "2026-04-15"
 category: "other"
 description: "観光地・鎌倉で見つける、価格以上の満足感。伝説のカレーや隠れた海鮮の名店をご紹介。"
 themes: ["gourmet:kamakura", "other:local", "kamakura:lunch"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>

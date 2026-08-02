@@ -1,8 +1,9 @@
----
+﻿---
 title: "2026年3月投資まとめ：地獄の1ヶ月ダッシュボード"
 date: "2026-04-09"
 category: "finance"
 description: "3月の歴史的急落局面をデータで可視化。日経平均、実質賃金、金と原油の逆転現象から読み解く生存戦略。"
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-rose-500 opacity-60 text-right mb-6 tracking-widest font-mono">Market Report: v2026.03</div>

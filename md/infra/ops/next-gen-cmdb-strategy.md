@@ -1,9 +1,10 @@
----
+﻿---
 title: "次世代CMDB戦略 2026 | 自律型デジタルツインへの道"
 date: "2026-04-09"
 category: "infra"
 description: "IT資産管理から「自律型デジタルツイン」へ。ServiceNowが示すロードマップと5つの衝撃的転換点。"
 themes: ["infra:cmdb", "infra:servicenow", "ai:digital-twin"]
+updated: "2026-08-02"
 ---
 
 # 次世代CMDB戦略 2026 | 自律型デジタルツインへの道

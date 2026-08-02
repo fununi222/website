@@ -1,9 +1,10 @@
----
+﻿---
 title: "Rubrikの最大保護オブジェクト数は？ VMのカウント基準と限界値を徹底解説"
 date: "2026-04-16"
 category: "infra"
 description: "Rubrikによる仮想マシン（VM）等の保護オブジェクトのカウント基準と、物理クラスタ・Edge環境における最大値の仕様を徹底解説します。"
 themes: ["infra:sizing", "infra:architecture", "infra:edge"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>

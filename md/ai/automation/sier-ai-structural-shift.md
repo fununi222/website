@@ -1,9 +1,10 @@
----
+﻿---
 title: "人月商売の終焉｜AIが引き起こすSIer業界の『破壊的再編』と生存戦略"
 date: "2026-04-24"
 category: "ai"
 description: "生成AIはSIerを殺すのか、それとも進化させるのか。人月モデルの崩壊から『死の谷』の越え方まで、業界のリーダーが直視すべき構造的転換を徹底解剖。"
 themes: ["ai:strategy", "business:sier", "future:work"]
+updated: "2026-08-02"
 ---
 
 # 人月商売の終焉｜AIが引き引き起こすSIer業界の『破壊的再編』と生存戦略

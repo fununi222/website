@@ -1,9 +1,10 @@
----
+﻿---
 title: "Google Antigravityで変わるソフトウェア開発｜複数AIエージェントの並列稼働で実現するVibe Codingと開発自動化"
 description: "Google Antigravity 2.0とAntigravity IDEを軸に、複数AIエージェントの並列稼働、Vibe Coding、Cursor/Windsurfとの違い、導入時のセキュリティ観点を実務目線で整理します。"
 date: "2026-08-02"
 category: "dev"
 themes: ["dev:ai", "ai:agents", "dev:vibe-coding", "dev:antigravity"]
+updated: "2026-08-02"
 ---
 
 # Google Antigravityで変わるソフトウェア開発：複数AIエージェントの並列稼働で実現するVibe Codingと開発自動化

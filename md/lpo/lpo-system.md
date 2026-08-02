@@ -1,9 +1,10 @@
----
+﻿---
 title: "LPO | 80点円による自己最適化フレームワーク 2026"
 date: "2026-04-09"
 category: "lpo"
 description: "ホームのレーダーチャートとサマリーバーを更新するための運用ガイドと評価基準。"
 themes: ["lpo:framework", "lpo:optimization", "dev:automation"]
+updated: "2026-08-02"
 ---
 
 # LPO | 80点円による自己最適化フレームワーク 2026

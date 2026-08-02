@@ -1,9 +1,10 @@
----
+﻿---
 title: "三井住友カード100万円修行を最速で終わらせる｜Revolut×ANA Pay出口戦略"
 date: "2026-04-24"
 category: "finance"
 description: "「100万円修行」を無駄な買い物なしで達成するための最適解。ブランド別の手数料回避術と、チャージ残高を楽天証券の積立に回す高還元ルートを解説。"
 themes: ["finance:payment", "poi:strategy", "card:smcc"]
+updated: "2026-08-02"
 ---
 
 # 三井住友カード100万円修行を最速で終わらせる｜Revolut×ANA Pay出口戦略

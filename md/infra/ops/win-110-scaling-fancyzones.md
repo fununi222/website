@@ -1,9 +1,10 @@
----
+﻿---
 title: "Windows 11 | 表示スケール110%設定とFancyZones活用 2026"
 date: "2026-04-09"
 category: "infra"
 description: "大画面モニターやROG Allyでの作業効率を最大化する、カスタムスケーリングとマウスのみでの画面分割手法。"
 themes: ["infra:os", "infra:automation", "windows:config"]
+updated: "2026-08-02"
 ---
 
 # Windows 11 | 表示スケール110%設定とFancyZones活用 2026

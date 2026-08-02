@@ -1,9 +1,10 @@
----
+﻿---
 title: "OpenClaw復旧ガイド｜VPSネットワークの『見えない壁』を突破せよ"
 date: "2026-04-24"
 category: "infra"
 description: "「名前解決はできるのにWebアクセスが落ちる」――VPS特有のパケットフィルター制約とOpenClaw通信エラーを根本から解決する、診断と復旧の全手順。"
 themes: ["infra:network", "infra:vps", "other:troubleshoot"]
+updated: "2026-08-02"
 ---
 
 # OpenClaw復旧ガイド｜VPSネットワークの『見えない壁』を突破せよ

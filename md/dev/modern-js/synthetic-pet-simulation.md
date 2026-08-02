@@ -1,9 +1,10 @@
----
+﻿---
 title: "Development | Synthetic Pet Simulation：合成生命体の自律エージェント試論 2026"
 date: "2026-04-13"
 category: "dev"
 description: "ステートマシンと localStorage を用いた、デジタル生命体の空腹・幸福・エネルギー管理シミュレーション。"
 themes: ["dev:webapp", "dev:ux", "ai:agents"]
+updated: "2026-08-02"
 ---
 
 # Development | Synthetic Pet Simulation：合成生命体の自律エージェント試論 2026

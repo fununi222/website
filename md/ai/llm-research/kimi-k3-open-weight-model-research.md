@@ -1,9 +1,10 @@
----
+﻿---
 title: "【2.8兆パラメータ】Moonshot AI「Kimi K3」の実力とは？1MコンテキストとAgentic Coding性能を徹底解説"
 date: "2026-08-01"
 category: "ai"
 description: "Moonshot AIのオープンウェイトモデルKimi K3を、MoE/KDA/1Mコンテキスト/API/ローカル運用/セキュリティ観点から整理するAI Research向け技術速報。"
 themes: ["ai:llm", "ai:agents", "dev:ai-coding"]
+updated: "2026-08-02"
 ---
 
 # Moonshot AI「Kimi K3」技術速報：オープンウェイト3T級モデルは開発現場をどう変えるか

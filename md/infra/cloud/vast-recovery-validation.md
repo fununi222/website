@@ -1,9 +1,10 @@
----
+﻿---
 title: "Scale-out Storage | 大規模データ削除後の「実効容量」回復と検証プロセス"
 date: "2026-04-15"
 category: "infra"
 description: "バックアップ基盤の撤去に伴う大規模なデータ削除イベント後、ストレージ側でどのように空き容量が回復し、それをどう技術的に証明すべきか。"
 themes: ["infra:storage", "capacity:audit", "backup:recovery"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>

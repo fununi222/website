@@ -1,9 +1,10 @@
----
+﻿---
 title: "【2026最新】Long/Shortセクター分析｜技術民主化・IP主権時代の銘柄選定"
 date: "2026-07-08"
 category: "finance"
 description: "技術の民主化、機能主義へのシフト、IPへの主権交代、認知戦を、株式投資におけるLong/Short戦略のスクリーニング基準へ落とし込む実践フレームワーク。"
 themes: ["finance:equity", "strategy:long-short", "consumer:ip"]
+updated: "2026-08-02"
 ---
 
 # 【2026最新】Long/Shortセクター分析｜技術民主化・IP主権時代の銘柄選定

@@ -1,9 +1,10 @@
----
+﻿---
 title: "自律型データ保護の完成｜Rubrik×XSOARで作る『止まらない』セキュリティ運用"
 date: "2026-04-24"
 category: "infra"
 description: "GraphQLを活用した高速ログ抽出と、Cortex XSOAR連携によるインシデント対応の完全自動化。検知から隔離までを『秒単位』に短縮する次世代SOCの設計図。"
 themes: ["infra:security", "infra:automation", "infra:api"]
+updated: "2026-08-02"
 ---
 
 # 自律型データ保護の完成｜Rubrik×XSOARで作る『止まらない』セキュリティ運用

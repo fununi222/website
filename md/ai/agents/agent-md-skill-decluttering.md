@@ -1,9 +1,10 @@
----
+﻿---
 title: "AIの精度を劇的に変える「Agent.md」と「スキル」の断捨離最適化術"
 date: "2026-07-11"
 category: "ai"
 description: "Agent.md、MCP、スキルを詰め込みすぎてAIエージェントの精度を落とさないための、引き算型コンテキスト設計。"
 themes: ["ai:agent", "ai:context", "ai:automation"]
+updated: "2026-08-02"
 ---
 
 # AIの精度を劇的に変える「Agent.md」と「スキル」の断捨離最適化術

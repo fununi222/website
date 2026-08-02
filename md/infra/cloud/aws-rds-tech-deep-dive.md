@@ -1,9 +1,10 @@
----
+﻿---
 title: "Amazon RDS 徹底解剖｜AIOpsによる自律修復と高可用性の極致"
 date: "2026-04-24"
 category: "infra"
 description: "マネージドDBの限界を突破する。Multi-AZクラスターの深層、Boto3による自律スケーリング、そして『絶対に止まらない』RDS Proxy戦略を詳解。"
 themes: ["infra:cloud", "infra:database", "ai:ops"]
+updated: "2026-08-02"
 ---
 
 # Amazon RDS 徹底解剖｜AIOpsによる自律修復と高可用性の極致

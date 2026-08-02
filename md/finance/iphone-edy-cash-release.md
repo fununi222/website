@@ -1,9 +1,10 @@
----
+﻿---
 title: "iPhone 楽天Edy→楽天キャッシュ 変換解禁ガイド"
 date: "2026-04-14"
 category: "finance"
 description: "2026年2月のアップデートにより、iPhone単体での楽天Edyから楽天キャッシュへのチャージが可能に。ポイ活投資ルートの完成と技術的制約を詳しく解説。"
 themes: ["finance:payments", "finance:points", "finance:investing"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.14</div>

@@ -1,9 +1,10 @@
----
+﻿---
 title: "AWSのデータ転送料で『クラウド破産』しないために｜200TB超えDBの最適解"
 date: "2026-04-24"
 category: "infra"
 description: "AWSのデータ転送費（Egress）の罠と、大規模DB運用を支えるAmazon Auroraの真のメリットを解説。200TB超のデータ保護を、コストを抑えつつ実現する設計術。"
 themes: ["infra:aws", "cloud:cost-optimization", "database:aurora"]
+updated: "2026-08-02"
 ---
 
 # AWSのデータ転送料で『クラウド破産』しないために｜200TB超えDBの最適解

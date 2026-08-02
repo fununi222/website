@@ -1,9 +1,10 @@
----
+﻿---
 title: "【倶知安】子連れランチ＆ディナー厳選3店！大人数・0〜3歳児も安心の個室・座敷・コスパ最強ガイド"
 date: "2026-04-28"
 category: "other"
 description: "大人6名、0〜3歳児4名の大人数でも安心。倶知安エリアで絶対に周りの目を気にせず、車が停められて、お財布に優しい個室・座敷完備のコスパ最強ランチ＆ディナー3店をご紹介。"
 themes: ["gourmet:hokkaido", "other:local", "kutchan:family", "travel:niseko"]
+updated: "2026-08-02"
 ---
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.28</div>
