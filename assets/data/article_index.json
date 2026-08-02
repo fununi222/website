@@ -1,12 +1,5 @@
 [
   {
-    "title": "【2026年最新】Spark Gemini完全活用ガイド：24時間自律型AIエージェントの仕組みと導入手順",
-    "description": "Googleの24時間稼働自律型AIエージェント「Spark Gemini」の基本概念、従来チャットAIとの違い、Google AntigravityやMCP連携によるクロスアプリ自動化の実践導入手順を徹底解説。",
-    "date": "2026-08-02",
-    "category": "ai",
-    "path": "ai/agents/spark-gemini-starter-guide.html"
-  },
-  {
     "title": "Google Antigravityで変わるソフトウェア開発｜複数AIエージェントの並列稼働で実現するVibe Codingと開発自動化",
     "description": "Google Antigravity 2.0とAntigravity IDEを軸に、複数AIエージェントの並列稼働、Vibe Coding、Cursor/Windsurfとの違い、導入時のセキュリティ観点を実務目線で整理します。",
     "date": "2026-08-02",
@@ -47,6 +40,13 @@
     "date": "2026-08-02",
     "category": "glossary",
     "path": "glossary/system-glossary.html"
+  },
+  {
+    "title": "【2026年最新】Spark Gemini完全活用ガイド：24時間自律型AIエージェントの仕組みと導入手順",
+    "description": "Googleの24時間稼働自律型AIエージェント「Spark Gemini」の基本概念、従来チャットAIとの違い、Google AntigravityやMCP連携によるクロスアプリ自動化の実践導入手順を徹底解説。",
+    "date": "2026-08-02",
+    "category": "ai",
+    "path": "ai/agents/spark-gemini-starter-guide.html"
   },
   {
     "title": "【Google Antigravity徹底解剖】Antigravity 2.0 / IDE / CLI の違いと使い分け：VS Codeから移行する次世代マルチエージェント開発術",
