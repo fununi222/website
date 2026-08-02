@@ -13,8 +13,6 @@ updated: "2026-08-02"
 
 [クラウドOffice基盤](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Microsoft%20365")のデータ保護において、次世代バックアップ基盤は強力な不変バックアップを提供しますが、実運用ではシステム制約に起因する継続的な「Warning」が監視のノイズとなる課題があります。本稿では、アラートを機械的に処理するのではなく、ビジネスリスクに基づいて分類し、運用負荷を最小化する設計指針を整理します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-15</div>
-
 ---
 
 ## 1. M365バックアップにおける「Warning」の正体

@@ -12,8 +12,6 @@ updated: "2026-08-02"
 本レポートでは、16ビットの浮動小数点(FP16)を「-1, 0, 1」の3値（実質1.58ビット）へと極限圧縮する「1ビット量子化技術」と、その実用モデルである「Bonsai-8B」の衝撃について解説します。
 パラメータの簡略化により複雑な乗算処理が不要となり、[VRAM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="VRAM") の消費量を激減させることで「数十万円の [GPU](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GPU") なしに、普通のCPUやスマホで十分な速度の推論」が可能になります。この技術的ブレイクスルーは、エッジAIの爆発的普及やNVIDIA一強体制へのカウンターとなり、AIインフラのコスト構造やプライバシー要件に巨大なパラダイムシフトをもたらします。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ---
 
 ## 1. パラダイムシフト：1ビット量子化とは？

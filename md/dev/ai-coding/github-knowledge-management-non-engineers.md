@@ -21,8 +21,6 @@ NotionやConfluence、Qiita Teamといった専用のナレッジ共有ツール
 
 この記事では、非エンジニアや未経験者でも挫折しにくい、**「がんばりすぎない」GitHubナレッジ運用の全手法**を、具体的な設定方法や3つの鉄則とともに解説します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-07-11</div>
-
 ## この記事の結論：GitHubは「社内Wikipedia」にできる
 
 GitHub公式ドキュメントでも、リポジトリは「コード、ファイル、各ファイルの変更履歴を保存する場所」と説明されています。つまり、GitHubはプログラム専用の金庫ではなく、**ドキュメントと履歴を同時に管理できる情報置き場**です。

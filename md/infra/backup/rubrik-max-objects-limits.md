@@ -17,8 +17,6 @@ updated: "2026-08-02"
 
 この記事では、Rubrikにおける「保護対象オブジェクト」の正確な定義と、物理アプライアンスおよびエッジ環境における限界値（上限）について徹底解説します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026年 4月16日</div>
-
 ---
 
 ## 「保護対象オブジェクト」のカウント基準とは？

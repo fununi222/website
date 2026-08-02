@@ -12,8 +12,6 @@ updated: "2026-08-02"
 ## 超要約
 PrismMLが開発した驚異の1-bit LLM「Bonsai 8B」を、Android (Xiaomi/HyperOS) 端末のTermux上で動かし、エッジAIの真髄を体験するためのインタラクティブ・ガイドです。1-bit量子化のメリットの可視化から、環境構築、ビルド、推論実行までの具体的な手順を解説します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>

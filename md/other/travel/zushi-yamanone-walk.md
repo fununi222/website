@@ -13,8 +13,6 @@ updated: "2026-08-02"
 
 [逗子](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="逗子")といえば海のイメージが強いですが、駅のすぐ裏手に、驚くほど静かな散策路が存在します。山の根地区の鎮守「[熊野神社](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="熊野神社")」を起点に、中世の墓所である「[やぐら](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="やぐら")」や、鉄道ジオラマのような街の眺め、そして数百万年前の記憶を刻む[三浦層群](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="三浦層群")の地層を巡る、少し不思議な散歩道を紹介します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-14</div>
-
 ---
 
 ## 1. 住宅街の奥、静寂に包まれた[熊野神社](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="熊野神社")

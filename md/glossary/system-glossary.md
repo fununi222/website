@@ -8,8 +8,6 @@ updated: "2026-08-02"
 ---
 
 # Glossary | システム用語集 & ナレッジベース v2026.08.02.1
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-08-02</div>
-
 ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。
 以下の表は、各ヘッダーをクリックしてソートしたり、キーワードで検索することができます。
 

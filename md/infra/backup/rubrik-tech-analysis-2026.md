@@ -140,8 +140,6 @@ setTimeout(initRubrikDetail, 300);
 })();
 </script>
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-10</div>
-
 ---
 
 ## 1. Rubrikのアーキテクチャと全体像

@@ -21,8 +21,6 @@ updated: "2026-08-02"
 Rubrikが公式に提供している強力なツールを使えば、ノーコードでAPIの裏側を覗き見することができます。
 この記事では、自動化の救世主「Rubrik API Code Capture」の使い方を3つのステップで分かりやすく解説します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026年 4月16日</div>
-
 ---
 
 ## Rubrik API Code Captureとは？

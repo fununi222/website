@@ -9,8 +9,6 @@ updated: "2026-08-02"
 
 # 【米国株主要3指数 日次トレンド統合レポート】S&P 500・NASDAQ・SOX指数：Big Tech好決算とAI実需が牽引する強気シナリオ
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-08-02 01:14 JST</div>
-
 ---
 
 ## 📊 1. 総合市場センチメント＆ステータス一覧

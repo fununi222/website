@@ -13,8 +13,6 @@ updated: "2026-08-02"
 
 導入初期の興奮が過ぎ、実務運用フェーズへ移行した[生成AI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="生成AI")活用において、最も重要なのは「プロンプト」ではなく「参照データのライフサイクル管理」であることが見えてきました。本稿では、[Notebook (AI)](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Notebook%20(AI)")を活用した社内向けAIエージェントの本格運用を開始して数日が経過しました。本稿では、日常的なコミュニケーションツールでの返信支援や自動リサーチの実践を通じて見えてきた、エンタープライズ特有の運用課題について整理します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-16</div>
-
 ---
 
 ## 1. Copilot による「返信作成」と「自動リサーチ」

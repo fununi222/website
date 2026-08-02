@@ -8,8 +8,6 @@ updated: "2026-08-02"
 ---
 
 # OpenClaw | Yahoo!リアルタイム検索を活用した動的スキルの構築
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ## 超要約
 [X](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="X") [API](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="API")の高額な費用やアカウント制約、凍結リスクを回避し、[Yahoo!リアルタイム検索](https://search.yahoo.co.jp/realtime)をデータソースとして活用する、[OpenClaw](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="OpenClaw") ベースの[AIエージェント](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AIエージェント")スキル構築ガイドです。
 [Playwright](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Playwright")によるスクレイピングと、[LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM")を用いた高度なフィルタリングを組み合わせ、価値の高い「推し活」情報を自動で抽出・要約するシステムを構築します。

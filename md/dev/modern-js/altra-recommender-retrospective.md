@@ -12,8 +12,6 @@ updated: "2026-08-02"
 ## 超要約
 本記事は、過去に制作したレコメンドエンジン「altra-recommender」の開発プロセスを振り返ったものです。単なる[アルゴリズム](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="アルゴリズム")の実装にとどまらず、推薦結果の「納得感」や「可読性」といった [UI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="UI") 体験、および[フロントエンド](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="フロントエンド")とロジックを密結合させないデータ構造の設計について、実務に繋がる学びをまとめています。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ---
 
 過去に制作した **altra-recommender** は、ユーザーごとに合いそうな候補を提示することを意識して作ったレコメンド系の Web アプリです。見た目だけではなく、**「どうやって候補を出すか」** と **「どう見せれば使いやすいか」** の両方を考える必要があり、ロジックと [UI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="UI") をつなぐ難しさを学べた制作でした。

@@ -12,8 +12,6 @@ updated: "2026-08-02"
 ## 超要約
 Moonshot AI の **Kimi K3** は、2.8 兆パラメータ級のオープンウェイトモデルとして、長時間のコーディング、巨大リポジトリ読解、知識作業、推論ワークフローを主戦場に据えたモデルです。公式ブログでは **Kimi Delta Attention（KDA）**、Attention Residuals、ネイティブ視覚理解、**1M token context** が前面に出されており、AI Research 領域では「巨大化」よりも「長文・ツール利用・コスト構造」を評価軸にすべきです。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-08-01</div>
-
 ---
 
 ## 1. Kimi K3の基本スペック

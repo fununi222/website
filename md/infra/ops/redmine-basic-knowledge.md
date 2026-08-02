@@ -13,8 +13,6 @@ updated: "2026-08-02"
 
 [Redmine](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Redmine")は、Ruby on Railsで構築された強力なオープンソースのプロジェクト管理ツールです。すべての作業を「[チケット](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="チケット")」として管理し、[ガントチャート](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ガントチャート")による時系列表示やWiki機能によるナレッジ共有を統合することで、チームの生産性を最大化します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-15</div>
-
 ---
 
 ## 1. 「チケット」によるタスクの構造化

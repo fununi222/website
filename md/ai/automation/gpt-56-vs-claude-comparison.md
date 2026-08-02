@@ -19,8 +19,6 @@ AIツールに毎月お金を払うなら、失敗したくないですよね。
 
 この記事では、GPT-5.6とClaudeのどちらに課金すべきかを、実務目線でわかりやすく比較します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-07-11</div>
-
 ## 先に結論：作業自動化ならGPT-5.6、長文と思考整理ならClaude
 
 ざっくり選ぶなら、次の基準です。

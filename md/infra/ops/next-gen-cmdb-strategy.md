@@ -12,8 +12,6 @@ updated: "2026-08-02"
 ## 超要約
 本記事は、進化し続ける ServiceNow プラットフォームの中核である CMDB の 2026 年に向けた戦略的ロードマップを解説します。単なる「IT資産の在庫リスト」としての役割を超え、IRE による高いデータ品質、CSDM 5.0 によるビジネス価値の紐付け、および RaptorDB やエージェント型 AI による自律的な意思決定エンジン（デジタルツイン）へと昇華する 5 つの転換点を詳解します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ---
 
 <style>

@@ -21,8 +21,6 @@ updated: "2026-08-02"
 結論から言えば、**GUI画面のスクレイピングは絶対に不要**です。
 この記事では、Rubrik Security Cloud（[RSC](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="RSC")）におけるログ取得の仕組みと、なぜ画面のHTML化が不要なのかを初心者にも分かりやすく解説します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026年 4月16日</div>
-
 ---
 
 ## Rubrikの脅威監視（Threat Monitoring）とは？

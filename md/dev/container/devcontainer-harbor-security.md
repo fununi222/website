@@ -17,8 +17,6 @@ updated: "2026-08-02"
 最終回となる本記事では、エンタープライズ企業で最も重視される**「セキュリティと認証」**について解説します。
 Harborを導入すれば、面倒なセキュリティチェックをすべて自動化し、「[DevSecOps](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="DevSecOps")」を実現できます。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026年 4月16日</div>
-
 ---
 
 ## 脆弱性スキャンを自動化（Trivyの統合）

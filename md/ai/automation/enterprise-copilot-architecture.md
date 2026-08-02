@@ -13,8 +13,6 @@ updated: "2026-08-02"
 
 [生成AI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="生成AI")を社内業務に統合する際、[AIエージェント開発基盤](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Copilot%20Studio")は迅速な開発を可能にしますが、ライセンス体系に起因する「外部ユーザー（BP）公開の制約」が普及の壁となる場合があります。本稿では、社外連携プロジェクトの知見をもとに、現実的な公開アーキテクチャを比較検討します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-15</div>
-
 ---
 
 ## 1. AIエージェント開発基盤 における「BP排除」の壁

@@ -17,8 +17,6 @@ updated: "2026-08-02"
 
 この記事では、Rubrik環境における本番ストレージへの過負荷問題（Noisy Neighbor問題）を解決し、安全に負荷を分散させるための具体的な対策とベストプラクティスを解説します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026年 4月16日</div>
-
 ---
 
 ## なぜRubrikはバックアップのリソース制限（スロットリング）ができないのか？

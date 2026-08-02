@@ -12,8 +12,6 @@ updated: "2026-08-02"
 ## 超要約
 OpenAI Codex は、自然言語をコードに変換する [LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM") の標準を確立しました。2026 年現在、そのエッセンスは [GPT-5](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GPT5") シリーズに統合され、エージェント型エンジニアリングへと進化しています。本レポートでは、Codex の基盤構造から最新の 2024-2026 ベンチマーク、およびセキュアな開発のための回避策を整理します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ---
 
 <style>

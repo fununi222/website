@@ -12,8 +12,6 @@ updated: "2026-08-02"
 ## 超要約
 Kimi K3は、OpenAI SDK互換APIから試しやすく、1M token contextを活かした巨大リポジトリ読解や長時間コーディングエージェントのPoCに向いています。一方で、ローカル実行は量子化・分散推論・GPUメモリ設計が必要なため、まずはAPIで評価し、成果が見えた処理だけをプライベート推論へ移すのが現実的です。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-08-01</div>
-
 ---
 
 ## 1. 最初に作るべきPoC

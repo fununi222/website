@@ -11,8 +11,6 @@ updated: "2026-08-02"
 
 従来のランサムウェアがデータの「可用性」を人質にするのに対し、最新の[ノーウェアランサム](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ノーウェアランサム")は「機密性」の暴露を武器にする。この手口では、データの暗号化を完全に省略することで、従来のセキュリティ製品の振る舞い検知をすり抜け、超高速な情報窃取（[エクスフィルトレーション](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="エクスフィルトレーション")）を完遂する。バックアップを保持していても情報流出は防げないという「バックアップのパラドックス」に直面する中、企業は[MFA](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="MFA")による境界防衛の徹底と、[EDR](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="EDR")や[NDR](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="NDR")等のAI主導型検知アーキテクチャへの移行が急務となっている。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ## 1. 導入：変容するサイバー空間の脅威とノーウェアランサムの定義
 
 現代のサイバー脅威情勢は、単なるシステムの破壊や業務妨害から、高度に組織化されたデータの窃取およびそれを応用した金銭的恐喝へと、その作戦行動のパラダイムを完全に移行させている。長年にわたり、サイバーセキュリティの領域において最大の脅威と見なされてきたのは、標的ネットワークに侵入した後に重要データを暗号化し、業務システムを麻痺させた上で、復号キーと引き換えに身代金を要求する伝統的なランサムウェアであった。この攻撃モデルは、情報セキュリティの三大要件（機密性、完全性、可用性）のうち、主として「可用性」に対する直接的な破壊工作を意味していた。

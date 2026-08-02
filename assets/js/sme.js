@@ -510,6 +510,13 @@ function generateTableOfContents() {
             e.preventDefault();
             const target = document.getElementById(heading.id);
             if (target) {
+                // Tab support: if heading is inside a tab-content container, trigger tab click
+                const tabParent = target.closest('.tab-content, [id^="sec-"]');
+                if (tabParent && tabParent.classList.contains('hide-content')) {
+                    const btn = document.querySelector(`[data-target="${tabParent.id}"]`);
+                    if (btn) btn.click();
+                }
+
                 const navHeight = 90;
                 const bodyRect = document.body.getBoundingClientRect().top;
                 const elementRect = target.getBoundingClientRect().top;

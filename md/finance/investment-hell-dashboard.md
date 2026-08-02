@@ -13,8 +13,6 @@ updated: "2026-08-02"
 ## 超要約
 画面が真っ赤に染まった3月。[日経平均](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="日経平均")は約13%の暴落を記録しましたが、その背後では13ヶ月ぶりの「[実質賃金](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="実質賃金")プラス転換」という歴史的快挙も起きています。有事に強いはずの「金（ゴールド）」が売られ、「実利の原油」が買われるパワーバランスの変化を読み解き、10年後の果実へ繋げるための論理的な現状把握を行いましょう。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ---
 
 <section id="nikkei" class="mb-12">

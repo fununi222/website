@@ -13,8 +13,6 @@ updated: "2026-08-02"
 
 [横浜](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="横浜")・[関内](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="関内")エリアは、日本屈指の焼き鳥激戦区です。高級店も多い中、今回は「価格以上の満足度（コスパ）」を軸に、平日でも満席必至の人気店をピックアップしました。炭火の香りに包まれながら、至福の時間を過ごせる厳選6店を紹介します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-15</div>
-
 ---
 
 ## 1. 横浜駅エリア：活気と炭火の香りに誘われて

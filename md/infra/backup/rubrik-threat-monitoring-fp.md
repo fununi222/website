@@ -23,8 +23,6 @@ updated: "2026-08-02"
 
 この記事では、SEOトップ1%のプロの視点から、Rubrikがなぜ誤検知しにくいのか、その驚くべき技術の裏側と、運用時のノイズをさらに減らすための具体的な設定方法を分かりやすく徹底解説します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026年 4月16日</div>
-
 ---
 
 ## 誤検知（ノイズ）が起きる根本的な原因とは？

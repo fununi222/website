@@ -9,8 +9,6 @@ updated: "2026-08-02"
 
 # なぜ「考えすぎる」のか？YouTube「考えすぎる葦」から学ぶ、脳構造・進化心理学・社会システム解剖ガイド
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-08-02</div>
-
 ---
 
 ## 1. 導入：なぜ私たちは「考えすぎて」しまうのか？

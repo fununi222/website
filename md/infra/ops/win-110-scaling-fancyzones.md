@@ -12,8 +12,6 @@ updated: "2026-08-02"
 ## 超要約
 本記事は、Windows 11環境における視認性と作業効率を極限まで高めるカスタマイズ手法の記録です。標準設定にはない「110%」の[カスタムスケーリング](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="カスタムスケーリング")を適用し、[PowerToys](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PowerToys") の [FancyZones](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="FancyZones") 機能をマウスの副ボタン（右クリック）のみで呼び出せるよう調整することで、キーボードを介さない直感的なマルチウィンドウ環境を構築します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ---
 
 Windows PCを使っていて、「100%だと文字が小さいけど、125%だとデカすぎる…」とか、「画面を分割したいけど、いちいちShiftキーを押すのが面倒…」と感じたことはありませんか？

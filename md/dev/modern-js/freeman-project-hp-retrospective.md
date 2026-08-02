@@ -12,8 +12,6 @@ updated: "2026-08-02"
 ## 超要約
 本記事は、情報設計の原点となったホームページ「Freeman Project HP」の制作プロセスを振り返ったものです。派手な装飾よりも「情報の自然な流れ」と「可読性」を最優先し、[HTML](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="HTML") / [CSS](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="CSS") による構造化と、デバイスを選ばない[レスポンシブ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="レスポンシブ")対応の本質について、当時の学びを整理しています。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ---
 
 過去に制作した **Freeman Project HP** は、情報を整理してわかりやすく届けることを目的に作ったホームページです。今振り返ると、派手な機能を増やすよりも、**「何を、どの順番で、どう見せるか」** を強く意識していた制作だったと感じます。

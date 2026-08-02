@@ -9,8 +9,6 @@ updated: "2026-08-02"
 
 # 【YouTubeアナリティクス分析】動画投稿初期100時間の数値データ検証とアルゴリズムインプレッション攻略
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-08-02</div>
-
 新規動画投稿後に集計される**初期100時間のYouTubeアナリティクスデータ**をもとに、アルゴリズムのインプレッション拡大状況、クリック率(CTR)、視聴維持率、トラフィックソースを多角的に分析・検証したリサーチログです。
 
 ---

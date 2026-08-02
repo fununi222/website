@@ -17,8 +17,6 @@ updated: "2026-08-02"
 本記事では、Harborを導入することで得られる「コスト削減」と「運用効率化」の具体的なテクニックを解説します。
 特に、**Docker HubのPull制限に悩んでいる方**は必見です。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026年 4月16日</div>
-
 ---
 
 ## パブリックレジストリの「2つの大きな壁」

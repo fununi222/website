@@ -13,8 +13,6 @@ updated: "2026-08-02"
 
 [逗子](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="逗子")エリアで「安くて美味しい」を追求すると、必ず行き着くのが新鮮な魚料理です。今回は、観光客向けの派手な宣伝はないものの、地元民が日常的に利用する圧倒的コスパを誇る3店をリサーチしました。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-15</div>
-
 ---
 
 ## 1. ゆうき食堂

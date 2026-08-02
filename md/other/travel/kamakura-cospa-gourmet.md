@@ -13,8 +13,6 @@ updated: "2026-08-02"
 
 鎌倉での食事は「高い・混む」というイメージがありますが、しっかりリサーチすれば1,000円台で驚くほどのクオリティに出会えます。今回は、地元民が「並んででも食べたい」と太鼓判を押すコスパ最強の3店を厳選しました。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-15</div>
-
 ---
 
 ## 1. キャラウェイ

@@ -11,8 +11,6 @@ updated: "2026-08-02"
 ## 超要約
 本ドキュメントは、インフラ自動化領域における [OSS](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="OSS") の最新トレンドを効率的にキャッチアップし、[PoC](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PoC") へ迅速にフィードバックするための運用フローを定義したものです。毎週・毎月の定期リサーチを [Cron](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Cron") や [GitHub Actions](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GitHub Actions") でスケジューリングし、情報の評価・反映プロセスを標準化することで、技術選定の品質と速度を両立させます。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ---
 
 定期的に最新のトレンドや、今回の [PoC](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PoC") に関連するツール情報をリサーチし、FunUni-labに反映するための運用フローを定義する。

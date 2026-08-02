@@ -11,8 +11,6 @@ updated: "2026-08-02"
 
 本記事では、AI開発の最前線である「[オーケストレーター](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="オーケストレーター")」による複数エージェントの統合管理について解説します。単一モデルの限界を、役割分担（Manager, Specialist等）によって克服し、信頼性と拡張性を両立させる「Graph型」への進化が、次世代のAI運用において不可欠な視点となることを示します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ---
 
 2026年の[AIエージェント](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AIエージェント")開発における最大のパラダイムシフトは、単独のLLM（Large Language Model）による対話から、**「複数の特化型エージェントを束ねるオーケストレーションシステム」**への転換にあります。

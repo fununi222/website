@@ -10,8 +10,6 @@ updated: "2026-08-02"
 
 [Obsidian](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Obsidian") は優れたローカルファーストの知識管理ツールですが、モバイル端末との同期には通常 `Obsidian Sync`（有料サブスクリプション）が必要です。本記事では、コミュニティプラグイン **[Google Drive Sync](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Google Drive Sync")** を活用し、Windows PC、Android、iOS の 3OS 間で [Vault](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Vault (保管庫)") を無料で完全同期する手法を解説します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-13</div>
-
 ---
 
 ## 💡 同期システムのデザインと「最重要ルール」

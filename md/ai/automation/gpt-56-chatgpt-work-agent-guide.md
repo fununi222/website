@@ -25,8 +25,6 @@ updated: "2026-08-02"
 
 この記事では、GPT-5.6とChatGPT Workのポイントを、中学生でもわかる言葉で整理します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-07-11</div>
-
 ## まず結論：何が変わったのか
 
 今回のアップデートで重要なのは、次の3点です。

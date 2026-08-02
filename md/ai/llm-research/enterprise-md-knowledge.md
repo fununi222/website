@@ -11,8 +11,6 @@ updated: "2026-08-02"
 
 大企業におけるAI活用の成否は、PDF等の非構造化データに依存する既存の[RAG](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="RAG")アーキテクチャの限界をいかに突破するかにかかっている。本レポートでは、[LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM")との親和性が高いMarkdownベースのナレッジ管理、分散型データ所有権を提唱する[データメッシュ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="データメッシュ")、そして自動化されたガバナンスを実現する[Docs-as-Code](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Docs-as-Code")戦略を詳解。知識を単なるファイルから「戦略的インフラ」へと格上げし、2026年のナレッジ・インテリジェンス時代を勝ち抜くための組織変革ロードマップを提示する。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ## 1. 序論：エンタープライズAIの台頭とナレッジ管理におけるパラダイムシフト
 
 現代のビジネス環境において、人工知能（AI）の大規模な導入は企業の競争力を左右する中核的な戦略となっている。特に、エンタープライズAIアプリケーションの約85%が、[LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM")に外部の専門知識を動的に提供する[RAG](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="RAG")（Retrieval-Augmented Generation：検索拡張生成）を基盤アーキテクチャとして採用している現状がある [1]。RAGは、AIモデルを最新の企業データに接地（グラウンディング）させるための事実上の標準技術であり、[ハルシネーション](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ハルシネーション")（幻覚）を抑制し、企業固有の文脈に基づいた回答を生成するために不可欠なプロセスである。しかしながら、RAGが真の価値を発揮するかどうかは、その背後にある「ナレッジベース」の品質とガバナンスに完全に依存している [1]。

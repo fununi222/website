@@ -13,8 +13,6 @@ updated: "2026-08-02"
 
 2026年2月16日の[楽天ペイ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="楽天ペイ")アプリ更新により、iPhone単体で[楽天Edy](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="楽天Edy")から[楽天キャッシュ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="楽天キャッシュ")へのチャージが正式解禁されました。これにより、これまでAndroid端末が必須だった「高還元チャージルート」の出口がiPhone 1台で完結。楽天証券での投信積立など、[ポイ活](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ポイ活")投資戦略において極めて重要なアップデートとなっています。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-14</div>
-
 ---
 
 ## 1. iPhone単体で「最高還元ルート」が完結する衝撃

@@ -11,8 +11,6 @@ updated: "2026-08-02"
 
 本プロジェクトは、[フロントエンド](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="フロントエンド")技術のみで完結する「たまごっち風」の自律型エージェント・シミュレーターです。単なるゲーム制作にとどまらず、**「時間経過による状態（State）の減衰」**と**「localStorage による永続化」**の実装を通じて、デジタル環境における自律生命体の[UI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="UI")/[UX](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="UX")設計を検証します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-13</div>
-
 ---
 
 ## 💻 Simulation Core

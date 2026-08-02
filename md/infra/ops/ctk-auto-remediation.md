@@ -12,8 +12,6 @@ updated: "2026-08-02"
 ## 超要約
 本レポートは、[VMware vSphere](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="VMware vSphere") 基盤における増分[バックアップ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="バックアップ")の生命線である [CBT (Changed Block Tracking)](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="CBT (Changed Block Tracking")) の不整合問題を解決する自動化手法について解説します。不整合発生によるフルスキャンのフォールバックを防ぐため、[PowerShell](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PowerShell") (PowerCLI) と [Jenkins](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Jenkins") を組み合わせ、[スナップショット](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="スナップショット")生成を介したステータスの自動リセットフローを構築し、運用の安定性を向上させます。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026-04-09</div>
-
 ---
 
 [VMware vSphere](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="VMware vSphere")環境における[バックアップ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="バックアップ")トラブルを防ぐ。CBT（Changed Block Tracking）不整合の検知と是正を自動化する実践手法。

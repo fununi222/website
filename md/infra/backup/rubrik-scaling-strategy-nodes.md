@@ -19,8 +19,6 @@ updated: "2026-08-02"
 結論から言うと、**物理的・地理的な制約がない限り、圧倒的に「ノード追加（単一クラスタの巨大化）」が正解**です。
 この記事では、Rubrikの裏側で動いている最新のデータベースアーキテクチャを紐解きながら、クラスタ分割がなぜダメなのか、正しいスケーリングのベストプラクティスを解説します。
 
-<div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Last Updated: 2026年 4月16日</div>
-
 ---
 
 ## なぜ「クラスタの都度追加」はアンチパターンなのか？
