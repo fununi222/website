@@ -32,6 +32,12 @@ Every article must be treated as part of a **Topic Cluster** to distribute autho
 5.  **SEO Title Design**: CTR-optimized (~32 characters) with strategic keyword placement.
 6.  **Conversion Path (LPO)**: Align content with the funnel (Awareness -> Strategic Decision -> Action).
 
+### 1.5 Direct Output Rule (No Pre-Approval)
+- **No preliminary confirmation or approval step**: When producing article drafts, publishing-ready Markdown, social media copy, or Codex prompts, do not ask for prior confirmation unless critical missing information prevents safe completion.
+- **Complete Markdown first**: Always output a fully paste-ready Markdown article that can be used immediately in Codex, Qiita, Zenn, or the target media.
+- **Codex prompt included**: When the task involves article creation or article workflow automation, include a complete Codex-ready prompt block that can directly regenerate or update the Web publishing file.
+- **Security exception**: This rule does not bypass repository safety, tests, git workflow, or production-side destructive-action approvals.
+
 ### 2. Article Format Standards
 - **Hero Image**: cyber-glow styled visuals representing the theme.
 - **Intro**: Empathy -> Problem Statement (Pain Point) -> Strategic Solution -> Benefit.
