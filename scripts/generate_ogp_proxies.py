@@ -85,8 +85,12 @@ def main():
                 rel_path = os.path.relpath(src_path, src_root).replace('\\', '/')
                 
                 # Metadata extraction
-                with open(src_path, 'r', encoding='utf-8') as f:
-                    content = f.read()
+                try:
+                    with open(src_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                except UnicodeDecodeError:
+                    with open(src_path, 'r', encoding='utf-8', errors='replace') as f:
+                        content = f.read()
                 
                 metadata = parse_frontmatter(content)
                 title = metadata.get('title', 'Technical Archive')
