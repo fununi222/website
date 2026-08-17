@@ -24,20 +24,20 @@
     "path": "other/tech-life/sense-tacit-knowledge-ai-decision.html"
   },
   {
-    "title": "Gemini 3.6 Flashが「バカすぎて」Anti-Gravityで使い物にならなかった件、そして私たちが誤解していた真実",
-    "description": "Gemini 3.6 FlashをAnti-Gravityで試した初期評価の失敗と、AI StudioおよびHigh設定で見えたモデル本来の実力。モデル評価と設定・アプリ層評価を分ける重要性を開発体験から振り返る。",
-    "date": "2026-08-04",
-    "updated": "2026-08-10",
-    "category": "ai",
-    "path": "ai/llm-research/gemini-36-flash-app-layer-misunderstanding.html"
-  },
-  {
     "title": "幻のGemini 3.5 Proと「AI性能競争」の終焉：開発現場から見たGoogleの勝算",
     "description": "Gemini 3.6 FlashのAPI検証体験とJosh氏の考察を踏まえ、Gemini 3.5 Pro遅延説、計算資源制約、AI性能競争からエコシステム統合への変化を開発現場の視点で整理する。",
     "date": "2026-08-04",
     "updated": "2026-08-04",
     "category": "ai",
     "path": "ai/llm-research/gemini-35-pro-ai-performance-race-end.html"
+  },
+  {
+    "title": "Gemini 3.6 Flashが「バカすぎて」Anti-Gravityで使い物にならなかった件、そして私たちが誤解していた真実",
+    "description": "Gemini 3.6 FlashをAnti-Gravityで試した初期評価の失敗と、AI StudioおよびHigh設定で見えたモデル本来の実力。モデル評価と設定・アプリ層評価を分ける重要性を開発体験から振り返る。",
+    "date": "2026-08-04",
+    "updated": "2026-08-10",
+    "category": "ai",
+    "path": "ai/llm-research/gemini-36-flash-app-layer-misunderstanding.html"
   },
   {
     "title": "【2026年最新】Model Context Protocol（MCP）完全ガイド｜LLMと外部ツール/DBを繋ぐ標準プロトコル",
@@ -48,52 +48,12 @@
     "path": "dev/ai-coding/model-context-protocol-complete-guide.html"
   },
   {
-    "title": "Amazon RDS 徹底解剖｜AIOpsによる自律修復と高可用性の極致",
-    "description": "マネージドDBの限界を突破する。Multi-AZクラスターの深層、Boto3による自律スケーリング、そして『絶対に止まらない』RDS Proxy戦略を詳解。",
+    "title": "インシデント管理の極致｜PagerDutyで作る『自律型』運用プラットフォーム",
+    "description": "「アラート疲れ」からエンジニアを解放する。PagerDutyのAIOps、Event Orchestration、そしてAIエージェントによる自動修復戦略を詳解。",
     "date": "2026-04-24",
     "updated": "2026-08-02",
     "category": "infra",
-    "path": "infra/cloud/aws-rds-tech-deep-dive.html"
-  },
-  {
-    "title": "IT主権の奪還｜2026年エンタープライズITを支配する『4つのパラダイムシフト』",
-    "description": "パブリッククラウドの限界、AI翻訳の罠、自律エージェントの光と影。2026年、ITリーダーが直面する破壊的変化と、次世代の生存戦略を徹底解剖。",
-    "date": "2026-04-24",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/cloud/enterprise-it-paradigm-shift-2026.html"
-  },
-  {
-    "title": "階層化の終焉｜VAST Dataが拓くAI時代の『ユニバーサル・ストレージ』",
-    "description": "「高性能は高コスト」という常識を破壊。DASEアーキテクチャとQLCフラッシュを駆使し、全データを単一フラッシュ層へ統合するVAST Dataの衝撃。",
-    "date": "2026-04-24",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/cloud/vast-data-universal-storage-research.html"
-  },
-  {
-    "title": "AWSのデータ転送料で『クラウド破産』しないために｜200TB超えDBの最適解",
-    "description": "AWSのデータ転送費（Egress）の罠と、大規模DB運用を支えるAmazon Auroraの真のメリットを解説。200TB超のデータ保護を、コストを抑えつつ実現する設計術。",
-    "date": "2026-04-24",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/cloud/aws-egress-cost-aurora-benefits.html"
-  },
-  {
-    "title": "AWS Minimalism｜小規模開発を加速させる『実利主義的IaC』の設計パターン",
-    "description": "過剰なLanding Zone設計は不要。小規模案件において、スピードとセキュリティを両立させるための最小限のIaC標準化アプローチを詳解。",
-    "date": "2026-04-24",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/cloud/aws-minimal-iac-patterns.html"
-  },
-  {
-    "title": "AWS KMSの料金を99%削減する｜エンベロープ暗号化による最強のコストハック",
-    "description": "KMSのAPI呼び出しコストによるクラウド破産を回避する設計術。データキーのキャッシュ、エンベロープ暗号化、隔離環境（Vault）の最適解をプロが詳解。",
-    "date": "2026-04-24",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/cloud/aws-kms-cost-envelope-encryption.html"
+    "path": "infra/network/pagerduty-architecture.html"
   },
   {
     "title": "API Gateway連携での罠「リトライストーム」を防ぐwebMethods設計術",
@@ -104,20 +64,12 @@
     "path": "infra/network/webmethods-retry-storm-gateway.html"
   },
   {
-    "title": "インシデント管理の極致｜PagerDutyで作る『自律型』運用プラットフォーム",
-    "description": "「アラート疲れ」からエンジニアを解放する。PagerDutyのAIOps、Event Orchestration、そしてAIエージェントによる自動修復戦略を詳解。",
+    "title": "OpenClaw復旧ガイド｜VPSネットワークの『見えない壁』を突破せよ",
+    "description": "「名前解決はできるのにWebアクセスが落ちる」――VPS特有のパケットフィルター制約とOpenClaw通信エラーを根本から解決する、診断と復旧の全手順。",
     "date": "2026-04-24",
     "updated": "2026-08-02",
     "category": "infra",
-    "path": "infra/network/pagerduty-architecture.html"
-  },
-  {
-    "title": "webMethodsのHTTP 502エラー完全ガイド：原因と標準リトライの実装手順",
-    "description": "Integration Serverでの502エラー検知から、throwExceptionForRetryを用いた標準リトライの実装、メモリリークを防ぐ設定まで徹底解説。",
-    "date": "2026-04-24",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/network/webmethods-http-502-guide.html"
+    "path": "infra/network/openclaw-vps-network-troubleshoot.html"
   },
   {
     "title": "webMethods×Rubrik連携の極致｜502エラーを『デザイン』するレジリエンス戦略",
@@ -136,12 +88,60 @@
     "path": "infra/network/webmethods-exponential-backoff-repeat.html"
   },
   {
-    "title": "OpenClaw復旧ガイド｜VPSネットワークの『見えない壁』を突破せよ",
-    "description": "「名前解決はできるのにWebアクセスが落ちる」――VPS特有のパケットフィルター制約とOpenClaw通信エラーを根本から解決する、診断と復旧の全手順。",
+    "title": "webMethodsのHTTP 502エラー完全ガイド：原因と標準リトライの実装手順",
+    "description": "Integration Serverでの502エラー検知から、throwExceptionForRetryを用いた標準リトライの実装、メモリリークを防ぐ設定まで徹底解説。",
     "date": "2026-04-24",
     "updated": "2026-08-02",
     "category": "infra",
-    "path": "infra/network/openclaw-vps-network-troubleshoot.html"
+    "path": "infra/network/webmethods-http-502-guide.html"
+  },
+  {
+    "title": "階層化の終焉｜VAST Dataが拓くAI時代の『ユニバーサル・ストレージ』",
+    "description": "「高性能は高コスト」という常識を破壊。DASEアーキテクチャとQLCフラッシュを駆使し、全データを単一フラッシュ層へ統合するVAST Dataの衝撃。",
+    "date": "2026-04-24",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/cloud/vast-data-universal-storage-research.html"
+  },
+  {
+    "title": "IT主権の奪還｜2026年エンタープライズITを支配する『4つのパラダイムシフト』",
+    "description": "パブリッククラウドの限界、AI翻訳の罠、自律エージェントの光と影。2026年、ITリーダーが直面する破壊的変化と、次世代の生存戦略を徹底解剖。",
+    "date": "2026-04-24",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/cloud/enterprise-it-paradigm-shift-2026.html"
+  },
+  {
+    "title": "AWS Minimalism｜小規模開発を加速させる『実利主義的IaC』の設計パターン",
+    "description": "過剰なLanding Zone設計は不要。小規模案件において、スピードとセキュリティを両立させるための最小限のIaC標準化アプローチを詳解。",
+    "date": "2026-04-24",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/cloud/aws-minimal-iac-patterns.html"
+  },
+  {
+    "title": "AWSのデータ転送料で『クラウド破産』しないために｜200TB超えDBの最適解",
+    "description": "AWSのデータ転送費（Egress）の罠と、大規模DB運用を支えるAmazon Auroraの真のメリットを解説。200TB超のデータ保護を、コストを抑えつつ実現する設計術。",
+    "date": "2026-04-24",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/cloud/aws-egress-cost-aurora-benefits.html"
+  },
+  {
+    "title": "Amazon RDS 徹底解剖｜AIOpsによる自律修復と高可用性の極致",
+    "description": "マネージドDBの限界を突破する。Multi-AZクラスターの深層、Boto3による自律スケーリング、そして『絶対に止まらない』RDS Proxy戦略を詳解。",
+    "date": "2026-04-24",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/cloud/aws-rds-tech-deep-dive.html"
+  },
+  {
+    "title": "AWS KMSの料金を99%削減する｜エンベロープ暗号化による最強のコストハック",
+    "description": "KMSのAPI呼び出しコストによるクラウド破産を回避する設計術。データキーのキャッシュ、エンベロープ暗号化、隔離環境（Vault）の最適解をプロが詳解。",
+    "date": "2026-04-24",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/cloud/aws-kms-cost-envelope-encryption.html"
   },
   {
     "title": "【技術編】精度を落とさない「データの庭師」アプローチと鮮度管理",
@@ -168,30 +168,6 @@
     "path": "dev/container/devcontainer-harbor-intro.html"
   },
   {
-    "title": "Rubrikの最大保護オブジェクト数は？ VMのカウント基準と限界値を徹底解説",
-    "description": "Rubrikによる仮想マシン（VM）等の保護オブジェクトのカウント基準と、物理クラスタ・Edge環境における最大値の仕様を徹底解説します。",
-    "date": "2026-04-16",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-max-objects-limits.html"
-  },
-  {
-    "title": "Rubrikのスケーリング戦略：クラスタ追加とノード追加のベストプラクティス",
-    "description": "Rubrikの拡張戦略において、クラスタの追加がなぜアンチパターンとなるのか、ノード追加によるスケールアウトの利点とCockroachDBアーキテクチャを紐解きます。",
-    "date": "2026-04-16",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-scaling-strategy-nodes.html"
-  },
-  {
-    "title": "Rubrikのバックアップ負荷分散ガイド！リソース制限ができない時の対策",
-    "description": "Rubrik バックアップ時の本番ストレージ負荷を、OS QoS・ジョブ分散・SLA 設計で抑える実践ガイド。",
-    "date": "2026-04-16",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-load-balancing-guide.html"
-  },
-  {
     "title": "【完全ガイド】Rubrik脅威監視で検体を特定！詳細ログの取得方法と仕組み",
     "description": "Rubrik Security Cloud の脅威監視ログを GUI スクレイピングではなく API ファーストで取得するための基礎ガイド。",
     "date": "2026-04-16",
@@ -208,6 +184,22 @@
     "path": "infra/backup/rubrik-backup-load-balancing.html"
   },
   {
+    "title": "Rubrikのバックアップ負荷分散ガイド！リソース制限ができない時の対策",
+    "description": "Rubrik バックアップ時の本番ストレージ負荷を、OS QoS・ジョブ分散・SLA 設計で抑える実践ガイド。",
+    "date": "2026-04-16",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-load-balancing-guide.html"
+  },
+  {
+    "title": "Rubrikのスケーリング戦略：クラスタ追加とノード追加のベストプラクティス",
+    "description": "Rubrikの拡張戦略において、クラスタの追加がなぜアンチパターンとなるのか、ノード追加によるスケールアウトの利点とCockroachDBアーキテクチャを紐解きます。",
+    "date": "2026-04-16",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-scaling-strategy-nodes.html"
+  },
+  {
     "title": "DB Backup Modernization | 基幹システムのバックアップ刷新と『ノイズ除外』の判断基準",
     "description": "基幹システムのデータベースを旧環境から新バックアップ基盤へ移行する際の戦略。二段階の切替判定と、既知の製品制約に対する運用整理。",
     "date": "2026-04-16",
@@ -216,12 +208,36 @@
     "path": "infra/backup/db-backup-transition-strategy.html"
   },
   {
-    "title": "Scale-out Storage | 大規模データ削除後の「実効容量」回復と検証プロセス",
-    "description": "バックアップ基盤の撤去に伴う大規模なデータ削除イベント後、ストレージ側でどのように空き容量が回復し、それをどう技術的に証明すべきか。",
-    "date": "2026-04-15",
+    "title": "Rubrikの最大保護オブジェクト数は？ VMのカウント基準と限界値を徹底解説",
+    "description": "Rubrikによる仮想マシン（VM）等の保護オブジェクトのカウント基準と、物理クラスタ・Edge環境における最大値の仕様を徹底解説します。",
+    "date": "2026-04-16",
     "updated": "2026-08-02",
     "category": "infra",
-    "path": "infra/cloud/vast-recovery-validation.html"
+    "path": "infra/backup/rubrik-max-objects-limits.html"
+  },
+  {
+    "title": "鎌倉のコスパ飯 3選 | 行列必至の老舗カレーから本格麻婆豆腐まで",
+    "description": "観光地・鎌倉で見つける、価格以上の満足感。伝説のカレーや隠れた海鮮の名店をご紹介。",
+    "date": "2026-04-15",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/travel/kamakura-cospa-gourmet.html"
+  },
+  {
+    "title": "逗子のコスパ飯 3選 | 地元民が愛する新鮮魚介とボリューム満点の定食",
+    "description": "海と山に囲まれた逗子。観光地価格に惑わされない、圧倒的な鮮度とコスパを誇るランチの名店を厳選。",
+    "date": "2026-04-15",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/travel/zushi-cospa-gourmet.html"
+  },
+  {
+    "title": "横浜・関内のコスパ最高焼き鳥屋 6選 | 満足度重視のリサーチログ 2026",
+    "description": "横浜駅・関内駅周辺で『本当にコスパが良い』焼き鳥屋を厳選。仕事帰りのサク飲みから、内容重視のコースまで、地元民に愛される名店をリサーチ。",
+    "date": "2026-04-15",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/gourmet/yakitori-cospa-yokohama-kannai.html"
   },
   {
     "title": "Enterprise Backup | クラウドOffice基盤のアラート「ノイズ抑制」と運用最適化",
@@ -240,28 +256,12 @@
     "path": "infra/ops/redmine-basic-knowledge.html"
   },
   {
-    "title": "逗子のコスパ飯 3選 | 地元民が愛する新鮮魚介とボリューム満点の定食",
-    "description": "海と山に囲まれた逗子。観光地価格に惑わされない、圧倒的な鮮度とコスパを誇るランチの名店を厳選。",
+    "title": "Scale-out Storage | 大規模データ削除後の「実効容量」回復と検証プロセス",
+    "description": "バックアップ基盤の撤去に伴う大規模なデータ削除イベント後、ストレージ側でどのように空き容量が回復し、それをどう技術的に証明すべきか。",
     "date": "2026-04-15",
     "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/zushi-cospa-gourmet.html"
-  },
-  {
-    "title": "鎌倉のコスパ飯 3選 | 行列必至の老舗カレーから本格麻婆豆腐まで",
-    "description": "観光地・鎌倉で見つける、価格以上の満足感。伝説のカレーや隠れた海鮮の名店をご紹介。",
-    "date": "2026-04-15",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/kamakura-cospa-gourmet.html"
-  },
-  {
-    "title": "横浜・関内のコスパ最高焼き鳥屋 6選 | 満足度重視のリサーチログ 2026",
-    "description": "横浜駅・関内駅周辺で『本当にコスパが良い』焼き鳥屋を厳選。仕事帰りのサク飲みから、内容重視のコースまで、地元民に愛される名店をリサーチ。",
-    "date": "2026-04-15",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/gourmet/yakitori-cospa-yokohama-kannai.html"
+    "category": "infra",
+    "path": "infra/cloud/vast-recovery-validation.html"
   },
   {
     "title": "逗子の奥座敷「山の根」を歩く。熊野神社から歴史の横穴、見晴らしの良い山道へ",
@@ -280,14 +280,6 @@
     "path": "infra/ops/obsidian-google-drive-sync.html"
   },
   {
-    "title": "Infra | AWS：クラウドレジリエンスと AIOps を支える基盤設計 2026",
-    "description": "AWS Nitro SystemからEventBridgeによる自律修復まで。モダンITインフラのデファクトスタンダード、AWSのアーキテクチャをAIOps視点で再定義する。",
-    "date": "2026-04-10",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/cloud/aws-tech-analysis-2026.html"
-  },
-  {
     "title": "Infra | Rubrik：AWS RDS クラウドネイティブ保護の技術詳解 2026",
     "description": "RDSスナップショットAPIのオーケストレーション、DSPMによる機密データ発見、論理バックアップ抽出パイプラインからGotchasまで。",
     "date": "2026-04-10",
@@ -296,36 +288,20 @@
     "path": "infra/backup/rubrik-aws-rds-protection.html"
   },
   {
-    "title": "大企業におけるMarkdownベースのナレッジ管理とAIデータ活用の現実 | 組織構造から紐解く次世代知識基盤の構築戦略",
-    "description": "RAGの限界からデータメッシュ、Docs-as-Codeまで。大企業がAI時代に直面する「知識のインフラ化」の障壁と、次世代の知識インテリジェンスへの移行戦略。",
-    "date": "2026-04-09",
+    "title": "Infra | AWS：クラウドレジリエンスと AIOps を支える基盤設計 2026",
+    "description": "AWS Nitro SystemからEventBridgeによる自律修復まで。モダンITインフラのデファクトスタンダード、AWSのアーキテクチャをAIOps視点で再定義する。",
+    "date": "2026-04-10",
     "updated": "2026-08-02",
-    "category": "ai",
-    "path": "ai/llm-research/enterprise-md-knowledge.html"
+    "category": "infra",
+    "path": "infra/cloud/aws-tech-analysis-2026.html"
   },
   {
-    "title": "Bonsai 8B | スマホ（Llama.cpp）導入ガイド 2026",
-    "description": "Xiaomi/HyperOS 端末の Termux 上で 1-bit LLM『Bonsai 8B』を動作させ、エッジAIの真髄を体験するためのガイド。",
+    "title": "Other | 顧客満足度分析レポート：アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略",
+    "description": "アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略の構造分析。STRIDE LAB ニセコの事例から、Customer Successとブランド防衛のメカニズムを紐解く。",
     "date": "2026-04-09",
     "updated": "2026-08-02",
-    "category": "ai",
-    "path": "ai/llm-research/bonsai-8b-mobile-guide.html"
-  },
-  {
-    "title": "AIハルシネーション | ポチョムキン理解の克服とモデル使い分け術 2026",
-    "description": "最新LLMの「ポチョムキン理解」の仕組みと、弱点を補うための最適な「使い分け」術を検証・解説します。",
-    "date": "2026-04-09",
-    "updated": "2026-08-02",
-    "category": "ai",
-    "path": "ai/llm-research/ai-hallucination.html"
-  },
-  {
-    "title": "OpenClaw | Yahoo!リアルタイム検索を活用した動的スキルの構築",
-    "description": "X APIの高騰を回避し、Yahoo!リアルタイム検索をデータソースとして活用するAIエージェントスキルの実装ガイド。",
-    "date": "2026-04-09",
-    "updated": "2026-08-02",
-    "category": "ai",
-    "path": "ai/automation/openclaw-search-skill.html"
+    "category": "other",
+    "path": "other/travel/stride-lab-niseko.html"
   },
   {
     "title": "【4月版】備蓄とポイ活の二段構え戦略ダッシュボード",
@@ -342,6 +318,38 @@
     "updated": "2026-08-02",
     "category": "finance",
     "path": "finance/investment-hell-dashboard.html"
+  },
+  {
+    "title": "Bonsai 8B | スマホ（Llama.cpp）導入ガイド 2026",
+    "description": "Xiaomi/HyperOS 端末の Termux 上で 1-bit LLM『Bonsai 8B』を動作させ、エッジAIの真髄を体験するためのガイド。",
+    "date": "2026-04-09",
+    "updated": "2026-08-02",
+    "category": "ai",
+    "path": "ai/llm-research/bonsai-8b-mobile-guide.html"
+  },
+  {
+    "title": "大企業におけるMarkdownベースのナレッジ管理とAIデータ活用の現実 | 組織構造から紐解く次世代知識基盤の構築戦略",
+    "description": "RAGの限界からデータメッシュ、Docs-as-Codeまで。大企業がAI時代に直面する「知識のインフラ化」の障壁と、次世代の知識インテリジェンスへの移行戦略。",
+    "date": "2026-04-09",
+    "updated": "2026-08-02",
+    "category": "ai",
+    "path": "ai/llm-research/enterprise-md-knowledge.html"
+  },
+  {
+    "title": "AIハルシネーション | ポチョムキン理解の克服とモデル使い分け術 2026",
+    "description": "最新LLMの「ポチョムキン理解」の仕組みと、弱点を補うための最適な「使い分け」術を検証・解説します。",
+    "date": "2026-04-09",
+    "updated": "2026-08-02",
+    "category": "ai",
+    "path": "ai/llm-research/ai-hallucination.html"
+  },
+  {
+    "title": "OpenClaw | Yahoo!リアルタイム検索を活用した動的スキルの構築",
+    "description": "X APIの高騰を回避し、Yahoo!リアルタイム検索をデータソースとして活用するAIエージェントスキルの実装ガイド。",
+    "date": "2026-04-09",
+    "updated": "2026-08-02",
+    "category": "ai",
+    "path": "ai/automation/openclaw-search-skill.html"
   },
   {
     "title": "Rubrik | ゼロトラスト・データセキュリティ基盤調査 2026",
@@ -368,22 +376,6 @@
     "path": "infra/ops/win-110-scaling-fancyzones.html"
   },
   {
-    "title": "次世代CMDB戦略 2026 | 自律型デジタルツインへの道",
-    "description": "IT資産管理から「自律型デジタルツイン」へ。ServiceNowが示すロードマップと5つの衝撃的転換点。",
-    "date": "2026-04-09",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/ops/next-gen-cmdb-strategy.html"
-  },
-  {
-    "title": "OpenAI Codex 基礎知識 | 2026年最新アーキテクチャ・Agentic Coding調査",
-    "description": "OpenAI Codexの原点から最新GPT-5/Agentic Coding時代におけるアーキテクチャ、SWE-bench検証、Repo-level RAG、セキュリティ・ガードレールを徹底解説。",
-    "date": "2026-04-09",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/ops/openai-codex-research.html"
-  },
-  {
     "title": "VMware vSphere | CBT不整合の自動検知と是正 2026",
     "description": "VMware vSphere環境におけるバックアップトラブルを防ぐ。CBT（Changed Block Tracking）不整合の検知と是正を自動化する実践手法。",
     "date": "2026-04-09",
@@ -400,60 +392,316 @@
     "path": "infra/ops/oss-research-operation.html"
   },
   {
-    "title": "Other | 顧客満足度分析レポート：アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略",
-    "description": "アウトドア小売における「日本一の接客」と高付加価値カウンセリング戦略の構造分析。STRIDE LAB ニセコの事例から、Customer Successとブランド防衛のメカニズムを紐解く。",
+    "title": "OpenAI Codex 基礎知識 | 2026年最新アーキテクチャ・Agentic Coding調査",
+    "description": "OpenAI Codexの原点から最新GPT-5/Agentic Coding時代におけるアーキテクチャ、SWE-bench検証、Repo-level RAG、セキュリティ・ガードレールを徹底解説。",
     "date": "2026-04-09",
     "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/ops/openai-codex-research.html"
+  },
+  {
+    "title": "次世代CMDB戦略 2026 | 自律型デジタルツインへの道",
+    "description": "IT資産管理から「自律型デジタルツイン」へ。ServiceNowが示すロードマップと5つの衝撃的転換点。",
+    "date": "2026-04-09",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/ops/next-gen-cmdb-strategy.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "glossary",
+    "path": "glossary/system-glossary.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "lpo",
+    "path": "lpo/lpo-system.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "youtube",
+    "path": "youtube/analytics/sample-video-analysis.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "youtube",
+    "path": "youtube/analytics/kangaesugiruashi-research.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "youtube",
+    "path": "youtube/analytics/basicincome-channel-research.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
     "category": "other",
-    "path": "other/travel/stride-lab-niseko.html"
+    "path": "other/travel/esconfield-cospa-guide.html"
   },
   {
     "title": "Technical Archive",
     "description": "FunUni-lab Research Log",
     "date": "1970-01-01",
     "updated": "2026-08-02",
-    "category": "ai",
-    "path": "ai/llm-research/kimi-k3-open-weight-model-research.html"
+    "category": "other",
+    "path": "other/travel/kamakura-zushi-lunch-hub.html"
   },
   {
     "title": "Technical Archive",
     "description": "FunUni-lab Research Log",
     "date": "1970-01-01",
     "updated": "2026-08-02",
-    "category": "ai",
-    "path": "ai/llm-research/ai-research-prompts.html"
+    "category": "other",
+    "path": "other/travel/niseko-1night2day-course.html"
   },
   {
     "title": "Technical Archive",
     "description": "FunUni-lab Research Log",
     "date": "1970-01-01",
     "updated": "2026-08-02",
-    "category": "ai",
-    "path": "ai/llm-research/enterprise-ai-ops-rag.html"
+    "category": "other",
+    "path": "other/travel/niseko-rainy-day-kids.html"
   },
   {
     "title": "Technical Archive",
     "description": "FunUni-lab Research Log",
     "date": "1970-01-01",
     "updated": "2026-08-02",
-    "category": "ai",
-    "path": "ai/llm-research/1bit-llm-bonsai-8b.html"
+    "category": "other",
+    "path": "other/travel/kutchan-local-foods.html"
   },
   {
     "title": "Technical Archive",
     "description": "FunUni-lab Research Log",
     "date": "1970-01-01",
     "updated": "2026-08-02",
-    "category": "ai",
-    "path": "ai/agents/agent-md-skill-decluttering.html"
+    "category": "other",
+    "path": "other/travel/shinsenmarsh-trekking-guide.html"
   },
   {
     "title": "Technical Archive",
     "description": "FunUni-lab Research Log",
     "date": "1970-01-01",
     "updated": "2026-08-02",
-    "category": "ai",
-    "path": "ai/agents/ai-agent-prompt-initial-settings.html"
+    "category": "other",
+    "path": "other/travel/esconfield-baby-weekday-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/travel/esconfield-vip-budget-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/travel/shinsenmarsh-kids-picnic.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/travel/esconfield-kids-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/travel/niseko-cospa-travel.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/travel/niseko-onsen-gourmet-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/travel/kutchan-picnic-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/travel/kutchan-kids-gourmet.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/tech-life/kiss-principle-cognitive-limits.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/tech-life/universe-spec-debug.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/gourmet/akasaka-meat-gourmet-hub.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/gourmet/akasaka-meat-vip-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/gourmet/tsuruoka-izakaya-men-three-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "other",
+    "path": "other/gourmet/akasaka-meat-cospa-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/jal-mobile-dokokani-mile-coupon-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/high-return-payment-routes.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/long-short-sector-framework-2026.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/us-market-three-indices-report-20260802.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/jal-mobile-dokokani-mile-companion-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/iphone-edy-cash-release.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/poikatsu-route-separation-strategy.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/smbc-million-challenge-revolut-route.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/jal-mobile-ahamo-iijmio-comparison.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/auto-industry-profit-collapse-investment-signals-2026.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/payment-poi-strategy-2026.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "finance",
+    "path": "finance/smcc-stouch-transit.html"
   },
   {
     "title": "Technical Archive",
@@ -477,7 +725,7 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "ai",
-    "path": "ai/automation/ai-roi-finops-azure.html"
+    "path": "ai/agents/ai-agent-prompt-initial-settings.html"
   },
   {
     "title": "Technical Archive",
@@ -485,7 +733,7 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "ai",
-    "path": "ai/automation/openclaw-google-calendar-automation.html"
+    "path": "ai/agents/agent-md-skill-decluttering.html"
   },
   {
     "title": "Technical Archive",
@@ -493,7 +741,31 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "ai",
-    "path": "ai/automation/gpt-56-vs-claude-comparison.html"
+    "path": "ai/llm-research/1bit-llm-bonsai-8b.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "ai",
+    "path": "ai/llm-research/enterprise-ai-ops-rag.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "ai",
+    "path": "ai/llm-research/ai-research-prompts.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "ai",
+    "path": "ai/llm-research/kimi-k3-open-weight-model-research.html"
   },
   {
     "title": "Technical Archive",
@@ -509,15 +781,7 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "ai",
-    "path": "ai/automation/operation-automation.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "ai",
-    "path": "ai/automation/antigravity-n8n-pipeline.html"
+    "path": "ai/automation/oss-automation-tools.html"
   },
   {
     "title": "Technical Archive",
@@ -526,6 +790,14 @@
     "updated": "2026-08-02",
     "category": "ai",
     "path": "ai/automation/copilot-operation-deep-dive.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "ai",
+    "path": "ai/automation/ai-roi-finops-azure.html"
   },
   {
     "title": "Technical Archive",
@@ -557,103 +829,31 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "ai",
-    "path": "ai/automation/oss-automation-tools.html"
+    "path": "ai/automation/gpt-56-vs-claude-comparison.html"
   },
   {
     "title": "Technical Archive",
     "description": "FunUni-lab Research Log",
     "date": "1970-01-01",
     "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/iphone-edy-cash-release.html"
+    "category": "ai",
+    "path": "ai/automation/openclaw-google-calendar-automation.html"
   },
   {
     "title": "Technical Archive",
     "description": "FunUni-lab Research Log",
     "date": "1970-01-01",
     "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/us-market-three-indices-report-20260802.html"
+    "category": "ai",
+    "path": "ai/automation/antigravity-n8n-pipeline.html"
   },
   {
     "title": "Technical Archive",
     "description": "FunUni-lab Research Log",
     "date": "1970-01-01",
     "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/smcc-stouch-transit.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/long-short-sector-framework-2026.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/jal-mobile-dokokani-mile-companion-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/poikatsu-route-separation-strategy.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/auto-industry-profit-collapse-investment-signals-2026.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/jal-mobile-dokokani-mile-coupon-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/payment-poi-strategy-2026.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/jal-mobile-ahamo-iijmio-comparison.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/high-return-payment-routes.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "finance",
-    "path": "finance/smbc-million-challenge-revolut-route.html"
+    "category": "ai",
+    "path": "ai/automation/operation-automation.html"
   },
   {
     "title": "Technical Archive",
@@ -661,7 +861,7 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "dev",
-    "path": "dev/ai-coding/openai-codex-guide-2026.html"
+    "path": "dev/container/devcontainer-harbor-security.html"
   },
   {
     "title": "Technical Archive",
@@ -669,15 +869,7 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "dev",
-    "path": "dev/ai-coding/github-knowledge-management-non-engineers.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "dev",
-    "path": "dev/ai-coding/google-antigravity-vibe-coding-automation.html"
+    "path": "dev/container/devcontainer-harbor-operations.html"
   },
   {
     "title": "Technical Archive",
@@ -693,7 +885,39 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "dev",
+    "path": "dev/ai-coding/google-antigravity-vibe-coding-automation.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "dev",
+    "path": "dev/ai-coding/ai-code-review-practical-prompts.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "dev",
+    "path": "dev/ai-coding/openai-codex-guide-2026.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "dev",
     "path": "dev/ai-coding/google-antigravity-usage-comparison.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "dev",
+    "path": "dev/ai-coding/ai-code-review-senior-guide.html"
   },
   {
     "title": "Technical Archive",
@@ -725,47 +949,7 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "dev",
-    "path": "dev/ai-coding/ai-code-review-senior-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "dev",
-    "path": "dev/ai-coding/ai-code-review-practical-prompts.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "dev",
-    "path": "dev/container/devcontainer-harbor-security.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "dev",
-    "path": "dev/container/devcontainer-harbor-operations.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "dev",
-    "path": "dev/modern-js/freeman-project-hp-retrospective.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "dev",
-    "path": "dev/modern-js/redmine-api-usage.html"
+    "path": "dev/ai-coding/github-knowledge-management-non-engineers.html"
   },
   {
     "title": "Technical Archive",
@@ -781,6 +965,14 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "dev",
+    "path": "dev/modern-js/redmine-api-usage.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "dev",
     "path": "dev/modern-js/synthetic-pet-simulation.html"
   },
   {
@@ -788,64 +980,8 @@
     "description": "FunUni-lab Research Log",
     "date": "1970-01-01",
     "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/aws-rds-rubrik-complete-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-tech-analysis-2026.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-max-object-counts-sizing.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-ondemand-sla-retention.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-linux-lvm-restore-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-immutable-zero-trust-recovery-strategy.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/aws-rds-backup-best-practices.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-threat-monitoring-fp.html"
+    "category": "dev",
+    "path": "dev/modern-js/freeman-project-hp-retrospective.html"
   },
   {
     "title": "Technical Archive",
@@ -861,47 +997,7 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "infra",
-    "path": "infra/backup/rubrik-api-code-capture-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-threat-log-extraction.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-scaling-strategy-clusters-vs-nodes.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-false-positive-analysis-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-graphql-xsoar-automation.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "infra",
-    "path": "infra/backup/rubrik-api-code-capture.html"
+    "path": "infra/backup/rubrik-threat-monitoring-fp.html"
   },
   {
     "title": "Technical Archive",
@@ -917,7 +1013,47 @@
     "date": "1970-01-01",
     "updated": "2026-08-02",
     "category": "infra",
-    "path": "infra/backup/rubrik-soar-automation-graphql.html"
+    "path": "infra/backup/rubrik-max-object-counts-sizing.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-api-code-capture.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-graphql-xsoar-automation.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-ondemand-sla-retention.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-scaling-strategy-clusters-vs-nodes.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-api-code-capture-guide.html"
   },
   {
     "title": "Technical Archive",
@@ -926,6 +1062,70 @@
     "updated": "2026-08-02",
     "category": "infra",
     "path": "infra/backup/rds-onprem-backup-solutions.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-immutable-zero-trust-recovery-strategy.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-threat-log-extraction.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-tech-analysis-2026.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/aws-rds-rubrik-complete-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/aws-rds-backup-best-practices.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-soar-automation-graphql.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-false-positive-analysis-guide.html"
+  },
+  {
+    "title": "Technical Archive",
+    "description": "FunUni-lab Research Log",
+    "date": "1970-01-01",
+    "updated": "2026-08-02",
+    "category": "infra",
+    "path": "infra/backup/rubrik-linux-lvm-restore-guide.html"
   },
   {
     "title": "Technical Archive",
@@ -942,205 +1142,5 @@
     "updated": "2026-08-02",
     "category": "infra",
     "path": "infra/ops/jira-rubrik-api-integration-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "youtube",
-    "path": "youtube/analytics/basicincome-channel-research.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "youtube",
-    "path": "youtube/analytics/sample-video-analysis.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "youtube",
-    "path": "youtube/analytics/kangaesugiruashi-research.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/niseko-rainy-day-kids.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/niseko-cospa-travel.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/niseko-1night2day-course.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/esconfield-vip-budget-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/esconfield-baby-weekday-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/shinsenmarsh-trekking-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/kutchan-local-foods.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/kutchan-picnic-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/esconfield-kids-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/kamakura-zushi-lunch-hub.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/shinsenmarsh-kids-picnic.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/niseko-onsen-gourmet-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/esconfield-cospa-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/travel/kutchan-kids-gourmet.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/tech-life/universe-spec-debug.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/tech-life/kiss-principle-cognitive-limits.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/gourmet/akasaka-meat-vip-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/gourmet/akasaka-meat-cospa-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/gourmet/tsuruoka-izakaya-men-three-guide.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "other",
-    "path": "other/gourmet/akasaka-meat-gourmet-hub.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "glossary",
-    "path": "glossary/system-glossary.html"
-  },
-  {
-    "title": "Technical Archive",
-    "description": "FunUni-lab Research Log",
-    "date": "1970-01-01",
-    "updated": "2026-08-02",
-    "category": "lpo",
-    "path": "lpo/lpo-system.html"
   }
 ]
