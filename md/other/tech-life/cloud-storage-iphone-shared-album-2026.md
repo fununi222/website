@@ -1,5 +1,5 @@
 ---
-title: "ホームビデオ向けクラウドストレージ最安比較｜iPhone共有アルバムも含めて検証"
+title: "iPhone共有アルバムで動画容量を節約する方法｜クラウドストレージ比較つき"
 date: "2026-08-17"
 category: "other"
 description: "Google One、iCloud+、Microsoft 365、pCloud、みてねに加え、iPhone共有アルバムの無料保存を公式仕様ベースで整理。動画保存の画質・容量・共有コスパを比較します。"
@@ -7,7 +7,7 @@ themes: ["other:tech-life", "finance:cost-optimization", "ai:workflow"]
 updated: "2026-08-17"
 ---
 
-# ホームビデオ向けクラウドストレージ最安比較｜iPhone共有アルバムも含めて検証
+# iPhone共有アルバムで動画容量を節約する方法｜クラウドストレージ比較つき
 
 iPhoneやスマートフォンで撮る動画は、写真よりもずっと早く容量を使います。子どもの日常動画、旅行、発表会、運動会を残していると、無料のiCloud 5GBやGoogleアカウントの無料枠だけでは足りません。
 
