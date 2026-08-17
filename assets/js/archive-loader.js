@@ -31,16 +31,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         let articles = [];
-        try {
+        if (typeof window_article_index !== 'undefined') {
+            articles = window_article_index;
+        } else {
             const response = await fetch('../assets/data/article_index.json');
             if (!response.ok) throw new Error('Failed to load article index');
             articles = await response.json();
-        } catch (fetchError) {
-            if (typeof window_article_index !== 'undefined') {
-                articles = window_article_index;
-            } else {
-                throw fetchError;
-            }
         }
 
         // Filter by category
