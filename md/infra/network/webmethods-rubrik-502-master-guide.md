@@ -1,16 +1,17 @@
 ---
-title: "webMethods×Rubrik連携の極致｜502エラーを『デザイン』するレジリエンス戦略"
+title: "webMethods×Rubrik連携の実践設計｜502エラーを防ぐレジリエンス設計ガイド"
 date: "2026-04-24"
 category: "infra"
-description: "「リトライがシステムを殺す」事態を防ぐ。webMethods Integration Serverによる指数バックオフ実装と、運用の平穏を守るエラー判定分離のマスターガイド。"
+description: "過度なリトライによる二次障害を防ぐ。webMethods Integration Serverによる指数バックオフ実装と、エラー種別に応じた安全な例外処理の設計ガイド。"
 themes: ["dev:webmethods", "infra:rubrik", "ops:resilience"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
 
-# webMethods×Rubrik連携の極致｜502エラーを『デザイン』するレジリエンス戦略
 
-## 超要約
-[webMethods](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="webMethods") [Integration Server](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Integration%20Server") (IS) と [Rubrik](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Rubrik") Security Cloud (RSC) の API 連携において発生する [HTTP 502 Bad Gateway](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="502%20Bad%20Gateway") / 504 Gateway Timeout に対し、単なる手動再試行や無制限リトライは二次障害（リトライストーム）を引き起こします。本稿では、[REPEAT-TRY-CATCH](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="REPEAT-TRY-CATCH") による指数バックオフ＋ジッター実装と、「開始処理」と「状態確認ポーリング」のエラー判定分離設計を解説します。
+# webMethods×Rubrik連携の実践設計｜502エラーを防ぐレジリエンス設計ガイド
+
+## 概要
+[webMethods](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="webMethods") [Integration Server](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Integration%20Server") (IS) と [Rubrik](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Rubrik") Security Cloud (RSC) の API 連携において発生する [HTTP 502 Bad Gateway](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="502%20Bad%20Gateway") / 504 Gateway Timeout に対し、適切なリトライ設計を行わないと二次障害（リトライストーム）を招く恐れがあります。本稿では、[REPEAT-TRY-CATCH](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="REPEAT-TRY-CATCH") による指数バックオフ＋ジッター実装と、「開始処理」と「状態確認ポーリング」のエラー判定分離設計を解説します。
 
 ---
 
@@ -21,7 +22,7 @@ updated: "2026-08-02"
 
 ---
 
-## 2. 黄金のパターン：REPEAT-TRY-CATCH による指数バックオフ＋ジッター
+## 2. 実装パターン：REPEAT-TRY-CATCH による指数バックオフ＋ジッター
 
 1. **`REPEAT`**: 最大試行回数（3〜5回）を指定。
 2. **`TRY`**: 共通HTTP通信サービスを呼び出し、ステータス非200で例外スロー。
@@ -33,7 +34,7 @@ updated: "2026-08-02"
 
 | 処理種別 | API要求 | 失敗時のビジネスインパクト | 障害対処方針 |
 | :--- | :--- | :--- | :--- |
-| **開始指示 (Mutation)** | オンデマンドバックアップ要求 | **高** (保護未実行リスク) | 即時アラート通知 & 最大限の自動リトライ |
+| **開始指示 (Mutation)** | オンデマンドバックアップ要求 | **高** (保護未実行リスク) | 即時アラート通知 & 自動リトライ |
 | **状態確認 (Query)** | バックアップ進捗ポーリング | **低** (ジョブ自体は非同期実行中) | 警告扱い & 次回ポーリングへ静観引継ぎ ([Fail-Safe](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Fail-Safe")) |
 
 ---
@@ -47,6 +48,7 @@ updated: "2026-08-02"
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のwebMethods Integration Server 10.x/11.x, Rubrik Security Cloud API 502/504タイムアウト、Fail-Safe運用のファクトチェックと目次H2構造最適化。
-- **2026-04-24 (v2)**: SEOトップ1%戦略に基づきリライト。
+- **2026-04-24 (v2)**: 実践的なガイドラインに基づきリライト。
 - **2026-04-18 (v1)**: 初版作成。

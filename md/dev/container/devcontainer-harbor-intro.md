@@ -4,12 +4,14 @@ date: "2026-04-16"
 category: "dev"
 description: "開発環境の一貫性を担保するDevcontainerと、セキュアなコンテナレジストリHarborの基礎を分かりやすく解説します。"
 themes: ["dev:environment", "infra:container"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # Devcontainer×Harbor入門！開発環境の課題と解決策を完全解説
 
-## 超要約
+## 概要
 「ローカル環境では動くが本番で動かない」「新メンバーの環境構築に数日かかる」という課題を根本解決するのが **[Devcontainer](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Devcontainer")** と CNCF Graduated レジストリ **[Harbor](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Harbor")** の組み合わせです。本稿では、環境のコード化（Docs-as-Code）とセキュアなプライベートレジストリ構築の基礎を解説します。
 
 ---
@@ -46,6 +48,7 @@ DevcontainerとHarborを組み合わせることで、開発環境の再現性�
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のDevcontainer specification, Harbor v2.10+, Trivy脆弱性スキャン統合のファクトチェックと目次H2構造最適化。
 - **2026-04-24 (v2)**: 用語リンク・ Changleog 追記。
 - **2026-04-16 (v1)**: 新規作成。

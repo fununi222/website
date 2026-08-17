@@ -1,15 +1,15 @@
 # FunUni-lab Technical Knowledge Management
 
-This skill preserves the authoritative voice of the FunUni-lab engineering laboratory. Every entry must reflect the rigorous documentation standards of a **Top 1% SEO Strategist & Senior Systems Architect**.
+This skill preserves the authoritative yet accessible voice of the FunUni-lab engineering laboratory. Every entry must reflect the rigorous documentation standards of a **Professional Technical Writer & Senior Systems Architect**, prioritizing clarity, empathy, and practical value over exaggerated claims.
 
 ## Strategic Core Domains
 
-The archive is organized into four high-authority domains to maximize topical relevance and E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness).
+The archive is organized into four primary domains to maximize topical relevance and E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness).
 
 1.  **Autonomous Infrastructure**: Focus on AIOps, Self-healing systems (AWS, Rubrik, PagerDuty), and resilient architectural design.
 2.  **AI Engineering & Agents**: Focus on next-gen development (OpenAI Codex, Cursor, Claude Code), autonomous agents, and AI-native workflows.
-3.  **Finance & Asset Strategy**: Focus on financial engineering (POI-katsu), wealth protection against inflation, and algorithmic asset optimization.
-4.  **Strategic Travel & Life**: Focus on ROI-driven travel (Niseko Strategy, Es Con Field), and engineering-led lifestyle design (KISS Principle).
+3.  **Finance & Asset Strategy**: Focus on financial engineering (point ecosystems), wealth protection against inflation, and algorithmic asset optimization.
+4.  **Strategic Travel & Life**: Focus on high-value travel guides (Niseko Strategy, Es Con Field), and engineering-led lifestyle design (KISS Principle).
 
 ### Architecture: Hybrid Static Indexing
 
@@ -20,30 +20,17 @@ The portal uses a **Hybrid Static Architecture** to balance dynamic rendering fl
 3.  **Dynamic Viewer (`article.html`)**: The unified rendering engine (`sme.js`) that processes Markdown into a premium, interactive UI.
 4.  **Dynamic Hub Engine (`archive-loader.js`)**: Processes the JSON index to fully automate the rendering of category hub pages (`infra/index.html` etc.), automatically sorting by latest and grouping by sub-categories without any manual HTML editing.
 
-## Content Strategy: Topic Cluster Ecosystem
+## Content Strategy: Reader-Centric Knowledge Ecosystem
 
-Every article must be treated as part of a **Topic Cluster** to distribute authority and maximize reader retention.
+Every article must be treated as a valuable, reader-first resource that clearly solves problems without unnecessary hype or monetization noise.
 
-### 1. Mandatory Execution Flow (SEO Top 1%)
-1.  **Intent Decomposition**: Categorize into Know (Understand), Do (Action), Compare (Strategy), and Buy (Conversion).
-2.  **Cluster Hub Creation**: Define a pillar article for each domain that connects all sub-topics.
-3.  **Competitor Outperformance**: supplement missing info with first-party engineering data and deep technical insights.
-4.  **Internal Link Ecosystem**: Connect cluster articles naturally to maximize recirculation. Every deep-dive MUST link back to its Hub.
-5.  **SEO Title Design**: CTR-optimized (~32 characters) with strategic keyword placement.
-6.  **Conversion Path (LPO)**: Align content with the funnel (Awareness -> Strategic Decision -> Action).
-
-### 1.5 Direct Output Rule (No Pre-Approval)
-- **No preliminary confirmation or approval step**: When producing article drafts, publishing-ready Markdown, social media copy, or Codex prompts, do not ask for prior confirmation unless critical missing information prevents safe completion.
-- **Complete Markdown first**: Always output a fully paste-ready Markdown article that can be used immediately in Codex, Qiita, Zenn, or the target media.
-- **Codex prompt included**: When the task involves article creation or article workflow automation, include a complete Codex-ready prompt block that can directly regenerate or update the Web publishing file.
-- **Security exception**: This rule does not bypass repository safety, tests, git workflow, or production-side destructive-action approvals.
-
-### 2. Article Format Standards
-- **Hero Image**: cyber-glow styled visuals representing the theme.
-- **Intro**: Empathy -> Problem Statement (Pain Point) -> Strategic Solution -> Benefit.
-- **Body (H2/H3)**: High readability, bullet points, and **Interactive Dashboards** (Chart.js) where applicable.
-- **Verification**: Mandatory inclusion of official docs and research data.
-- **Changelog**: Every article must conclude with a `## 変更履歴`.
+### 1. Mandatory Execution Standards
+1.  **Reader Empathy & Problem Statement**: Start by addressing the reader's genuine question or challenge.
+2.  **Objective & Honest Analysis**: Provide practical, verified guidance without sensationalism (avoid: "最強", "神コスパ", "裏ワザ", "完全攻略").
+3.  **Structure & Visual Aids**: Use clear headings (H2/H3), comparison tables, and code snippets to maximize readability.
+4.  **Internal Link Ecosystem**: Connect cluster articles naturally to guide the reader to relevant follow-up details.
+5.  **Clean SEO Titles**: Descriptive, accurate titles (~32 characters) that reflect real search intent without clickbait.
+6.  **Changelog**: Conclude every article with a `## 変更履歴 (Changelog)`.
 
 ## Asset & Design Standards
 

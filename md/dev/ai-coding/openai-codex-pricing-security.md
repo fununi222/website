@@ -1,11 +1,12 @@
-﻿---
+---
 title: "Dev | OpenAI Codex 料金体系とエンタープライズ・セキュリティ 2026"
 date: "2026-04-18"
 category: "dev"
 description: "サブスクリプションとAPI従量課金のハイブリッド体系、コンテナベースの隔離環境、およびAIOpsによる自動脆弱性診断（Codex Security）の実践リサーチ。"
 themes: ["dev:ai", "ai:llm", "security:audit", "finance:roi"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # OpenAI Codex 料金体系とエンタープライズ・セキュリティ 2026
 
@@ -16,7 +17,7 @@ updated: "2026-08-02"
 AIコーディングツールの導入を検討する企業担当者様から、最も多く寄せられる悩みです。
 社外秘のソースコードをAIに読み込ませて、情報が漏れたりしないのでしょうか？
 
-この記事では、2026年最新の「OpenAI Codexの料金体系」と、企業が安心して導入できる「強固なセキュリティ機能」について徹底解説します。
+この記事では、2026年最新の「OpenAI Codexの料金体系」と、企業が安心して導入できる「強固なセキュリティ機能」について詳しく解説します。
 
 これを読めば、上司や決済者を説得するための材料がすべて揃います。
 
@@ -29,15 +30,15 @@ AIコーディングツールの導入を検討する企業担当者様から、
 個人の開発者や、まずは試してみたい企業向けです。
 「ChatGPT Plus / Pro / Business / Enterprise」などの有料プランに加入していれば、**追加料金なし**でCodexの機能を利用できます。
 
-*   **注意点:** 無制限ではありません。利用上限に達した場合は、追加のクレジットを購入する必要があります。
+* **注意点:** 無制限ではありません。利用上限に達した場合は、追加のクレジットを購入する必要があります。
 
 ### 2. APIの従量課金プラン（使った分だけ）
 
 自社のシステムにAIを組み込んだり、チーム全体で大規模に利用したい場合（ChatGPT Business等）は、利用したデータ量（トークン）に応じた課金となります。
 
-*   **[GPT-5](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GPT-5").3-Codex:** 100万入力[トークン](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Token")あたり $1.75
-*   **GPT-5.1-Codex-Mini:** 100万入力[トークン](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Token")あたり $0.25（コスパ重視の小規模タスク向け）
-*   **コンテナ（隔離環境）:** 1GBあたり $0.03（20分のセッションごと）
+* **[GPT-5](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GPT-5").3-Codex:** 100万入力[トークン](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Token")あたり $1.75
+* **GPT-5.1-Codex-Mini:** 100万入力[トークン](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Token")あたり $0.25（コスパ重視の小規模タスク向け）
+* **コンテナ（隔離環境）:** 1GBあたり $0.03（20分のセッションごと）
 
 用途に合わせてモデルを切り替えることで、コストを劇的に抑えることが可能です。
 
@@ -50,9 +51,9 @@ AIコーディングツールの導入を検討する企業担当者様から、
 
 AIがコードを書く際に脆弱性を作り出してしまうのではなく、逆に**AIがセキュリティ専門家としてシステムを守ってくれます**。
 
-1.  **自動で脅威を分析:** プロジェクト全体を読み込み、どこが攻撃されやすいかを自動でリストアップします。
-2.  **実証と修正:** 単なる警告ではなく、隔離された環境で実際に攻撃のテスト（[PoC](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PoC")）を行い、安全な修正パッチまで提案してくれます。
-3.  **確かな実績:** わずか30日間のベータテストで、有名なオープンソースプロジェクトから792件のクリティカルな脆弱性（[CVE](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="CVE")）を発見しました。
+1. **自動で脅威を分析:** プロジェクト全体を読み込み、どこが攻撃されやすいかを自動でリストアップします。
+2. **実証と修正:** 単なる警告ではなく、隔離された環境で実際に攻撃のテスト（[PoC](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PoC")）を行い、安全な修正パッチまで提案してくれます。
+3. **確かな実績:** わずか30日間のベータテストで、有名なオープンソースプロジェクトから792件のクリティカルな脆弱性（[CVE](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="CVE")）を発見しました。
 
 ### 情報漏洩の防止策
 
@@ -78,6 +79,7 @@ OpenAI Codexは、コストを抑えつつ、人間の手では不可能なレ�
 👉 **[公式] [ChatGPTの料金プラン詳細・お申し込みはこちら](https://openai.com/chatgpt/pricing)**
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-04-24**: 最新のSKILL.md基準（用語リンクの最適化、変更履歴の追加）に合わせて記事をブラッシュアップ。
 - **2026-04-18**: 2026年最新のOpenAI Codex料金体系と、Codex Securityによる脆弱性診断機能について新規作成。
 

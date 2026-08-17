@@ -4,12 +4,14 @@ date: "2026-04-09"
 category: "infra"
 description: "VMware vSphere環境におけるバックアップトラブルを防ぐ。CBT（Changed Block Tracking）不整合の検知と是正を自動化する実践手法。"
 themes: ["infra:backup", "infra:automation", "infra:virtualization"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # VMware vSphere | CBT不整合の自動検知と是正 2026
 
-## 超要約
+## 概要
 本レポートは、[VMware vSphere](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="VMware vSphere") 8.0 / ESXi 環境における増分 [バックアップ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="バックアップ") の生命線である [CBT (Changed Block Tracking)](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="CBT (Changed Block Tracking")) の不整合問題を解決する自動化手法について解説します。不整合発生によるフルスキャンのフォールバックを防ぐため、[PowerShell](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PowerShell") (PowerCLI) と CI/CD パイプラインを組み合わせ、[スナップショット](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="スナップショット") 生成を介したステータスの自動リセットフローを構築し、バックアップ運用の安定性を向上させます。
 
 ---
@@ -42,21 +44,21 @@ Connect-VIServer -Server "vcenter.internal.domain" -Protocol https
 $vmlist = Get-VM | Where-Object { $_.PowerState -eq "PoweredOn" }
 
 foreach ($vm in $vmlist) {
-    $cbtEnabled = $vm.ExtensionData.Config.ChangeTrackingEnabled
-    if ($cbtEnabled -ne $true) {
-        Write-Host "WARNING: CBT inconsistent for $($vm.Name). Initiating auto-remediation..." -ForegroundColor Yellow
-        
-        # CBT再有効化パラメータ定義
-        $spec = New-Object VMware.Vim.VirtualMachineConfigSpec
-        $spec.ChangeTrackingEnabled = $true
-        $vm.ExtensionData.ReconfigVM($spec)
-        
-        # CTKマップを再初期化するために一時スナップショットを作成・削除
-        $snap = New-Snapshot -VM $vm -Name "CBT-Reset-AutoRemediation" -Description "Temporary snapshot for CBT map reset"
-        Remove-Snapshot -Snapshot $snap -Confirm:$false
-        
-        Write-Host "SUCCESS: CBT successfully reset for $($vm.Name)." -ForegroundColor Green
-    }
+ $cbtEnabled = $vm.ExtensionData.Config.ChangeTrackingEnabled
+ if ($cbtEnabled -ne $true) {
+ Write-Host "WARNING: CBT inconsistent for $($vm.Name). Initiating auto-remediation..." -ForegroundColor Yellow
+ 
+ # CBT再有効化パラメータ定義
+ $spec = New-Object VMware.Vim.VirtualMachineConfigSpec
+ $spec.ChangeTrackingEnabled = $true
+ $vm.ExtensionData.ReconfigVM($spec)
+ 
+ # CTKマップを再初期化するために一時スナップショットを作成・削除
+ $snap = New-Snapshot -VM $vm -Name "CBT-Reset-AutoRemediation" -Description "Temporary snapshot for CBT map reset"
+ Remove-Snapshot -Snapshot $snap -Confirm:$false
+ 
+ Write-Host "SUCCESS: CBT successfully reset for $($vm.Name)." -ForegroundColor Green
+ }
 }
 
 Disconnect-VIServer -Confirm:$false
@@ -72,6 +74,7 @@ Disconnect-VIServer -Confirm:$false
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のvSphere 8.0 Update 3 / vSAN ESA CBT動向、PowerCLI 13.x環境でのCBT再初期化スクリプトのファクトチェックと改訂。
 - **2026-04-09 (v2)**: メタデータおよびグローバルデザイン標準化。
 - **2026-04-06 (v1)**: 新規作成。

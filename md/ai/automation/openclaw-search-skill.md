@@ -4,12 +4,14 @@ date: "2026-04-09"
 category: "ai"
 description: "X APIの高騰を回避し、Yahoo!リアルタイム検索をデータソースとして活用するAIエージェントスキルの実装ガイド。"
 themes: ["ai:agent", "ai:tool-integration", "ai:automation"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # OpenClaw | Yahoo!リアルタイム検索を活用した動的スキルの構築
 
-## 超要約
+## 概要
 [X](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="X") [API](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="API") の高額な費用やアカウント制約、凍結リスクを回避し、Yahoo!リアルタイム検索をデータソースとして活用する [OpenClaw](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="OpenClaw") ベースの [AIエージェント](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AIエージェント") スキル構築ガイドです。[Playwright](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Playwright") によるスクレイピングと [LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM") による構造化抽出を組み合わせ、重要告知やトレンド情報を自動要約するシステムを構築します。
 
 ---
@@ -36,21 +38,21 @@ from playwright.async_api import async_playwright
 import json
 
 async def search_realtime(query: str):
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        page = await browser.new_page()
-        url = f"https://search.yahoo.co.jp/realtime/search?p={query}"
-        await page.goto(url)
-        await page.wait_for_selector(".Tweet_tweet__Container")
-        
-        tweets = []
-        elements = await page.query_selector_all(".Tweet_tweet__Container")
-        for el in elements[:10]:
-            text = await el.inner_text()
-            tweets.append(text)
-            
-        await browser.close()
-        return tweets
+ async with async_playwright() as p:
+ browser = await p.chromium.launch(headless=True)
+ page = await browser.new_page()
+ url = f"https://search.yahoo.co.jp/realtime/search?p={query}"
+ await page.goto(url)
+ await page.wait_for_selector(".Tweet_tweet__Container")
+ 
+ tweets = []
+ elements = await page.query_selector_all(".Tweet_tweet__Container")
+ for el in elements[:10]:
+ text = await el.inner_text()
+ tweets.append(text)
+ 
+ await browser.close()
+ return tweets
 
 # Run search
 # results = asyncio.run(search_realtime("OpenAI id:OpenAI"))
@@ -71,21 +73,22 @@ document.addEventListener('sme-loaded', () => { initOpenClawSkill(); });
 setTimeout(initOpenClawSkill, 200);
 
 function initOpenClawSkill() {
-  if (window._initOpenClawDone) return;
-  window._initOpenClawDone = true;
+ if (window._initOpenClawDone) return;
+ window._initOpenClawDone = true;
 
-  window.switchOpenClawTab = (showId, hideId, btn) => {
-    const showEl = document.getElementById(showId);
-    const hideEl = document.getElementById(hideId);
-    if (showEl && hideEl) {
-      showEl.classList.remove('hidden');
-      hideEl.classList.add('hidden');
-    }
-  };
+ window.switchOpenClawTab = (showId, hideId, btn) => {
+ const showEl = document.getElementById(showId);
+ const hideEl = document.getElementById(hideId);
+ if (showEl && hideEl) {
+ showEl.classList.remove('hidden');
+ hideEl.classList.add('hidden');
+ }
+ };
 }
 </script>
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のPlaywright async API、Yahoo!リアルタイム検索DOMセレクタ、OpenClawスキル定義のファクトチェック。
 - **2026-04-09 (v2)**: メタデータおよびインターフェースデザイン標準化。
 - **2026-04-06 (v1)**: 新規作成。

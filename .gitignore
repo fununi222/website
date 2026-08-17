@@ -23,4 +23,7 @@ __pycache__/
 *.ico
 *.svg
 
+# Scratch & Temporary analysis
+scratch/
+
 

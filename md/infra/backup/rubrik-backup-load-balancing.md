@@ -4,12 +4,14 @@ date: "2026-04-16"
 category: "infra"
 description: "Rubrikネイティブで帯域制限（スロットリング）ができない理由と、バックアップ時の本番ストレージ過負荷を防ぐための4つのベストプラクティスを解説します。"
 themes: ["infra:backup", "infra:tuning", "infra:architecture"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # Rubrikのバックアップ負荷分散ガイド！リソース制限ができない時の対策
 
-## 超要約
+## 概要
 [Rubrik](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Rubrik") (Rubrik Security Cloud) 導入時、「バックアップ実行中に本番ストレージのI/O負荷が急増する」「Rubrik側でバックアップ受信帯域のスロットリングが設定できない」という課題が散見されます。本稿では、Rubrikのデータ取得思想とIngress/Egress制御の差分、および本番ストレージの過負荷（Noisy Neighbor問題）を防ぐ4つのロードバランシング・ベストプラクティスを解説します。
 
 ---
@@ -54,6 +56,7 @@ Rubrikクラスタは各ノードの安定稼働のため、デフォルトで�
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のRubrik Security Cloud (RSC) / CDM 9.x バックアップ並列ストリーム制御、QoS連携、目次H2見出し標準化。
 - **2026-04-16 (v2)**: グローバルデザイン統一および構成最適化。
 - **2026-04-06 (v1)**: 初版作成。

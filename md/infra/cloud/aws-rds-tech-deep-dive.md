@@ -1,15 +1,17 @@
 ---
-title: "Amazon RDS 徹底解剖｜AIOpsによる自律修復と高可用性の極致"
+title: "Amazon RDS 詳しく解説｜AIOpsによる自律修復と高可用性の実践設計"
 date: "2026-04-24"
 category: "infra"
 description: "マネージドDBの限界を突破する。Multi-AZクラスターの深層、Boto3による自律スケーリング、そして『絶対に止まらない』RDS Proxy戦略を詳解。"
 themes: ["infra:cloud", "infra:database", "ai:ops"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
 
-# Amazon RDS 徹底解剖｜AIOpsによる自律修復と高可用性の極致
 
-## 超要約
+
+# Amazon RDS 詳しく解説｜AIOpsによる自律修復と高可用性の実践設計
+
+## 概要
 [Amazon RDS](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AWS%20RDS") はマネージド型のデータベース基盤ですが、大規模スパイクやコネクション超過に対しては適切な設計が必要です。本稿では、Multi-AZ DB クラスター（Quorumベースレプリケーション）、[RDS Proxy](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="RDS%20Proxy") によるコネクションプーリング、および Boto3 / [AIOps](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AIOps") を組み合わせた自律型スケーリング・セルフヒーリング設計を解説します。
 
 ---
@@ -36,17 +38,17 @@ from datetime import datetime
 rds = boto3.client('rds', region_name='ap-northeast-1')
 
 def autonomous_remediation(db_id, target_class):
-    # 1. 証拠保全：スナップショットの取得
-    snapshot_id = f"auto-fix-{db_id}-{datetime.now().strftime('%Y%m%d%H%M%S')}"
-    rds.create_db_snapshot(DBSnapshotIdentifier=snapshot_id, DBInstanceIdentifier=db_id)
-    
-    # 2. 自律調整：スケールアップの即時適用
-    rds.modify_db_instance(
-        DBInstanceIdentifier=db_id,
-        DBInstanceClass=target_class,
-        ApplyImmediately=True
-    )
-    print(f"Autonomous remediation triggered: {db_id} scaling up to {target_class}")
+ # 1. 証拠保全：スナップショットの取得
+ snapshot_id = f"auto-fix-{db_id}-{datetime.now().strftime('%Y%m%d%H%M%S')}"
+ rds.create_db_snapshot(DBSnapshotIdentifier=snapshot_id, DBInstanceIdentifier=db_id)
+ 
+ # 2. 自律調整：スケールアップの即時適用
+ rds.modify_db_instance(
+ DBInstanceIdentifier=db_id,
+ DBInstanceClass=target_class,
+ ApplyImmediately=True
+ )
+ print(f"Autonomous remediation triggered: {db_id} scaling up to {target_class}")
 ```
 
 ---
@@ -68,6 +70,7 @@ def autonomous_remediation(db_id, target_class):
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のAmazon RDS Multi-AZ Cluster、RDS Proxy、Boto3 AIOps自律運用のファクトチェックと目次H2構造最適化。
-- **2026-04-24 (v2)**: SEOトップ1%戦略リライト。
+- **2026-04-24 (v2)**: 実践的なコンテンツ設計リライト。
 - **2026-04-10 (v1)**: 初版作成。

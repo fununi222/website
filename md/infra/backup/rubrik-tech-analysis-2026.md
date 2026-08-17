@@ -1,11 +1,12 @@
-﻿---
+---
 title: "Infra | Rubrik：次世代データ管理アーキテクチャの全容 2026"
 date: "2026-04-10"
 category: "infra"
 description: "不変バリア、分散スケールアウト、SLAドメイン。ゼロトラスト時代のデータセキュリティ基盤「Rubrik」の実践的技術解説。"
 themes: ["infra:security", "infra:automation", "ai:ops"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # Infra | Rubrik：次世代データ管理アーキテクチャの全容 2026
 
@@ -168,30 +169,30 @@ Rubrikの[SLA Domain](https://fununi222.github.io/website/html/glossary/system-g
 ```terraform
 # SLAドメインの定義
 resource "rubrik_sla" "gold_policy" {
-  name = "Gold-SLA-AWS-Archive"
-  
-  # 頻度と保持期間の設定
-  frequencies {
-    hourly {
-      frequency = 4
-      retention = 24
-    }
-    daily {
-      frequency = 1
-      retention = 30
-    }
-  }
+ name = "Gold-SLA-AWS-Archive"
+ 
+ # 頻度と保持期間の設定
+ frequencies {
+ hourly {
+ frequency = 4
+ retention = 24
+ }
+ daily {
+ frequency = 1
+ retention = 30
+ }
+ }
 
-  # AWS S3 へのアーカイブ設定
-  archival_location_name = "AWS-S3-Standard-West"
+ # AWS S3 へのアーカイブ設定
+ archival_location_name = "AWS-S3-Standard-West"
 }
 
 # vSphereタグに基づいた自動保護設定
 resource "rubrik_vsphere_tag_assignment" "auto_protect" {
-  object_type        = "VirtualMachine"
-  tag_category_name  = "BackupPolicy"
-  tag_name           = "Gold"
-  sla_domain_id      = rubrik_sla.gold_policy.id
+ object_type = "VirtualMachine"
+ tag_category_name = "BackupPolicy"
+ tag_name = "Gold"
+ sla_domain_id = rubrik_sla.gold_policy.id
 }
 ```
 
@@ -223,5 +224,6 @@ print(f"Live Mount started for {vm_name}. Output: {mount_result}")
 - **Rubrik GitHub Repository:** https://github.com/rubrikinc/
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-04-10**: AIOpsエンジニア向けプロンプト（Phase 1.1）を活用した、実機検証ベースのリサーチ結果に基づき新規作成。
 

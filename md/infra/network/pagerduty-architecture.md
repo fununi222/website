@@ -1,15 +1,17 @@
 ---
-title: "インシデント管理の極致｜PagerDutyで作る『自律型』運用プラットフォーム"
+title: "インシデント管理の実践設計｜PagerDutyで作る『自律型』運用プラットフォーム"
 date: "2026-04-24"
 category: "infra"
 description: "「アラート疲れ」からエンジニアを解放する。PagerDutyのAIOps、Event Orchestration、そしてAIエージェントによる自動修復戦略を詳解。"
 themes: ["infra:ops", "ai:ops", "dev:dx"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
 
-# インシデント管理の極致｜PagerDutyで作る『自律型』運用プラットフォーム
 
-## 超要約
+
+# インシデント管理の実践設計｜PagerDutyで作る『自律型』運用プラットフォーム
+
+## 概要
 システム構成の複雑化とアラート量増大に伴う「アラート疲れ (Alert Fatigue)」を根本解決するのが、[PagerDuty](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PagerDuty") を用いた自律型インシデント運用です。本稿では、[Event Orchestration](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Event%20Orchestration") によるアラートノイズ95%以上削減、[Runbook Automation](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Runbook%20Automation") による自動一次対応、および生成AIエージェント（PagerDuty Advance）を活用したMTTR最小化設計を解説します。
 
 ---
@@ -47,6 +49,7 @@ updated: "2026-08-02"
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のPagerDuty Event Orchestration, Runbook Automation, PagerDuty Advance AIエージェントのファクトチェックと目次H2構造最適化。
-- **2026-04-24 (v2)**: SEOトップ1%戦略に基づきリライト。
+- **2026-04-24 (v2)**: 実践的なガイドラインに基づきリライト。
 - **2026-04-09 (v1)**: 初版作成。

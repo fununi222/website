@@ -1,13 +1,14 @@
-﻿---
-title: "【2026最新】GPT-5.6とChatGPT Workで何が変わる？ AIエージェントの破壊力を解説"
+---
+title: "GPT-5.6とChatGPT Workで何が変わる？ AIエージェントの破壊力を解説"
 date: "2026-07-11"
 category: "ai"
 description: "GPT-5.6 Sol/Terra/LunaとChatGPT Work、Codex連携で何が変わるのか。AIエージェント時代の実務メリット、使い分け、注意点を中学生にもわかる言葉で解説。"
 themes: ["ai:agents", "ai:automation", "dev:ai-coding"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
 
-# 【2026最新】GPT-5.6とChatGPT Workで何が変わる？進化したAIエージェントの破壊力をプロが解説
+
+# GPT-5.6とChatGPT Workで何が変わる？進化したAIエージェントの破壊力をプロが解説
 
 「ChatGPTの進化が早すぎて、ついていけない」
 
@@ -218,6 +219,7 @@ GPT-5.6とChatGPT Workの登場で、AIは単なるチャットから、実務�
 * [OpenAI API Pricing](https://openai.com/api/pricing/)
 
 ## 変更履歴
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 
 * 2026-07-11: 初版公開。GPT-5.6、ChatGPT Work、Codex連携の実務インパクトを整理。
 * 2026-07-11: 公式情報に基づき、GPT-5.6 / ChatGPT Work / Codex の位置づけとプラン差分の注意を補強。

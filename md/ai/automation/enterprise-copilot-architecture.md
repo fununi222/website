@@ -1,11 +1,12 @@
-﻿---
+---
 title: "Enterprise AI Architecture | クラウドAI基盤 vs. 独自エージェントの選択肢と制約"
 date: "2026-04-15"
 category: "ai"
 description: "外部パートナー利用不可というライセンス制約をどう回避するか。AI Knowledge Conciergeで浮き彫りになった、エンタープライズAI公開戦略の比較。"
 themes: ["ai:architecture", "enterprise:agent", "cloud:ai"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.15</div>
 
@@ -27,11 +28,7 @@ updated: "2026-08-02"
 
 制約を回避しつつ、セキュアにナレッジを公開するための3つのルートです。
 
-| 方式 | 特徴 | 外部公開 | 構築コスト |
-|---|---|---|---|
-| **Native AI** | Microsoft 365 や Teams など既存ツールとの統合が強力。 | 組織/テナント前提になりやすい | 低 |
-| **AIエージェント開発基盤** | ローコード開発、プラグイン連携、複数チャネル公開。 | 認証方式・共有範囲・ライセンス確認が必須 | 中 |
-| **Custom Agent (RAG)** | クラウドAPI + Web App等で独自開発。 | **可能 (Auth制御次第)** | 高 |
+| 方式 | 特徴 | 外部公開 | 構築コスト |---|---|---|---| **Native AI** | Microsoft 365 や Teams など既存ツールとの統合が強力。 | 組織/テナント前提になりやすい | 低 | **AIエージェント開発基盤** | ローコード開発、プラグイン連携、複数チャネル公開。 | 認証方式・共有範囲・ライセンス確認が必須 | 中 | **Custom Agent (RAG)** | クラウドAPI + Web App等で独自開発。 | **可能 (Auth制御次第)** | 高 |
 
 ## 3. AI Knowledge Conciergeプロジェクトのハイブリッド戦略
 
@@ -51,6 +48,7 @@ updated: "2026-08-02"
 アーキテクチャの選択肢は今後も変化し続けますが、不変なのは「質の高いナレッジデータ」です。[LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM")の種類やライセンス形態に左右されないよう、データを疎結合に保ち、いつでも別の「器（エージェント）」へ移し替えられる設計がエンタープライズAIには不可欠です。
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - 2026-04-15: 新規作成。Copilot Studio の公開制約とカスタムエージェント戦略のリサーチ結果を統合。
 - 2026-07-11: 日付を確定し、Microsoft Learn の共有/認証仕様に合わせて外部公開の表現を精緻化。
 

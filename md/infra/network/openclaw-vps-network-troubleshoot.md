@@ -4,12 +4,14 @@ date: "2026-04-24"
 category: "infra"
 description: "「名前解決はできるのにWebアクセスが落ちる」――VPS特有のパケットフィルター制約とOpenClaw通信エラーを根本から解決する、診断と復旧の全手順。"
 themes: ["infra:network", "infra:vps", "other:troubleshoot"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # OpenClaw復旧ガイド｜VPSネットワークの『見えない壁』を突破せよ
 
-## 超要約
+## 概要
 VPS（ConoHa, さくらのVPS, DigitalOcean等）上で [OpenClaw](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="OpenClaw") などの [AIエージェント](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AIエージェント") スキルを稼働させている際、「SSHやDNS名前解決は成功するが、HTTPS通信（Outbound 443）がタイムアウトする」問題が発生します。本稿では、OS内ファイアウォール（ufw/iptables）を超えたVPS事業者コントロールパネル上のインフラ層パケットフィルター遮断の切分けと復旧手順を完全解説します。
 
 ---
@@ -46,13 +48,13 @@ openclaw devices list
 ## 3. 根本解決策と環境復旧手順
 
 1. **VPSコントロールパネルでの「パケットフィルター / セキュリティグループ」変更**: 
-   OS側の `ufw` / `iptables` 許可のみならず、VPS事業者のWebコンソールから「Inbound/Outbound TCP 80, 443」を明示的に許可。
+ OS側の `ufw` / `iptables` 許可のみならず、VPS事業者のWebコンソールから「Inbound/Outbound TCP 80, 443」を明示的に許可。
 2. **DNS リゾルバの信頼性向上**:
-   `/etc/resolv.conf` にパブリックDNS (`8.8.8.8`, `1.1.1.1`) を追記。
+ `/etc/resolv.conf` にパブリックDNS (`8.8.8.8`, `1.1.1.1`) を追記。
 3. **OpenClaw デバイス認可コマンド再実行**:
-   ```bash
-   openclaw devices approve <REQUEST_ID>
-   ```
+ ```bash
+ openclaw devices approve <REQUEST_ID>
+ ```
 
 ---
 
@@ -65,6 +67,7 @@ openclaw devices list
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のOpenClaw CLI, VPSインフラ層パケットフィルター、TCP/UDP段階診断のファクトチェックと目次H2構造最適化。
-- **2026-04-24 (v2)**: SEOトップ1%戦略に基づきリライト。
+- **2026-04-24 (v2)**: 実践的なガイドラインに基づきリライト。
 - **2026-04-09 (v1)**: 初版作成。

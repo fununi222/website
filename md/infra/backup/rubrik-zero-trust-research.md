@@ -2,78 +2,80 @@
 title: "Rubrik | ゼロトラスト・データセキュリティ基盤調査 2026"
 date: "2026-04-09"
 category: "infra"
-description: "Rubrik のゼロトラスト設計、不変バックアップ、脅威ハンティング、機密データ分析を統合した、究極のデータセキュリティ・リサーチ・ポータル。"
+description: "Rubrik のゼロトラスト設計、不変バックアップ、脅威ハンティング、機密データ分析を統合した、実践的のデータセキュリティ・リサーチ・ポータル。"
 themes: ["infra:security", "infra:backup", "infra:cyber-recovery"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # Rubrik | ゼロトラスト・データセキュリティ基盤調査 2026
 
-## 超要約
+## 概要
 Rubrik を「単なるバックアップ」から「サイバーレジリエンス／データセキュリティ基盤」へと再定義するための統合リサーチ・ポータルです。不変性（Immutability）によるデータ保護、AIベースの暗号化・脅威検知、機密データ（DSPM）の自動分類、およびオーケストレーションされたサイバーリカバリ（Cyber Recovery）までを包括的に解説します。
 
 ---
 
 <style>
 .rubrik-portal {
-  --rp-border: rgba(255,255,255,0.08);
-  --rp-panel: rgba(15, 23, 42, 0.62);
-  --rp-panel-strong: rgba(15, 23, 42, 0.9);
-  --rp-emerald: #34d399;
-  --rp-emerald-deep: #10b981;
-  --rp-slate: #94a3b8;
+ --rp-border: rgba(255,255,255,0.08);
+ --rp-panel: rgba(15, 23, 42, 0.62);
+ --rp-panel-strong: rgba(15, 23, 42, 0.9);
+ --rp-emerald: #34d399;
+ --rp-emerald-deep: #10b981;
+ --rp-slate: #94a3b8;
 }
 .rubrik-portal .rp-panel {
-  background: var(--rp-panel);
-  border: 1px solid var(--rp-border);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.32);
+ background: var(--rp-panel);
+ border: 1px solid var(--rp-border);
+ backdrop-filter: blur(16px);
+ box-shadow: 0 24px 60px rgba(2, 6, 23, 0.32);
 }
 .rubrik-portal .rp-panel-strong {
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.82));
-  border: 1px solid var(--rp-border);
-  backdrop-filter: blur(18px);
+ background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.82));
+ border: 1px solid var(--rp-border);
+ backdrop-filter: blur(18px);
 }
 .rubrik-portal .rp-tab-panel {
-  display: none;
-  animation: rpFade 0.28s ease-in-out;
+ display: none;
+ animation: rpFade 0.28s ease-in-out;
 }
 .rubrik-portal .rp-tab-panel.active {
-  display: block;
+ display: block;
 }
 .rubrik-portal .rp-tab-btn,
 .rubrik-portal .rp-feat-card,
 .rubrik-portal .rp-ref-card {
-  transition: all 0.22s ease;
+ transition: all 0.22s ease;
 }
 .rubrik-portal .rp-tab-btn.active {
-  color: #ecfdf5;
-  border-color: var(--rp-emerald);
-  background: linear-gradient(180deg, rgba(52, 211, 153, 0.15), rgba(52, 211, 153, 0.03));
+ color: #ecfdf5;
+ border-color: var(--rp-emerald);
+ background: linear-gradient(180deg, rgba(52, 211, 153, 0.15), rgba(52, 211, 153, 0.03));
 }
 .rubrik-portal .rp-feat-card.active {
-  background: linear-gradient(180deg, rgba(52, 211, 153, 0.14), rgba(255,255,255,0.03));
-  border-color: rgba(52, 211, 153, 0.42);
-  box-shadow: 0 14px 28px rgba(16, 185, 129, 0.12);
+ background: linear-gradient(180deg, rgba(52, 211, 153, 0.14), rgba(255,255,255,0.03));
+ border-color: rgba(52, 211, 153, 0.42);
+ box-shadow: 0 14px 28px rgba(16, 185, 129, 0.12);
 }
 .rubrik-portal .rp-ref-card:hover {
-  border-left-color: var(--rp-emerald);
+ border-left-color: var(--rp-emerald);
 }
 .rubrik-portal .rp-chart-container {
-  position: relative;
-  width: 100%;
-  max-width: 760px;
-  margin-inline: auto;
-  height: 320px;
+ position: relative;
+ width: 100%;
+ max-width: 760px;
+ margin-inline: auto;
+ height: 320px;
 }
 @media (min-width: 768px) {
-  .rubrik-portal .rp-chart-container {
-    height: 360px;
-  }
+ .rubrik-portal .rp-chart-container {
+ height: 360px;
+ }
 }
 @keyframes rpFade {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+ from { opacity: 0; transform: translateY(6px); }
+ to { opacity: 1; transform: translateY(0); }
 }
 </style>
 
@@ -153,58 +155,59 @@ Rubrik のゼロトラスト・アーキテクチャ（Zero Data Threat Architec
 
 <script>
 (() => {
-  const init = () => {
-    const root = document.querySelector('.rubrik-portal');
-    if (!root) return;
+ const init = () => {
+ const root = document.querySelector('.rubrik-portal');
+ if (!root) return;
 
-    const tabBtns = root.querySelectorAll('.rp-tab-btn');
-    const tabPanels = root.querySelectorAll('.rp-tab-panel');
+ const tabBtns = root.querySelectorAll('.rp-tab-btn');
+ const tabPanels = root.querySelectorAll('.rp-tab-panel');
 
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.getAttribute('data-target');
-        tabBtns.forEach(b => b.classList.remove('active'));
-        tabPanels.forEach(p => p.classList.remove('active'));
+ tabBtns.forEach(btn => {
+ btn.addEventListener('click', () => {
+ const target = btn.getAttribute('data-target');
+ tabBtns.forEach(b => b.classList.remove('active'));
+ tabPanels.forEach(p => p.classList.remove('active'));
 
-        btn.classList.add('active');
-        const activePanel = root.querySelector('#' + target);
-        if (activePanel) activePanel.classList.add('active');
+ btn.classList.add('active');
+ const activePanel = root.querySelector('#' + target);
+ if (activePanel) activePanel.classList.add('active');
 
-        window.dispatchEvent(new Event('resize'));
-      });
-    });
+ window.dispatchEvent(new Event('resize'));
+ });
+ });
 
-    if (typeof Chart !== 'undefined') {
-      const canvas = root.querySelector('#rubrikMetricsChart');
-      if (canvas) {
-        new Chart(canvas.getContext('2d'), {
-          type: 'bar',
-          data: {
-            labels: ['Legacy Backup (Manual clean)', 'Rubrik Cyber Recovery (Automated)'],
-            datasets: [{
-              label: 'Recovery MTTR (Hours)',
-              data: [36.0, 2.5],
-              backgroundColor: ['rgba(239, 68, 68, 0.6)', 'rgba(52, 211, 153, 0.8)'],
-              borderColor: ['rgba(239, 68, 68, 1)', 'rgba(52, 211, 153, 1)'],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } } }
-          }
-        });
-      }
-    }
-  };
+ if (typeof Chart !== 'undefined') {
+ const canvas = root.querySelector('#rubrikMetricsChart');
+ if (canvas) {
+ new Chart(canvas.getContext('2d'), {
+ type: 'bar',
+ data: {
+ labels: ['Legacy Backup (Manual clean)', 'Rubrik Cyber Recovery (Automated)'],
+ datasets: [{
+ label: 'Recovery MTTR (Hours)',
+ data: [36.0, 2.5],
+ backgroundColor: ['rgba(239, 68, 68, 0.6)', 'rgba(52, 211, 153, 0.8)'],
+ borderColor: ['rgba(239, 68, 68, 1)', 'rgba(52, 211, 153, 1)'],
+ borderWidth: 1
+ }]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: { legend: { display: false } },
+ scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } } }
+ }
+ });
+ }
+ }
+ };
 
-  setTimeout(init, 200);
+ setTimeout(init, 200);
 })();
 </script>
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のRubrik Security Cloud (RSC)、DSPM機能、Ruby AIによるアノマリー検知とサイバーリカバリ仕様のファクトチェック改訂。
 - **2026-04-09 (v2)**: メタデータおよび統合ポータルデザインを統一。
 - **2026-04-06 (v1)**: 新規作成。

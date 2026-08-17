@@ -1,15 +1,17 @@
 ---
-title: "API Gateway連携での罠「リトライストーム」を防ぐwebMethods設計術"
+title: "API Gateway連携での注意点「リトライストーム」を防ぐwebMethods設計術"
 date: "2026-04-24"
 category: "infra"
 description: "マルチレイヤー環境におけるカスケード障害「リトライストーム」の原因と対策。Gatewayへのリトライ責任集約とべき等性の担保について。"
 themes: ["infra:api-gateway", "dev:webmethods", "system-design"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
 
-# API Gateway連携での罠「リトライストーム」を防ぐwebMethods設計術
 
-## 超要約
+
+# API Gateway連携での注意点「リトライストーム」を防ぐwebMethods設計術
+
+## 概要
 [webMethods](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="webMethods") [Integration Server](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Integration%20Server") (IS) と [webMethods API Gateway](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="API%20Gateway") が複合するマルチレイヤー構成において、全レイヤーが個別に自動リトライを試みると、リクエスト数が乗算的に急増する「[リトライストーム](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="リトライストーム") (Retry Storm)」が発生し、システム全体を共倒れさせます。本稿では、リトライ責任の一元化、バルクヘッド、サーキットブレーカー、および [べき等性](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="べき等性") (Idempotency Key) 担保設計を解説します。
 
 ---
@@ -48,5 +50,6 @@ updated: "2026-08-02"
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のwebMethods API Gateway / Integration Server 10.x/11.x リトライストーム対策、サーキットブレーカー、Idempotency Keyのファクトチェックと目次H2構造最適化。
 - **2026-04-24 (v2)**: 新規作成。

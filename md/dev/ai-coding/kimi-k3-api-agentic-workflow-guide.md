@@ -1,15 +1,16 @@
-﻿---
+---
 title: "Kimi K3をAPI＆ローカル環境で動かす：超長文コンテキストとAgenticワークフロー実践構築"
 date: "2026-08-01"
 category: "dev"
 description: "Kimi K3のOpenAI SDK互換API、リポジトリ読解、レビューBOT、ローカル/プライベート実行の現実性を開発者向けにまとめる実践ガイド。"
 themes: ["dev:ai-coding", "ai:agents", "infra:gpu"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # Kimi K3をAPI＆ローカル環境で動かす：Agenticワークフロー実践構築
 
-## 超要約
+## 概要
 Kimi K3は、OpenAI SDK互換APIから試しやすく、1M token contextを活かした巨大リポジトリ読解や長時間コーディングエージェントのPoCに向いています。一方で、ローカル実行は量子化・分散推論・GPUメモリ設計が必要なため、まずはAPIで評価し、成果が見えた処理だけをプライベート推論へ移すのが現実的です。
 
 ---
@@ -30,16 +31,16 @@ import os
 from openai import OpenAI
 
 client = OpenAI(
-    api_key=os.environ["MOONSHOT_API_KEY"],
-    base_url="https://api.moonshot.ai/v1",
+ api_key=os.environ["MOONSHOT_API_KEY"],
+ base_url="https://api.moonshot.ai/v1",
 )
 
 response = client.chat.completions.create(
-    model="kimi-k3",
-    messages=[
-        {"role": "system", "content": "あなたは慎重なシニアソフトウェアエンジニアです。"},
-        {"role": "user", "content": "このPR差分のリスクと追加テスト案をレビューしてください。"},
-    ],
+ model="kimi-k3",
+ messages=[
+ {"role": "system", "content": "あなたは慎重なシニアソフトウェアエンジニアです。"},
+ {"role": "user", "content": "このPR差分のリスクと追加テスト案をレビューしてください。"},
+ ],
 )
 
 print(response.choices[0].message.content)
@@ -85,13 +86,7 @@ print(response.choices[0].message.content)
 
 Kimi K3級モデルのローカル運用は、ノートPC単体で気軽に回す用途ではありません。検討時は次の判断が必要です。
 
-| 判断軸 | API優先 | プライベート推論優先 |
-|---|---|---|
-| 初期検証 | 低コストで速い | 環境構築が重い |
-| 機密データ | 外部送信制約に注意 | データ境界を作りやすい |
-| レイテンシ | 事業者依存 | GPU構成次第 |
-| コスト | 従量課金 | 稼働率が高いほど有利 |
-| 運用負荷 | 低い | 監視・更新・容量設計が必要 |
+| 判断軸 | API優先 | プライベート推論優先 |---|---|---| 初期検証 | 低コストで速い | 環境構築が重い | 機密データ | 外部送信制約に注意 | データ境界を作りやすい | レイテンシ | 事業者依存 | GPU構成次第 | コスト | 従量課金 | 稼働率が高いほど有利 | 運用負荷 | 低い | 監視・更新・容量設計が必要 |
 
 ## 6. 実装ロードマップ
 
@@ -111,5 +106,6 @@ Kimi K3は、Development領域では「大きなチャットAI」ではなく、
 
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
 - **2026-04-09**: メタデータおよび標準化。

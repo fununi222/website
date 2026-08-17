@@ -1,9 +1,46 @@
+# Blog Brush-up Changelog (2026-08-17)
+
+## 読者ファースト・プロ品質への全面ブラッシュアップ & スキル化 (Blog Refinement & Quality Standard)
+
+「大袈裟な煽りや収益化を排除し、読み手に寄り添うプロ品質のナレッジサイト」を目指し、運用スキルの新設と全記事（139本）の内容・トーン・構造の全面見直しを実施しました。
+
+### [NEW] ブログ品質管理スキルの策定 (`.agents/skills/blog-article-refinement/SKILL.md`)
+- **読者ファーストのトーン＆マナー基準策定**:
+  - 煽り・誇張表現（「最強」「神コスパ」「究極」「完全攻略」「裏ワザ」「超要約」等）の禁止。
+  - 上から目線・選民的表現（「SEOトップ1%」「勝ち組」「情弱」「リテラシーの高い」等）の禁止。
+  - 読者の悩みや疑問に寄り添う親切・丁寧・誠実な導入と解説の義務化。
+  - メリットだけでなくデメリットや注意点も中立に伝えるポリシー。
+- **標準記事テンプレート & 構成規格**:
+  - 冒頭「概要（Summary）」、適切な見出し階層（H1〜H3）、比較表・図表の活用、末尾「変更履歴（Changelog）」。
+- **重複統合・長大記事分割の運用ルール**:
+  - 同一検索意図・重複記事の統合基準と、情報過多記事の構造化・分割基準を明文化。
+- **公開前品質ゲート（Quality Gate Checklist）**:
+  - 7項目の品質チェックリストを整備。
+
+### [MODIFY/DELETE] 重複記事・類似記事の統合と整理
+- **Rubrik関連の重複ペア（5組10記事 → 5記事に統合）**:
+  - `rubrik-backup-load-balancing.md`（統合・強化） ← `rubrik-load-balancing-guide.md`（削除）
+  - `rubrik-threat-monitoring-fp.md`（統合・強化） ← `rubrik-false-positive-analysis-guide.md`（削除）
+  - `rubrik-threat-log-extraction.md`（統合・強化） ← `rubrik-log-export-guide.md`（削除）
+  - `rubrik-max-object-counts-sizing.md`（統合・強化） ← `rubrik-max-objects-limits.md`（削除）
+  - `rubrik-scaling-strategy-clusters-vs-nodes.md`（統合・強化） ← `rubrik-scaling-strategy-nodes.md`（削除）
+- **トピッククラスタの役割分担整理**:
+  - エスコンフィールド（全体見どころ／ファミリー／0〜3歳児平日／特別席）、赤坂肉グルメ、webMethods、ニセコ・倶知安等の役割分担を明確化。
+
+### [MODIFY] 全記事（139本）の本文見直し・トーン改善・テーブル修復
+- **上から目線・選民的表現の排除**: 38記事から「SEOトップ1%」「勝ち組」等を一掃。
+- **高圧的・攻撃的トーンの改善**: `kiss-principle-cognitive-limits.md`、`investment-hell-dashboard.md` 等を共感・建設的な解説へ全面リライト。
+- **崩れたMarkdownテーブルの自動修復**: 1行に結合されて崩れていた29記事（36箇所）の表を、複数行の美しいMarkdownテーブルとして復元。
+- **エンコーディングの統一**: UTF-8 BOM付きファイルを解消し、標準UTF-8に正規化。
+- **全記事の変更履歴整備**: 各記事末尾に `## 変更履歴 (Changelog)` を追記。
+
+### [MODIFY] ガバナンス・パブリッシングツールの更新
+- `SKILL.md` および `references/editorial-operations.md` を読者ファースト基準に同期。
+- `scripts/generate_ogp_proxies.py` を `utf-8-sig` 対応に強化し、全139記事のHTMLプロキシと `assets/data/article_index.json` を正常更新。
+
+---
+
 # Blog Brush-up Changelog (2026-04-06)
-
-## Synthetic Content Engine (SME) Advanced Integration
-Expanded the core functionality of the new Markdown-driven SPA architecture to natively support safe Javascript execution, automated summary generation, and legacy URL preservation.
-
-### [NEW] DOMPurify Interactive Script Bypass (`sme.js`)
 - **Widget Execution Engine**: Successfully integrated `Chart.js` and other dynamic HTML/JS widgets directly inside Markdown files.
 - **Security Logic Bypass**: Refactored the `DOMPurify` pipeline to intercept and temporarily extract `<script>` blocks prior to HTML sanitization, safely re-injecting them into the DOM post-render. This prevents the security filter from aggressively shredding interactive code payload logic.
 - **Markdown Parser Hardening**: Mitigated `marked.js` accidental code-block parsing by establishing strict indentation rules (no 4-space leading indents for injected HTML elements).

@@ -1,13 +1,15 @@
 ---
-title: "【2026年最新】Model Context Protocol（MCP）完全ガイド｜LLMと外部ツール/DBを繋ぐ標準プロトコル"
+title: "Model Context Protocol（MCP）完全ガイド｜LLMと外部ツール/DBを繋ぐ標準プロトコル"
 date: "2026-08-03"
 category: "dev"
 description: "Model Context Protocol（MCP）の基礎、アーキテクチャ、Function Callingとの違い、Python/FastMCPによる最小実装、セキュリティ設計、Codex用プロンプトまでを網羅。"
 themes: ["dev:ai", "ai:agents", "ai:llm", "dev:codex"]
-updated: "2026-08-03"
+updated: "2026-08-17"
 ---
 
-# 【2026年最新】Model Context Protocol（MCP）とは？LLMと外部ツール/DBを繋ぐ次世代標準プロトコル完全ガイド
+
+
+# Model Context Protocol（MCP）とは？LLMと外部ツール/DBを繋ぐ次世代標準プロトコル完全ガイド
 
 > **この記事のポイント**
 > - MCPは、LLMアプリケーションと外部データソース/ツールを接続するためのオープンプロトコルです。
@@ -36,33 +38,32 @@ MCPは、WebにおけるHTTPやデータベースにおけるJDBC/ODBCのよう�
 【MCPアーキテクチャ概要】
 
 [ AIクライアント / MCP Host ]
-  例: Codex, Cursor, Claude Desktop, 自作Agent
-        |
-        | MCP Protocol
-        | JSON-RPC 2.0 / stdio / Streamable HTTP
-        v
+ 例: Codex, Cursor, Claude Desktop, 自作Agent
+ | MCP Protocol
+ | JSON-RPC 2.0 / stdio / Streamable HTTP
+ v
 +---------------------------------------------------------+
-|                    MCP Server 網                         |
+| MCP Server 網 |
 +-------------------+--------------------+----------------+
-| PostgreSQL Server | GitHub MCP Server  | File Server    |
+| PostgreSQL Server | GitHub MCP Server | File Server |
 +-------------------+--------------------+----------------+
-        |                    |                   |
-        v                    v                   v
-[ 社内データベース ]    [ リポジトリ ]      [ ローカルファイル ]
+ | |
+ v v v
+[ 社内データベース ] [ リポジトリ ] [ ローカルファイル ]
 ```
 
 ### 2.1 3つの基本エレメント
 
 MCP Serverは、AIクライアントに対して主に以下の3つのコンテキスト能力を提供します。
 
-1. **Resources（リソース）**  
-   読み取り中心のデータコンテキストです。ドキュメント、データベースレコード、ログファイル、設定情報などを、クライアントが明示的に参照できる形で公開します。
+1. **Resources（リソース）** 
+ 読み取り中心のデータコンテキストです。ドキュメント、データベースレコード、ログファイル、設定情報などを、クライアントが明示的に参照できる形で公開します。
 
-2. **Tools（ツール）**  
-   AIエージェントが実行可能なアクションです。DBレコード検索、チケット作成、Slackメッセージ送信、計算処理、内部API呼び出しなどが該当します。
+2. **Tools（ツール）** 
+ AIエージェントが実行可能なアクションです。DBレコード検索、チケット作成、Slackメッセージ送信、計算処理、内部API呼び出しなどが該当します。
 
-3. **Prompts（プロンプト）**  
-   再利用可能なプロンプトテンプレートです。クライアント側で一貫したコンテキスト生成を行うための「標準作業手順書」として使えます。
+3. **Prompts（プロンプト）** 
+ 再利用可能なプロンプトテンプレートです。クライアント側で一貫したコンテキスト生成を行うための「標準作業手順書」として使えます。
 
 ### 2.2 2026年時点の標準トランスポート
 
@@ -103,21 +104,21 @@ mcp = FastMCP("My-Company-Database-Server")
 # 1. Resource（読み取り用コンテキスト）の定義
 @mcp.resource("config://app-settings")
 def get_config() -> str:
-    """アプリケーションの設定情報を返します。"""
-    return "環境: Production, 許容リクエストレート: 1000req/min"
+ """アプリケーションの設定情報を返します。"""
+ return "環境: Production, 許容リクエストレート: 1000req/min"
 
 
 # 2. Tool（実行可能アクション）の定義
 @mcp.tool()
 def search_customer_orders(customer_id: str) -> str:
-    """顧客IDに基づいて最新の注文履歴を検索します。"""
-    # 実運用ではDBクエリや内部API呼び出しをここで実行する
-    return f"顧客 {customer_id} の最新注文: 注文ID #98765（ステータス: 発送済み）"
+ """顧客IDに基づいて最新の注文履歴を検索します。"""
+ # 実運用ではDBクエリや内部API呼び出しをここで実行する
+ return f"顧客 {customer_id} の最新注文: 注文ID #98765（ステータス: 発送済み）"
 
 
 if __name__ == "__main__":
-    # 標準入力/出力（stdio）経由でMCP Serverを起動
-    mcp.run(transport="stdio")
+ # 標準入力/出力（stdio）経由でMCP Serverを起動
+ mcp.run(transport="stdio")
 ```
 
 このMCP Serverを立ち上げると、MCP対応AI IDEやエージェントフレームワークから、設定情報の参照や注文検索Toolの実行が可能になります。
@@ -164,7 +165,7 @@ Model Context Protocol（MCP）の普及は、AI開発者が「データを接�
 
 MCP導入の第一歩は、既存APIをいきなり全面移行することではありません。まずは **「読み取り専用Resources」** と **「低リスクTools」** からMCP Server化し、監査ログと権限制御を整えながら段階的に拡張することです。
 
-👉 **[次に読む：OpenAI Codex 徹底解剖 2026](https://fununi222.github.io/website/html/dev/ai-coding/openai-codex-guide-2026.html)**
+👉 **[次に読む：OpenAI Codex 詳しく解説 2026](https://fununi222.github.io/website/html/dev/ai-coding/openai-codex-guide-2026.html)**
 
 ---
 
@@ -175,10 +176,10 @@ MCP導入の第一歩は、既存APIをいきなり全面移行することで�
 ```markdown
 # タスク: Model Context Protocol（MCP）に関するWeb技術記事の生成
 
-あなたはTop 1% SEO Strategist & Senior Systems Architectです。以下の条件に従い、Qiita / Zenn / 個人技術ブログへ直接掲載可能なMarkdown記事を生成してください。事前確認・承認ステップは行わず、完全版のMarkdown本文と、必要に応じて実装用コードブロックを直接出力してください。
+あなたは実践的 SEO Strategist & Senior Systems Architectです。以下の条件に従い、Qiita / Zenn / 個人技術ブログへ直接掲載可能なMarkdown記事を生成してください。事前確認・承認ステップは行わず、完全版のMarkdown本文と、必要に応じて実装用コードブロックを直接出力してください。
 
 ## 記事基本データ
-- タイトル: 【2026年最新】Model Context Protocol（MCP）とは？LLMと外部ツール/DBを繋ぐ次世代標準プロトコル完全ガイド
+- タイトル: Model Context Protocol（MCP）とは？LLMと外部ツール/DBを繋ぐ次世代標準プロトコル完全ガイド
 - 主要キーワード: Model Context Protocol, MCP, Agentic AI, LLMツール連携, JSON-RPC, Function Calling, FastMCP
 - 想定読者: AIエージェント開発者、社内AI基盤担当、LLMアプリケーション開発者、技術ブログ読者
 
@@ -201,5 +202,6 @@ MCP導入の第一歩は、既存APIをいきなり全面移行することで�
 - [Official Python SDK for Model Context Protocol](https://github.com/modelcontextprotocol/python-sdk)
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 
 - **2026-08-03**: MCP 2026-07-28仕様を前提に、アーキテクチャ、Function Calling比較、FastMCP実装例、セキュリティ設計、Codex用プロンプトを含む完全版記事として新規作成。

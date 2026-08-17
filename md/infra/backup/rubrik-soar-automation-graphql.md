@@ -1,11 +1,12 @@
-﻿---
+---
 title: "Rubrikログ抽出を完全自動化！ GraphQLとXSOAR連携による次世代SOC運用"
 date: "2026-04-17"
 category: "infra"
 description: "Rubrik Security Cloud の GraphQL と SOAR/XSOAR を連携し、脅威検知後のログ抽出を自動化する運用設計。"
 themes: ["infra:backup", "rubrik:operations"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # Rubrikログ抽出を完全自動化！ GraphQLとXSOAR連携による次世代SOC運用
 
@@ -47,7 +48,7 @@ GraphQLを使えば、「いつ、どのファイルが、どんなマルウェ�
 | 手法 | メリット | デメリット |
 | :--- | :--- | :--- |
 | **自社開発（Python等）** | 無料で構築できる。自社環境に合わせカスタマイズ可能 | スクリプトの保守運用に属人的なコストがかかる |
-| **XSOAR等のSOAR連携** | プレイブックを使うだけで完全自動化。運用保守が圧倒的に楽 | SOARツールの導入費用がかかる |
+| **XSOAR等のSOAR連携** | プレイブックを使うだけで完全自動化。運用保守が優れたに楽 | SOARツールの導入費用がかかる |
 
 ## 4. 具体例（リアルケース）
 大規模な医療機関のSOCチームでは、RubrikとCortex XSOARを連携させています。
@@ -56,7 +57,7 @@ Rubrikがバックアップからマルウェアの検体を発見すると、XS
 管理者が朝出社した時には、「すでに脅威が隔離され、詳細なCSVレポートが手元にある」という状態を実現しています。
 
 ## 参照リンク
-*   [Cortex XSOAR Rubrik Polaris Integration](https://marketplace.paloaltonetworks.com/Default/Details?id=RubrikPolaris)
+* [Cortex XSOAR Rubrik Polaris Integration](https://marketplace.paloaltonetworks.com/Default/Details?id=RubrikPolaris)
 
 ## FAQ（よくある質問）
 **Q. 自社にGraphQLを扱えるエンジニアがいませんが導入できますか？**
@@ -80,5 +81,6 @@ GUIの画面スクレイピングという手作業から脱却し、インテ�
 
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
 - **2026-04-09**: メタデータおよび標準化。

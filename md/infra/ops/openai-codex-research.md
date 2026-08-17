@@ -2,59 +2,61 @@
 title: "OpenAI Codex 基礎知識 | 2026年最新アーキテクチャ・Agentic Coding調査"
 date: "2026-04-09"
 category: "infra"
-description: "OpenAI Codexの原点から最新GPT-5/Agentic Coding時代におけるアーキテクチャ、SWE-bench検証、Repo-level RAG、セキュリティ・ガードレールを徹底解説。"
+description: "OpenAI Codexの原点から最新GPT-5/Agentic Coding時代におけるアーキテクチャ、SWE-bench検証、Repo-level RAG、セキュリティ・ガードレールを詳しく解説。"
 themes: ["ai:llm", "ai:engineering", "infra:automation"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # OpenAI Codex 基礎知識：2026年エンジニアリング・自律型コーディング展望
 
-## 超要約
+## 概要
 OpenAI Codexは、自然言語を実用コードに変換する [LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM") の金字塔として誕生しました。2026年現在、その技術的系統は [GPT-5](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="GPT5") シリーズおよび自律型AIエージェント（Agentic Coding）へと進化しています。本レポートでは、Codexの歴史的背景からデータ処理パイプライン、最新のSWE-bench/HumanEval評価指標、セキュリティ・ガードレール構築手法までを最新ファクトに基づき体系的に解説します。
 
 ---
 
 <style>
 .codex-shell {
-  --codex-border: rgba(255,255,255,0.08);
-  --codex-panel: rgba(15, 23, 42, 0.65);
-  --codex-accent: #10b981;
-  --codex-accent-secondary: #d97706;
+ --codex-border: rgba(255,255,255,0.08);
+ --codex-panel: rgba(15, 23, 42, 0.65);
+ --codex-accent: #10b981;
+ --codex-accent-secondary: #d97706;
 }
 .codex-shell .codex-panel {
-  background: var(--codex-panel);
-  border: 1px solid var(--codex-border);
-  backdrop-filter: blur(16px);
+ background: var(--codex-panel);
+ border: 1px solid var(--codex-border);
+ backdrop-filter: blur(16px);
 }
 .codex-shell .codex-tab-btn.active {
-  background: var(--codex-accent);
-  color: #0f172a;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+ background: var(--codex-accent);
+ color: #0f172a;
+ box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
 }
 .codex-shell .chart-container {
-  position: relative;
-  width: 100%;
-  height: 300px;
+ position: relative;
+ width: 100%;
+ height: 300px;
 }
 .codex-shell .pipeline-step {
-  position: relative;
-  border-left: 2px solid rgba(16, 185, 129, 0.2);
-  padding-left: 24px;
+ position: relative;
+ border-left: 2px solid rgba(16, 185, 129, 0.2);
+ padding-left: 24px;
 }
 .codex-shell .pipeline-step::before {
-  content: '';
-  position: absolute;
-  left: -7px;
-  top: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--codex-accent);
-  border: 3px solid #0f172a;
+ content: '';
+ position: absolute;
+ left: -7px;
+ top: 0;
+ width: 12px;
+ height: 12px;
+ border-radius: 50%;
+ background: var(--codex-accent);
+ border: 3px solid #0f172a;
 }
 .codex-shell .typing-cursor::after {
-  content: '|';
-  animation: blink 1s step-end infinite;
+ content: '|';
+ animation: blink 1s step-end infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }
 </style>
@@ -85,11 +87,11 @@ Codexの優れたコード生成能力は、厳密にフィルタリングされ
 ### データクレンジング & トークナイズの3段階
 
 1. **ノイズ除去とフィルタリング**:
-   GitHub上の5,400万リポジトリから、自動生成ファイル（minified JSやProtobuf生成コード等）、極端に長い行、セキュリティ資格情報（API Key / Secrets）を完全にスクリーニング。
+ GitHub上の5,400万リポジトリから、自動生成ファイル（minified JSやProtobuf生成コード等）、極端に長い行、セキュリティ資格情報（API Key / Secrets）を完全にスクリーニング。
 2. **コード専用 BPE (Byte Pair Encoding) 辞書**:
-   インデント（スペース4個/2個）、アロー関数（`=>`）、比較演算子（`===`）などを単一トークンとして保持できるよう語彙辞書を最適化。
+ インデント（スペース4個/2個）、アロー関数（`=>`）、比較演算子（`===`）などを単一トークンとして保持できるよう語彙辞書を最適化。
 3. **自己回帰型学習 + Execution Feedback (RLHF/RLAIF)**:
-   単なるテキスト生成にとどまらず、生成コードをテストサンドボックスで実行し、エラーログをフィードバック学習（Reinforcement Learning from Execution Feedback）させることで到達率を飛躍的に向上。
+ 単なるテキスト生成にとどまらず、生成コードをテストサンドボックスで実行し、エラーログをフィードバック学習（Reinforcement Learning from Execution Feedback）させることで到達率を飛躍的に向上。
 
 ---
 
@@ -187,106 +189,107 @@ CI/CDパイプラインへのSAST（静的アプリケーションセキュリ�
 
 <script>
 (() => {
-  let charts = [];
-  const destroyCharts = () => {
-    charts.forEach(c => c.destroy());
-    charts = [];
-  };
+ let charts = [];
+ const destroyCharts = () => {
+ charts.forEach(c => c.destroy());
+ charts = [];
+ };
 
-  const init = () => {
-    destroyCharts();
-    const root = document.querySelector('.article-body') || document;
-    if (!root) return;
+ const init = () => {
+ destroyCharts();
+ const root = document.querySelector('.article-body') | document;
+ if (!root) return;
 
-    // --- Simulator Data ---
-    const simData = [
-      {
-        prompt: "# boto3を使ってS3バケットから画像をダウンロードする関数を書いてください",
-        code: "import boto3\nimport os\n\ndef download_from_s3(bucket, obj, local_path):\n    \"\"\"\n    S3から画像をダウンロード\n    \"\"\"\n    s3 = boto3.client('s3')\n    try:\n        s3.download_file(bucket, obj, local_path)\n        return True\n    except Exception as e:\n        print(f'Error: {e}')\n        return False"
-      },
-      {
-        prompt: "# Regexを使用したメールアドレスのバリデーション",
-        code: "import re\n\ndef is_valid_email(email):\n    pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$'\n    return bool(re.match(pattern, email))\n\n# Test\n# print(is_valid_email('test@example.com'))"
-      },
-      {
-        prompt: "# フィボナッチ数列を生成する（反復法）",
-        code: "def fibonacci(n):\n    if n <= 0: return 0\n    if n == 1: return 1\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b"
-      }
-    ];
+ // --- Simulator Data ---
+ const simData = [
+ {
+ prompt: "# boto3を使ってS3バケットから画像をダウンロードする関数を書いてください",
+ code: "import boto3\nimport os\n\ndef download_from_s3(bucket, obj, local_path):\n \"\"\"\n S3から画像をダウンロード\n \"\"\"\n s3 = boto3.client('s3')\n try:\n s3.download_file(bucket, obj, local_path)\n return True\n except Exception as e:\n print(f'Error: {e}')\n return False"
+ },
+ {
+ prompt: "# Regexを使用したメールアドレスのバリデーション",
+ code: "import re\n\ndef is_valid_email(email):\n pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$'\n return bool(re.match(pattern, email))\n\n# Test\n# print(is_valid_email('test@example.com'))"
+ },
+ {
+ prompt: "# フィボナッチ数列を生成する（反復法）",
+ code: "def fibonacci(n):\n if n <= 0: return 0\n if n == 1: return 1\n a, b = 0, 1\n for _ in range(2, n + 1):\n a, b = b, a + b\n return b"
+ }
+ ];
 
-    let timer;
-    const codeEl = root.querySelector('#sim-code-display');
-    const promptEl = root.querySelector('#sim-prompt-display');
+ let timer;
+ const codeEl = root.querySelector('#sim-code-display');
+ const promptEl = root.querySelector('#sim-prompt-display');
 
-    const typeWriter = (text, i = 0) => {
-      if (!codeEl) return;
-      if (i < text.length) {
-        codeEl.innerHTML += text.charAt(i).replace(/\n/g, '<br>').replace(/ /g, '&nbsp;');
-        timer = setTimeout(() => typeWriter(text, i + 1), 15);
-      }
-    };
+ const typeWriter = (text, i = 0) => {
+ if (!codeEl) return;
+ if (i < text.length) {
+ codeEl.innerHTML += text.charAt(i).replace(/\n/g, '<br>').replace(/ /g, '&nbsp;');
+ timer = setTimeout(() => typeWriter(text, i + 1), 15);
+ }
+ };
 
-    const simulate = (idx) => {
-      if (!codeEl || !promptEl) return;
-      if (timer) clearTimeout(timer);
-      codeEl.innerHTML = '';
-      promptEl.textContent = simData[idx].prompt;
-      typeWriter(simData[idx].code);
-    };
+ const simulate = (idx) => {
+ if (!codeEl | !promptEl) return;
+ if (timer) clearTimeout(timer);
+ codeEl.innerHTML = '';
+ promptEl.textContent = simData[idx].prompt;
+ typeWriter(simData[idx].code);
+ };
 
-    const tabs = root.querySelectorAll('#sim-tabs .codex-tab-btn');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        simulate(Number(tab.dataset.index));
-      });
-    });
+ const tabs = root.querySelectorAll('#sim-tabs .codex-tab-btn');
+ tabs.forEach(tab => {
+ tab.addEventListener('click', () => {
+ tabs.forEach(t => t.classList.remove('active'));
+ tab.classList.add('active');
+ simulate(Number(tab.dataset.index));
+ });
+ });
 
-    // --- Chart ---
-    const chartCanvas = root.querySelector('#v3-performance-chart');
-    if (typeof Chart !== 'undefined' && chartCanvas) {
-      const ctx = chartCanvas.getContext('2d');
-      charts.push(new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Python', 'TypeScript/JS', 'Go', 'Rust', 'C++', 'Java'],
-          datasets: [{
-            label: 'Pass@1 Accuracy (%)',
-            data: [86.4, 82.1, 78.4, 74.5, 71.9, 68.2],
-            backgroundColor: 'rgba(16, 185, 129, 0.7)',
-            borderRadius: 6,
-            borderColor: 'rgba(16, 185, 129, 1)',
-            borderWidth: 1
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: {
-            y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748b', font: { size: 9 } } },
-            x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 9, weight: 'bold' } } }
-          }
-        }
-      }));
-    }
+ // --- Chart ---
+ const chartCanvas = root.querySelector('#v3-performance-chart');
+ if (typeof Chart !== 'undefined' && chartCanvas) {
+ const ctx = chartCanvas.getContext('2d');
+ charts.push(new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: ['Python', 'TypeScript/JS', 'Go', 'Rust', 'C++', 'Java'],
+ datasets: [{
+ label: 'Pass@1 Accuracy (%)',
+ data: [86.4, 82.1, 78.4, 74.5, 71.9, 68.2],
+ backgroundColor: 'rgba(16, 185, 129, 0.7)',
+ borderRadius: 6,
+ borderColor: 'rgba(16, 185, 129, 1)',
+ borderWidth: 1
+ }]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: { legend: { display: false } },
+ scales: {
+ y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748b', font: { size: 9 } } },
+ x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 9, weight: 'bold' } } }
+ }
+ }
+ }));
+ }
 
-    // Toggle helper
-    window.toggleCodexMitigation = (id) => {
-      const el = root.querySelector('#' + id);
-      if (el) el.classList.toggle('hidden');
-    };
+ // Toggle helper
+ window.toggleCodexMitigation = (id) => {
+ const el = root.querySelector('#' + id);
+ if (el) el.classList.toggle('hidden');
+ };
 
-    // Auto start
-    simulate(0);
-  };
+ // Auto start
+ simulate(0);
+ };
 
-  setTimeout(init, 300);
+ setTimeout(init, 300);
 })();
 </script>
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v4)**: 2026年最新Agentic Coding動向、SWE-bench Verified評価軸、Repo-level RAG構想、セキュリティ・ガードレール設計を統合アップデート。
 - **2026-04-09 (v3)**: 2026年最新展望、GPT-5系エンジニアリングガイド、詳細データパイプライン図の追加。
 - **2026-04-09 (v1)**: 新規作成。

@@ -1,11 +1,12 @@
-﻿---
+---
 title: "記事②：Docker Hubの制限を回避！ Harborプロキシキャッシュと運用術"
 date: "2026-04-16"
 category: "dev"
 description: "Harborのプロキシキャッシュやタグ管理機能を使い、Docker HubのAPI制限を回避しつつコストを最適化する運用術。"
 themes: ["dev:operations", "infra:container", "finops"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
@@ -86,5 +87,6 @@ Dockerの仕様上、同じ名前のタグ（例：v1.0）で新しいイメー�
 
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
 - **2026-04-09**: メタデータおよび標準化。

@@ -4,12 +4,14 @@ date: "2026-04-14"
 category: "other"
 description: "JR逗子駅のすぐ裏手に広がる、静かな歴史の散策路「山の根」。鎮守・熊野神社から鉄道ジオラマのような眺望、中世の「やぐら」を巡る、トトロが出てきそうな緑のルートを歩く。"
 themes: ["travel:hiking", "other:local"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # 逗子の奥座敷「山の根」を歩く。熊野神社から歴史の横穴、見晴らしの良い山道へ
 
-## 超要約
+## 概要
 [逗子](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="逗子") と言えば海のイメージが強いですが、JR逗子駅のすぐ裏手に驚くほど静かな山手散策路が存在します。山の根地区の鎮守 [熊野神社](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="熊野神社") を起点に、中世の墓所である [やぐら](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="やぐら")、鉄道ジオラマのような横須賀線の展望ポイント、[三浦層群](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="三浦層群") の地層を巡る緑豊かなハイキングコースを案内します。
 
 ---
@@ -41,5 +43,6 @@ JR逗子駅の山側（北口）から線路沿いを歩き、住宅街の突き
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v2)**: 2026年最新の逗子・山の根散策ルートのファクトチェック、地史学メモの補強と目次H2構造最適化。
 - **2026-04-14 (v1)**: 新規作成。

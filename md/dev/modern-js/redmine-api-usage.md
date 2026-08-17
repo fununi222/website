@@ -1,11 +1,12 @@
-﻿---
+---
 title: "Redmine APIの使用方法 | REST APIによる自動化とデータ連携の詳解"
 date: "2026-04-15"
 category: "dev"
 description: "Redmineの強力なREST APIを使いこなし、外部ツールからのチケット操作やレポート自動出力を実現する技術ガイド。"
 themes: ["dev:api", "redmine:automation", "integration:json"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # Redmine APIの使用方法 | REST APIによる自動化とデータ連携の詳解
 
@@ -29,8 +30,8 @@ X-Redmine-API-Key: [YOUR_API_KEY]
 プロキシやWebサーバー層で制限がある場合、標準のAuthorizationヘッダーを併用します。
 ```bash
 curl -u "username:password" \
-     -H "X-Redmine-API-Key: YOUR_API_KEY" \
-     "https://redmine.example.com/issues.json"
+ -H "X-Redmine-API-Key: YOUR_API_KEY" \
+ "https://redmine.example.com/issues.json"
 ```
 
 ## 2. 効率的なデータのバルク抽出
@@ -62,6 +63,7 @@ GET /issues.json?query_id=123&limit=100&offset=0
 [REST API](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="REST%20API")を解禁することで、[生成AI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="生成AI")エージェントが自律的にプロジェクトの進捗を確認したり、過去の類似トラブルから解決策を提示する「Artemis」のようなナレッジエージェントの構築が可能になります。
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-04-24**: 最新のSKILL.md基準（用語リンクの最適化、変更履歴の追加）に合わせて記事をブラッシュアップ。
 - **2026-04-15**: 第2版。Basic認証、query_id活用、LLM向けデータ整形術を追記。
 - **2026-04-15**: 新規作成。Redmine API連携の技術リサーチ結果を統合。

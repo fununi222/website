@@ -4,8 +4,10 @@ date: "2026-04-10"
 category: "infra"
 description: "RDSスナップショットAPIのオーケストレーション、DSPMによる機密データ発見、論理バックアップ抽出パイプラインからGotchasまで。"
 themes: ["infra:cloud", "infra:database", "ai:ops"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # Infra | Rubrik：AWS RDS クラウドネイティブ保護の技術詳解 2026
 
@@ -53,19 +55,20 @@ RUBRIK_NODE_IP = "rubrik.example.local"
 API_TOKEN = os.getenv("RUBRIK_API_TOKEN")
 
 def assign_sla_to_rds(rds_instance_id, sla_domain_id):
-    url = f"https://{RUBRIK_NODE_IP}/api/v1/aws/rds_instance/{rds_instance_id}"
-    headers = {"Authorization": f"Bearer {API_TOKEN}", "Content-Type": "application/json"}
-    payload = {"configuredSlaDomainId": sla_domain_id}
-    
-    response = requests.patch(url, headers=headers, json=payload, verify=False)
-    response.raise_for_status()
-    print(f"Success: SLA Domain updated for RDS {rds_instance_id}")
-    return response.json()
+ url = f"https://{RUBRIK_NODE_IP}/api/v1/aws/rds_instance/{rds_instance_id}"
+ headers = {"Authorization": f"Bearer {API_TOKEN}", "Content-Type": "application/json"}
+ payload = {"configuredSlaDomainId": sla_domain_id}
+ 
+ response = requests.patch(url, headers=headers, json=payload, verify=False)
+ response.raise_for_status()
+ print(f"Success: SLA Domain updated for RDS {rds_instance_id}")
+ return response.json()
 ```
 
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のRubrik Security Cloud (RSC) AWS RDS/Aurora統合、DSPM機能、Rubrik Cloud Vaultのファクトチェックと目次H2構造最適化。
 - **2026-04-10 (v2)**: メタデータおよびインターフェースデザイン標準化。
 - **2026-04-06 (v1)**: 新規作成。

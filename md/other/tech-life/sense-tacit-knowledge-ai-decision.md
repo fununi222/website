@@ -4,8 +4,10 @@ date: "2026-08-07"
 category: "other"
 description: "センスの正体を暗黙知・処理流暢性・熟練者の意思決定・デザイン固着から分解し、AI時代に必要な『違和感を見抜く力』として再定義する。"
 themes: ["other:tech-life", "ai:cognitive", "dev:decision-making"]
-updated: "2026-08-07"
+updated: "2026-08-17"
 ---
+
+
 
 # センスは才能ではない｜AI時代の違和感を見抜く認知心理学
 
@@ -81,7 +83,7 @@ David JanssonとSteven Smithの1991年の研究は、例示されたデザイン
 
 センスを鍛えるには、作業直前に1つの正解をカンニングするのではなく、日頃から両極端の例を観察する必要があります。
 
-* 圧倒的に優れた例
+* 優れたに優れた例
 * 一見よいが惜しい例
 * 明らかに失敗している例
 * 目的には合わないが技術的には美しい例
@@ -150,5 +152,6 @@ AIが生成を担う時代、人間の価値は「最初から正解を出すこ
 * Processing fluency overview: [ScienceDirect Topics](https://www.sciencedirect.com/topics/psychology/processing-fluency)
 
 ## 変更履歴
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 
 - **2026-08-07**: YouTube動画を起点に、暗黙知・人工文法学習・処理流暢性・RPDモデル・デザイン固着を統合したAI時代のセンス論として新規作成。

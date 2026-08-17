@@ -1,11 +1,12 @@
-﻿---
+---
 title: "Infra | AWS RDS to On-Premises：AIOps 向けバックアップ・アーカイブ統合基盤調査 2026"
 date: "2026-04-10"
 category: "infra"
 description: "Rubrik, VAST Data, Veeam などの主要ソリューションを比較。AWS RDS データをオンプレミスへ「持ち出し」、AIOps データレイクとして活用するための技術基盤を解析。"
 themes: ["infra:aws", "infra:storage", "ai:ops"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # Infra | AWS RDS to On-Premises：AIOps 向けバックアップ・アーカイブ統合基盤調査 2026
 
@@ -17,51 +18,51 @@ updated: "2026-08-02"
 
 <style>
 .rds-dash-container {
-    --dash-primary: #d97706;
-    --dash-surface: rgba(255, 255, 255, 0.03);
+ --dash-primary: #d97706;
+ --dash-surface: rgba(255, 255, 255, 0.03);
 }
 .chart-box {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    margin: 1rem 0;
+ position: relative;
+ width: 100%;
+ height: 350px;
+ margin: 1rem 0;
 }
 .rds-nav-btn {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .rds-nav-btn.active {
-    background: rgba(217, 119, 6, 0.1);
-    color: var(--dash-primary);
-    border-color: rgba(217, 119, 6, 0.3);
+ background: rgba(217, 119, 6, 0.1);
+ color: var(--dash-primary);
+ border-color: rgba(217, 119, 6, 0.3);
 }
 .rds-content-area h3 {
-    color: #f5f5f4;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+ color: #f5f5f4;
+ font-size: 1.1rem;
+ font-weight: 700;
+ margin-top: 2rem;
+ margin-bottom: 1rem;
 }
 .rds-content-area ul { list-style: none; padding: 0; }
 .rds-content-area li {
-    margin-bottom: 0.75rem;
-    padding-left: 1.5rem;
-    position: relative;
-    font-size: 0.9rem;
-    opacity: 0.8;
+ margin-bottom: 0.75rem;
+ padding-left: 1.5rem;
+ position: relative;
+ font-size: 0.9rem;
+ opacity: 0.8;
 }
 .rds-content-area li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--dash-primary);
+ content: "→";
+ position: absolute;
+ left: 0;
+ color: var(--dash-primary);
 }
 .rds-content-area pre {
-    background: #000;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    font-size: 0.8rem;
-    margin: 1rem 0;
-    border: 1px solid rgba(255,255,255,0.05);
+ background: #000;
+ padding: 1rem;
+ border-radius: 0.5rem;
+ font-size: 0.8rem;
+ margin: 1rem 0;
+ border: 1px solid rgba(255,255,255,0.05);
 }
 </style>
 
@@ -102,7 +103,7 @@ updated: "2026-08-02"
 <span class="material-symbols-outlined text-sm">lightbulb</span> Strategic Insight
 </h4>
 <p class="text-sm text-on-surface-variant leading-relaxed">
-**VAST Data** は分析において圧倒的ですが、オーケストレーションの自作が必要です。対照的に **Rubrik** はポリシーによる「完全自動の持ち出し」を優先する組織に最適です。
+**VAST Data** は分析において優れたですが、オーケストレーションの自作が必要です。対照的に **Rubrik** はポリシーによる「完全自動の持ち出し」を優先する組織に最適です。
 </p>
 </div>
 </div>
@@ -134,15 +135,15 @@ import json
 
 url = "https://&lt;rubrik-cluster-ip-or-fqdn&gt;/api/graphql"
 headers = {
-    "Authorization": "Bearer &lt;YOUR_TOKEN&gt;",
-    "Content-Type": "application/json"
+ "Authorization": "Bearer &lt;YOUR_TOKEN&gt;",
+ "Content-Type": "application/json"
 }
 
 query = """
 mutation TakeRdsSnapshot($id: UUID!, $slaId: UUID!) {
-  takeRdsSnapshot(input: { rdsInstanceId: $id, slaId: $slaId }) {
-    snapshot { id status }
-  }
+ takeRdsSnapshot(input: { rdsInstanceId: $id, slaId: $slaId }) {
+ snapshot { id status }
+ }
 }
 """
 variables = { "id": "RDS_UUID", "slaId": "SLA_ID" }
@@ -231,8 +232,8 @@ html: `
 <li><strong>概要:</strong> REST API を用いてバックアップタスクを作成するリクエスト例。</li>
 </ul>
 <pre><code>curl -X POST "https://&lt;cs&gt;/api/CreateTask" \\
-     -H "Authtoken: &lt;TOKEN&gt;" \\
-     -d '{"taskInfo": {"associations": [{"subclientId": 101}]}}'
+ -H "Authtoken: &lt;TOKEN&gt;" \\
+ -d '{"taskInfo": {"associations": [{"subclientId": 101}]}}'
 </code></pre>
 ### 3. 運用上の注意点（Gotchas）
 <ul>
@@ -303,10 +304,10 @@ ${data.html}
 };
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { setTimeout(initRdsChart, 500); rdsShowSection('overview'); });
+ document.addEventListener('DOMContentLoaded', () => { setTimeout(initRdsChart, 500); rdsShowSection('overview'); });
 } else {
-    setTimeout(initRdsChart, 500);
-    rdsShowSection('overview');
+ setTimeout(initRdsChart, 500);
+ rdsShowSection('overview');
 }
 })();
 </script>
@@ -326,5 +327,6 @@ if (document.readyState === 'loading') {
 
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。
 - **2026-04-09**: メタデータおよび標準化。

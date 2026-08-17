@@ -1,11 +1,12 @@
-﻿---
+---
 title: "【従来のバックアップはなぜ破綻するのか？】Rubrikが実現するZero Trustイミュータブルバックアップとランサムウェア時代の復旧戦略"
 date: "2026-08-01"
 category: "infra"
 description: "ランサムウェアがバックアップを先に破壊する時代に、RubrikのZero Trust Data Security、イミュータブル構造、機械学習によるClean Recovery Point特定が復旧戦略をどう変えるかを解説。"
 themes: ["infra:backup", "infra:rubrik", "ai:ml", "finance:bcp", "life:strategy"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # 【従来のバックアップはなぜ破綻するのか？】Rubrikが実現するZero Trustイミュータブルバックアップとランサムウェア時代の復旧戦略
 
@@ -13,13 +14,7 @@ updated: "2026-08-02"
 
 ## ドメイン統合サマリー表
 
-| ドメイン | 本記事での論点 | 実務上の示唆 |
-|---|---|---|
-| **Infrastructure (DOMAIN_01)** | Zero Trust、イミュータブルバックアップ、Logical Air Gap、RPO/RTO設計 | NAS/SAN共有や通常ファイルシステム依存から脱却し、攻撃者に消されない復旧基盤を設計する |
-| **Development (DOMAIN_02)** | API連携、自動化、復旧ワークフローのコード化 | 復旧手順・検証・監査ログをRunbook/Script/APIに落とし込み、属人性を減らす |
-| **AI Research (DOMAIN_03)** | 機械学習によるアノマリー検知、Clean Recovery Point抽出 | ログ精査だけに依存せず、AI/MLで「どこまで戻すべきか」の判断を高速化する |
-| **Finance (DOMAIN_04)** | ダウンタイム損失、身代金支払い回避、BCP投資対効果 | バックアップ投資を単なるIT費用ではなく、事業停止リスクを下げる財務防衛策として評価する |
-| **Strategic Life (DOMAIN_05)** | 攻撃前提の思考法、複雑性削減、意思決定速度 | 「平時の備え」と「有事の復旧判断」を分けず、日常運用からレジリエンスを組み込む |
+| ドメイン | 本記事での論点 | 実務上の示唆 |---|---|---| **Infrastructure (DOMAIN_01)** | Zero Trust、イミュータブルバックアップ、Logical Air Gap、RPO/RTO設計 | NAS/SAN共有や通常ファイルシステム依存から脱却し、攻撃者に消されない復旧基盤を設計する | **Development (DOMAIN_02)** | API連携、自動化、復旧ワークフローのコード化 | 復旧手順・検証・監査ログをRunbook/Script/APIに落とし込み、属人性を減らす | **AI Research (DOMAIN_03)** | 機械学習によるアノマリー検知、Clean Recovery Point抽出 | ログ精査だけに依存せず、AI/MLで「どこまで戻すべきか」の判断を高速化する | **Finance (DOMAIN_04)** | ダウンタイム損失、身代金支払い回避、BCP投資対効果 | バックアップ投資を単なるIT費用ではなく、事業停止リスクを下げる財務防衛策として評価する | **Strategic Life (DOMAIN_05)** | 攻撃前提の思考法、複雑性削減、意思決定速度 | 「平時の備え」と「有事の復旧判断」を分けず、日常運用からレジリエンスを組み込む |
 
 ---
 
@@ -87,10 +82,10 @@ Rubrikは、AI/MLによってマルウェアが侵入・発動する直前の **
 復旧判断の変化
 
 従来：
-  ログ調査 → 感染時刻推定 → 複数世代を手動検証 → 復旧ポイント決定
+ ログ調査 → 感染時刻推定 → 複数世代を手動検証 → 復旧ポイント決定
 
 Rubrik型：
-  異常検知 → 影響範囲把握 → Clean Recovery Point提示 → 検証 → 復旧
+ 異常検知 → 影響範囲把握 → Clean Recovery Point提示 → 検証 → 復旧
 ```
 
 ## 第4章：【インフラ・経営視点】RPO/RTOの極小化とBCPコストへのインパクト
@@ -133,5 +128,6 @@ Rubrikが提示するイミュータブル構造とデータ threat analytics �
 - AI/MLによる異常検知結果を、SOC/CSIRT/IT運用が共通言語で扱えるか
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 
 - **2026-08-01**: RubrikのZero Trustイミュータブルバックアップ、機械学習によるClean Recovery Point抽出、BCP/RPO/RTO観点を統合した技術記事を新規作成。

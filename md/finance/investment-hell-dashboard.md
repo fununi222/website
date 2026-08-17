@@ -1,20 +1,22 @@
 ---
-title: "2026年3月投資まとめ：地獄の1ヶ月ダッシュボード"
+title: "2026年3月投資まとめ：月間市場動向レポートと振り返り"
 date: "2026-04-09"
 category: "finance"
 description: "3月の歴史的急落局面をデータで可視化。日経平均、実質賃金、金と原油の逆転現象から読み解く生存戦略。"
 themes: ["finance:market", "finance:macro", "finance:asset"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
 
-# 2026年3月投資まとめ：地獄の1ヶ月を生き抜くダッシュボード
 
-## 超要約
-画面が市場の急落で埋め尽くされた3月。[日経平均](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="日経平均") は約13%の暴落を記録しましたが、その背後では13ヶ月ぶりの「[実質賃金](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="実質賃金") プラス転換」という歴史的変化も起きています。有事に強いはずの「金（ゴールド）」と「原油（コモディティ）」の資金流動バランスの変化を読み解き、長期資産形成のための論理的な現状把握を行います。
+
+# 2026年3月投資まとめ：月間市場動向レポートと振り返り
+
+## 概要
+市場のボラティリティが高まった3月。[日経平均](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="日経平均") は約13%の調整局面を迎えましたが、その背後では13ヶ月ぶりの「[実質賃金](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="実質賃金") プラス転換」という構造的変化も起きています。金（ゴールド）と原油（コモディティ）の資金流動バランスの変化を読み解き、長期的な資産形成に向けた冷静な現状把握と学びを整理します。
 
 ---
 
-## 1. 衝撃：日経平均 約13%の歴史的暴落
+## 1. 3月の市場環境：日経平均の調整とマクロ動向
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start my-8">
 <div class="bg-surface-container rounded-2xl p-6 border border-white/5 shadow-inner">
@@ -112,69 +114,70 @@ document.addEventListener('sme-loaded', () => { initMarketDashboard(); });
 setTimeout(initMarketDashboard, 200);
 
 function initMarketDashboard() {
-  if (window._initMarketDashDone) return;
-  window._initMarketDashDone = true;
+ if (window._initMarketDashDone) return;
+ window._initMarketDashDone = true;
 
-  window.toggleAccordion = (id) => {
-    const el = document.getElementById(id);
-    const arrow = document.getElementById('arrow-' + id);
-    if (el) {
-      el.classList.toggle('hidden');
-      if (arrow) arrow.style.transform = el.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-    }
-  };
+ window.toggleAccordion = (id) => {
+ const el = document.getElementById(id);
+ const arrow = document.getElementById('arrow-' + id);
+ if (el) {
+ el.classList.toggle('hidden');
+ if (arrow) arrow.style.transform = el.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+ }
+ };
 
-  if (typeof Chart !== 'undefined') {
-    const nikkeiCtx = document.getElementById('nikkeiChart');
-    if (nikkeiCtx) {
-      new Chart(nikkeiCtx.getContext('2d'), {
-        type: 'line',
-        data: {
-          labels: ['3/1', '3/8', '3/15', '3/22', '3/31'],
-          datasets: [{
-            label: '日経平均株価',
-            data: [58851, 56200, 53400, 51800, 51064],
-            borderColor: '#f43f5e',
-            backgroundColor: 'rgba(244, 63, 94, 0.1)',
-            fill: true,
-            tension: 0.3
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: { y: { grid: { color: 'rgba(255,255,255,0.05)' } }, x: { grid: { display: false } } }
-        }
-      });
-    }
+ if (typeof Chart !== 'undefined') {
+ const nikkeiCtx = document.getElementById('nikkeiChart');
+ if (nikkeiCtx) {
+ new Chart(nikkeiCtx.getContext('2d'), {
+ type: 'line',
+ data: {
+ labels: ['3/1', '3/8', '3/15', '3/22', '3/31'],
+ datasets: [{
+ label: '日経平均株価',
+ data: [58851, 56200, 53400, 51800, 51064],
+ borderColor: '#f43f5e',
+ backgroundColor: 'rgba(244, 63, 94, 0.1)',
+ fill: true,
+ tension: 0.3
+ }]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: { legend: { display: false } },
+ scales: { y: { grid: { color: 'rgba(255,255,255,0.05)' } }, x: { grid: { display: false } } }
+ }
+ });
+ }
 
-    const wagesCtx = document.getElementById('wagesChart');
-    if (wagesCtx) {
-      new Chart(wagesCtx.getContext('2d'), {
-        type: 'bar',
-        data: {
-          labels: ['11月', '12月', '1月', '2月', '3月'],
-          datasets: [{
-            label: '実質賃金 前年比(%)',
-            data: [-1.2, -0.8, -0.4, -0.1, 0.4],
-            backgroundColor: ['#f43f5e','#f43f5e','#f43f5e','#f43f5e','#10b981'],
-            borderRadius: 4
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: { y: { grid: { color: 'rgba(255,255,255,0.05)' } }, x: { grid: { display: false } } }
-        }
-      });
-    }
-  }
+ const wagesCtx = document.getElementById('wagesChart');
+ if (wagesCtx) {
+ new Chart(wagesCtx.getContext('2d'), {
+ type: 'bar',
+ data: {
+ labels: ['11月', '12月', '1月', '2月', '3月'],
+ datasets: [{
+ label: '実質賃金 前年比(%)',
+ data: [-1.2, -0.8, -0.4, -0.1, 0.4],
+ backgroundColor: ['#f43f5e','#f43f5e','#f43f5e','#f43f5e','#10b981'],
+ borderRadius: 4
+ }]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: { legend: { display: false } },
+ scales: { y: { grid: { color: 'rgba(255,255,255,0.05)' } }, x: { grid: { display: false } } }
+ }
+ });
+ }
+ }
 }
 </script>
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年3月マクロ経済動向、日経平均推移、実質賃金・CPI指標のファクトチェックと目次H2見出し標準化。
 - **2026-04-09 (v2)**: グローバルデザインおよびインタラクティブアコーディオン適用。
 - **2026-04-06 (v1)**: 新規作成。

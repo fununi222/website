@@ -30,18 +30,23 @@ Assign each article to one top-level category only:
 
 ## Article Format
 
-- **Hybrid Architecture**: Balance the "WOW" factor with simplicity.
-  - **Premium Components**: Use rich HTML/Tailwind for the `## 超要約` (Summary) and key visuals (e.g., `
-    ```
+- **Reader-First Architecture**: 読み手に寄り添い、過度な装飾や不要な煽りを排した洗練されたレイアウト。
+  - **概要（Summary）**: 記事の冒頭に、読者が知りたい要点を簡潔にまとめたセクションを設置。
+  - **見出しと構成**: H2, H3の階層を整理し、表や箇条書きを用いて要点をスッキリ伝える。
 
 - Add a visible last-updated marker below the summary when updating an article.
 - Add a `## 変更履歴 (Changelog)` section at the end when revising content.
 
-## Title Style
+## Title & Writing Style
 
-- Prefer `対象名 | 主題`.
-- Or use `テーマ名 2026 | 主張・論点`.
-- Avoid inconsistent tone or vague titles.
+- **Natural & Descriptive**: 過度な煽り語（「最強」「神コスパ」「究極」「完全攻略」「裏ワザ」等）は使わず、読者に内容が素直に伝わる自然なタイトル。
+- Prefer `対象名 | 主題` or `テーマ名 2026 | 主張・論点`.
+- Avoid clickbait, hype words, or aggressive marketing tones.
+
+## Article Consolidation & Splitting Policy
+
+- **Consolidation**: 同一の検索意図や重複した内容を持つ記事は、より充実した記事に統合して整理する。
+- **Splitting / Structuring**: 文字数が多すぎる記事（8,000文字以上など）は、読者が迷わないよう目次ナビゲーションを強化するか、役割に応じて適切に分割する。
 
 ## Glossary Sync
 

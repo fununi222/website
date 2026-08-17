@@ -2,14 +2,16 @@
 title: "【4月版】備蓄とポイ活の二段構え戦略ダッシュボード"
 date: "2026-04-09"
 category: "finance"
-description: "供給リスクへの備蓄と、Amazonセール等のポイ活を組み合わせた4月の最優先生存戦略。"
+description: "供給リスクへの備蓄と、Amazonセール等のポイ活を組み合わせた4月の実践的な活用アプローチ。"
 themes: ["finance:poikatsu", "finance:asset", "other:lifehack"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # 【4月版】備蓄とポイ活の二段構え戦略ダッシュボード
 
-## 超要約
+## 概要
 4月は「[ポイ活](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ポイ活") の谷間」に見えますが、実は**「生活の防御力」**を高める絶好の局面です。地政学・エネルギー情勢に伴うサプライチェーンリスクへの「備蓄（守り）」と、Amazonセールや銀行ポイ活キャンペーンを活用した「決済最適化（攻め）」の二段構えで、確かな安心と還元率を両立させましょう。
 
 ---
@@ -33,7 +35,7 @@ updated: "2026-08-02"
 <span class="material-symbols-outlined text-secondary">shopping_cart_checkout</span>
 </div>
 <div>
-<h3 class="font-bold text-on-surface">Phase 2: Amazon最強決済</h3>
+<h3 class="font-bold text-on-surface">Phase 2: Amazon最適決済</h3>
 <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Sale Optimization</p>
 </div>
 </a>
@@ -82,7 +84,7 @@ updated: "2026-08-02"
 
 ---
 
-## 3. Amazonセール「最強決済術」とポイント還元ルート
+## 3. Amazonセール「最適決済術」とポイント還元ルート
 
 セールや買い回りイベント時にポイント還元率を極限まで高める決済スタックの最適解です。
 
@@ -99,34 +101,35 @@ document.addEventListener('sme-loaded', () => { initStockpileDashboard(); });
 setTimeout(initStockpileDashboard, 200);
 
 function initStockpileDashboard() {
-  if (window._initStockpileDone) return;
-  window._initStockpileDone = true;
+ if (window._initStockpileDone) return;
+ window._initStockpileDone = true;
 
-  if (typeof Chart !== 'undefined') {
-    const oilCtx = document.getElementById('oilChart');
-    if (oilCtx) {
-      new Chart(oilCtx.getContext('2d'), {
-        type: 'doughnut',
-        data: {
-          labels: ['中東依存度 (約95%)', 'その他 (約5%)'],
-          datasets: [{
-            data: [95, 5],
-            backgroundColor: ['rgba(245, 158, 11, 0.8)', 'rgba(255, 255, 255, 0.1)'],
-            borderWidth: 0
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } }
-        }
-      });
-    }
-  }
+ if (typeof Chart !== 'undefined') {
+ const oilCtx = document.getElementById('oilChart');
+ if (oilCtx) {
+ new Chart(oilCtx.getContext('2d'), {
+ type: 'doughnut',
+ data: {
+ labels: ['中東依存度 (約95%)', 'その他 (約5%)'],
+ datasets: [{
+ data: [95, 5],
+ backgroundColor: ['rgba(245, 158, 11, 0.8)', 'rgba(255, 255, 255, 0.1)'],
+ borderWidth: 0
+ }]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: { legend: { display: false } }
+ }
+ });
+ }
+ }
 }
 </script>
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年4月備蓄リスク分析、Amazonセール決済ルートファクトチェック、目次H2見出し標準化。
 - **2026-04-09 (v2)**: 備蓄とポイ活の二段構えダッシュボードとして刷新。
 - **2026-04-06 (v1)**: 新規作成。

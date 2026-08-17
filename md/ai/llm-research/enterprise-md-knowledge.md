@@ -4,12 +4,14 @@ date: "2026-04-09"
 category: "ai"
 description: "RAGの限界からデータメッシュ、Docs-as-Codeまで。大企業がAI時代に直面する「知識のインフラ化」の障壁と、次世代の知識インテリジェンスへの移行戦略。"
 themes: ["ai:llm", "ai:ops", "ai:agents"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # 大企業におけるMarkdownベースのナレッジ管理とAIデータ活用の現実：組織構造から紐解く次世代知識基盤の構築戦略
 
-## 超要約
+## 概要
 大企業におけるAI活用の成否は、PDF等の非構造化データに依存する既存の [RAG](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="RAG") アーキテクチャの限界をいかに突破するかにかかっています。本レポートでは、[LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM") との親和性が高いMarkdownベースのナレッジ管理、分散型データ所有権を提唱する [データメッシュ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="データメッシュ")、そして自動化されたガバナンスを実現する [Docs-as-Code](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Docs-as-Code") 戦略を詳解。知識を単なるファイルから「戦略的インフラ」へと格上げし、2026年のナレッジ・インテリジェンス時代を勝ち抜くための組織変革ロードマップを提示します。
 
 ---
@@ -33,7 +35,7 @@ updated: "2026-08-02"
 
 [LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM") はテキストをシーケンシャルに処理するように設計されていますが、企業文書に頻出する「表（テーブル）」や「多次元データ」は行と列による多次元構造を持っています [6]。LlamaParse、Unstructured、Vectorizeといった最新の抽出ツールは、視覚的なレイアウトを維持しながらMarkdown表現を生成する機能を提供していますが、完璧なデータ変換は保証されていません [5]。
 
-### 2.2. チャンキングの罠とベクトル類似度検索の根本的欠陥
+### 2.2. チャンキングの注意点とベクトル類似度検索の根本的欠陥
 レガシー文書をRAGで扱う際の最大の技術的障壁は「[チャンキング](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="チャンキング")（文書の分割）」です。[チャンキング](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="チャンキング")の質は、LLMの選択以上にシステムのパフォーマンスに決定的な影響を与えます [9]。文書を機械的に512トークンなどで分割する単純な固定長チャンキングは、文や段落の境界を無視し、表を物理的に分断してしまうため、RAGが抽出するコンテキストを破壊します [9]。
 
 また、従来のRAGシステムの多くはクエリとチャンク間のベクトル類似度（Cosine Similarityなど）に依存していますが、ベクトル空間における距離の近さは必ずしも「意味的な関連性（Relevance）」を担保しません [10]。
@@ -116,6 +118,7 @@ GitLabは全社の規程・製品仕様を巨大な単一Markdownリポジトリ
 - [3] Unstructured Data Analytics in Financial & Enterprise Sector
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のRAG/LLM Context（1M〜無限トークンコンテキスト）、AST/Docs-as-Code自動化ガバナンス、ナレッジ・インテリジェンス（Knowledge Intelligence）アーキテクチャのファクトチェックと本文見直し。
 - **2026-04-09 (v2)**: メタデータおよび引用構造の統一アップデート。
 - **2026-04-06 (v1)**: 新規作成。

@@ -4,12 +4,14 @@ date: "2026-04-09"
 category: "infra"
 description: "大画面モニターやROG Ally/Steam Deckでの作業効率を最大化する、カスタムスケーリングとマウスのみでの画面分割手法。"
 themes: ["infra:os", "infra:automation", "windows:config"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # Windows 11 | 表示スケール110%設定とFancyZones活用 2026
 
-## 超要約
+## 概要
 本記事は、Windows 11 (24H2/25H2) 環境における視認性と作業効率を極限まで高めるカスタマイズ手法の記録です。標準設定にはない「110%」の [カスタムスケーリング](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="カスタムスケーリング") を適用し、[PowerToys](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="PowerToys") の [FancyZones](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="FancyZones") 機能をマウスの副ボタン（右クリック）のみで呼び出せるよう調整することで、キーボードを介さない直感的なマルチウィンドウ環境を構築します。
 
 ---
@@ -47,6 +49,7 @@ Microsoft公式ユーティリティ **[PowerToys](https://fununi222.github.io/w
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: Windows 11 24H2/25H2、PowerToys v0.85+での動作検証とカスタムスケーリング設定のファクトチェック。
 - **2026-04-09 (v2)**: メタデータおよびグローバルデザイン統一。
 - **2026-04-06 (v1)**: 新規作成。

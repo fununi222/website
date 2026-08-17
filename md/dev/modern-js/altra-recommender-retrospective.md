@@ -1,15 +1,16 @@
-﻿---
+---
 title: "Development | altra-recommender 開発の舞台裏と推薦ロジック 2026"
 date: "2026-04-09"
 category: "dev"
 description: "推薦ロジック、データ構造、結果の見せ方を振り返るレコメンド系 Web アプリの制作記録。"
 themes: ["dev:webapp", "dev:algorithm", "other:retrospective"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # Development | altra-recommender 開発の舞台裏と推薦ロジック 2026
 
-## 超要約
+## 概要
 本記事は、過去に制作したレコメンドエンジン「altra-recommender」の開発プロセスを振り返ったものです。単なる[アルゴリズム](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="アルゴリズム")の実装にとどまらず、推薦結果の「納得感」や「可読性」といった [UI](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="UI") 体験、および[フロントエンド](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="フロントエンド")とロジックを密結合させないデータ構造の設計について、実務に繋がる学びをまとめています。
 
 ---
@@ -57,6 +58,7 @@ updated: "2026-08-02"
 - GitHub: https://github.com/fumiya5222/altra-recommender
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-04-09**: 全体的な標準化アップデート。「Technical Archive」デザイン規格に基づき、メタデータの再定義、およびタイトルと日付の同期を実施。
-- **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、超要約の追加を実施。
+- **2026-04-06**: 用語の自動抽出とクロスリンク（Glossary）の適用、ならびに日付メタデータの統一アップデート、概要の追加を実施。
 

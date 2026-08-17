@@ -4,12 +4,14 @@ date: "2026-04-15"
 category: "infra"
 description: "バックアップ基盤の撤去に伴う大規模なデータ削除イベント後、ストレージ側でどのように空き容量が回復し、それをどう技術的に証明すべきか。"
 themes: ["infra:storage", "capacity:audit", "backup:recovery"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # Scale-out Storage | 大規模データ削除後の「実効容量」回復と検証プロセス
 
-## 超要約
+## 概要
 高度な重複排除・圧縮・Similarity-Based Data Reduction を備える次世代スケールアウト・ストレージ（[VAST Data](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="VAST%20Data")等）では、大量データの削除が即座に物理容量解放と直線的に結びつかない特有の挙動を示します。本稿では、非同質的データ消去後のガーベジコレクション（GC）メカニズム、物理解放までの過渡期における実効容量評価と技術検証プロセスを体系化します。
 
 ---
@@ -39,6 +41,7 @@ updated: "2026-08-02"
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のVAST Data DASEアーキテクチャ、類似性圧縮（Similarity Reduction）、ガベージコレクション検証のファクトチェックと本文見直し。
 - **2026-04-15 (v2)**: 構成案を統合し、実効容量検証プロセスを標準化。
 - **2026-04-06 (v1)**: 初版作成。

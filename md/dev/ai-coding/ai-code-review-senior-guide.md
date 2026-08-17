@@ -1,11 +1,12 @@
-﻿---
+---
 title: "AIコードレビューを「シニア級」に変えるプロンプト術：ペルソナ指定と思考の連鎖（CoT）の威力"
 date: "2026-04-24"
 category: "dev"
 description: "AIによるコードレビューの質を劇的に向上させる手法を解説。専門家ペルソナの指定とChain-of-Thought（CoT）を組み合わせ、表面的な指摘を超えた本質的なバグ検知を実現。"
 themes: ["ai:prompt-engineering", "dev:code-review", "ai:cot"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # AIコードレビューを「シニア級」に変えるプロンプト術：ペルソナ指定と思考の連鎖（CoT）の威力
 
@@ -30,8 +31,9 @@ AIに対して単に「レビューして」と言うのではなく、「あな
 ## 次のステップ：実践編
 AIを専門家モードに切り替えた後は、具体的な言語（Java/JavaScript）特有のバグをいかに検知させるかが重要です。
 
-👉 **[【実践編】Null判定・リソース漏れをAIで即解決！最強プロンプト集へ](https://fununi222.github.io/website/html/dev/ai-code-review-practical-prompts.html)**
+👉 **[【実践編】Null判定・リソース漏れをAIで即解決！最適プロンプト集へ](https://fununi222.github.io/website/html/dev/ai-code-review-practical-prompts.html)**
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-04-24**: [AIコードレビュー](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="AIコードレビュー")の質を向上させるためのペルソナ指定とCoTプロンプトの解説記事を新規作成。
 

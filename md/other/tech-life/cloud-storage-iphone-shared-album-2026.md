@@ -7,6 +7,8 @@ themes: ["other:tech-life", "finance:cost-optimization", "ai:workflow"]
 updated: "2026-08-17"
 ---
 
+
+
 # iPhone共有アルバムで動画容量を節約する方法｜クラウドストレージ比較つき
 
 iPhoneやスマートフォンで撮る動画は、写真よりもずっと早く容量を使います。子どもの日常動画、旅行、発表会、運動会を残していると、無料のiCloud 5GBやGoogleアカウントの無料枠だけでは足りません。
@@ -212,25 +214,25 @@ iPhoneで、`設定` → `Apple Account` → `iCloud` → `写真` を開き、`
 まず無料でiPhone容量を空けたい？
 │
 ├─ はい
-│   └─ iCloud共有アルバム
-│      ※ただし720p・2048pxの軽量コピーとして使う
+│ └─ iCloud共有アルバム
+│ ※ただし720p・2048pxの軽量コピーとして使う
 │
 └─ いいえ / 原本画質を残したい
-    │
-    ├─ Apple製品中心
-    │   └─ iCloud+
-    │
-    ├─ Googleフォト中心
-    │   └─ Google One / Google AI Pro
-    │
-    ├─ 家族それぞれに1TBを配りたい
-    │   └─ Microsoft 365 Family
-    │
-    ├─ 子どもの動画を祖父母に見せたい
-    │   └─ みてね ＋ 原本は別保存
-    │
-    └─ サブスクを減らして長期保存したい
-        └─ pCloud Family / 外付けSSD
+ │
+ ├─ Apple製品中心
+ │ └─ iCloud+
+ │
+ ├─ Googleフォト中心
+ │ └─ Google One / Google AI Pro
+ │
+ ├─ 家族それぞれに1TBを配りたい
+ │ └─ Microsoft 365 Family
+ │
+ ├─ 子どもの動画を祖父母に見せたい
+ │ └─ みてね ＋ 原本は別保存
+ │
+ └─ サブスクを減らして長期保存したい
+ └─ pCloud Family / 外付けSSD
 ```
 
 ---

@@ -4,12 +4,14 @@ date: "2026-04-13"
 category: "infra"
 description: "ObsidianのメモをGoogle Drive Syncプラグインで同期。Windows、Android、iOS間での構築手順と運用ルールを詳解。"
 themes: ["infra:os", "infra:automation", "other:tool"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # Obsidian | Google Drive Sync によるマルチプラットフォーム無料同期術 2026
 
-## 超要約
+## 概要
 [Obsidian](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Obsidian") は優れたローカルファーストの知識管理ツールですが、モバイル端末との同期には通常有料サブスクリプション（Obsidian Sync）が必要です。本記事では、コミュニティプラグイン **[Google Drive Sync](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Google Drive Sync")** を活用し、Windows PC、Android、iOS の 3OS 間で [Vault](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Vault (保管庫)") を無料で完全同期する手法を解説します。
 
 ---
@@ -59,6 +61,7 @@ updated: "2026-08-02"
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のObsidian v1.6+ / Google Drive Syncプラグイン認証手順、iOSローカルストレージ設定のファクトチェックと目次H2見出し標準化。
 - **2026-04-13 (v2)**: メタデータおよびグローバルデザイン統一。
 - **2026-04-06 (v1)**: 新規作成。

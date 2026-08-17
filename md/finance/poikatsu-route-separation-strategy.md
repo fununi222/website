@@ -1,11 +1,12 @@
-﻿---
+---
 title: "2026年最新ポイ活ルート完全図解：JAL Pay改悪を乗り越える「分離戦略」と実践マニュアル"
 date: "2026-05-09"
 category: "finance"
 description: "JAL Pay改悪対応の最新ポイ活戦略。日常決済と投資（楽天キャッシュ）を完全に分離し、RevolutとP-oneカードを起点としたストレスゼロの決済システムを完全図解。"
 themes: ["finance:payment", "poi:strategy", "card:smcc"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # 2026年最新ポイ活ルート完全図解：JAL Pay改悪を乗り越える「分離戦略」と実践マニュアル
 
@@ -39,73 +40,73 @@ updated: "2026-08-02"
 
 ```mermaid
 graph TD
-    %% --- 起点（クレジットカード・アプリ） ---
-    A["三井住友カード/Olive<br>(0.5~1.5%)"]
-    P1["P-one Standard(M)<br>(1.4%)"]
-    F["ファミペイ<br>※ローン契約あり"]
-    LP["LawsonPonta+(M)"]
-    OL["OliveG(V)"]
+ %% --- 起点（クレジットカード・アプリ） ---
+ A["三井住友カード/Olive<br>(0.5~1.5%)"]
+ P1["P-one Standard(M)<br>(1.4%)"]
+ F["ファミペイ<br>※ローン契約あり"]
+ LP["LawsonPonta+(M)"]
+ OL["OliveG(V)"]
 
-    %% --- 中継ハブ（電子マネー・ペイ） ---
-    REV((Revolut))
-    I((JAL Pay))
-    J((ANA Pay))
-    U((au PAY<br>プリペイド))
-    V((VポイントPay))
-    N((楽天Edy))
-    O((楽天Cash))
+ %% --- 中継ハブ（電子マネー・ペイ） ---
+ REV((Revolut))
+ I((JAL Pay))
+ J((ANA Pay))
+ U((au PAY<br>プリペイド))
+ V((VポイントPay))
+ N((楽天Edy))
+ O((楽天Cash))
 
-    %% --- 最終利用先（エンドポイント） ---
-    AA{{楽天証券/投信積立<br>【最大3.0%】}}
-    T{{交通系IC/iD<br>【最大2.5%】}}
-    L{{VISA加盟店<br>【最大2.5%】}}
-    X{{公共料金/税金<br>【10.0%】}}
-    S{{OKストア/くら寿司等<br>【13.0%】}}
-    H{{セブン/マクド等<br>【10.5%】}}
+ %% --- 最終利用先（エンドポイント） ---
+ AA{{楽天証券/投信積立<br>【最大3.0%】}}
+ T{{交通系IC/iD<br>【最大2.5%】}}
+ L{{VISA加盟店<br>【最大2.5%】}}
+ X{{公共料金/税金<br>【10.0%】}}
+ S{{OKストア/くら寿司等<br>【13.0%】}}
+ H{{セブン/マクド等<br>【10.5%】}}
 
-    %% ==========================================
-    %% ルート定義
-    %% ==========================================
+ %% ==========================================
+ %% ルート定義
+ %% ==========================================
 
-    %% 【チャージルート1】三井住友 → Revolut
-    A ==>|0.5%+修行1.0%| REV
-    REV ==>|0%| J
+ %% 【チャージルート1】三井住友 → Revolut
+ A ==>|0.5%+修行1.0%| REV
+ REV ==>|0%| J
 
-    %% 【チャージルート2】P-one → JAL Pay
-    P1 ==>|自動割引等1.4%| I
-    I ==>|0.1%| J
-    I ==>|0.1%| U
+ %% 【チャージルート2】P-one → JAL Pay
+ P1 ==>|自動割引等1.4%| I
+ I ==>|0.1%| J
+ I ==>|0.1%| U
 
-    %% 【派生A：日常決済ルート】Vポイント / 交通系
-    U ==>|0.5%| V
-    V ==>|0.5%| L
-    V ==>|0.5%| T
-    J -->|0.5%| T
+ %% 【派生A：日常決済ルート】Vポイント / 交通系
+ U ==>|0.5%| V
+ V ==>|0.5%| L
+ V ==>|0.5%| T
+ J -->|0.5%| T
 
-    %% 【派生B：投資専用ルート】楽天経済圏
-    J ==>|0.5%| N
-    N ==>|0.0%| O
-    O ==>|0.5~1.0%| AA
+ %% 【派生B：投資専用ルート】楽天経済圏
+ J ==>|0.5%| N
+ N ==>|0.0%| O
+ O ==>|0.5~1.0%| AA
 
-    %% 【特化ルート】
-    F ==>|直接請求書払い| X
-    LP ==>|QUICPay決済| S
-    OL ==>|スマホタッチ決済| H
+ %% 【特化ルート】
+ F ==>|直接請求書払い| X
+ LP ==>|QUICPay決済| S
+ OL ==>|スマホタッチ決済| H
 
-    %% スタイル定義
-    classDef card fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
-    classDef hub fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000;
-    classDef invest fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000;
-    classDef everyday fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000;
-    classDef special fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#000;
-    classDef tax fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000;
+ %% スタイル定義
+ classDef card fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
+ classDef hub fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000;
+ classDef invest fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000;
+ classDef everyday fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000;
+ classDef special fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#000;
+ classDef tax fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000;
 
-    class A,P1 card;
-    class REV,I,J,U,V,N,O hub;
-    class AA invest;
-    class T,L everyday;
-    class S,H,LP,OL special;
-    class F,X tax;
+ class A,P1 card;
+ class REV,I,J,U,V,N,O hub;
+ class AA invest;
+ class T,L everyday;
+ class S,H,LP,OL special;
+ class F,X tax;
 
 ```
 
@@ -120,7 +121,7 @@ JAL Pay改悪の穴を完璧に埋めるのが「Revolut」です。
 
 ### ルートB：P-one Standard × JAL Payルートの強み
 
-100万修行に縛られたくない場合の最強のサブエンジンです。
+100万修行に縛られたくない場合の効果的なサブエンジンです。
 
 * **還元率:** 請求時自動1%オフ ＋ 各種還元 ＝ **合計1.4%ベース**
 * **特徴:** JAL Payへのチャージ専用カードとしてP-one Standard（Mastercard）を採用。ポイント移行の手間がなく、必要な時に必要な分だけチャージしても常に高還元を維持できる身軽さが最大の強みです。
@@ -132,14 +133,11 @@ JAL Pay改悪の穴を完璧に埋めるのが「Revolut」です。
 複雑な全体図も、用途と場面ごとに分解すれば非常にシンプルです。
 「店舗特化」「街のお店」「自宅での作業（固定費・投資）」の3つの場面における、絶対的な行動指針をまとめました。
 
-### 場面①「特定の店舗」では最強カードを即出しせよ（10.5%〜13%）
+### 場面①「特定の店舗」では最適カードを即出しせよ（10.5%〜13%）
 
-対象店舗に入った場合は、チャージルートのことは一切忘れてください。専用カードでの直接決済が圧倒的な最高還元となります。
+対象店舗に入った場合は、チャージルートのことは一切忘れてください。専用カードでの直接決済が非常に高い最高還元となります。
 
-| 対象店舗 | 最適な決済手段 | 還元率 |
-| --- | --- | --- |
-| **OKストア、くら寿司、スシロー、松屋、松のや** | Lawson Ponta+(M)の**QUICPay**決済 | **13.0%** |
-| **セブンイレブン、ローソン、マクドナルド、サイゼリヤ、すき家 等** | OliveG(V)の**スマホVISAタッチ**決済 | **10.5%** |
+| 対象店舗 | 最適な決済手段 | 還元率 | --- | --- | --- | **OKストア、くら寿司、スシロー、松屋、松のや** | Lawson Ponta+(M)の**QUICPay**決済 | **13.0%** | **セブンイレブン、ローソン、マクドナルド、サイゼリヤ、すき家 等** | OliveG(V)の**スマホVISAタッチ**決済 | **10.5%** |
 
 ### 場面②「街のお店（一般）」のメイン決済ルート（最大2.5%）
 
@@ -178,4 +176,5 @@ JAL Payルートの改悪は、ポイ活環境を見直す絶好の機会でし�
 一度このシステムとルーティンを構築してしまえば、あとは機械的に決済を行うだけで、生活のあらゆる支出から最大値のポイントが自動的に生み出されていくはずです。
 
 ## 変更履歴
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-05-09**: 新規作成。JAL Pay改悪に対応した日常決済と投資の「分離戦略」を図解付きで解説。

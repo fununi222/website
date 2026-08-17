@@ -1,11 +1,12 @@
-﻿---
+---
 title: "【技術編】APIで繋ぐ！ Jira × Rubrik不整合検知システムの構築ガイド"
 date: "2026-04-24"
 category: "infra"
 description: "資産管理ツールJiraとRubrik APIを連携させ、ゾンビバックアップを自動検知・解消するシステムの実装ガイド。Pythonによる名寄せロジックと主要APIエンドポイントを詳解。"
 themes: ["dev:api", "infra:rubrik", "ops:automation"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # APIで繋ぐ！ Jira × Rubrik不整合検知システムの構築ガイド
 
@@ -29,11 +30,11 @@ Pythonで各ソースのデータを辞書形式で保持し、以下のよう�
 ```python
 # 疑似コード
 for uuid in rubrik_protected_vms:
-    if uuid not in vsphere_vms:
-        # vSphereから消えているのにRubrikにデータがある = Relic
-        if uuid in tup_decommissioned_list:
-            # 資産台帳でも廃棄済み
-            apply_unprotected_sla(uuid) # Rubrik SLAを解除
+ if uuid not in vsphere_vms:
+ # vSphereから消えているのにRubrikにデータがある = Relic
+ if uuid in tup_decommissioned_list:
+ # 資産台帳でも廃棄済み
+ apply_unprotected_sla(uuid) # Rubrik SLAを解除
 ```
 
 ## 3. 使用する主要なRubrik APIエンドポイント
@@ -61,5 +62,6 @@ API連携による不整合検知は、導入初期こそ工数がかかりま�
 👉 **[① 戦略編：ゾンビバックアップを根絶するIT資産管理の自動化戦略へ戻る](https://fununi222.github.io/website/html/infra/zombie-backup-asset-management-strategy.html)**
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-04-24**: Jira、vSphere、Rubrik APIを用いた不整合検知システムの技術実装ガイドを新規作成。Pythonによる名寄せロジックと主要エンドポイントを詳解。
 

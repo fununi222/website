@@ -4,12 +4,14 @@ date: "2026-04-15"
 category: "infra"
 description: "オープンソースのプロジェクト管理ツールRedmine。タスクを『チケット』として捉え、ガントチャートやWikiと連携させる運用の基礎を解説。"
 themes: ["management:redmine", "infra:oss", "ops:project"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
+
 
 # Redmineの基本知識 | チケット管理によるプロジェクト可視化の核心
 
-## 超要約
+## 概要
 [Redmine](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Redmine") は、Ruby on Railsで構築された強力なオープンソースのプロジェクト管理ツールです。すべての作業を「[チケット](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="チケット")」として管理し、[ガントチャート](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="ガントチャート") による時系列表示、Wiki機能によるナレッジ共有、およびREST API経由のCI/CD連携を統合することでチームの生産性を最大化します。
 
 ---
@@ -41,5 +43,6 @@ Redmine運用の核心は、あらゆるタスク、バグ、要望を「[チケ
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v2)**: 2026年最新のRedmine 6.x、REST API/GitLab連携、コンテナ化運用のファクトチェックと本文微調整。
 - **2026-04-15 (v1)**: 新規作成。

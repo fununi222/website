@@ -1,11 +1,12 @@
-﻿---
+---
 title: "Development | Synthetic Pet Simulation：合成生命体の自律エージェント試論 2026"
 date: "2026-04-13"
 category: "dev"
 description: "ステートマシンと localStorage を用いた、デジタル生命体の空腹・幸福・エネルギー管理シミュレーション。"
 themes: ["dev:webapp", "dev:ux", "ai:agents"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # Development | Synthetic Pet Simulation：合成生命体の自律エージェント試論 2026
 
@@ -86,12 +87,12 @@ Age: <span id="pet-age">0</span> CYCLES
 
 <!-- SVG Chromakey Filter -->
 <svg width="0" height="0" style="position:absolute">
-  <filter id="chromakey">
-    <feColorMatrix type="matrix" values="1 0 0 0 0
-                                         0 1 0 0 0
-                                         0 0 1 0 0
-                                         1 -1 1 1 0" />
-  </filter>
+ <filter id="chromakey">
+ <feColorMatrix type="matrix" values="1 0 0 0 0
+ 0 1 0 0 0
+ 0 0 1 0 0
+ 1 -1 1 1 0" />
+ </filter>
 </svg>
 
 <style>
@@ -172,7 +173,7 @@ mascot.classList.remove('pet-sad', 'pet-sleeping');
 emotion.innerText = '';
 statusMsg.style.opacity = '0';
 let currentSprite = SPRITES.idle;
-if (petState.hunger < 20 || petState.happiness < 20) {
+if (petState.hunger < 20 | petState.happiness < 20) {
 currentSprite = SPRITES.sad;
 mascot.classList.add('pet-sad');
 emotion.innerText = '💧';
@@ -249,6 +250,7 @@ setTimeout(initSimulation, 500);
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-04-13**: マスコットを「ミント・ゴースト・キャット」へと刷新。UIテーマカラーをミントグリーンへ変更。
 - **2026-04-13**: 季節限定背景（春）の追加。クロマキーフィルタによるマスコットの透過実装。
 - **2026-04-13**: ビジュアルの全面刷新（さくらみこ風マスコット）。ドット絵スプライトシステムの実装。

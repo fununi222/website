@@ -86,10 +86,10 @@ def main():
                 
                 # Metadata extraction
                 try:
-                    with open(src_path, 'r', encoding='utf-8') as f:
+                    with open(src_path, 'r', encoding='utf-8-sig') as f:
                         content = f.read()
                 except UnicodeDecodeError:
-                    with open(src_path, 'r', encoding='utf-8', errors='replace') as f:
+                    with open(src_path, 'r', encoding='utf-8-sig', errors='replace') as f:
                         content = f.read()
                 
                 metadata = parse_frontmatter(content)

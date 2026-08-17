@@ -1,11 +1,12 @@
-﻿---
+---
 title: "Enterprise AI Ops | 実運用で判明した『知識の陳腐化』と権限管理の勘所"
 date: "2026-04-16"
 category: "ai"
 description: "業務チャットやメール等での返信支援における実践例を紹介。AIエージェント運用で直面する回答精度の低下課題と対策。"
 themes: ["ai:operation", "knowledge:decay", "enterprise:ai"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
@@ -23,7 +24,7 @@ updated: "2026-08-02"
 - **手法**: 特定のキーワード（例: "Cloud Storage Trends", "Competitor Updates"）に基づき、公式情報源を限定して定期リサーチを実行。
 - **効果**: 毎朝、整理されたサマリーが手元に届く状態を作り、受動的な情報収集を能動的な「インサイト抽出」へとシフト。
 
-## 2. 『Notebook』運用の罠：資料の多さが仇になる？
+## 2. 『Notebook』運用の注意点：資料の多さが仇になる？
 
 [Notebook (AI)](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Notebook%20(AI)")機能（[Copilot Studio](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Copilot%20Studio")等の知識ベース）への資料投入において、以下の課題が浮き彫りになりました。
 
@@ -44,5 +45,6 @@ updated: "2026-08-02"
 AIに高性能なモデル（[LLM](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="LLM")）を与えるだけでは成果は限定的です。庭の手入れをするように、古くなった知識を剪定し、常に新鮮なデータが供給されるパイプラインを維持することこそが、次世代の運用エンジニアに求められるスキルです。
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - 2026-04-16: 新規作成。AIエージェント実運用における課題とナレッジ管理戦略。
 

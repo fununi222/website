@@ -1,15 +1,17 @@
 ---
-title: "webMethods実践：REPEATステップと指数バックオフで作る最強のリトライ処理"
+title: "webMethods実践：REPEATステップと指数バックオフで作る効果的なリトライ処理"
 date: "2026-04-24"
 category: "infra"
 description: "Thundering Herd問題を回避するための指数バックオフ実装術。REPEATステップの使い方とパイプラインロールバックの注意点を詳解。"
 themes: ["dev:webmethods", "ops:resilience", "backoff-strategy"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
 
-# webMethods実践：REPEATステップと指数バックオフで作る最強のリトライ処理
 
-## 超要約
+
+# webMethods実践：REPEATステップと指数バックオフで作る効果的なリトライ処理
+
+## 概要
 [webMethods](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="webMethods") [Integration Server](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Integration%20Server") で外部APIを呼出す際、一定間隔での単純再試行は Thundering Herd（群衆の暴走）を引き起こし、バックエンド障害を増幅させます。本稿では、`REPEAT` ステップと [指数バックオフ](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="指数バックオフ") (Exponential Backoff + Full Jitter) を用いた強靭な自己回復リトライ処理の構築手順とパイプラインロールバックの注意点を解説します。
 
 ---
@@ -26,16 +28,16 @@ updated: "2026-08-02"
 ## 2. REPEAT ステップを活用した実装手順
 
 1. **`REPEAT` ステップの配置とプロパティ設定**:
-   - `Repeat on`: `FAILURE`（例外または失敗時に繰り返し）
-   - `Count`: 最大再試行回数（例: 5回）
-   - `Repeat interval`: `%waitTime%`（動的パイプライン変数を指定）
+ - `Repeat on`: `FAILURE`（例外または失敗時に繰り返し）
+ - `Count`: 最大再試行回数（例: 5回）
+ - `Repeat interval`: `%waitTime%`（動的パイプライン変数を指定）
 2. **フロー内部ロジック**:
-   - `pub.client:http` 呼び出し。
-   - HTTPステータスが 502/503/429 の場合、例外をスロー。
-   - 次回 `%waitTime%` を `Base * (2 ^ Count) + RandomJitter` で再計算しパイプラインへ保持。
+ - `pub.client:http` 呼び出し。
+ - HTTPステータスが 502/503/429 の場合、例外をスロー。
+ - 次回 `%waitTime%` を `Base * (2 ^ Count) + RandomJitter` で再計算しパイプラインへ保持。
 
 > [!WARNING]
-> **パイプライン変数ロールバックの注意点**  
+> **パイプライン変数ロールバックの注意点** 
 > `REPEAT` が失敗して次の反復に移る際、トップレベルの変数状態は反復開始時に自動戻り（ロールバック）します。しかし、深層の IData ドキュメント内変数の変更は巻き戻らないため、データ不整合に注意が必要です。
 
 ---
@@ -45,8 +47,8 @@ updated: "2026-08-02"
 長時間（数分〜数十分）に及ぶ `REPEAT` + Sleep ループを過剰に実行すると、[Integration Server](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="Integration%20Server") のワーカースレッドが枯渇し、サーバー全体の応答が停止します。
 
 - **使い分けの基準**:
-  - 短時間（数秒〜数十秒）のスパイク障害 ➔ `REPEAT` によるインラインバックオフ。
-  - 長時間の中断が想定される場合 ➔ Messaging (UM/MQ) キューへ退避させ非同期リスナーで再試行。
+ - 短時間（数秒〜数十秒）のスパイク障害 ➔ `REPEAT` によるインラインバックオフ。
+ - 長時間の中断が想定される場合 ➔ Messaging (UM/MQ) キューへ退避させ非同期リスナーで再試行。
 
 ---
 
@@ -59,5 +61,6 @@ updated: "2026-08-02"
 ---
 
 ## 変更履歴 (Changelog)
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 - **2026-08-02 (v3)**: 2026年最新のwebMethods Integration Server 10.x/11.x, Exponential Backoff + Jitter, REPEATステップロールバック仕様のファクトチェックと目次H2構造最適化。
 - **2026-04-24 (v2)**: 新規作成。

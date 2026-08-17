@@ -1,11 +1,12 @@
-﻿---
+---
 title: "【完全版】GitHubでがんばらないナレッジ管理 | 非エンジニアも挫折しない3つの運用ルール"
 date: "2026-07-11"
 category: "dev"
 description: "GitHubをドキュメント管理・社内マニュアル共有に使うための完全ガイド。ブラウザ編集、自由なコミット、直書き運用、Discussions、Issue Templates、復旧手順まで非エンジニア向けに解説。"
 themes: ["dev:ai-coding", "ai:ops", "infra:ops"]
-updated: "2026-08-02"
+updated: "2026-08-17"
 ---
+
 
 # 【完全版】GitHubで「がんばらない」ナレッジ管理！非エンジニアも挫折しない3つの運用ルール
 
@@ -224,14 +225,14 @@ customer-refund-policy.md
 ```text
 knowledge-base/
 ├── 経理・総務マニュアル/
-│   ├── 経費精算ルール.md
-│   └── 入退社手続き.md
+│ ├── 経費精算ルール.md
+│ └── 入退社手続き.md
 ├── 営業ノウハウ/
-│   ├── 初回商談ヒアリング.md
-│   └── 提案書チェックリスト.md
+│ ├── 初回商談ヒアリング.md
+│ └── 提案書チェックリスト.md
 └── サポート対応/
-    ├── 返金対応フロー.md
-    └── 障害報告テンプレート.md
+ ├── 返金対応フロー.md
+ └── 障害報告テンプレート.md
 ```
 
 ポイントは、**カテゴリ > 各ドキュメント** の最大2層までに抑えることです。
@@ -390,5 +391,6 @@ GitHubを活用した「がんばりすぎない」ナレッジ管理のゴー�
 * [GitHub Docs: Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
 ## 変更履歴
+- **2026-08-17**: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。
 
 * 2026-07-11: 初版公開。GitHubを使った非エンジニア向けナレッジ管理の運用ルール、Discussions、Issue Templates、セキュリティ最小ルールを整理。
