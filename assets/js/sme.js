@@ -81,6 +81,16 @@ async function loadMarkdown() {
         // 4. Resolve Relative Paths for Assets (Images, Links, Styles)
         resolveRelativePaths(tempDiv, mdPath);
 
+        // 4.5 Wrap all tables in a responsive scroll container
+        Array.from(tempDiv.querySelectorAll('table')).forEach(table => {
+            if (!table.parentElement.classList.contains('table-wrap')) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'table-wrap';
+                table.parentNode.insertBefore(wrapper, table);
+                wrapper.appendChild(table);
+            }
+        });
+
         // 5. Sanitize the HTML (scripts/styles securely extracted)
         const cleanHtml = DOMPurify.sanitize(tempDiv.innerHTML, { 
             ADD_TAGS: ['canvas', 'button', 'iframe'], 

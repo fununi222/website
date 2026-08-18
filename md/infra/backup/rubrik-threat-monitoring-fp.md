@@ -63,7 +63,14 @@ Rubrikの異常検知（Anomaly Detection）は、あらかじめ決められた
 
 なぜRubrikが優れているのか、分かりやすく表で比較してみましょう。
 
-| 比較項目 | 従来型ツール（レガシー[EDR](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="EDR")等） | Rubrik（異常検知・脅威モニタリング） |---|---|---| **検知の仕組み** | 既知の拡張子やパターンとの一致（シグネチャ型） | 振る舞い分析と環境のベースライン学習（ML型） | **未知の脅威への対応** | 非常に弱い（すり抜けやすい） | 高い（事前の知識なしでも異常を検知可能） | **誤検知のリスク** | 高い（社内独自ツールなどでノイズが多発） | 非常に低い（複数シグナルの総合評価でノイズを排除） | **業務への影響** | 常に監視するためPCやサーバーが重くなる | バックアップデータ上で行うため本番環境への影響ゼロ |
+
+| 比較項目 | 従来型ツール（レガシー[EDR](https://fununi222.github.io/website/html/glossary/system-glossary.html#:~:text="EDR")等） | Rubrik（異常検知・脅威モニタリング）
+|---|---|---
+| **検知の仕組み** | 既知の拡張子やパターンとの一致（シグネチャ型） | 振る舞い分析と環境のベースライン学習（ML型） |
+| **未知の脅威への対応** | 非常に弱い（すり抜けやすい） | 高い（事前の知識なしでも異常を検知可能） |
+| **誤検知のリスク** | 高い（社内独自ツールなどでノイズが多発） | 非常に低い（複数シグナルの総合評価でノイズを排除） |
+| **業務への影響** | 常に監視するためPCやサーバーが重くなる | バックアップデータ上で行うため本番環境への影響ゼロ |
+
 
 ※参照データ: [Rubrik Anomaly Detection Adds Behavioral Analysis to Dynamically Identify Ransomware Extensions](https://www.rubrik.com/blog/technology/25/12/rubrik-anomaly-detection-adds-behavioral-analysis-to-dynamically-identify-ransomware-extensions)
 
