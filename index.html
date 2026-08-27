@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="dark" lang="ja">
 <head>
   <meta charset="utf-8" />
@@ -303,7 +303,7 @@
           const color = colorMap[article.category] || '#aaa4ff';
           
           html += `
-          <a href="html/${article.path}" class="glass-card p-6 group flex flex-col justify-between border-white/5 hover:border-[${color}]/40">
+          <a href="${article.direct_html ? article.path : 'html/' + article.path}" class="glass-card p-6 group flex flex-col justify-between border-white/5 hover:border-[${color}]/40">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
                 <span class="text-[9px] font-bold uppercase tracking-widest" style="color: ${color}">${article.category}</span>

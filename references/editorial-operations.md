@@ -1,6 +1,12 @@
-# Editorial Operations Reference
+﻿# Editorial Operations Reference
 
 Use this reference when a task creates, updates, reorganizes, or audits article content.
+
+## Direct Static HTML Authoring Policy
+
+FunUni-lab adopts **Direct Static HTML Authoring** for new articles:
+- Articles are created as standalone HTML files (`category/sub/article.html`).
+- Zero-overhead static delivery, complete SEO/OGP integration, and rich UI styling via Tailwind CSS.
 
 ## Category Rules
 
@@ -11,31 +17,18 @@ Assign each article to one top-level category only:
 3. `ai/`: LLM evaluation, agents, prompting, AI automation
 4. `finance/`: finance, payments, points ecosystems
 5. `lpo/`: landing-page analytics and conversion optimization
-6. `other/`: uncategorized research notes, tests, or miscellaneous content
+6. `other/`: uncategorized research notes, tests, travel, or lifestyle content
+7. `youtube/`: YouTube analytics, video strategy, creator research
 
-## Theme Keys
-
-- Store 1 to 3 `themes` values in frontmatter.
-- Prefer managed namespaced keys in the form `domain:topic`.
-- Reuse existing keys before inventing new ones.
-
-### Initial Theme Vocabulary
-
-- `infra:` `backup`, `security`, `network`, `observability`, `automation`, `virtualization`, `cloud`, `storage`, `cmdb`
-- `dev:` `frontend`, `backend`, `architecture`, `testing`, `performance`, `dx`
-- `ai:` `agents`, `llm`, `prompting`, `automation`, `evaluation`, `ops`
-- `finance:` `payments`, `points`, `cards`, `miles`, `investing`
-- `lpo:` `analytics`, `cro`, `landing-page`, `heatmap`, `experiments`
-- `other:` `research`, `memo`, `workflow`
-
-## Article Format
+## Article Structure & Design Components
 
 - **Reader-First Architecture**: 読み手に寄り添い、過度な装飾や不要な煽りを排した洗練されたレイアウト。
-  - **概要（Summary）**: 記事の冒頭に、読者が知りたい要点を簡潔にまとめたセクションを設置。
-  - **見出しと構成**: H2, H3の階層を整理し、表や箇条書きを用いて要点をスッキリ伝える。
-
-- Add a visible last-updated marker below the summary when updating an article.
-- Add a `## 変更履歴 (Changelog)` section at the end when revising content.
+  - **Global Navigation**: Header with domain links.
+  - **Breadcrumbs**: Clear hierarchical path (`Home / Category / Title`).
+  - **概要（Summary）**: 記事の冒頭に、読者が知りたい要点を簡潔にまとめたアクセントカードを設置。
+  - **見出しと構成**: H2, H3の階層を整理し、表（`.table-wrap`）や箇条書きを用いて要点をスッキリ伝える。
+  - **Author/Insight Callouts**: 著者の鑑賞メモ、注意点、補足情報などのリッチボックス（`.callout-memo`, `.callout-alert`）。
+  - **Changelog**: 末尾に `変更履歴 (Changelog)` を記載。
 
 ## Title & Writing Style
 
@@ -43,35 +36,9 @@ Assign each article to one top-level category only:
 - Prefer `対象名 | 主題` or `テーマ名 2026 | 主張・論点`.
 - Avoid clickbait, hype words, or aggressive marketing tones.
 
-## Article Consolidation & Splitting Policy
+## Publishing & Listing Updates
 
-- **Consolidation**: 同一の検索意図や重複した内容を持つ記事は、より充実した記事に統合して整理する。
-- **Splitting / Structuring**: 文字数が多すぎる記事（8,000文字以上など）は、読者が迷わないよう目次ナビゲーションを強化するか、役割に応じて適切に分割する。
-
-## Glossary Sync
-
-- Source of truth: `glossary/system-glossary.md`
-- Add difficult technical terms, specialist vocabulary, and uncommon kanji when they first matter to readers.
-- **Required Link Format**: Use the following "Scroll to Text Fragment" syntax via the main loader:
-  - `[用語名](/https://fununi222.github.io/website/article.html?md=glossary/system-glossary.md#:~:text="用語名")`
-- Add glossary links in normal body text only.
-- Do not add glossary links inside headings, code, or raw HTML tags.
-
-## Article Listing Updates
-
-- When publishing a new article, add its card entry to:
-  1. The relevant category `index.html` (e.g., `infra/index.html`).
-  2. The Home page "Latest Research Logs" section (`index.html#latest-logs`) if it represents a major recent research log.
-- Keep card wording aligned with the article title, summary, and assigned category.
-
-## Technical Log Policy
-
-- Store infra incident reports and operational postmortems as standalone Markdown files under `infra/`.
-- Include the event, root cause, corrective action, and prevention or automation follow-up.
-
-## Maintenance Expectations
-
-- When re-categorizing, update related links, card copy, related-article paths, and glossary references together.
-- Filenames should be descriptive and date-less to ensure consistent internal linking.
-- Remove obsolete HTML stubs (like the former `glossary/index.html`) only after confirming nothing still links to them.
-
+- When adding or updating an article:
+  1. Ensure the article is saved in its respective category directory (e.g., `other/travel/my-article.html`).
+  2. Register or sync the article metadata in `assets/data/article_index.json` and `assets/js/article-data.js`.
+  3. Verify that the relevant category index (e.g., `other/index.html`) correctly lists the new entry.

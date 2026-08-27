@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Archive Loader
  * Dynamically fetches and renders the complete list of articles for a category.
  */
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
             
             arts.forEach(article => {
-                const linkHref = `../html/${article.path}`;
+                const linkHref = article.direct_html ? `../${article.path}` : `../html/${article.path}`;
                 const colorHexMap = {
                     'primary': '#aaa4ff', 'secondary': '#00d2ff', 'tertiary': '#00ffca',
                     'amber-400': '#fbbf24', 'emerald-400': '#34d399', 'emerald-500': '#10b981', 'slate-400': '#94a3b8', 'white': '#ffffff',
