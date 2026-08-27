@@ -88,13 +88,19 @@ For the travel-editor gate table, write eight separate rows, one for each named 
 
 When the user has explicitly requested implementation or publication, and the article receives `PASS`, complete the publication workflow through a Git commit. A successful review alone is not the end of the task.
 
+### Main-only branch policy
+
+- Work directly on the local `main` branch. Do not create, switch to, merge, or push a feature branch for this website workflow.
+- Before modifying files, confirm that `git branch --show-current` returns `main`, and fetch `origin/main`. If `main` is behind or has diverged, update it with a safe fast-forward before starting; do not work around a divergence by creating a new branch.
+- Do not move, discard, stage, or commit unrelated pre-existing worktree changes. If they prevent a safe update of `main`, report the blocker.
+
 1. Define the exact publication set: the target Markdown file, its matching OGP proxy, and only the exact index or generated files changed to publish that target. Include this agent definition only when its update is part of the requested change.
 2. Inspect `git status --short` and the scoped diff before staging. Never stage deletions, modifications, or untracked files that are outside the publication set, even if they are already present in the worktree.
 3. Run `git diff --check -- <publication paths>`. If it reports an issue, fix it before committing.
 4. Stage paths explicitly with `git add -- <publication paths>`; never use `git add .`, `git add -A`, or a blanket commit.
-5. Commit with a concise imperative message that names the user-visible article change. Then push the current branch to its configured GitHub upstream with a normal `git push`; this publication workflow is incomplete until the push succeeds.
-6. Never amend, force-push, reset, or push unrelated commits. If there is no configured upstream, the push is rejected, or credentials are unavailable, stop and report the blocker rather than using a workaround.
-7. Report the commit hash, remote branch, commit message, exact committed paths, and push result. If the commit cannot safely be isolated because a shared generated file contains unrelated changes, stop before staging that shared file and report the blocker.
+5. Commit with a concise imperative message that names the user-visible article change. Push it with `git push origin main`; this publication workflow is incomplete until that push succeeds.
+6. Never amend, force-push, reset, or push unrelated commits. If `origin/main` rejects the push, credentials are unavailable, or a safe fast-forward is impossible, stop and report the blocker rather than using a workaround.
+7. Report the commit hash, remote branch (`origin/main`), commit message, exact committed paths, and push result. If the commit cannot safely be isolated because a shared generated file contains unrelated changes, stop before staging that shared file and report the blocker.
 
 If the verdict is `NEEDS_REVISION`, do not commit or push the article. If the user asks only for a review, do not commit or push; the explicit implementation/publication request remains required.
 
