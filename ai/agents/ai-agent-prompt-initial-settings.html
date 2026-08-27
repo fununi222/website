@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIエージェントを思い通りに動かす「4点セット」と必須の初期設定 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="AIエージェントが思い通りに動かない原因を、目的・アウトプット・制約・インプットの4点セットと初期設定の観点から解消する実践ガイド。" />
+  <meta property="og:title" content="AIエージェントを思い通りに動かす「4点セット」と必須の初期設定 | FunUni-lab" />
+  <meta property="og:description" content="AIエージェントが思い通りに動かない原因を、目的・アウトプット・制約・インプットの4点セットと初期設定の観点から解消する実践ガイド。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00ffca;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00ffca0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00ffca; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00ffca; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00ffca; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #00ffca14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #00ffca; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00ffca; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors text-[#00ffca] border-b-2 border-[#00ffca] pb-1">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00ffca;">
+          <span class="material-symbols-outlined">smart_toy</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../ai/index.html" class="hover:text-white transition-colors" style="color: #00ffca;">AI Research</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Agents</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00ffca1a; color: #00ffca; border-color: #00ffca33;">
+        <span class="material-symbols-outlined text-xs">smart_toy</span> Domain_03 / AI
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        AIエージェントを思い通りに動かす「4点セット」と必須の初期設定
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">calendar_today</span> 公開: 2026-07-11</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">schedule</span> 読了目安: 約6分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <p>「話題のAIエージェントを使ってみたけれど、思った通りの成果物が出てこない」。</p>
+<p>そう悩む原因は、AI知識の不足ではなく、<strong>指示の出し方が雑すぎること</strong>と、<strong>自動化に必要な初期設定を確認していないこと</strong>にあります。本記事では、CodexなどのAIエージェントを「優秀な右腕」に変えるためのプロンプト設計と、安全に自動化を始めるための設定チェックを整理します。</p>
+<hr />
+<h2 id="1-ai">1. なぜAIエージェントは「全任せ」だと失敗するのか</h2>
+<p>AIエージェントは自律性が高く、言葉を省略しても推測して動いてくれます。しかし、ここに落とし穴があります。指示が雑だと、AIはあなたの意図とは違う方向へ全力で走ります。</p>
+<div class="callout-note">
+<p>❌ ダメな指示の例 
+「AIスクールのホームページを作って」</p>
+</div>
+<p>この指示では、AIは次の要素を勝手に補完するしかありません。</p>
+<ul>
+<li>何のためのホームページなのか</li>
+<li>どのようなデザインや構成にするのか</li>
+<li>どのツールやファイル形式で作るのか</li>
+<li>参考情報や訴求すべき特徴は何か</li>
+</ul>
+<p>AIに任せることと、丸投げすることは違います。成果物の品質は、最初に渡す「ゴールの解像度」でほぼ決まります。</p>
+<hr />
+<h2 id="2-4">2. 出力を一発で変えるプロンプトの「4点セット」</h2>
+<p>AIエージェントへの指示では、短文でも音声入力でも、必ず以下の4点セットを含めます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>役割</th>
+<th>具体例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目的</td>
+<td>何のために行うのかを定義する</td>
+<td>初めてAIスクールを知る人に特徴と魅力を伝える</td>
+</tr>
+<tr>
+<td>アウトプットの形</td>
+<td>成果物の形式・構成・粒度を指定する</td>
+<td>5セクション構成のHTML、またはMarkdownの構成案</td>
+</tr>
+<tr>
+<td>手段・制約</td>
+<td>守るべき条件や使う/使わない手段を指定する</td>
+<td>外部の複雑なプログラムは使わず、GASで完結させる</td>
+</tr>
+<tr>
+<td>インプット</td>
+<td>判断材料となる資料を渡す</td>
+<td>文字起こし、既存ページ、商品資料、FAQなど</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_1">成功プロンプトの例</h3>
+<pre><code class="language-markdown">20代の投資初心者が新NISAを始めるための解説記事を作りたいです。
+H2/H3が分かるMarkdown形式の構成案で出力してください。
+難しい専門用語は避け、箇条書きを多めにし、読者が最初の証券口座開設まで進める流れにしてください。
+参考資料として、以下のメモを使ってください。
+</code></pre>
+<p>このように、目的・アウトプットの形・手段/制約・インプットが揃うと、AIは迷わずゴールへ向かえます。結果として、初手のアウトプット品質が上がり、修正の往復が大幅に減ります。</p>
+<hr />
+<h2 id="3">3. 自動化の恩恵を受けるための初期設定チェック</h2>
+<p>プロンプトが正しくても、ツール側の権限や実行設定が不十分だと、自動化の力は半減します。利用しているAIエージェントの公式設定画面で、次の観点を確認してください。</p>
+<h3 id="_2">コンピュータ操作権限の確認</h3>
+<p>ローカルファイルの作成、保存、テスト実行、ブラウザ起動などを任せたい場合は、実行環境の権限が適切に設定されている必要があります。</p>
+<ul>
+<li>作成したファイルを指定フォルダへ保存する</li>
+<li>テストやビルドを実行する</li>
+<li>生成した文面を別ツールへ転記する</li>
+</ul>
+<p>ただし、権限は広げすぎないことが重要です。業務データや認証情報を扱う場合は、対象フォルダ・対象ツール・実行コマンドを明示し、不要な権限は与えない運用にしてください。</p>
+<h3 id="_3">ブラウザ操作権限の確認</h3>
+<p>Web調査、管理画面の確認、フォーム入力などを任せたい場合は、ブラウザ操作の可否を確認します。</p>
+<ul>
+<li>最新情報を検索して要約する</li>
+<li>管理画面の未処理タスクを確認する</li>
+<li>Web上のデータを収集して表にする</li>
+</ul>
+<p>ログイン済み画面や金融・個人情報を扱う場合は、必ず人間が最終確認する前提にしましょう。AIエージェントは便利ですが、全権委任ではなく「監督付きの実行者」として扱うのが安全です。</p>
+<h3 id="_4">音声入力ショートカットの設定</h3>
+<p>毎回タイピングするのが面倒な人は、OSや入力ツールの音声入力ショートカットを設定しておきます。「目的・形・制約・材料」を口頭で話すだけでも、AIは十分に構造化できます。</p>
+<hr />
+<h2 id="4">4. メリット・デメリット</h2>
+<h3 id="_5">メリット</h3>
+<ul>
+<li>初手の精度が上がり、修正ラリーを削減できる</li>
+<li>作業の目的と制約が明確になり、AIの暴走を防げる</li>
+<li>ブラウザ調査やファイル作成など、実務に近い自動化へ進める</li>
+</ul>
+<h3 id="_6">デメリット</h3>
+<ul>
+<li>指示前に10秒だけ、目的・形・制約を整理する必要がある</li>
+<li>権限設定を広げる場合は、セキュリティ確認が必須になる</li>
+</ul>
+<hr />
+<h2 id="faq">FAQ</h2>
+<h3 id="q-4">Q. 音声入力だと4点セットをきれいに話せません。</h3>
+<p>箇条書きのように整える必要はありません。「何のために」「どんな形で」「どんな条件で」が含まれていれば、AIは構造を理解できます。</p>
+<h3 id="q-pc">Q. ブラウザ操作やPC操作の権限は安全ですか。</h3>
+<p>信頼できる公式ツールで、対象範囲を限定して使うことが前提です。不審な外部プラグインや、用途が曖昧な拡張機能へ広い権限を与えるのは避けてください。</p>
+<hr />
+<h2 id="ai">まとめ：AIに任せる前に、ゴールを言語化する</h2>
+<p>AIエージェントを思い通りに動かす基本はシンプルです。</p>
+<ol>
+<li><strong>目的・形・制約・材料の4点セットで指示を出す</strong></li>
+<li><strong>必要なインプットを添える</strong></li>
+<li><strong>操作権限は用途に合わせて最小限に設定する</strong></li>
+</ol>
+<p>次のステップでは、AIの脳内を圧迫しないための設定ファイル管理を解説します。</p>
+<p>👉 <a href="./agent-md-skill-decluttering.html">連載第2回：AIの精度を劇的に変える「Agent.md」と「スキル」の断捨離最適化術</a></p>
+<h2 id="_7">変更履歴</h2>
+<ul>
+<li>
+<p><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</p>
+</li>
+<li>
+<p><strong>2026-07-11</strong>: 連載第1回として、プロンプトの4点セットと初期設定チェックを公開。</p>
+</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../ai/index.html" class="hover:text-white">AI Research</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

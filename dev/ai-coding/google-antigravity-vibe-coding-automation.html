@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Antigravityで変わるソフトウェア開発｜複数AIエージェントの並列稼働で実現するVibe Codingと開発自動化 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="Google Antigravity 2.0とAntigravity IDEを軸に、複数AIエージェントの並列稼働、Vibe Coding、Cursor/Windsurfとの違い、導入時のセキュリティ観点を実務目線で整理します。" />
+  <meta property="og:title" content="Google Antigravityで変わるソフトウェア開発｜複数AIエージェントの並列稼働で実現するVibe Codingと開発自動化 | FunUni-lab" />
+  <meta property="og:description" content="Google Antigravity 2.0とAntigravity IDEを軸に、複数AIエージェントの並列稼働、Vibe Coding、Cursor/Windsurfとの違い、導入時のセキュリティ観点を実務目線で整理します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00d2ff;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00d2ff0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00d2ff; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00d2ff; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00d2ff; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #00d2ff14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #00d2ff; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00d2ff; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors text-[#00d2ff] border-b-2 border-[#00d2ff] pb-1">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00d2ff;">
+          <span class="material-symbols-outlined">terminal</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../dev/index.html" class="hover:text-white transition-colors" style="color: #00d2ff;">Development</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Ai Coding</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00d2ff1a; color: #00d2ff; border-color: #00d2ff33;">
+        <span class="material-symbols-outlined text-xs">terminal</span> Domain_02 / Dev
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        Google Antigravityで変わるソフトウェア開発｜複数AIエージェントの並列稼働で実現するVibe Codingと開発自動化
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00d2ff;">calendar_today</span> 公開: 2026-08-02</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00d2ff;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00d2ff;">schedule</span> 読了目安: 約13分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <div class="callout-note">
+<p><strong>この記事のポイント</strong></p>
+<ul>
+<li>Google Antigravityは、エディタ・ターミナル・ブラウザを横断してAIエージェントに開発タスクを委任する「agent-first」型の開発プラットフォームです。</li>
+<li>Antigravity 2.0は、IDEから独立したデスクトップのエージェント司令塔として、複数プロジェクト・複数ワークスペースで並列タスクを管理します。</li>
+<li>Antigravity IDEは、VS Code系の操作感を維持しつつ、Agent ManagerやArtifactsを通じて計画・実装・検証を可視化します。</li>
+<li>Vibe Codingを実務に入れる鍵は「自然言語で丸投げ」ではなく、役割分担・検証手順・承認ゲートを明文化してエージェントを指揮することです。</li>
+</ul>
+</div>
+<hr />
+<h2 id="1">1. 導入：コードの「自動補完」から「エージェントの指揮」へ</h2>
+<p>ソフトウェア開発におけるAIの役割は、ここ数年で急速な進化を遂げました。当初の「行単位のコード補完」から、チャットによる「コード生成・説明」へ、そして現在、最も注目を集めているのが <strong>「複数AIエージェントの並列稼働による開発自動化」</strong> です。</p>
+<p>Googleが公開しているAIネイティブ開発プラットフォーム <strong><a href="https://antigravity.google/">Google Antigravity</a></strong> は、この「エージェントファースト時代」を象徴する存在です。Google Developers Blogでは、Antigravityを「エディタ、ターミナル、ブラウザを横断して、エージェントが複雑なタスクを計画・実行・検証できる開発プラットフォーム」と位置付けています。</p>
+<p>つまり、開発者の仕事は「コードを1行ずつ書く」だけではありません。自然言語で意図を伝え、複数のエージェントに作業を分解させ、成果物をレビューし、設計判断を下す <strong>テクニカルディレクター型の働き方</strong> へ移行していきます。この直感的で高レイヤーな開発スタイルが、いわゆる <strong>Vibe Coding（バイブコーディング）</strong> です。</p>
+<p>本記事では、Google Antigravityの主要機能、従来のAI IDEとの違い、そして実際の開発現場で活用するためのVibe Codingワークフローを整理します。</p>
+<hr />
+<h2 id="2-google-antigravity">2. Google Antigravityとは？主要機能と構成</h2>
+<p>Google Antigravityは、AIエージェントを開発プロセスの中心に据えたプラットフォームです。公式ドキュメントでは、Antigravity 2.0を「エージェントのための専用プラットフォーム」とし、独立したプロジェクト群で複数の自律エージェントを並列にオーケストレーションできると説明しています。</p>
+<h3 id="2">2つの主要な利用形態</h3>
+<h4 id="antigravity-20agent-canvas">Antigravity 2.0：Agent Canvas / デスクトップ司令塔</h4>
+<p>Antigravity 2.0は、IDEに閉じないスタンドアロンのデスクトップアプリとして、複数エージェントを起動・監視・調整する司令塔です。</p>
+<ul>
+<li>複数プロジェクトやワークスペースをまたいだ非同期タスク管理</li>
+<li>ローカルのサブエージェントを使った並列処理</li>
+<li>定期実行タスクや音声入力など、IDE外の作業管理に向いた機能</li>
+<li>Vibe CodingやMVP試作のように、要件から実装までを一気通貫で進めたい場面に適合</li>
+</ul>
+<h4 id="antigravity-idevs-code">Antigravity IDE：VS Code互換の開発者向け環境</h4>
+<p>Antigravity IDEは、慣れ親しんだVS Code系のエディタ体験を残しながら、AIエージェントを開発ワークフローへ統合するモードです。</p>
+<ul>
+<li>エディタ、ターミナル、ブラウザをAIエージェントが活用</li>
+<li>Agent Managerから複数タスクの状態を確認</li>
+<li>実装計画、タスクリスト、スクリーンショット、ブラウザ録画などの <strong>Artifacts</strong> により、エージェントの作業をレビューしやすい</li>
+<li>既存コードベースの修正、リファクタリング、テスト追加に向く</li>
+</ul>
+<div class="callout-note">
+<p><strong>実務上のポイント</strong>: Antigravity 2.0は「複数エージェントを束ねる司令塔」、Antigravity IDEは「コードレビュー可能な開発現場」と捉えると、使い分けが明確になります。</p>
+</div>
+<hr />
+<h2 id="3-ai-ideantigravity-vs-cursor-vs-windsurf">3. 主要AI IDEの比較：Antigravity vs Cursor vs Windsurf</h2>
+<p>開発現場で広く使われるAI IDEと比較すると、Antigravityの特徴は <strong>マルチエージェントの並列実行と検証可能性</strong> にあります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">比較項目</th>
+<th style="text-align: left;"><strong>Google Antigravity</strong></th>
+<th style="text-align: left;"><strong>Cursor</strong></th>
+<th style="text-align: left;"><strong>Windsurf</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>開発スタイル</strong></td>
+<td style="text-align: left;">マルチエージェント並列実行、Agent Manager、Artifacts</td>
+<td style="text-align: left;">インライン補完、チャット、Composerによる編集</td>
+<td style="text-align: left;">Cascadeによる文脈追跡型エージェント体験</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>主な強み</strong></td>
+<td style="text-align: left;">複数プロジェクト・複数ワークスペースでの非同期開発管理</td>
+<td style="text-align: left;">既存コードベースの日常修正、補完、局所編集</td>
+<td style="text-align: left;">長い文脈を踏まえた段階的な修正・リファクタリング</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>検証の考え方</strong></td>
+<td style="text-align: left;">計画、差分、スクリーンショット、ブラウザ録画などのArtifactsを重視</td>
+<td style="text-align: left;">エディタ内差分とチャット履歴を中心に確認</td>
+<td style="text-align: left;">Cascadeの提案と差分を確認</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>得意なユースケース</strong></td>
+<td style="text-align: left;">フルスタックMVP、並列タスク処理、チーム規模の作業分解</td>
+<td style="text-align: left;">日々の実装、バグ修正、ドキュメント生成</td>
+<td style="text-align: left;">複雑な文脈を追う改修、連続的なリファクタリング</td>
+</tr>
+</tbody>
+</table></div>
+<p>CursorやWindsurfが「エディタ内のAI共同作業者」として強いのに対し、Antigravityは「複数の作業単位をエージェントへ配るオーケストレーター」として設計されている点が差別化ポイントです。</p>
+<hr />
+<h2 id="4-aivibe-coding">4. 複数AIエージェントの並列稼働による「Vibe Coding」の実践</h2>
+<p>Google Antigravityの真価は、複数のAIエージェントに <strong>異なる役割を与えて同時に稼働させられる点</strong> にあります。</p>
+<pre><code class="language-text">【マルチエージェント並列開発フロー】
+
+［開発者（人間）］
+ │ 自然言語で要件・制約・完了条件を定義
+ ▼
+┌──────────────────────────┐
+│ Antigravity Agent Manager │
+└─────────────┬────────────┘
+ │
+ ┌────────────┼────────────┐
+ ▼ ▼ ▼
+Frontend Backend QA / CI
+Agent Agent Agent
+React / UI API / DB Test / E2E
+ └────────────┼────────────┘
+ ▼
+ ［ビルド・動作検証・人間レビュー］
+</code></pre>
+<h3 id="_1">実際の活用シナリオ</h3>
+<ol>
+<li>
+<p><strong>フロントエンド担当エージェント</strong> 
+ UIコンポーネントの作成、状態管理、スタイリング、レスポンシブ対応を進行します。</p>
+</li>
+<li>
+<p><strong>バックエンド担当エージェント</strong> 
+ API設計、バリデーション、データベーススキーマ、エラーハンドリングを並行して実装します。</p>
+</li>
+<li>
+<p><strong>テスト・CI担当エージェント</strong> 
+ 単体テスト、E2Eテスト、Lint、型チェック、CI設定を作成し、実装結果を検証します。</p>
+</li>
+</ol>
+<h3 id="vibe-coding">Vibe Codingを成功させる指示テンプレート</h3>
+<pre><code class="language-markdown">あなたはこのリポジトリの専門エージェントです。
+以下の役割・制約・完了条件に従って作業してください。
+
+## 役割
+- Frontend Agent: 画面実装とアクセシビリティ確認
+- Backend Agent: API設計と永続化ロジック
+- QA Agent: テスト追加、ビルド確認、回帰リスク洗い出し
+
+## 制約
+- 既存のディレクトリ構造と命名規則を優先
+- 破壊的変更は禁止
+- 変更理由をArtifactsまたは要約に残す
+
+## 完了条件
+- テストが通る
+- 差分がレビュー可能な粒度に分割されている
+- 人間が確認すべきリスクが明記されている
+</code></pre>
+<p>人間はコードを1行ずつ書く作業者ではなく、各エージェントの生成結果をレビューし、高レイヤーの設計指示を出す「テクニカルディレクター」として機能します。</p>
+<hr />
+<h2 id="5">5. 導入手順とセキュリティ・データ保護</h2>
+<h3 id="vs-code">VS Codeからのスムーズな移行</h3>
+<p>既存のVS Code環境から移行する場合は、設定、キーバインド、拡張機能、テーマをどこまで引き継ぐかを確認します。AI IDEの移行では「見た目が同じ」だけでなく、ターミナル、シークレット、拡張機能の権限まで含めて棚卸しすることが重要です。</p>
+<h3 id="_2">データ保護のチェックポイント</h3>
+<p>企業開発や個人プロダクトで利用する際は、以下を必ず確認します。</p>
+<ul>
+<li><strong>学習利用・テレメトリ設定</strong>: 入力コードやプロンプトがどのように扱われるかを公式設定で確認する</li>
+<li><strong>シークレット管理</strong>: <code>.env</code>、APIキー、クラウド認証情報をエージェントが読める範囲に置かない</li>
+<li><strong>権限分離</strong>: 本番環境への書き込み権限を持つターミナルで自律実行させない</li>
+<li><strong>承認ゲート</strong>: 依存パッケージ追加、DBマイグレーション、削除操作には人間レビューを挟む</li>
+<li><strong>ログとArtifactsの保存方針</strong>: 監査可能性と機密性のバランスを取る</li>
+</ul>
+<div class="callout-note">
+<p><strong>セキュリティ原則</strong>: AIエージェントには「できること」ではなく「してよいこと」を明示します。最小権限、レビュー可能な差分、再現可能なテストがVibe Codingの安全柵です。</p>
+</div>
+<hr />
+<h2 id="6">6. まとめ：これからのエンジニアに求められる役割</h2>
+<p>Google Antigravityの登場は、ソフトウェア開発における人間の役割が「実装」から「指揮・設計・検証」へとシフトしていることを示しています。</p>
+<ul>
+<li>
+<p><strong>単なる補完から並列自動化へ</strong> 
+ 複数エージェントを組み合わせることで、1人でもチーム規模のタスク分解と検証サイクルを回しやすくなります。</p>
+</li>
+<li>
+<p><strong>Vibe Codingの定着</strong> 
+ アイデアを即座にプロトタイプ化し、ユーザー検証までの時間を短縮できます。</p>
+</li>
+<li>
+<p><strong>人間の価値はレビューと意思決定に移る</strong> 
+ AIが実装スピードを上げるほど、要件定義、リスク判断、セキュリティ設計、品質基準の重要性が増します。</p>
+</li>
+</ul>
+<p>Antigravityのようなエージェントファーストの開発環境は、開発コストの削減だけでなく、エンジニアが本質的な価値創造に集中するためのOSになっていくでしょう。</p>
+<hr />
+<h2 id="_3">参考リンク</h2>
+<ul>
+<li><a href="https://antigravity.google/">Google Antigravity 公式サイト</a></li>
+<li><a href="https://antigravity.google/docs/home">Google Antigravity Docs</a></li>
+<li><a href="https://antigravity.google/product/antigravity-2">Antigravity 2.0 Product Page</a></li>
+<li><a href="https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/">Build with Google Antigravity, our new agentic development platform</a></li>
+<li><a href="https://antigravity.google/blog/introducing-google-antigravity-2">Introducing Google Antigravity 2.0</a></li>
+</ul>
+<h2 id="_4">変更履歴</h2>
+<ul>
+<li>
+<p><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</p>
+</li>
+<li>
+<p><strong>2026-08-02</strong>: Google Antigravity 2.0 / IDEを軸に、Vibe Coding、主要AI IDE比較、導入時のセキュリティ観点を整理した初版を公開。</p>
+</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../dev/index.html" class="hover:text-white">Development</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

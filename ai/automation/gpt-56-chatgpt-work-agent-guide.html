@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPT-5.6とChatGPT Workで何が変わる？ AIエージェントの破壊力を解説 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="GPT-5.6 Sol/Terra/LunaとChatGPT Work、Codex連携で何が変わるのか。AIエージェント時代の実務メリット、使い分け、注意点を中学生にもわかる言葉で解説。" />
+  <meta property="og:title" content="GPT-5.6とChatGPT Workで何が変わる？ AIエージェントの破壊力を解説 | FunUni-lab" />
+  <meta property="og:description" content="GPT-5.6 Sol/Terra/LunaとChatGPT Work、Codex連携で何が変わるのか。AIエージェント時代の実務メリット、使い分け、注意点を中学生にもわかる言葉で解説。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00ffca;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00ffca0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00ffca; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00ffca; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00ffca; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #00ffca14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #00ffca; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00ffca; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors text-[#00ffca] border-b-2 border-[#00ffca] pb-1">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00ffca;">
+          <span class="material-symbols-outlined">smart_toy</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../ai/index.html" class="hover:text-white transition-colors" style="color: #00ffca;">AI Research</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Automation</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00ffca1a; color: #00ffca; border-color: #00ffca33;">
+        <span class="material-symbols-outlined text-xs">smart_toy</span> Domain_03 / AI
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        GPT-5.6とChatGPT Workで何が変わる？ AIエージェントの破壊力を解説
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">calendar_today</span> 公開: 2026-07-11</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">schedule</span> 読了目安: 約13分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <p>「ChatGPTの進化が早すぎて、ついていけない」</p>
+<p>「新しいデスクトップアプリは何がすごいの？」</p>
+<p>「GPT-5.6 Sol、Terra、Lunaはどう使い分ければいいの？」</p>
+<p>そんな疑問はありませんか？</p>
+<p>2026年7月、OpenAIはGPT-5.6モデルファミリーと、より長い仕事を任せるためのChatGPT Workを発表しました。OpenAIの発表では、GPT-5.6はChatGPT、Codex、OpenAI APIへ段階的に展開され、Sol、Terra、Lunaの3モデルで構成されると説明されています。</p>
+<p>今回の変化を一言でいうと、<strong>AIが「答える道具」から「仕事を前に進める相棒」へ近づいた</strong>ということです。</p>
+<div class="callout-note">
+<p><strong>ファクトチェック（2026-07-11時点）</strong>: OpenAI公式の ChatGPT Work ページ、GPT-5.6発表記事、Help Center の「GPT-5.6 in ChatGPT」「ChatGPT Work and Codex」を確認し、モデル名・Work/Codexの位置づけ・利用可否がプランやロールアウト状況で変わる点を本文に反映しています。</p>
+</div>
+<p>この記事では、GPT-5.6とChatGPT Workのポイントを、中学生でもわかる言葉で整理します。</p>
+<h2 id="_1">まず結論：何が変わったのか</h2>
+<p>今回のアップデートで重要なのは、次の3点です。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">変化</th>
+<th style="text-align: left;">何がうれしい？</th>
+<th style="text-align: left;">向いている人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">GPT-5.6 Sol / Terra / Luna</td>
+<td style="text-align: left;">用途別にモデルを選びやすい</td>
+<td style="text-align: left;">API利用者、開発者、業務効率化担当</td>
+</tr>
+<tr>
+<td style="text-align: left;">ChatGPT Work</td>
+<td style="text-align: left;">調査、分析、資料作成など長い仕事を任せやすい</td>
+<td style="text-align: left;">企画、営業、管理部門、DX担当</td>
+</tr>
+<tr>
+<td style="text-align: left;">Codex連携</td>
+<td style="text-align: left;">コード作成、レビュー、複数リポジトリ作業を進めやすい</td>
+<td style="text-align: left;">エンジニア、PdM、技術チーム</td>
+</tr>
+</tbody>
+</table></div>
+<p>これまでのChatGPTは、質問に答える「会話相手」として使われることが中心でした。これからは、調査し、考え、ファイルや資料の形にまとめる「実務パートナー」として使う場面が増えます。</p>
+<h2 id="gpt-56-3">GPT-5.6とは？ 3つの新しい「脳みそ」を解説</h2>
+<p>GPT-5.6は、用途に合わせて3つのモデルに分かれています。</p>
+<h3 id="sol">Sol：最高性能のボス</h3>
+<p>Solは、最も高い能力を求める作業に向いたモデルです。</p>
+<ul>
+<li>難しいプログラミング</li>
+<li>長い調査</li>
+<li>複雑な推論</li>
+<li>複数ステップの業務自動化</li>
+<li>高い正確性が必要な分析</li>
+</ul>
+<p>たとえるなら、Solは「難問を任せるシニア担当者」です。時間がかかってもよいので、深く考えてほしい作業に向いています。</p>
+<h3 id="terra">Terra：バランス型の標準モデル</h3>
+<p>Terraは、性能とコストのバランスを取りたい場面に向いています。</p>
+<ul>
+<li>普段の文章作成</li>
+<li>要約</li>
+<li>社内資料のたたき台</li>
+<li>一般的な調査</li>
+<li>高頻度のAPI処理</li>
+</ul>
+<p>たとえるなら、Terraは「毎日の仕事を安定して手伝う実務担当者」です。最初に使うモデルとして扱いやすい立ち位置です。</p>
+<h3 id="luna">Luna：軽量で速いモデル</h3>
+<p>Lunaは、速さとコスト効率を重視する場面に向いています。</p>
+<ul>
+<li>短い返信文の作成</li>
+<li>分類</li>
+<li>大量の簡単な処理</li>
+<li>チャットボットの定型応答</li>
+<li>スマホや軽いワークフロー</li>
+</ul>
+<p>たとえるなら、Lunaは「高速に処理するアシスタント」です。難しい判断より、数をさばく仕事に向いています。</p>
+<h2 id="api">料金感：APIではモデルごとに単価が違う</h2>
+<p>OpenAIの公式情報では、GPT-5.6ファミリーは用途・性能・コスト効率の違う Sol / Terra / Luna として説明されています。API単価、ChatGPT上の利用可否、上限、提供タイミングはプランや地域、ロールアウト状況で変わる可能性があるため、導入前に必ず公式の料金ページ・Help Center・管理画面を確認してください。</p>
+<p>ざっくりした考え方は、次のとおりです。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">使い方</th>
+<th style="text-align: left;">おすすめモデル</th>
+<th style="text-align: left;">理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">重要な判断・難しい設計</td>
+<td style="text-align: left;">Sol</td>
+<td style="text-align: left;">高性能を優先したい</td>
+</tr>
+<tr>
+<td style="text-align: left;">普段の業務支援</td>
+<td style="text-align: left;">Terra</td>
+<td style="text-align: left;">性能とコストのバランスがよい</td>
+</tr>
+<tr>
+<td style="text-align: left;">大量の軽い処理</td>
+<td style="text-align: left;">Luna</td>
+<td style="text-align: left;">速さとコスト効率を優先しやすい</td>
+</tr>
+</tbody>
+</table></div>
+<p>大切なのは、何でもSolに投げないことです。高性能モデルは便利ですが、すべての仕事に使うとコストが膨らみます。</p>
+<h2 id="chatgpt-work">新アプリ「ChatGPT Work」のここがすごい</h2>
+<p>OpenAIのリリースノートでは、ChatGPT Workは長く複雑なタスクのためのエージェントとして説明されています。調査や分析、接続されたアプリやファイルをまたいだ作業、完成物としての文書・スプレッドシート・プレゼン・レポート作成などを支援します。</p>
+<p>つまり、ChatGPT Workは単なるチャット欄ではありません。</p>
+<p><strong>「調べて、まとめて、形にする」ための仕事場</strong>です。</p>
+<h3 id="ai">AIエージェントとは？</h3>
+<p>AIエージェントとは、人間が細かく1手ずつ指示しなくても、目的に向かって作業を進めるAIのことです。</p>
+<p>たとえば、次のような指示です。</p>
+<div class="callout-note">
+<p>来週の営業会議に向けて、競合5社の新サービスを調べ、比較表と説明スライドのたたき台を作ってください。</p>
+</div>
+<p>従来のAIなら、調査、要約、表作成、スライド構成を何度も分けて指示する必要がありました。ChatGPT Workのようなエージェント型の体験では、AIが途中経過を見せながら、必要に応じて人間に確認し、完成物へ近づける流れが期待できます。</p>
+<h2 id="codex">Codex連携で開発者の仕事はどう変わる？</h2>
+<p>OpenAIは、ChatGPTの中で Work と Codex を切り替えて使える体験を案内しています。Codexは開発者向けのコーディングエージェントで、Pull Request、リファクタ、コードレビュー、開発自動化などの用途に重点が置かれています。</p>
+<p>開発現場では、次のような使い方が現実的です。</p>
+<ul>
+<li>バグの原因調査</li>
+<li>既存コードの読み解き</li>
+<li>Pull Requestのレビュー補助</li>
+<li>テスト追加</li>
+<li>READMEや設計メモの更新</li>
+<li>複数リポジトリにまたがる修正計画の作成</li>
+</ul>
+<p>ポイントは、Codexにすべてを丸投げすることではありません。人間がゴールを決め、AIが作業を進め、人間がレビューする流れを作ることです。</p>
+<h2 id="_2">メリット・デメリット</h2>
+<h3 id="_3">メリット</h3>
+<ul>
+<li><strong>長い仕事を任せやすい：</strong> 調査から資料作成まで、複数ステップの作業を頼みやすくなります。</li>
+<li><strong>モデルを使い分けやすい：</strong> Sol、Terra、Lunaを用途別に選べます。</li>
+<li><strong>開発作業との距離が縮まる：</strong> Codex連携により、チャットとコーディング支援を行き来しやすくなります。</li>
+<li><strong>業務アプリ連携が進む：</strong> ファイルや外部ツールをまたぐワークフローに向いています。</li>
+</ul>
+<h3 id="_4">デメリット</h3>
+<ul>
+<li><strong>機能が多く、最初は迷いやすい：</strong> Chat、Work、Codexの使い分けを覚える必要があります。</li>
+<li><strong>料金と利用制限の確認が必要：</strong> プランや地域、提供状況により使える機能が異なる場合があります。</li>
+<li><strong>確認作業は不要にならない：</strong> AIが作った資料やコードは、人間のレビューが必要です。</li>
+<li><strong>機密情報の扱いに注意が必要：</strong> 社内データを扱う場合は、組織のルールと契約条件を確認してください。</li>
+</ul>
+<h2 id="_5">明日からできるリアルな活用ケース</h2>
+<h3 id="1">1. 競合調査レポート</h3>
+<p>指示例：</p>
+<pre><code class="language-text">競合5社の新サービスを調べ、料金、対象顧客、強み、弱みを表にしてください。最後に営業チーム向けの要点を5つにまとめてください。
+</code></pre>
+<p>人間は、最終的な正確性と表現をチェックします。AIは、調査と整理の初速を上げます。</p>
+<h3 id="2">2. 会議資料のたたき台</h3>
+<p>指示例：</p>
+<pre><code class="language-text">以下のメモをもとに、役員会議向けの5枚構成スライド案を作ってください。1枚目は結論、2枚目は背景、3枚目は選択肢、4枚目はリスク、5枚目は推奨アクションにしてください。
+</code></pre>
+<p>ゼロから資料を作るより、AIに骨組みを作らせてから直す方が速くなります。</p>
+<h3 id="3">3. コードレビュー補助</h3>
+<p>指示例：</p>
+<pre><code class="language-text">このPull Requestの変更点を読み、バグになりそうな箇所、テスト不足、命名の違和感を指摘してください。重要度順に並べてください。
+</code></pre>
+<p>Codexはレビューの見落としを減らす補助として使えます。ただし、最終判断は開発者が行います。</p>
+<h2 id="_6">内部リンクでさらに詳しく</h2>
+<p>「Claudeと比べてどちらを選ぶべきか」を知りたい方は、比較記事で詳しく整理しています。</p>
+<p>👉 <a href="../../../html/ai/automation/gpt-56-vs-claude-comparison.html">どっちが買い？ GPT-5.6 vs Claude最新比較！利用制限・新機能・選び方</a></p>
+<h2 id="faq">FAQ</h2>
+<h3 id="q1-gpt-56">Q1. GPT-5.6は誰でも使えますか？</h3>
+<p>A. 提供状況はプラン、製品、地域、ロールアウト状況によって変わる可能性があります。OpenAI Help Centerでは、GPT-5.6が対象プランへ段階的に展開されると説明されています。表示されない場合は、まだアカウントに提供されていない可能性があります。</p>
+<h3 id="q2-solterralunachatgpt">Q2. Sol、Terra、Lunaは標準のChatGPT会話で全部選べますか？</h3>
+<p>A. OpenAI Help Centerによると、TerraとLunaは標準のChatGPT会話では選択できず、Work、Codex、APIなどでの利用が中心です。最新の提供状況は公式ヘルプを確認してください。</p>
+<h3 id="q3">Q3. 無料プランでも体験できますか？</h3>
+<p>A. OpenAIの発表では、新しいChatGPTデスクトップアプリはFreeを含む各プランのユーザーに提供されると説明されています。ただし、使えるモデルや上限はプランによって異なります。</p>
+<h3 id="q4">Q4. 仕事を完全に任せてよいですか？</h3>
+<p>A. いいえ。AIは強力な補助者ですが、完成物の確認、事実チェック、社内ルールへの適合確認は人間が行う必要があります。</p>
+<h2 id="ai_1">まとめ：AIに「お任せ」する前に、仕事を設計しよう</h2>
+<p>GPT-5.6とChatGPT Workの登場で、AIは単なるチャットから、実務を進めるエージェントへ大きく近づきました。</p>
+<p>ただし、成果を出すコツは「何でもAIに丸投げすること」ではありません。</p>
+<ul>
+<li>目的を決める</li>
+<li>使うモデルを選ぶ</li>
+<li>途中で確認する</li>
+<li>最後は人間がレビューする</li>
+</ul>
+<p>この流れを作れた人から、AIエージェント時代の生産性を手に入れられます。</p>
+<h2 id="_7">公式リンク・参考情報</h2>
+<ul>
+<li><a href="https://openai.com/index/gpt-5-6/">OpenAI: GPT-5.6</a></li>
+<li><a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/">OpenAI: ChatGPT is now a partner for your most ambitious work</a></li>
+<li><a href="https://help.openai.com/en/articles/20001325-a-preview-of-gpt-56-sol-terra-and-luna">OpenAI Help Center: GPT-5.6 in ChatGPT</a></li>
+<li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">OpenAI Help Center: ChatGPT Release Notes</a></li>
+<li><a href="https://openai.com/api/pricing/">OpenAI API Pricing</a></li>
+</ul>
+<h2 id="_8">変更履歴</h2>
+<ul>
+<li>
+<p><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</p>
+</li>
+<li>
+<p>2026-07-11: 初版公開。GPT-5.6、ChatGPT Work、Codex連携の実務インパクトを整理。</p>
+</li>
+<li>2026-07-11: 公式情報に基づき、GPT-5.6 / ChatGPT Work / Codex の位置づけとプラン差分の注意を補強。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../ai/index.html" class="hover:text-white">AI Research</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

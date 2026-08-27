@@ -1,11 +1,18 @@
-name: Auto Generate OGP Proxies and Article Index
+﻿name: Auto Sync Article Index and Skills
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'md/**'
+      - 'infra/**'
+      - 'dev/**'
+      - 'ai/**'
+      - 'finance/**'
+      - 'lpo/**'
+      - 'other/**'
+      - 'youtube/**'
+      - 'glossary/**'
       - 'SKILL.md'
       - 'scripts/generate_ogp_proxies.py'
 
@@ -13,7 +20,7 @@ permissions:
   contents: write
 
 jobs:
-  generate:
+  sync:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
@@ -28,7 +35,7 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Generate OGP proxy files and article index
+      - name: Build and Sync Article Index
         run: |
           python scripts/generate_ogp_proxies.py
 
@@ -37,11 +44,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          git add html/ assets/data/article_index.json assets/js/skill-data.js assets/js/article-data.js
+          git add assets/data/article_index.json assets/js/skill-data.js assets/js/article-data.js
           
           # Check if there are staged changes to commit
           if ! git diff --staged --quiet; then
-            git commit -m "chore: auto-regenerate OGP proxies and article index [skip ci]"
+            git commit -m "chore: auto-sync article index and skill metrics [skip ci]"
             git push origin main
           else
             echo "No changes to commit."

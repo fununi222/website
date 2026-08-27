@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iPhone共有アルバムで動画容量を節約する方法｜クラウドストレージ比較つき | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="Google One、iCloud+、Microsoft 365、pCloud、みてねに加え、iPhone共有アルバムの無料保存を公式仕様ベースで整理。動画保存の画質・容量・共有コスパを比較します。" />
+  <meta property="og:title" content="iPhone共有アルバムで動画容量を節約する方法｜クラウドストレージ比較つき | FunUni-lab" />
+  <meta property="og:description" content="Google One、iCloud+、Microsoft 365、pCloud、みてねに加え、iPhone共有アルバムの無料保存を公式仕様ベースで整理。動画保存の画質・容量・共有コスパを比較します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #34d399;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #34d3990f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #34d399; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #34d399; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #34d399; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #34d39914; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #34d399; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors text-[#34d399] border-b-2 border-[#34d399] pb-1">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #34d399;">
+          <span class="material-symbols-outlined">explore</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../other/index.html" class="hover:text-white transition-colors" style="color: #34d399;">Strategic Life</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Tech Life</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #34d3991a; color: #34d399; border-color: #34d39933;">
+        <span class="material-symbols-outlined text-xs">explore</span> Domain_06 / Life
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        iPhone共有アルバムで動画容量を節約する方法｜クラウドストレージ比較つき
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #34d399;">calendar_today</span> 公開: 2026-08-17</span>
+        
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #34d399;">schedule</span> 読了目安: 約17分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <p>iPhoneやスマートフォンで撮る動画は、写真よりもずっと早く容量を使います。子どもの日常動画、旅行、発表会、運動会を残していると、無料のiCloud 5GBやGoogleアカウントの無料枠だけでは足りません。</p>
+<p>ただ、いきなり高いクラウドプランへ移る前に、用途を分けて考えると無駄な課金を減らせます。</p>
+<p>この記事では、2026年8月17日時点で確認できる公式情報をもとに、次の2つを整理します。</p>
+<ul>
+<li>ホームビデオ向けクラウドストレージの現実的な選び方</li>
+<li>iPhoneの「共有アルバム」を使った無料保存の使いどころと限界</li>
+</ul>
+<p>結論から言うと、<strong>共有アルバムは“無料の閲覧用保管場所”としては便利ですが、4K動画や大切な原本のバックアップ先には向きません</strong>。日常動画は共有アルバムやみてね、原本はiCloud+、Google One、Microsoft 365、pCloud、外付けSSDに分けるのが安全です。</p>
+<div class="callout-note">
+<p>料金、容量、付帯機能は地域・契約経路・キャンペーンで変わります。契約前には必ず公式ページの表示を確認してください。</p>
+</div>
+<hr />
+<h2 id="1">1. まず結論：目的別のおすすめ</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">目的</th>
+<th style="text-align: left;">向いているサービス</th>
+<th style="text-align: left;">理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">iPhoneの容量を無料で少しでも空けたい</td>
+<td style="text-align: left;">iCloud共有アルバム</td>
+<td style="text-align: left;">iCloudストレージ容量にカウントされず使える。ただし画質は落ちます。</td>
+</tr>
+<tr>
+<td style="text-align: left;">子どもの日常動画を家族に見せたい</td>
+<td style="text-align: left;">家族アルバム みてね</td>
+<td style="text-align: left;">家族共有の体験がわかりやすい。祖父母にも見せやすいです。</td>
+</tr>
+<tr>
+<td style="text-align: left;">家族それぞれが1TBを安く持ちたい</td>
+<td style="text-align: left;">Microsoft 365 Family</td>
+<td style="text-align: left;">最大6人が各1TBを使えます。Officeも含まれます。</td>
+</tr>
+<tr>
+<td style="text-align: left;">Googleフォト中心で2TBを共有したい</td>
+<td style="text-align: left;">Google One 2TB</td>
+<td style="text-align: left;">Googleフォト、Gmail、Driveと相性が良く、家族共有もしやすいです。</td>
+</tr>
+<tr>
+<td style="text-align: left;">AI機能も使いながら大容量を持ちたい</td>
+<td style="text-align: left;">Google AI Pro</td>
+<td style="text-align: left;">5TBストレージとGemini系機能をまとめて使いたい人向けです。</td>
+</tr>
+<tr>
+<td style="text-align: left;">Apple写真アプリに任せたい</td>
+<td style="text-align: left;">iCloud+</td>
+<td style="text-align: left;">iPhone / iPad / Macの写真同期と端末バックアップが自然です。</td>
+</tr>
+<tr>
+<td style="text-align: left;">長期保存のサブスクを減らしたい</td>
+<td style="text-align: left;">pCloud Family / 外付けSSD</td>
+<td style="text-align: left;">買い切りやローカル保存を組み合わせると長期コストを抑えやすいです。</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="2">2. 元レポートのファクトチェック</h2>
+<p>元レポートの方向性はおおむね妥当です。ただし、公開記事としては次の修正が必要です。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">論点</th>
+<th style="text-align: left;">判定</th>
+<th style="text-align: left;">修正内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Microsoft 365 Familyの月額換算</td>
+<td style="text-align: left;">要修正</td>
+<td style="text-align: left;">年額27,400円なら、月額換算は約2,283円です。元文の「2,740円」は計算ミスです。</td>
+</tr>
+<tr>
+<td style="text-align: left;">Google AI Proのモデル名</td>
+<td style="text-align: left;">要修正</td>
+<td style="text-align: left;">公式表記で確認できる範囲に寄せ、「Gemini 3.1 Pro」と断定しない方が安全です。</td>
+</tr>
+<tr>
+<td style="text-align: left;">iCloud+日本価格</td>
+<td style="text-align: left;">確認済み</td>
+<td style="text-align: left;">Apple公式サポート上の日本価格は、50GB 180円、200GB 540円、2TB 1,800円、6TB 5,500円、12TB 11,000円/月です。</td>
+</tr>
+<tr>
+<td style="text-align: left;">共有アルバムの扱い</td>
+<td style="text-align: left;">追記必須</td>
+<td style="text-align: left;">無料で便利ですが、写真は長辺2048px、動画は最大720p・15分までです。原本保存とは別物です。</td>
+</tr>
+<tr>
+<td style="text-align: left;">pCloud Family</td>
+<td style="text-align: left;">注意つきで妥当</td>
+<td style="text-align: left;">買い切り型は長期利用で有利になりやすい一方、表示価格やセール価格は変動します。</td>
+</tr>
+<tr>
+<td style="text-align: left;">みてね</td>
+<td style="text-align: left;">注意つきで妥当</td>
+<td style="text-align: left;">家族共有には強いですが、原本動画の長期バックアップ先としては別ストレージ併用が安全です。</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="3-iphone">3. iPhone共有アルバムは無料ストレージとして使えるのか</h2>
+<h3 id="3-1-icloud">3-1. iCloud容量にはカウントされない</h3>
+<p>Appleの共有アルバムは、通常のiCloud写真とは別の仕組みです。Apple公式サポートでは、共有アルバム内の写真と動画はiCloudに保持されるものの、iCloudストレージ容量にはカウントされないと説明されています。</p>
+<p>そのため、iCloud無料枠の5GBがほぼ埋まっている人でも、共有アルバムを使えば写真・動画を追加できる場合があります。</p>
+<p>ただし、これは「オリジナル画質の無料バックアップ」ではありません。共有アルバムに追加されたデータは、共有しやすいサイズへ縮小・変換されます。</p>
+<h3 id="3-2">3-2. 自分専用アルバムとしても使える</h3>
+<p>共有アルバムは、家族や友人へ見せるための機能です。ただし、アルバム作成時に参加者を追加しなければ、自分だけで使う保管用アルバムとして運用できます。</p>
+<p>おすすめの使い方は、次のように年別・用途別で分ける方法です。</p>
+<ul>
+<li><code>日常メモ_2026</code></li>
+<li><code>子ども短尺動画_2026</code></li>
+<li><code>レシート・スクショ保管</code></li>
+<li><code>SNS用動画アーカイブ</code></li>
+</ul>
+<p>1アルバムに詰め込みすぎると探しにくくなるため、最初から分けておく方が後で楽です。</p>
+<hr />
+<h2 id="4">4. 共有アルバムの仕様と制限</h2>
+<p>共有アルバムは便利ですが、制限を理解せずに使うと後悔します。特に動画と画質の制限が重要です。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">仕様</th>
+<th style="text-align: left;">実務上の意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">iCloud容量</td>
+<td style="text-align: left;">カウントされない</td>
+<td style="text-align: left;">無料枠の節約に使えます。</td>
+</tr>
+<tr>
+<td style="text-align: left;">写真サイズ</td>
+<td style="text-align: left;">長辺2048pxまで</td>
+<td style="text-align: left;">スマホ閲覧には十分ですが、大判印刷やトリミングには弱いです。</td>
+</tr>
+<tr>
+<td style="text-align: left;">パノラマ写真</td>
+<td style="text-align: left;">最大幅5400pxまで</td>
+<td style="text-align: left;">通常写真より大きく保持されます。</td>
+</tr>
+<tr>
+<td style="text-align: left;">動画の長さ</td>
+<td style="text-align: left;">1本15分まで</td>
+<td style="text-align: left;">長い動画は分割が必要です。</td>
+</tr>
+<tr>
+<td style="text-align: left;">動画の画質</td>
+<td style="text-align: left;">最大720p</td>
+<td style="text-align: left;">4Kや1080pの原本画質は残りません。</td>
+</tr>
+<tr>
+<td style="text-align: left;">1アルバムの上限</td>
+<td style="text-align: left;">写真・動画合計5000件</td>
+<td style="text-align: left;">年別・用途別に分ける必要があります。</td>
+</tr>
+<tr>
+<td style="text-align: left;">作成できる共有アルバム数</td>
+<td style="text-align: left;">最大200個</td>
+<td style="text-align: left;">理論上は最大100万件まで整理できます。</td>
+</tr>
+<tr>
+<td style="text-align: left;">投稿制限</td>
+<td style="text-align: left;">1時間1000件、1日10000件</td>
+<td style="text-align: left;">大量移行は数日に分ける方が安全です。</td>
+</tr>
+<tr>
+<td style="text-align: left;">空間写真・空間ビデオ</td>
+<td style="text-align: left;">非対応</td>
+<td style="text-align: left;">Apple Vision Pro向け素材の保存先には向きません。</td>
+</tr>
+</tbody>
+</table></div>
+<p>重要なのは、共有アルバムが<strong>保管場所として使える一方で、原本保存ではない</strong>ことです。撮影時の4K画質、細かなメタデータ、編集耐性を残したい動画は、共有アルバムだけに置かないでください。</p>
+<hr />
+<h2 id="5-iphone">5. iPhone共有アルバムで容量を空ける手順</h2>
+<p>共有アルバムを使う時は、削除の順番を間違えないことが大切です。アップロード確認前に元データを消すと、失敗時に戻せなくなります。</p>
+<pre><code class="language-text">1. 共有アルバムをオンにする
+2. 自分専用の共有アルバムを作る
+3. 写真・動画を共有アルバムへ追加する
+4. Wi-Fi環境でアップロード完了を確認する
+5. 共有アルバム上で表示・再生できることを確認する
+6. 元データをライブラリから削除する
+7. 「最近削除した項目」から完全削除して容量を空ける
+</code></pre>
+<h3 id="1_1">手順1：共有アルバムをオンにする</h3>
+<p>iPhoneで、<code>設定</code> → <code>Apple Account</code> → <code>iCloud</code> → <code>写真</code> を開き、<code>共有アルバム</code> をオンにします。</p>
+<p><code>iCloud写真</code>を使っていない場合でも、共有アルバムだけをオンにできる場合があります。</p>
+<h3 id="2_1">手順2：自分専用の共有アルバムを作る</h3>
+<p>写真アプリで <code>アルバム</code> → <code>＋</code> → <code>新規共有アルバム</code> を選びます。アルバム名を入力し、宛先の入力画面では誰も追加せずに作成します。</p>
+<p>これで、自分だけが使う共有アルバムとして運用できます。</p>
+<h3 id="3">手順3：写真・動画を追加する</h3>
+<p>写真アプリのライブラリから保存したい写真や動画を選び、共有メニューから <code>共有アルバムに追加</code> を選びます。保存先のアルバムを確認し、投稿します。</p>
+<p>大量に追加する場合は、数百件ずつに分ける方が失敗に気づきやすくなります。</p>
+<h3 id="4_1">手順4：元データを削除する</h3>
+<p>共有アルバムを開き、対象の写真や動画が表示・再生できることを確認します。その後、通常のライブラリから元データを削除し、最後に <code>最近削除した項目</code> から完全削除します。</p>
+<p>この最後の完全削除まで行うと、iPhone本体の空き容量が増えます。</p>
+<hr />
+<h2 id="6">6. 共有アルバムのメリット・デメリット</h2>
+<h3 id="_1">メリット</h3>
+<ul>
+<li>無料で使える</li>
+<li>iCloudストレージ容量にカウントされない</li>
+<li>iPhoneの本体容量を空ける用途に使いやすい</li>
+<li>家族や自分の別デバイスから見返しやすい</li>
+<li>短い動画やメモ写真の退避に向いている</li>
+</ul>
+<h3 id="_2">デメリット</h3>
+<ul>
+<li>写真は長辺2048pxに縮小される</li>
+<li>動画は最大720p、15分まで</li>
+<li>自動バックアップではなく手動運用</li>
+<li>共有アルバムを消すと中身も消える</li>
+<li>再保存時にメタデータが元通り残らない場合がある</li>
+<li>重要な動画の唯一の保存先にするには不安がある</li>
+</ul>
+<p>つまり、共有アルバムは「無料で見返せる軽量コピー置き場」と考えるのがちょうどよいです。</p>
+<hr />
+<h2 id="7">7. クラウドストレージ比較：共有アルバムを含めた見方</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">サービス</th>
+<th style="text-align: left;">料金の考え方</th>
+<th style="text-align: left;">画質</th>
+<th style="text-align: left;">動画保存</th>
+<th style="text-align: left;">向いている用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">iCloud共有アルバム</td>
+<td style="text-align: left;">無料</td>
+<td style="text-align: left;">写真は縮小</td>
+<td style="text-align: left;">720p・15分まで</td>
+<td style="text-align: left;">iPhone容量の節約、日常動画の軽量保管</td>
+</tr>
+<tr>
+<td style="text-align: left;">iCloud+</td>
+<td style="text-align: left;">月額制</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">Apple写真アプリ中心の自動同期</td>
+</tr>
+<tr>
+<td style="text-align: left;">Google One</td>
+<td style="text-align: left;">月額・年額制</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">Googleフォト中心の家族共有</td>
+</tr>
+<tr>
+<td style="text-align: left;">Google AI Pro</td>
+<td style="text-align: left;">月額・年額制</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">大容量ストレージとAI機能の併用</td>
+</tr>
+<tr>
+<td style="text-align: left;">Microsoft 365 Family</td>
+<td style="text-align: left;">年額制</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">家族それぞれが独立1TBを持つ運用</td>
+</tr>
+<tr>
+<td style="text-align: left;">家族アルバム みてね</td>
+<td style="text-align: left;">無料・プレミアム</td>
+<td style="text-align: left;">サービス仕様に依存</td>
+<td style="text-align: left;">短尺動画共有向き</td>
+<td style="text-align: left;">子どもの成長記録を家族に見せる用途</td>
+</tr>
+<tr>
+<td style="text-align: left;">pCloud Family</td>
+<td style="text-align: left;">買い切り中心</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">長期アーカイブ、サブスク削減</td>
+</tr>
+<tr>
+<td style="text-align: left;">外付けSSD / NAS</td>
+<td style="text-align: left;">機器購入</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">原本保存</td>
+<td style="text-align: left;">重要動画のマスター保存</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="8">8. おすすめのハイブリッド運用</h2>
+<p>動画保存は、1つのサービスだけに任せない方が安全です。次のように、役割で分けると失敗しにくくなります。</p>
+<h3 id="_3">日常メモ・短い動画</h3>
+<ul>
+<li>保存先：iCloud共有アルバム</li>
+<li>例：レシート、スクリーンショット、料理、短い日常動画</li>
+<li>理由：多少画質が落ちても困りにくく、無料で本体容量を空けやすい</li>
+</ul>
+<h3 id="_4">子どもの成長記録を家族に見せる動画</h3>
+<ul>
+<li>保存先：みてね</li>
+<li>併用：重要な動画だけGoogle One、iCloud+、外付けSSDにも保存</li>
+<li>理由：家族共有の使いやすさは汎用ストレージより高い</li>
+</ul>
+<h3 id="_5">旅行・発表会・運動会・結婚式などの重要動画</h3>
+<ul>
+<li>保存先：iCloud+、Google One、Microsoft 365、pCloud、外付けSSD</li>
+<li>共有用コピー：共有アルバムやみてね</li>
+<li>理由：4Kや1080pの原本、撮影日時、編集耐性を残す必要がある</li>
+</ul>
+<h3 id="_6">長期保存したい大量動画</h3>
+<ul>
+<li>保存先：pCloud Family、外付けSSD、NAS</li>
+<li>予備：別クラウドにもう1コピー</li>
+<li>理由：クラウド単独では、誤削除やアカウント問題に弱い</li>
+</ul>
+<hr />
+<h2 id="9">9. 最終判断チャート</h2>
+<pre><code class="language-text">まず無料でiPhone容量を空けたい？
+│
+├─ はい
+│ └─ iCloud共有アルバム
+│ ※ただし720p・2048pxの軽量コピーとして使う
+│
+└─ いいえ / 原本画質を残したい
+ │
+ ├─ Apple製品中心
+ │ └─ iCloud+
+ │
+ ├─ Googleフォト中心
+ │ └─ Google One / Google AI Pro
+ │
+ ├─ 家族それぞれに1TBを配りたい
+ │ └─ Microsoft 365 Family
+ │
+ ├─ 子どもの動画を祖父母に見せたい
+ │ └─ みてね ＋ 原本は別保存
+ │
+ └─ サブスクを減らして長期保存したい
+ └─ pCloud Family / 外付けSSD
+</code></pre>
+<hr />
+<h2 id="10">10. まとめ</h2>
+<p>iPhone共有アルバムは、iCloud容量を消費せずに写真・動画を置ける便利な機能です。無料で使えるため、iPhone本体の容量不足を一時的に解消したい人には役立ちます。</p>
+<p>ただし、共有アルバムは原本保存ではありません。写真は縮小され、動画は720p・15分までに制限されます。大切な動画を共有アルバムだけに置くのは避けてください。</p>
+<p>現実的には、次の使い分けがおすすめです。</p>
+<ul>
+<li>日常の軽い写真・動画：共有アルバム</li>
+<li>家族に見せたい子ども動画：みてね</li>
+<li>重要な原本：iCloud+、Google One、Microsoft 365、pCloud、外付けSSD</li>
+</ul>
+<p>無料機能をうまく使いつつ、残すべき原本にはきちんと保存先を用意する。これが、ホームビデオを長く安全に残すための一番シンプルな考え方です。</p>
+<hr />
+<h2 id="_7">参考資料・出典</h2>
+<ul>
+<li><a href="https://support.apple.com/en-us/108916">Apple Support - Shared Album limits</a></li>
+<li><a href="https://support.apple.com/en-gb/108314">Apple Support - How to use Shared Albums in Photos</a></li>
+<li><a href="https://support.apple.com/ja-jp/108047">Apple Support - iCloud+ のプランと料金</a></li>
+<li><a href="https://one.google.com/about/plans">Google One プラン</a></li>
+<li><a href="https://one.google.com/about/google-ai-plans/">Google AI plans with Cloud Storage</a></li>
+<li><a href="https://www.microsoft.com/ja-jp/microsoft-365/onedrive/onedrive-plans-and-pricing">Microsoft OneDrive クラウド ストレージのプランと価格</a></li>
+<li><a href="https://www.microsoft.com/ja-jp/microsoft-365/p/microsoft-365-family/cfq7ttc0k5dm">Microsoft 365 Family</a></li>
+<li><a href="https://www.dropbox.com/plans">Dropbox プラン</a></li>
+<li><a href="https://www.pcloud.com/cloud-storage-pricing-plans">pCloud Pricing</a></li>
+<li><a href="https://www.pcloud.com/family">pCloud Family</a></li>
+<li><a href="https://mitene.us/">家族アルバム みてね</a></li>
+<li><a href="https://family-album.com/premium">FamilyAlbum Premium</a></li>
+</ul>
+<h2 id="_8">変更履歴</h2>
+<ul>
+<li><strong>2026-08-17</strong>: iPhone共有アルバムの無料保存ガイドを追記し、全体をブログ記事として読みやすく再構成。過度な表現を抑え、用途別の判断軸を明確化。</li>
+<li><strong>2026-08-17</strong>: 公式料金ページを参照し、元レポートの計算ミス・未確認表記を補正したうえで新規作成。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../other/index.html" class="hover:text-white">Strategic Life</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIハルシネーション | ポチョムキン理解の克服とモデル使い分け術 2026 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="最新LLMの「ポチョムキン理解」の仕組みと、弱点を補うための最適な「使い分け」術を検証・解説します。" />
+  <meta property="og:title" content="AIハルシネーション | ポチョムキン理解の克服とモデル使い分け術 2026 | FunUni-lab" />
+  <meta property="og:description" content="最新LLMの「ポチョムキン理解」の仕組みと、弱点を補うための最適な「使い分け」術を検証・解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00ffca;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00ffca0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00ffca; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00ffca; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00ffca; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #00ffca14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #00ffca; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00ffca; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors text-[#00ffca] border-b-2 border-[#00ffca] pb-1">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00ffca;">
+          <span class="material-symbols-outlined">smart_toy</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../ai/index.html" class="hover:text-white transition-colors" style="color: #00ffca;">AI Research</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Llm Research</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00ffca1a; color: #00ffca; border-color: #00ffca33;">
+        <span class="material-symbols-outlined text-xs">smart_toy</span> Domain_03 / AI
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        AIハルシネーション | ポチョムキン理解の克服とモデル使い分け術 2026
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">calendar_today</span> 公開: 2026-04-09</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">schedule</span> 読了目安: 約31分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <h2 id="_1">概要</h2>
+<p>本レポートは、最新のAIが論理的破綻に気づかず「もっともらしい嘘」を出力してしまう「ポチョムキン理解（見せかけの理解）」のメカニズムを解明し、それを防ぐためのハードウェア/推論アーキテクチャ（o1/o3/Claude 3.7/Gemini 2.5等）とソフトウェア（ガードレール・検証エージェント）の両面からの最新アプローチを整理しています。合わせて、各分野（コーディング・論理構築・検索・クリエイティブ）へ最適なAIモデルを割り振る「使い分け（オーケストレーション）」のベストプラクティスを、インタラクティブなチャートUIを通じて解説します。</p>
+<hr />
+<style>
+.chart-container {
+ position: relative;
+ width: 100%;
+ max-width: 500px;
+ margin-left: auto;
+ margin-right: auto;
+ height: 350px;
+}
+@media (max-width: 640px) {
+ .chart-container {
+ height: 280px;
+ }
+}
+.typing-effect {
+ overflow: hidden;
+ white-space: nowrap;
+ border-right: 2px solid #0f766e;
+ animation: typing 4s steps(40, end) infinite, blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+ 0% { width: 0; }
+ 50% { width: 100%; }
+ 100% { width: 100%; }
+}
+@keyframes blink-caret {
+ from, to { border-color: transparent }
+ 50% { border-color: #0f766e; }
+}
+.fade-in {
+ animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+ from { opacity: 0; transform: translateY(10px); }
+ to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+<div class="bg-surface-container-high p-6 rounded-2xl shadow-xl border border-white/5 cyber-glow hover:-translate-y-1 transition-transform">
+<div class="text-3xl mb-3">🤔</div>
+<h3 class="font-bold text-lg mb-2 text-primary">初歩的なミスの原因</h3>
+<p class="text-on-surface-variant text-sm">全体像を考えず確率的に次の単語を予測する「自己回帰モデル」の限界。</p>
+</div>
+<div class="bg-surface-container-high p-6 rounded-2xl shadow-xl border border-white/5 cyber-glow hover:-translate-y-1 transition-transform">
+<div class="text-3xl mb-3">💡</div>
+<h3 class="font-bold text-lg mb-2 text-primary">後から気づける理由</h3>
+<p class="text-on-surface-variant text-sm">出力完了後はテキストを「客観的な確定データ」として再読み込みできるため。</p>
+</div>
+<div class="bg-surface-container-high p-6 rounded-2xl shadow-xl border border-white/5 cyber-glow hover:-translate-y-1 transition-transform">
+<div class="text-3xl mb-3">🎯</div>
+<h3 class="font-bold text-lg mb-2 text-primary">2026年の最適対策</h3>
+<p class="text-on-surface-variant text-sm">推論特化型モデル（Test-time Compute）と「適材適所のマルチモデル使い分け」。</p>
+</div>
+</div>
+
+<hr />
+<h2 id="1-ai">1. なぜAIは出力前に間違いに気づけないのか？</h2>
+<p>このセクションでは、AIが表面上は賢く見えても根本的な理解が伴っていない状態、いわゆる<strong>「ポチョムキン理解（見せかけの理解）」</strong>の正体を明らかにします。</p>
+<div class="bg-[#0b0c10] border border-white/10 rounded-xl p-6 my-6 text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-transparent"></div>
+<p class="font-semibold text-slate-400 mb-4 tracking-widest text-xs uppercase">AIの思考プロセス（イメージ）</p>
+<div class="text-teal-400 font-mono p-4 rounded text-left shadow-inner border border-white/5 bg-black/50">
+<span class="typing-effect inline-block">> 次に続く確率が高い単語を...順番に出力...</span>
+</div>
+<p class="mt-4 text-sm text-slate-500">
+「走りながら線路を敷いている状態」。出力中に全体を俯瞰して論理破綻をチェックする余裕がありません。
+</p>
+</div>
+
+<p>AIは人間のように「頭の中で文章の構成を練り上げ、矛盾がないか確認してから発言する」プロセスを踏んでいません。指示を忘れたり、計算を間違えたりするのはこのためです。</p>
+<p>しかし、一度テキストとして出力が完了すると、AIはそれを「確定したデータ」として客観的に読み込めます。だから人間が指摘すると、あっさりと自分の矛盾に気づけるのです。</p>
+<hr />
+<h2 id="2-2026-vs">2. 2026年最新の解決アプローチ（ハードウェア vs ソフトウェア）</h2>
+<p>「言いっぱなしで暴走する」弱点を塞ぐため、2026年のAI開発の現場ではハードとソフトの両面から対策が進んでいます。</p>
+<div class="max-w-4xl mx-auto my-8 bg-surface-container rounded-3xl shadow-xl border border-white/5 overflow-hidden">
+<div class="flex border-b border-white/5">
+<button id="tab-hard" class="flex-1 py-4 px-6 text-center font-bold text-white bg-teal-600/50 border-b-2 border-teal-400 transition-colors">
+🛠️ ハード（モデル・推論時間の進化）
+</button>
+<button id="tab-soft" class="flex-1 py-4 px-6 text-center font-bold text-slate-400 bg-surface-container-high hover:bg-surface-container-highest transition-colors">
+🛡️ ソフト（システム・反省ループ）
+</button>
+</div>
+<div class="p-8 md:p-12 min-h-[250px] bg-gradient-to-br from-surface-container to-surface">
+<div id="content-hard" class="fade-in">
+<h3 class="text-xl font-bold mb-4 text-primary">推論時間計算（Test-time Compute）と特化モデル</h3>
+<ul class="space-y-6">
+<li class="flex items-start">
+<span class="text-2xl mr-4">💭</span>
+<div>
+<strong class="block text-lg mb-1 text-on-surface">思考の連鎖（Chain of Thought / Reasoning Loop）</strong>
+<span class="text-on-surface-variant text-sm">いきなり答えを出さず、思考の途中経過を出力させることで論理の飛躍を防ぎます。</span>
+</div>
+</li>
+<li class="flex items-start">
+<span class="text-2xl mr-4">⚙️</span>
+<div>
+<strong class="block text-lg mb-1 text-on-surface">推論特化型モデル（OpenAI o1/o3, Claude 3.7 Extended, Gemini 2.5 Flash Think）</strong>
+<span class="text-on-surface-variant text-sm">ユーザーに返答する前にAI内部で「仮回答作成 → 自己評価 → 修正」の思考時間を投じることで、数学・コード・論理パズルのハルシネーションを極限まで低減します。</span>
+</div>
+</li>
+</ul>
+</div>
+<div id="content-soft" class="hidden fade-in">
+<h3 class="text-xl font-bold mb-4 text-primary">ルール・ガードレールと検証エージェント</h3>
+<ul class="space-y-6">
+<li class="flex items-start">
+<span class="text-2xl mr-4">🚧</span>
+<div>
+<strong class="block text-lg mb-1 text-on-surface">リアルタイム・ガードレール (NeMo Guardrails / ASTチェック)</strong>
+<span class="text-on-surface-variant text-sm">AIの外側に別プログラムを置き、プロンプトの条件（ファイル構成や型定義など）を無視した場合、システムが自動エラーを返し再実行させます。</span>
+</div>
+</li>
+<li class="flex items-start">
+<span class="text-2xl mr-4">🔄</span>
+<div>
+<strong class="block text-lg mb-1 text-on-surface">エージェントの自己反省（Self-Correction）ループ</strong>
+<span class="text-on-surface-variant text-sm">「生成するAI（Generator）」と「検証・採点するAI（Critic）」を分け、複数視点でクロスチェックさせます。</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<hr />
+<h2 id="3">3. ユーザー最大の対策「モデルの使い分け（オーケストレーション）」</h2>
+<p>万能なAIにすべてを任せるのではなく、各モデルの得意分野を理解し、リレー形式でタスクをこなすのが現在のベストプラクティスです。以下のボタンを切り替えて各モデルの特性を確認してください。</p>
+<div class="max-w-5xl mx-auto my-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-4 flex flex-col gap-3">
+<button class="task-btn bg-teal-600/40 text-white border-2 border-teal-500 shadow-lg shadow-teal-500/20 rounded-xl p-4 text-left font-bold transition-all" data-task="coding">
+💻 コーディング・スクリプト
+</button>
+<button class="task-btn bg-surface-container-high text-on-surface hover:bg-surface-container-highest border border-white/5 rounded-xl p-4 text-left font-bold shadow-sm transition-all" data-task="logic">
+🧠 複雑な論理構築・数学・比較
+</button>
+<button class="task-btn bg-surface-container-high text-on-surface hover:bg-surface-container-highest border border-white/5 rounded-xl p-4 text-left font-bold shadow-sm transition-all" data-task="search">
+🔍 最新情報の検索・大容量解析
+</button>
+<button class="task-btn bg-surface-container-high text-on-surface hover:bg-surface-container-highest border border-white/5 rounded-xl p-4 text-left font-bold shadow-sm transition-all" data-task="creative">
+🎨 クリエイティブ・壁打ち
+</button>
+</div>
+
+<div class="lg:col-span-8 bg-surface-container rounded-3xl p-6 md:p-8 shadow-xl border border-white/5 flex flex-col md:flex-row gap-8 items-center relative overflow-hidden">
+<div class="absolute -top-32 -right-32 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
+<div class="flex-1 w-full relative z-10">
+<h3 class="text-xs font-bold text-teal-400 tracking-widest mb-2 uppercase">Recommended Model (2026)</h3>
+<div id="model-name" class="text-2xl font-bold text-on-surface mb-4 pb-4 border-b border-white/10">
+Claude 3.7 / 3.5 Sonnet<br><span class="text-lg text-slate-400 font-normal">GPT-5.4 / Qwen 2.5 Coder</span>
+</div>
+<p id="model-desc" class="text-on-surface-variant leading-relaxed min-h-[120px] text-sm">
+PythonやTypeScriptなどの複雑なスクリプト作成やエラーのデバッグにおいてトップクラスの安定感を持っています。「指示への忠実さ」が非常に高く、厳密なフォーマット指定や自動化コードを書かせる際、破綻する確率が低いです。
+</p>
+</div>
+<div class="flex-1 w-full relative z-10">
+<div class="chart-container">
+<canvas id="radarChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+<script>
+if(!window._initHallucinationDone){
+ window._initHallucinationDone = true;
+ const tabHard = document.getElementById('tab-hard');
+ const tabSoft = document.getElementById('tab-soft');
+ const contentHard = document.getElementById('content-hard');
+ const contentSoft = document.getElementById('content-soft');
+
+ function setActiveTab(activeBtn, inactiveBtn, activeContent, inactiveContent) {
+ activeBtn.className = 'flex-1 py-4 px-6 text-center font-bold text-white bg-teal-600/50 border-b-2 border-teal-400 transition-colors';
+ inactiveBtn.className = 'flex-1 py-4 px-6 text-center font-bold text-slate-400 bg-surface-container-high hover:bg-surface-container-highest border-b-0 transition-colors';
+ activeContent.classList.remove('hidden');
+ inactiveContent.classList.add('hidden');
+ }
+
+ if(tabHard){
+ tabHard.addEventListener('click', () => setActiveTab(tabHard, tabSoft, contentHard, contentSoft));
+ tabSoft.addEventListener('click', () => setActiveTab(tabSoft, tabHard, contentSoft, contentHard));
+
+ const aiData = {
+ coding: {
+ nameHTML: "Claude 3.7 / 3.5 Sonnet<br><span class='text-lg text-slate-400 font-normal'>GPT-5.4 / Qwen 2.5 Coder</span>",
+ desc: "PythonやTypeScriptなどの複雑なスクリプト作成やエラーのデバッグにおいてトップクラスの安定感を持っています。「指示への忠実さ」が非常に高く、厳密なフォーマット指定や自動化コードを書かせる際、破綻する確率が低いです。",
+ scores: [9, 8, 5, 5, 9]
+ },
+ logic: {
+ nameHTML: "OpenAI o1 / o3<br><span class='text-lg text-slate-400 font-normal'>Claude 3.7 Extended / Gemini Think</span>",
+ desc: "入り組んだアルゴリズム検証、複雑な金融・契約条件の比較検討などに向いています。思考時間を意図的にかけるため論理破綻（ハルシネーション）が極めて少ないです。",
+ scores: [8, 10, 5, 4, 9]
+ },
+ search: {
+ nameHTML: "Gemini 2.5 Pro / Flash<br><span class='text-lg text-slate-400 font-normal'>Perplexity / SearchGPT</span>",
+ desc: "リアルタイムWeb検索と直接統合され、ファクトチェックや最新一次ソース検証に長けています。2M超のコンテキストウィンドウにより、巨大ドキュメントの一括解析にも適します。",
+ scores: [6, 8, 10, 7, 8]
+ },
+ creative: {
+ nameHTML: "ChatGPT (GPT-5 / GPT-4o)<br><span class='text-lg text-slate-400 font-normal'>Claude 3 Opus</span>",
+ desc: "人間らしい自然な対話や、特定のトーン＆マナーに合わせた文章生成が得意です。AIエージェントのペルソナ作成や、アイデア出しの壁打ち相手として非常に優秀です。",
+ scores: [7, 7, 7, 10, 7]
+ }
+ };
+
+ const ctx = document.getElementById('radarChart').getContext('2d');
+ Chart.defaults.color = 'rgba(255, 255, 255, 0.4)';
+ let radarChart = new Chart(ctx, {
+ type: 'radar',
+ data: {
+ labels: ['コーディング', '論理・推論', '検索・解析', 'クリエイティブ', '指示への忠実さ'],
+ datasets: [{
+ label: 'モデル特性',
+ data: aiData.coding.scores,
+ backgroundColor: 'rgba(45, 212, 191, 0.2)',
+ borderColor: 'rgba(45, 212, 191, 0.8)',
+ pointBackgroundColor: 'rgba(45, 212, 191, 1)',
+ pointBorderColor: '#0b0c10',
+ pointHoverBackgroundColor: '#fff',
+ pointHoverBorderColor: 'rgba(45, 212, 191, 1)',
+ borderWidth: 2,
+ }]
+ },
+ options: {
+ maintainAspectRatio: false,
+ scales: {
+ r: {
+ angleLines: { color: 'rgba(255, 255, 255, 0.05)' },
+ grid: { color: 'rgba(255, 255, 255, 0.05)' },
+ pointLabels: {
+ font: { family: "'Noto Sans JP', sans-serif", size: 11, weight: 'bold' },
+ color: '#94a3b8'
+ },
+ ticks: { display: false, min: 0, max: 10, stepSize: 2 }
+ }
+ },
+ plugins: {
+ legend: { display: false },
+ tooltip: {
+ backgroundColor: 'rgba(11, 12, 16, 0.95)',
+ titleColor: '#2dd4bf',
+ bodyColor: '#e2e8f0',
+ titleFont: { family: "'Noto Sans JP', sans-serif", size: 13, weight: 'bold' },
+ bodyFont: { family: "'Noto Sans JP', sans-serif", size: 13 },
+ padding: 12,
+ cornerRadius: 8,
+ displayColors: false,
+ borderColor: 'rgba(45, 212, 191, 0.3)',
+ borderWidth: 1
+ }
+ }
+ }
+ });
+
+ const taskBtns = document.querySelectorAll('.task-btn');
+ const modelNameEl = document.getElementById('model-name');
+ const modelDescEl = document.getElementById('model-desc');
+
+ taskBtns.forEach(btn => {
+ btn.addEventListener('click', (e) => {
+ taskBtns.forEach(b => {
+ b.className = 'task-btn bg-surface-container-high text-on-surface hover:bg-surface-container-highest border border-white/5 rounded-xl p-4 text-left font-bold shadow-sm transition-all';
+ });
+ const targetBtn = e.currentTarget;
+ targetBtn.className = 'task-btn bg-teal-600/40 text-white border-2 border-teal-500 shadow-lg shadow-teal-500/20 rounded-xl p-4 text-left font-bold transition-all';
+ const taskKey = targetBtn.getAttribute('data-task');
+ const data = aiData[taskKey];
+ modelNameEl.innerHTML = data.nameHTML;
+ modelNameEl.classList.remove('fade-in');
+ void modelNameEl.offsetWidth;
+ modelNameEl.classList.add('fade-in');
+ modelDescEl.innerHTML = data.desc;
+ modelDescEl.classList.remove('fade-in');
+ void modelDescEl.offsetWidth;
+ modelDescEl.classList.add('fade-in');
+ radarChart.data.datasets[0].data = data.scores;
+ radarChart.update();
+ });
+ });
+ }
+}
+</script>
+
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-08-02 (v3)</strong>: 2026年最新のReasoningモデル（o1/o3/Claude 3.7/Gemini 2.5）、Test-time Compute、自動検証ループのファクトチェックと最新アーキテクチャへの改訂。</li>
+<li><strong>2026-04-09 (v2)</strong>: グローバルデザイン統一およびメタデータ標準化アップデートを実施。</li>
+<li><strong>2026-04-06 (v1)</strong>: 新規作成。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../ai/index.html" class="hover:text-white">AI Research</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

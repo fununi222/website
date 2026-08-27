@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI Codex 基礎知識 | 2026年最新アーキテクチャ・Agentic Coding調査 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="OpenAI Codexの原点から最新GPT-5/Agentic Coding時代におけるアーキテクチャ、SWE-bench検証、Repo-level RAG、セキュリティ・ガードレールを詳しく解説。" />
+  <meta property="og:title" content="OpenAI Codex 基礎知識 | 2026年最新アーキテクチャ・Agentic Coding調査 | FunUni-lab" />
+  <meta property="og:description" content="OpenAI Codexの原点から最新GPT-5/Agentic Coding時代におけるアーキテクチャ、SWE-bench検証、Repo-level RAG、セキュリティ・ガードレールを詳しく解説。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #aaa4ff;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #aaa4ff0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #aaa4ff; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #aaa4ff; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #aaa4ff; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #aaa4ff14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #aaa4ff; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #aaa4ff; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors text-[#aaa4ff] border-b-2 border-[#aaa4ff] pb-1">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #aaa4ff;">
+          <span class="material-symbols-outlined">database</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../infra/index.html" class="hover:text-white transition-colors" style="color: #aaa4ff;">Infrastructure</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Ops</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #aaa4ff1a; color: #aaa4ff; border-color: #aaa4ff33;">
+        <span class="material-symbols-outlined text-xs">database</span> Domain_01 / Infra
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        OpenAI Codex 基礎知識 | 2026年最新アーキテクチャ・Agentic Coding調査
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">calendar_today</span> 公開: 2026-04-09</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">schedule</span> 読了目安: 約26分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <h2 id="_1">概要</h2>
+<p>OpenAI Codexは、自然言語を実用コードに変換する <a href="../../glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> の金字塔として誕生しました。2026年現在、その技術的系統は <a href="../../glossary/system-glossary.html#:~:text=" title="GPT5">GPT-5</a> シリーズおよび自律型AIエージェント（Agentic Coding）へと進化しています。本レポートでは、Codexの歴史的背景からデータ処理パイプライン、最新のSWE-bench/HumanEval評価指標、セキュリティ・ガードレール構築手法までを最新ファクトに基づき体系的に解説します。</p>
+<hr />
+<style>
+.codex-shell {
+ --codex-border: rgba(255,255,255,0.08);
+ --codex-panel: rgba(15, 23, 42, 0.65);
+ --codex-accent: #10b981;
+ --codex-accent-secondary: #d97706;
+}
+.codex-shell .codex-panel {
+ background: var(--codex-panel);
+ border: 1px solid var(--codex-border);
+ backdrop-filter: blur(16px);
+}
+.codex-shell .codex-tab-btn.active {
+ background: var(--codex-accent);
+ color: #0f172a;
+ box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+.codex-shell .chart-container {
+ position: relative;
+ width: 100%;
+ height: 300px;
+}
+.codex-shell .pipeline-step {
+ position: relative;
+ border-left: 2px solid rgba(16, 185, 129, 0.2);
+ padding-left: 24px;
+}
+.codex-shell .pipeline-step::before {
+ content: '';
+ position: absolute;
+ left: -7px;
+ top: 0;
+ width: 12px;
+ height: 12px;
+ border-radius: 50%;
+ background: var(--codex-accent);
+ border: 3px solid #0f172a;
+}
+.codex-shell .typing-cursor::after {
+ content: '|';
+ animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+</style>
+
+<h2 id="1-codex-2026-llm">1. Codex の歴史的系譜と 2026 年 LLM ラインアップ</h2>
+<p>2021年の原著論文（arXiv:2107.03374）で発表された初代OpenAI Codexは、159GBのGitHub公開コードでファインチューニングされた120億パラメータ（12B）のモデルでした。</p>
+<p>2026年の現在、Codexの技術は単独モデルにとどまらず、<strong>自律思考（Reasoning）＋マルチモーダル＋リポジトリ全体理解（Repo-level Context）</strong>を兼ね備えた複合基盤へと昇華しています。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">モデル世代</th>
+<th style="text-align: left;">登場時期</th>
+<th style="text-align: left;">主なパラダイム</th>
+<th style="text-align: left;">コマンド・文脈拡張</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>初代 Codex (code-davinci-002)</strong></td>
+<td style="text-align: left;">2021-2022</td>
+<td style="text-align: left;">関数補完・行補完 (Single file)</td>
+<td style="text-align: left;">4K ~ 8K Tokens</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GPT-4 / Copilot X</strong></td>
+<td style="text-align: left;">2023-2024</td>
+<td style="text-align: left;">対話型リファクタリング・ユニットテスト自動生成</td>
+<td style="text-align: left;">32K ~ 128K Tokens</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GPT-5 / Agentic Codex 2026</strong></td>
+<td style="text-align: left;">2025-2026</td>
+<td style="text-align: left;">リポジトリ解析・CI/CD連携・自動デバッグ自律反復</td>
+<td style="text-align: left;">1M ~ Unlimited Context (Repo-RAG)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="2026">2026年の主要エンジン選定マトリクス</h3>
+<ul>
+<li><strong>GPT-5.4 (Flagship Reasoning &amp; Coding)</strong>: ブラウザ/ターミナル/エディタをまたぐ自律エージェント型（Agentic Workflow）に最適。複雑なリポジトリ構造の修正・リファクタリングを1発で遂行。</li>
+<li><strong>GPT-5.3-Codex (Code-Specialized)</strong>: レガシーコード基盤（C/C++, Java, COBOL等）の解析や、数学的アルゴリズムの厳密検証に特化した高速・軽量モデル。</li>
+</ul>
+<hr />
+<h2 id="2-159gb">2. データ処理パイプライン：159GB から最新リポジトリ学習へ</h2>
+<p>Codexの優れたコード生成能力は、厳密にフィルタリングされた学習データセットと専用トークナイザーに由来しています。</p>
+<h3 id="3">データクレンジング &amp; トークナイズの3段階</h3>
+<ol>
+<li><strong>ノイズ除去とフィルタリング</strong>:
+ GitHub上の5,400万リポジトリから、自動生成ファイル（minified JSやProtobuf生成コード等）、極端に長い行、セキュリティ資格情報（API Key / Secrets）を完全にスクリーニング。</li>
+<li><strong>コード専用 BPE (Byte Pair Encoding) 辞書</strong>:
+ インデント（スペース4個/2個）、アロー関数（<code>=&gt;</code>）、比較演算子（<code>===</code>）などを単一トークンとして保持できるよう語彙辞書を最適化。</li>
+<li><strong>自己回帰型学習 + Execution Feedback (RLHF/RLAIF)</strong>:
+ 単なるテキスト生成にとどまらず、生成コードをテストサンドボックスで実行し、エラーログをフィードバック学習（Reinforcement Learning from Execution Feedback）させることで到達率を飛躍的に向上。</li>
+</ol>
+<hr />
+<h2 id="3-codex-engine-2026">3. インタラクティブ・デモ：Codex Engine 2026</h2>
+<div class="codex-shell max-w-5xl mx-auto my-8">
+<div class="codex-panel rounded-[32px] overflow-hidden">
+<div class="flex border-b border-white/5 bg-white/5" id="sim-tabs">
+<button class="codex-tab-btn active flex-1 py-4 px-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-white border-r border-white/5" data-index="0">Case: AWS S3ダウンローダー</button>
+<button class="codex-tab-btn flex-1 py-4 px-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-white border-r border-white/5" data-index="1">Case: メアド・バリデーション</button>
+<button class="codex-tab-btn flex-1 py-4 px-6 text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-white" data-index="2">Case: フィボナッチ数列</button>
+</div>
+<div class="p-6 md:p-10">
+<div class="bg-slate-950 p-6 rounded-2xl border border-white/10 font-mono text-sm min-h-[280px]">
+<div class="text-emerald-500/60 mb-4 italic" id="sim-prompt-display"># boto3を使ってS3バケットから画像をダウンロードする関数を書いてください</div>
+<pre class="text-slate-300 whitespace-pre-wrap"><code id="sim-code-display" class="typing-cursor"></code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+<h2 id="4-2026-swe-bench-humaneval">4. 2026年最新ベンチマーク評価 (SWE-bench &amp; HumanEval)</h2>
+<p>従来の単一関数評価（HumanEval）から、現在の評価軸は実際のGitHub Issueを修正できる能力を測る <strong>SWE-bench / SWE-bench Verified</strong> へ移行しています。</p>
+<div class="codex-shell max-w-5xl mx-auto my-8">
+<div class="grid lg:grid-cols-2 gap-8">
+<div class="codex-panel p-8 rounded-[32px]">
+<h3 class="text-xl font-bold text-on-surface mb-2 flex items-center gap-3">
+<span class="text-emerald-400">📊</span> 各プログラミング言語別 pass@1 推計値 (%)
+</h3>
+<p class="text-[10px] text-slate-500 mb-6 italic">2026年最新モデルの実務ベンチマーク指標</p>
+<div class="chart-container">
+<canvas id="v3-performance-chart"></canvas>
+</div>
+</div>
+
+<div class="codex-panel p-8 rounded-[32px]">
+<h3 class="text-xl font-bold text-on-surface mb-6 flex items-center gap-3">
+<span class="text-emerald-400">📖</span> 最新ベンチマーク指標の定義
+</h3>
+<div class="space-y-4 text-xs text-slate-400">
+<div>
+<h4 class="text-on-surface font-bold mb-1">SWE-bench Verified</h4>
+<p>実際のオープンソースプロジェクトで発生したIssueとPull Requestのセット。複数ファイルにまたがるコード修正能力、自律テスト検証能力を客観評価。</p>
+</div>
+<div>
+<h4 class="text-on-surface font-bold mb-1">HumanEval / HumanEval+</h4>
+<p>関数定義とテストケースに基づく標準ベンチマーク。pass@1（1回での一発合格率）において2026年最新モデルは80%〜90%超を記録。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+<h2 id="5">5. セキュリティ課題とガバナンス対策</h2>
+<div class="codex-shell max-w-5xl mx-auto my-8">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="codex-panel p-6 rounded-2xl border-l border-red-500/30">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-bold text-on-surface">1. セキュリティの脆弱性・依存関係汚染</h4>
+<span class="text-[8px] font-bold text-red-500 uppercase tracking-widest px-2 py-0.5 rounded bg-red-500/10">Critical</span>
+</div>
+<p class="text-xs text-slate-400 mb-4 leading-relaxed">
+学習データに含まれる脆弱なパターン（SQLインジェクション、ハードコードされた認証情報、存在しない架空パッケージの呼出「Package Typosquatting」）を生成するリスク。
+</p>
+<button onclick="toggleCodexMitigation('mit-sec')" class="text-[10px] font-bold text-emerald-400 hover:text-emerald-300 transition-colors uppercase tracking-widest">回避策・ガードレールを見る →</button>
+<div id="mit-sec" class="hidden mt-4 p-4 bg-white/5 rounded-xl text-[10px] text-slate-500 border border-white/5">
+CI/CDパイプラインへのSAST（静的アプリケーションセキュリティテスト）の義務化、およびプライベートリポジトリ専用のLSP/ASTバリデータの適用。
+</div>
+</div>
+
+<div class="codex-panel p-6 rounded-2xl border-l border-amber-500/30">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-bold text-on-surface">2. 幻覚 (Hallucination) と構文エラー</h4>
+<span class="text-[8px] font-bold text-amber-500 uppercase tracking-widest px-2 py-0.5 rounded bg-amber-500/10">Warning</span>
+</div>
+<p class="text-xs text-slate-400 mb-4 leading-relaxed">
+旧バージョンの非推奨非互換メソッド呼び出しや、存在しないライブラリ引数を「もっともらしく」記述する現象。
+</p>
+<button onclick="toggleCodexMitigation('mit-hal')" class="text-[10px] font-bold text-emerald-400 hover:text-emerald-300 transition-colors uppercase tracking-widest">回避策・ガードレールを見る →</button>
+<div id="mit-hal" class="hidden mt-4 p-4 bg-white/5 rounded-xl text-[10px] text-slate-500 border border-white/5">
+リアルタイムLSP（Language Server Protocol）連携による構文即時チェックと、テスト駆動開発（TDD）ループの自律実行。
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+<script>
+(() => {
+ let charts = [];
+ const destroyCharts = () => {
+ charts.forEach(c => c.destroy());
+ charts = [];
+ };
+
+ const init = () => {
+ destroyCharts();
+ const root = document.querySelector('.article-body') | document;
+ if (!root) return;
+
+ // --- Simulator Data ---
+ const simData = [
+ {
+ prompt: "# boto3を使ってS3バケットから画像をダウンロードする関数を書いてください",
+ code: "import boto3\nimport os\n\ndef download_from_s3(bucket, obj, local_path):\n \"\"\"\n S3から画像をダウンロード\n \"\"\"\n s3 = boto3.client('s3')\n try:\n s3.download_file(bucket, obj, local_path)\n return True\n except Exception as e:\n print(f'Error: {e}')\n return False"
+ },
+ {
+ prompt: "# Regexを使用したメールアドレスのバリデーション",
+ code: "import re\n\ndef is_valid_email(email):\n pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$'\n return bool(re.match(pattern, email))\n\n# Test\n# print(is_valid_email('test@example.com'))"
+ },
+ {
+ prompt: "# フィボナッチ数列を生成する（反復法）",
+ code: "def fibonacci(n):\n if n <= 0: return 0\n if n == 1: return 1\n a, b = 0, 1\n for _ in range(2, n + 1):\n a, b = b, a + b\n return b"
+ }
+ ];
+
+ let timer;
+ const codeEl = root.querySelector('#sim-code-display');
+ const promptEl = root.querySelector('#sim-prompt-display');
+
+ const typeWriter = (text, i = 0) => {
+ if (!codeEl) return;
+ if (i < text.length) {
+ codeEl.innerHTML += text.charAt(i).replace(/\n/g, '<br>').replace(/ /g, '&nbsp;');
+ timer = setTimeout(() => typeWriter(text, i + 1), 15);
+ }
+ };
+
+ const simulate = (idx) => {
+ if (!codeEl | !promptEl) return;
+ if (timer) clearTimeout(timer);
+ codeEl.innerHTML = '';
+ promptEl.textContent = simData[idx].prompt;
+ typeWriter(simData[idx].code);
+ };
+
+ const tabs = root.querySelectorAll('#sim-tabs .codex-tab-btn');
+ tabs.forEach(tab => {
+ tab.addEventListener('click', () => {
+ tabs.forEach(t => t.classList.remove('active'));
+ tab.classList.add('active');
+ simulate(Number(tab.dataset.index));
+ });
+ });
+
+ // --- Chart ---
+ const chartCanvas = root.querySelector('#v3-performance-chart');
+ if (typeof Chart !== 'undefined' && chartCanvas) {
+ const ctx = chartCanvas.getContext('2d');
+ charts.push(new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: ['Python', 'TypeScript/JS', 'Go', 'Rust', 'C++', 'Java'],
+ datasets: [{
+ label: 'Pass@1 Accuracy (%)',
+ data: [86.4, 82.1, 78.4, 74.5, 71.9, 68.2],
+ backgroundColor: 'rgba(16, 185, 129, 0.7)',
+ borderRadius: 6,
+ borderColor: 'rgba(16, 185, 129, 1)',
+ borderWidth: 1
+ }]
+ },
+ options: {
+ responsive: true,
+ maintainAspectRatio: false,
+ plugins: { legend: { display: false } },
+ scales: {
+ y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748b', font: { size: 9 } } },
+ x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 9, weight: 'bold' } } }
+ }
+ }
+ }));
+ }
+
+ // Toggle helper
+ window.toggleCodexMitigation = (id) => {
+ const el = root.querySelector('#' + id);
+ if (el) el.classList.toggle('hidden');
+ };
+
+ // Auto start
+ simulate(0);
+ };
+
+ setTimeout(init, 300);
+})();
+</script>
+
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-08-02 (v4)</strong>: 2026年最新Agentic Coding動向、SWE-bench Verified評価軸、Repo-level RAG構想、セキュリティ・ガードレール設計を統合アップデート。</li>
+<li><strong>2026-04-09 (v3)</strong>: 2026年最新展望、GPT-5系エンジニアリングガイド、詳細データパイプライン図の追加。</li>
+<li><strong>2026-04-09 (v1)</strong>: 新規作成。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../infra/index.html" class="hover:text-white">Infrastructure</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

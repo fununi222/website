@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>【2.8兆パラメータ】Moonshot AI「Kimi K3」の実力とは？1MコンテキストとAgentic Coding性能を詳しく解説 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="Moonshot AIのオープンウェイトモデルKimi K3を、MoE/KDA/1Mコンテキスト/API/ローカル運用/セキュリティ観点から整理するAI Research向け技術速報。" />
+  <meta property="og:title" content="【2.8兆パラメータ】Moonshot AI「Kimi K3」の実力とは？1MコンテキストとAgentic Coding性能を詳しく解説 | FunUni-lab" />
+  <meta property="og:description" content="Moonshot AIのオープンウェイトモデルKimi K3を、MoE/KDA/1Mコンテキスト/API/ローカル運用/セキュリティ観点から整理するAI Research向け技術速報。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00ffca;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00ffca0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00ffca; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00ffca; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00ffca; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #00ffca14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #00ffca; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00ffca; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors text-[#00ffca] border-b-2 border-[#00ffca] pb-1">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00ffca;">
+          <span class="material-symbols-outlined">smart_toy</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../ai/index.html" class="hover:text-white transition-colors" style="color: #00ffca;">AI Research</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Llm Research</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00ffca1a; color: #00ffca; border-color: #00ffca33;">
+        <span class="material-symbols-outlined text-xs">smart_toy</span> Domain_03 / AI
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        【2.8兆パラメータ】Moonshot AI「Kimi K3」の実力とは？1MコンテキストとAgentic Coding性能を詳しく解説
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">calendar_today</span> 公開: 2026-08-01</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">schedule</span> 読了目安: 約8分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <h2 id="_1">概要</h2>
+<p>Moonshot AI の <strong>Kimi K3</strong> は、2.8 兆パラメータ級のオープンウェイトモデルとして、長時間のコーディング、巨大リポジトリ読解、知識作業、推論ワークフローを主戦場に据えたモデルです。公式ブログでは <strong>Kimi Delta Attention（KDA）</strong>、Attention Residuals、ネイティブ視覚理解、<strong>1M token context</strong> が前面に出されており、AI Research 領域では「巨大化」よりも「長文・ツール利用・コスト構造」を評価軸にすべきです。</p>
+<hr />
+<h2 id="1-kimi-k3">1. Kimi K3の基本スペック</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>観点</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>開発元</td>
+<td>Moonshot AI</td>
+</tr>
+<tr>
+<td>モデル種別</td>
+<td>オープンウェイトの大規模MoEモデル</td>
+</tr>
+<tr>
+<td>公称規模</td>
+<td>2.8兆パラメータ級</td>
+</tr>
+<tr>
+<td>コンテキスト</td>
+<td>1M token window</td>
+</tr>
+<tr>
+<td>技術要素</td>
+<td>Kimi Delta Attention、Attention Residuals、ネイティブ視覚理解</td>
+</tr>
+<tr>
+<td>主用途</td>
+<td>長時間コーディング、知識作業、エージェント実行、深い推論</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kimi K3を単なる「巨大モデル」として見ると本質を外します。注目点は、巨大な総パラメータをすべて毎回動かすのではなく、MoE と長文処理効率化で <strong>実行時コストと能力のバランス</strong> を狙っている点です。</p>
+<h2 id="2">2. アーキテクチャの読みどころ</h2>
+<h3 id="moe">MoE：総量と実効計算量を分離する</h3>
+<p>MoE（Mixture of Experts）は、全パラメータを常時使うDenseモデルとは異なり、入力ごとに関係するエキスパートを選択します。Kimi K3のような3T級モデルで重要なのは、総パラメータ数そのものよりも、ルーティング品質・ロードバランス・推論時の帯域効率です。</p>
+<h3 id="kimi-delta-attention">Kimi Delta Attention：長文時代のボトルネック対策</h3>
+<p>1M token級のコンテキストでは、Attentionのメモリと計算が支配的になります。KDAは、長文コンテキストでの計算・メモリ負荷を抑えつつ、コードベース全体、設計書、ログ、画像をまたぐ読解に耐えるための中核要素として位置づけられます。</p>
+<h3 id="_2">マルチモーダル：コードだけでなく画面・ログ・設計資料を見る</h3>
+<p>ネイティブ視覚理解は、Web画面のスクリーンショット、UI崩れ、CAD/半導体設計の検証図、監視ダッシュボードなど、開発・運用現場の非テキスト情報をエージェントに渡す余地を広げます。</p>
+<h2 id="3-agentic-coding">3. Agentic Codingでの評価軸</h2>
+<p>Kimi K3をDevelopment領域へ展開するなら、以下の4軸で検証するのが現実的です。</p>
+<ol>
+<li><strong>巨大リポジトリ読解</strong>：1M context に依存せず、ファイル選別・要約・差分把握が安定するか。</li>
+<li><strong>長時間タスク継続</strong>：テスト失敗、ログ確認、修正、再実行を破綻なく繰り返せるか。</li>
+<li><strong>ツール利用</strong>：ターミナル、検索、Issue、PR、CIログを正しく扱えるか。</li>
+<li><strong>レビュー品質</strong>：表面的なLint指摘ではなく、仕様逸脱・境界条件・セキュリティ観点まで踏み込めるか。</li>
+</ol>
+<p>特に「1M tokenだから全部詰め込む」は危険です。長文窓は保険であり、実運用では <strong>コンテキスト圧縮、ファイル優先度付け、再現手順の固定化</strong> が品質を左右します。</p>
+<h2 id="4-api">4. API連携とコスト設計</h2>
+<p>Kimi API は OpenAI SDK 互換の呼び出し形式を提供しており、<code>base_url</code> を <code>https://api.moonshot.ai/v1</code> に向ける構成が基本です。既存のOpenAI互換クライアントを使った検証がしやすいため、PoCでは次の順序が安全です。</p>
+<ol>
+<li>低リスクなコード説明・ドキュメント要約から開始。</li>
+<li>レビューBOTで差分のみを入力し、指摘の再現性を測る。</li>
+<li>CIログ、関連ファイル、設計資料を加えた複合タスクへ拡張。</li>
+<li>成功率、再実行回数、キャッシュ効果、1件あたりコストを記録。</li>
+</ol>
+<h2 id="5">5. ローカル/プライベート運用の現実性</h2>
+<p>オープンウェイトであることは、即「手元のPCで快適に動く」という意味ではありません。Kimi K3級のモデルは、量子化、分散推論、クラウドGPU、推論ホスティング事業者の活用が前提になります。</p>
+<p>プライベート運用で評価すべきポイントは以下です。</p>
+<ul>
+<li>モデルライセンスと商用利用条件</li>
+<li>量子化時の品質劣化</li>
+<li>GPUメモリ、NVLink/ネットワーク帯域、KV cache容量</li>
+<li>監査ログ、プロンプト/応答の保管方針</li>
+<li>社内ソースコードや顧客データを扱う場合のデータ境界</li>
+</ul>
+<h2 id="6-fununi-lab">6. FunUni-labでの連動企画</h2>
+<h3 id="ai-researchdomain_03">AI Research（DOMAIN_03）</h3>
+<ul>
+<li>Kimi K3のアーキテクチャ詳解</li>
+<li>GPT-5.6 / Claude Fable 5 / Kimi K3 のベンチマーク比較</li>
+<li>長文コンテキスト時代のRAG再設計</li>
+</ul>
+<h3 id="developmentdomain_02">Development（DOMAIN_02）</h3>
+<ul>
+<li>Kimi K3 APIを使ったコードレビューBOT</li>
+<li>GitHub/GitLab CIログを読む自動修正エージェント</li>
+<li>DevContainerとローカルLLMを組み合わせた安全な検証環境</li>
+</ul>
+<h3 id="infrastructuredomain_01">Infrastructure（DOMAIN_01）</h3>
+<ul>
+<li>量子化Kimi K3のGPUホスティング構成</li>
+<li>推論基盤のコスト・キャッシュ・監視設計</li>
+</ul>
+<h3 id="financedomain_04">Finance（DOMAIN_04）</h3>
+<ul>
+<li>商用LLM APIとの費用対効果</li>
+<li>Prompt Cachingを前提にしたAI FinOps</li>
+</ul>
+<h2 id="_3">まとめ</h2>
+<p>Kimi K3の価値は「2.8兆」という数字だけではありません。1M context、KDA、MoE、OpenAI SDK互換API、オープンウェイト展開が組み合わさることで、企業や個人開発者が <strong>長時間のAI開発エージェントを自分の制御下で試せる</strong> 可能性が広がりました。</p>
+<p>ただし、本番導入ではライセンス、データ取り扱い、推論コスト、長時間タスクの再現性を必ず検証すべきです。まずはAPIで小さく試し、レビューBOTやCIログ分析のような成果測定しやすい領域から始めるのが最短ルートです。</p>
+<h2 id="_4">参考リンク</h2>
+<ul>
+<li><a href="https://www.kimi.com/blog/kimi-k3">Moonshot AI Kimi K3 Tech Blog</a></li>
+<li><a href="https://platform.kimi.ai/docs/api/quickstart">Kimi API Platform Quickstart</a></li>
+<li><a href="https://platform.kimi.com/docs/guide/kimi-k3-quickstart">Kimi K3 Quickstart</a></li>
+</ul>
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-08-02 (v3)</strong>: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。</li>
+<li><strong>2026-04-09</strong>: メタデータおよび標準化。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../ai/index.html" class="hover:text-white">AI Research</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI | 【完全版】AIOpsエンジニア向け 業務自動化プロンプト大全 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="新規導入、要件定義、構築、障害対応。エンジニアの業務ライフサイクルを4つのパイプラインで自動化する、AIOpsエンジニア向けプロンプトの決定版。" />
+  <meta property="og:title" content="AI | 【完全版】AIOpsエンジニア向け 業務自動化プロンプト大全 | FunUni-lab" />
+  <meta property="og:description" content="新規導入、要件定義、構築、障害対応。エンジニアの業務ライフサイクルを4つのパイプラインで自動化する、AIOpsエンジニア向けプロンプトの決定版。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00ffca;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00ffca0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00ffca; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00ffca; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00ffca; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #00ffca14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #00ffca; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00ffca; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors text-[#00ffca] border-b-2 border-[#00ffca] pb-1">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00ffca;">
+          <span class="material-symbols-outlined">smart_toy</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../ai/index.html" class="hover:text-white transition-colors" style="color: #00ffca;">AI Research</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Llm Research</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00ffca1a; color: #00ffca; border-color: #00ffca33;">
+        <span class="material-symbols-outlined text-xs">smart_toy</span> Domain_03 / AI
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        AI | 【完全版】AIOpsエンジニア向け 業務自動化プロンプト大全
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">calendar_today</span> 公開: 2026-04-10</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">schedule</span> 読了目安: 約27分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
+
+<p>本ナレッジベースは、<a href="../../glossary/system-glossary.html#:~:text=" title="AIOps">AIOps</a> エンジニアの業務ライフサイクルを「企画・稟議」「要件定義・設計」「構築・標準化」「障害対応・自律修復」の4つのパイプラインとして定義し、各フェーズで<a href="../../glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>を <a href="../../glossary/system-glossary.html#:~:text=" title="AIエージェント">AIエージェント</a> 同様の知的ワークフォースとして機能させるためのプロンプト集である。</p>
+<hr />
+<h2 id="phase-1">Phase 1: 企画・稟議パイプライン（ビジネス価値への変換）</h2>
+<p>新しいツールの選定から、非エンジニアの決裁者を納得させる ROI 報告までを行うフローです。</p>
+<h3 id="11">1.1 ツール全体把握用</h3>
+<p>まずは対象ツールのアーキテクチャとAIOps視点での評価を素早く把握します。</p>
+<pre><code class="language-text">あなたはAIOpsエンジニア向けのテクニカルリサーチャーです。
+以下の【対象ツール】についてリサーチし、指定されたフォーマットのHTMLで出力してください。
+
+【対象ツール】: 
+（例：Rubrik, Datadogなど）
+
+■ 出力ルール
+1. 挨拶、前置き、SEO的な概念説明は一切不要。
+2. 抽象的な表現を避け、アーキテクチャや技術的な特徴を具体的に記載すること。
+3. HTMLタグ（h2, h3, ul, li, strong）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. 【対象ツール】のアーキテクチャと全体像
+（ツールが解決する課題、コアとなる技術の仕組み、システム構成を箇条書きで記載）
+
+## 2. 主要な基本機能一覧
+（全体像を把握するためのコア機能を3〜5つ、箇条書きで簡潔に記載）
+
+## 3. AIOps視点での評価
+（APIの充実度、IaCツールとの連携、自動化への親和性などを記載）
+
+## 4. 参考文献
+（公式ドキュメントやアーキテクチャ解説の一次情報リンク）
+</code></pre>
+<h3 id="12-step-1">1.2 複数ベンダーの提案・見積もり比較（STEP 1）</h3>
+<p>バラバラのフォーマットの見積もりや提案から、フラットな比較表と推奨案を生成します。</p>
+<pre><code class="language-text">あなたはIT調達担当のシニアエンジニアです。
+以下の【各社の見積・提案概要】を比較し、技術的な妥当性とコストパフォーマンスを評価した比較表をHTMLで出力してください。
+
+【比較対象】: （例：ベンダーA vs ベンダーB）
+【各社の見積・提案概要】: （費用、サポート体制、ライセンス体系、MTGで判明した強み/弱みなどのメモを貼り付け）
+
+■ 出力ルール
+1. ひいき目なしの客観的な事実に基づき比較すること。
+2. 比較結果は、見やすいHTMLのtableタグ（table, thead, tbody, tr, th, td）を用いて構造化し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. 製品・コスト比較表
+（HTMLテーブル：初期費用、月額費用、サポート範囲、SLA、制約事項などを横並びで比較）
+## 2. 技術選定における優位性評価
+（自社環境との親和性や、技術的負債になりにくいか等を記載）
+## 3. 推奨案と選定理由（Recommendation）
+（最終的にどちらを選ぶべきか、明確な理由とともに記載）
+</code></pre>
+<h3 id="13-roistep-2">1.3 比較結果から稟議・ROI報告書の生成（STEP 2）</h3>
+<p>技術選定結果を「コスト削減」「リスク低減」といったビジネス言語に翻訳します。</p>
+<pre><code class="language-text">あなたはAIOps推進のリードエンジニアです。
+以下の【技術選定結果・推奨案】を元に、非エンジニアの決裁者から予算承認を得るための「稟議・報告用サマリー」をHTMLで出力してください。
+
+【現状のビジネス課題】: （例：夜間障害対応による月間100時間の残業）
+【技術選定結果・推奨案】: （STEP1の出力をそのまま貼り付け）
+
+■ 出力ルール
+1. 専門用語を極力減らし、「コスト削減」「リスク低減」といったビジネス価値（ROI）を強調すること。
+2. HTMLタグ（h2, h3, ul, li, strong）のみを使用すること。
+
+■ 出力フォーマット（HTML）
+## 1. 提案のサマリー（Executive Summary）
+（何を導入し、どのような経営課題を解決するのか）
+## 2. 期待される導入効果（ROI・定量的メリット）
+（導入コストに対し、どれだけの人件費・機会損失を削減できるか）
+## 3. 必要なリソースとコスト
+（初期費用、ランニング費用、運用に必要な人員数）
+## 4. 想定されるリスクと対策
+（ベンダーロックインなどのリスクと、その対策）
+</code></pre>
+<h3 id="14-deep-dive">1.4 【技術検証】ツールの特定機能深掘り &amp; デモ（Deep Dive）</h3>
+<p>PoC（概念実証）や設計フェーズにおいて、特定の機能の仕様限界や、実際のAPI/CLIの挙動を検証し、技術メモとしてストックするためのプロンプトです。</p>
+<pre><code class="language-text">あなたはAIOpsエンジニア向けのテクニカルリサーチャーです。
+以下の【対象ツール】の【深掘りしたい機能】について、技術仕様とデモ（実行例）をHTMLで出力してください。
+
+【対象ツール】: （例：Rubrik, Datadogなど）
+【深掘りしたい機能】: （例：SLAドメインの設定とAPI経由での割り当て）
+
+■ 出力ルール
+1. 挨拶や前置きは不要。すぐに技術的なディテールに入ること。
+2. 情報は要約しすぎず、具体的なパラメータ、制約事項を明記すること。
+3. デモとして、CLIコマンド、APIのJSONリクエスト、またはPythonコードの実装例を必ず含めること。
+4. HTMLタグ（h2, h3, ul, li, strong, pre, code）のみを使用すること。
+
+■ 出力フォーマット（HTML）
+## 1. 【深掘りしたい機能】の技術仕様
+（詳細なパラメータ、制約、設定の仕組みなどを箇条書きで記載）
+## 2. 実行デモ（コード / コマンド例）
+（機能を利用・自動化するための具体的なコードブロックと、その解説）
+## 3. 運用上の注意点（Gotchas）
+（実装時にハマりやすいポイントやリミットなどがあれば記載）
+## 4. 参考文献
+（対象機能のAPIリファレンスや開発者ガイドのリンク）
+</code></pre>
+<hr />
+<h2 id="phase-2">Phase 2: 要件定義・設計パイプライン（カオスからの構造化）</h2>
+<p>MTGメモや雑多な資料から、エンジニアが設計に使える構造的なドキュメントを生成します。</p>
+<h3 id="21-mtgstep-1">2.1 ベンダーMTGメモからの仕様・要件抽出（STEP 1）</h3>
+<p>乱雑なメモから「仕様」「制約」「宿題」だけを機械的に抽出します。</p>
+<pre><code class="language-text">あなたはAIOps導入担当のリードエンジニアです。
+以下の【ベンダーMTGメモ】から、設計および要件定義に必要な「技術的決定事項」と「未決事項」を抽出し、HTMLで出力してください。
+
+【ベンダー・製品名】: 
+【MTGメモ・文字起こし】: （議事録や雑多なメモをそのまま貼り付け）
+
+■ 出力ルール
+1. 営業的な宣伝文句や挨拶は全て無視すること。
+2. システム設計に直結する事実（API仕様、認証方式、制限事項など）のみを拾い上げること。
+3. HTMLタグ（h2, h3, ul, li, strong）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. 技術的決定事項（Decisions）
+（実装・連携・ライセンス体系・セキュリティ要件などで確定した事項）
+## 2. 判明した技術制約（Constraints / Limitations）
+（API制限、対応OS、ネットワーク要件、現状の仕様では不可能なこと）
+## 3. ベンダー確認待ち・未決事項（Pending Issues）
+（次回のMTGまでにベンダー側、あるいは自社側で確認が必要な技術的タスク）
+</code></pre>
+<h3 id="22-aiops">2.2 AIOps導入要件定義書の作成</h3>
+<p>技術調査結果やMTGメモを元に、標準化された要件定義書のドラフトを作成します。</p>
+<pre><code class="language-text">あなたはAIOps領域のITアーキテクトです。
+以下の【技術調査結果・MTGメモ】を元に、自動化・システム化するための「要件定義書」をHTMLで出力してください。
+
+【対象プロジェクト名】: 
+【技術調査結果・MTGメモ】: 
+
+■ 出力ルール
+1. 曖昧な表現を避け、システム化の範囲とSLA/SLO/SLIを明確にすること。
+2. HTMLタグ（h2, h3, ul, li, strong, table）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. 業務要件とシステム化スコープ
+（対象とする業務範囲と、今回は「やらないこと（Out of Scope）」を明確化）
+## 2. 機能要件（Functional Requirements）
+（ツールが満たすべき具体的な機能一覧）
+## 3. 非機能要件（SLA/SLO・可用性・セキュリティ）
+（目標復旧時間、ログ保存期間、必要なアクセス権限など）
+</code></pre>
+<h3 id="23">2.3 セキュリティ・リスク評価用</h3>
+<p>セキュリティ審査に必要な「データフロー」や「認証方式」の詳細を整理します。</p>
+<pre><code class="language-text">あなたはAIOpsエンジニア向けのテクニカルリサーチャーです。
+以下の【導入検討中のツール】について、エンタープライズ環境に導入する際の「セキュリティ・コンプライアンス評価」をHTMLで出力してください。
+
+【導入検討中のツール】: 
+
+■ 出力ルール
+1. ベンダーの宣伝文句ではなく、技術的な仕様に基づく事実（暗号化方式、認証方式、ネットワーク要件など）を記載すること。
+2. HTMLタグ（h2, h3, ul, li, strong）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. データフローと保管（Data at Rest / in Transit）
+（社内データがどこに送信されるか、どのように暗号化・保管されるかを記載）
+## 2. 認証・認可とアクセス制御（IAM / RBAC）
+（SSOの対応状況、最小特権の原則に基づくアクセス制御が可能かを記載）
+## 3. ネットワーク要件と依存関係
+（開放が必要なポート番号、インバウンド/アウトバウンド通信の要件などを記載）
+## 4. 想定されるセキュリティリスクと緩和策
+（導入にあたり懸念されるリスクと、それをインフラ側でどう防御・緩和できるかを記載）
+</code></pre>
+<hr />
+<h2 id="phase-3-how">Phase 3: 構築・標準化パイプライン（Howへの変換と属人化の排除）</h2>
+<p>設計を具体的な操作手順に変え、さらに誰でも再現可能なマニュアルへと昇華させます。</p>
+<h3 id="31-step-2">3.1 設計・仕様からの構築コマンド生成（STEP 2）</h3>
+<p>パラメータシートを入力に、具体的なCLIコマンドや設定ファイルを生成します。</p>
+<pre><code class="language-text">あなたはAIOps領域のインフラエンジニアです。
+以下の【設計仕様・パラメータ】に基づき、実際の環境に適用するための「構築手順とコマンド群」をHTMLで出力してください。
+
+【対象環境】: （例：RHEL8, または AWS EC2）
+【設計仕様・パラメータ】: 
+
+■ 出力ルール
+1. 抽象的な説明は避け、コピペして実行可能なCLIコマンドや、設定ファイルの具体的なスニペット（YAML, JSON, Pythonなど）を出力すること。
+2. 環境依存の値は &lt;YOUR_API_KEY&gt; のようなプレースホルダーにすること。
+3. HTMLタグ（h2, h3, ul, li, strong, pre, code）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. 事前準備（Prerequisites &amp; Environment Variables）
+（事前に設定すべき環境変数や、必要なパッケージのインストールコマンド）
+## 2. 構築実行手順（Execution Commands）
+（順を追って実行する具体的なコマンドと、設定ファイルへの追記内容）
+## 3. 疎通・動作確認コマンド（Validation）
+（構築が成功したことを証明するための、APIの叩き方やログの確認コマンド）
+</code></pre>
+<h3 id="32">3.2 構築作業のエビデンスと実行ログ記録</h3>
+<p>実行したコマンドログから、重要な証跡とエラー箇所を抽出し、提出用資料として整理します。</p>
+<pre><code class="language-text">あなたはインフラ構築担当エンジニアです。
+以下の【実行した構築作業・ログ】を整理し、後日の監査や環境再構築に耐えうる「環境構築・デプロイ記録」をHTMLで出力してください。
+
+【対象システム・環境】: 
+【実行した構築作業・手順ログ】: （実行したコマンドや出力を貼り付け）
+
+■ 出力ルール
+1. 抽象的な説明は排除し、入力されたログや事実のみを構造化すること。
+2. 発生したエラーとワークアラウンド（回避策）があれば必ず目立たせること。
+3. HTMLタグ（h2, h3, ul, li, strong, pre, code）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. 構築環境とバージョン情報
+## 2. 実行手順と設定値（Step-by-Step Evidence）
+## 3. 構築中のエラーと回避策（Workarounds）
+## 4. 動作確認結果（Post-Deployment Validation）
+</code></pre>
+<h3 id="33-bpstep-3">3.3 構築記録からのBP委託マニュアル生成（STEP 3）</h3>
+<p>構築手順とログを元に、外部パートナー（BP）が自己判断なしで運用できる手順書を作成します。</p>
+<pre><code class="language-text">あなたはITサービスマネージャーです。
+以下の【対象業務・既存手順】について、外部のBP（ビジネスパートナー）やL1担当者が、自己判断せず正確に実行できる「オペレーションマニュアル」をHTMLで出力してください。
+
+【対象業務】: 
+【既存の作業手順・ノウハウ】: 
+
+■ 出力ルール
+1. 専門用語をなるべく平易にすること。
+2. 「適宜対応する」といった曖昧な表現を禁止し、「もしAならBのコマンドを実行、Cならエスカレーション」という明確な条件分岐（判断基準）を設けること。
+3. HTMLタグ（h2, h3, ul, li, strong, pre, code）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. 業務の目的と前提知識
+## 2. フローチャート（判断基準）
+（アラートの内容等に応じた分岐条件を箇条書きで記載）
+## 3. 具体的なオペレーション手順（画像挿入箇所付き）
+（クリックするボタンや入力する値を明記。[ここに〇〇の画面キャプチャを挿入]というプレースホルダーを含める）
+## 4. エスカレーション基準（Escalation Matrix）
+（L2/L3エンジニアへエスカレーションすべき条件と連絡先）
+</code></pre>
+<hr />
+<h2 id="phase-4">Phase 4: 障害対応・自律修復パイプライン（マイナスからプラスへの昇華）</h2>
+<p>インシデントという「マイナス」から、自動復旧という「プラス」の資産を生み出すフローです。</p>
+<h3 id="41">4.1 エラーログ解析と暫定復旧コマンド生成（トリアージ）</h3>
+<p>生ログからノイズを除去し、今すぐ叩くべき「回避策」を生成します。</p>
+<pre><code class="language-text">あなたはインフラ障害対応のSRE（Site Reliability Engineer）です。
+以下の【監視アラート・エラーログ】を解析し、システムを最短で復旧させるための「原因の仮説」と「暫定復旧コマンド」をHTMLで出力してください。
+
+【対象システム構成】: 
+【監視アラート・エラーログ】: （Datadog等の通知文面、生のログを貼り付け）
+
+■ 出力ルール
+1. 長々とした解説は不要。「今すぐ実行すべきコマンド」と「確認すべきメトリクス」を最優先で出力すること。
+2. HTMLタグ（h2, h3, ul, li, strong, pre, code）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. アラートの要約と原因の仮説（Triage）
+（システムへの影響度と、最も可能性の高い原因を簡潔に記載）
+## 2. 暫定復旧手順・コマンド（Workarounds）
+（プロセスの再起動や、フェイルオーバーなど、コピペで実行できるCLIコマンド）
+## 3. 追加で確認すべきログ・メトリクス
+（原因を特定するために、次に見に行くべきダッシュボードやログファイルのパス）
+</code></pre>
+<h3 id="42-post-mortem">4.2 暫定対応ログからPost-Mortem（障害対応録）の生成</h3>
+<p>対応結果を客観的な分析レポートへと変換し、チームのナレッジとしてストックします。</p>
+<pre><code class="language-text">あなたはシニアAIOpsエンジニアです。
+以下の【障害対応の作業メモ】を元に、チームや上層部へ報告し、ナレッジとしてストックするための「Post-Mortem（事後検証レポート）」をHTMLで出力してください。
+
+【発生したインシデント】: 
+【障害対応の作業メモ】: （実際に叩いたコマンド、確認した結果のメモを貼り付け）
+
+■ 出力ルール
+1. 個人のミスを責める表現は排除し、「システムのどの仕組みが欠けていたか」という客観的な視点で記述すること。
+2. HTMLタグ（h2, h3, ul, li, strong, pre, code）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. インシデントのタイムラインと影響範囲
+（いつ検知し、いつ復旧したか。ビジネスへの影響）
+## 2. 根本原因（Root Cause Analysis）
+（なぜそのエラーが発生したのかの技術的背景）
+## 3. 恒久対応・再発防止策のアイデア
+（次回同じエラーが起きた際、人間が介在せずに自動復旧（Auto-remediation）させるためのシステム的アプローチ案）
+</code></pre>
+<h3 id="43-post-mortemauto-remediation">4.3 Post-Mortemからの自動復旧（Auto-remediation）コード生成</h3>
+<p>再発防止策を入力に、Webhook等からキックして自律修復させるコードを生成します。</p>
+<pre><code class="language-text">あなたはAIOpsアーキテクトです。
+以下の【Post-Mortemの再発防止策】を実現するため、監視ツール（Webhook）から自動実行される「自律修復（Auto-remediation）スクリプト」をHTMLで出力してください。
+
+【対象ツール・環境】: （例：Datadog Webhook -&gt; AWS Lambda (Python) -&gt; EC2）
+【Post-Mortemの再発防止策】: 
+
+■ 出力ルール
+1. エラーハンドリング（自動復旧自体が失敗した場合の処理）を含めること。
+2. 実行結果をSlack/Teams等へ通知するロジックを必ず含めること。
+3. HTMLタグ（h2, h3, ul, li, strong, pre, code）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. 自律修復アーキテクチャ（Data Flow）
+（アラート検知からスクリプト実行までのフローと必要な権限）
+## 2. 自動化スクリプト（Ansible / Python 等）
+（実際に環境にデプロイ可能なコードスニペット）
+## 3. フォールバック・通知設定（Fallback &amp; Notification）
+（スクリプトの実行ログをどう記録し、失敗時にどうエスカレーションするかの実装方法）
+</code></pre>
+<hr />
+<h2 id="appendix">Appendix: メンテナンス・汎用ツール</h2>
+<p>日々の運用やドキュメントの鮮度管理を支えるツール群です。</p>
+<h3 id="a1">A.1 逆引きチートシート生成</h3>
+<p>頻出するタスクやコマンドを、コピペしやすい表形式でまとめます。</p>
+<pre><code class="language-text">あなたはAIOpsエンジニア向けのテクニカルリサーチャーです。
+以下の【対象ツール・技術】について、実務で頻出するタスクの「チートシート（逆引き表）」をHTMLで出力してください。
+
+【対象ツール・技術】: 
+【主な用途】: 
+
+■ 出力ルール
+1. 挨拶や前置きは不要。
+2. 実践的で、そのままコピペして使えるコマンドやスニペットを含めること。
+3. HTMLタグ（h2, table, thead, tbody, tr, th, td, code）を用いて、見やすい表形式にすること。
+
+■ 出力フォーマット（HTML）
+## 1. 【対象ツール】 逆引きチートシート
+（以下の3列のテーブルを作成：①やりたいこと・タスク ②コマンド/コード snippet ③解説・注意点。実務でよく使う5〜7項目を厳選すること）
+## 2. 必須の環境変数 / 初期設定
+（動作させるために最低限必要な環境変数や、設定ファイルのひな形をコードブロックで記載）
+</code></pre>
+<h3 id="a2">A.2 リリースノート要約</h3>
+<p>リリースノートから、AIOps運用に影響する「重要度が高い変更」だけを抽出します。</p>
+<pre><code class="language-text">あなたはAIOpsエンジニア向けのテクニカルリサーチャーです。
+以下の【リリースノートのURLまたはテキスト】から、AIOpsエンジニアの視点で「重要度が高い変更点」のみを抽出し、HTMLで出力してください。
+
+【対象ツール】: 
+【リリースノート】: 
+
+■ 出力ルール
+1. マーケティング的な表現は排除すること。
+2. 自動化APIの追加・変更、リソース要件の変動、非推奨・廃止（Breaking Changes）に合致する情報だけを残すこと。
+3. HTMLタグ（h2, h3, ul, li, strong, pre, code）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. 運用に直結する重要アップデート（Top 3）
+（AIOps視点で最もインパクトのある変更を3つ厳選し、理由とともに記載）
+## 2. インフラ・自動化への影響（詳細）
+（リソース要件の変更や、APIの変更点などを具体的に記載）
+## 3. 破壊的変更（Breaking Changes）
+（既存のスクリプトや環境が壊れる可能性のある変更と、その移行措置）
+</code></pre>
+<h3 id="a3">A.3 既存記事の更新（差分抽出）</h3>
+<p>既存のドキュメントと最新情報を比較し、アップデートが必要な箇所を特定します。</p>
+<pre><code class="language-text">あなたはAIOpsエンジニア向けのテクニカルリサーチャーです。
+以下の【対象ツール】に関する【既存の情報】を読み込み、現在の最新情報と照らし合わせてアップデート記事をHTMLで出力してください。
+
+【対象ツール】: 
+【既存の情報（URLまたはテキスト）】: 
+【既存情報の執筆時期】: 
+
+■ 出力ルール
+1. 古い情報から「何が変わったのか（差分）」と「非推奨・廃止された機能（破壊的変更）」を明確にすること。
+2. AIOpsの観点（APIの変更、自動化スクリプトへの影響など）があれば強調すること。
+3. HTMLタグ（h2, h3, ul, li, strong, pre, code）のみを使用し、装飾クラスは含めないこと。
+
+■ 出力フォーマット（HTML）
+## 1. 最新版での主なアップデート概要
+（既存の情報から見て、最も重要な進化ポイントやアーキテクチャの変更を箇条書きで記載）
+## 2. 既存環境からの変更点・差分（Diff）
+（古い仕様と新しい仕様の比較。変更されたパラメータや、新設された機能などを記載）
+## 3. 破壊的変更・非推奨機能（Breaking Changes）
+（過去のスクリプトやAPIリクエストが動かなくなる可能性のある変更点があれば、回避策とともに記載）
+</code></pre>
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-04-10</strong>: 修正。全プロンプトの「出力ルール」に欠落していたHTMLタグの制限指定を追加。句読点の不統一（. と 。の混在）およびタイポを修正し、完全なマスターデータとして固定。</li>
+<li><strong>2026-04-10</strong>: 更新。Phase 1 に「【技術検証】ツールの特定機能深掘り &amp; デモ（Deep Dive）」を新規追加。PoC 段階での自動化可能性や制約事項の特定を強化。</li>
+<li><strong>2026-04-09</strong>: 更新。<strong>【完全版】大全</strong>として全プロンプトを再編。「導入要件定義書作成」「構築エビデンス記録」を新規追加し、4つの垂直統合パイプライン構造へ移行。</li>
+<li><strong>2026-04-09</strong>: 更新。「垂直統合」コンセプトに基づき、企画・障害対応の各ステップを統合。</li>
+<li><strong>2026-04-09</strong>: 新規作成。AIOpsエンジニア向けプロンプトの体系化を開始。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../ai/index.html" class="hover:text-white">AI Research</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

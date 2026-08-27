@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>コンビニ vs 社内アイスコーヒーの損益分岐点｜容量単価と実質コストを試算 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="セブンカフェと社内コーヒー＋ロックアイス袋の組み合わせについて、1杯あたりの実質コスト、容量単価、損益分岐点、月間・年間の節約効果を客観的なデータで検証します。" />
+  <meta property="og:title" content="コンビニ vs 社内アイスコーヒーの損益分岐点｜容量単価と実質コストを試算 | FunUni-lab" />
+  <meta property="og:description" content="セブンカフェと社内コーヒー＋ロックアイス袋の組み合わせについて、1杯あたりの実質コスト、容量単価、損益分岐点、月間・年間の節約効果を客観的なデータで検証します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #34d399;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #34d3990f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #34d399; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #34d399; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #34d399; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #34d39914; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #34d399; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors text-[#34d399] border-b-2 border-[#34d399] pb-1">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #34d399;">
+          <span class="material-symbols-outlined">explore</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../other/index.html" class="hover:text-white transition-colors" style="color: #34d399;">Strategic Life</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Tech Life</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #34d3991a; color: #34d399; border-color: #34d39933;">
+        <span class="material-symbols-outlined text-xs">explore</span> Domain_06 / Life
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        コンビニ vs 社内アイスコーヒーの損益分岐点｜容量単価と実質コストを試算
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #34d399;">calendar_today</span> 公開: 2026-08-18</span>
+        
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #34d399;">schedule</span> 読了目安: 約9分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <p>オフィスワーク中に毎日飲むアイスコーヒーは、日々の習慣として定着しやすい一方で、毎月の固定費として着実に積み重なります。</p>
+<p>「毎朝なんとなくコンビニで買っているけれど、出費がかさんでいる気がする」
+「社内の温かいコーヒーに氷を足して自作すれば安くなると聞くが、氷代を含めても本当に差が出るのか？」</p>
+<p>こうした疑問を整理するため、<strong>セブンカフェ（アイス）</strong>と<strong>社内コーヒー（温）＋市販ロックアイス袋</strong>の組み合わせについて、1杯あたりの実質コスト、容量（ml）単価、何杯で元が取れるかの損益分岐点、そして月間・年間のコスト差を試算しました。</p>
+<hr />
+<h2 id="summary">概要（Summary）</h2>
+<ul>
+<li><strong>実質コスト</strong>: 社内コーヒー（70円）＋市販ロックアイス（約45円/杯）で、<strong>1杯あたり約111〜118円（仕上がり400〜450ml）</strong>。</li>
+<li><strong>損益分岐点</strong>: ロックアイス袋（1.1kg / 289円）を購入した場合、セブンカフェLサイズ比較で<strong>2杯目</strong>、Rサイズ比較で<strong>5杯目</strong>に元が取れます。</li>
+<li><strong>容量単価</strong>: 1mlあたり換算では、セブンカフェの約0.78〜0.83円/mlに対し、社内自作は約0.26〜0.28円/mlと<strong>約3分の1</strong>になります。</li>
+<li><strong>留意点</strong>: 450ml以上のステンレスタンブラーが必要になる点や、氷の保管・持ち運びの手間といった運用のトレードオフが存在します。</li>
+</ul>
+<hr />
+<h2 id="1">1. 比較の前提条件と価格データ</h2>
+<p>比較対象とするセブンカフェと、社内コーヒーおよび市販ロックアイスの価格・容量データは以下の通りです。</p>
+<h3 id="_1">セブンカフェ（アイス）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">サイズ</th>
+<th style="text-align: left;">価格（税込）</th>
+<th style="text-align: left;">仕上がり総容量</th>
+<th style="text-align: left;">推定氷量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>アイスコーヒー R（レギュラー）</strong></td>
+<td style="text-align: left;">140円</td>
+<td style="text-align: left;">約180ml</td>
+<td style="text-align: left;">約110〜120g</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>アイスコーヒー L（ラージ）</strong></td>
+<td style="text-align: left;">250円</td>
+<td style="text-align: left;">約300ml</td>
+<td style="text-align: left;">約170g</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_2">社内コーヒー ＆ ロックアイス</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">価格（税込）</th>
+<th style="text-align: left;">内容量 / 備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>社内コーヒー（温抽出）</strong></td>
+<td style="text-align: left;">70円</td>
+<td style="text-align: left;">280cc</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>セブンプレミアム ロックアイス（袋）</strong></td>
+<td style="text-align: left;">289円</td>
+<td style="text-align: left;">1.1kg（約6〜7杯分）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ロックアイス カップ</strong></td>
+<td style="text-align: left;">149円</td>
+<td style="text-align: left;">400g（約2〜3杯分）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ロックアイス グラス</strong></td>
+<td style="text-align: left;">145円</td>
+<td style="text-align: left;">200g（1杯分）</td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout-note">
+<p><strong>試算条件の選定</strong><br />
+氷は単価が最も安く大容量の「ロックアイス袋（1.1kg / 289円）」を使用する前提とします。カップ氷やグラス氷は手軽ですが、1杯あたりの氷代が高くなるため除外しています。</p>
+</div>
+<hr />
+<h2 id="2">2. 社内自作アイスコーヒーの実質コスト試算</h2>
+<p>社内の温かいコーヒー（280cc）にロックアイスを投入して急冷する場合のコスト内訳は以下の通りです。</p>
+<pre><code class="language-text">【1杯あたりの実質コスト内訳】
+・社内コーヒー代（280cc） : 70円
+・消費する氷（約160g）    : 約41〜48円（289円 ÷ 6〜7杯）
+--------------------------------------------------
+合計実質コスト            : 約111〜118円（仕上がり 400〜450ml）
+</code></pre>
+<p>温かいコーヒー280ccをしっかり冷やすには約160gの氷が必要となります。1.1kg入りの氷袋から約6〜7杯分が作れる計算になり、氷が溶けて加わることで仕上がり総量は約400〜450mlになります。</p>
+<hr />
+<h2 id="3">3. 損益分岐点（何杯で元が取れるか）</h2>
+<p>「大袋の氷を買っても、使い切る前に溶けたり飽きたりしたら損ではないか」という点について、損益分岐点を検証します。</p>
+<h3 id="vs-l250-300ml">vs セブンカフェ Lサイズ（250円 / 約300ml）</h3>
+<ul>
+<li><strong>1杯あたりの差額</strong>: 社内自作の方が約135円安価（容量も社内の方が多い）</li>
+<li><strong>損益分岐点</strong>: <strong>2杯目</strong>でクリア</li>
+<li>セブンL 2杯: <code>250円 × 2 = 500円</code></li>
+<li>社内自作 2杯（氷1袋購入）: <code>289円 + 70円 × 2 = 429円</code></li>
+<li><strong>1袋（7杯分）使い切り時</strong>: 779円 vs 1,750円（<strong>約971円の差額</strong>）</li>
+</ul>
+<h3 id="vs-r140-180ml">vs セブンカフェ Rサイズ（140円 / 約180ml）</h3>
+<ul>
+<li><strong>1杯あたりの差額</strong>: 社内自作の方が約25円安価（容量は2倍以上）</li>
+<li><strong>損益分岐点</strong>: <strong>5杯目</strong>でクリア</li>
+<li>セブンR 5杯: <code>140円 × 5 = 700円</code></li>
+<li>社内自作 5杯（氷1袋購入）: <code>289円 + 70円 × 5 = 639円</code></li>
+</ul>
+<p>週に2回以上アイスコーヒーを飲む環境であれば、氷袋を1袋購入して運用するだけで確実にコストメリットが生じます。</p>
+<hr />
+<h2 id="4-ml">4. 容量単価（ml単価）の比較</h2>
+<p>価格だけでなく、「1mlあたりいくら支払っているか」を比較すると、ボリューム面での違いが明確になります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">選択肢</th>
+<th style="text-align: left;">1杯の支払額</th>
+<th style="text-align: left;">仕上がり容量</th>
+<th style="text-align: left;">1mlあたりの単価</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>セブンカフェ R</strong></td>
+<td style="text-align: left;">140円</td>
+<td style="text-align: left;">約180ml</td>
+<td style="text-align: left;"><strong>約0.78円/ml</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>セブンカフェ L</strong></td>
+<td style="text-align: left;">250円</td>
+<td style="text-align: left;">約300ml</td>
+<td style="text-align: left;"><strong>約0.83円/ml</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>社内自作（280cc＋氷）</strong></td>
+<td style="text-align: left;">約115円</td>
+<td style="text-align: left;">約400〜450ml</td>
+<td style="text-align: left;"><strong>約0.26〜0.28円/ml</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>社内自作の容量単価はセブンカフェの約3分の1です。デスクワークで長時間かけて多めの量を飲みたい場合、コスト効率は非常に高くなります。</p>
+<hr />
+<h2 id="5-20">5. 月間・年間コストシミュレーション（月20日勤務）</h2>
+<p>平日出勤（月20日）において、毎日アイスコーヒーを飲んだ場合の月間および年間の試算です。</p>
+<pre><code class="language-text">【1日1杯（Lサイズ相当・月20杯）飲む場合】
+・セブンカフェ L : 5,000円 / 月（年間 60,000円）
+・社内自作       : 約2,300円 / 月（年間 27,600円）※氷約3袋使用
+--------------------------------------------------
+差額（削減効果） : 月間 約2,700円 / 年間 約32,400円
+
+【1日2杯（Lサイズ相当・月40杯）飲む場合】
+・セブンカフェ L : 10,000円 / 月（年間 120,000円）
+・社内自作       : 約4,600円 / 月（年間 55,200円）※氷約6袋使用
+--------------------------------------------------
+差額（削減効果） : 月間 約5,400円 / 年間 約64,800円
+</code></pre>
+<hr />
+<h2 id="6">6. 実践における留意点と運用のコツ</h2>
+<p>社内自作には明確なコストメリットがある一方、日々の運用で考慮すべき点があります。</p>
+<ol>
+<li>
+<p><strong>タンブラーの容量選定</strong><br />
+   温コーヒー280ccに氷160gを入れると400mlを超えるため、溢れないように500ml前後の真空断熱ステンレスタンブラーを用意することが推奨されます。結露防止と保冷力維持にも寄与します。</p>
+</li>
+<li>
+<p><strong>冷凍庫での氷の固まり対策</strong><br />
+   冷凍庫内で袋の氷が固まる場合があるため、使用前に袋の上から軽くほぐしておくと計量が容易になります。</p>
+</li>
+<li>
+<p><strong>分割抽出の活用</strong><br />
+   一度に400mlも必要ない場合は、温コーヒーを140ccずつ2回に分けて作ることで、1杯あたり約55〜60円でセブンRサイズ相当の適量を飲むことができます。</p>
+</li>
+</ol>
+<hr />
+<h2 id="_3">変更履歴</h2>
+<ul>
+<li><strong>2026-08-18</strong>: セブンカフェと社内自作コーヒーの価格・容量・損益分岐点に関する実測試算データを整理し新規作成。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../other/index.html" class="hover:text-white">Strategic Life</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

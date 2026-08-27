@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="dark" lang="ja">
 <head>
   <meta charset="utf-8" />
@@ -8,7 +8,7 @@
   <!-- SEO & OGP -->
   <meta name="description" content="日田の「進撃の巨人 in HITA ミュージアム」を初めて訪れる人へ。諫山創氏が選んだ原画とキャプションを軸に、日田駅からの行き方、所要時間、ANNEXとの選び方を整理します。" />
   <meta property="og:title" content="日田「進撃の巨人」ミュージアム｜作者の解説を読む旅 | FunUni-lab" />
-  <meta property="og:description" content="諫山創氏が選んだ原画とキャプションを軸に、日田駅からの行き方、所要時間、ANNEXとの選び方を整理します。" />
+  <meta property="og:description" content="日田の「進撃の巨人 in HITA ミュージアム」を初めて訪れる人へ。諫山創氏が選んだ原画とキャプションを軸に、日田駅からの行き方、所要時間、ANNEXとの選び方を整理します。" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="FunUni-lab" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -18,46 +18,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
   <link rel="stylesheet" href="../../assets/css/synthetic.css">
   <style>
     :root {
       --obsidian: #0a0c14;
       --surface-glass: rgba(255, 255, 255, 0.03);
       --border-glass: rgba(255, 255, 255, 0.08);
-      --accent-emerald: #34d399;
-      --accent-cyan: #06b6d4;
+      --accent-theme: #34d399;
     }
     
     body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
     .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
-    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, rgba(52, 211, 153, 0.06) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #34d3990f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
     
     /* Article Typography */
-    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem; }
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
     .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #34d399; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
     .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
     .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
     .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
     .article-body a { color: #34d399; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
-    .article-body a:hover { color: #6ee7b7; border-bottom-color: #6ee7b7; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #34d399; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
     
     /* Table Styling */
     .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
     table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
-    thead { background: rgba(52, 211, 153, 0.08); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    thead { background: #34d39914; border-bottom: 1px solid rgba(255,255,255,0.1); }
     th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
     td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
     tr:hover td { background-color: rgba(255,255,255,0.02); }
     
-    /* Custom Callouts */
-    .callout-memo { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #34d399; }
     
-    /* Step Box */
-    .step-box { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
-    .step-number { width: 28px; height: 28px; border-radius: 50%; background: #34d399; color: #0a0c14; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
   </style>
 </head>
-<body class="selection:bg-emerald-500/30 overflow-x-hidden">
+<body class="selection:bg-slate-700 overflow-x-hidden">
   <div class="bg-mesh"></div>
   
   <!-- Global Navigation -->
@@ -66,17 +81,17 @@
       <div class="flex items-center gap-12">
         <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
         <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
-          <a href="../../infra/index.html" class="hover:text-primary transition-colors">Infrastructure</a>
-          <a href="../../dev/index.html" class="hover:text-secondary transition-colors">Development</a>
-          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors">AI Research</a>
-          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors">Finance</a>
-          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors">Optimization</a>
-          <a href="../../other/index.html" class="text-emerald-400 border-b-2 border-emerald-400 pb-1">Strategic Life</a>
-          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors">YouTube Lab</a>
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors text-[#34d399] border-b-2 border-[#34d399] pb-1">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
         </div>
       </div>
       <div class="flex items-center gap-4">
-        <div class="w-10 h-10 rounded-full bg-surface-container border border-emerald-400/20 flex items-center justify-center text-emerald-400">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #34d399;">
           <span class="material-symbols-outlined">explore</span>
         </div>
       </div>
@@ -89,206 +104,122 @@
     <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
       <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
       <span class="text-slate-600">/</span>
-      <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors">Strategic Life</a>
-      <span class="text-slate-600">/</span>
-      <span class="text-emerald-400">Travel Guide</span>
+      <a href="../../other/index.html" class="hover:text-white transition-colors" style="color: #34d399;">Strategic Life</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Travel</span>
     </nav>
 
     <!-- Header Meta -->
     <header class="mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 text-[10px] font-bold tracking-widest uppercase mb-4">
-        <span class="material-symbols-outlined text-xs">museum</span> ミュージアム鑑賞ガイド
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #34d3991a; color: #34d399; border-color: #34d39933;">
+        <span class="material-symbols-outlined text-xs">explore</span> Domain_06 / Life
       </div>
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
-        日田「進撃の巨人」ミュージアム<br>
-        <span class="text-2xl sm:text-3xl text-slate-400 font-normal">作者の解説を読む旅</span>
+        日田「進撃の巨人」ミュージアム｜作者の解説を読む旅
       </h1>
       <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
-        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-emerald-400">calendar_today</span> 2026-08-28</span>
-        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-emerald-400">schedule</span> 読了目安: 約5分</span>
-        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-emerald-400">location_on</span> 道の駅 水辺の郷おおやま</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #34d399;">calendar_today</span> 公開: 2026-08-28</span>
+        
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #34d399;">schedule</span> 読了目安: 約8分</span>
       </div>
     </header>
 
-    <!-- Summary Box -->
-    <section class="glass-card p-6 md:p-8 mb-12 border-emerald-500/20 bg-emerald-950/10">
-      <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-4">
-        <span class="material-symbols-outlined text-base">checklist</span> 概要（Summary）
-      </div>
-      <ul class="space-y-2 text-sm text-slate-300 leading-relaxed">
-        <li class="flex items-start gap-2">
-          <span class="text-emerald-400 font-bold">・</span>
-          <span>2026年4月開始の展示では、諫山創氏が選定し、キャプションコメントも執筆した生原画26ページを展示しています。</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-emerald-400 font-bold">・</span>
-          <span>日田駅から公共交通で向かう場合は、日田バスターミナルから「水辺の郷おおやま前」までの往復時刻を先に確認するのが最初の行動です。</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-emerald-400 font-bold">・</span>
-          <span>原画とコメントに集中するなら、編集上の目安は45〜60分。帰りのバスが限られる日は、展示時間より復路の確保を優先します。</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-emerald-400 font-bold">・</span>
-          <span>全34巻の複製原画を広く追いたい人は、別会場のANNEXも候補です。二館を同日に詰め込まず、共通券の有効期間を確認して分ける選択もできます。</span>
-        </li>
-      </ul>
-      <div class="mt-4 pt-4 border-t border-emerald-400/10 text-xs text-slate-400">
-        最終確認: 2026-08-28。展示・交通・営業情報は変わるため、出発前に<a href="https://shingeki-hita.com/" target="_blank" rel="noopener" class="text-emerald-400 hover:underline">進撃の日田 公式サイト</a>で最新情報を確認してください。
-      </div>
-    </section>
-
     <!-- Article Content -->
     <article class="article-body">
-      
-      <h2><span class="material-symbols-outlined text-emerald-400 text-2xl">menu_book</span> 1. このミュージアムを選ぶ理由は「原画に添えられた言葉」</h2>
-      <p>
-        2026年4月24日からの「諫山創セレクト原画 新展示」では、原作者が選定した生原画26ページと、諫山氏自身によるキャプションコメントが案内されています。キャプションは日本語・英語・韓国語・繁体字中国語の4言語です。作品の場面を知っている人ほど、線、修正、枠外の指示といった紙の情報と作者の説明を往復して見られます。<a href="https://shingeki-hita.com/news_2026.html" target="_blank" rel="noopener">公式の展示案内</a>で、展示替えや休館日の最新情報を確認できます。
-      </p>
-
-      <div class="callout-memo">
-        <div class="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-widest mb-2">
-          <span class="material-symbols-outlined text-sm">edit_note</span> 著者の訪問メモ
-        </div>
-        <p class="text-sm text-slate-300 m-0 leading-relaxed">
-          最も印象に残ったのは、原画の横で作者本人の解説を読めることでした。単に名場面を確認するより、「この表現をどう考えたのか」を作品のそばで受け取れるため、原画を見る時間を意識して確保するほうが満足しやすいと感じます。これは訪問者としての感想であり、展示の公式説明ではありません。
-        </p>
-      </div>
-
-      <p>
-        原画の数だけを目的にする施設ではありません。読み返したことのある巻や印象的な場面がある人ほど、キャプションを急がず読む時間に価値が出ます。
-      </p>
-
-      <h2><span class="material-symbols-outlined text-emerald-400 text-2xl">hourglass_empty</span> 2. 所要時間は「帰りの交通」から逆算する</h2>
-      <p>
-        展示を急いで消化するより、先に帰り方を決めてから滞在時間を置くのが現実的です。日田駅から公共交通で行く場合、公式案内では日田バスターミナルから日田バス杖立線で「水辺の郷おおやま前」へ向かい、所要時間は約30分とされています。便数には限りがあるため、往路よりも復路の時刻を先に確認してください。<a href="https://shingeki-hita.com/spot/017.html" target="_blank" rel="noopener">公式アクセス案内</a>
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>使える時間</th>
-              <th>選び方</th>
-              <th>向いている人</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="font-bold text-white">45〜60分</td>
-              <td>ミュージアムだけに絞り、原画とキャプションを優先する</td>
-              <td>日田観光の途中に、作品を読む目的で立ち寄る人</td>
-            </tr>
-            <tr>
-              <td class="font-bold text-white">90分前後</td>
-              <td>展示を読んだ後、道の駅で休憩する時間も取る</td>
-              <td>車・タクシーで時間を調整しやすい人</td>
-            </tr>
-            <tr>
-              <td class="font-bold text-white">半日以上</td>
-              <td>ANNEXや他の進撃の日田スポットを別枠で組み合わせる</td>
-              <td>原画以外の展示や日田での移動も楽しみたい人</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p class="text-xs text-slate-500">
-        ※表の時間は編集上の目安です。展示の混雑、写真撮影の可否、売店利用、交通の待ち時間によって変わります。短時間でも、キャプションを読まずに通過するなら、このミュージアムを選ぶ理由は薄くなります。
-      </p>
-
-      <h2><span class="material-symbols-outlined text-emerald-400 text-2xl">alt_route</span> 3. 日田駅を起点にする場合の実行手順</h2>
-      <p>公共交通で向かう場合は、日田駅到着後に次の順で決めます。</p>
-
-      <div class="space-y-4 my-6">
-        <div class="step-box flex items-start gap-4">
-          <div class="step-number shrink-0">1</div>
-          <div>
-            <h4 class="text-white font-bold text-sm mb-1">バス時刻の確認</h4>
-            <p class="text-xs text-slate-400 m-0">日田バスターミナル発「杖立線（杖立）行」と「水辺の郷おおやま前」発の復路便を確認する。</p>
-          </div>
-        </div>
-
-        <div class="step-box flex items-start gap-4">
-          <div class="step-number shrink-0">2</div>
-          <div>
-            <h4 class="text-white font-bold text-sm mb-1">滞在可能時間の判断</h4>
-            <p class="text-xs text-slate-400 m-0">復路便から逆算して、展示に使える時間を45〜60分以上確保できるか判断する。</p>
-          </div>
-        </div>
-
-        <div class="step-box flex items-start gap-4">
-          <div class="step-number shrink-0">3</div>
-          <div>
-            <h4 class="text-white font-bold text-sm mb-1">タクシーまたは別日の検討</h4>
-            <p class="text-xs text-slate-400 m-0">余裕が取れない場合は、タクシーまたは別日に回す。日田駅からタクシーで約20〜30分、料金は約3,000〜4,500円が目安です。</p>
-          </div>
-        </div>
-      </div>
-
-      <h2><span class="material-symbols-outlined text-emerald-400 text-2xl">compare_arrows</span> 4. ANNEXまで回るかは、見たいものから決める</h2>
-      <p>
-        日田には、もう一つ「進撃の巨人 in HITA ミュージアム ANNEX」があります。二館は別の場所にあるため、「せっかくなので一日で全部」と決める前に、展示の違いから選ぶほうが迷いません。
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>会場</th>
-              <th>主な見どころ</th>
-              <th>優先するとよい人</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="font-bold text-white">進撃の巨人 in HITA ミュージアム（道の駅 水辺の郷おおやま内）</td>
-              <td>諫山氏が選定しコメントを執筆した生原画26ページ</td>
-              <td>原画の制作痕と作者の言葉を中心に見たい人</td>
-            </tr>
-            <tr>
-              <td class="font-bold text-white">進撃の巨人 in HITA ミュージアム ANNEX（サッポロビール九州日田工場敷地内）</td>
-              <td>1〜34巻の複製原画、諫山氏セレクトとコメント付きの展示</td>
-              <td>物語全体を振り返りながら展示量を楽しみたい人</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p>
-        ANNEXの展示・所在地・営業情報は<a href="https://oidehita.com/archives/58298" target="_blank" rel="noopener">日田市観光協会の案内</a>と公式サイトで直前に確認してください。二館共通券は通常、購入日と翌日の2日間有効と案内されています。移動に余裕がなければ、二日に分けるほうが展示を読む時間を失いません。
-      </p>
-
-      <h2><span class="material-symbols-outlined text-emerald-400 text-2xl">task_alt</span> 5. 出発前に確認したいこと</h2>
-      <div class="glass-card p-6 my-6 border-slate-700 space-y-3 text-sm text-slate-300">
-        <label class="flex items-center gap-3 cursor-pointer">
-          <input type="checkbox" class="rounded border-slate-700 text-emerald-500 focus:ring-emerald-400 bg-slate-900" />
-          <span>展示替え・休館日（第3水曜等）・入場料（大人500円/18歳未満無料）を確認した</span>
-        </label>
-        <label class="flex items-center gap-3 cursor-pointer">
-          <input type="checkbox" class="rounded border-slate-700 text-emerald-500 focus:ring-emerald-400 bg-slate-900" />
-          <span>公共交通なら、往復のバス時刻を確認した</span>
-        </label>
-        <label class="flex items-center gap-3 cursor-pointer">
-          <input type="checkbox" class="rounded border-slate-700 text-emerald-500 focus:ring-emerald-400 bg-slate-900" />
-          <span>原画とキャプションを読む時間を、最低45分程度は確保した</span>
-        </label>
-        <label class="flex items-center gap-3 cursor-pointer">
-          <input type="checkbox" class="rounded border-slate-700 text-emerald-500 focus:ring-emerald-400 bg-slate-900" />
-          <span>ANNEXも訪れるなら、共通券の有効期間（2日間）を考慮して日程を判断した</span>
-        </label>
-      </div>
-
-      <h2><span class="material-symbols-outlined text-emerald-400 text-2xl">flag</span> まとめ</h2>
-      <p>
-        日田の「進撃の巨人 in HITA ミュージアム」は、作品の舞台をなぞるだけでなく、作者が選んだ原画と、その横にある解説を読むための場所です。時間が限られるなら、日田駅からの復路交通を最初に確定し、ミュージアム一館で原画とキャプションに集中する計画が向いています。
-      </p>
-
-      <h2><span class="material-symbols-outlined text-emerald-400 text-2xl">history</span> 変更履歴 (Changelog)</h2>
-      <ul class="text-xs font-mono text-slate-400">
-        <li><strong>2026-08-28</strong>: 日田の「進撃の巨人 in HITA ミュージアム」で、諫山創氏の選定原画とキャプションを読むためのガイドを完全HTML版として公開。</li>
-      </ul>
-
+      <p>日田で『進撃の巨人』に触れるなら、銅像を巡る前後に「進撃の巨人 in HITA ミュージアム」を組み込む価値があります。短時間の立ち寄りでも、原画そのものだけでなく、原作者・諫山創氏が選んだ作品とキャプションを読むことで、作品の見え方が少し変わるからです。</p>
+<p>この記事は、道の駅 水辺の郷おおやま内の<strong>進撃の巨人 in HITA ミュージアム</strong>を中心にしたガイドです。日田全域の聖地を一日で回り切る計画ではなく、「作者の言葉と原画を落ち着いて読む」ことを目的にする人向けに、行き方と時間配分を整理します。</p>
+<h2 id="summary">概要（Summary）</h2>
+<ul>
+<li>2026年4月開始の展示では、諫山創氏が選定し、キャプションコメントも執筆した生原画26ページを展示しています。</li>
+<li>日田駅から公共交通で向かう場合は、日田バスターミナルから「水辺の郷おおやま前」までの往復時刻を先に確認するのが最初の行動です。</li>
+<li>原画とコメントに集中するなら、編集上の目安は45〜60分。帰りのバスが限られる日は、展示時間より復路の確保を優先します。</li>
+<li>全34巻の複製原画を広く追いたい人は、別会場のANNEXも候補です。二館を同日に詰め込まず、共通券の有効期間を確認して分ける選択もできます。</li>
+</ul>
+<div class="callout-note">
+<p>最終確認: 2026-08-28。展示・交通・営業情報は変わるため、出発前に<a href="https://shingeki-hita.com/">進撃の日田 公式サイト</a>で最新情報を確認してください。</p>
+</div>
+<h2 id="1">1. このミュージアムを選ぶ理由は「原画に添えられた言葉」</h2>
+<p>2026年4月24日からの「諫山創セレクト原画 新展示」では、原作者が選定した生原画26ページと、諫山氏自身によるキャプションコメントが案内されています。キャプションは日本語・英語・韓国語・繁体字中国語の4言語です。作品の場面を知っている人ほど、線、修正、枠外の指示といった紙の情報と作者の説明を往復して見られます。<a href="https://shingeki-hita.com/news_2026.html">公式の展示案内</a>で、展示替えや休館日の最新情報を確認できます。</p>
+<div class="callout-note">
+<p><strong>著者の訪問メモ</strong>: 最も印象に残ったのは、原画の横で作者本人の解説を読めることでした。単に名場面を確認するより、「この表現をどう考えたのか」を作品のそばで受け取れるため、原画を見る時間を意識して確保するほうが満足しやすいと感じます。これは訪問者としての感想であり、展示の公式説明ではありません。</p>
+</div>
+<p>原画の数だけを目的にする施設ではありません。読み返したことのある巻や印象的な場面がある人ほど、キャプションを急がず読む時間に価値が出ます。</p>
+<h2 id="2">2. 所要時間は「帰りの交通」から逆算する</h2>
+<p>展示を急いで消化するより、先に帰り方を決めてから滞在時間を置くのが現実的です。日田駅から公共交通で行く場合、公式案内では日田バスターミナルから日田バス杖立線で「水辺の郷おおやま前」へ向かい、所要時間は約30分とされています。便数には限りがあるため、往路よりも復路の時刻を先に確認してください。<a href="https://shingeki-hita.com/spot/017.html">公式アクセス案内</a></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>使える時間</th>
+<th>選び方</th>
+<th>向いている人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>45〜60分</td>
+<td>ミュージアムだけに絞り、原画とキャプションを優先する</td>
+<td>日田観光の途中に、作品を読む目的で立ち寄る人</td>
+</tr>
+<tr>
+<td>90分前後</td>
+<td>展示を読んだ後、道の駅で休憩する時間も取る</td>
+<td>車・タクシーで時間を調整しやすい人</td>
+</tr>
+<tr>
+<td>半日以上</td>
+<td>ANNEXや他の進撃の日田スポットを別枠で組み合わせる</td>
+<td>原画以外の展示や日田での移動も楽しみたい人</td>
+</tr>
+</tbody>
+</table></div>
+<p>表の時間は編集上の目安です。展示の混雑、写真撮影の可否、売店利用、交通の待ち時間によって変わります。短時間でも、キャプションを読まずに通過するなら、このミュージアムを選ぶ理由は薄くなります。</p>
+<h2 id="3">3. 日田駅を起点にする場合の実行手順</h2>
+<p>公共交通で向かう場合は、日田駅到着後に次の順で決めます。</p>
+<ol>
+<li><a href="https://shingeki-hita.com/spot/017.html">公式アクセス案内</a>で、日田バスターミナル発「杖立線（杖立）行」と「水辺の郷おおやま前」発の復路便を確認する。</li>
+<li>復路便から逆算して、展示に使える時間を45〜60分以上確保できるか判断する。</li>
+<li>余裕が取れない場合は、タクシーまたは別日に回す。公式案内の目安では、日田駅からタクシーで約20〜30分、料金は約3,000〜4,500円です。</li>
+</ol>
+<p>日田駅からレンタサイクルで向かう案もありますが、公式案内では片道10km・約50〜60分の目安です。暑い日、雨天、歩行や体力に不安がある場合、または展示を主目的にした短時間旅行には向きません。自転車を選ぶなら、移動そのものを楽しむ日程に分けるのが安全です。</p>
+<h2 id="4-annex">4. ANNEXまで回るかは、見たいものから決める</h2>
+<p>日田には、もう一つ「進撃の巨人 in HITA ミュージアム ANNEX」があります。二館は別の場所にあるため、「せっかくなので一日で全部」と決める前に、展示の違いから選ぶほうが迷いません。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>会場</th>
+<th>主な見どころ</th>
+<th>優先するとよい人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>進撃の巨人 in HITA ミュージアム（道の駅 水辺の郷おおやま内）</td>
+<td>諫山氏が選定しコメントを執筆した生原画26ページ</td>
+<td>原画の制作痕と作者の言葉を中心に見たい人</td>
+</tr>
+<tr>
+<td>進撃の巨人 in HITA ミュージアム ANNEX（サッポロビール九州日田工場敷地内）</td>
+<td>1〜34巻の複製原画、諫山氏セレクトとコメント付きの展示</td>
+<td>物語全体を振り返りながら展示量を楽しみたい人</td>
+</tr>
+</tbody>
+</table></div>
+<p>ANNEXの展示・所在地・営業情報は<a href="https://oidehita.com/archives/58298">日田市観光協会の案内</a>と公式サイトで直前に確認してください。二館共通券は通常、購入日と翌日の2日間有効と案内されています。移動に余裕がなければ、二日に分けるほうが展示を読む時間を失いません。<a href="https://shingeki-hita.com/news_2026.html">共通券と休館日の公式案内</a></p>
+<h2 id="5">5. 出発前に確認したいこと</h2>
+<p>大人の入場料は500円、18歳未満は無料と案内されています。ミュージアムは毎月第3水曜日と年末年始に休館日が設けられているため、営業時間だけでなく、日付に対応する休館情報も確認してください。<a href="https://shingeki-hita.com/news_2026.html">2026年度の公式案内</a></p>
+<ul>
+<li>[ ] 展示替え・休館日・入場特典などの最新情報を公式サイトで確認した。</li>
+<li>[ ] 公共交通なら、往復のバス時刻を確認した。</li>
+<li>[ ] 原画とキャプションを読む時間を、最低45分程度は確保した。</li>
+<li>[ ] ANNEXも訪れるなら、二館を同日に回る必要があるかを移動時間と共通券の有効期間で判断した。</li>
+<li>[ ] 暑さ・雨天・歩行負担が気になる場合は、レンタサイクルではなくバスやタクシーを選んだ。</li>
+</ul>
+<h2 id="_1">まとめ</h2>
+<p>日田の「進撃の巨人 in HITA ミュージアム」は、作品の舞台をなぞるだけでなく、作者が選んだ原画と、その横にある解説を読むための場所です。時間が限られるなら、日田駅からの復路交通を最初に確定し、ミュージアム一館で原画とキャプションに集中する計画が向いています。</p>
+<p>ANNEXまで回るかは、「作者の言葉と生原画を深く見る」か、「全巻を横断して展示を楽しむ」かで決めると、日田での時間を詰め込みすぎずに済みます。</p>
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-28</strong>: 日田の「進撃の巨人 in HITA ミュージアム」で、諫山創氏の選定原画とキャプションを読むための行き方・所要時間・ANNEXとの選び方を新規公開。</li>
+</ul>
     </article>
 
   </main>
@@ -305,5 +236,13 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
 </body>
 </html>

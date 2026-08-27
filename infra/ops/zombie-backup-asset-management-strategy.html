@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（Jira）の自動化戦略 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="削除漏れのサーバがコストを食いつぶす「ゾンビバックアップ」問題を技術的に解決。JiraとRubrik APIを連携させ、不整合ゼロのIT資産管理を実現する戦略を詳解。" />
+  <meta property="og:title" content="ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（Jira）の自動化戦略 | FunUni-lab" />
+  <meta property="og:description" content="削除漏れのサーバがコストを食いつぶす「ゾンビバックアップ」問題を技術的に解決。JiraとRubrik APIを連携させ、不整合ゼロのIT資産管理を実現する戦略を詳解。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #aaa4ff;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #aaa4ff0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #aaa4ff; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #aaa4ff; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #aaa4ff; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #aaa4ff14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #aaa4ff; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #aaa4ff; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors text-[#aaa4ff] border-b-2 border-[#aaa4ff] pb-1">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #aaa4ff;">
+          <span class="material-symbols-outlined">database</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../infra/index.html" class="hover:text-white transition-colors" style="color: #aaa4ff;">Infrastructure</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Ops</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #aaa4ff1a; color: #aaa4ff; border-color: #aaa4ff33;">
+        <span class="material-symbols-outlined text-xs">database</span> Domain_01 / Infra
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        ゾンビバックアップを根絶せよ｜Rubrik API×資産管理（Jira）の自動化戦略
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">calendar_today</span> 公開: 2026-04-24</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">schedule</span> 読了目安: 約7分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <p>「サーバは半年前に削除したはずなのに、バックアップの請求が止まらない……」</p>
+<p>数千台規模のインフラを運用する現場で、誰もが一度は直面する<strong>「<a href="../../glossary/system-glossary.html#:~:text=" title="ゾンビバックアップ">ゾンビバックアップ</a>（Zombie Backups）」</strong>。この問題は、単なるストレージの無駄遣いにとどまらず、ITガバナンスの欠如と運用コストの深刻な漏洩を意味します。</p>
+<p>本記事では、資産管理ツール「<a href="../../glossary/system-glossary.html#:~:text=" title="Jira">Jira</a>」とRubrikをAPIで直結し、<strong>不整合を自動で検知・解消する次世代の資産管理戦略</strong>をプロの視点で解説します。</p>
+<hr />
+<h2 id="1">1. ゾンビバックアップが組織に蔓延する構造的要因</h2>
+<p>なぜ、優秀なエンジニアが揃っている現場でも「消し忘れ」は起きるのでしょうか？</p>
+<ul>
+<li><strong>台帳更新の属人性</strong>: 現場でVMを削除しても、管理台帳（CMDB）への反映が「人間の手作業」に依存している。</li>
+<li><strong>ライフサイクルの断絶</strong>: 仮想マシンの削除プロセスと、バックアップツールのSLA（ポリシー）解除プロセスが連携していない。</li>
+<li><strong>シャドーITの増殖</strong>: 開発者が勝手に作成し、放置された「野良サーバ」がバックアップだけされ続けている。</li>
+</ul>
+<p>これらが積み重なった結果、<strong>バックアップコストの20〜30%が「存在しない資産」に費やされている</strong>ケースも珍しくありません。</p>
+<hr />
+<h2 id="2-api">2. 三位一体のAPIクロスチェック：真実を自動であぶり出す</h2>
+<p>不整合を解消する唯一の解決策は、複数のデータソースをAPIで強制的に突合（名寄せ）することです。</p>
+<h3 id="3">3層クロスチェック・ロジック</h3>
+<p>以下の3つのデータを定期的に自動で突合し、不整合をアラート化します。</p>
+<ol>
+<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="Jira">Jira</a>（資産台帳）</strong>: 「あるべき姿」のマスターデータ。</li>
+<li><strong>vSphere/Cloud</strong>: 「現在動いている」実機データ。</li>
+<li><strong>Rubrik</strong>: 「現在保護されている」データ。</li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">状態</th>
+<th style="text-align: left;">判定結果</th>
+<th style="text-align: left;">推奨される自動アクション</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">台帳(無) × 実機(有)</td>
+<td style="text-align: left;"><strong>資産登録漏れ</strong></td>
+<td style="text-align: left;">資産登録を促す通知、またはVMの停止</td>
+</tr>
+<tr>
+<td style="text-align: left;">台帳(無) × Rubrik(有)</td>
+<td style="text-align: left;"><strong><a href="../../glossary/system-glossary.html#:~:text=" title="ゾンビバックアップ">ゾンビバックアップ</a></strong></td>
+<td style="text-align: left;"><strong>SLAの自動解除（新規課金停止）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">台帳(有) × Rubrik(無)</td>
+<td style="text-align: left;"><strong>データ保護漏れ</strong></td>
+<td style="text-align: left;">適切なSLAを自動適用</td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout-note">
+<p><strong>💡 プロのTips: キーの選定</strong>
+ホスト名やIPアドレスは変更されるリスクがあるため、突合キーには不変の <strong><code>vSphere Instance UUID</code></strong> を使用するのが鉄則です。</p>
+</div>
+<hr />
+<h2 id="3_1">3. ステータス別の自動最適化プロセス</h2>
+<p>RubrikのAPIを活用すれば、単に「消す」だけではない、きめ細やかな運用が可能です。</p>
+<h3 id="1_1">① 停止中サーバのノイズカット</h3>
+<p>vSphereでパワーオフ状態、かつ資産管理上「休止」となっているサーバは、バックアップの失敗アラートを出す必要がありません。API経由でバックアップを一時停止（Pause）し、運用ノイズを即座にカットします。</p>
+<h3 id="2-relic">② 削除済み資産（Relic）のクリーンアップ</h3>
+<p>vSphereから削除されたVMをRubrikは「Relic（遺物）」として保持し続けます。資産管理台帳で「廃棄済み」が確定したタイミングで、APIがSLAを解除。過去のデータは保持しつつ、新規のSLA課金のみを停止させます。</p>
+<hr />
+<h2 id="4">4. 廃棄プロセスへの「自動査定」組み込み</h2>
+<p>システムによる事後検知だけでなく、<strong>廃棄フローそのものにAPIを組み込む</strong>のが最高レベルの自動化です。</p>
+<ol>
+<li><strong>廃棄申請</strong>: ユーザーがJiraでVMの廃棄を申請。</li>
+<li><strong>自動査定</strong>: Rubrik APIが当該VMの「最終リストアポイント」と「現在の保存容量（Cost）」を申請書に自動追記。</li>
+<li><strong>自動実行</strong>: 承認が下りた瞬間、vSphereのVM削除とRubrikのアーカイブ移行が同時に実行される。</li>
+</ol>
+<hr />
+<h2 id="5">5. まとめ：自動化こそが最大のコスト削減ソリューション</h2>
+<p>資産管理とバックアップの不整合を手動で追いかける時代は終わりました。</p>
+<ol>
+<li><strong>不整合を定量化</strong>し、ゾンビ資産による「無駄な支出」を可視化する。</li>
+<li><strong>API連携</strong>により、台帳と実機とバックアップの「三位一体」を保つ。</li>
+<li><strong>運用工数を削減</strong>し、浮いたリソースを攻めのIT投資（DX）へ回す。</li>
+</ol>
+<p>この戦略を導入することで、インフラ運用は「守り」から、経営に貢献する「攻め」の資産最適化へと進化します。</p>
+<h3 id="_1">📌 次のステップ：構築ガイド</h3>
+<p>具体的なAPIの叩き方や、Jiraとのスクリプト連携手順については、以下の実践ガイドをご覧ください。</p>
+<p>👉 <strong><a href="https://fununi222.github.io/website/html/infra/ops/Jira-rubrik-api-integration-guide.html">【実践編】APIで繋ぐ！ Jira × Rubrik不整合検知システムの構築ガイド</a></strong></p>
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-04-24</strong>: 「実践的なコンテンツ設計」に基づきリライト。コスト削減の財務的インパクトと、UUIDベースの堅牢な自動化ロジックを強調。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../infra/index.html" class="hover:text-white">Infrastructure</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

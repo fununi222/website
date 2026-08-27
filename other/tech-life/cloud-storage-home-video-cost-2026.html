@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ホームビデオ向けクラウドストレージ比較｜容量別・家族共有の選び方をファクトチェック | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="Google One、Google AI Pro、iCloud+、Microsoft 365、Dropbox、pCloud、家族アルバム みてねを、動画保存・家族共有・長期保管の観点で公式料金ベースに再検証。" />
+  <meta property="og:title" content="ホームビデオ向けクラウドストレージ比較｜容量別・家族共有の選び方をファクトチェック | FunUni-lab" />
+  <meta property="og:description" content="Google One、Google AI Pro、iCloud+、Microsoft 365、Dropbox、pCloud、家族アルバム みてねを、動画保存・家族共有・長期保管の観点で公式料金ベースに再検証。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #34d399;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #34d3990f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #34d399; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #34d399; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #34d399; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #34d39914; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #34d399; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors text-[#34d399] border-b-2 border-[#34d399] pb-1">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #34d399;">
+          <span class="material-symbols-outlined">explore</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../other/index.html" class="hover:text-white transition-colors" style="color: #34d399;">Strategic Life</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Tech Life</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #34d3991a; color: #34d399; border-color: #34d39933;">
+        <span class="material-symbols-outlined text-xs">explore</span> Domain_06 / Life
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        ホームビデオ向けクラウドストレージ比較｜容量別・家族共有の選び方をファクトチェック
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #34d399;">calendar_today</span> 公開: 2026-08-17</span>
+        
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #34d399;">schedule</span> 読了目安: 約12分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <p>スマートフォンの4K動画、子どもの成長記録、旅行動画は、写真よりもはるかに速くストレージを消費します。無料枠だけで運用すると、Googleアカウントの15GB、iCloudの5GB、OneDriveの5GBはすぐに上限へ到達します。</p>
+<p>本記事では、2026年8月17日時点で確認できる公式料金・公式説明をもとに、Google One / Google AIプラン、iCloud+、Microsoft 365、Dropbox、pCloud、家族アルバム みてねをファクトチェックし、<strong>「容量単価」ではなく、家族運用で本当に破綻しにくい保存設計</strong>として整理します。</p>
+<div class="callout-note">
+<p>重要：クラウド料金は地域・キャンペーン・アプリ内課金経路で変動します。最終契約前には必ず公式ページの表示価格を確認してください。</p>
+</div>
+<hr />
+<h2 id="1">1. ファクトチェック結論：修正すべきポイント</h2>
+<p>先に結論です。元レポートの大枠、つまり「みてねは家族動画共有に強い」「Microsoft 365 Familyは人数が多いほど強い」「Google One 2TBは家族共有プールとして有力」「pCloudは長期利用でサブスク回避になる」という方向性は妥当です。</p>
+<p>ただし、公開記事にするなら以下は修正しておくべきです。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">論点</th>
+<th style="text-align: left;">判定</th>
+<th style="text-align: left;">修正内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Microsoft 365 Familyの月額換算</td>
+<td style="text-align: left;"><strong>要修正</strong></td>
+<td style="text-align: left;">年額27,400円なら月額換算は約2,283円です。本文の「月額換算2,740円」は計算ミスです。</td>
+</tr>
+<tr>
+<td style="text-align: left;">Google AI Proのモデル名</td>
+<td style="text-align: left;"><strong>要修正</strong></td>
+<td style="text-align: left;">公式表記は「Pro model」「Deep Research」等であり、「Gemini 3.1 Pro」と断定する根拠は確認できませんでした。</td>
+</tr>
+<tr>
+<td style="text-align: left;">iCloud+日本価格</td>
+<td style="text-align: left;"><strong>確認済み</strong></td>
+<td style="text-align: left;">Apple公式サポート上の日本価格は50GB 180円、200GB 540円、2TB 1,800円、6TB 5,500円、12TB 11,000円/月です。</td>
+</tr>
+<tr>
+<td style="text-align: left;">Microsoft 365 Basic / Family</td>
+<td style="text-align: left;"><strong>確認済み</strong></td>
+<td style="text-align: left;">Microsoft公式の日本向けOneDrive料金ページで、Basicは年額2,440円、Familyは年額27,400円と確認できます。</td>
+</tr>
+<tr>
+<td style="text-align: left;">pCloud Family</td>
+<td style="text-align: left;"><strong>確認済み・注意</strong></td>
+<td style="text-align: left;">Family 2TB / 10TBは買い切り型。ただし表示通貨やセール価格が変わるため、記事では「通常価格・セール変動あり」と明記すべきです。</td>
+</tr>
+<tr>
+<td style="text-align: left;">みてね</td>
+<td style="text-align: left;"><strong>確認済み・注意</strong></td>
+<td style="text-align: left;">無料でも動画投稿は可能ですが、無料プランは1本あたりの長さ制限があり、プレミアムでは長尺動画やPCアップロード等が強化されます。</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="2">2. 目的別の最適解</h2>
+<h3 id="_1">子どもの日常動画を祖父母まで簡単に共有したい</h3>
+<p>最初に検討すべきは、汎用クラウドではなく<strong>家族アルバム みてね</strong>です。無料で写真・動画の家族共有を始められ、プレミアムでは長い動画、PCアップロード、高画質関連の機能が強化されます。</p>
+<p>ただし、みてねは「家族向け閲覧・共有体験」に最適化されたサービスです。RAW動画、編集前素材、巨大な4Kファイルを原本アーカイブする用途では、Google One、iCloud+、OneDrive、pCloudなどと併用するのが安全です。</p>
+<h3 id="1tb">家族それぞれが独立した1TBを安く持ちたい</h3>
+<p><strong>Microsoft 365 Family</strong>が最有力です。日本向け公式価格は年額27,400円で、1〜6人用です。6人で使う場合、1人あたり年額約4,567円、月額約381円で1TBのOneDrive領域を持てます。</p>
+<p>最大の強みは、容量が「1TB × 最大6人」と個別に分かれる点です。家族間で容量を奪い合わず、プライバシーも分離しやすい一方、1人が6TBをまとめて使うことはできません。</p>
+<h3 id="2tb5tb">家族で2TB〜5TBを柔軟に分けたい</h3>
+<p>Android、Googleフォト、Gmail、Google Drive中心なら、<strong>Google One 2TB</strong>または<strong>Google AI Pro 5TB</strong>が候補です。Google Oneはストレージを最大5人の追加メンバー、つまり自分を含めて最大6人相当で共有できます。</p>
+<p>元レポートの「Google AI Proは5TB帯として強い」という評価はおおむね妥当です。ただし、AI機能名は頻繁に変わるため、「Gemini 3.1 Pro」といった未確認のモデル名で固定せず、公式表記に寄せて「GeminiアプリのProモデル、Deep Research、Google Workspace連携など」と書く方が安全です。</p>
+<h3 id="apple">Apple製品中心で写真アプリに統合したい</h3>
+<p>iPhone、iPad、Macの写真ライブラリ、端末バックアップ、iCloud写真を最優先するなら<strong>iCloud+</strong>です。日本価格は、50GBが180円/月、200GBが540円/月、2TBが1,800円/月、6TBが5,500円/月、12TBが11,000円/月です。</p>
+<p>単純な容量単価ではGoogle OneやMicrosoft 365 Familyに負ける場面がありますが、Apple写真アプリとの統合、端末復元、ファミリー共有のわかりやすさは強力です。Apple中心の家庭では「最安」ではなく「運用ミスが少ない」ことに価値があります。</p>
+<h3 id="_2">サブスクを避けて長期アーカイブしたい</h3>
+<p><strong>pCloud Family Lifetime</strong>は、2TBまたは10TBを家族で分配できる買い切り型プランです。短期では高額ですが、3〜5年以上使う前提なら、月額課金型より総コストを抑えられる可能性があります。</p>
+<p>注意点は、買い切り型でもクラウド事業者リスクがゼロになるわけではないことです。ホームビデオの原本は、pCloud単独ではなく、外付けSSD / NAS / 別クラウドとの二重化を推奨します。</p>
+<hr />
+<h2 id="3">3. 容量帯別・実質コスパ比較</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">容量帯</th>
+<th style="text-align: left;">有力候補</th>
+<th style="text-align: left;">公式確認ベースの評価</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">50GB</td>
+<td style="text-align: left;">iCloud+ 50GB</td>
+<td style="text-align: left;">Apple端末バックアップの最小課金として安い。動画保存にはすぐ不足します。</td>
+</tr>
+<tr>
+<td style="text-align: left;">100GB</td>
+<td style="text-align: left;">Microsoft 365 Basic / Google One Basic</td>
+<td style="text-align: left;">OneDrive 100GBは年額2,440円。Googleフォト中心ならGoogle Oneも候補。</td>
+</tr>
+<tr>
+<td style="text-align: left;">200GB</td>
+<td style="text-align: left;">Google One Standard / iCloud+ 200GB</td>
+<td style="text-align: left;">Google系の家族共有プールか、Apple統合かで選択。</td>
+</tr>
+<tr>
+<td style="text-align: left;">2TB</td>
+<td style="text-align: left;">Google One Premium / iCloud+ / Dropbox Plus</td>
+<td style="text-align: left;">汎用動画保存の現実的な主戦場。Dropboxは同期・共有ワークフロー向き。</td>
+</tr>
+<tr>
+<td style="text-align: left;">5〜6TB</td>
+<td style="text-align: left;">Google AI Pro / Microsoft 365 Family / iCloud+ 6TB</td>
+<td style="text-align: left;">共有プールならGoogle、個別1TB×最大6人ならMicrosoft、Apple統合ならiCloud。</td>
+</tr>
+<tr>
+<td style="text-align: left;">10TB超</td>
+<td style="text-align: left;">pCloud Family 10TB / iCloud+ 12TB</td>
+<td style="text-align: left;">長期買い切りならpCloud、Apple写真統合の大容量ならiCloud+。</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="4">4. ホームビデオ保存の推奨アーキテクチャ</h2>
+<p>クラウド選びで最も危険なのは、「安い1サービス」に全動画を集中させることです。家族の動画は再撮影できないため、料金比較だけでなく、復旧性を設計すべきです。</p>
+<p>おすすめは次の三層構造です。</p>
+<ol>
+<li><strong>共有レイヤー</strong>：みてね、Googleフォト、iCloud写真など、家族が日常的に見る場所。</li>
+<li><strong>原本レイヤー</strong>：OneDrive、Google Drive、pCloud、外付けSSDなど、編集前の動画を保存する場所。</li>
+<li><strong>バックアップレイヤー</strong>：別クラウドまたはオフライン媒体。誤削除、アカウント停止、同期ミスに備える場所。</li>
+</ol>
+<p>この設計にすると、「祖父母に見せる動画」と「将来編集する原本」を分けられます。結果として、家族共有アプリの使いやすさと、長期保存の安全性を両立できます。</p>
+<hr />
+<h2 id="5">5. 最終おすすめチャート</h2>
+<pre><code class="language-text">目的
+│
+├─ 子どもの成長記録を家族に簡単共有
+│ └─ みてね（無料〜プレミアム）＋原本は別ストレージ
+│
+├─ 4〜6人がそれぞれ1TBを安く使う
+│ └─ Microsoft 365 Family
+│
+├─ Googleフォト中心で2TBを共有
+│ └─ Google One Premium 2TB
+│
+├─ AI機能も使い、5TBを家族プールにしたい
+│ └─ Google AI Pro 5TB
+│
+├─ iPhone / Macの写真アプリ統合を最優先
+│ └─ iCloud+ 2TB / 6TB / 12TB
+│
+└─ サブスクを避け、長期保管コストを下げたい
+ └─ pCloud Family Lifetime ＋ ローカルバックアップ
+</code></pre>
+<hr />
+<h2 id="6">6. 出典・確認先</h2>
+<ul>
+<li><a href="https://one.google.com/about/plans">Google One プラン</a></li>
+<li><a href="https://one.google.com/about/google-ai-plans/">Google AI plans with Cloud Storage</a></li>
+<li><a href="https://support.apple.com/ja-jp/108047">iCloud+ のプランと料金 - Apple サポート</a></li>
+<li><a href="https://www.microsoft.com/ja-jp/microsoft-365/onedrive/onedrive-plans-and-pricing">Microsoft OneDrive クラウド ストレージのプランと価格</a></li>
+<li><a href="https://www.microsoft.com/ja-jp/microsoft-365/p/microsoft-365-family/cfq7ttc0k5dm">Microsoft 365 Family</a></li>
+<li><a href="https://www.dropbox.com/plans">Dropbox プラン</a></li>
+<li><a href="https://www.pcloud.com/cloud-storage-pricing-plans">pCloud Pricing</a></li>
+<li><a href="https://www.pcloud.com/family">pCloud Family</a></li>
+<li><a href="https://mitene.us/">家族アルバム みてね</a></li>
+<li><a href="https://family-album.com/premium">FamilyAlbum Premium</a></li>
+</ul>
+<h2 id="_3">変更履歴</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 公式料金ページを参照し、元レポートの計算ミス・未確認表記を補正したうえで新規作成。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../other/index.html" class="hover:text-white">Strategic Life</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

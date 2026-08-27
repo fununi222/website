@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>どっちが買い？ GPT-5.6 vs Claude最新比較 | 利用制限・新機能・選び方 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="GPT-5.6とClaudeを、業務自動化、文章作成、コーディング、料金・利用制限の観点で比較。ChatGPT WorkとClaude Reflect/Claude Codeの違いから選び方を解説。" />
+  <meta property="og:title" content="どっちが買い？ GPT-5.6 vs Claude最新比較 | 利用制限・新機能・選び方 | FunUni-lab" />
+  <meta property="og:description" content="GPT-5.6とClaudeを、業務自動化、文章作成、コーディング、料金・利用制限の観点で比較。ChatGPT WorkとClaude Reflect/Claude Codeの違いから選び方を解説。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00ffca;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00ffca0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00ffca; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00ffca; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00ffca; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #00ffca14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #00ffca; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00ffca; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors text-[#00ffca] border-b-2 border-[#00ffca] pb-1">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00ffca;">
+          <span class="material-symbols-outlined">smart_toy</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../ai/index.html" class="hover:text-white transition-colors" style="color: #00ffca;">AI Research</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Automation</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00ffca1a; color: #00ffca; border-color: #00ffca33;">
+        <span class="material-symbols-outlined text-xs">smart_toy</span> Domain_03 / AI
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        どっちが買い？ GPT-5.6 vs Claude最新比較 | 利用制限・新機能・選び方
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">calendar_today</span> 公開: 2026-07-11</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">schedule</span> 読了目安: 約14分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <p>AIツールに毎月お金を払うなら、失敗したくないですよね。</p>
+<p>2026年7月上旬、OpenAIはGPT-5.6とChatGPT Workを発表しました。一方でAnthropicも、Claude Sonnet 5、Claude Fable 5、ClaudeのReflect機能、利用制限やクレジット周りのアップデートを進めています。</p>
+<div class="callout-note">
+<p><strong>ファクトチェック（2026-07-11時点）</strong>: OpenAI公式のGPT-5.6/ChatGPT Work/Codex情報と、Anthropic公式のClaude Sonnet 5、Fable 5、Reflect、Claude利用制限ヘルプを確認しました。モデル名・上限・料金・提供対象は変わりやすいため、この記事では「選び方の軸」を中心に整理します。</p>
+</div>
+<p>つまり、AI業界は今、<strong>「どのAIを仕事の中心にするか」</strong>をめぐる本格的な競争に入っています。</p>
+<p>この記事では、GPT-5.6とClaudeのどちらに課金すべきかを、実務目線でわかりやすく比較します。</p>
+<h2 id="gpt-56claude">先に結論：作業自動化ならGPT-5.6、長文と思考整理ならClaude</h2>
+<p>ざっくり選ぶなら、次の基準です。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">あなたの目的</th>
+<th style="text-align: left;">おすすめ</th>
+<th style="text-align: left;">理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">パソコン作業や開発作業を進めたい</td>
+<td style="text-align: left;">GPT-5.6 / ChatGPT Work / Codex</td>
+<td style="text-align: left;">WorkとCodexが仕事・開発の実行に寄っている</td>
+</tr>
+<tr>
+<td style="text-align: left;">長い文章を読み込み、自然な文章にしたい</td>
+<td style="text-align: left;">Claude</td>
+<td style="text-align: left;">長文処理、文章作成、思考整理に強い</td>
+</tr>
+<tr>
+<td style="text-align: left;">コーディングをがっつり任せたい</td>
+<td style="text-align: left;">GPT-5.6 + Codex または Claude Code</td>
+<td style="text-align: left;">開発環境やチーム運用で選ぶ</td>
+</tr>
+<tr>
+<td style="text-align: left;">料金を細かく最適化したい</td>
+<td style="text-align: left;">両方を試す</td>
+<td style="text-align: left;">モデル単価、制限、作業内容で最適解が変わる</td>
+</tr>
+</tbody>
+</table></div>
+<p>「どちらが絶対に上」と考えるより、<strong>作業の種類で使い分ける</strong>方が失敗しにくいです。</p>
+<h2 id="gpt-56-vs-claude">比較と選定ポイント：GPT-5.6 vs Claude</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">比較軸</th>
+<th style="text-align: left;">GPT-5.6 / ChatGPT Work</th>
+<th style="text-align: left;">Claude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">代表的な新機能</td>
+<td style="text-align: left;">Sol/Terra/Luna、ChatGPT Work、Codex連携</td>
+<td style="text-align: left;">Sonnet 5、Fable 5、Reflect、Claude Code</td>
+</tr>
+<tr>
+<td style="text-align: left;">得意領域</td>
+<td style="text-align: left;">業務エージェント、開発、アプリ・ファイル連携</td>
+<td style="text-align: left;">長文読解、文章作成、内省的な整理、コーディング</td>
+</tr>
+<tr>
+<td style="text-align: left;">モデル設計</td>
+<td style="text-align: left;">用途別にSol/Terra/Lunaを選ぶ</td>
+<td style="text-align: left;">Sonnet、Opus、Fableなど目的別に選ぶ</td>
+</tr>
+<tr>
+<td style="text-align: left;">開発支援</td>
+<td style="text-align: left;">CodexがChatGPTデスクトップに統合</td>
+<td style="text-align: left;">Claude Codeが強力</td>
+</tr>
+<tr>
+<td style="text-align: left;">注意点</td>
+<td style="text-align: left;">機能が多く、使い分けに慣れが必要</td>
+<td style="text-align: left;">利用制限、クレジット、プラン差を確認する必要</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="gpt-56">GPT-5.6の強み</h2>
+<h3 id="1-chatworkcodex">1. Chat、Work、Codexがまとまりつつある</h3>
+<p>OpenAIは、ChatGPTの中でChat、Work、Codexを用途に応じて使い分ける体験を案内しています。</p>
+<p>これは大きな変化です。</p>
+<p>今までは、会話、調査、コーディング支援が別々の体験になりがちでした。統合が進むと、次のような流れを作りやすくなります。</p>
+<ol>
+<li>Chatでアイデアを相談する</li>
+<li>Workで調査や資料作成を進める</li>
+<li>CodexでコードやPull Requestを処理する</li>
+</ol>
+<p>仕事の入口から成果物作成までを、同じAI環境でつなげやすくなるのが強みです。</p>
+<h3 id="2-sol-terra-luna">2. Sol / Terra / Lunaでコスト調整しやすい</h3>
+<p>GPT-5.6は、Sol、Terra、Lunaの3モデルで構成されています。</p>
+<ul>
+<li>Sol: 高性能な作業向け</li>
+<li>Terra: バランス型</li>
+<li>Luna: 高速・低コスト型</li>
+</ul>
+<p>APIや業務システムに組み込む場合、すべてを最上位モデルに投げるとコストが大きくなります。分類や短文処理はLuna、通常業務はTerra、難しい判断はSolのように分けると、コストを抑えやすくなります。</p>
+<h3 id="3-codex">3. Codexとの相性がよい</h3>
+<p>Codexは、開発者向けのAIエージェントです。OpenAIの発表では、インライン編集、Pull Requestレビュー、複数リポジトリ対応などが説明されています。</p>
+<p>コードレビューやテスト追加のように、開発フローへ直接入る作業では強みを発揮しやすいです。</p>
+<h2 id="claude">Claudeの強み</h2>
+<h3 id="1">1. 長文と思考整理に強い</h3>
+<p>Claudeは、長い文書の読み込み、自然な文章作成、要約、方針整理で使いやすいAIです。</p>
+<p>特に、企画書、ブログ、メール、議事録、調査メモのような「言葉の品質」が重要な作業では、Claudeを好むユーザーも多いです。</p>
+<h3 id="2-reflect">2. Reflectで使い方を振り返れる</h3>
+<p>AnthropicのClaudeアプリのリリースノートでは、Settings &gt; Reflectに月次の振り返り機能が追加されたと説明されています。どんな話題に時間を使ったか、最も使った日や時間帯、Claudeとの作業傾向などを確認できます。</p>
+<p>これは、単なるモデル性能ではなく、<strong>自分がAIをどう使っているかを見直す機能</strong>です。</p>
+<p>AI活用を習慣化したい人にとって、使い方を振り返れるのは大きなメリットです。</p>
+<h3 id="3-claude-code">3. Claude Codeも強力</h3>
+<p>AnthropicはClaude CodeをPro/Maxなどの有料プランでも利用できるようにし、Claude本体とClaude Codeの利用が同じ上限にカウントされる点もヘルプで案内しています。Claude Codeを普段使っている開発者にとっては、既存ワークフローを維持したまま強化できる点が魅力です。</p>
+<h2 id="_1">料金・利用制限を見るときの注意点</h2>
+<p>AIツール選びで一番ややこしいのが、料金と利用制限です。</p>
+<p>見るべきポイントは、月額料金だけではありません。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">確認ポイント</th>
+<th style="text-align: left;">なぜ重要？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">月額プラン</td>
+<td style="text-align: left;">個人利用かチーム利用かで変わる</td>
+</tr>
+<tr>
+<td style="text-align: left;">API料金</td>
+<td style="text-align: left;">アプリ組み込みや大量処理では重要</td>
+</tr>
+<tr>
+<td style="text-align: left;">メッセージ上限</td>
+<td style="text-align: left;">毎日長時間使う人に影響する</td>
+</tr>
+<tr>
+<td style="text-align: left;">5時間・週次などのリセット</td>
+<td style="text-align: left;">作業タイミングに影響する</td>
+</tr>
+<tr>
+<td style="text-align: left;">追加クレジット</td>
+<td style="text-align: left;">上限到達後も使う場合に重要</td>
+</tr>
+<tr>
+<td style="text-align: left;">チーム・Enterprise機能</td>
+<td style="text-align: left;">権限管理やセキュリティに関係する</td>
+</tr>
+</tbody>
+</table></div>
+<p>Claudeのヘルプでは、利用制限は一定期間ごとの会話予算のようなものとして説明されています。Proプランではセッションベースの制限に加え、週次制限もあります。</p>
+<p>一方、OpenAI側も、GPT-5.6の利用可否や上限はプランや製品によって変わります。どちらも「月額だけ見ればOK」ではありません。</p>
+<h2 id="_2">あなたはどっちを選ぶべき？</h2>
+<h3 id="gpt-56_1">GPT-5.6が向いている人</h3>
+<ul>
+<li>調査、分析、資料作成をAIに進めてほしい</li>
+<li>Codexでコード作成やレビューを効率化したい</li>
+<li>APIでSol、Terra、Lunaを使い分けたい</li>
+<li>Microsoft 365、Google Drive、Slack、GitHubなどの業務ツール連携に関心がある</li>
+<li>AIに「行動」まで任せたい</li>
+</ul>
+<h3 id="claude_1">Claudeが向いている人</h3>
+<ul>
+<li>長文の読み込みや要約をよく行う</li>
+<li>日本語の文章品質を重視する</li>
+<li>ブログ、企画書、メール、議事録を作りたい</li>
+<li>自分のAI利用をReflectで振り返りたい</li>
+<li>Claude Code中心の開発ワークフローを使っている</li>
+</ul>
+<h2 id="_3">損をしないベストアクション</h2>
+<p>おすすめは、いきなり年間契約で決めないことです。</p>
+<ol>
+<li>まず無料枠や短期利用で試す</li>
+<li>自分の仕事を3つ選ぶ</li>
+<li>GPT-5.6とClaudeに同じ作業をさせる</li>
+<li>出力品質、修正回数、待ち時間、制限到達のしやすさを比べる</li>
+<li>仕事に合う方へ課金する</li>
+</ol>
+<p>比較すべき作業例は、次の3つです。</p>
+<ul>
+<li>競合調査レポート</li>
+<li>長文PDFや議事録の要約</li>
+<li>コードレビューやテスト追加</li>
+</ul>
+<p>この3つを試すと、自分に合うAIがかなり見えます。</p>
+<h2 id="_4">内部リンクで基本を確認</h2>
+<p>GPT-5.6とChatGPT Workの全体像を先に知りたい方は、ハブ記事もあわせて読んでください。</p>
+<p>👉 <a href="../../../html/ai/automation/gpt-56-chatgpt-work-agent-guide.html">GPT-5.6とChatGPT Workで何が変わる？ AIエージェントの破壊力を解説</a></p>
+<h2 id="faq">FAQ</h2>
+<h3 id="q1-gpt-56claude">Q1. GPT-5.6とClaudeは両方契約した方がいいですか？</h3>
+<p>A. 毎日AIを仕事に使う人なら、1ヶ月だけ両方試す価値はあります。ただし、使う作業が文章中心ならClaude、業務自動化や開発中心ならGPT-5.6から試すのがおすすめです。</p>
+<h3 id="q2-claudereflect">Q2. ClaudeのReflectは回答を自動で見直す機能ですか？</h3>
+<p>A. 公式リリースノートで説明されているReflectは、Claudeの使い方を振り返る月次レポート機能です。回答そのものを毎回自己検証する機能として説明されているわけではないため、誤解しないよう注意してください。</p>
+<h3 id="q3">Q3. 利用制限のリセットだけで選んでよいですか？</h3>
+<p>A. いいえ。制限は重要ですが、最終的には自分の仕事で成果が出るかが大切です。制限、料金、品質、連携機能をセットで見ましょう。</p>
+<h3 id="q4">Q4. どちらが日本語に強いですか？</h3>
+<p>A. 日本語の好みは用途によります。自然な文章作成ではClaudeを好む人が多い一方、ChatGPT Workは資料作成や業務フロー全体で強みがあります。実際の自分の文章で比較するのが確実です。</p>
+<h2 id="ai">まとめ：AI選びは「性能」より「仕事との相性」</h2>
+<p>GPT-5.6とClaudeは、どちらも強力です。</p>
+<p>ただし、強みは同じではありません。</p>
+<ul>
+<li>仕事を進めるエージェント体験ならGPT-5.6 / ChatGPT Work</li>
+<li>長文と思考整理ならClaude</li>
+<li>開発はCodexとClaude Codeの両方を試す価値あり</li>
+</ul>
+<p>AI選びで大切なのは、ニュースの派手さではなく、あなたの仕事がどれだけ楽になるかです。</p>
+<p>まずは同じタスクを両方に投げて、修正回数が少ない方を選びましょう。</p>
+<h2 id="_5">公式リンク・参考情報</h2>
+<ul>
+<li><a href="https://openai.com/index/gpt-5-6/">OpenAI: GPT-5.6</a></li>
+<li><a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/">OpenAI: ChatGPT is now a partner for your most ambitious work</a></li>
+<li><a href="https://openai.com/api/pricing/">OpenAI API Pricing</a></li>
+<li><a href="https://www.anthropic.com/news/claude-sonnet-5">Anthropic: Claude Sonnet 5</a></li>
+<li><a href="https://www.anthropic.com/news/redeploying-fable-5">Anthropic: Redeploying Claude Fable 5</a></li>
+<li><a href="https://www.anthropic.com/news/reflect-with-claude">Anthropic: Reflect with Claude</a></li>
+<li><a href="https://docs.anthropic.com/en/release-notes/claude-apps">Anthropic Claude Apps Release Notes</a></li>
+<li><a href="https://support.anthropic.com/en/articles/11647753-understanding-usage-and-length-limits">Anthropic Help: Understanding usage and length limits</a></li>
+</ul>
+<h2 id="_6">変更履歴</h2>
+<ul>
+<li>
+<p><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</p>
+</li>
+<li>
+<p>2026-07-11: 初版公開。GPT-5.6とClaudeの選び方を、業務自動化、文章作成、開発、料金・利用制限の観点で整理。</p>
+</li>
+<li>2026-07-11: OpenAI・Anthropic公式情報を確認し、比較表と利用制限の注意書きを更新。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../ai/index.html" class="hover:text-white">AI Research</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

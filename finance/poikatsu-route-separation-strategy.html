@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026年最新ポイ活ルート完全図解：JAL Pay改悪を乗り越える「分離戦略」と実践マニュアル | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="JAL Pay改悪対応の最新ポイ活戦略。日常決済と投資（楽天キャッシュ）を完全に分離し、RevolutとP-oneカードを起点としたストレスゼロの決済システムを完全図解。" />
+  <meta property="og:title" content="2026年最新ポイ活ルート完全図解：JAL Pay改悪を乗り越える「分離戦略」と実践マニュアル | FunUni-lab" />
+  <meta property="og:description" content="JAL Pay改悪対応の最新ポイ活戦略。日常決済と投資（楽天キャッシュ）を完全に分離し、RevolutとP-oneカードを起点としたストレスゼロの決済システムを完全図解。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #fbbf24;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #fbbf240f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #fbbf24; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #fbbf24; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #fbbf24; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #fbbf2414; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #fbbf24; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #fbbf24; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../finance/index.html" class="hover:text-amber-400 transition-colors text-[#fbbf24] border-b-2 border-[#fbbf24] pb-1">Finance</a>
+          <a href="../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #fbbf24;">
+          <span class="material-symbols-outlined">account_balance_wallet</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../finance/index.html" class="hover:text-white transition-colors" style="color: #fbbf24;">Finance</a>
+      
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #fbbf241a; color: #fbbf24; border-color: #fbbf2433;">
+        <span class="material-symbols-outlined text-xs">account_balance_wallet</span> Domain_04 / Finance
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        2026年最新ポイ活ルート完全図解：JAL Pay改悪を乗り越える「分離戦略」と実践マニュアル
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">calendar_today</span> 公開: 2026-05-09</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">schedule</span> 読了目安: 約11分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <h2 id="_1">なぜ今、ポイ活ルートの「再構築」が必要なのか？</h2>
+<p>キャッシュレス決済のポイント還元ルールは日々変化しています。
+特に、三井住友カード等から「JAL Pay」へのチャージがポイント付与対象外となった改悪は、多くのポイ活ユーザーにとってシステム再構築を迫られる大きな出来事でした。</p>
+<p>さらに、楽天キャッシュの入手ルート（Edy経由や楽天ギフトカードなど）にも制限や上限がかかりやすくなっています。</p>
+<p>これらの変化により、これまでの「とりあえず楽天ペイで払う」という思考停止の運用は通用しなくなりました。
+レジ前で「どのアプリで払うのが一番お得か？」と迷う認知負荷（ストレス）も限界に達しているのが現状です。</p>
+<p>今求められているのは、<strong>改悪に強く、かつ日常の判断ストレスをゼロにする新しいポイ活システム</strong>です。</p>
+<h2 id="_2">新たな最適解「日常決済と投資の完全分離」戦略</h2>
+<p>現状のポイ活環境における最大の防御策であり最適解は、<strong>「日常決済」と「投資」のルートを完全に分離すること</strong>です。</p>
+<p>具体的には、以下のルールを徹底します。</p>
+<ul>
+<li><strong>楽天キャッシュは「投信積立（最大3.0%）」の原資としてのみ運用する</strong></li>
+<li><strong>日常の街のお店での決済や請求書払いから「楽天ペイ」を切り離す</strong></li>
+</ul>
+<p>貴重な楽天キャッシュは、街の買い物で消費せず、資産形成（楽天証券での積立）に全振りします。
+これにより、ポイント価値を最大化しつつ、日常の支払いルートを極めてシンプルに再構築することが可能になります。</p>
+<h2 id="_3">新・ポイ活マスターマップ（全体図解）</h2>
+<p>日常決済と投資を分離し、RevolutとP-oneカードを新たな起点として組み込んだ最新の全体図です。</p>
+<div class="mermaid">graph TD
+ %% --- 起点（クレジットカード・アプリ） ---
+ A[&quot;三井住友カード/Olive&lt;br&gt;(0.5~1.5%)&quot;]
+ P1[&quot;P-one Standard(M)&lt;br&gt;(1.4%)&quot;]
+ F[&quot;ファミペイ&lt;br&gt;※ローン契約あり&quot;]
+ LP[&quot;LawsonPonta+(M)&quot;]
+ OL[&quot;OliveG(V)&quot;]
+
+ %% --- 中継ハブ（電子マネー・ペイ） ---
+ REV((Revolut))
+ I((JAL Pay))
+ J((ANA Pay))
+ U((au PAY&lt;br&gt;プリペイド))
+ V((VポイントPay))
+ N((楽天Edy))
+ O((楽天Cash))
+
+ %% --- 最終利用先（エンドポイント） ---
+ AA{{楽天証券/投信積立&lt;br&gt;【最大3.0%】}}
+ T{{交通系IC/iD&lt;br&gt;【最大2.5%】}}
+ L{{VISA加盟店&lt;br&gt;【最大2.5%】}}
+ X{{公共料金/税金&lt;br&gt;【10.0%】}}
+ S{{OKストア/くら寿司等&lt;br&gt;【13.0%】}}
+ H{{セブン/マクド等&lt;br&gt;【10.5%】}}
+
+ %% ==========================================
+ %% ルート定義
+ %% ==========================================
+
+ %% 【チャージルート1】三井住友 → Revolut
+ A ==&gt;|0.5%+修行1.0%| REV
+ REV ==&gt;|0%| J
+
+ %% 【チャージルート2】P-one → JAL Pay
+ P1 ==&gt;|自動割引等1.4%| I
+ I ==&gt;|0.1%| J
+ I ==&gt;|0.1%| U
+
+ %% 【派生A：日常決済ルート】Vポイント / 交通系
+ U ==&gt;|0.5%| V
+ V ==&gt;|0.5%| L
+ V ==&gt;|0.5%| T
+ J --&gt;|0.5%| T
+
+ %% 【派生B：投資専用ルート】楽天経済圏
+ J ==&gt;|0.5%| N
+ N ==&gt;|0.0%| O
+ O ==&gt;|0.5~1.0%| AA
+
+ %% 【特化ルート】
+ F ==&gt;|直接請求書払い| X
+ LP ==&gt;|QUICPay決済| S
+ OL ==&gt;|スマホタッチ決済| H
+
+ %% スタイル定義
+ classDef card fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
+ classDef hub fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000;
+ classDef invest fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000;
+ classDef everyday fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000;
+ classDef special fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#000;
+ classDef tax fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000;
+
+ class A,P1 card;
+ class REV,I,J,U,V,N,O hub;
+ class AA invest;
+ class T,L everyday;
+ class S,H,LP,OL special;
+ class F,X tax;
+
+</div>
+<p>このマップの要となる、2つの強力なチャージルートを解説します。</p>
+<h3 id="aolive-revolut">ルートA：三井住友カード/Olive × Revolutルートの強み</h3>
+<p>JAL Pay改悪の穴を完璧に埋めるのが「Revolut」です。</p>
+<ul>
+<li><strong>還元率:</strong> 0.5%（基本）＋ 1.0%（100万修行ボーナス）＝ <strong>最大1.5%</strong></li>
+<li><strong>特徴:</strong> Revolutを経由することで、手数料0%のままANA Payへ資金を流せます。年間100万円利用（100万修行）の進捗に合わせて稼働させるメインエンジンです。</li>
+</ul>
+<h3 id="bp-one-standard-jal-pay">ルートB：P-one Standard × JAL Payルートの強み</h3>
+<p>100万修行に縛られたくない場合の効果的なサブエンジンです。</p>
+<ul>
+<li><strong>還元率:</strong> 請求時自動1%オフ ＋ 各種還元 ＝ <strong>合計1.4%ベース</strong></li>
+<li><strong>特徴:</strong> JAL Payへのチャージ専用カードとしてP-one Standard（Mastercard）を採用。ポイント移行の手間がなく、必要な時に必要な分だけチャージしても常に高還元を維持できる身軽さが最大の強みです。</li>
+</ul>
+<hr />
+<h2 id="_4">場面別・ポイ活最適化マニュアル：レジ前でもう迷わない即効アクション</h2>
+<p>複雑な全体図も、用途と場面ごとに分解すれば非常にシンプルです。
+「店舗特化」「街のお店」「自宅での作業（固定費・投資）」の3つの場面における、絶対的な行動指針をまとめました。</p>
+<h3 id="110513">場面①「特定の店舗」では最適カードを即出しせよ（10.5%〜13%）</h3>
+<p>対象店舗に入った場合は、チャージルートのことは一切忘れてください。専用カードでの直接決済が非常に高い最高還元となります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>対象店舗</th>
+<th>最適な決済手段</th>
+<th>還元率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OKストア、くら寿司、スシロー、松屋、松のや</strong></td>
+<td>Lawson Ponta+(M)の<strong>QUICPay</strong>決済</td>
+<td><strong>13.0%</strong></td>
+</tr>
+<tr>
+<td><strong>セブンイレブン、ローソン、マクドナルド、サイゼリヤ、すき家 等</strong></td>
+<td>OliveG(V)の<strong>スマホVISAタッチ</strong>決済</td>
+<td><strong>10.5%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="225">場面②「街のお店（一般）」のメイン決済ルート（最大2.5%）</h3>
+<p>スーパーやドラッグストアなど、上記以外のすべてのお店での基本動作です。楽天ペイを使わないため、選択肢は極めてシンプルになります。</p>
+<ol>
+<li>
+<p><strong>第一優先:</strong> VポイントPayを使った<strong>スマホVISAタッチ または Suica</strong>（最大2.5%）
+* <em>経路:</em> P-one(M) ⇒ JAL Pay ⇒ au PAY ⇒ VポイントPay</p>
+</li>
+<li>
+<p><strong>第二優先（残高不足・上限時）:</strong> ANA Payを使った<strong>iD または Suica</strong>（最大2.0%）
+* <em>経路:</em> 三井住友/Olive ⇒ Revolut ⇒ ANA Pay</p>
+</li>
+</ol>
+<p>レジ前では「VISAで」「Suicaで」「iDで」のいずれかを宣言するだけです。</p>
+<h3 id="3">場面③「自宅での作業」は機械的に処理せよ</h3>
+<p>レジ前での決済とは異なり、自宅で落ち着いて処理できる「固定費」と「投資」は、手間をかけてでも還元率の最大値を確実に取りにいきます。</p>
+<h4 id="_5">公共料金・税金の請求書払い</h4>
+<ul>
+<li><strong>最適な決済手段:</strong> ファミペイ（直接払い）</li>
+<li><strong>還元率:</strong> <strong>10.0%</strong>（※ファミペイローン契約の恩恵をフル活用）</li>
+<li><strong>注意点:</strong> 楽天ペイの請求書払いは還元率が劣るため使用しません。ローン契約による高還元枠を全額ここに投下します。</li>
+</ul>
+<h4 id="_6">楽天証券での投信積立（キャッシュ防衛戦）</h4>
+<ul>
+<li><strong>作業ルート:</strong> 三井住友/P-one ⇒（Revolut/JAL Pay等）⇒ ANA Pay ⇒ 楽天Edy ⇒ <strong>楽天キャッシュ</strong></li>
+<li><strong>還元率:</strong> <strong>最大3.0%</strong></li>
+<li><strong>運用方法:</strong> このルートでかき集めた楽天キャッシュは、一切の無駄遣いをせず、毎月の投信積立設定へ全額投入します。</li>
+</ul>
+<h2 id="_7">まとめ：システムを構築したら、あとは自動でポイントを生み出すだけ</h2>
+<p>JAL Payルートの改悪は、ポイ活環境を見直す絶好の機会でした。</p>
+<p>「楽天キャッシュは投資専用」「レジ前では特定カードかVISAタッチ/交通系のみ」という明確な分離ルールを敷くことで、日々の判断ストレスは劇的に軽減されます。</p>
+<p>一度このシステムとルーティンを構築してしまえば、あとは機械的に決済を行うだけで、生活のあらゆる支出から最大値のポイントが自動的に生み出されていくはずです。</p>
+<h2 id="_8">変更履歴</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-05-09</strong>: 新規作成。JAL Pay改悪に対応した日常決済と投資の「分離戦略」を図解付きで解説。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../finance/index.html" class="hover:text-white">Finance</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>webMethods×Rubrik連携の実践設計｜502エラーを防ぐレジリエンス設計ガイド | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="過度なリトライによる二次障害を防ぐ。webMethods Integration Serverによる指数バックオフ実装と、エラー種別に応じた安全な例外処理の設計ガイド。" />
+  <meta property="og:title" content="webMethods×Rubrik連携の実践設計｜502エラーを防ぐレジリエンス設計ガイド | FunUni-lab" />
+  <meta property="og:description" content="過度なリトライによる二次障害を防ぐ。webMethods Integration Serverによる指数バックオフ実装と、エラー種別に応じた安全な例外処理の設計ガイド。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #aaa4ff;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #aaa4ff0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #aaa4ff; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #aaa4ff; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #aaa4ff; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #aaa4ff14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #aaa4ff; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #aaa4ff; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors text-[#aaa4ff] border-b-2 border-[#aaa4ff] pb-1">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #aaa4ff;">
+          <span class="material-symbols-outlined">database</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../infra/index.html" class="hover:text-white transition-colors" style="color: #aaa4ff;">Infrastructure</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Network</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #aaa4ff1a; color: #aaa4ff; border-color: #aaa4ff33;">
+        <span class="material-symbols-outlined text-xs">database</span> Domain_01 / Infra
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        webMethods×Rubrik連携の実践設計｜502エラーを防ぐレジリエンス設計ガイド
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">calendar_today</span> 公開: 2026-04-24</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">schedule</span> 読了目安: 約5分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <h2 id="_1">概要</h2>
+<p><a href="../../glossary/system-glossary.html#:~:text=" title="webMethods">webMethods</a> <a href="../../glossary/system-glossary.html#:~:text=" title="Integration%20Server">Integration Server</a> (IS) と <a href="../../glossary/system-glossary.html#:~:text=" title="Rubrik">Rubrik</a> Security Cloud (RSC) の API 連携において発生する <a href="../../glossary/system-glossary.html#:~:text=" title="502%20Bad%20Gateway">HTTP 502 Bad Gateway</a> / 504 Gateway Timeout に対し、適切なリトライ設計を行わないと二次障害（リトライストーム）を招く恐れがあります。本稿では、<a href="../../glossary/system-glossary.html#:~:text=" title="REPEAT-TRY-CATCH">REPEAT-TRY-CATCH</a> による指数バックオフ＋ジッター実装と、「開始処理」と「状態確認ポーリング」のエラー判定分離設計を解説します。</p>
+<hr />
+<h2 id="1-502-bad-gateway-504-gateway-timeout">1. 502 Bad Gateway / 504 Gateway Timeout の発生要因</h2>
+<ul>
+<li><strong>100秒タイムアウトの壁</strong>: API Gateway またはロードバランサーがバックエンドの重い集計/GraphQL処理の応答を100秒前後で打ち切る。</li>
+<li><strong>一時的負荷スパイク</strong>: SaaS側のバックグラウンド処理やインデックス更新に伴う過渡的レイテンシ低下。</li>
+</ul>
+<hr />
+<h2 id="2-repeat-try-catch">2. 実装パターン：REPEAT-TRY-CATCH による指数バックオフ＋ジッター</h2>
+<ol>
+<li><strong><code>REPEAT</code></strong>: 最大試行回数（3〜5回）を指定。</li>
+<li><strong><code>TRY</code></strong>: 共通HTTP通信サービスを呼び出し、ステータス非200で例外スロー。</li>
+<li><strong><code>CATCH</code></strong>: <code>pub.flow:wait</code> を用い、指数バックオフ（<code>60s ➔ 120s ➔ 240s</code>）＋ <a href="../../glossary/system-glossary.html#:~:text=" title="ジッター">ジッター</a> (±10〜20%の無作為な揺らぎ) を動的計算して適用。</li>
+</ol>
+<hr />
+<h2 id="3-mutation-vs-query">3. エラーハンドリング運用分離：開始処理 (Mutation) vs 状態確認 (Query)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">処理種別</th>
+<th style="text-align: left;">API要求</th>
+<th style="text-align: left;">失敗時のビジネスインパクト</th>
+<th style="text-align: left;">障害対処方針</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>開始指示 (Mutation)</strong></td>
+<td style="text-align: left;">オンデマンドバックアップ要求</td>
+<td style="text-align: left;"><strong>高</strong> (保護未実行リスク)</td>
+<td style="text-align: left;">即時アラート通知 &amp; 自動リトライ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>状態確認 (Query)</strong></td>
+<td style="text-align: left;">バックアップ進捗ポーリング</td>
+<td style="text-align: left;"><strong>低</strong> (ジョブ自体は非同期実行中)</td>
+<td style="text-align: left;">警告扱い &amp; 次回ポーリングへ静観引継ぎ (<a href="../../glossary/system-glossary.html#:~:text=" title="Fail-Safe">Fail-Safe</a>)</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="4">4. まとめ</h2>
+<ol>
+<li><strong>ジッター付きバックオフ</strong>: リトライストームを防ぎAPI負荷を分散。</li>
+<li><strong>処理の性質に応じた分岐</strong>: Mutation (指示) と Query (確認) の重要度分け。</li>
+<li><strong>レジリエンス設計</strong>: システム全体として一時通信エラーを自己吸収。</li>
+</ol>
+<hr />
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-08-02 (v3)</strong>: 2026年最新のwebMethods Integration Server 10.x/11.x, Rubrik Security Cloud API 502/504タイムアウト、Fail-Safe運用のファクトチェックと目次H2構造最適化。</li>
+<li><strong>2026-04-24 (v2)</strong>: 実践的なガイドラインに基づきリライト。</li>
+<li><strong>2026-04-18 (v1)</strong>: 初版作成。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../infra/index.html" class="hover:text-white">Infrastructure</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

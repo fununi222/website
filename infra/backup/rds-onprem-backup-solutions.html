@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infra | AWS RDS to On-Premises：AIOps 向けバックアップ・アーカイブ統合基盤調査 2026 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="Rubrik, VAST Data, Veeam などの主要ソリューションを比較。AWS RDS データをオンプレミスへ「持ち出し」、AIOps データレイクとして活用するための技術基盤を解析。" />
+  <meta property="og:title" content="Infra | AWS RDS to On-Premises：AIOps 向けバックアップ・アーカイブ統合基盤調査 2026 | FunUni-lab" />
+  <meta property="og:description" content="Rubrik, VAST Data, Veeam などの主要ソリューションを比較。AWS RDS データをオンプレミスへ「持ち出し」、AIOps データレイクとして活用するための技術基盤を解析。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #aaa4ff;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #aaa4ff0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #aaa4ff; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #aaa4ff; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #aaa4ff; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #aaa4ff14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #aaa4ff; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #aaa4ff; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors text-[#aaa4ff] border-b-2 border-[#aaa4ff] pb-1">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #aaa4ff;">
+          <span class="material-symbols-outlined">database</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../infra/index.html" class="hover:text-white transition-colors" style="color: #aaa4ff;">Infrastructure</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Backup</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #aaa4ff1a; color: #aaa4ff; border-color: #aaa4ff33;">
+        <span class="material-symbols-outlined text-xs">database</span> Domain_01 / Infra
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        Infra | AWS RDS to On-Premises：AIOps 向けバックアップ・アーカイブ統合基盤調査 2026
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">calendar_today</span> 公開: 2026-04-10</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">schedule</span> 読了目安: 約34分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
+
+<p><a href="../../glossary/system-glossary.html#:~:text=%22AWS%20RDS%22">AWS RDS</a> 上のデータをオンプレミスのインフラへ「持ち出す」理由は、単なるバックアップに留まらない。<a href="../../glossary/system-glossary.html#:~:text=%22AIOps%22">AIOps</a> 用のデータレイク構築、コンプライアンス、あるいは<a href="../../glossary/system-glossary.html#:~:text=%22Cloud%20Exit%22">クラウド脱却（Could Exit）</a>戦略の一環として、その重要性は増している。</p>
+<hr />
+<style>
+.rds-dash-container {
+ --dash-primary: #d97706;
+ --dash-surface: rgba(255, 255, 255, 0.03);
+}
+.chart-box {
+ position: relative;
+ width: 100%;
+ height: 350px;
+ margin: 1rem 0;
+}
+.rds-nav-btn {
+ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rds-nav-btn.active {
+ background: rgba(217, 119, 6, 0.1);
+ color: var(--dash-primary);
+ border-color: rgba(217, 119, 6, 0.3);
+}
+.rds-content-area h3 {
+ color: #f5f5f4;
+ font-size: 1.1rem;
+ font-weight: 700;
+ margin-top: 2rem;
+ margin-bottom: 1rem;
+}
+.rds-content-area ul { list-style: none; padding: 0; }
+.rds-content-area li {
+ margin-bottom: 0.75rem;
+ padding-left: 1.5rem;
+ position: relative;
+ font-size: 0.9rem;
+ opacity: 0.8;
+}
+.rds-content-area li::before {
+ content: "→";
+ position: absolute;
+ left: 0;
+ color: var(--dash-primary);
+}
+.rds-content-area pre {
+ background: #000;
+ padding: 1rem;
+ border-radius: 0.5rem;
+ font-size: 0.8rem;
+ margin: 1rem 0;
+ border: 1px solid rgba(255,255,255,0.05);
+}
+</style>
+
+<!-- Interactive Dashboard Section -->
+<div class="rds-dash-container my-16 p-6 md:p-10 rounded-3xl bg-surface-container/20 border border-white/5 backdrop-blur-xl relative overflow-hidden">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 relative z-10">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.3em]">Interactive_Simulation</span>
+</div>
+## Analysis Dashboard
+</div>
+<nav class="flex flex-wrap gap-2 p-1 bg-black/20 rounded-xl border border-white/5">
+<button onclick="rdsShowSection('overview')" id="rds-nav-overview" class="rds-nav-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-lg border border-transparent hover:bg-white/5">Overview</button>
+<button onclick="rdsShowSection('rubrik')" id="rds-nav-rubrik" class="rds-nav-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-lg border border-transparent hover:bg-white/5">Rubrik</button>
+<button onclick="rdsShowSection('vast')" id="rds-nav-vast" class="rds-nav-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-lg border border-transparent hover:bg-white/5">VAST Data</button>
+<button onclick="rdsShowSection('veeam')" id="rds-nav-veeam" class="rds-nav-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-lg border border-transparent hover:bg-white/5">Veeam</button>
+<button onclick="rdsShowSection('commvault')" id="rds-nav-commvault" class="rds-nav-btn px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-lg border border-transparent hover:bg-white/5">Commvault</button>
+</nav>
+</div>
+<div id="rds-view-overview" class="animate-in fade-in slide-in-from-bottom-4 duration-500">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+<div class="chart-box">
+<canvas id="rdsComparisonChart"></canvas>
+</div>
+<div class="space-y-6">
+<div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+<h4 class="text-xs font-bold text-primary uppercase tracking-widest mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">analytics</span> Capability Matrix
+</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed opacity-70">
+本レーダーチャートは、セットアップの容易性、[AIOps](../../glossary/system-glossary.html#:~:text=%22AIOps%22) 基盤との親和性、転送効率、クエリ速度、およびコスト効率を 10 段階で評価したものです。
+</p>
+</div>
+<div class="p-6 rounded-2xl bg-primary/5 border border-primary/10">
+<h4 class="text-xs font-bold text-primary uppercase tracking-widest mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">lightbulb</span> Strategic Insight
+</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+**VAST Data** は分析において優れたですが、オーケストレーションの自作が必要です。対照的に **Rubrik** はポリシーによる「完全自動の持ち出し」を優先する組織に最適です。
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="rds-view-detail" class="hidden rds-content-area animate-in fade-in slide-in-from-bottom-4 duration-500 min-h-[400px]"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+(() => {
+const toolData = {
+rubrik: {
+title: "Rubrik Security Cloud (RSC)",
+html: `
+### 1. Rubrikの技術仕様
+<ul>
+<li><strong>アーキテクチャ:</strong> AWS上にデプロイされたRubrik Security Cloud (RSC)が、AWS BackupまたはネイティブAPIを経由してRDSのスナップショットを取得・管理する。</li>
+<li><strong>オンプレ転送メカニズム (CloudOut):</strong> 取得したスナップショットデータ（S3に一時保管）を、オンプレミスのRubrikアプライアンス、またはS3互換/NFSターゲットへ <a href="../../glossary/system-glossary.html#:~:text=%22SLA%20Domain%22" class="text-primary hover:underline">SLA Domain</a> ポリシーに基づいて自動的にレプリケーション（アーカイブ）する。</li>
+<li><strong>対応データベース:</strong> Amazon Aurora, RDS for PostgreSQL, MySQL, Oracle, SQL Server。</li>
+<li><strong>制約事項:</strong> クラウド上で取得したRDSネイティブスナップショット形式のままオンプレミスへ転送されるため、オンプレミスのベアメタルサーバーへ直接インスタンスとして復元することはできない。</li>
+</ul>
+### 2. 実行デモ（コード / コマンド例）
+<ul>
+<li><strong>概要:</strong> Rubrik GraphQL APIを利用し、指定したRDSインスタンスのオンデマンドスナップショットを取得し、オンプレミスアーカイブ用のSLAドメインを即座に割り当てるPythonスクリプト。</li>
+</ul>
+<pre><code>import requests
+import json
+
+url = "https://&lt;rubrik-cluster-ip-or-fqdn&gt;/api/graphql"
+headers = {
+ "Authorization": "Bearer &lt;YOUR_TOKEN&gt;",
+ "Content-Type": "application/json"
+}
+
+query = """
+mutation TakeRdsSnapshot($id: UUID!, $slaId: UUID!) {
+ takeRdsSnapshot(input: { rdsInstanceId: $id, slaId: $slaId }) {
+ snapshot { id status }
+ }
+}
+"""
+variables = { "id": "RDS_UUID", "slaId": "SLA_ID" }
+response = requests.post(url, json={'query': query, 'variables': variables}, headers=headers)
+print(json.dumps(response.json(), indent=2))
+</code></pre>
+### 3. 運用上の注意点（Gotchas）
+<ul>
+<li><strong>AWS Egressコスト:</strong> VPCエンドポイントおよびDirect Connectのルーティング設計が不十分だとコストが膨大になる。</li>
+<li><strong>保持期間の競合:</strong> AWS側の保持期間とオンプレ側の保持期間の不整合に注意。</li>
+</ul>
+### 4. 参考文献
+<ul>
+<li><a href="https://build.rubrik.com/" target="_blank" class="text-primary hover:underline">Rubrik Developer Portal (GraphQL API)</a></li>
+<li><a href="https://www.rubrik.com/resources/user-guides" target="_blank" class="text-primary hover:underline">Rubrik Security Cloud User Guide - AWS Protection</a></li>
+</ul>`
+},
+vast: {
+title: "VAST Data Platform",
+html: `
+### 1. VAST Dataの技術仕様
+<ul>
+<li><strong>アーキテクチャ:</strong> AIOps基盤のデータレイクターゲットとして機能するオールフラッシュ・エクサバイトスケールストレージ。</li>
+<li><strong>オンプレ転送メカニズム:</strong> RDS の「S3へのエクスポート (<a href="../../glossary/system-glossary.html#:~:text=%22Parquet%22" class="text-primary hover:underline">Parquet</a> 形式)」と <a href="../../glossary/system-glossary.html#:~:text=%22AWS%20DataSync%22" class="text-primary hover:underline">AWS DataSync</a> を組み合わせてオンプレミスへ同期。</li>
+<li><strong>AIOps連携:</strong> 保存された Parquet データは、Trino や Spark から直接クエリ可能。</li>
+</ul>
+### 2. 実行デモ（コード / コマンド例）
+<ul>
+<li><strong>概要:</strong> AWS CLI を使用して、RDS スナップショットを S3 へエクスポートし、DataSync タスクを開始するフロー。</li>
+</ul>
+<pre><code># 1. RDSスナップショットをS3へエクスポート
+aws rds start-export-task --export-task-identifier "task-001" --s3-bucket-name "bucket-name" ...
+
+# 2. DataSyncタスクを開始
+aws datasync start-task-execution --task-arn "arn:aws:datasync:task/001"
+</code></pre>
+### 3. 運用上の注意点（Gotchas）
+<ul>
+<li><strong>KMS暗号化エラー:</strong> DataSync の IAM ロールに <code>kms:Decrypt</code> 権限が必要。</li>
+<li><strong>ネットワーク帯域:</strong> 書き込み性能が高いため、Direct Connect の帯域占有に注意。</li>
+</ul>
+### 4. 参考文献
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html" target="_blank" class="text-primary hover:underline">AWS RDS Export to S3</a></li>
+<li><a href="https://vastdata.com/" target="_blank" class="text-primary hover:underline">VAST Data Architecture Whitepaper</a></li>
+</ul>`
+},
+veeam: {
+title: "Veeam Backup & Replication",
+html: `
+### 1. Veeamの技術仕様
+<ul>
+<li><strong>アーキテクチャ:</strong> \`Veeam Backup for AWS\` が S3 に保存したデータを、オンプレミスからプル。</li>
+<li><strong>オンプレ転送メカニズム:</strong> Backup Copy Job を実行し、ブロックレベルでデータを同期。</li>
+<li><strong>AIOps連携:</strong> Veeam Explorer を用いた細粒度リストアが可能。</li>
+</ul>
+### 2. 実行デモ（コード / コマンド例）
+<ul>
+<li><strong>概要:</strong> オンプレミスの VBR サーバーでコピージョブを開始する PowerShell スクリプト。</li>
+</ul>
+<pre><code>Add-PSSnapin VeeamPSSnapin
+$job = Get-VBRJob -Name "RDS_CopyJob"
+Start-VBRJob -Job $job
+</code></pre>
+### 3. 運用上の注意点（Gotchas）
+<ul>
+<li><strong>S3 APIコスト:</strong> 差分計算時に大量の API コールが発生し、費用が高騰する可能性がある。</li>
+<li><strong>不変性の不整合:</strong> オンプレとクラウドの保持ポリシーの不整合に注意。</li>
+</ul>
+### 4. 参考文献
+<ul>
+<li><a href="https://helpcenter.veeam.com/docs/vbaws/guide/" target="_blank" class="text-primary hover:underline">Veeam Backup for AWS Guide</a></li>
+<li><a href="https://helpcenter.veeam.com/docs/backup/powershell/" target="_blank" class="text-primary hover:underline">Veeam PowerShell Reference</a></li>
+</ul>`
+},
+commvault: {
+title: "Commvault Cloud",
+html: `
+### 1. Commvaultの技術仕様
+<ul>
+<li><strong>アーキテクチャ:</strong> Access Node が RDS API と連携し、MediaAgent へデータを転送。</li>
+<li><strong>オンプレ転送メカニズム:</strong> 重複排除エンジンにより最適化されたブロックデータを転送。</li>
+</ul>
+### 2. 実行デモ（コード / コマンド例）
+<ul>
+<li><strong>概要:</strong> REST API を用いてバックアップタスクを作成するリクエスト例。</li>
+</ul>
+<pre><code>curl -X POST "https://&lt;cs&gt;/api/CreateTask" \\
+ -H "Authtoken: &lt;TOKEN&gt;" \\
+ -d '{"taskInfo": {"associations": [{"subclientId": 101}]}}'
+</code></pre>
+### 3. 運用上の注意点（Gotchas）
+<ul>
+<li><strong>通信ポート:</strong> 双方向のポート開放（8400, 8403等）が必要。</li>
+<li><strong>DDBの性能:</strong> 重複排除データベース配置ディスクの IOPS がボトルネックになりやすい。</li>
+</ul>
+### 4. 参考文献
+<ul>
+<li><a href="https://api.commvault.com/" target="_blank" class="text-primary hover:underline">Commvault REST API Reference</a></li>
+</ul>`
+}
+};
+
+let myChart = null;
+
+const initRdsChart = () => {
+const ctx = document.getElementById('rdsComparisonChart');
+if (!ctx) return;
+if (Chart.getChart('rdsComparisonChart')) { Chart.getChart('rdsComparisonChart').destroy(); }
+myChart = new Chart(ctx, {
+type: 'radar',
+data: {
+labels: ['Setup', 'AIOps', 'Transfer', 'Query', 'Cost'],
+datasets: [
+{ label: 'Rubrik', data: [8, 6, 8, 7, 6], backgroundColor: 'rgba(217, 119, 6, 0.15)', borderColor: 'rgba(217, 119, 6, 1)', borderWidth: 1.5 },
+{ label: 'VAST Data', data: [4, 10, 7, 10, 8], backgroundColor: 'rgba(16, 185, 129, 0.15)', borderColor: 'rgba(16, 185, 129, 1)', borderWidth: 1.5 },
+{ label: 'Veeam', data: [9, 5, 8, 8, 5], backgroundColor: 'rgba(59, 130, 246, 0.15)', borderColor: 'rgba(59, 130, 246, 1)', borderWidth: 1.5 }
+]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+scales: {
+r: {
+angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+grid: { color: 'rgba(255, 255, 255, 0.1)' },
+pointLabels: { color: 'rgba(255, 255, 255, 0.5)', font: { size: 9 } },
+ticks: { display: false, max: 10, stepSize: 2 }
+}
+},
+plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, color: 'rgba(255,255,255,0.7)', font: { size: 10 } } } }
+}
+});
+};
+
+window.rdsShowSection = (id) => {
+const navButtons = document.querySelectorAll('.rds-nav-btn');
+navButtons.forEach(btn => btn.classList.remove('active'));
+document.getElementById(`rds-nav-${id}`).classList.add('active');
+const overview = document.getElementById('rds-view-overview');
+const detail = document.getElementById('rds-view-detail');
+if (id === 'overview') {
+overview.classList.remove('hidden');
+detail.classList.add('hidden');
+initRdsChart();
+} else {
+overview.classList.add('hidden');
+detail.classList.remove('hidden');
+const data = toolData[id];
+detail.innerHTML = `
+<div class="mb-4 flex items-center justify-between">
+## ${data.title}
+<span class="px-2 py-0.5 rounded bg-primary/10 border border-primary/20 text-[9px] font-bold text-primary uppercase">Deep_Dive</span>
+</div>
+${data.html}
+`;
+}
+};
+
+if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', () => { setTimeout(initRdsChart, 500); rdsShowSection('overview'); });
+} else {
+ setTimeout(initRdsChart, 500);
+ rdsShowSection('overview');
+}
+})();
+</script>
+
+<hr />
+<h2 id="2">2. 調査の背景と目的</h2>
+<p>クラウドネイティブな運用において、スナップショットは非常に強力なツールだが、それは「AWSアカウント内」に閉じた保護であることが多い。真の復元力と、オンプレミスの強力な分析基盤（<a href="../../glossary/system-glossary.html#:~:text=%22VAST%20Data%22">VAST Data</a> 等）を活かした <a href="../../glossary/system-glossary.html#:~:text=%22AIOps%22">AIOps</a> を実現するためには、<a href="../../glossary/system-glossary.html#:~:text=%22AWS%20DataSync%22">AWS DataSync</a> や <a href="../../glossary/system-glossary.html#:~:text=%22Parquet%22">Parquet</a> フォーマットを活用した効率的なデータ移動が必要となる。</p>
+<h2 id="3">3. アーキテクチャ上の留意点</h2>
+<ul>
+<li><strong>Egressコスト:</strong> AWSからのデータ転送費用は、設計段階で最も慎重に評価すべき項目である。</li>
+<li><strong>APIレート制限:</strong> 大規模なスナップショットエクスポートは AWS API の制限に抵触しやすいため、<a href="../../glossary/system-glossary.html#:~:text=%22Event%20Orchestration%22">Event Orchestration</a> による制御が推奨される。</li>
+</ul>
+<hr />
+<p><strong>Standard Edition: v2026.04.10</strong> | <strong>Clinical Precision. Self-Contained.</strong></p>
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-08-02 (v3)</strong>: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。</li>
+<li><strong>2026-04-09</strong>: メタデータおよび標準化。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../infra/index.html" class="hover:text-white">Infrastructure</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

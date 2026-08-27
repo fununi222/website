@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS KMSの料金を大幅削減する｜エンベロープ暗号化によるコスト最適化と実装手順 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="KMSのAPI呼び出しコストによる意図しない請求急増を回避する設計。データキーのキャッシュ、エンベロープ暗号化の仕組み、AWS Encryption SDKを用いた安全な実装手順を解説。" />
+  <meta property="og:title" content="AWS KMSの料金を大幅削減する｜エンベロープ暗号化によるコスト最適化と実装手順 | FunUni-lab" />
+  <meta property="og:description" content="KMSのAPI呼び出しコストによる意図しない請求急増を回避する設計。データキーのキャッシュ、エンベロープ暗号化の仕組み、AWS Encryption SDKを用いた安全な実装手順を解説。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #aaa4ff;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #aaa4ff0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #aaa4ff; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #aaa4ff; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #aaa4ff; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #aaa4ff14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #aaa4ff; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #aaa4ff; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors text-[#aaa4ff] border-b-2 border-[#aaa4ff] pb-1">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #aaa4ff;">
+          <span class="material-symbols-outlined">database</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../infra/index.html" class="hover:text-white transition-colors" style="color: #aaa4ff;">Infrastructure</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Cloud</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #aaa4ff1a; color: #aaa4ff; border-color: #aaa4ff33;">
+        <span class="material-symbols-outlined text-xs">database</span> Domain_01 / Infra
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        AWS KMSの料金を大幅削減する｜エンベロープ暗号化によるコスト最適化と実装手順
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">calendar_today</span> 公開: 2026-04-24</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">schedule</span> 読了目安: 約9分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <h2 id="_1">概要</h2>
+<p>AWS <a href="../../glossary/system-glossary.html#:~:text=" title="KMS">KMS</a> (Key Management Service) を高頻度・大量データアクセスの暗号化にそのまま適用すると、API呼び出し課金（1万リクエストあたり $0.03）が積み重なり、想定外のインフラコストにつながることがあります。本稿では、セキュリティレベルを保ちながらKMSへのAPI通信回数を大幅に削減する<strong>「エンベロープ暗号化 (Envelope Encryption)」</strong>の仕組みと、AWS Encryption SDKを用いた実践的な実装コードを解説します。</p>
+<hr />
+<h2 id="1-kmsapi">1. なぜKMSでコスト急増（API課金）が発生するのか？</h2>
+<p>AWS KMSは、ルートマスターキー（KMS Key / CMK）の安全な保管と監査に特化したサービスです。</p>
+<ul>
+<li><strong>直接暗号化 (KMS Direct Encryption) の注意点</strong>: DBへのレコード書き込みやファイルアップロードごとに、毎回 <code>kms:Encrypt</code> / <code>kms:Decrypt</code> APIを直接呼び出す設計。</li>
+<li><strong>リクエスト数による課金増</strong>: 例えば月間1億回のリクエストがあるシステムで毎回KMSを直接呼び出すと、API費用だけで毎月数百ドル以上のコストが発生します。</li>
+</ul>
+<hr />
+<h2 id="2">2. 解決策：エンベロープ暗号化の仕組み</h2>
+<p>エンベロープ暗号化では、実際のデータ本体は手元で生成した「データキー（Data Key）」で暗号化し、そのデータキー自体をKMSマスターキーで暗号化して「封筒」のようにデータと一緒に保管します。</p>
+<pre><code class="language-text">【エンベロープ暗号化の流れ】
+1. KMSへデータキー生成を要求 ➔ [平文データキー] と [暗号化データキー] を取得
+2. [平文データキー] でデータをローカル暗号化 (高速・無料)
+3. メモリから [平文データキー] を破棄
+4. [暗号化されたデータ] + [暗号化データキー] をセットでDB/S3等に保存
+</code></pre>
+<ul>
+<li><strong>データキーキャッシュ (Data Key Caching)</strong>: 発行されたデータキーをアプリケーションのメモリ内で一定時間（TTL）キャッシュして再利用します。</li>
+<li><strong>KMS通信の最小化</strong>: キャッシュ期間内であれば、何万回の暗号化を行ってもKMSへのAPI呼び出しは最初の一度だけで済みます。</li>
+</ul>
+<hr />
+<h2 id="3-aws-encryption-sdk-python">3. AWS Encryption SDK による実装コード例 (Python)</h2>
+<p>手動で暗号化ロジック（AES-GCMやnonce管理）を書くよりも、公式の <strong>AWS Encryption SDK</strong> を利用するのが安全で推奨されるアプローチです。</p>
+<pre><code class="language-python">import aws_encryption_sdk
+from aws_encryption_sdk import CommitmentPolicy
+from aws_encryption_sdk.caching import LocalCryptoMaterialsCache
+from aws_encryption_sdk.materials_managers.caching import CachingCryptoMaterialsManager
+
+# 1. クライアントの初期化
+client = aws_encryption_sdk.EncryptionSDKClient(
+    commitment_policy=CommitmentPolicy.REQUIRE_ENCRYPT_REQUIRE_DECRYPT
+)
+
+# 2. KMS Keyring（マスターキー）の設定
+kms_key_arn = &quot;arn:aws:kms:ap-northeast-1:123456789012:key/your-kms-key-id&quot;
+keyring = aws_encryption_sdk.StrictAwsKmsMasterKeyProvider(key_ids=[kms_key_arn])
+
+# 3. データキーキャッシュの設定（最大100個、有効期限300秒）
+cache = LocalCryptoMaterialsCache(capacity=100)
+caching_cmm = CachingCryptoMaterialsManager(
+    master_key_provider=keyring,
+    cache=cache,
+    max_age_in_cache=300.0,
+    max_messages_encrypted=1000
+)
+
+# 4. データの暗号化
+raw_data = b&quot;Sensitive User Information&quot;
+ciphertext, header = client.encrypt(
+    source=raw_data,
+    materials_manager=caching_cmm
+)
+
+# 5. データの復号
+decrypted_data, header = client.decrypt(
+    source=ciphertext,
+    materials_manager=caching_cmm
+)
+
+assert raw_data == decrypted_data
+print(&quot;暗号化・復号が正常に完了しました（データキーは安全にキャッシュ再利用）&quot;)
+</code></pre>
+<hr />
+<h2 id="4-3-vault">4. エンタープライズにおける 3 つの「Vault」概念整理</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Vaultの名称</th>
+<th style="text-align: left;">提供・役割</th>
+<th style="text-align: left;">主なユースケース</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>HashiCorp Vault</strong></td>
+<td style="text-align: left;">汎用シークレット / 資格情報管理</td>
+<td style="text-align: left;">DBパスワード、APIトークン、PKI管理</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><a href="../../glossary/system-glossary.html#:~:text=" title="Rubrik%20Cloud%20Vault">Rubrik Cloud Vault</a></strong></td>
+<td style="text-align: left;">イミュータブルバックアップ保管</td>
+<td style="text-align: left;">ランサムウェア隔離領域へのデータ保管</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AWS Backup Vault</strong></td>
+<td style="text-align: left;">AWSマネージド論理隔離</td>
+<td style="text-align: left;">AWS利用枠内でのクロスアカウントバックアップ</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="5">5. まとめ</h2>
+<ol>
+<li><strong>直接暗号化の脱却</strong>: 高頻度・大量データアクセスの暗号化には <code>kms:Encrypt</code> の直接呼び出しを避ける。</li>
+<li><strong>エンベロープ暗号化の徹底</strong>: AWS Encryption SDK による Data Key キャッシュを採用し、KMS APIの呼び出しを最小化する。</li>
+<li><strong>適切なTTL設定</strong>: セキュリティポリシー（鍵のローテーション要件）とコストのバランスを考慮してキャッシュ有効期限を設計する。</li>
+</ol>
+<hr />
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（エンベロープ暗号化の図解とPython実践コード例を追加、見出しと表現の洗練）。</li>
+<li><strong>2026-04-24</strong>: 初版作成。
+3. <strong>セキュリティとコストの両立</strong>: API課金を抑えつつ、マスターキーの完全管理を継続。</li>
+</ul>
+<hr />
+<h2 id="changelog_1">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-08-02 (v3)</strong>: 2026年最新のAWS KMS料金モデル、AWS Encryption SDK v3+, Data Key Caching仕様のファクトチェックと目次H2構造最適化。</li>
+<li><strong>2026-04-24 (v2)</strong>: 実践的なコンテンツ設計リライト。</li>
+<li><strong>2026-04-17 (v1)</strong>: 初版作成。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../infra/index.html" class="hover:text-white">Infrastructure</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

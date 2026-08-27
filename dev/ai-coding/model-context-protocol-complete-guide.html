@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model Context Protocol（MCP）完全ガイド｜LLMと外部ツール/DBを繋ぐ標準プロトコル | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="Model Context Protocol（MCP）の基礎、アーキテクチャ、Function Callingとの違い、Python/FastMCPによる最小実装、セキュリティ設計、Codex用プロンプトまでを網羅。" />
+  <meta property="og:title" content="Model Context Protocol（MCP）完全ガイド｜LLMと外部ツール/DBを繋ぐ標準プロトコル | FunUni-lab" />
+  <meta property="og:description" content="Model Context Protocol（MCP）の基礎、アーキテクチャ、Function Callingとの違い、Python/FastMCPによる最小実装、セキュリティ設計、Codex用プロンプトまでを網羅。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00d2ff;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00d2ff0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00d2ff; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00d2ff; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00d2ff; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #00d2ff14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #00d2ff; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00d2ff; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors text-[#00d2ff] border-b-2 border-[#00d2ff] pb-1">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00d2ff;">
+          <span class="material-symbols-outlined">terminal</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../dev/index.html" class="hover:text-white transition-colors" style="color: #00d2ff;">Development</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Ai Coding</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00d2ff1a; color: #00d2ff; border-color: #00d2ff33;">
+        <span class="material-symbols-outlined text-xs">terminal</span> Domain_02 / Dev
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        Model Context Protocol（MCP）完全ガイド｜LLMと外部ツール/DBを繋ぐ標準プロトコル
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00d2ff;">calendar_today</span> 公開: 2026-08-03</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00d2ff;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00d2ff;">schedule</span> 読了目安: 約17分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <div class="callout-note">
+<p><strong>この記事のポイント</strong>
+- MCPは、LLMアプリケーションと外部データソース/ツールを接続するためのオープンプロトコルです。
+- 2026年7月28日版仕様では、標準トランスポートとして <strong>stdio</strong> と <strong>Streamable HTTP</strong> が整理されています。
+- MCP Serverは主に <strong>Resources / Tools / Prompts</strong> を公開し、AIクライアント側が必要に応じて呼び出します。
+- 従来のFunction Callingは「モデル/アプリ内の関数呼び出し設計」に強く、MCPは「複数クライアントから再利用できる接続レイヤー」に強みがあります。
+- 強力なToolsを扱うため、最小権限、監査ログ、Human-in-the-Loop、プロンプトインジェクション対策が必須です。</p>
+</div>
+<h2 id="1-aimn">1. 導入：AIエージェント開発における「M×N接続問題」の限界</h2>
+<p>AIエージェント（Agentic AI）やAI組み込みツールの開発で、開発者を長く悩ませてきた課題が <strong>「LLMと外部データ・API・データベースの接続」</strong> です。</p>
+<p>これまで、AIモデルと社内データベース、SaaS（GitHub、Slack、Jira）、ローカルファイルシステムなどを接続するには、モデルやエージェントフレームワークごとに個別のカスタム連携コードやプラグインを書く必要がありました。結果として、<strong>「M種類のAIモデル/エージェント」×「N種類のデータソース」＝M×N通りの接続スクリプト</strong> を保守する開発コストが発生します。</p>
+<p>この問題を根本から緩和するのが、AIモデルとデータソースの接続インターフェースを標準化するオープン規格 <strong>Model Context Protocol（MCP）</strong> です。公式仕様でも、MCPはLLMアプリケーションと外部データソース/ツールをシームレスに統合するための標準的な方法として定義されています。</p>
+<p>本記事では、MCPの基礎概念からアーキテクチャ、従来のFunction Callingとの違い、Pythonによる最小MCP Server構築例、そしてセキュリティ設計までを網羅的に解説します。</p>
+<hr />
+<h2 id="2-model-context-protocolmcp">2. Model Context Protocol（MCP）のアーキテクチャ</h2>
+<p>MCPは、WebにおけるHTTPやデータベースにおけるJDBC/ODBCのように、<strong>「AIエージェントが外部リソースを利用するための統一プロトコル」</strong> と捉えると理解しやすいです。基本はClient-Serverモデルで、役割が明確に分離されています。</p>
+<pre><code class="language-text">【MCPアーキテクチャ概要】
+
+[ AIクライアント / MCP Host ]
+ 例: Codex, Cursor, Claude Desktop, 自作Agent
+ | MCP Protocol
+ | JSON-RPC 2.0 / stdio / Streamable HTTP
+ v
++---------------------------------------------------------+
+| MCP Server 網 |
++-------------------+--------------------+----------------+
+| PostgreSQL Server | GitHub MCP Server | File Server |
++-------------------+--------------------+----------------+
+ | |
+ v v v
+[ 社内データベース ] [ リポジトリ ] [ ローカルファイル ]
+</code></pre>
+<h3 id="21-3">2.1 3つの基本エレメント</h3>
+<p>MCP Serverは、AIクライアントに対して主に以下の3つのコンテキスト能力を提供します。</p>
+<ol>
+<li>
+<p><strong>Resources（リソース）</strong> 
+ 読み取り中心のデータコンテキストです。ドキュメント、データベースレコード、ログファイル、設定情報などを、クライアントが明示的に参照できる形で公開します。</p>
+</li>
+<li>
+<p><strong>Tools（ツール）</strong> 
+ AIエージェントが実行可能なアクションです。DBレコード検索、チケット作成、Slackメッセージ送信、計算処理、内部API呼び出しなどが該当します。</p>
+</li>
+<li>
+<p><strong>Prompts（プロンプト）</strong> 
+ 再利用可能なプロンプトテンプレートです。クライアント側で一貫したコンテキスト生成を行うための「標準作業手順書」として使えます。</p>
+</li>
+</ol>
+<h3 id="22-2026">2.2 2026年時点の標準トランスポート</h3>
+<p>MCPはJSON-RPCメッセージを用い、2026年7月28日版仕様では標準トランスポートとして以下が示されています。</p>
+<ul>
+<li><strong>stdio</strong>: クライアントが起動したローカルサブプロセスと標準入出力で通信する方式。ローカル開発、IDE連携、個人環境のファイル操作に向きます。</li>
+<li><strong>Streamable HTTP</strong>: 単一のMCPエンドポイントにHTTP POSTし、応答をJSONオブジェクトまたはリクエストスコープのSSEストリームとして受け取る方式。リモートMCP Serverや複数クライアント共有に向きます。</li>
+</ul>
+<p>旧来の説明ではSSEが独立トランスポートとして語られることもありますが、最新仕様を参照する場合は <strong>stdio / Streamable HTTP</strong> を基準に整理するのが安全です。</p>
+<hr />
+<h2 id="3">3. 従来アプローチとの比較</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">比較項目</th>
+<th style="text-align: left;">カスタム連携スクリプト</th>
+<th style="text-align: left;">Function Calling / OpenAPI</th>
+<th style="text-align: left;">Model Context Protocol（MCP）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">接続方式</td>
+<td style="text-align: left;">アプリごとに個別のAPI呼び出し処理を記述</td>
+<td style="text-align: left;">モデル/アプリ側に関数スキーマを渡して呼び出す</td>
+<td style="text-align: left;">Client-Serverモデルのオープン標準プロトコル</td>
+</tr>
+<tr>
+<td style="text-align: left;">拡張性</td>
+<td style="text-align: left;">モデルやツールが増えるほど保守対象が増える</td>
+<td style="text-align: left;">ツールごとにスキーマ調整が必要</td>
+<td style="text-align: left;">1つのMCP Serverを複数AIクライアントから再利用しやすい</td>
+</tr>
+<tr>
+<td style="text-align: left;">コンテキスト管理</td>
+<td style="text-align: left;">手動で取得・プロンプト注入が必要</td>
+<td style="text-align: left;">レスポンス整形はアプリ側実装に依存</td>
+<td style="text-align: left;">Resources / Tools / Promptsを統合的に公開できる</td>
+</tr>
+<tr>
+<td style="text-align: left;">運用性</td>
+<td style="text-align: left;">認証情報やログがアプリ側に散在しやすい</td>
+<td style="text-align: left;">API単位では管理しやすいが、AIクライアント横断の統制は別途必要</td>
+<td style="text-align: left;">MCP Server単位で権限、監査、レート制限を集約しやすい</td>
+</tr>
+<tr>
+<td style="text-align: left;">適した用途</td>
+<td style="text-align: left;">小規模PoC、単発自動化</td>
+<td style="text-align: left;">1アプリ内の明確な関数実行</td>
+<td style="text-align: left;">複数AIクライアントに共通接続基盤を提供するケース</td>
+</tr>
+</tbody>
+</table></div>
+<p>重要なのは、MCPがFunction Callingを「置き換える」ものではなく、より外側の <strong>接続・権限・コンテキスト提供レイヤー</strong> として機能する点です。実装によっては、MCP Clientの内部でFunction Calling相当の推論制御が行われることもあります。</p>
+<hr />
+<h2 id="4-pythonmcp-server">4. 【実践】Pythonによる最小構成のMCP Server作成例</h2>
+<p>Pythonの公式 <code>mcp</code> SDKに含まれるFastMCPを使うと、少ないコードで独自のMCP Serverを構築できます。</p>
+<pre><code class="language-python">from mcp.server.fastmcp import FastMCP
+
+# MCP Serverの初期化
+mcp = FastMCP(&quot;My-Company-Database-Server&quot;)
+
+
+# 1. Resource（読み取り用コンテキスト）の定義
+@mcp.resource(&quot;config://app-settings&quot;)
+def get_config() -&gt; str:
+ &quot;&quot;&quot;アプリケーションの設定情報を返します。&quot;&quot;&quot;
+ return &quot;環境: Production, 許容リクエストレート: 1000req/min&quot;
+
+
+# 2. Tool（実行可能アクション）の定義
+@mcp.tool()
+def search_customer_orders(customer_id: str) -&gt; str:
+ &quot;&quot;&quot;顧客IDに基づいて最新の注文履歴を検索します。&quot;&quot;&quot;
+ # 実運用ではDBクエリや内部API呼び出しをここで実行する
+ return f&quot;顧客 {customer_id} の最新注文: 注文ID #98765（ステータス: 発送済み）&quot;
+
+
+if __name__ == &quot;__main__&quot;:
+ # 標準入力/出力（stdio）経由でMCP Serverを起動
+ mcp.run(transport=&quot;stdio&quot;)
+</code></pre>
+<p>このMCP Serverを立ち上げると、MCP対応AI IDEやエージェントフレームワークから、設定情報の参照や注文検索Toolの実行が可能になります。</p>
+<h3 id="_1">実運用で追加すべき要素</h3>
+<ul>
+<li>入力バリデーション（ID形式、SQLインジェクション対策）</li>
+<li>認証・認可（ユーザー/チーム/環境ごとの権限制御）</li>
+<li>監査ログ（誰が、どのToolを、どの引数で実行したか）</li>
+<li>レート制限（高コストAPIやDBへの過剰アクセス防止）</li>
+<li>タイムアウトとリトライ設計（外部API障害時の安定性確保）</li>
+</ul>
+<hr />
+<h2 id="5">5. セキュリティ &amp; ガバナンス設計</h2>
+<p>AIエージェントに強力な実行権限（Tools）を与える場合、セキュリティの担保は最優先事項です。</p>
+<h3 id="51-least-privilege">5.1 最小権限原則（Least Privilege）</h3>
+<p>MCP Serverごとにアクセス可能なデータベーステーブル、APIスコープ、ファイルディレクトリを絞り込みます。削除、課金、権限変更、DROP系操作などは、原則として読み取り系Toolと分離すべきです。</p>
+<h3 id="52-human-in-the-loop">5.2 Human-in-the-Loop（人間の承認）</h3>
+<p>本サイトの記事生成ワークフローでは、ユーザーが指定した完成仕様に対して事前確認なしで即座に完全版MarkdownとCodex用プロンプトを出力する方針を採ります。一方、<strong>本番データ更新・外部送信・課金・削除</strong> のような副作用の大きいTool実行では、AIクライアント側で確認ダイアログや承認キューを挟む設計が必要です。</p>
+<h3 id="53">5.3 プロンプトインジェクション対策</h3>
+<p>リソースとして読み込んだ外部テキストに悪意ある命令が含まれていても、MCP Serverの実行パーミッションを超えた操作が行われないようにします。具体的には、以下の防御を組み合わせます。</p>
+<ul>
+<li>Toolごとの許可リスト方式</li>
+<li>ファイルパスのサンドボックス化</li>
+<li>外部コンテンツとシステム命令の明確な分離</li>
+<li>危険操作の二段階承認</li>
+<li>監査ログとアラート連携</li>
+</ul>
+<hr />
+<h2 id="6-mcp">6. まとめ：MCPが拓くエージェントエコシステムの未来</h2>
+<p>Model Context Protocol（MCP）の普及は、AI開発者が「データを接続するための泥臭い配管コード」を毎回書く時代を終わらせようとしています。</p>
+<p>オープンなMCPエコシステムによって、SaaS、データベース、社内システムが公式MCP Serverを提供するようになれば、AIエージェントは必要なツールやコンテキストを即座に獲得し、より高度な自動化を実現できます。</p>
+<p>MCP導入の第一歩は、既存APIをいきなり全面移行することではありません。まずは <strong>「読み取り専用Resources」</strong> と <strong>「低リスクTools」</strong> からMCP Server化し、監査ログと権限制御を整えながら段階的に拡張することです。</p>
+<p>👉 <strong><a href="https://fununi222.github.io/website/html/dev/ai-coding/openai-codex-guide-2026.html">次に読む：OpenAI Codex 詳しく解説 2026</a></strong></p>
+<hr />
+<h2 id="codex">Codex用プロンプト</h2>
+<p>以下のテキストブロック全体をコピーしてCodex等に渡すことで、Web掲載用ファイルとして直接生成・更新できます。</p>
+<pre><code class="language-markdown"># タスク: Model Context Protocol（MCP）に関するWeb技術記事の生成
+
+あなたは実践的 SEO Strategist &amp; Senior Systems Architectです。以下の条件に従い、Qiita / Zenn / 個人技術ブログへ直接掲載可能なMarkdown記事を生成してください。事前確認・承認ステップは行わず、完全版のMarkdown本文と、必要に応じて実装用コードブロックを直接出力してください。
+
+## 記事基本データ
+- タイトル: Model Context Protocol（MCP）とは？LLMと外部ツール/DBを繋ぐ次世代標準プロトコル完全ガイド
+- 主要キーワード: Model Context Protocol, MCP, Agentic AI, LLMツール連携, JSON-RPC, Function Calling, FastMCP
+- 想定読者: AIエージェント開発者、社内AI基盤担当、LLMアプリケーション開発者、技術ブログ読者
+
+## 出力条件
+- H1〜H3の見出し、Pythonコードブロック、Markdown比較テーブル、要点リストを整える。
+- 冒頭に「この記事のポイント」要約ボックスを追加する。
+- MCPの構成要素としてResources / Tools / Promptsを説明する。
+- 2026年時点の標準トランスポートとしてstdioとStreamable HTTPを説明する。
+- Function Callingとの違いを、置き換えではなく接続レイヤーの違いとして整理する。
+- PythonのFastMCPを使った最小MCP Server例を含める。
+- セキュリティ章では最小権限、監査ログ、Human-in-the-Loop、プロンプトインジェクション対策を必ず扱う。
+- 最後に変更履歴を付ける。
+</code></pre>
+<h2 id="_2">参考情報</h2>
+<ul>
+<li><a href="https://modelcontextprotocol.io/specification/2026-07-28">Model Context Protocol 2026-07-28 Specification</a></li>
+<li><a href="https://modelcontextprotocol.io/specification/2026-07-28/basic/transports">MCP Transports（stdio / Streamable HTTP）</a></li>
+<li><a href="https://modelcontextprotocol.io/specification/2026-07-28/server/tools">MCP Tools</a></li>
+<li><a href="https://github.com/modelcontextprotocol/python-sdk">Official Python SDK for Model Context Protocol</a></li>
+</ul>
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li>
+<p><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</p>
+</li>
+<li>
+<p><strong>2026-08-03</strong>: MCP 2026-07-28仕様を前提に、アーキテクチャ、Function Calling比較、FastMCP実装例、セキュリティ設計、Codex用プロンプトを含む完全版記事として新規作成。</p>
+</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../dev/index.html" class="hover:text-white">Development</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

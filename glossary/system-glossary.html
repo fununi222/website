@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glossary | システム用語集 & ナレッジベース v2026.08.02.1 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。" />
+  <meta property="og:title" content="Glossary | システム用語集 & ナレッジベース v2026.08.02.1 | FunUni-lab" />
+  <meta property="og:description" content="ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #aaa4ff;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #aaa4ff0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #aaa4ff; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #aaa4ff; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #aaa4ff; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #aaa4ff14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #aaa4ff; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #aaa4ff; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #aaa4ff;">
+          <span class="material-symbols-outlined">menu_book</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../glossary/index.html" class="hover:text-white transition-colors" style="color: #aaa4ff;">Glossary</a>
+      
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #aaa4ff1a; color: #aaa4ff; border-color: #aaa4ff33;">
+        <span class="material-symbols-outlined text-xs">menu_book</span> System Glossary
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        Glossary | システム用語集 & ナレッジベース v2026.08.02.1
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">calendar_today</span> 公開: 2026-08-02</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #aaa4ff;">schedule</span> 読了目安: 約84分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <p>ブログ内で登場する専門用語や略語を、記事を読み進めやすい粒度で整理したページです。
+以下の表は、各ヘッダーをクリックしてソートしたり、キーワードで検索することができます。</p>
+<div class="mb-12 relative group">
+ <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+ <div class="relative flex items-center bg-surface-container rounded-xl border border-white/10 px-4 py-3 shadow-2xl">
+ <span class="material-symbols-outlined text-primary mr-3 opacity-60">search</span>
+ <input type="text" id="glossarySearch" placeholder="用語・技術名またはカテゴリでフィルター..." 
+ class="bg-transparent border-none text-on-surface text-sm w-full focus:ring-0 placeholder:text-slate-500 placeholder:text-[10px] placeholder:uppercase placeholder:tracking-widest">
+ <div id="searchCounter" class="text-[9px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4">
+ Total Definitions
+ </div>
+ </div>
+</div>
+
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>用語・技術名</th>
+<th>カテゴリ</th>
+<th>概要・詳細</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"浸透圧 (Osmotic Pressure)"</td>
+<td>Science / Food</td>
+<td>塩分(16-18%)や高糖度により、侵入した細菌の細胞内から水分を物理的に脱水し、細胞膜を破壊して殺菌・防腐する化学現象。</td>
+</tr>
+<tr>
+<td>"水分活性 (Aw)"</td>
+<td>Science / Food</td>
+<td>微生物が繁殖に利用できる「自由水」の割合。Aw &lt; 0.80 に低下させることで、腐敗菌やカビの生育を阻止する。</td>
+</tr>
+<tr>
+<td>"パスチャライゼーション"</td>
+<td>Science / Food</td>
+<td>65℃〜80℃以上の低温加熱殺菌。営業前後のタレの火入れや、炭火で熱された肉をくぐらせることで日常的に行われる。</td>
+</tr>
+<tr>
+<td>"指数関数的減衰"</td>
+<td>Math / Science</td>
+<td>継ぎ足しによって創業時の古いタレの割合 P(t) = r^t が時間とともに急激に小さくなり、数ヶ月で分子レベルまで完全に入れ替わる数学モデル。</td>
+</tr>
+<tr>
+<td>"定常状態 (Steady State)"</td>
+<td>Math / Science</td>
+<td>エキスの流入速度と流出速度が均衡し、タレ中の旨味濃度が無限に濃くならず理論最高値 C_max = S*V/x に自然収束して安定する状態。</td>
+</tr>
+<tr>
+<td>"CSTRモデル"</td>
+<td>Math / Science</td>
+<td>Continuous Stirred Tank Reactor（連続槽型反応器）。壺内で液体が均一に撹拌されながら連続的に流出入する流体力学モデル。</td>
+</tr>
+<tr>
+<td>"Antigravity 2.0"</td>
+<td>AI / Dev</td>
+<td>Google DeepMindが開発する次世代自律AI開発環境。Agent Canvas, IDE, CLIの3形態でマルチエージェントオーケストレーションを実現。</td>
+</tr>
+<tr>
+<td>"Kimi K3"</td>
+<td>AI / LLM</td>
+<td>Moonshot AIが開発した2.8兆パラメータのオープンウェイトMoEモデル。1M超長文コンテキストとAgentic Coding性能を誇る。</td>
+</tr>
+<tr>
+<td>"イミュータブルバックアップ"</td>
+<td>Infra / Security</td>
+<td>一度書き込んだデータを管理権限であっても変更・削除不能にするゼロトラスト時代の不変データ保護構造。</td>
+</tr>
+<tr>
+<td>"逗子"</td>
+<td>Other</td>
+<td>神奈川県三浦半島に位置する、海と山に囲まれた自然豊かな街。別荘地としての歴史や、古都鎌倉に隣接する文化的な背景も持つ。</td>
+</tr>
+<tr>
+<td>"横浜"</td>
+<td>Other</td>
+<td>神奈川県の県庁所在地であり、日本を代表する港町。横浜駅周辺は巨大な商業圏を形成し、グルメからビジネスまで多様な文化が交差する。</td>
+</tr>
+<tr>
+<td>"関内"</td>
+<td>Other</td>
+<td>横浜港開港以来の歴史を持つエリア。行政機関やオフィスが立ち並ぶ一方、老舗の飲食店や馬車道などの情緒ある街並みが残る。</td>
+</tr>
+<tr>
+<td>"熊野神社"</td>
+<td>Other</td>
+<td>神奈川県逗子市山の根地区にある神社。和歌山の熊野三山を起源とし、古くから地区の鎮守（守り神）として親しまれている。</td>
+</tr>
+<tr>
+<td>"やぐら"</td>
+<td>Other</td>
+<td>鎌倉地方特有の横穴式墳墓・供養施設。中世の武士や僧侶が、硬い岩盤を掘り抜いて作らせた。</td>
+</tr>
+<tr>
+<td>"三浦層群"</td>
+<td>Other</td>
+<td>三浦半島周辺に広く分布する、数百万年前の海底に堆積した地層。縞模様が特徴で、散策時などの露頭で観察できる。</td>
+</tr>
+<tr>
+<td>"ANA Pay"</td>
+<td>Finance</td>
+<td>ANAグループが提供するモバイル決済およびバーチャルプリペイドカードサービス。クレジットカードからのチャージ中継点として広く利用される。</td>
+</tr>
+<tr>
+<td>"eKYC"</td>
+<td>Security</td>
+<td>electronic Know Your Customer の略。スマホと本人確認書類を用いてオンラインで完結する本人確認手続き。</td>
+</tr>
+<tr>
+<td>"NFC"</td>
+<td>Dev / Infra</td>
+<td>Near Field Communication の略。近距離無線通信規格。非接触型決済やカード読み取りに利用される技術。</td>
+</tr>
+<tr>
+<td>"プレミアム型"</td>
+<td>Finance</td>
+<td>楽天キャッシュにおいて本人確認（eKYC）が完了した状態。Edyからのチャージや、一部の送金機能が解禁される。</td>
+</tr>
+<tr>
+<td>"OpenClaw"</td>
+<td>AI / Dev</td>
+<td>ブラウザ操作、シェル実行、検索などを組み合わせてタスクを進めるAIエージェント実行環境。実務作業向けの操作レイヤーとして活用。</td>
+</tr>
+<tr>
+<td>"AIエージェント"</td>
+<td>AI</td>
+<td>文章を返すだけでなく、指示に応じてツールを使いながら自律的に作業を進行するAIモデル。</td>
+</tr>
+<tr>
+<td>"生成AI"</td>
+<td>AI</td>
+<td>テキスト、コード、画像などを生成できるAIの総称。大規模言語モデルを中心に、業務自動化やソフトウェア開発への影響が急速に広がっている。</td>
+</tr>
+<tr>
+<td>"Redmine"</td>
+<td>AI / Dev</td>
+<td>オープンソースのプロジェクト管理ソフトウェア。チケットによるタスク管理、ガントチャート、Wiki、リポジトリ連携などの機能を備え、チームの進捗可視化に特化。</td>
+</tr>
+<tr>
+<td>"チケット"</td>
+<td>Dev / Infra</td>
+<td>Redmineにおけるタスクの最小単位。担当者、ステータス、期限などを保持し、履歴を追跡可能にする。</td>
+</tr>
+<tr>
+<td>"ガントチャート"</td>
+<td>Dev / Infra</td>
+<td>プロジェクトの進捗状況を、横棒グラフ（タイムライン）で視覚化したもの。工程の重なりや遅延を把握するのに有効。</td>
+</tr>
+<tr>
+<td>"REST API"</td>
+<td>AI / Dev</td>
+<td>HTTPを用いてWebサービスを操作するためのアーキテクチャスタイル。Redmineではチケットやプロジェクトの外部操作に利用される。</td>
+</tr>
+<tr>
+<td>"ニセコ"</td>
+<td>Travel</td>
+<td>北海道後志地方にある、世界屈指のスノーリゾート。近年は外資系高級ホテルの進出が著しいが、地元密着のコスパスポットも点在する。</td>
+</tr>
+<tr>
+<td>"倶知安"</td>
+<td>Travel / Local</td>
+<td>ニセコエリアの行政・経済の中心地。地元の食材（特に男爵いも）を活かした「地元メシ」の宝庫であり、コスパ重視派の拠点。</td>
+</tr>
+<tr>
+<td>"エスコンフィールド北海道"</td>
+<td>Travel / Ballpark</td>
+<td>北海道北広島市にある日本ハムファイターズの本拠地。試合観戦以外も楽しめる「ボールパーク」として2023年に開業。</td>
+</tr>
+<tr>
+<td>"えふめし"</td>
+<td>Travel / Gourmet</td>
+<td>エスコンフィールド北海道内で提供されるスタジアムグルメの総称。地元の名店とのコラボメニューなどが豊富。</td>
+</tr>
+<tr>
+<td>"オーケストレーター"</td>
+<td>AI / Infra</td>
+<td>複数の処理やツールの流れを調整し、どの順番で何を実行するかを管理する統合機能。</td>
+</tr>
+<tr>
+<td>"ラッパー (Wrapper)"</td>
+<td>Dev</td>
+<td>複雑な機能や処理を直接見せず、シンプルかつ安全に呼び出しやすい形に包んで提供する仕組み。</td>
+</tr>
+<tr>
+<td>"PoC"</td>
+<td>Dev / Infra</td>
+<td>Proof of Conceptの略。その設計アイデアや技術が「本当に業務で成立するか」を小さく試すシステム検証プロセスのこと。</td>
+</tr>
+<tr>
+<td>"OAuth"</td>
+<td>Security</td>
+<td>外部サービスに対して、パスワードを直接渡さずにアクセス権限のみを認可するための標準的な仕組み。</td>
+</tr>
+<tr>
+<td>"Google Calendar API"</td>
+<td>Infra</td>
+<td>Googleカレンダーの予定取得や作成を、外部プログラムから自動操作・連携するための公式インタフェース。</td>
+</tr>
+<tr>
+<td>"vSphere"</td>
+<td>VMware / Infra</td>
+<td>VMwareが提供する仮想化基盤の総称。仮想マシン、ストレージ、ネットワークを統括して管理するプラットフォーム。</td>
+</tr>
+<tr>
+<td>"CBT"</td>
+<td>VMware / Infra</td>
+<td>Changed Block Trackingの略。バックアップ製品が「前回以降に変化したブロックだけ」を特定し高速にバックアップするためのトラッキング機構。</td>
+</tr>
+<tr>
+<td>"LPO"</td>
+<td>Analytics</td>
+<td>Landing Page Optimizationの略。訪問者のコンバージョン率を最大化するために、ページ設計や文言のABテスト・分析を行うプロセス。</td>
+</tr>
+<tr>
+<td>"Terraform"</td>
+<td>Infra</td>
+<td>サーバーやネットワークなどのインフラ構築をプログラムの形で記述・管理（IaC）するOSSツール。</td>
+</tr>
+<tr>
+<td>"Ansible"</td>
+<td>Infra</td>
+<td>サーバーの設定作業やアプリケーション deproy を自動化するための構成管理ツール。</td>
+</tr>
+<tr>
+<td>"ハルシネーション"</td>
+<td>AI</td>
+<td>AIが、事実に基づかないもっともらしい嘘を出力してしまう現象のこと。</td>
+</tr>
+<tr>
+<td>"IaC"</td>
+<td>Infra</td>
+<td>Infrastructure as Code の略。サーバー構成などを手動ではなくコードで定義・構築・管理する手法。</td>
+</tr>
+<tr>
+<td>"自己回帰モデル"</td>
+<td>AI</td>
+<td>直前までの入力データ（文脈）をもとに、次に続く確率が最も高いデータ（単語など）を順番に予測して生成出力するAIの言語モデル形式。</td>
+</tr>
+<tr>
+<td>"API"</td>
+<td>Dev / Infra</td>
+<td>Application Programming Interface の略。ソフトウェア同士が情報をやり取りするための連絡窓口のようなもの。</td>
+</tr>
+<tr>
+<td>"VPS"</td>
+<td>Infra</td>
+<td>Virtual Private Server の略。物理サーバーの中で仮想的に専用サーバー同等の環境を構築して提供されるホスティングサービス。</td>
+</tr>
+<tr>
+<td>"アルゴリズム"</td>
+<td>Dev</td>
+<td>問題を解決したり、目的を達成するための計算や処理の具体的な手順。</td>
+</tr>
+<tr>
+<td>"レスポンシブ"</td>
+<td>Dev</td>
+<td>Webサイトのデザインが、パソコンやスマートフォンなど閲覧する画面サイズ（幅）に合わせて自動的に最適化される手法。</td>
+</tr>
+<tr>
+<td>"ポイ活"</td>
+<td>Finance</td>
+<td>ポイント活動の略。クレジットカードや各種決済サービスを工夫して組み合わせ、付与されるポイント還元を最大化する活動。</td>
+</tr>
+<tr>
+<td>"SIer"</td>
+<td>Dev / Business</td>
+<td>System Integrator の略。顧客の業務要件に合わせて、システム企画、設計、開発、導入、運用を請け負う企業や業態のこと。</td>
+</tr>
+<tr>
+<td>"人月"</td>
+<td>Dev / Business</td>
+<td>エンジニア1人が1ヶ月働く工数を基準にした見積・請求の単位。受託開発で広く使われるが、AIによる効率化と相性が悪い。</td>
+</tr>
+<tr>
+<td>"NTTデータ"</td>
+<td>Business / IT</td>
+<td>NTTグループの大手システムインテグレーター。公共、金融、法人向けの大規模システム開発や運用、コンサルティングを広く手がける。</td>
+</tr>
+<tr>
+<td>"データクレンジング"</td>
+<td>Data / AI</td>
+<td>重複、欠損、表記ゆれ、不整合などを整理し、分析やAI活用に耐えられる品質へデータを整える前処理。</td>
+</tr>
+<tr>
+<td>"三井住友カード"</td>
+<td>Finance</td>
+<td>三井住友カード株式会社が提供するクレジットカード群。OliveやVポイント経済圏と連携し、日常決済やポイ活の基盤として利用される。</td>
+</tr>
+<tr>
+<td>"修行"</td>
+<td>Finance</td>
+<td>特定のクレジットカードで「年間○万円利用すると永年年会費無料」「ポイントボーナス」といった特典を得るために、決済額を積み上げる行為の俗称。</td>
+</tr>
+<tr>
+<td>"カスタムスケーリング"</td>
+<td>OS / Infra</td>
+<td>Windows等において、デフォルトの選択肢（100%, 125%など）に縛られず、ユーザー定義の任意の倍率（例: 110%）で画面を拡大表示する設定機能。</td>
+</tr>
+<tr>
+<td>"トラブルシュート"</td>
+<td>Process</td>
+<td>システム障害や不具合が発生した際に、その原因を特定し解決・復旧を図る一連の技術的プロセス。</td>
+</tr>
+<tr>
+<td>"プロジェクトマネジメント"</td>
+<td>Process</td>
+<td>プロジェクトの目的を達成するため、タスクの進行、リソース（人員・予算）、スケジュールなどを計画・管理すること。</td>
+</tr>
+<tr>
+<td>"Prometheus"</td>
+<td>Infra / Obs</td>
+<td>時系列データに基づいた監視・アラート通知を行うOSS。多次元のデータモデルと強力なクエリ言語(PromQL)が特徴。</td>
+</tr>
+<tr>
+<td>"Grafana"</td>
+<td>Infra / Obs</td>
+<td>PrometheusやDB等のデータを美しく可視化するダッシュボードツール。</td>
+</tr>
+<tr>
+<td>"Zabbix"</td>
+<td>Infra / Obs</td>
+<td>ネットワーク、サーバー、クラウドサービスなどを統合的に監視するエンタープライズ向けOSS。</td>
+</tr>
+<tr>
+<td>"n8n"</td>
+<td>AI / Dev</td>
+<td>「フェアコード」ライセンスのワークフロー自動化ツール。ノードを繋いで複雑な自動化処理をGUIで構築可能。</td>
+</tr>
+<tr>
+<td>"Ollama"</td>
+<td>AI</td>
+<td>ローカル環境でLLM（Llama 3等）を簡単に実行・管理するためのツール。</td>
+</tr>
+<tr>
+<td>"LLM"</td>
+<td>AI</td>
+<td>Large Language Model（大規模言語モデル）の略。膨大なテキストデータから学習し、人間のような自然な文章を生成するAI。</td>
+</tr>
+<tr>
+<td>"JWST"</td>
+<td>Space / Ops</td>
+<td>ジェイムズ・ウェッブ宇宙望遠鏡。初期宇宙の銀河形成や星形成プロセスの観測において、従来の理論を覆すデータを次々と「デバッグ出力」している。</td>
+</tr>
+<tr>
+<td>"CMB"</td>
+<td>Space / Physics</td>
+<td>宇宙マイクロ波背景放射。宇宙誕生直後の熱い状態から発せられた名残の光。宇宙というシステムの「初期化ログ」に近い情報を持つ。</td>
+</tr>
+<tr>
+<td>"標準模型"</td>
+<td>Physics</td>
+<td>素粒子物理学の基本的な枠組み。宇宙の最小単位がどう振る舞うかを規定する「基本ソースコード」群。</td>
+</tr>
+<tr>
+<td>"GPU"</td>
+<td>Infra / AI</td>
+<td>Graphics Processing Unit。画像処理や行列演算に特化したプロセッサで、現代のAI学習・推論における中心的なハードウェア。</td>
+</tr>
+<tr>
+<td>"VRAM"</td>
+<td>Infra / AI</td>
+<td>Video RAM。GPU専用のメモリ空間。大型のLLMを動かすには、この容量が最大のボトルネックとなる。</td>
+</tr>
+<tr>
+<td>"UI"</td>
+<td>Dev</td>
+<td>User Interface（ユーザーインターフェース）。サービスと利用者の接点となる画面表示や操作感の総称。</td>
+</tr>
+<tr>
+<td>"フロントエンド"</td>
+<td>Dev</td>
+<td>Webサイトやアプリにおいて、ユーザーが直接目にし、操作する部分（HTML/CSS/JS等）。</td>
+</tr>
+<tr>
+<td>"HTML"</td>
+<td>Dev</td>
+<td>HyperText Markup Language。Webページの構造を定義するための標準的なマークアップ言語。</td>
+</tr>
+<tr>
+<td>"CSS"</td>
+<td>Dev</td>
+<td>Cascading Style Sheets。Webページのレイアウトや装飾（色、フォント、配置など）を指定するためのスタイルシート言語。</td>
+</tr>
+<tr>
+<td>"100万円修行"</td>
+<td>Finance</td>
+<td>三井住友カード等において、年間100万円の利用を達成することで年会費永年無料やボーナスポイント獲得を目指すポイ活の通称。</td>
+</tr>
+<tr>
+<td>"キャッシュレス決済"</td>
+<td>Finance / Ops</td>
+<td>現金（紙幣・硬貨）を使用せず、クレジットカード、電子マネー、QRコード等で支払いを行う決済方式の総称。</td>
+</tr>
+<tr>
+<td>"Olive"</td>
+<td>Finance</td>
+<td>三井住友フィナンシャルグループが提供する、銀行口座、カード決済、証券、保険などを1つのアプリで管理できるモバイル総合金融サービス。</td>
+</tr>
+<tr>
+<td>"Revolut"</td>
+<td>Finance</td>
+<td>海外送金、外貨管理、プリペイド決済などを一体化したフィンテックサービス。日本ではクレジットカードからのチャージ活用でも話題になる。</td>
+</tr>
+<tr>
+<td>"Mastercard"</td>
+<td>Finance</td>
+<td>世界最大級のクレジットカード決済ネットワーク。多くのプリペイドカードへのチャージにおいて、Visaよりも制限が少ない傾向がある。</td>
+</tr>
+<tr>
+<td>"Visa"</td>
+<td>Finance</td>
+<td>世界最大のクレジットカード決済ネットワーク。高い加盟店網を誇る。</td>
+</tr>
+<tr>
+<td>"Vポイント"</td>
+<td>Finance</td>
+<td>三井住友カードやCCCMKホールディングス系サービスを中心に付与・利用される共通ポイント。旧Tポイント統合後の経済圏設計でも重要。</td>
+</tr>
+<tr>
+<td>"WAON"</td>
+<td>Finance</td>
+<td>イオングループが提供する電子マネーおよびポイント経済圏。日常の買い物やキャンペーン還元の受け皿として利用される。</td>
+</tr>
+<tr>
+<td>"ファミペイ"</td>
+<td>Finance</td>
+<td>ファミリーマートの決済・ポイントアプリ。請求書払い、POSA購入、各種チャージ連携などでポイ活ルートの中継点として使われる。</td>
+</tr>
+<tr>
+<td>"PowerShell"</td>
+<td>Dev / Ops</td>
+<td>Microsoftが開発した、コマンドラインシェルおよびスクリプト言語。Windows管理やインフラ構築の自動化（Infrastructure as Code）に広く利用される。</td>
+</tr>
+<tr>
+<td>"Jenkins"</td>
+<td>Dev / Ops</td>
+<td>オープンソースの自動化サーバー。ビルド、テスト、デプロイなど、ソフトウェア開発に関わる一連のプロセスを自動化するための中心的なツール（CI/CD）。</td>
+</tr>
+<tr>
+<td>"スナップショット"</td>
+<td>Infra / Ops</td>
+<td>ある時点でのシステムやデータの状態を丸ごと保存した記録。VMware等の仮想化基盤では、更新前のバックアップや切り戻し用に頻繁に利用される。</td>
+</tr>
+<tr>
+<td>"GitHub Actions"</td>
+<td>Dev / Ops</td>
+<td>GitHub上でCI/CD（継続的インテグレーション/デリバリー）を実現するための自動化プラットフォーム。</td>
+</tr>
+<tr>
+<td>"Cron"</td>
+<td>Ops</td>
+<td>Unix系OSにおいて、スクリプトやコマンドを特定の時刻や間隔で自動実行するためのスケジュール管理システム。</td>
+</tr>
+<tr>
+<td>"PowerToys"</td>
+<td>Windows / Ops</td>
+<td>Microsoftが開発・提供する、パワーユーザー向けのオープンソース・システムユーティリティ群。ウィンドウ配置の最適化やファイル名の一括変更など、標準機能にはない高度なカスタマズが可能。</td>
+</tr>
+<tr>
+<td>"FancyZones"</td>
+<td>Windows / Ops</td>
+<td>PowerToysに含まれるウィンドウ管理ツール。画面を任意のレイアウト（ゾーン）に分割し、ウィンドウをドラッグするだけで素早く配置できる機能。</td>
+</tr>
+<tr>
+<td>"DNS"</td>
+<td>Network / Ops</td>
+<td>Domain Name System（ドメイン名システム）。「google.com」のような人間が理解しやすい名前（ドメイン名）を、コンピュータが理解できるIPアドレスに変換する仕組み。</td>
+</tr>
+<tr>
+<td>"NAT"</td>
+<td>Network / Ops</td>
+<td>Network Address Translation。プライベートIPアドレスとグローバルIPアドレスを相互に変換する技術。</td>
+</tr>
+<tr>
+<td>"パケットフィルター"</td>
+<td>Network / Ops</td>
+<td>ネットワークの外部（インターネット）と内部（サーバー）の境界で、特定のルールに基づいて通信を通したり遮断したりする機能。ファイアウォールの一種。</td>
+</tr>
+<tr>
+<td>"UL (Ultra Light)"</td>
+<td>Other / Hiking</td>
+<td>ハイキングにおいて、装備の軽量化を突き詰めるスタイル。ベースウェイトを極限まで下げることで、より長く、速く、快適に歩くことを目的とする。</td>
+</tr>
+<tr>
+<td>"ALTRA"</td>
+<td>Other / Hiking</td>
+<td>「ゼロドロップ」と「フットシェイプ」が特徴の米国のシューズブランド。自然な歩行姿勢を維持できるため、ULハイカーから絶大な支持を得ている。</td>
+</tr>
+<tr>
+<td>"Antigravity"</td>
+<td>AI</td>
+<td>Google Deepmind社が開発・提唱する次世代のAIエージェント実行環境、またはその概念。単なる推論だけでなく、コードの読み書きやツールの実行を自律的に行う。</td>
+</tr>
+<tr>
+<td>"MTTR"</td>
+<td>Process / Ops</td>
+<td>Mean Time To Recovery（平均修復時間）の略。システム障害やバグが発生してから、原因を特定し復旧・修正するまでにかかる平均的な時間を示す指標。</td>
+</tr>
+<tr>
+<td>"Sentry"</td>
+<td>Infra / Obs</td>
+<td>アプリケーションのエラーや例外をリアルタイムに監視・収集し、スタックトレース等の詳細情報を提供するモニタリングツール。</td>
+</tr>
+<tr>
+<td>"Datadog"</td>
+<td>Infra / Obs</td>
+<td>インフラからアプリケーションまで、システム全体のメトリクス、ログ、トレースを統合的に監視するクラウドベースの可視化プラットフォーム。</td>
+</tr>
+<tr>
+<td>"ServiceNow"</td>
+<td>Infra / ServiceNow</td>
+<td>ITSM、ITOM、CSM などを統合提供するエンタープライズ向けワークフロープラットフォーム。CMDBや自動化基盤の中核として使われることが多い。</td>
+</tr>
+<tr>
+<td>"CMDB"</td>
+<td>Infra / ServiceNow</td>
+<td>Configuration Management Database。IT資産（CI）の構成情報とその関係性を一元管理するデータベース。ServiceNowプラットフォームの中核。</td>
+</tr>
+<tr>
+<td>"CSDM"</td>
+<td>Infra / ServiceNow</td>
+<td>Common Service Data Model。ServiceNowが推奨する、サービス管理のための共通データモデルのフレームワーク。ビジネスとインフラを繋ぐ設計図。</td>
+</tr>
+<tr>
+<td>"CI"</td>
+<td>Infra / ServiceNow</td>
+<td>Configuration Item（構成項目）。CMDBで管理される、サービス提供に不可欠な独立したコンポーネント（サーバー、アプリ、サービス等）。</td>
+</tr>
+<tr>
+<td>"IRE"</td>
+<td>Infra / ServiceNow</td>
+<td>Identification and Reconciliation Engine。重複する構成データを識別し、ルールに基づいて整合性を保ちながら統合する信頼性維持のためのエンジン。</td>
+</tr>
+<tr>
+<td>"RaptorDB"</td>
+<td>Infra / ServiceNow</td>
+<td>ServiceNowが導入した、AIワークロードや数千万件規模の大規模データ向けの高パフォーマンスな次世代データベースエンジン。</td>
+</tr>
+<tr>
+<td>"デジタルツイン"</td>
+<td>AI / Infra</td>
+<td>物理的な資産やシステムの、デジタル空間上の複製。リアルタイムなデータ連携により、監視・シミュレーション・予測に活用される。</td>
+</tr>
+<tr>
+<td>"Service Graph Connectors"</td>
+<td>Infra / ServiceNow</td>
+<td>外部ソース（Azure, AWS, SCCM等）からのデータを、ServiceNowのベストプラクティスに基づいた形式でCMDBに自動取り込みするための専用コネクタ群。</td>
+</tr>
+<tr>
+<td>"日経平均 (Nikkei 225)"</td>
+<td>Finance</td>
+<td>日本の株式市場の代表的な株価指数。東証プライム上場の主要225銘柄の平均株価から算出される。</td>
+</tr>
+<tr>
+<td>"実質賃金"</td>
+<td>Finance</td>
+<td>労働者が受け取った給与（名目賃金）の額面ではなく、物価変動の影響を除いた「実際にモノやサービスをどれだけ買えるか」を示す指標。</td>
+</tr>
+<tr>
+<td>"インフレ (Inflation)"</td>
+<td>Finance</td>
+<td>インフレーションの略。物価が継続的に上昇し、相対的にお金の価値が下がる状態。</td>
+</tr>
+<tr>
+<td>"消費者物価指数 (CPI)"</td>
+<td>Finance</td>
+<td>世帯が購入する商品やサービスの価格の変動を測定した指標。インフレ率を測る代表的な尺度。</td>
+</tr>
+<tr>
+<td>"コアCPI"</td>
+<td>Finance</td>
+<td>消費者物価指数のうち、天候等の影響で価格変動が激しい生鮮食品を除いた指数。経済の基調的な物価動向を把握するために用いられる。</td>
+</tr>
+<tr>
+<td>"ETF"</td>
+<td>Finance</td>
+<td>Exchange Traded Fund（上場投資信託）。取引所に上場し、株と同じようにリアルタイムで売買できる投資信託。</td>
+</tr>
+<tr>
+<td>"高配当株"</td>
+<td>Finance</td>
+<td>株価に対して、企業が支払う配当金の割合（配当利回り）が高い株式のこと。</td>
+</tr>
+<tr>
+<td>"配当利回り"</td>
+<td>Finance</td>
+<td>1株あたりの年間配当金を現在の株価で割った数値。投資金額に対してどれだけの配当が得られるかを示す。</td>
+</tr>
+<tr>
+<td>"JQエポスG"</td>
+<td>Finance</td>
+<td>JQ CARD エポスゴールドの略。選べるポイントアップショップ等を活用し、年間100万円利用で実質還元率1.5%以上を目指せるポイ活の定番カード。</td>
+</tr>
+<tr>
+<td>"楽天キャッシュ"</td>
+<td>Finance</td>
+<td>楽天経済圏で利用できるオンライン電子マネー。楽天カードからのチャージや楽天証券での投信積立に活用される。</td>
+</tr>
+<tr>
+<td>"楽天Edy"</td>
+<td>Finance</td>
+<td>楽天グループが提供するプリペイド型電子マネー。AndroidのFeliCa機能を活用したチャージ・交換ルートの中継点として重宝される。</td>
+</tr>
+<tr>
+<td>"iAEON / イオンPay"</td>
+<td>Finance</td>
+<td>イオングループの共通アプリおよび決済サービス。WAON POINTの統合管理や、スマホ決済としての活用が進んでいる。</td>
+</tr>
+<tr>
+<td>"RAG"</td>
+<td>AI</td>
+<td>Retrieval-Augmented Generation（検索拡張生成）。外部の知識源を検索してLLMに渡し、回答の精度と最新性を高める手法。</td>
+</tr>
+<tr>
+<td>"Docs-as-Code"</td>
+<td>Dev / Process</td>
+<td>ドキュメントをコードと同様のワークフロー（Git, CI/CD, 静的解析）で管理するプラクティス。一貫性とガバナンスの維持に有効。</td>
+</tr>
+<tr>
+<td>"データメッシュ"</td>
+<td>AI / Infra</td>
+<td>中央集権的なデータ管理ではなく、各部門（ドメイン）が自律的にデータを所有・提供する分散型のデータ管理アーキテクチャ。</td>
+</tr>
+<tr>
+<td>"ノーウェアランサム"</td>
+<td>Security</td>
+<td>データの暗号化を行わず、窃取した情報の暴露のみを武器に金銭を要求するランサムウェア（非暗号化型）の手口。</td>
+</tr>
+<tr>
+<td>"MFA"</td>
+<td>Security</td>
+<td>Multi-Factor Authentication。多要素認証。パスワードに加え、スマホ通知や生体認証などを組み合わせた認証強化手法。</td>
+</tr>
+<tr>
+<td>"EDR"</td>
+<td>Security</td>
+<td>Endpoint Detection and Response。端末（PC/サーバー）内の挙動をリアルタイム監視し、異常を検知・即時対処するソリューション。</td>
+</tr>
+<tr>
+<td>"NDR"</td>
+<td>Security / Network</td>
+<td>Network Detection and Response。ネットワーク全域の通信をAI等で分析し、不審な情報持ち出し活動等を検知するソリューション。</td>
+</tr>
+<tr>
+<td>"二重恐喝"</td>
+<td>Security</td>
+<td>データの暗号化（可用性への攻撃）に加え、窃取データの暴露（機密性への攻撃）を二段構えで突きつける恐喝手法。</td>
+</tr>
+<tr>
+<td>"ROT"</td>
+<td>Data / AI</td>
+<td>Redundant, Outdated, Trivialの略。冗長、時代遅れ、あるいは価値のないデータの総称。AIのハルシネーションを誘発する主要因の一つ。</td>
+</tr>
+<tr>
+<td>"ナレッジ・タックス"</td>
+<td>Business / KM</td>
+<td>情報のサイロ化や重複作業により、組織が実質的に支払っている目に見えない生産性コスト（知識税）。</td>
+</tr>
+<tr>
+<td>"セマンティックレイヤー"</td>
+<td>Data / AI</td>
+<td>物理データの上に構築される、ビジネス用語や概念に基づいた論理的なデータ統合層。AIが情報の意味を解読する助けとなる。</td>
+</tr>
+<tr>
+<td>"チャンキング"</td>
+<td>AI</td>
+<td>LLMが処理しやすいように文書を適切なサイズに分割する手法。分割の品質がRAGの回答精度を左右する。</td>
+</tr>
+<tr>
+<td>"自律修復型"</td>
+<td>AI / KM</td>
+<td>AIエージェントがナレッジの陳腐化や矛盾を自動検知し、自律的に更新や修正の提案を行うアーキテクチャ。</td>
+</tr>
+<tr>
+<td>"暗黙知"</td>
+<td>Knowledge</td>
+<td>経験や勘に基づく、言葉で表現しにくい知識。AIによる構造化と形式知化がナレッジマネジメントの次なるフロンティアとされる。</td>
+</tr>
+<tr>
+<td>"ベクトル検索"</td>
+<td>AI</td>
+<td>文章を数値化（ベクトル化）し、意味が近い情報を数学的な距離で探し出す手法。RAGの中核技術。</td>
+</tr>
+<tr>
+<td>"非構造化データ"</td>
+<td>Data</td>
+<td>PDF、画像、音声、自由記述のテキストなど、特定のデータモデルや形式を持たないデータ群。AIによる解析・構造化の主な対象。</td>
+</tr>
+<tr>
+<td>"Confluence"</td>
+<td>KM</td>
+<td>Atlassian社が提供するチーム向けWikiツール。エンタープライズ領域で広く普及しているナレッジ共有プラットフォーム。</td>
+</tr>
+<tr>
+<td>"三井住友銀行 (SMBC)"</td>
+<td>Business</td>
+<td>日本のメガバンク。全社規模でのRAG活用（SMBC-GAI）や内製開発を強力に推進している。</td>
+</tr>
+<tr>
+<td>"SHIFT"</td>
+<td>Business / Dev</td>
+<td>ソフトウェアテストや品質保証を主軸とする企業。AIを用いたレガシープログラムの解析や構造化ドキュメント化にも注力。</td>
+</tr>
+<tr>
+<td>"EPP"</td>
+<td>Security</td>
+<td>Endpoint Protection Platform の略。端末上のウイルス検知や、既知の脅威からの保護を主眼に置くセキュリティ製品。</td>
+</tr>
+<tr>
+<td>"SOC"</td>
+<td>Security</td>
+<td>Security Operations Center の略。24時間365日体制でネットワークやシステムのセキュリティを監視、インシデントの検知と初期対応を行う専門組織。</td>
+</tr>
+<tr>
+<td>"VPN"</td>
+<td>Network / Security</td>
+<td>Virtual Private Network の略。インターネット等の公衆網を利用して、仮想的な専用線を構築し、安全な通信経路を確保する技術。</td>
+</tr>
+<tr>
+<td>"RDP"</td>
+<td>Network</td>
+<td>Remote Desktop Protocol の略。Windows等で、ネットワーク越しに他コンピュータのデスクトップ画面を操作するためのプロトコル。</td>
+</tr>
+<tr>
+<td>"C2"</td>
+<td>Security</td>
+<td>Command &amp; Control の略。攻撃者が感染したコンピュータ（ボット）に対して指令を出し、制御するためのサーバー。</td>
+</tr>
+<tr>
+<td>"エクスフィルトレーション"</td>
+<td>Security</td>
+<td>Exfiltration の略。機密データを作戦の一部として標的ネットワークの外に持ち出す行為。</td>
+</tr>
+<tr>
+<td>"Customer Success"</td>
+<td>Business</td>
+<td>顧客が製品やサービスを通じて目的を達成し、成功することを支援する能動的な活動。単なるサポートを超えた価値提供。</td>
+</tr>
+<tr>
+<td>"LTV"</td>
+<td>Business</td>
+<td>Lifetime Value（顧客生涯価値）。一人の顧客が取引期間を通じて企業にもたらす利益の総計。</td>
+</tr>
+<tr>
+<td>"KPI"</td>
+<td>Business</td>
+<td>Key Performance Indicator（重要業績評価指標）。目標達成度を計るための定量的な指標。RAG運用では回答精度だけでなく「削減時間（Time Saved）」等のビジネスKPIが重視される。</td>
+</tr>
+<tr>
+<td>"ROI"</td>
+<td>Business / Finance</td>
+<td>Return on Investment（投資利益率）。生成AI導入では「(削減時間 × 実行回数 × 時給)」から算出されるコスト削減額が強力な証明指標となる。</td>
+</tr>
+<tr>
+<td>"CX"</td>
+<td>Business</td>
+<td>Customer Experience（顧客体験）。顧客が製品やサービスを利用する過程で感じる心理的・感情的な価値の総体。</td>
+</tr>
+<tr>
+<td>"ブランド・エクイティ"</td>
+<td>Business</td>
+<td>企業や製品の名称・ロゴが持つ、資産としての価値。知名度、品質の知覚、ロイヤリティなどから構成される。</td>
+</tr>
+<tr>
+<td>"コモディティ化"</td>
+<td>Business</td>
+<td>市場に似たような製品が溢れ、スペックや価格以外の差別化が困難になる現象。</td>
+</tr>
+<tr>
+<td>"ゼロドロップ"</td>
+<td>Hiking</td>
+<td>踵（ヒール）とつま先（トゥ）の地面からの距離が同じである設計。人間本来の自然な歩行姿勢を促す ALTRA 等の特徴。</td>
+</tr>
+<tr>
+<td>"フットシェイプ"</td>
+<td>Hiking</td>
+<td>つま先部分が広めに設計され、足指が自然に広がることを妨げない靴の形状。外反母趾の予防や安定性の向上に寄与する。</td>
+</tr>
+<tr>
+<td>"ハッブル・テンション"</td>
+<td>Space / Physics</td>
+<td>初期宇宙の観測データに基づく膨張率予測と、近傍宇宙の直接観測値が一致しない問題。現代宇宙論における最大の「不整合（バグ）」の一つ。</td>
+</tr>
+<tr>
+<td>"Big Rip"</td>
+<td>Space / Physics</td>
+<td>ダークエネルギーの密度が時間とともに増大し、最終的に宇宙の全構造をバラバラに引き裂くという終焉シナリオ。</td>
+</tr>
+<tr>
+<td>"CP対称性の破れ"</td>
+<td>Physics</td>
+<td>粒子（C: 電荷）と鏡像（P: パリティ）の対称性が崩れる現象。物質が反物質よりわずかに多く残った理由（仕様バグ）とされる。</td>
+</tr>
+<tr>
+<td>"最小作用の原理"</td>
+<td>Physics</td>
+<td>物体はある量（作用）を最小にする経路を通るという物理法則。情報理論的には、計算コストを最小化する最適化アルゴリズムと解釈可能。</td>
+</tr>
+<tr>
+<td>"PagerDuty"</td>
+<td>Infra / Ops</td>
+<td>デジタルオペレーションの管理プラットフォーム。監視ツールと連携し、インシデントの検知から適切な担当者へのエスカレーション、自動復旧までをオーケストレーションする。</td>
+</tr>
+<tr>
+<td>"AIOps"</td>
+<td>AI / Ops</td>
+<td>Artificial Intelligence for IT Operations の略。機械学習を活用してシステムの監視データを分析し、ノイズ削減、異常検知、原因特定を自動化する手法。</td>
+</tr>
+<tr>
+<td>"SRE"</td>
+<td>Process / Ops</td>
+<td>Site Reliability Engineering の略。ソフトウェアエンジニアリングのプラクティスをインフラ運用に適用し、システムの信頼性とスケーラビリティを向上させる手法。</td>
+</tr>
+<tr>
+<td>"Event Orchestration"</td>
+<td>Infra / Ops</td>
+<td>受信した多数のアラートイベントに対して、ルールに基づいた正規化、エンリッチメント、フィルタリングを行い、最適なアクションを実行するパイプライン。</td>
+</tr>
+<tr>
+<td>"Runbook Automation"</td>
+<td>Infra / Ops</td>
+<td>熟練のエンジニアが持つ標準作業手順（ランブック）を自動化し、安全かつ再現性のある形で実行する仕組み。</td>
+</tr>
+<tr>
+<td>"MTTA"</td>
+<td>Process / Ops</td>
+<td>Mean Time To Acknowledge（平均確認時間）の略。インシデントが発生してから、担当者がその発生を認識（応答）するまでの平均時間。</td>
+</tr>
+<tr>
+<td>"インシデント管理"</td>
+<td>Process / Ops</td>
+<td>サービスの中断や品質低下を伴う予期せぬ不具合（インシデント）を迅速に解決し、正常な状態に復旧させるための一連の管理プロセス。</td>
+</tr>
+<tr>
+<td>"Atlas/Ceres"</td>
+<td>Infra / Security</td>
+<td>Rubrik 社が開発した、独自かつ不変（Immutable）なファイルシステムの名称。データの改ざんや削除を物理レベルで防止する。</td>
+</tr>
+<tr>
+<td>"SLA Domain"</td>
+<td>Infra / Security</td>
+<td>バックアップの頻度、保持期間、レプリケーション先などを一括定義する Rubrik の宣言型ポリシーエンジン。ジョブベースではなく「あるべき状態」を定義する。</td>
+</tr>
+<tr>
+<td>"Retention Lock"</td>
+<td>Infra / Security</td>
+<td>バックアップデータの保持期間内における、管理者を含むあらゆるユーザーによるデータ削除を不可能にする機能。ランサムウェアによる証跡抹消を防御する。</td>
+</tr>
+<tr>
+<td>"Live Mount"</td>
+<td>Infra / Security</td>
+<td>バックアップデータをストレージから直接サーバーにマウントし、データのリストア（書き戻し）を待たずに数分でシステムを即時稼働させる機能。</td>
+</tr>
+<tr>
+<td>"AWS RDS"</td>
+<td>Infra</td>
+<td>Amazon Relational Database Service (マネージド型リレーショナルデータベースサービス)。リソースタグ等に基づいたSLA Domainの自動適用（オートプロテクション）が可能。</td>
+</tr>
+<tr>
+<td>"Amazon Aurora"</td>
+<td>Infra</td>
+<td>クラウド向けに構築された、Amazon RDS の MySQL および PostgreSQL と互換性のあるリレーショナルデータベース。クラスタ単位での保護に対応。</td>
+</tr>
+<tr>
+<td>"PITR"</td>
+<td>Infra</td>
+<td>Point-in-Time Recovery。バックアップ時点だけでなく、トランザクションログを活用して過去の任意の時点までデータを復旧する機能。</td>
+</tr>
+<tr>
+<td>"KMS"</td>
+<td>Security / Infra</td>
+<td>Key Management Service。AWS での暗号化キー管理サービス。クロスアカウント/リージョンでのリストア時に、移行先へキーの使用権限を付与する必要がある。</td>
+</tr>
+<tr>
+<td>"IAM Role"</td>
+<td>Security / Infra</td>
+<td>特定の権限を定義し、AWSのリソースやユーザーに一時的に付与するための仕組み。Rubrik と AWS の接続（AssumeRole）や権限管理の中核となる。</td>
+</tr>
+<tr>
+<td>"DSPM"</td>
+<td>Security / Data</td>
+<td>Data Security Posture Management（データセキュリティ態勢管理）。データ自体の機密性、場所、アクセス権を可視化し、リスクを管理する手法。</td>
+</tr>
+<tr>
+<td>"PII"</td>
+<td>Security / Data</td>
+<td>Personally Identifiable Information（個人情報）。氏名、住所、電話番号など、特定の個人を識別できる情報。</td>
+</tr>
+<tr>
+<td>"PCI"</td>
+<td>Security / Data</td>
+<td>Payment Card Industry。クレジットカード情報の安全な取り扱いを目的としたセキュリティ基準（PCI DSS）に関連するデータ領域。</td>
+</tr>
+<tr>
+<td>"Multi-AZ"</td>
+<td>Infra</td>
+<td>AWS RDS 等における可用性向上のための機能。複数のアベイラビリティゾーンにデータベースを冗長配置し、自動故障検知とフェイルオーバーを実現する。</td>
+</tr>
+<tr>
+<td>"Rubrik Cloud Vault"</td>
+<td>Security / Infra</td>
+<td>Rubrikが提供するフルマネージドのイミュータブル（不変）なクラウドストレージ。AWS等からデータブロックを「引き抜いて（Vaulting）」格納し、アカウント侵害時にも削除不能な独立したバックアップを担保する。</td>
+</tr>
+<tr>
+<td>"AWS Nitro System"</td>
+<td>Security / Infra</td>
+<td>ネットワーク、ストレージ、セキュリティ機能を専用ハードウェアにオフロードするAWSの基盤。ベアメタルに近い性能と高いセキュリティ分離を実現する。</td>
+</tr>
+<tr>
+<td>"Amazon EC2"</td>
+<td>Infra</td>
+<td>Elastic Compute Cloud。クラウド上で安全でサイズ変更可能なコンピューティング容量を提供するWebサービス。</td>
+</tr>
+<tr>
+<td>"AWS Lambda"</td>
+<td>AI / Infra</td>
+<td>サーバーのプロビジョニングや管理をせずに関数レベルでコードを実行できる、イベント駆動型のサーバーレスコンピューティングサービス。</td>
+</tr>
+<tr>
+<td>"Amazon VPC"</td>
+<td>Network / Infra</td>
+<td>Virtual Private Cloud。AWSクラウド内の論理的に隔離された領域を定義し、仮想ネットワークを構築できるサービス。</td>
+</tr>
+<tr>
+<td>"Amazon CloudWatch"</td>
+<td>Infra / Obs</td>
+<td>インフラ、アプリケーション、サービスをリアルタイムで監視し、メトリクスやログを収集・可視化するオブザーバビリティプラットフォーム。</td>
+</tr>
+<tr>
+<td>"Amazon EventBridge"</td>
+<td>Infra / Ops</td>
+<td>AWSサービス、独自のアプリケーション、SaaSからのデータをルーティングし、イベント駆動型アプリケーションの構築を容易にするサーバーレスイベントバス。</td>
+</tr>
+<tr>
+<td>"Amazon DevOps Guru"</td>
+<td>AI / Obs</td>
+<td>機械学習を利用して、Amazon CloudWatch や AWS CloudTrail 等のデータを分析し、異常な動作の検知や解決策の提案を行うフルマネージドのAIOpsサービス。</td>
+</tr>
+<tr>
+<td>"Boto3"</td>
+<td>AI / Dev</td>
+<td>Python用のAWS SDK。プログラムからAWSリソース（S3, EC2など）を自動操作・管理するための標準的なライブラリ。</td>
+</tr>
+<tr>
+<td>"AWS CDK"</td>
+<td>Infra</td>
+<td>Cloud Development Kit。TypeScriptやPython等のプログラミング言語を使用してクラウドインフラを定義し、CloudFormationを通じてデプロイするIaCフレームワーク。</td>
+</tr>
+<tr>
+<td>"AWS Well-Architected Framework"</td>
+<td>Process / Infra</td>
+<td>クラウド上での安全、高性能、高効率、かつ復元力のあるインフラを設計・運用するためのベストプラクティスに基づいたフレームワーク。</td>
+</tr>
+<tr>
+<td>"Amazon RDS Proxy"</td>
+<td>Infra</td>
+<td>データベースの前に立ち、接続（コネクション）をプールして再利用するフルマネージドのプロキシサービス。Lambda等のサーバーレス環境からの大量の接続要求を効率的に処理し、可用性とスケーラビリティを向上させる。</td>
+</tr>
+<tr>
+<td>"Veeam"</td>
+<td>Infra</td>
+<td>業界標準のデータ保護ソフトウェア。ESXi/Hyper-V、物理サーバー、AWS等のクラウド環境を統合的に保護し、オンプレミスリポジトリへのセキュアなコピーをサポートする。</td>
+</tr>
+<tr>
+<td>"Commvault"</td>
+<td>Infra</td>
+<td>エンタープライズ向けの統合データ管理プラットフォーム。高度な重複排除機能と広範なプラットフォームサポート、および複雑なハイブリッド環境でのデータ移動管理が特徴。</td>
+</tr>
+<tr>
+<td>"AWS DataSync"</td>
+<td>Infra</td>
+<td>オンプレミス、エッジ、クラウドストレージ間でのデータ転送を簡素化・高速化する安全なオンラインデータ転送サービス。RDSからのエクスポートデータの同期に利用される。</td>
+</tr>
+<tr>
+<td>"Parquet"</td>
+<td>AI / Data</td>
+<td>Apache Parquet。列指向（カラムナ）のデータストレージフォーマット。分析クエリの効率が高く、AIOpsデータレイクや大規模データセットの持ち出し用フォーマットとして最適。</td>
+</tr>
+<tr>
+<td>"ステートマシン"</td>
+<td>Dev</td>
+<td>システムの状態（State）を定義し、ある状態から別の状態へ遷移するルールを管理する設計モデル。プログラミングやゲームロジックの根幹。</td>
+</tr>
+<tr>
+<td>"合成ペット"</td>
+<td>Dev / AI</td>
+<td>物理的な身体を持たず、コードとデータによってシミュレートされるデジタル生命体。自律エージェントの極初期形態。</td>
+</tr>
+<tr>
+<td>"Obsidian"</td>
+<td>Knowledge Management</td>
+<td>ローカルファーストの知識管理（PKM）ツール。Markdown形式でメモを保存し、強力なグラフビューやプラグインエコシステムを持つ。</td>
+</tr>
+<tr>
+<td>"Vault (保管庫)"</td>
+<td>Knowledge Management</td>
+<td>Obsidianにおけるメモのルートフォルダ。設定やプラグインもこの中に含まれる。</td>
+</tr>
+<tr>
+<td>"Google Drive Sync"</td>
+<td>Infrastructure / Sync</td>
+<td>Obsidianのコミュニティプラグインの一つ。Google Drive APIを介して、複数のデバイス間で保管庫（Vault）を同期するためのツール。</td>
+</tr>
+<tr>
+<td>"Rubrik"</td>
+<td>Infra / Security</td>
+<td>米国Rubrik社が提供するデータ管理・セキュリティプラットフォーム。バックアップ、復旧、アーカイブ、検索、分析を単一の不変（イミュータブル）な基盤で統合管理する。</td>
+</tr>
+<tr>
+<td>"Microsoft 365"</td>
+<td>Cloud / Infra</td>
+<td>Microsoftが提供するサブスクリプション型のクラウドサービス群。Exchange Online, OneDrive, SharePoint, Teamsなどを含む、現代ビジネスの主要なデータプラットフォーム。</td>
+</tr>
+<tr>
+<td>"Copilot Studio"</td>
+<td>AI / Low-Code</td>
+<td>Microsoftの生成AIエージェント作成・カスタマイズプラットフォーム。社内データや外部APIと連携し、業務に特化した自律型エージェント（Copilot）を構築できる。</td>
+</tr>
+<tr>
+<td>"S3"</td>
+<td>Infra / AWS</td>
+<td>Amazon Simple Storage Service。高い耐久性とスケーラビリティを備えた、AWSの核となるオブジェクトストレージサービス。</td>
+</tr>
+<tr>
+<td>"WAF"</td>
+<td>Security / Network</td>
+<td>Web Application Firewall。Webアプリケーションへの悪意のあるアクセス（SQLインジェクションやXSS等）を防御するための専用フィルター。</td>
+</tr>
+<tr>
+<td>"CloudFormation"</td>
+<td>Infra / IaC</td>
+<td>AWSリソースの構成をテンプレート（JSON/YAML）で記述し、自動的にプロビジョニング・管理するためのIaCサービス。</td>
+</tr>
+<tr>
+<td>"JSONL"</td>
+<td>Data / AI</td>
+<td>JSON Linesの略。1つのJSONオブジェクトを1行で記述する形式。ストリーム処理や大規模データセットのLLMトレーニングに適している。</td>
+</tr>
+<tr>
+<td>"Basic認証"</td>
+<td>Security / Auth</td>
+<td>HTTPプロトコル標準の認証方式。ユーザー名とパスワードをBase64エンコードして送信する。シンプルだが、暗号化（HTTPS）との併用が必須。</td>
+</tr>
+<tr>
+<td>"AI Knowledge Concierge"</td>
+<td>AI / Project</td>
+<td>過去の問い合わせナレッジ（Jira, Redmine等）を生成AIで構造化・検索可能にし、回答の自律的な生成を支援するナレッジ最適化エンジンの名称。</td>
+</tr>
+<tr>
+<td>"旧バックアップ環境"</td>
+<td>Infra / Security</td>
+<td>データの仮想化技術を中心に展開していた旧製品群。新基盤へのリプレース対象。</td>
+</tr>
+<tr>
+<td>"post-thaw-script"</td>
+<td>VMware / Infra</td>
+<td>スナップショット後、DBの静止化を解除するカスタムスクリプト。移行時には「既知の無害なエラー」を適切に除外する必要がある。</td>
+</tr>
+<tr>
+<td>"統合監視ツール"</td>
+<td>Infra / Obs</td>
+<td>国内で広く普及している統合運用管理ツール。ジョブスケジュール管理やバックアップ監視の中心となる。</td>
+</tr>
+<tr>
+<td>"Notebook (AI)"</td>
+<td>AI</td>
+<td>独自AIエージェントにおいて、特定の資料を「知識」として参照させる機能。内容の陳腐化が回答品質の低下を招くリスク（Knowledge Decay）がある。</td>
+</tr>
+<tr>
+<td>"知識の陳腐化"</td>
+<td>AI / KM</td>
+<td>Knowledge Decay。RAG等において古いドキュメントが混在することでAIが最新情報を無視し、時代遅れの回答（ハルシネーション）を生成して成果を落としてしまう現象。</td>
+</tr>
+<tr>
+<td>"データの庭師"</td>
+<td>AI / Ops</td>
+<td>Data Gardener。ファイルを単に追加し続けるのではなく、不鮮明・不要になった知識を剪定（削除・隔離）し、データ鮮度を維持し続けるエンジニア。</td>
+</tr>
+<tr>
+<td>"AIライブラリアン"</td>
+<td>AI / KM</td>
+<td>AI Librarian。AIが正しく文脈を理解できるよう、データの分類、整合性監査、タクソノミー（分類体系）の構築を専門とする次世代の職務。</td>
+</tr>
+<tr>
+<td>"漏洩攻撃"</td>
+<td>AI / Security</td>
+<td>Leakage Attack。巧妙なプロンプトを用いて、AIの権限管理を回避し、機密情報を外部へ引き出すサイバー攻撃手法。</td>
+</tr>
+<tr>
+<td>"Silo Pattern"</td>
+<td>AI / Infra</td>
+<td>マルチテナントRAGにおいて、テナントごとにDBを完全分離するアーキテクチャ。高セキュリティだがコストが高い。</td>
+</tr>
+<tr>
+<td>"Bridge Pattern"</td>
+<td>AI / Infra</td>
+<td>ストレージを共有しつつ、検索インデックスをテナントごとに分離するRAG設計。</td>
+</tr>
+<tr>
+<td>"Pool Pattern"</td>
+<td>AI / Infra</td>
+<td>単一DB内で全テナントのデータを論理的に隔離（メタデータフィルタリング）する、コスト効率重視のRAG設計。</td>
+</tr>
+<tr>
+<td>"宿泊税"</td>
+<td>Travel / Finance</td>
+<td>自治体が独自に課す法定外目的税。北海道では2026年4月から段階的定額制や定率制（倶知安町等）が導入されている。</td>
+</tr>
+<tr>
+<td>"にこっとBUS"</td>
+<td>Travel / Local</td>
+<td>ニセコ町のデマンドバス。2026年からスマホでの24時間Web予約に対応し、利便性が大幅に向上した。</td>
+</tr>
+<tr>
+<td>"神仙沼"</td>
+<td>Travel / Nature</td>
+<td>ニセコエリアで最も美しいと言われる高層湿原。標高約760mに位置し、木道が整備されている。</td>
+</tr>
+<tr>
+<td>"ニセコパノラマライン"</td>
+<td>Travel / Road</td>
+<td>ニセコ町と岩内町を結ぶ道道66号線の愛称。絶景ドライブコースだが、冬季（10月〜4月）は通行止めとなる。</td>
+</tr>
+<tr>
+<td>"五色温泉"</td>
+<td>Travel / Spa</td>
+<td>ニセコアンヌプリとイワオヌプリの間に位置する温泉。硫黄分が豊富で、源泉かけ流しの名湯として知られる。</td>
+</tr>
+<tr>
+<td>"雪秩父"</td>
+<td>Travel / Spa</td>
+<td>蘭越町にある町営の日帰り温泉施設。大湯沼の源泉を活かした濃厚な硫黄泉と、天然の泥パックが名物。</td>
+</tr>
+<tr>
+<td>"泥パック"</td>
+<td>Travel / Spa</td>
+<td>温泉の副産物である天然の泥を顔や体に塗る美容・健康法。雪秩父の女性専用露天風呂で体験可能。</td>
+</tr>
+<tr>
+<td>"ヒグマ"</td>
+<td>Travel / Nature</td>
+<td>北海道に生息する日本最大の陸生哺乳類。山歩きやトレッキングの際は音出し（鈴）やスプレー等の対策が必須。</td>
+</tr>
+<tr>
+<td>"三島さんの芝ざくら"</td>
+<td>Travel / Seasonal</td>
+<td>倶知安町の個人宅庭園。例年5月下旬〜6月上旬に広大なピンクの芝桜と羊蹄山のコントラストが楽しめる。</td>
+</tr>
+<tr>
+<td>"洞サウナ"</td>
+<td>Travel / Spa</td>
+<td>DO SAUNA。2026年5月にエスコンフィールドにオープン予定のサウナ施設。ミストサウナ「雪洞」とドライサウナ「石洞」を備える。</td>
+</tr>
+<tr>
+<td>"Fマイル"</td>
+<td>Travel / Finance</td>
+<td>Fビレッジ公式アプリと連携したポイントプログラム。施設内での決済で貯まり、割引クーポン等に交換可能。</td>
+</tr>
+<tr>
+<td>"Non-Gameday"</td>
+<td>Travel / Ballpark</td>
+<td>プロ野球の試合が開催されない日。エスコンフィールドでは駐車料金の割引や入場無料エリアの開放など、独自の恩恵がある。</td>
+</tr>
+<tr>
+<td>"男爵いも"</td>
+<td>Travel / Local</td>
+<td>倶知安町の名産であるジャガイモ。羊蹄山の麓で栽培され、ホクホクとした食感と甘みが特徴。</td>
+</tr>
+<tr>
+<td>"豪雪うどん"</td>
+<td>Travel / Local</td>
+<td>ジャガイモのデンプンを80%練り込んだ倶知安独自の麺。半透明のビジュアルと強靭なモチモチ感が特徴の郷土料理。</td>
+</tr>
+<tr>
+<td>"五四〇"</td>
+<td>Travel / Local</td>
+<td>ゴーヨンマル。本間松蔵商店が生み出した、専用の貯蔵庫で540日間熟成させた実践的なジャガイモ。強烈な甘みとコクを持つ。</td>
+</tr>
+<tr>
+<td>"水そば"</td>
+<td>Travel / Gourmet</td>
+<td>羊蹄山の湧き水に蕎麦を浸し、塩だけでいただく実践的な食べ方。倶知安の「農家のそばや羊蹄山」の名物。</td>
+</tr>
+<tr>
+<td>"&amp;cafe NISEKO"</td>
+<td>Travel / Local</td>
+<td>2026年4月に倶知安町にオープンした循環型カフェ。リサイクル会社の堆肥で育てた野菜を提供し、旧社屋をリノベーションした空間。</td>
+</tr>
+<tr>
+<td>"オンデマンド"</td>
+<td>Infra / Ops</td>
+<td>あらかじめスケジュールされた自動実行ではなく、ユーザーが必要な時にその都度実行すること。バックアップでは手動取得を指す。</td>
+</tr>
+<tr>
+<td>"パージ (Purge)"</td>
+<td>Infra / Data</td>
+<td>不要になったデータやスナップショットを完全に削除し、ストレージ容量を解放すること。</td>
+</tr>
+<tr>
+<td>"接待"</td>
+<td>Other / Business</td>
+<td>取引先をもてなし、親睦を深めるための会食。赤坂エリアはこの需要が非常に高い。</td>
+</tr>
+<tr>
+<td>"鉄板焼き"</td>
+<td>Other / Gourmet</td>
+<td>目の前の鉄板でシェフが食材を焼き上げる料理スタイル。接待や記念日の定番。</td>
+</tr>
+<tr>
+<td>"すき焼き"</td>
+<td>Other / Gourmet</td>
+<td>薄切り肉を醤油・砂糖などで煮焼きする日本の代表的な肉料理。老舗「ざくろ」などの名物。</td>
+</tr>
+<tr>
+<td>"SKY WALK"</td>
+<td>Travel / Activity</td>
+<td>ES CON FIELD SKY WALK。2026年5月開業の空中散歩アクティビティ。地上約50mの球場屋根付近を歩く体験。</td>
+</tr>
+<tr>
+<td>"雪洞"</td>
+<td>Travel / Spa</td>
+<td>Shirayuki。洞サウナ内にあるホワイトミストサウナ。オーロラのような光演出による没入体験が特徴。</td>
+</tr>
+<tr>
+<td>"石洞"</td>
+<td>Travel / Spa</td>
+<td>Ishidou。洞サウナ内にあるブラックドライサウナ。オートロウリュ完備の本格派。</td>
+</tr>
+<tr>
+<td>"絵空事"</td>
+<td>Travel / Gourmet</td>
+<td>Esoragoto。洞サウナ併設の回復食処。清宮克幸氏がプロデュースする完全グルテンフリーな玄米うどんを提供。</td>
+</tr>
+<tr>
+<td>"ツーリスト・プレミアム"</td>
+<td>Travel / Finance</td>
+<td>観光地において、家賃や観光客向けのマーケティング費用が上乗せされることで生じる「観光地価格」のこと。</td>
+</tr>
+<tr>
+<td>"立地アービトラージ"</td>
+<td>Business / Finance</td>
+<td>裁定取引の応用。メインストリートの法外な家賃を避け、一本路地裏に入ることで浮いたコストを「食材原価」や「ボリューム」に還元する経営戦略。</td>
+</tr>
+<tr>
+<td>"かかん"</td>
+<td>Travel / Gourmet</td>
+<td>鎌倉西口（御成町）にある、本格的な麻婆豆腐が人気の名店。LINEを使ったデジタル順番待ちシステムで観光と両立できる。</td>
+</tr>
+<tr>
+<td>"鎌倉海鮮 碧海 umi"</td>
+<td>Travel / Gourmet</td>
+<td>鎌倉・若宮大路沿いの海鮮店。限定数を設けることで食材の歩留まりロスをゼロにし、高品質なネタ（天然本マグロ等）を適正価格で提供する。</td>
+</tr>
+<tr>
+<td>"つく志"</td>
+<td>Travel / Gourmet</td>
+<td>逗子駅近くにある昭和26年創業の大衆食堂。「通し営業」を行っており、ランチ難民になった際の強力なインフラとして機能する。</td>
+</tr>
+<tr>
+<td>"魚勝"</td>
+<td>Travel / Gourmet</td>
+<td>逗子にある昭和4年創業の魚屋兼定食屋。三浦半島の鮮魚を適正価格で提供する安定感抜群の老舗。</td>
+</tr>
+<tr>
+<td>"インクリメンタル・インデクシング"</td>
+<td>AI / Data</td>
+<td>Incremental Indexing。更新や追加があったデータのみを検知してナレッジベース（インデックス）に追加・更新する手法。全体の再インデックスを避け、計算コストを削減しつつ情報の鮮度を保つ。</td>
+</tr>
+<tr>
+<td>"FinOps"</td>
+<td>Business / Cloud</td>
+<td>Financial Operationsの略。クラウドやAIインフラのコストを可視化し、エンジニアリングと財務が連携して継続的に投資対効果（ROI）を最適化する実践手法。</td>
+</tr>
+<tr>
+<td>"PTU"</td>
+<td>AI / FinOps</td>
+<td>Provisioned Throughput Units。Azure OpenAI等で提供される、一定の処理能力（スロットリング）を期間予約で買い取り、安定したパフォーマンスとコストの予見性を確保する契約モデル。</td>
+</tr>
+<tr>
+<td>"Batch API"</td>
+<td>AI / FinOps</td>
+<td>即時性を求められない大量のタスクを非同期にまとめて処理するAPI。標準APIの半額程度のコストで実行できるため、FinOpsの強力な手段となる。</td>
+</tr>
+<tr>
+<td>"Devcontainer"</td>
+<td>Dev</td>
+<td>開発環境をコンテナ（Docker等）上に構築し、設定ファイル（devcontainer.json）で一元管理してチーム内で一貫した環境を提供する仕組み。</td>
+</tr>
+<tr>
+<td>"Harbor"</td>
+<td>Infra / Security</td>
+<td>CNCF Graduatedプロジェクトのコンテナレジストリ。脆弱性スキャンやRBAC、プロキシキャッシュ機能を備えエンタープライズで広く利用される。</td>
+</tr>
+<tr>
+<td>"Docker Hub"</td>
+<td>Dev / Infra</td>
+<td>Docker社が運営する世界最大のパブリックコンテナレジストリ。APIへのPull制限（レートリミット）が存在するなど運用上の注意点がある。</td>
+</tr>
+<tr>
+<td>"プロキシキャッシュ"</td>
+<td>Infra</td>
+<td>外部から取得したイメージデータを自社内に一時保存（キャッシュ）し、次に同じ要求があった際に高速・低コストで提供する仕組み。</td>
+</tr>
+<tr>
+<td>"Trivy"</td>
+<td>Security</td>
+<td>コンテナイメージやファイルシステム構成等の脆弱性を高速にスキャンするオープンソースのセキュリティツール。Harbor等に深く統合可能。</td>
+</tr>
+<tr>
+<td>"SBOM"</td>
+<td>Security</td>
+<td>Software Bill of Materials。ソフトウェアを構成するコンポーネント（ライブラリや依存関係）の一覧表。サプライチェーンの透明性確保に不可欠。</td>
+</tr>
+<tr>
+<td>"DevSecOps"</td>
+<td>Process</td>
+<td>開発（Dev）と運用（Ops）に、セキュリティ（Sec）の要素をプロセスの最初から組み込み、自動化して安全とスピードを両立する手法。</td>
+</tr>
+<tr>
+<td>"CockroachDB"</td>
+<td>Infra / DB</td>
+<td>高い拡張性と耐障害性を持つ分散SQLデータベース。データ量に応じた無限のスケールアウトが可能。</td>
+</tr>
+<tr>
+<td>"SOAR"</td>
+<td>Security</td>
+<td>Security Orchestration, Automation and Responseの略。インシデントへの対応プロセス全般を自動化し、SOC運用を効率化するプラットフォーム。</td>
+</tr>
+<tr>
+<td>"GraphQL"</td>
+<td>Dev / API</td>
+<td>クライアントが必要なデータ（フィールド）だけを過不足なく指定して取得できるAPIアーキテクチャ。不要なデータの転送（オーバーフェッチ）を防ぐ。</td>
+</tr>
+<tr>
+<td>"RSC"</td>
+<td>Infra / Security</td>
+<td>Rubrik Security Cloudの略。世界中に分散するRubrikクラスタを単一のSaaS画面から統合管理するためのプラットフォーム。</td>
+</tr>
+<tr>
+<td>"JAL Pay"</td>
+<td>Finance</td>
+<td>日本航空（JAL）が提供する、JALマイレージバンク（JMB）アプリ一体型のスマホ決済サービス。Mastercard/Visaのバーチャルカード機能も持ち、高還元ルートの中継点として重用される。</td>
+</tr>
+<tr>
+<td>"au PAY"</td>
+<td>Finance</td>
+<td>KDDIが提供するコード決済・プリペイドカード決済サービス。Pontaポイント経済圏の中核であり、他決済サービスへのチャージハブとしても機能する。</td>
+</tr>
+<tr>
+<td>"プロンプト"</td>
+<td>AI</td>
+<td>AI（大規模言語モデル）に対して出す指示や質問のテキスト。良い回答を得るための工夫は「プロンプトエンジニアリング」と呼ばれる。</td>
+</tr>
+<tr>
+<td>"トークン"</td>
+<td>AI</td>
+<td>AIが文章を処理する際の最小単位。英語では単語、日本語では1文字〜数文字に相当する。API利用料の計算基準となる。</td>
+</tr>
+<tr>
+<td>"CVE"</td>
+<td>Security</td>
+<td>Common Vulnerabilities and Exposures。公開されている情報セキュリティの脆弱性や欠陥に付与される共通の識別番号。</td>
+</tr>
+<tr>
+<td>"サンドボックス"</td>
+<td>Security / Dev</td>
+<td>プログラムを外部から隔離された保護領域で実行する仕組み。不審なコードの検証や、セキュリティが重要なタスクの実行に用いられる。</td>
+</tr>
+<tr>
+<td>"IAM"</td>
+<td>Security / Infra</td>
+<td>Identity and Access Management。AWS等のクラウドサービスにおいて、ユーザーやリソースに対する「誰が」「何に」アクセスできるかの権限を集中管理する仕組み。</td>
+</tr>
+<tr>
+<td>"エグレス料金"</td>
+<td>Finance / Infra</td>
+<td>Egress Fee。クラウド環境から外部（インターネットやオンプレミス）へデータを転送する際に発生するデータ転送料金。大量のデータ持ち出し時にコスト増の要因となる。</td>
+</tr>
+<tr>
+<td>"RBAC"</td>
+<td>Security / Dev</td>
+<td>Role-Based Access Control。職務や役割（ロール）に基づいて、リソースやシステムへのアクセス権限を制御する手法。最小権限の原則を実現するために用いられる。</td>
+</tr>
+<tr>
+<td>"webMethods"</td>
+<td>Dev / Infra</td>
+<td>Software AG社が提供する、企業内の異なるシステムやSaaSを統合・連携させるためのエンタープライズ統合プラットフォーム（iPaaS）。</td>
+</tr>
+<tr>
+<td>"Integration Server"</td>
+<td>Dev / Infra</td>
+<td>webMethodsスイートの中核をなす実行エンジン。フローサービス等を用いてデータの変換や通信、ルーティングを行う。</td>
+</tr>
+<tr>
+<td>"API Gateway"</td>
+<td>Security / Infra</td>
+<td>外部からのAPIリクエストを一括で受け取り、認証、流量制御、ルーティング、ログ記録などを行う管理レイヤー。</td>
+</tr>
+<tr>
+<td>"502 Bad Gateway"</td>
+<td>Network / Infra</td>
+<td>HTTPステータスコードの一つ。ゲートウェイやプロキシが、バックエンドサーバーから無効な応答を受け取った際に返される。</td>
+</tr>
+<tr>
+<td>"指数バックオフ"</td>
+<td>Dev / Ops</td>
+<td>Exponential Backoff。リトライの間隔を試行回数に応じて指数関数的に増やしていく手法。サーバーへの負荷集中（Thundering Herd）を回避するために用いられる。</td>
+</tr>
+<tr>
+<td>"リトライストーム"</td>
+<td>Security / Ops</td>
+<td>システムの各層で設定されたリトライが連鎖的に増殖し、異常な数のリクエストが発生してシステム全体がダウンする現象。</td>
+</tr>
+<tr>
+<td>"べき等性"</td>
+<td>Dev / Ops</td>
+<td>Idempotency。ある操作を何度繰り返しても結果が同じである性質。決済等のリトライ処理において、二重登録を防ぐための必須要件。</td>
+</tr>
+<tr>
+<td>"LVM"</td>
+<td>Infra / Linux</td>
+<td>Logical Volume Manager。Linuxにおいて物理ディスク容量を論理的なボリュームとして柔軟に管理する仕組み。スナップショットや容量拡張が容易。</td>
+</tr>
+<tr>
+<td>"FLR"</td>
+<td>Backup / Ops</td>
+<td>File Level Restore。バックアップデータから特定のファイルやディレクトリのみを選択して復元する機能。</td>
+</tr>
+<tr>
+<td>"UUID"</td>
+<td>System / Infra</td>
+<td>Universally Unique Identifier。ディスクやボリュームを一意に識別するための識別番号。重複するとOSが正常にマウントできない原因となる。</td>
+</tr>
+<tr>
+<td>"Live Mount"</td>
+<td>Backup / Rubrik</td>
+<td>Rubrikの技術。データを移動させずRubrik自体をデータストアとして直接VMを起動する機能。大規模データの即時復旧に有効。</td>
+</tr>
+<tr>
+<td>"Helper VM"</td>
+<td>Backup / Ops</td>
+<td>復旧作業やデータ抽出のために一時的に用意する中継用の仮想マシン。LVMのUUID競合回避などに用いられる。</td>
+</tr>
+<tr>
+<td>"BMR"</td>
+<td>Backup / Ops</td>
+<td>Bare Metal Recovery。OSからデータまでシステム全体を一括でまっさらなハードウェア上に復元する手法。</td>
+</tr>
+<tr>
+<td>"ReaR"</td>
+<td>Linux / DR</td>
+<td>Relax-and-Recover。Linux用のディザスタリカバリツール。Rubrikと連携してベアメタル復旧を実現する。</td>
+</tr>
+<tr>
+<td>"CDM"</td>
+<td>Backup / Rubrik</td>
+<td>Cloud Data Management。Rubrikのデータ保護プラットフォームの名称。</td>
+</tr>
+<tr>
+<td>"RBS"</td>
+<td>Backup / Rubrik</td>
+<td>Rubrik Backup Service。バックアップ対象のホストにインストールするRubrik専用のエージェントソフトウェア。</td>
+</tr>
+<tr>
+<td>"宣言的フェッチ"</td>
+<td>Dev / API</td>
+<td>Declarative Fetching。クライアントが必要なフィールドを明示してリクエストする手法。通信量の削減とパフォーマンス向上に寄与する。</td>
+</tr>
+<tr>
+<td>"ページネーション"</td>
+<td>Dev / API</td>
+<td>Pagination。大量のデータを分割して取得する仕組み。サーバー負荷の軽減とクライアントのレスポンス向上に繋がる。</td>
+</tr>
+<tr>
+<td>"Webhook"</td>
+<td>Dev / Web</td>
+<td>特定のイベント発生時に、サーバー側から外部システムへリアルタイムにプッシュ通知を行う仕組み。</td>
+</tr>
+<tr>
+<td>"ジッター"</td>
+<td>Dev / Ops</td>
+<td>Jitter。リトライ間隔にランダムな揺らぎを加える手法。リクエストの同時集中を回避するために用いられる。</td>
+</tr>
+<tr>
+<td>"Thundering Herd"</td>
+<td>System / Ops</td>
+<td>群衆の暴走。サーバーの復旧直後などに、大量のリクエストが同時に殺到して再びシステムをダウンさせる現象。</td>
+</tr>
+<tr>
+<td>"ポーリング"</td>
+<td>Dev / Ops</td>
+<td>Polling。一定間隔でサーバーの状態を繰り返し確認する手法。負荷増大の原因になりやすく、Webhookへの移行が推奨される場合が多い。</td>
+</tr>
+<tr>
+<td>"CoT"</td>
+<td>AI</td>
+<td>Chain-of-Thought（思考の連鎖）。AIに思考の過程を段階的に出力させることで、複雑な推論の精度を向上させる手法。</td>
+</tr>
+<tr>
+<td>"MCP"</td>
+<td>AI / Dev</td>
+<td>Model Context Protocol。AIモデルが外部のリポジトリやデータベース、ツールにセキュアかつ自律的にアクセスするための標準プロトコル。</td>
+</tr>
+<tr>
+<td>"Memory Bank"</td>
+<td>AI / Dev</td>
+<td>プロジェクトの文脈や規約をAIに「長期記憶」として保持させる設計パターン。大規模リポジトリの継続的な理解に不可欠。</td>
+</tr>
+<tr>
+<td>"Linter"</td>
+<td>Dev</td>
+<td>ソースコードを静的に解析し、バグやスタイル違反、潜在的な問題を検出するツール。</td>
+</tr>
+<tr>
+<td>"CWE"</td>
+<td>Security</td>
+<td>Common Weakness Enumeration。ソフトウェアの脆弱性や弱点を体系的に分類・整理した共通の辞書。</td>
+</tr>
+<tr>
+<td>"SPA"</td>
+<td>Web / Dev</td>
+<td>Single Page Application。ページ全体を再読み込みせず、JavaScriptでコンテンツを動的に更新するWebアプリケーションの形態。</td>
+</tr>
+<tr>
+<td>"AIコードレビュー"</td>
+<td>AI / Dev</td>
+<td>生成AIを用いてコードのバグ検知、リファクタリング案提示、規約チェック等を自動化する手法。開発サイクルの高速化に寄与する。</td>
+</tr>
+<tr>
+<td>"GitLab CI"</td>
+<td>Dev / Ops</td>
+<td>GitLabに統合されたCI/CDツール。パイプラインの自動実行、テスト、ビルド、デプロイ、およびMRへの自動コメント投稿などに用いられる。</td>
+</tr>
+<tr>
+<td>"LSP"</td>
+<td>Dev / IDE</td>
+<td>Language Server Protocol。エディタとプログラム言語サポートツール間の通信標準。型定義の参照や定義元へのジャンプ、補完機能をAIに提供するために重要。</td>
+</tr>
+<tr>
+<td>"Tree-sitter"</td>
+<td>Dev / Compilers</td>
+<td>多くのプログラミング言語を高速に解析できるパーサージェネレータ。コードを構造的に理解し、「リポジトリマップ」を作成してAIに渡す文脈を最適化するために用いられる。</td>
+</tr>
+<tr>
+<td>"MR"</td>
+<td>Dev / Git</td>
+<td>Merge Request。GitLabにおいて、コードの変更を本番ブランチ等へ反映させるための承認依頼。GitHubにおけるPull Request（PR）に相当。</td>
+</tr>
+<tr>
+<td>"リポジトリマップ"</td>
+<td>AI / Dev</td>
+<td>リポジトリ全体の構造や主要な定義、依存関係を要約したデータ。AIがリポジトリ全体の「文脈」を理解するための地図として機能する。</td>
+</tr>
+<tr>
+<td>"REPEAT-TRY-CATCH"</td>
+<td>Dev / webMethods</td>
+<td>webMethods Flowサービスにおけるエラーハンドリングの標準的な構造。リトライループ、主処理、例外処理を階層的に管理する。</td>
+</tr>
+<tr>
+<td>"Fail-Safe"</td>
+<td>System / Ops</td>
+<td>フェイルセーフ。システムの一部に故障やエラーが発生しても、被害を最小限に抑え、安全な状態（ジョブのスキップ等）で動作を継続させる設計思想。</td>
+</tr>
+<tr>
+<td>"インスタントリカバリ"</td>
+<td>Backup / Rubrik</td>
+<td>Rubrikの機能。バックアップデータを移動させず、Rubrik自体をデータストアとして直接VMを起動する技術。数TBのデータでも数分でアクセス可能にする。</td>
+</tr>
+<tr>
+<td>"RTO"</td>
+<td>System / Ops</td>
+<td>Recovery Time Objective（目標復旧時間）。障害発生からサービスを復旧させるまでに許容される目標時間。</td>
+</tr>
+<tr>
+<td>"RPO"</td>
+<td>System / Ops</td>
+<td>Recovery Point Objective（目標復旧時点）。障害発生時に、どの時点のデータまで復旧させるかという目標。バックアップの頻度に依存する。</td>
+</tr>
+<tr>
+<td>"BCP"</td>
+<td>Business / Ops</td>
+<td>Business Continuity Plan（事業継続計画）。災害やシステム障害などの緊急事態において、事業を継続するための計画や体制。</td>
+</tr>
+<tr>
+<td>"安全弁"</td>
+<td>System / Dev</td>
+<td>Safety Valve。AI自動レビュー等の自動化プロセスにおいて、誤判定やデグレードを防ぐために設ける多層的な検証・承認ステップ。</td>
+</tr>
+<tr>
+<td>"自動原因切り分け"</td>
+<td>Ops / AI</td>
+<td>AIエージェント等が、CI/CDパイプラインのエラーログとコード変更差分を分析し、障害原因が「コード不備」か「インフラ故障」かを自動で特定する手法。</td>
+</tr>
+<tr>
+<td>"Object Lock"</td>
+<td>Cloud / AWS</td>
+<td>S3の機能。一度書き込んだデータを一定期間または無期限に削除・上書き不能にする「WORM」モデルを実現する不変ストレージ機能。</td>
+</tr>
+<tr>
+<td>"Vault Lock"</td>
+<td>Cloud / AWS</td>
+<td>AWS Backupの機能。バックアップを保持する「ボルト」に対して強力な保護ポリシーを適用し、不変なバックアップを保証する。ランサムウェア対策に有効。</td>
+</tr>
+<tr>
+<td>"不変バックアップ"</td>
+<td>Backup / Ops</td>
+<td>Immutable Backup。一度作成されたら削除や改ざんが一切不可能なバックアップデータ。ランサムウェア攻撃からデータを確実に守るための最後の砦。</td>
+</tr>
+<tr>
+<td>"Glacier"</td>
+<td>Cloud / AWS</td>
+<td>Amazon S3のストレージクラス。長期間のアーカイブデータを極めて低コストで保存できる。復旧には数分から数時間の時間がかかる。</td>
+</tr>
+<tr>
+<td>"CDK"</td>
+<td>Cloud / AWS</td>
+<td>Cloud Development Kit。プログラミング言語（TypeScript, Python等）を使用してクラウドインフラを定義・構築できるツール。</td>
+</tr>
+<tr>
+<td>"ゾンビバックアップ"</td>
+<td>Backup / Ops</td>
+<td>Zombie Backups。サーバ本体は削除・廃棄されているのに、バックアップ設定だけが残り続け、不要な課金やストレージ消費が発生している状態。</td>
+</tr>
+<tr>
+<td>"Jira"</td>
+<td>Business / Ops</td>
+<td>Atlassian社が提供するタスク・プロジェクト管理ツール。資産管理や廃棄ワークフローの「真実のソース」として機能し、APIを通じてインフラ基盤と同期される。</td>
+</tr>
+<tr>
+<td>"真実のソース"</td>
+<td>System / Arch</td>
+<td>Source of Truth (SoT)。システム全体において、ある特定のデータ項目に対して唯一の信頼できる情報源（マスタ）として定義された場所。</td>
+</tr>
+<tr>
+<td>"名寄せ"</td>
+<td>Data / Ops</td>
+<td>複数の異なるデータベースや台帳から、同一の対象（サーバ等）を特定し、情報を統合・突合する作業。UUIDなどの一意識別子が重要となる。</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="changelog">📝 変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-02</strong>: 「秘伝のタレが腐らない理由」科学×数学解説、Antigravity 2.0、Kimi K3、イミュータブルバックアップ等の最新技術用語を追加。テーブルの表示崩れ（不要な空行）を完全修復。</li>
+<li><strong>2026-04-24</strong>: ゾンビバックアップ解消と資産管理連携シリーズの追加に伴う用語追加。</li>
+<li><strong>2026-04-18</strong>: ニセコ・神仙沼コンテンツの刷新に伴う用語追加。</li>
+<li><strong>2026-04-16</strong>: Devcontainer×Harbor, Enterprise AI Ops クラスターに伴う用語追加。</li>
+<li><strong>2026-04-13</strong>: マルチプラットフォーム同期・システム用語集の動的検索機能を統合。</li>
+</ul>
+<script>
+(() => {
+ const searchInput = document.getElementById('glossarySearch');
+ const counter = document.getElementById('searchCounter');
+ const table = document.querySelector('table');
+ if (!table) return;
+
+ const rows = Array.from(table.querySelectorAll('tbody tr'));
+ const totalCount = rows.length;
+
+ if (counter) {
+ counter.textContent = `Total: ${totalCount} Definitions`;
+ }
+
+ if (searchInput) {
+ searchInput.addEventListener('input', (e) => {
+ const query = e.target.value.toLowerCase().trim();
+ let visibleCount = 0;
+
+ rows.forEach(row => {
+ const text = row.textContent.toLowerCase();
+ if (text.includes(query)) {
+ row.style.display = '';
+ visibleCount++;
+ } else {
+ row.style.display = 'none';
+ }
+ });
+
+ if (counter) {
+ if (query === '') {
+ counter.textContent = `Total: ${totalCount} Definitions`;
+ counter.className = "text-[9px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4";
+ } else {
+ counter.textContent = `Match: ${visibleCount} / ${totalCount}`;
+ counter.className = "text-[9px] font-bold text-secondary uppercase tracking-widest whitespace-nowrap ml-4 border-l border-white/5 pl-4";
+ }
+ }
+ });
+ }
+})();
+</script>
+
+<h2 id="changelog_1">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-08-02 (v3)</strong>: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。</li>
+<li><strong>2026-04-09</strong>: メタデータおよび標準化。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../glossary/index.html" class="hover:text-white">Glossary</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

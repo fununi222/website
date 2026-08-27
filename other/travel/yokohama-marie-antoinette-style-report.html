@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>横浜美術館『マリー・アントワネット・スタイル』鑑賞レポ | 悲劇の王妃を読み解く見どころガイド | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="横浜美術館で開催中の特別展『マリー・アントワネット・スタイル』鑑賞レポート。天然パールのネックレス、首飾り事件、ギロチンの刃、ベルばらコラボまで、予習して深まる見どころを紹介。" />
+  <meta property="og:title" content="横浜美術館『マリー・アントワネット・スタイル』鑑賞レポ | 悲劇の王妃を読み解く見どころガイド | FunUni-lab" />
+  <meta property="og:description" content="横浜美術館で開催中の特別展『マリー・アントワネット・スタイル』鑑賞レポート。天然パールのネックレス、首飾り事件、ギロチンの刃、ベルばらコラボまで、予習して深まる見どころを紹介。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #34d399;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #34d3990f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #34d399; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #34d399; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #34d399; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #34d39914; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #34d399; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors text-[#34d399] border-b-2 border-[#34d399] pb-1">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #34d399;">
+          <span class="material-symbols-outlined">explore</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../other/index.html" class="hover:text-white transition-colors" style="color: #34d399;">Strategic Life</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Travel</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #34d3991a; color: #34d399; border-color: #34d39933;">
+        <span class="material-symbols-outlined text-xs">explore</span> Domain_06 / Life
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        横浜美術館『マリー・アントワネット・スタイル』鑑賞レポ | 悲劇の王妃を読み解く見どころガイド
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #34d399;">calendar_today</span> 公開: 2026-08-08</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #34d399;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #34d399;">schedule</span> 読了目安: 約9分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <h2 id="_1">概要</h2>
+<p><a href="../../glossary/system-glossary.html#:~:text=" title="横浜">横浜</a>・みなとみらいの横浜美術館で開催中の特別展 <strong>「マリー・アントワネット・スタイル」</strong> は、ロココの華やかさだけでなく、王妃が「ファッション・アイコン」として生み出した美意識、そして革命期にスケープゴート化されていく歴史までを一気通貫で体験できる展覧会です。</p>
+<p>公式情報では、会期は <strong>2026年8月1日（土）〜11月23日（月・祝）</strong>。横浜美術館とヴィクトリア＆アルバート博物館（V&amp;A）などが主催する、ロンドン発の世界巡回展です。</p>
+<hr />
+<h2 id="_2">展覧会の概要と構成</h2>
+<p>本展は、歴史上もっともファッショナブルな王妃として知られるマリー・アントワネットの装い、インテリア、宝飾、そして彼女が後世のクリエイターに与え続ける影響をたどる展覧会です。</p>
+<p>構成は大きく次の3章です。</p>
+<ol>
+<li><strong>第1章：マリー・アントワネット：スタイルの源泉 1770–1793</strong></li>
+<li><strong>第2章：マリー・アントワネット：追憶と偶像化 1800–1940</strong></li>
+<li><strong>第3章：永遠（とわ）に新しく — マリー・アントワネット・スタイル</strong></li>
+</ol>
+<p>会場には、ドレス、ジュエリー、家具、絵画、版画など約200点が並びます。単に「かわいい」「豪華」という鑑賞に留まらず、宮廷文化・政治的プロパガンダ・近現代ファッションまでを横断して見られるのが大きな魅力でした。</p>
+<hr />
+<h2 id="_3">実際に観て感動した個人的ベスト見どころ</h2>
+<h3 id="1-3">1. 日本初公開！優れたな存在感の「真珠とダイヤモンドの3連ネックレス」</h3>
+<p>会場で特に目を奪われたのが、日本初公開となる <strong>「真珠とダイヤモンドの3連ネックレス」</strong> です。</p>
+<p>当時は、まだ養殖真珠が存在しない時代。丸く美しい天然パールを数多く集めたネックレスは、単なる装飾品ではなく、権力・希少性・富を可視化する存在だったことが伝わってきます。</p>
+<p>上品で透明感のある輝きは、きらびやかなダイヤモンドとはまた違う静かな迫力がありました。マリー・アントワネットという人物が持つ「華やかさ」と「儚さ」が、ひとつの宝飾品に凝縮されているように感じます。</p>
+<h3 id="2">2. 「首飾り事件」のダイヤと、実物の「ギロチンの刃」</h3>
+<p>彼女の運命を狂わせた歴史的スキャンダル「首飾り事件」ゆかりのダイヤモンドも展示されていました。</p>
+<p>展示を前にすると、この事件が単なるゴシップではなく、王妃のイメージを決定的に傷つけ、革命前夜の社会不安と結びついていったことが実感できます。</p>
+<p>さらに、フランス革命期の処刑を想起させるギロチンの刃の展示もあり、華やかな宮廷文化から一転して、歴史の冷徹な現実に息をのむ瞬間でした。</p>
+<p>「美」と「暴力」、「憧れ」と「憎悪」が同じ空間に並ぶことで、マリー・アントワネットの人生がいかに極端な振れ幅の中にあったのかを突きつけられます。</p>
+<h3 id="3">3. 「ヤグルマギク」の可愛らしいモチーフ</h3>
+<p>宮廷の豪華な薔薇の装飾だけでなく、セーヴル磁器などに描かれた青い <strong>ヤグルマギク（矢車菊）</strong> の花模様も印象的でした。</p>
+<p>「派手で浪費家の王妃」というパブリックイメージとは異なり、自然やシンプルな田園風景を愛した彼女の等身大の素顔が垣間見えます。</p>
+<p>小さな花模様に注目すると、マリー・アントワネットのスタイルが単なる贅沢ではなく、「自分らしく暮らしたい」という感性の表現でもあったことが分かります。</p>
+<hr />
+<h2 id="_4">予習していって本当に良かった「スケープゴート」の歴史</h2>
+<p>今回、事前に「なぜ彼女がこれほどまでにバッシングされたのか」を知った上で鑑賞したのが大正解でした。</p>
+<h3 id="_5">綿ドレス（シュミーズドレス）への逆風</h3>
+<p>彼女が快適さや自分らしさを求めて着た綿のドレスは、当時の価値観では強い批判の対象になりました。</p>
+<ul>
+<li>「王妃としての品格がない」</li>
+<li>「国産シルク産業を軽視している」</li>
+<li>「敵国的・外国的な趣味ではないか」</li>
+</ul>
+<p>現代の感覚では自然体のファッションに見えても、18世紀の宮廷社会では政治的な意味を帯びてしまう。そのギャップを知ると、展示されているドレスや版画の見え方が大きく変わります。</p>
+<h3 id="_6">「パンがなければ〜」という言葉の虚像</h3>
+<p>マリー・アントワネットといえば、しばしば「パンがなければケーキを食べればいい」という言葉と結び付けられます。しかし、この言葉は彼女の発言として確認されたものではなく、後世のイメージ形成とプロパガンダの中で広まったものとされています。</p>
+<p>財政難や社会不満のすべてを一人の王妃に押し付けるため、「浪費家の悪女」という像が作り上げられていった。展示を通じて、その構造が非常にリアルに感じられました。</p>
+<p>展示品を見ながら、過剰なバッシングに晒され、国家のスケープゴートにされながらも、最期まで王妃としての気品を保とうとした一人の女性の生き様を感じることができます。</p>
+<hr />
+<h2 id="_7">現代ファッションと『ベルばら』コラボも胸熱！</h2>
+<p>展覧会の後半では、ソフィア・コッポラ監督の映画『マリー・アントワネット』を想起させる現代的なドレスや、マノロ・ブラニク、ヴィヴィアン・ウエストウッド、モスキーノといったブランドの作品も登場します。</p>
+<p>18世紀の王妃のスタイルが、現代ファッションや映画、ポップカルチャーの中で何度も再解釈されていることが分かり、「歴史上の人物」ではなく「今も更新され続けるアイコン」としてのマリー・アントワネットが見えてきます。</p>
+<p>さらに、池田理代子先生の不朽の名作 <strong>『ベルサイユのばら』とのコラボ企画</strong> もあり、会場内にはオスカルのフォトスポットも設置されています。ベルばらファンにとっても、作品世界と史実の両方を行き来できる胸熱の空間でした。</p>
+<p>ショップでは、地元・横浜元町の老舗 <strong>「近沢レース店」コラボの限定タオルハンカチ</strong> や限定クッキー缶など、記念になるグッズも充実しています。</p>
+<hr />
+<h2 id="_8">鑑賞前に押さえたい攻略メモ</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>ポイント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>所要時間</td>
+<td>じっくり見るなら90〜120分程度を想定</td>
+</tr>
+<tr>
+<td>予約</td>
+<td>日時指定予約をしておくと入場がスムーズ</td>
+</tr>
+<tr>
+<td>注目テーマ</td>
+<td>宝飾、ドレス、プロパガンダ、現代ファッションの4軸で見ると理解が深まる</td>
+</tr>
+<tr>
+<td>近隣回遊</td>
+<td>みなとみらい駅から徒歩圏。展覧会後のカフェ・食事にも困りにくい</td>
+</tr>
+</tbody>
+</table></div>
+<p>特におすすめなのは、鑑賞前に「首飾り事件」「フランス革命」「ベルサイユのばら」のいずれかを軽く予習しておくこと。展示品の背景が分かるだけで、見え方が何倍も深くなります。</p>
+<hr />
+<h2 id="_9">まとめ：歴史と美意識が交差する、この夏秋イチオシの展覧会</h2>
+<p>「マリー・アントワネット・スタイル」展は、華やかなロココ調のドレスや宝飾品の美しさにうっとりするだけの展覧会ではありません。</p>
+<p>彼女が自分らしさを求めて生み出したスタイル、王妃として背負わされたイメージ、革命期に作られた悪女像、そして現代まで続くファッション・アイコンとしての影響力。そのすべてが重なり合う、非常に見ごたえのある内容でした。</p>
+<p>横浜美術館での開催は <strong>2026年11月23日（月・祝）まで</strong>。気になる方は、公式サイトで最新の開館情報とチケット情報を確認してから足を運んでみてください。</p>
+<hr />
+<h2 id="_10">展覧会情報</h2>
+<ul>
+<li><strong>展覧会名</strong>：マリー・アントワネット・スタイル</li>
+<li><strong>会場</strong>：横浜美術館（みなとみらい駅徒歩3分）</li>
+<li><strong>会期</strong>：2026年8月1日（土）〜11月23日（月・祝）</li>
+<li><strong>開館時間</strong>：10:00〜18:00（11月21日・22日は20:00まで）</li>
+<li><strong>休館日</strong>：木曜日（8月13日、9月24日、11月19日は開館）</li>
+<li><strong>公式サイト</strong>：<a href="https://www.marie2026.jp/">マリー・アントワネット・スタイル公式サイト</a></li>
+<li><strong>横浜美術館ページ</strong>：<a href="https://yokohama.art.museum/exhibition/202608_marie2026/">横浜美術館「マリー・アントワネット・スタイル」</a></li>
+</ul>
+<hr />
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li>
+<p><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</p>
+</li>
+<li>
+<p><strong>2026-08-08 (v1)</strong>: 横浜美術館「マリー・アントワネット・スタイル」鑑賞レポートを新規作成。公式会期・開館時間・休館日を確認して掲載。</p>
+</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../other/index.html" class="hover:text-white">Strategic Life</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

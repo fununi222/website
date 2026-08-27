@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev | OpenAI Codex 料金体系とエンタープライズ・セキュリティ 2026 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="サブスクリプションとAPI従量課金のハイブリッド体系、コンテナベースの隔離環境、およびAIOpsによる自動脆弱性診断（Codex Security）の実践リサーチ。" />
+  <meta property="og:title" content="Dev | OpenAI Codex 料金体系とエンタープライズ・セキュリティ 2026 | FunUni-lab" />
+  <meta property="og:description" content="サブスクリプションとAPI従量課金のハイブリッド体系、コンテナベースの隔離環境、およびAIOpsによる自動脆弱性診断（Codex Security）の実践リサーチ。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00d2ff;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00d2ff0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00d2ff; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00d2ff; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00d2ff; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #00d2ff14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #00d2ff; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00d2ff; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors text-[#00d2ff] border-b-2 border-[#00d2ff] pb-1">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00d2ff;">
+          <span class="material-symbols-outlined">terminal</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../dev/index.html" class="hover:text-white transition-colors" style="color: #00d2ff;">Development</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Ai Coding</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00d2ff1a; color: #00d2ff; border-color: #00d2ff33;">
+        <span class="material-symbols-outlined text-xs">terminal</span> Domain_02 / Dev
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        Dev | OpenAI Codex 料金体系とエンタープライズ・セキュリティ 2026
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00d2ff;">calendar_today</span> 公開: 2026-04-18</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00d2ff;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00d2ff;">schedule</span> 読了目安: 約7分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <h2 id="_1">はじめに</h2>
+<p>「AIの便利さはわかったけど、会社で使うにはお金もセキュリティも心配…」</p>
+<p>AIコーディングツールの導入を検討する企業担当者様から、最も多く寄せられる悩みです。
+社外秘のソースコードをAIに読み込ませて、情報が漏れたりしないのでしょうか？</p>
+<p>この記事では、2026年最新の「OpenAI Codexの料金体系」と、企業が安心して導入できる「強固なセキュリティ機能」について詳しく解説します。</p>
+<p>これを読めば、上司や決済者を説得するための材料がすべて揃います。</p>
+<h2 id="_2">解決策：サブスクと従量課金のハイブリッド</h2>
+<p>2026年現在、OpenAI Codexの料金システムは非常に柔軟に設計されており、用途に合わせて無駄なく利用できます。</p>
+<h3 id="1">1. サブスクリプションプラン（定額制）</h3>
+<p>個人の開発者や、まずは試してみたい企業向けです。
+「ChatGPT Plus / Pro / Business / Enterprise」などの有料プランに加入していれば、<strong>追加料金なし</strong>でCodexの機能を利用できます。</p>
+<ul>
+<li><strong>注意点:</strong> 無制限ではありません。利用上限に達した場合は、追加のクレジットを購入する必要があります。</li>
+</ul>
+<h3 id="2-api">2. APIの従量課金プラン（使った分だけ）</h3>
+<p>自社のシステムにAIを組み込んだり、チーム全体で大規模に利用したい場合（ChatGPT Business等）は、利用したデータ量（トークン）に応じた課金となります。</p>
+<ul>
+<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="GPT-5">GPT-5</a>.3-Codex:</strong> 100万入力<a href="../../glossary/system-glossary.html#:~:text=" title="Token">トークン</a>あたり $1.75</li>
+<li><strong>GPT-5.1-Codex-Mini:</strong> 100万入力<a href="../../glossary/system-glossary.html#:~:text=" title="Token">トークン</a>あたり $0.25（コスパ重視の小規模タスク向け）</li>
+<li><strong>コンテナ（隔離環境）:</strong> 1GBあたり $0.03（20分のセッションごと）</li>
+</ul>
+<p>用途に合わせてモデルを切り替えることで、コストを劇的に抑えることが可能です。</p>
+<h2 id="ai">ベネフィット：AIが自らセキュリティを守る時代へ</h2>
+<p>「セキュリティリスク」を心配する声に対して、OpenAIは画期的な回答を出しました。
+それが、2026年にプレビュー公開された<strong>「Codex Security」</strong>です。</p>
+<h3 id="codex-security">Codex Securityの驚異的な実力</h3>
+<p>AIがコードを書く際に脆弱性を作り出してしまうのではなく、逆に<strong>AIがセキュリティ専門家としてシステムを守ってくれます</strong>。</p>
+<ol>
+<li><strong>自動で脅威を分析:</strong> プロジェクト全体を読み込み、どこが攻撃されやすいかを自動でリストアップします。</li>
+<li><strong>実証と修正:</strong> 単なる警告ではなく、隔離された環境で実際に攻撃のテスト（<a href="../../glossary/system-glossary.html#:~:text=" title="PoC">PoC</a>）を行い、安全な修正パッチまで提案してくれます。</li>
+<li><strong>確かな実績:</strong> わずか30日間のベータテストで、有名なオープンソースプロジェクトから792件のクリティカルな脆弱性（<a href="../../glossary/system-glossary.html#:~:text=" title="CVE">CVE</a>）を発見しました。</li>
+</ol>
+<h3 id="_3">情報漏洩の防止策</h3>
+<p>Codexは「<a href="../../glossary/system-glossary.html#:~:text=" title="サンドボックス">サンドボックス</a>」と呼ばれる、インターネットから完全に隔離された安全なコンテナ環境で動作します。
+また、OpenAIの厳格なプライバシーポリシーにより、法人のAPI利用データがAIの再学習に使われることはありません。</p>
+<h2 id="faq">FAQ（よくある質問）</h2>
+<p><strong>Q. 学生向けの割引はありますか？</strong>
+A. はい。2026年から米国・カナダの大学生向けに「Codex for Students」プログラムが開始され、$100分（2,500クレジット）が無料で提供されています。</p>
+<p><strong>Q. 間違ってデータを全消去（rm -rfなど）されないか不安です。</strong>
+A. ご安心ください。最新のモデルは「破壊的なアクション」を避ける特別な訓練を受けており、危険な操作を実行する前には必ず人間の確認を求める設計になっています。</p>
+<h2 id="ai_1">まとめ：今すぐAI開発の波に乗ろう</h2>
+<p>OpenAI Codexは、コストを抑えつつ、人間の手では不可能なレベルのセキュリティ監査と開発スピードを実現します。</p>
+<p>企業にとって、AIの導入はもはや「コスト」ではなく、生き残るための「投資」です。</p>
+<p>まずは個人で「ChatGPT Plus」を試してみるか、開発チームで「ChatGPT Business」の導入を検討してみてはいかがでしょうか？</p>
+<p>👉 <strong>[公式] <a href="https://openai.com/chatgpt/pricing">ChatGPTの料金プラン詳細・お申し込みはこちら</a></strong></p>
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-04-24</strong>: 最新のSKILL.md基準（用語リンクの最適化、変更履歴の追加）に合わせて記事をブラッシュアップ。</li>
+<li><strong>2026-04-18</strong>: 2026年最新のOpenAI Codex料金体系と、Codex Securityによる脆弱性診断機能について新規作成。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../dev/index.html" class="hover:text-white">Development</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

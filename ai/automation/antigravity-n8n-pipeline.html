@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>自律修復インフラの夜明け｜Antigravity×n8nで構築する完全自動復旧パイプライン | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="Gemini 3 Proを搭載したAntigravityとn8nを連携。エラー検知からコード解析、修正PR作成までを完全自動化する『自律修復パイプライン』の全貌を解剖。" />
+  <meta property="og:title" content="自律修復インフラの夜明け｜Antigravity×n8nで構築する完全自動復旧パイプライン | FunUni-lab" />
+  <meta property="og:description" content="Gemini 3 Proを搭載したAntigravityとn8nを連携。エラー検知からコード解析、修正PR作成までを完全自動化する『自律修復パイプライン』の全貌を解剖。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00ffca;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00ffca0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00ffca; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00ffca; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00ffca; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
+    thead { background: #00ffca14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Code styling */
+    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
+    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #00ffca; }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00ffca; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors text-[#00ffca] border-b-2 border-[#00ffca] pb-1">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00ffca;">
+          <span class="material-symbols-outlined">smart_toy</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../ai/index.html" class="hover:text-white transition-colors" style="color: #00ffca;">AI Research</a>
+      <span class="text-slate-600">/</span><span class="text-slate-400">Automation</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00ffca1a; color: #00ffca; border-color: #00ffca33;">
+        <span class="material-symbols-outlined text-xs">smart_toy</span> Domain_03 / AI
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        自律修復インフラの夜明け｜Antigravity×n8nで構築する完全自動復旧パイプライン
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">calendar_today</span> 公開: 2026-04-24</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">schedule</span> 読了目安: 約7分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <p>深夜3時、Slackが叫ぶ。「Critical: NullReferenceException in Payment API」。</p>
+<p>かつて、この通知はエンジニアの安眠を奪い、数時間のデバッグ作業を強いる絶望の合図でした。しかし2026年、私たちはもう一つの解を持っています。人間が起きる前に、AIがバグを検知し、リポジトリ全体を読み解き、修正案をテストし、GitHubにPull Requestを投げ終えている。</p>
+<p>本記事では、当サイトの自動化エンジンの核心部である、<strong><a href="../../glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>と<a href="../../glossary/system-glossary.html#:~:text=" title="n8n">n8n</a>を組み合わせた「自律修復パイプライン」</strong>の構築術を完全解剖します。</p>
+<hr />
+<h2 id="1">1. 自律修復アーキテクチャの全貌</h2>
+<p>このシステムは、「思考」を司る<a href="../../glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>と、「実行（オーケストレーション）」を司る<a href="../../glossary/system-glossary.html#:~:text=" title="n8n">n8n</a>の疎結合な連携によって成り立っています。</p>
+<h3 id="4">4つのフェーズ</h3>
+<ol>
+<li><strong>検知（Detection）</strong>: Sentry等の監視ツールが例外を捕捉し、n8nへWebhookを送信。</li>
+<li><strong>解釈（Reasoning）</strong>: n8nがスタックトレースを<a href="../../glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>に転送。</li>
+<li><strong>推論・修正（Fixing）</strong>: <a href="../../glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>がリポジトリ全体をスキャンし、依存関係を考慮した修正パッチ（diff）を生成。</li>
+<li><strong>デプロイ（PR Issuing）</strong>: n8nがGitHub APIを叩き、修正ブランチを作成。人間には「承認ボタン」のみが残される。</li>
+</ol>
+<hr />
+<h2 id="2-antigravity">2. なぜ「Antigravity」が必要なのか？</h2>
+<p>単にLLMへエラーログを投げても、正しい修正は得られません。Antigravityが不可欠な理由は、その<strong>「コンテキスト注入（Context Injection）能力」</strong>にあります。</p>
+<ul>
+<li><strong>リポジトリの深層理解</strong>: 単一ファイルだけでなく、プロジェクト全体のディレクトリ構造や依存ライブラリ、過去のコミットメッセージをGemini 3 Proに「見せる」ことができます。</li>
+<li><strong>自律的な検索</strong>: 修正に必要な情報が足りない場合、エージェント自らがコード内をシンボル検索し、欠けているパズルのピースを埋めます。</li>
+</ul>
+<hr />
+<h2 id="3-mttr-120-8">3. 数値で見るインパクト：MTTR 120分 ➡️ 8分へ</h2>
+<p>このパイプラインの導入により、障害復旧指標であるMTTR（平均修復時間）は劇的に改善します。</p>
+<ul>
+<li><strong>手動対応</strong>: 120分（エンジニアの起床、コンテキスト把握、手動デバッグ）</li>
+<li><strong>自律パイプライン</strong>: <strong>8分</strong>（検知からPR作成まで）</li>
+</ul>
+<p>自動修復の成功率は、単純なシンタックスエラーや設定漏れであれば<strong>80%以上</strong>を記録しており、エンジニアは「複雑なアルゴリズムの改善」などのより高次元なタスクに集中できるようになります。</p>
+<hr />
+<h2 id="4_1">4. 【実践】自律エージェントへのシステム指令（プロンプト）</h2>
+<p>n8nからAntigravityを呼び出す際、以下のシステムプロンプトがパイプラインの知能を決定づけます。</p>
+<pre><code class="language-markdown">You are an autonomous DevOps agent in the Antigravity workspace.
+Task: Fix the production error from the attached stacktrace.
+Rules:
+1. USE `antigravity.search_symbol` to understand dependencies.
+2. ANALYZE the business logic, not just the syntax.
+3. OUTPUT a unified diff that is safe for production.
+4. ENSURE the fix is consistent with existing architectural patterns.
+</code></pre>
+<hr />
+<h2 id="5">5. まとめ：人間は「デバッガー」から「承認者」へ</h2>
+<ol>
+<li><strong>AIをパイプラインに組み込む</strong>: チャット形式から、API駆動の実行体へと昇華させる。</li>
+<li><strong>オーケストレーター（n8n）で繋ぐ</strong>: 異種ツール間のハブとして機能させ、疎結合な自動化を実現する。</li>
+<li><strong>信頼のサイクルを作る</strong>: 自動PRとCI/CDを連携させ、最終確認のみを人間が行う「ヒューマン・イン・ザ・ループ」を構築する。</li>
+</ol>
+<p>自律修復インフラの構築は、単なる工数削減ではありません。それは、エンジニアが創造性を最大限に発揮するための<strong>「労働からの解放」</strong>への第一歩です。</p>
+<h2 id="changelog">変更履歴 (Changelog)</h2>
+<ul>
+<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
+<li><strong>2026-04-24</strong>: 「実践的なコンテンツ設計」に基づき、技術解剖と価値提案を融合させた構成へリライト。Antigravityのコンテキスト注入能力と、MTTR削減の定量的インパクトを強調。</li>
+<li><strong>2026-04-09</strong>: デザイン統一アップデート。</li>
+<li><strong>2026-04-06</strong>: 新規作成。</li>
+</ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../ai/index.html" class="hover:text-white">AI Research</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>
