@@ -1,5 +1,41 @@
 [
   {
+    "title": "【徹底比較】Mac mini M6（新品）vs 中古M4｜ローカルLLM運用で32GBモデルはどっちがお得？価格差・帯域幅・保証の損益分岐点",
+    "description": "ローカルLLM（Qwen3.8-27B・Gemma 4等）を32GBメモリで動かすなら、最新Mac mini M6（新品約22.1万円）と型落ち中古M4（相場約13万〜16万円）のどちらがお得か？約6万〜9万円の価格差、メモリ帯域幅（170GB/s vs 120GB/s）、外付けSSD費用、保証・リセールまで徹底比較。",
+    "date": "2026-08-30",
+    "updated": "2026-08-30",
+    "category": "ai",
+    "path": "ai/llm-research/mac-mini-m6-vs-m4-used-cost-guide.html",
+    "direct_html": true
+  },
+  {
+    "title": "2026年最新Mac mini（M6 / M5 Pro）ローカルLLM運用・購入判断完全ガイド｜パラメータ別推論速度とメモリ最適化",
+    "description": "2026年最新発表のMac mini（M6 / M5 Pro）における最新オープンウェイトLLM（Gemma 4 / DeepSeek-V4 / Qwen3.8 / Phi-4 / Llama 4）の動作性能・推論速度（token/s）・メモリ要件を徹底検証。32GB M6（約22万円）と64GB M5 Pro（約30万円〜）の最適な購入判断を解説。",
+    "date": "2026-08-30",
+    "updated": "2026-08-30",
+    "category": "ai",
+    "path": "ai/llm-research/mac-mini-m6-m5pro-local-llm-guide.html",
+    "direct_html": true
+  },
+  {
+    "title": "2026年最新：楽天キャッシュ調達＆楽天証券投信積立ルート完全攻略（最大3.0%還元）",
+    "description": "2026年8月の楽天Edy⇒楽天キャッシュ月1万円上限改悪に対応！三井住友/RevolutおよびP-one/JAL PayからANA Pay・Edyを経由して月1万円枠を高還元調達するハイブリッド積立戦略を完全解説。",
+    "date": "2026-08-30",
+    "updated": "2026-08-30",
+    "category": "finance",
+    "path": "finance/rakuten-cash-investment-route-strategy.html",
+    "direct_html": true
+  },
+  {
+    "title": "Qwen3.8-27Bを動かす非Mac PCのコスパ最適解｜中古RTX 3090 24GB・Ryzen AI・RTX 5090の価格と実用性比較【2026年最新】",
+    "description": "Qwen3.8-27B（4bit約15GB）をローカル運用する非Mac PCのコスト最適解を徹底検証。大型タワーと中古パーツを許容できる人向けの中古RTX 3090 24GB（10.7万〜16万円）を軸に、Ryzen AI Max+ 395（54.9万円）やRTX 5090 BTO（80.4万円）との価格スナップショット・VRAM要件・実用上の注意点を客観的に比較・解説。",
+    "date": "2026-08-30",
+    "updated": "2026-08-30",
+    "category": "ai",
+    "path": "ai/llm-research/local-llm-pc-cost-guide-2026.html",
+    "direct_html": true
+  },
+  {
     "title": "別府地獄めぐり｜初めてでも迷わない7地獄の回り方",
     "description": "別府地獄めぐりを初めて訪れる人向けに、7地獄の違い、二つのエリアの移動、共通観覧券、半日で無理なく回る順番を整理します。",
     "date": "2026-08-28",

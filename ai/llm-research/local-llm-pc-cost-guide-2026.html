@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qwen3.8-27Bを動かす非Mac PCのコスパ最適解｜中古RTX 3090 24GB・Ryzen AI・RTX 5090の価格と実用性比較【2026年最新】 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="Qwen3.8-27B（4bit約15GB）をローカル運用する非Mac PCのコスト最適解を徹底検証。大型タワーと中古パーツを許容できる人向けの中古RTX 3090 24GB（10.7万〜16万円）を軸に、Ryzen AI Max+ 395（54.9万円）やRTX 5090 BTO（80.4万円）との価格スナップショット・VRAM要件・実用上の注意点を客観的に比較・解説。" />
+  <meta property="og:title" content="Qwen3.8-27Bを動かす非Mac PCのコスパ最適解｜中古RTX 3090 24GB・Ryzen AI・RTX 5090の価格と実用性比較【2026年最新】 | FunUni-lab" />
+  <meta property="og:description" content="Qwen3.8-27B（4bit約15GB）をローカル運用する非Mac PCのコスト最適解を徹底検証。大型タワーと中古パーツを許容できる人向けの中古RTX 3090 24GB（10.7万〜16万円）を軸に、Ryzen AI Max+ 395（54.9万円）やRTX 5090 BTO（80.4万円）との価格スナップショット・VRAM要件・実用上の注意点を客観的に比較・解説。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00ffca;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00ffca0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; }
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00ffca; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00ffca; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00ffca; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.92rem; }
+    thead { background: #00ffca14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00ffca; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors text-[#00ffca] border-b-2 border-[#00ffca] pb-1">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00ffca;">
+          <span class="material-symbols-outlined">memory</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../ai/index.html" class="hover:text-white transition-colors" style="color: #00ffca;">AI Research</a>
+      <span class="text-slate-600">/</span>
+      <span class="text-slate-400">Local LLM PC Cost Guide 2026</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00ffca1a; color: #00ffca; border-color: #00ffca33;">
+        <span class="material-symbols-outlined text-xs">memory</span> Domain_03 / AI Research
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        Qwen3.8-27Bを動かす非Mac PCのコスパ最適解｜中古RTX 3090 24GB・Ryzen AI・RTX 5090の価格と実用性比較【2026年最新】
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">calendar_today</span> 公開: 2026-08-30</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">update</span> 更新: 2026-08-30</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">schedule</span> 読了目安: 約8分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <h2 id="_1">結論：条件付きで「中古RTX 3090 24GB」がコスパ最適解</h2>
+      <p>結論から言うと、<strong>「大型デスクトップPCの設置スペース」「高発熱・高消費電力への許容」「中古パーツ特有の短い保証期間や個体差」を受け入れられる人</strong>にとって、<strong>中古のGeForce RTX 3090 24GBを搭載したデスクトップPC</strong>が、2026年時点におけるQwen3.8-27B（4bit量子化）ローカル運用の最も現実的かつコストを抑えた選択肢です。</p>
+      
+      <div class="callout-note">
+        <p><strong>⚠️ これは万人に向けた絶対的解ではありません</strong><br />
+        RTX 3090はTDP約350Wクラスの高発熱GPUであり、既存PCの電源容量（750W〜850W以上推奨）やケースクリアランス、8ピン補助電源コネクタの確認が必須です。また中古保証は通常1か月程度と短く、故障リスクは自己責任となります。「小型・静音・新品保証」を重視する場合は、後述のMac miniや他構成の検討が必要です。</p>
+      </div>
+
+      <hr />
+
+      <h2 id="_2">非Mac環境における主要プラットフォーム比較</h2>
+      <p>非Mac環境で27BクラスのオープンウェイトLLMを動かす際の主要な選択肢を、2026年8月30日時点の国内実売・発表スナップショット価格とともに比較します。</p>
+
+      <div class="table-wrap"><table>
+        <thead>
+          <tr>
+            <th>構成案・選択肢</th>
+            <th>GPU / メモリ仕様</th>
+            <th>価格スナップショット（2026-08-30時点）</th>
+            <th>Qwen3.8-27B適合度</th>
+            <th>推奨対象</th>
+            <th>主なデメリット・留意点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>中古 RTX 3090 24GB</strong><br><span class="text-xs text-slate-400">（単体増設 / 自作・BTOベース）</span></td>
+            <td><strong>24GB GDDR6X</strong><br><span class="text-xs text-slate-400">384-bit / 936 GB/s</span></td>
+            <td><strong>単体 107,980円〜159,800円</strong><br><span class="text-xs text-slate-400">※ベースPC代別。在庫・状態により変動</span></td>
+            <td><strong>◎ 適合</strong><br><span class="text-xs text-slate-400">4bit約15GBをVRAM内に完全格納しKV余白あり</span></td>
+            <td><strong>コスパ最優先</strong><br><span class="text-xs text-slate-400">大型タワー・中古・短い保証を許容できる人</span></td>
+            <td>中古状態・1か月保証の差、旧世代設計、高発熱・高消費電力（TDP約350W級）、電源・ケース適合確認が必須</td>
+          </tr>
+          <tr>
+            <td><strong>RTX 5070 Ti 16GB</strong><br><span class="text-xs text-slate-400">（新品単体 / BTO搭載）</span></td>
+            <td><strong>16GB GDDR7</strong><br><span class="text-xs text-slate-400">256-bit</span></td>
+            <td><strong>最新世代相場</strong><br><span class="text-xs text-slate-400">※新品BTO/単体販売相場</span></td>
+            <td><strong>△ 制限あり</strong><br><span class="text-xs text-slate-400">4bit約15GBに対しVRAM余白が極小、長文でOOM懸念</span></td>
+            <td><strong>省電力・新品重視</strong><br><span class="text-xs text-slate-400">12B〜15B級や軽量MoEを主軸にする人</span></td>
+            <td>27Bモデルではコンテキスト長や量子化精度の妥協が必要。長文運用時の第一推奨にはならない</td>
+          </tr>
+          <tr>
+            <td><strong>Ryzen AI Max+ 395 128GB</strong><br><span class="text-xs text-slate-400">（MINIX ER939-AI ミニPC）</span></td>
+            <td><strong>最大128GB ユニファイド</strong><br><span class="text-xs text-slate-400">Radeon 8060S内蔵</span></td>
+            <td><strong>国内想定実売 549,800円前後</strong><br><span class="text-xs text-slate-400">※発表スナップショット価格</span></td>
+            <td><strong>◯ 動作可能</strong><br><span class="text-xs text-slate-400">128GBの大容量で余裕をもってロード可能</span></td>
+            <td><strong>超小型・大容量重視</strong><br><span class="text-xs text-slate-400">超長文や70B超も小型で動かしたい予算潤沢層</span></td>
+            <td>27B単体の目的としては約55万円とコスパが悪い。専用GPU搭載機と推論特性が異なりRTX同等とは断定不可</td>
+          </tr>
+          <tr>
+            <td><strong>RTX 5090 32GB BTO</strong><br><span class="text-xs text-slate-400">（フラグシップ完成品PC）</span></td>
+            <td><strong>32GB GDDR7</strong><br><span class="text-xs text-slate-400">512-bit</span></td>
+            <td><strong>BTO完成品 804,800円</strong><br><span class="text-xs text-slate-400">※2026-08-08時点スナップショット例</span></td>
+            <td><strong>◎ 余裕あり</strong><br><span class="text-xs text-slate-400">32GB VRAMで長文・高精度も完全にVRAM内動作</span></td>
+            <td><strong>最高峰・予算潤沢</strong><br><span class="text-xs text-slate-400">最新最速の推論・学習・ゲームを新品で求める人</span></td>
+            <td>80万円超と極めて高額。Qwen3.8-27Bを動かすだけの用途には明らかな過剰投資</td>
+          </tr>
+        </tbody>
+      </table></div>
+
+      <hr />
+
+      <h2 id="_3">価格スナップショットの詳細と一式コストの考え方</h2>
+      <p>以下は、2026年8月30日時点で確認できる公開情報・販売店掲載スナップショットに基づく価格データです。中古在庫や相場は常に変動するため、購入時点の最新情報をご確認ください。</p>
+
+      <h3 id="_3-1">1. 単体中古 RTX 3090 24GB の価格例</h3>
+      <ul>
+        <li><strong>パソコン工房 中古スナップショット（状態難・外装損傷品）：</strong> <strong>107,980円（税込）</strong>（保証期間：1か月）［<a href="https://www.pc-koubou.jp/products/detail.php?product_id=1223208" target="_blank" rel="noopener noreferrer">出典: パソコン工房 商品ID:1223208</a>］</li>
+        <li><strong>パソコン工房 中古スナップショット（通常中古品）：</strong> <strong>159,800円（税込）</strong>（保証期間：1か月）［<a href="https://www.pc-koubou.jp/products/detail.php?product_id=1220786" target="_blank" rel="noopener noreferrer">出典: パソコン工房 商品ID:1220786</a>］</li>
+      </ul>
+
+      <h3 id="_3-2">2. デスクトップ一式の費用計算の考え方</h3>
+      <p>中古RTX 3090を運用するデスクトップ一式の総額は、<strong>「GPU購入価格 ＋ ベースPC本体の調達費用」</strong>となります。</p>
+      <ul>
+        <li><strong>既存PCをアップグレードする場合：</strong> 750W〜850W以上の電源と十分なケース容積を備えたPCが手元にあれば、ベースPC費用は0円で、GPU代（約11万〜16万円）のみで導入可能です。</li>
+        <li><strong>ベースPCを新規調達する場合：</strong> CPU、マザーボード、システムメモリ（32GB〜64GB）、高容量電源（850W以上）、大型PCケース、NVMe SSD、OSライセンスなどを自作またはBTOベアボーン等で別途調達する必要があります。</li>
+      </ul>
+      <div class="callout-tip">
+        <p><strong>💡 架空の一式合計額を作らないために</strong><br />
+        ベースPCの仕様（新品か中古か、CPUグレード、メモリ容量）によって本体費用は数万円から十数万円以上まで大きく異なります。確証のない一式合計額を断定するのではなく、ご自身の環境（既存PCの有無や流用可能パーツ）に応じて「GPU代 ＋ 必要パーツ費用」を計算してください。</p>
+      </div>
+
+      <h3 id="_3-3">3. ミニPC / フラグシップBTOの価格スナップショット</h3>
+      <ul>
+        <li><strong>MINIX ER939-AI（Ryzen AI Max+ 395 128GBミニPC）：</strong> 日本国内想定実売価格 <strong>549,800円前後（税込）</strong>［<a href="https://pc.watch.impress.co.jp/docs/news/2112183.html" target="_blank" rel="noopener noreferrer">出典: PC Watch 2026年記事</a>］</li>
+        <li><strong>RTX 5090 搭載BTOデスクトップ完成品：</strong> <strong>804,800円（税込）</strong>（2026-08-08時点スナップショット例）［<a href="https://gaming-st.com/gamingpc/rtx-5090-alone-vs-bto-price-comparison-2026-aug/" target="_blank" rel="noopener noreferrer">出典: Gaming-ST 価格比較記事</a>］</li>
+      </ul>
+
+      <hr />
+
+      <h2 id="_4">VRAM容量の壁：なぜ16GBではなく24GBが必要なのか？</h2>
+      <p>ローカルでLLMを稼働させる際、最も決定的な制約となるのがGPUの<strong>VRAM（ビデオメモリ）容量</strong>です。</p>
+
+      <h3 id="_4-1">Qwen3.8-27B 4bit量子化の実際の重み容量</h3>
+      <p>公式モデルおよび公開アーティファクトの仕様を確認すると、Qwen3.8-27B（総パラメータ数約270億）の4-bit量子化アーティファクトは<strong>約14.98 GiB（約14.98GB）</strong>のファイルサイズを持ちます［<a href="https://huggingface.co/PocketAiHub/Qwen3.8-27B-MLX" target="_blank" rel="noopener noreferrer">出典: Hugging Face PocketAiHub/Qwen3.8-27B-MLX</a> / <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank" rel="noopener noreferrer">公式モデルカード</a>］。</p>
+
+      <div class="mermaid">graph TD
+  subgraph V16 ["16GB VRAM (RTX 5070 Ti等)"]
+    W16["モデル重み (4bit: 約14.98GB)"]
+    FREE16["空き容量: 1GB未満<br>⚠️ CUDAオーバーヘッド & KVキャッシュ不足<br>長文で容易にOOM発生"]
+  end
+
+  subgraph V24 ["24GB VRAM (RTX 3090)"]
+    W24["モデル重み (4bit: 約14.98GB)"]
+    FREE24["空き容量: 約9GB<br>✅ ランタイム & KVキャッシュを余裕をもって確保<br>実用的なコンテキスト長で安定動作"]
+  end
+
+  classDef danger fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#000;
+  classDef safe fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000;
+  class FREE16 danger;
+  class FREE24 safe;
+</div>
+
+      <h3 id="_4-2">16GB VRAM（RTX 5070 Ti等）での制約とトレードオフ</h3>
+      <p>16GBのVRAMを搭載するGPUに約14.98GBのモデルを展開した場合、残りの空き容量は1GB未満しか残りません。</p>
+      <ul>
+        <li><strong>CUDA / フレームワークの固定オーバーヘッド：</strong> PyTorch、vLLM、llama.cppなどのランタイム自体が数百MB〜1GB程度のVRAMを常時確保します。</li>
+        <li><strong>KVキャッシュ（Key-Value Cache）の枯渇：</strong> 入力プロンプトや出力トークンが長くなるにつれてKVキャッシュのメモリ消費が増大し、16GB環境ではわずか数千トークンでメモリ不足（Out of Memory: OOM）に陥るか、メインメモリへの退避（オフロード）によって急激な速度低下を招きます。</li>
+      </ul>
+      <p>RTX 5070 Ti 16GBは最新世代の省電力性や新品保証のメリットがありますが、より低ビットな量子化（3bit等）や短文入力に絞った使い方などの妥協が必要であり、Qwen3.8-27Bを長文で安定稼働させるための<strong>第一推奨とはなりません</strong>。</p>
+
+      <h3 id="_4-3">24GB VRAM（RTX 3090）がもたらす安定性</h3>
+      <p>一方、24GBのVRAMを持つRTX 3090であれば、重み展開後も約9GBのヘッドルーム（余白）が残ります。これにより、ランタイムオーバーヘッドを吸収しつつ、数万トークン規模のコンテキストに対応するKVキャッシュをすべて高速なVRAM上に保持して安定運用が可能です。</p>
+      <p class="text-xs text-slate-400">※推論速度（token/s）は実行ランタイム（llama.cpp, vLLM, TensorRT-LLM, Ollama）、コンテキスト長、量子化方式、バッチサイズ等によって大きく変動するため、固定の数値を保証することはできません。</p>
+
+      <hr />
+
+      <h2 id="_5">Ryzen AI Max+ 395 128GB の位置づけ</h2>
+      <p>MINIX ER939-AIなどに搭載される<strong>Ryzen AI Max+ 395（最大128GB ユニファイドメモリ）</strong>は、省スペースな小型デスクトップ筐体で128GBという巨大なメモリ空間を扱える画期的な製品です。</p>
+      <ul>
+        <li><strong>モデル収容力とコンパクト性：</strong> 128GBのユニファイドメモリにより、27Bモデルはもちろん、70B超の大規模モデルや極めて長いコンテキストを小型PC単体で展開できます。</li>
+        <li><strong>コストパフォーマンスの課題：</strong> 日本国内の想定実売価格が<strong>約55万円（549,800円前後）</strong>に達するため、「Qwen3.8-27Bを動かす」という単一の目的においては、10万〜16万円程度で調達できる中古RTX 3090環境と比較してコストパフォーマンスが著しく劣ります。</li>
+        <li><strong>GPU性能の捉え方：</strong> 内蔵されるRadeon 8060SはNVIDIA GeForce RTXシリーズとはアーキテクチャやメモリ帯域、CUDAエコシステムへの親和性が異なるため、特定のGeForceカードと「○○同等」と単純比較することはできません。</li>
+      </ul>
+
+      <hr />
+
+      <h2 id="_6">中古RTX 3090 24GB の重大なデメリットと事前確認事項</h2>
+      <p>中古RTX 3090はコスト面で圧倒的に有利な反面、導入前に必ず理解しておくべき物理的・運用上のデメリットが存在します。</p>
+
+      <div class="callout-warning">
+        <p><strong>⚠️ 購入前に必ず確認すべき5つの注意点</strong></p>
+        <ol>
+          <li><strong>中古状態と保証期間の短さ：</strong> 中古グラフィックボードの保証は通常1か月程度と短く、過去のマイニング利用歴や重負荷稼働によるファンの経年劣化、サーマルパッドの油染み等の個体差リスクが伴います。</li>
+          <li><strong>旧世代アーキテクチャ：</strong> 2020年発売のAmpereアーキテクチャ（GDDR6X 24GB）であり、最新世代が備えるFP8/FP4の高効率テンソルコアや最新の省電力機能には対応していません。</li>
+          <li><strong>高発熱・高消費電力・騒音：</strong> TDP（熱設計電力）は約350Wに達し、フルロード時には大量の熱を排気します。狭い部屋での室温上昇やファンの風切り音への対策が必要です。</li>
+          <li><strong>巨大な物理サイズ：</strong> 多くのRTX 3090は全長300mm以上、2.7〜3スロット厚を占有します。PCケース内に物理的に収まるか、マザーボードの隣接スロットを塞がないかの事前確認が必須です。</li>
+          <li><strong>電源ユニットとコネクタの適合性：</strong> システム全体で<strong>750W〜850W以上</strong>の信頼性の高い電源ユニットが推奨されます。また、瞬間的なスパイク電力への耐性や、8ピンPCIe電源コネクタが独立して2〜3本確保できるかを確認してください。</li>
+        </ol>
+      </div>
+
+      <hr />
+
+      <h2 id="_7">購入判断チェックリスト：どの選択肢を選ぶべきか？</h2>
+
+      <div class="mermaid">graph TD
+  START["Qwen3.8-27B（4bit：約15GB）をローカル稼働させたい"] --> Q_COND{"設置スペース・発熱・中古パーツを許容できるか？"}
+  
+  Q_COND -->|YES：コスパ最優先| RTX3090["中古 RTX 3090 24GB デスクトップ<br>（GPU約10.8万〜16万円）<br>★ 条件付きコスパ最適解"]
+  Q_COND -->|NO：小型・静音・省電力を最優先| MACMINI["Mac mini M6 32GB / M5 Pro 64GB<br>（約22万〜30万円〜）<br>静音・省電力・日常PC兼用"]
+  
+  START --> Q_SPECIAL{"70B超の巨大モデルや超長文を小型で動かしたいか？"}
+  Q_SPECIAL -->|予算約55万円を許容| RYZEN["Ryzen AI Max+ 395 128GB ミニPC<br>（約55万円）<br>大容量メモリ優先・27Bのみでは過剰価格"]
+  
+  START --> Q_FUTURE{"今すぐのローカル常時稼働が必須か？"}
+  Q_FUTURE -->|急がない・最新相場を注視| WAIT["待機・貯金 ＆ クラウドAPI併用<br>（Claude / Gemini / Qwen API等）"]
+
+  classDef sweet fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
+  classDef sub fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000;
+  classDef high fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#000;
+  
+  class RTX3090 sweet;
+  class MACMINI sub;
+  class RYZEN,WAIT high;
+</div>
+
+      <div class="table-wrap"><table>
+        <thead>
+          <tr>
+            <th>判断</th>
+            <th>推奨する構成</th>
+            <th>判断基準と主な理由</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>中古RTX 3090 を選ぶ</strong></td>
+            <td><strong>中古 RTX 3090 24GB 搭載デスクトップ</strong></td>
+            <td>コストパフォーマンスを何よりも最優先し、大型PCケース、高消費電力（約350W）、1か月保証のリスクを受け入れられる人。24GB VRAMでQwen3.8-27B Q4を最も安価に完全VRAM動作させたい場合。</td>
+          </tr>
+          <tr>
+            <td><strong>Mac mini を選ぶ</strong></td>
+            <td><strong>Mac mini（M6 32GB または M5 Pro 64GB）</strong></td>
+            <td>静音性、超低消費電力、設置スペースの小ささ、macOS日常利用との統合を重視する人。詳しいメモリ構成や推論速度の考察は「<a href="mac-mini-m6-m5pro-local-llm-guide.html">Mac mini M6 / M5 Pro ローカルLLM運用・購入判断完全ガイド</a>」を参照。</td>
+          </tr>
+          <tr>
+            <td><strong>Ryzen AI 128GB を選ぶ</strong></td>
+            <td><strong>Ryzen AI Max+ 395 搭載ミニPC</strong></td>
+            <td>小型・省スペースのまま128GBの大容量ユニファイドメモリを確保し、将来的に70B超のモデルや超長文コンテキストも視野に入れる、予算に余裕（約55万円）のある人。</td>
+          </tr>
+          <tr>
+            <td><strong>待機・貯金（クラウドAPI利用）</strong></td>
+            <td><strong>商用API（Claude / Gemini / Qwen等）</strong></td>
+            <td>今すぐのローカル常時稼働が必須要件ではなく、従量課金APIを活用しながら次世代ハードウェアの登場や価格相場の推移を見極めたい人。</td>
+          </tr>
+        </tbody>
+      </table></div>
+
+      <hr />
+
+      <h2 id="_references">関連ガイド・参照した一次情報</h2>
+      <ul>
+        <li><a href="mac-mini-m6-vs-m4-used-cost-guide.html">【徹底比較】Mac mini M6（新品）vs 中古M4｜32GBモデルはどっちがお得？価格差・帯域幅・保証の損益分岐点</a></li>
+        <li><a href="mac-mini-m6-m5pro-local-llm-guide.html">Mac mini（M6 / M5 Pro）ローカルLLM運用・購入判断完全ガイド</a></li>
+        <li><a href="https://www.pc-koubou.jp/products/detail.php?product_id=1223208" target="_blank" rel="noopener noreferrer">パソコン工房: 中古GeForce RTX 3090 24GB（107,980円・状態難・保証1か月スナップショット）</a></li>
+        <li><a href="https://www.pc-koubou.jp/products/detail.php?product_id=1220786" target="_blank" rel="noopener noreferrer">パソコン工房: 中古GeForce RTX 3090 24GB（159,800円・保証1か月スナップショット）</a></li>
+        <li><a href="https://pc.watch.impress.co.jp/docs/news/2112183.html" target="_blank" rel="noopener noreferrer">PC Watch: MINIX ER939-AI 日本国内想定実売549,800円前後（Ryzen AI Max+ 395 128GBミニPC）</a></li>
+        <li><a href="https://gaming-st.com/gamingpc/rtx-5090-alone-vs-bto-price-comparison-2026-aug/" target="_blank" rel="noopener noreferrer">Gaming-ST: RTX 5090 単体価格とBTO搭載パソコン比較（804,800円スナップショット、2026-08-08時点）</a></li>
+        <li><a href="https://huggingface.co/PocketAiHub/Qwen3.8-27B-MLX" target="_blank" rel="noopener noreferrer">Hugging Face: PocketAiHub/Qwen3.8-27B-MLX（4bit量子化アーティファクトサイズ 14.98 GiB）</a></li>
+        <li><a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank" rel="noopener noreferrer">Hugging Face: Qwen/Qwen3.8-27B 公式モデルカード</a></li>
+      </ul>
+
+      <hr />
+
+      <h2 id="_changelog">変更履歴</h2>
+      <ul>
+        <li><strong>2026-08-30</strong>: Qwen3.8-27B（4bit約15GB）をローカル運用するための非Mac PC購入判断ガイドを新規公開。中古RTX 3090 24GB（10.7万〜16万円スナップショット）、Ryzen AI Max+ 395 128GB（54.9万円スナップショット）、RTX 5090 BTO（80.4万円スナップショット）の価格比較、VRAM要件、および実用上の留意点を整理。</li>
+      </ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../ai/index.html" class="hover:text-white">AI Research</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -6,9 +6,9 @@
   <title>2026年最新Mac mini（M6 / M5 Pro）ローカルLLM運用・購入判断完全ガイド｜パラメータ別推論速度とメモリ最適化 | FunUni-lab</title>
   
   <!-- SEO & OGP -->
-  <meta name="description" content="2026年最新発表のMac mini（M6 / M5 Pro）における最新オープンウェイトLLM（Gemma 4 / DeepSeek-V4 / Qwen3.8 / Phi-4 / Llama 4）の動作性能・推論速度（token/s）・メモリ要件を徹底検証。32GB M6（約22万円）と64GB M5 Pro（約30万円〜）の最適な購入判断を解説。" />
+  <meta name="description" content="Mac mini（M6 / M5 Pro）でローカルLLMを運用するための購入判断ガイド。公開済みモデルの規模・メモリ要件を公式情報に基づき整理し、4bit量子化・短い入力を前提としたtoken/sの概算目安も解説。" />
   <meta property="og:title" content="2026年最新Mac mini（M6 / M5 Pro）ローカルLLM運用・購入判断完全ガイド｜パラメータ別推論速度とメモリ最適化 | FunUni-lab" />
-  <meta property="og:description" content="2026年最新発表のMac mini（M6 / M5 Pro）における最新オープンウェイトLLM（Gemma 4 / DeepSeek-V4 / Qwen3.8 / Phi-4 / Llama 4）の動作性能・推論速度（token/s）・メモリ要件を徹底検証。32GB M6（約22万円）と64GB M5 Pro（約30万円〜）の最適な購入判断を解説。" />
+  <meta property="og:description" content="Mac mini（M6 / M5 Pro）でローカルLLMを運用するための購入判断ガイド。公開済みモデルの規模・メモリ要件を公式情報に基づき整理し、4bit量子化・短い入力を前提としたtoken/sの概算目安も解説。" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="FunUni-lab" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -122,7 +122,7 @@
     <article class="article-body">
       <h2 id="_1">はじめに：ローカルLLM時代におけるMac miniの圧倒的存在感</h2>
 <p>Appleが発表した最新世代の<strong>Mac mini（M6 / M5 Pro搭載モデル）</strong>は、省電力デスクトップの枠を超え、個人や開発者が自宅・オフィスでプライベートなローカルLLM（大規模言語モデル）を常時稼働させるための「AI推論サーバー」として熱狂的な注目を集めています。</p>
-<p>本レポートでは、最新公式スペックのファクトチェックに基づき、パラメータ規模別（7B/14B/32B/70B）の推論速度（token/s）や実用性、および「M6 32GB」と「M5 Pro 64GB」の最適な購入判断を徹底解説します。</p>
+<p>本レポートでは、公式仕様と公開済みモデルの規模を照合し、メモリ容量・量子化・コンテキスト長を踏まえた購入判断を解説します。推論速度（token/s）は実行エンジンや設定で大きく変わりますが、購入前に比較しやすいよう、4bit量子化・短い入力・単一ストリームのdecodeを前提にした概算目安も示します。</p>
 
 <hr />
 
@@ -144,13 +144,13 @@
 </tr>
 <tr>
 <td><strong>製造プロセス</strong></td>
-<td>次世代 <strong>2nmプロセス</strong></td>
-<td>先進 Proプロセス</td>
+<td>Appleは公開仕様でプロセスノードを明記していない</td>
+<td>Appleは公開仕様でプロセスノードを明記していない</td>
 </tr>
 <tr>
 <td><strong>CPU構成</strong></td>
 <td>12コア（2 Super + 4 Performance + 6 Efficiency）</td>
-<td>15〜18コア（高密度Proコア）</td>
+<td>15コア（5 Super + 10 Performance）、18コアに変更可能</td>
 </tr>
 <tr>
 <td><strong>GPU構成</strong></td>
@@ -160,11 +160,11 @@
 <tr>
 <td><strong>Neural Engine</strong></td>
 <td><strong>デュアル16コア（計32コア）</strong></td>
-<td>高スループットPro Neural Engine</td>
+<td>16コア Neural Engine</td>
 </tr>
 <tr>
 <td><strong>メモリ帯域幅</strong></td>
-<td><strong>最大 170 GB/s</strong></td>
+<td><strong>153GB/s（16GB / 24GB）、170GB/s（32GB）</strong></td>
 <td><strong>最大 307 GB/s</strong></td>
 </tr>
 <tr>
@@ -185,23 +185,24 @@
 <h2 id="_3">2026年最新オープンウェイトモデル別：動作性能・推論速度マップ</h2>
 <p>2026年のローカルLLM事情は、単なるテキスト生成から<strong>「ネイティブ・マルチモーダル（画像・音声）」「自律的CoT思考（Thinkingモード）」「MoE（Mixture of Experts）アーキテクチャ」</strong>へと大きく進化しました。</p>
 <p>Apple Siliconのユニファイドメモリアーキテクチャにより、最新世代のモデルがどのハードウェア構成でどのように動作するかをマッピングします。</p>
+<p class="text-sm text-slate-400"><strong>速度の読み方：</strong>本ページ公開時点ではM6 / M5 Pro搭載Mac miniは予約注文段階です。以下のtoken/sは、公式メモリ帯域と4bit量子化時のおおよその重み容量から置いた購入前の概算であり、実機ベンチマークではありません。実機発売後は、実行エンジン・量子化・コンテキスト長・MTPの条件をそろえた測定値へ更新します。</p>
 
 <div class="mermaid">graph TD
- %% 2026年最新モデルサイズとチップの対応
- subgraph S12B ["軽量・マルチモーダル級 (2B〜15B)<br>・Gemma 4 (12B Unified / 4.5B)<br>・DeepSeek-V4-Flash / Vision<br>・Phi-4-reasoning-vision (15B)<br>・Qwen3.8-Flash-Next"]
-   M6_BASE["M6 (16GB~24GB)<br>速度: 60~110+ token/s<br>相当: GPT-5.6 Luna / Haiku 4.5 / Gemini 3.5 Flash-Lite"]
+ %% 公開済みモデルの総パラメータとMac miniのメモリ容量を区別
+ subgraph S15B ["軽量級（2B〜15B）<br>・Gemma 4 E2B / E4B / 12B<br>・Phi-4-reasoning-vision 15B"]
+   M6_BASE["M6（16GB〜24GB）<br>軽量モデルを優先<br>概算：12〜15Bで約12〜25 token/s"]
  end
 
- subgraph S32B ["高度推論・コーディング特化級 (26B〜32B)<br>・Gemma 4 (31B Dense / 26B MoE)<br>・Qwen3.8-Coder (32B)<br>・DeepSeek-V4 (32B 推論蒸留)"]
-   M6_MAX["M6 (32GB上限構成 / 約22.1万円)<br>速度: 25~55 token/s<br>相当: GPT-5.6 Terra / Claude Sonnet 5 / Gemini 3.7 Flash<br>【最強のスイートスポット】"]
+ subgraph S31B ["中規模級（26B〜31B）<br>・Gemma 4 26B A4B / 31B<br>・Qwen3.8 27B"]
+   M6_MAX["M6（32GB）<br>量子化・短中コンテキストが前提<br>概算：26〜31Bで約7〜13 token/s"]
  end
 
- subgraph S70B ["大規模・フロンティア級 (70B〜110B+)<br>・DeepSeek-V4-Pro (70B系)<br>・Qwen3.8 (72B / MoE)<br>・Llama 4 (70B級)"]
-   M5_PRO["M5 Pro (64GB構成 / 約30万円~)<br>速度: 15~30 token/s<br>相当: GPT-5.6 Sol / Claude Opus 5 / Gemini 3.1 Pro"]
+ subgraph S109B ["64GBを超える重み容量になり得るモデル<br>・Llama 4 Scout 109B / Maverick 400B<br>・DeepSeek-V4 Flash 284B / Pro 1.6T<br>・Qwen3.8-Flash-Next 176B"]
+   NOT_FIT["Mac mini 64GBの常時運用対象外<br>クラウド・より大容量の環境を検討"]
  end
 
  M6_BASE -->|メモリ拡張| M6_MAX
- M6_MAX -.->|32GB上限の壁| M5_PRO
+ M6_MAX -.->|総重み・KVキャッシュの壁| NOT_FIT
 
  classDef base fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000;
  classDef sweet fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
@@ -209,7 +210,7 @@
 
  class M6_BASE base;
  class M6_MAX sweet;
- class M5_PRO pro;
+ class NOT_FIT pro;
 </div>
 
 <div class="table-wrap"><table>
@@ -217,42 +218,39 @@
 <tr>
 <th>モデル区分（2026年最新モデル例）</th>
 <th>推奨ハードウェア構成</th>
-<th>推定推論速度</th>
-<th>2026年最新 商用API相当</th>
+<th>速度・メモリの判断</th>
+<th>商用APIとの比較</th>
 <th>実用性と運用評価</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>軽量・マルチモーダル級（2B〜15B）</strong><br>
-・<strong>Gemma 4 (12B Unified Transformer)</strong><br>
-・<strong>DeepSeek-V4-Flash / Vision-Exp</strong><br>
-・<strong>Phi-4-reasoning-vision (15B)</strong><br>
-・<strong>Qwen3.8-Flash-Next</strong></td>
-<td><strong>M6 (16GB〜24GB)</strong><br><span class="text-xs text-slate-400">※24GB構成は＋36,000円</span></td>
-<td><strong>約 60 〜 110+ token/s</strong></td>
-<td><strong>GPT-5.6 Luna / 5.5 Instant</strong><br><strong>Claude Haiku 4.5</strong><br><strong>Gemini 3.5 Flash-Lite</strong> 相当</td>
-<td>圧倒的な爆速応答。画像・音声を含むマルチモーダル処理、日常の壁打ち、要約、リアルタイム対話エージェントに最適。16GBベースモデルでも完全稼働。</td>
+・<strong>Gemma 4 E2B / E4B / 12B</strong><br>
+・<strong>Phi-4-reasoning-vision 15B</strong></td>
+<td><strong>M6 (16GB〜24GB)</strong><br><span class="text-xs text-slate-400">価格は構成・購入時点により変動</span></td>
+<td><strong>概算 12〜100 token/s</strong><br><span class="text-xs text-slate-400">E2B / E4Bは約45〜100、12B〜15Bは約12〜25。4bit量子化・短い入力・単一ストリームdecodeの購入前目安。</span></td>
+<td><strong>高速・低コストAPIを使う用途のローカル候補</strong><br><span class="text-xs text-slate-400">GPT-5.6 Luna、Claude Haiku 4.5、Gemini 3.5 Flash-Liteなどと同じ「高速処理」用途で比較しやすい。品質が同等という意味ではない。</span></td>
+<td>要約、対話、画像理解などを小〜中規模のコンテキストで運用する用途。モデル、量子化、常駐アプリケーションによって必要メモリは変わる。</td>
 </tr>
 <tr>
-<td><strong>高度推論・コーディング特化級（26B〜32B）</strong><br>
-・<strong>Gemma 4 (31B Dense / 26B MoE)</strong><br>
-・<strong>Qwen3.8-Coder (32B)</strong><br>
-・<strong>DeepSeek-V4 (32B 推論蒸留)</strong></td>
-<td><strong>M6 (32GB上限構成)</strong><br><span class="text-xs text-slate-400">本体＋72,000円（総額約22.1万円）</span></td>
-<td><strong>約 25 〜 55 token/s</strong></td>
-<td><strong>GPT-5.6 Terra</strong><br><strong>Claude Sonnet 5</strong><br><strong>Gemini 3.7 Flash</strong> 相当</td>
-<td><strong>【個人・開発者向け最強のスイートスポット】</strong> 自律的思考チェーン（Thinkingモード）による難関バグ修正、リポジトリ全体の解析、Agentic Codingを完全ローカルでこなす最高の実用性。</td>
+<td><strong>中規模級（26B〜31B）</strong><br>
+・<strong>Gemma 4 26B A4B / 31B</strong><br>
+・<strong>Qwen3.8 27B</strong></td>
+<td><strong>M6 (32GB上限構成)</strong><br><span class="text-xs text-slate-400">価格は構成・購入時点により変動</span></td>
+<td><strong>概算 7〜13 token/s</strong><br><span class="text-xs text-slate-400">4bit量子化・短い入力・単一ストリームdecodeの目安。MTP／speculative decoding対応ランタイムでは、実効表示がこれを上回る場合がある。</span></td>
+<td><strong>プライバシー重視のコーディング／RAG候補</strong><br><span class="text-xs text-slate-400">GPT-5.6 Terra、Claude Sonnet 5、Gemini 3.7 Flashを使う高度な開発用途と比較する際のローカル候補。ただし能力・ツール連携・長文性能は別途評価が必要。</span></td>
+<td>32GBで量子化モデルを使う場合、OS・実行環境・KVキャッシュの余裕は大きくない。Gemma 4 31Bは公式には大規模サーバー／クラスタ向けであり、長いコンテキストでは追加検証が必要。</td>
 </tr>
 <tr>
-<td><strong>大規模・フロンティア級（70B〜110B+）</strong><br>
-・<strong>DeepSeek-V4-Pro (70B系)</strong><br>
-・<strong>Qwen3.8 (72B / 2.4T MoE量子化)</strong><br>
-・<strong>Llama 4 (70B級)</strong></td>
-<td><strong>M5 Pro (64GB構成)</strong><br><span class="text-xs text-slate-400">総額約30万円〜</span></td>
-<td><strong>約 15 〜 30 token/s</strong></td>
-<td><strong>GPT-5.6 Sol</strong><br><strong>Claude Opus 5 / Fable 5</strong><br><strong>Gemini 3.1 Pro</strong> クラス</td>
-<td>M6（最大32GB）ではメモリ不足でロード不可。オープンウェイト最高峰の知能をローカルで常時稼働させるには、64GBユニファイドメモリと307GB/sの広帯域が必須。</td>
+<td><strong>Mac mini 64GBの対象外</strong><br>
+・<strong>Llama 4 Scout 109B / Maverick 400B</strong><br>
+・<strong>DeepSeek-V4 Flash 284B / Pro 1.6T</strong><br>
+・<strong>Qwen3.8-Flash-Next 176B</strong></td>
+<td><strong>Mac mini M5 Pro（64GB）では推奨しない</strong><br><span class="text-xs text-slate-400">総重みだけでメモリ上限に近い、または超える</span></td>
+<td><strong>参考：従来の70B Q4で約5〜8 token/s</strong><br><span class="text-xs text-slate-400">307GB/s÷約42GBからの帯域概算。Llama 4やDeepSeek-V4はこの「70B」目安には当てはまらない。</span></td>
+<td><strong>大規模商用APIの代替ではなく、検証対象</strong><br><span class="text-xs text-slate-400">GPT-5.6 Sol、Claude Opus 5 / Fable 5、Gemini 3.1 Proが必要な難題では、ローカル化よりまず実タスクで品質差を確認する。</span></td>
+<td>64GBは高精度量子化や長めのコンテキストを必要とする中規模モデルには有効。従来の70B Q4には短いコンテキストで動作余地がある一方、DeepSeek-V4やLlama 4 Maverickなどのフロンティア級オープンウェイトを常時稼働させる容量ではない。</td>
 </tr>
 </tbody>
 </table></div>
@@ -262,16 +260,16 @@
 <h2 id="_4">M6チップによるAI処理の進化ポイント</h2>
 
 <h3 id="1neural-engine32">1. デュアルNeural Engine（計32コア）の搭載</h3>
-<p>M4世代の16コアから<strong>32コアへと倍増</strong>したデュアルNeural Engineにより、プロンプトのエンコード処理や埋め込み（Embedding）演算、トークン生成のプリフィル段階におけるスループットが飛躍的に向上しました。</p>
+<p>M6には<strong>デュアル16コアNeural Engine</strong>が搭載されています。ただし、ローカルLLMでどの演算がNeural Engine、GPU、CPUに割り当てられるかは実行エンジンとモデルに依存します。この仕様だけから、プロンプト処理やtoken/sの向上幅を一律には導けません。</p>
 
 <h3 id="2gpuneural-accelerator">2. GPU内蔵Neural Acceleratorの威力</h3>
-<p>M6では12コアのGPU各コア内部に専用の<strong>Neural Accelerator</strong>が組み込まれました。これにより、Metal Performance Shaders（MPS）やMLXフレームワークを用いた行列演算において、前世代比で最大4倍のAI演算効率を実現しています。</p>
+<p>M6のGPUには<strong>Neural Accelerators</strong>が搭載されています。アプリケーションが利用できるか、またMLXやMPSでどの程度効果が出るかはソフトウェア実装・モデル・量子化に依存します。製品ページの一般的な性能訴求を、特定のLLMに対する「最大○倍」やtoken/sの保証として扱わないでください。</p>
 
-<h3 id="3170gbs-vs-307gbs">3. メモリ帯域の差（170GB/s vs 307GB/s）がもたらす影響</h3>
-<p>ローカルLLMのトークン生成速度（token/s）は、主に<strong>「メモリ帯域幅（GB/s）÷ モデルウェイト容量（GB）」</strong>で決定されます。</p>
+<h3 id="3170gbs-vs-307gbs">3. メモリ帯域の差（153〜170GB/s vs 307GB/s）がもたらす影響</h3>
+<p>ローカルLLMの単一ストリームのdecode速度は、主にメモリ帯域とモデルウェイト容量の影響を受けます。<strong>「メモリ帯域幅（GB/s）÷ モデルウェイト容量（GB）」</strong>は概算上限の目安にすぎず、実測値や性能保証ではありません。M6は16GB／24GB構成では153GB/s、32GB構成では170GB/sです。</p>
 <ul>
-<li><strong>32Bモデル（Q4量子化で約20GB）:</strong> M6の170GB/s帯域幅でも <code>170 ÷ 20 ≒ 8.5（バッチ・量子化最適化込みで実効25〜50 token/s）</code> と十分快適に動作します。</li>
-<li><strong>70Bモデル（Q4量子化で約42GB）:</strong> M5 Proの307GB/sという圧倒的な帯域幅があって初めて、実用速度（15〜30 token/s）での滑らかなストリーミング出力が可能になります。</li>
+<li><strong>32Bモデル（Q4量子化で約20GBと仮定）:</strong> 32GB M6の帯域比は <code>170 ÷ 20 ≒ 8.5</code>。単一応答のdecodeについて、バッチ処理を理由に25〜50 token/sへ換算することはできません。</li>
+<li><strong>70Bモデル（Q4量子化で約42GBと仮定）:</strong> M5 Proの帯域比は <code>307 ÷ 42 ≒ 7.3</code>。15〜30 token/sという値を載せるには、使用エンジン、量子化、コンテキスト長、MTP／speculative decodingの条件を伴う実測が必要です。</li>
 </ul>
 
 <hr />
@@ -280,25 +278,39 @@
 
 <div class="callout-tip">
 <p><strong>💡 【コスパ・実用性重視：予算約22万円前後】</strong><br />
-<strong>Mac mini (M6・32GBメモリ構成)</strong> が最も推奨される最適解です。<br />
-26B〜32Bクラスの最新ローカルLLM（<strong>Qwen3.8-Coder 32B</strong>、<strong>Gemma 4 31B/26B-MoE</strong>、<strong>DeepSeek-V4推論モデル</strong> など）が 25〜55 token/s の極めて快適な速度で動作します。<br />
-AntigravityやCursorと連携させたローカルAIコーディング、社内秘匿ドキュメントのRAG環境をプライベートに常時稼働させる推論サーバーとして最高のコストパフォーマンスを誇ります。</p>
+<strong>Mac mini（M6・32GBメモリ構成）</strong>は、量子化した26B〜31B級または軽量モデルを主目的にする場合の有力な選択肢です。<br />
+ただし、モデルの実在する正確なチェックポイント名、量子化後の重み容量、コンテキスト長、常駐アプリケーションを確認してから選びます。DeepSeek-V4は32B級のローカルモデルではありません。<br />
+社内秘匿ドキュメントのRAGやローカルAIコーディングでは、速度だけでなく、必要なコンテキスト長、同時利用数、評価タスクでの品質を測定してください。</p>
 </div>
 
 <div class="callout-note">
-<p><strong>🔥 【最高性能・70B大規模モデル重視：予算約30万円以上】</strong><br />
-<strong>Mac mini (M5 Pro・64GBメモリ構成)</strong> の一択となります。<br />
-<strong>DeepSeek-V4-Pro（70B系）</strong>や<strong>Llama 4（70B級）</strong>、<strong>Qwen3.8（72B/大型MoE量子化）</strong>などの最高峰オープンウェイトモデルをローカルで妥協なく動かしたい場合、あるいはThunderbolt 5による超高速外部ストレージ連携を活かしたプロ開発環境には、64GBメモリと307GB/sの広帯域幅が不可欠です。</p>
+<p><strong>🔥 【メモリ余裕・長めのコンテキスト重視：予算約30万円以上】</strong><br />
+<strong>Mac mini（M5 Pro・64GBメモリ構成）</strong>は、中規模モデルをより高い量子化精度や長めのコンテキストで扱いたい場合に検討します。<br />
+一方で、Llama 4 Scoutは109B、Maverickは400B、DeepSeek-V4 Flashは284B、Proは1.6Tの総パラメータです。これらを「70B級」と見なしたり、64GB Mac miniで妥協なく常時稼働できるとしたりすることはできません。大規模モデルにはクラウド、クラスタ、またはより大容量の環境を検討してください。</p>
 </div>
 
 <h2 id="_6">まとめ：2026年のローカルAI環境構築に向けて</h2>
-<p>クラウドAPIの従量課金やデータプライバシーの懸念を完全に排除できるローカルLLM環境において、新型Mac miniは省電力性とコストパフォーマンスの両面で圧倒的なアドバンテージを誇ります。</p>
-<p>自身の運用したいモデル規模（26B〜32Bのコーディング・エージェント頭脳か、70B以上のフロンティア級推論か）と予算に合わせて構成を選択し、快適なプライベートAI環境を構築してください。</p>
+<p>ローカルLLMは、クラウドAPIの従量課金や外部送信に伴うデータプライバシー上の懸念を低減できる選択肢です。一方で、モデル取得元、実行ソフトウェア、ログ、バックアップ、ネットワーク設定まで含めて確認する必要があります。</p>
+<p>自身の運用したいモデルの<strong>公開済みの総パラメータ数</strong>、量子化後の重み容量、想定コンテキスト長、同時利用数に合わせて構成を選択してください。商用APIとの能力比較やtoken/sは、用途別の評価と再現可能な計測結果に基づいて判断することが重要です。</p>
+
+<h2 id="_references">関連ガイド・参照した一次情報</h2>
+<ul>
+<li><a href="mac-mini-m6-vs-m4-used-cost-guide.html">【徹底比較】Mac mini M6（新品）vs 中古M4｜32GBモデルはどっちがお得？価格差・帯域幅・保証の損益分岐点</a></li>
+<li><a href="local-llm-pc-cost-guide-2026.html">Qwen3.8-27Bを動かす非Mac PCのコスパ最適解｜中古RTX 3090 24GB・Ryzen AI・RTX 5090の価格と実用性比較</a></li>
+<li><a href="https://www.apple.com/jp/mac-mini/specs/" target="_blank" rel="noopener noreferrer">Apple: Mac mini 技術仕様</a></li>
+<li><a href="https://ai.google.dev/gemma/docs/get_started" target="_blank" rel="noopener noreferrer">Google AI for Developers: Gemma models</a></li>
+<li><a href="https://api-docs.deepseek.com/news/news260424/" target="_blank" rel="noopener noreferrer">DeepSeek: V4 Preview Release</a></li>
+<li><a href="https://qwen.ai/blog?id=qwen3.8-flash-next" target="_blank" rel="noopener noreferrer">Qwen: Qwen3.8-Flash-Next</a></li>
+<li><a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank" rel="noopener noreferrer">Qwen: Qwen3.8-27B model card</a></li>
+<li><a href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/" target="_blank" rel="noopener noreferrer">Meta: Llama 4 Scout / Maverick</a></li>
+<li><a href="https://www.microsoft.com/en-us/research/blog/phi-4-reasoning-vision-and-the-lessons-of-training-a-multimodal-reasoning-model/" target="_blank" rel="noopener noreferrer">Microsoft Research: Phi-4-reasoning-vision-15B</a></li>
+<li><a href="https://platform.openai.com/docs/models" target="_blank" rel="noopener noreferrer">OpenAI: Models</a>、<a href="https://www.anthropic.com/system-cards" target="_blank" rel="noopener noreferrer">Anthropic: Model system cards</a>、<a href="https://deepmind.google/models/model-cards/" target="_blank" rel="noopener noreferrer">Google DeepMind: Model cards</a></li>
+</ul>
 
 <h2 id="_7">変更履歴</h2>
 <ul>
-<li><strong>2026-08-30</strong>: 2026年最新商用API（OpenAI GPT-5.6 Sol/Terra/Luna、Claude 5 Opus/Sonnet/Haiku 4.5、Gemini 3.1 Pro/3.7 Flash）の世代交代に基づき、商用API相当比較カラムを最新化。</li>
-<li><strong>2026-08-30</strong>: 2026年最新オープンウェイトモデル（Gemma 4 12B/31B/26B-MoE、DeepSeek-V4-Flash/Pro、Qwen3.8-Coder 32B、Phi-4-reasoning-vision 15B、Llama 4）の最新ラインナップを反映し、推論速度・メモリマップを更新。</li>
+<li><strong>2026-08-30</strong>: モデル規模・Mac miniへの搭載可否・メモリ帯域を公式情報で再検証。DeepSeek-V4、Qwen3.8-Flash-Next、Llama 4の誤った規模分類を修正し、確認できないモデル名を削除。</li>
+<li><strong>2026-08-30</strong>: 根拠のないtoken/sと商用API「相当」の断定を削除。4bit量子化・短い入力・単一ストリームdecodeを前提にした購入前の概算と、用途別の比較目安へ変更。</li>
 <li><strong>2026-08-30</strong>: 2026年最新発表のMac mini（M6 / M5 Pro）公式スペックに基づき、ローカルLLM運用における性能評価・パラメータ別推論速度・購入判断レポートを新規公開。</li>
 </ul>
     </article>

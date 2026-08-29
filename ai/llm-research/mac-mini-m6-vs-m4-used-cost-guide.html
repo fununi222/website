@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>【徹底比較】Mac mini M6（新品）vs 中古M4｜ローカルLLM運用で32GBモデルはどっちがお得？価格差・帯域幅・保証の損益分岐点【2026年最新】 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="ローカルLLM（Qwen3.8-27B・Gemma 4等）を32GBメモリで動かすなら、最新Mac mini M6（新品約22.1万円）と型落ち中古M4（相場約13万〜16万円）のどちらがお得か？約6万〜9万円の価格差、メモリ帯域幅（170GB/s vs 120GB/s）、外付けSSD費用、保証・リセールまで徹底比較。" />
+  <meta property="og:title" content="【徹底比較】Mac mini M6（新品）vs 中古M4｜ローカルLLM運用で32GBモデルはどっちがお得？価格差・帯域幅・保証の損益分岐点【2026年最新】 | FunUni-lab" />
+  <meta property="og:description" content="ローカルLLM（Qwen3.8-27B・Gemma 4等）を32GBメモリで動かすなら、最新Mac mini M6（新品約22.1万円）と型落ち中古M4（相場約13万〜16万円）のどちらがお得か？約6万〜9万円の価格差、メモリ帯域幅（170GB/s vs 120GB/s）、外付けSSD費用、保証・リセールまで徹底比較。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00ffca;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00ffca0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; }
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00ffca; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00ffca; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00ffca; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 0.92rem; }
+    thead { background: #00ffca14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00ffca; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors text-[#00ffca] border-b-2 border-[#00ffca] pb-1">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00ffca;">
+          <span class="material-symbols-outlined">memory</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../ai/index.html" class="hover:text-white transition-colors" style="color: #00ffca;">AI Research</a>
+      <span class="text-slate-600">/</span>
+      <span class="text-slate-400">Mac mini M6 vs Used M4 Cost Guide</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00ffca1a; color: #00ffca; border-color: #00ffca33;">
+        <span class="material-symbols-outlined text-xs">balance</span> Domain_03 / AI Research
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        【徹底比較】Mac mini M6（新品）vs 中古M4｜ローカルLLM運用で32GBモデルはどっちがお得？価格差・帯域幅・保証の損益分岐点
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">calendar_today</span> 公開: 2026-08-30</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">update</span> 更新: 2026-08-30</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">schedule</span> 読了目安: 約8分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <h2 id="_1">はじめに：32GBメモリ構成のMac miniをどう選ぶか</h2>
+      <p>ローカル環境でQwen3.8-27B（4bit約15GB）やGemma 4 26B-MoE/31Bなどの実用的な中規模LLMを快適に動かすための「スイートスポット」として、<strong>32GBユニファイドメモリを搭載したMac mini</strong>が大きな注目を集めています。</p>
+      <p>ここで多くの人が直面する悩みが、<strong>「最新のMac mini M6（32GB・新品約22.1万円）を買うべきか？」</strong>それとも<strong>「型落ちとなったMac mini M4の中古（32GB・相場約13万〜16万円）を安く狙うべきか？」</strong>という選択です。</p>
+      <p>フリマアプリ等では時に12.5万円前後の極端な安値（外れ値）が出品されることもありますが、一般的な中古市場相場（13万〜16万円）をベースに、<strong>約6万〜9万円の価格差に見合う性能差やリスクの違いがあるのか</strong>を徹底検証します。</p>
+
+      <hr />
+
+      <h2 id="_2">スペックと価格の完全比較（32GB構成対決）</h2>
+
+      <div class="table-wrap"><table>
+        <thead>
+          <tr>
+            <th>比較項目</th>
+            <th>Mac mini M4（中古 32GB構成）</th>
+            <th>Mac mini M6（新品 32GB構成）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>調達価格（目安）</strong></td>
+            <td><strong>中古相場 約130,000円〜160,000円</strong><br><span class="text-xs text-slate-400">※フリマ最安例: 12.5万円〜、ショップ中古: 15万〜16.5万円</span></td>
+            <td><strong>公式定価 221,800円（税込）</strong><br><span class="text-xs text-slate-400">本体 149,800円 ＋ 32GBメモリ 72,000円</span></td>
+          </tr>
+          <tr>
+            <td><strong>メモリ仕様</strong></td>
+            <td>32GB ユニファイドメモリ</td>
+            <td>32GB ユニファイドメモリ</td>
+          </tr>
+          <tr>
+            <td><strong>メモリ帯域幅</strong></td>
+            <td><strong>120 GB/s</strong></td>
+            <td><strong>170 GB/s</strong>（32GB構成時）<br><span class="text-xs text-slate-400">※M4比で約 1.42倍（+42%）向上</span></td>
+          </tr>
+          <tr>
+            <td><strong>AI演算アーキテクチャ</strong></td>
+            <td>16コア Neural Engine</td>
+            <td><strong>デュアル16コア（計32コア）Neural Engine</strong><br><strong>GPU全12コアにNeural Accelerator内蔵</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Qwen3.8-27B 概算速度</strong><br><span class="text-xs text-slate-400">（4bit Q4・単一decode）</span></td>
+            <td><strong>概算 約 6 〜 10 token/s</strong><br><span class="text-xs text-slate-400">120 GB/s ÷ 約15GB 基準</span></td>
+            <td><strong>概算 約 8 〜 14 token/s</strong><br><span class="text-xs text-slate-400">170 GB/s ÷ 約15GB 基準</span></td>
+          </tr>
+          <tr>
+            <td><strong>内蔵ストレージ</strong></td>
+            <td>多くは 256GB SSD（要外付けSSD増設）</td>
+            <td>256GB〜512GB+（注文時カスタマイズ可）</td>
+          </tr>
+          <tr>
+            <td><strong>メーカー保証</strong></td>
+            <td>なし、またはショップ保証1〜3か月</td>
+            <td><strong>Apple公式 1年新品保証</strong>（AppleCare+加入可）</td>
+          </tr>
+          <tr>
+            <td><strong>ポート・外部拡張</strong></td>
+            <td>Thunderbolt 4 × 3</td>
+            <td>Thunderbolt 4 × 3 / USB4</td>
+          </tr>
+        </tbody>
+      </table></div>
+
+      <hr />
+
+      <h2 id="_3">実質コストの比較：見落としがちな「外付けSSD」の費用</h2>
+      <p>中古M4（32GB）を購入する際に最も注意すべきなのが、<strong>「内蔵SSD容量（256GB）の不足」</strong>です。</p>
+
+      <div class="mermaid">graph TD
+  subgraph M4_COST ["中古 M4 Mac mini 32GB の実質導入コスト"]
+    M4_BODY["中古M4本体（32GB/256GB）<br>約13.5万〜15.5万円"]
+    M4_SSD["外付けUSB4 NVMe SSD (1TB〜2TB)<br>約1.5万〜2.5万円【必須】"]
+    M4_TOTAL["実質総額：約 15.0万 〜 18.0万円"]
+    M4_BODY --> M4_SSD --> M4_TOTAL
+  end
+
+  subgraph M6_COST ["新品 M6 Mac mini 32GB の導入コスト"]
+    M6_BODY["新品M6本体（32GB/256GB）<br>221,800円"]
+    M6_TOTAL["総額：221,800円<br>（新品1年保証付き）"]
+    M6_BODY --> M6_TOTAL
+  end
+
+  classDef used fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000;
+  classDef brandnew fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
+  class M4_TOTAL used;
+  class M6_TOTAL brandnew;
+</div>
+
+      <p>ローカルLLMを本格運用する場合、27B〜32Bクラスのモデルファイル（1つあたり約15GB〜25GB）を複数ダウンロードし、DockerやPythonの仮想環境、KVキャッシュやログを保存するため、内蔵256GBはすぐに逼迫します。</p>
+      <ul>
+        <li>中古M4（256GB）を実用化するには、<strong>高速な外付けUSB4 / NVMe SSD（1TB〜2TB：約1.5万〜2.5万円）</strong>の買い足しが事実上必須です。</li>
+        <li>したがって、中古M4の実質的な初期費用は<strong>「約15万〜18万円」</strong>となり、新品M6（約22.1万円）との<strong>実質価格差は約4万〜7万円程度</strong>に縮まります。</li>
+      </ul>
+
+      <hr />
+
+      <h2 id="_4">性能差の検証：メモリ帯域幅 120GB/s vs 170GB/s の意味</h2>
+      <p>ローカルLLMのトークン生成（decode処理）は、GPU演算能力よりも<strong>「メモリ帯域幅」</strong>に強く依存します。</p>
+
+      <h3 id="_4-1">1. 約42%の帯域幅アップがもたらす体感差</h3>
+      <ul>
+        <li><strong>M4（120 GB/s）:</strong> Qwen3.8-27B（4bit約15GB）を処理する場合、理論帯域比は <code>120 ÷ 15 = 8.0</code>。実効速度はおおよそ <strong>6〜10 token/s</strong> となり、人間の読書速度（1秒あたり約5〜8文字）とほぼ同等です。</li>
+        <li><strong>M6（170 GB/s）:</strong> 理論帯域比は <code>170 ÷ 15 = 11.3</code>。実効速度はおおよそ <strong>8〜14 token/s</strong> となり、M4に比べて<strong>約1.4倍スムーズに出力</strong>されます。長文のコード生成やRAG検索時の待ち時間に明確な差が出ます。</li>
+      </ul>
+
+      <h3 id="_4-2">2. M6のAIアーキテクチャ刷新（Neural Accelerator）</h3>
+      <p>M6では、GPU全12コアに専用の<strong>Neural Accelerator</strong>が内蔵され、デュアル16コア（計32コア）Neural Engineが搭載されています。将来的にMLXやllama.cppなどのオープンソース推論エンジンがM6のハードウェアアクセラレーションに最適化された場合、プレフィル（プロンプト読解）速度やMoEモデルのルーティング効率でさらなるアドバンテージを得られる可能性があります。</p>
+
+      <hr />
+
+      <h2 id="_5">保証・信頼性・リセールバリュー（資産価値）の比較</h2>
+
+      <div class="table-wrap"><table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>中古 M4 Mac mini</th>
+            <th>新品 M6 Mac mini</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>製品保証</strong></td>
+            <td>なし（フリマ）〜 1〜3か月（中古店）<br><span class="text-xs text-slate-400">故障時の修理費は自己負担（基板交換は高額）</span></td>
+            <td><strong>Apple公式 1年間無償保証</strong><br><span class="text-xs text-slate-400">AppleCare+加入で3年間の過失保証も可能</span></td>
+          </tr>
+          <tr>
+            <td><strong>24時間運用の安心感</strong></td>
+            <td>前所有者の使用環境・経年劣化が不明</td>
+            <td>完全な新品パーツで初期不良も即交換対応</td>
+          </tr>
+          <tr>
+            <td><strong>3年後のリセールバリュー</strong></td>
+            <td>2世代落ちのため、さらなる値落ちが見込まれる</td>
+            <td>現行最新世代のため、数年後も高額売却が期待できる</td>
+          </tr>
+          <tr>
+            <td><strong>OSサポート期間</strong></td>
+            <td>M6より2年早くOSアップデート対象外になる</td>
+            <td>最長クラスのmacOS長期サポートを享受可能</td>
+          </tr>
+        </tbody>
+      </table></div>
+
+      <hr />
+
+      <h2 id="_6">結論：どちらを選ぶべきかの購入判断マトリクス</h2>
+
+      <div class="callout-tip">
+        <p><strong>💡 【中古 M4 Mac mini 32GB（約13万〜16万円）を選ぶべき人】</strong></p>
+        <ul>
+          <li><strong>とにかく初期費用を10万円台半ばに抑えたい</strong></li>
+          <li>推論速度（token/s）の多少の差よりも、27B〜32Bモデルを常駐させられる「32GBユニファイドメモリという容量」を最安で確保したい</li>
+          <li>外付けSSDの増設や、中古品のコンディション確認（アクティベーションロック確認等）に慣れている</li>
+          <li>プライベートな実験用・ホビー用途で、保証期間の短さを割り切れる</li>
+        </ul>
+      </div>
+
+      <div class="callout-note">
+        <p><strong>🔥 【新品 M6 Mac mini 32GB（約22.1万円）を選ぶべき人】</strong></p>
+        <ul>
+          <li><strong>+42%の高速メモリ帯域（170GB/s）と最新Neural Acceleratorによる快適さを求めたい</strong></li>
+          <li>自宅やオフィスのAIサーバーとして「24時間365日常時稼働」させるため、新品1年保証と高い信頼性が欲しい</li>
+          <li>数年後の売却時におけるリセールバリューや、macOSの長期サポートを重視したい</li>
+          <li>実質4万〜6万円前後の差額であれば、最新スペックへの投資として納得できる</li>
+        </ul>
+      </div>
+
+      <h2 id="_7">まとめ：価格差「実質約5万円」をどう捉えるか</h2>
+      <p>単体の価格だけを見ると「13万円 vs 22万円」で約9万円の開きがあるように見えますが、外付けSSDの追加費用や将来のリセールバリュー、1年間の新品保証を含めた<strong>トータルコスト（TCO）で考えると、実質的な差額は約4万〜6万円程度</strong>に縮まります。</p>
+      <p>「予算最優先でコスパよく始めるなら中古M4 32GB」、「速度・信頼性・長期運用を重視するなら新品M6 32GB」というのが、2026年ローカルLLM環境構築における最も合理的な結論です。</p>
+
+      <h2 id="_references">関連ガイド・一次情報</h2>
+      <ul>
+        <li><a href="mac-mini-m6-m5pro-local-llm-guide.html">Mac mini（M6 / M5 Pro）ローカルLLM運用・購入判断完全ガイド</a></li>
+        <li><a href="local-llm-pc-cost-guide-2026.html">Qwen3.8-27Bを動かす非Mac PCのコスパ最適解｜中古RTX 3090・Ryzen AI・RTX 5090比較</a></li>
+        <li><a href="https://www.apple.com/jp/mac-mini/specs/" target="_blank" rel="noopener noreferrer">Apple: Mac mini 公式技術仕様</a></li>
+      </ul>
+
+      <h2 id="_changelog">変更履歴</h2>
+      <ul>
+        <li><strong>2026-08-30</strong>: ローカルLLM（32GBメモリ環境）における「Mac mini M6（新品約22.1万円）vs 中古Mac mini M4（相場約13万〜16万円）」の徹底比較・実質コストガイドを新規公開。</li>
+      </ul>
+    </article>
+
+  </main>
+
+  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">Direct Static HTML Architecture.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Dashboard</a>
+        <a href="../../ai/index.html" class="hover:text-white">AI Research</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>
