@@ -118,7 +118,7 @@
       </h1>
       <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
         <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">calendar_today</span> 公開: 2026-05-09</span>
-        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">update</span> 更新: 2026-08-17</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">update</span> 更新: 2026-08-30</span>
         <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">schedule</span> 読了目安: 約11分</span>
       </div>
     </header>
@@ -147,7 +147,7 @@
  %% --- 起点（クレジットカード・アプリ） ---
  A[&quot;三井住友カード/Olive&lt;br&gt;(0.5~1.5%)&quot;]
  P1[&quot;P-one Standard(M)&lt;br&gt;(1.4%)&quot;]
- F[&quot;ファミペイ&lt;br&gt;※ローン契約あり&quot;]
+ F[&quot;ファミペイ翌月払い&lt;br&gt;※ローン契約+要エントリー&quot;]
  LP[&quot;LawsonPonta+(M)&quot;]
  OL[&quot;OliveG(V)&quot;]
 
@@ -164,7 +164,7 @@
  AA{{楽天証券/投信積立&lt;br&gt;【最大3.0%】}}
  T{{交通系IC/iD&lt;br&gt;【最大2.5%】}}
  L{{VISA加盟店&lt;br&gt;【最大2.5%】}}
- X{{公共料金/税金&lt;br&gt;【10.0%】}}
+ X{{公共料金/税金&lt;br&gt;【最大10%（上限500pt/月）】}}
  S{{OKストア/くら寿司等&lt;br&gt;【13.0%】}}
  H{{セブン/マクド等&lt;br&gt;【10.5%】}}
 
@@ -193,7 +193,7 @@
  O ==&gt;|0.5~1.0%| AA
 
  %% 【特化ルート】
- F ==&gt;|直接請求書払い| X
+ F ==&gt;|翌月払いで請求書払い| X
  LP ==&gt;|QUICPay決済| S
  OL ==&gt;|スマホタッチ決済| H
 
@@ -268,12 +268,45 @@
 <p>レジ前では「VISAで」「Suicaで」「iDで」のいずれかを宣言するだけです。</p>
 <h3 id="3">場面③「自宅での作業」は機械的に処理せよ</h3>
 <p>レジ前での決済とは異なり、自宅で落ち着いて処理できる「固定費」と「投資」は、手間をかけてでも還元率の最大値を確実に取りにいきます。</p>
-<h4 id="_5">公共料金・税金の請求書払い</h4>
-<ul>
-<li><strong>最適な決済手段:</strong> ファミペイ（直接払い）</li>
-<li><strong>還元率:</strong> <strong>10.0%</strong>（※ファミペイローン契約の恩恵をフル活用）</li>
-<li><strong>注意点:</strong> 楽天ペイの請求書払いは還元率が劣るため使用しません。ローン契約による高還元枠を全額ここに投下します。</li>
-</ul>
+<h4 id="_5">公共料金・税金の請求書払い（ファミペイ翌月払いの活用と注意点）</h4>
+<p>公共料金や地方税（eL-QR等）の請求書払いにおいて、ファミペイは非常に高い還元率を誇りますが、<strong>仕様の誤認による「還元対象外（0%）」トラップ</strong>に最も注意が必要な領域です。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>支払い方法</th>
+<th>還元率</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ファミペイ残高払い（通常）</strong></td>
+<td><strong>0%</strong>（1件10ptのみ）</td>
+<td>※金額に対するポイント還元は<strong>対象外</strong></td>
+</tr>
+<tr>
+<td><strong>ファミペイ翌月払い（通常）</strong></td>
+<td><strong>0.5%</strong> ＋ 1件10pt</td>
+<td>※残高ではなく「翌月払い」を選択することが必須</td>
+</tr>
+<tr>
+<td><strong>ファミペイ翌月払い ＋ ローン契約</strong></td>
+<td><strong>最大10.0%</strong>（0.5% + 1件10pt + ステップボーナス9.0%）</td>
+<td>※月間還元上限<strong>500pt（決済額 約5,556円まで）</strong></td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout-warning">
+<p><strong>【重要】ファミペイで最大10.0%還元を受けるための必須3条件：</strong></p>
+<ol>
+<li><strong>支払い時に「ファミペイ翌月払い」を指定すること</strong>（※チャージ残高からの支払いは金額還元が0%対象外）</li>
+<li><strong>毎月アプリ内で「ステップボーナス」にエントリーすること</strong>（※忘れるとボーナス対象外）</li>
+<li><strong>ファミペイカード登録＋ファミペイローン契約（ステップ2）を完了していること</strong>（※借入の実行は不要、契約のみでOK）</li>
+</ol>
+</div>
+<p><strong>実践的な攻略ポイント：</strong><br />
+ステップボーナス（+9.0%）には<strong>「月間上限500ポイント（利用額 約5,556円まで）」</strong>という厳しい上限があります。数万円の自動車税や固定資産税を一括で支払っても、5,556円を超えた分は9%上乗せの対象外（通常還元0.5%のみ）となります。<br />
+そのため、<strong>「月5,000円前後の水道料金や電気代など、少額の請求書1通に絞って翌月払いで決済する」</strong>のが、上限枠を無駄なく100%回収する最も賢い運用法です。</p>
 <h4 id="_6">楽天証券での投信積立（キャッシュ防衛戦）</h4>
 <ul>
 <li><strong>作業ルート:</strong> 三井住友/P-one ⇒（Revolut/JAL Pay等）⇒ ANA Pay ⇒ 楽天Edy ⇒ <strong>楽天キャッシュ</strong></li>
@@ -286,6 +319,7 @@
 <p>一度このシステムとルーティンを構築してしまえば、あとは機械的に決済を行うだけで、生活のあらゆる支出から最大値のポイントが自動的に生み出されていくはずです。</p>
 <h2 id="_8">変更履歴</h2>
 <ul>
+<li><strong>2026-08-30</strong>: ファミペイの公共料金・請求書払いにおける還元仕様を精緻化（通常残高払いの対象外仕様、翌月払い必須条件、ステップボーナスの月間上限500pt/利用上限約5,556円に関する注意点を追記）。</li>
 <li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
 <li><strong>2026-05-09</strong>: 新規作成。JAL Pay改悪に対応した日常決済と投資の「分離戦略」を図解付きで解説。</li>
 </ul>
