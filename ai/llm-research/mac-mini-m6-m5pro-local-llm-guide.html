@@ -189,15 +189,15 @@
 <div class="mermaid">graph TD
  %% 2026年最新モデルサイズとチップの対応
  subgraph S12B ["軽量・マルチモーダル級 (2B〜15B)<br>・Gemma 4 (12B Unified / 4.5B)<br>・DeepSeek-V4-Flash / Vision<br>・Phi-4-reasoning-vision (15B)<br>・Qwen3.8-Flash-Next"]
-   M6_BASE["M6 (16GB~24GB)<br>速度: 60~110+ token/s<br>相当: GPT-4o-mini / Gemini Flash級"]
+   M6_BASE["M6 (16GB~24GB)<br>速度: 60~110+ token/s<br>相当: GPT-5.6 Luna / Haiku 4.5 / Gemini 3.5 Flash-Lite"]
  end
 
  subgraph S32B ["高度推論・コーディング特化級 (26B〜32B)<br>・Gemma 4 (31B Dense / 26B MoE)<br>・Qwen3.8-Coder (32B)<br>・DeepSeek-V4 (32B 推論蒸留)"]
-   M6_MAX["M6 (32GB上限構成 / 約22.1万円)<br>速度: 25~55 token/s<br>相当: GPT-4 / Sonnet級【最強のスイートスポット】"]
+   M6_MAX["M6 (32GB上限構成 / 約22.1万円)<br>速度: 25~55 token/s<br>相当: GPT-5.6 Terra / Claude Sonnet 5 / Gemini 3.7 Flash<br>【最強のスイートスポット】"]
  end
 
  subgraph S70B ["大規模・フロンティア級 (70B〜110B+)<br>・DeepSeek-V4-Pro (70B系)<br>・Qwen3.8 (72B / MoE)<br>・Llama 4 (70B級)"]
-   M5_PRO["M5 Pro (64GB構成 / 約30万円~)<br>速度: 15~30 token/s<br>相当: GPT-4o / o1-mini級"]
+   M5_PRO["M5 Pro (64GB構成 / 約30万円~)<br>速度: 15~30 token/s<br>相当: GPT-5.6 Sol / Claude Opus 5 / Gemini 3.1 Pro"]
  end
 
  M6_BASE -->|メモリ拡張| M6_MAX
@@ -218,7 +218,7 @@
 <th>モデル区分（2026年最新モデル例）</th>
 <th>推奨ハードウェア構成</th>
 <th>推定推論速度</th>
-<th>商用API相当</th>
+<th>2026年最新 商用API相当</th>
 <th>実用性と運用評価</th>
 </tr>
 </thead>
@@ -231,7 +231,7 @@
 ・<strong>Qwen3.8-Flash-Next</strong></td>
 <td><strong>M6 (16GB〜24GB)</strong><br><span class="text-xs text-slate-400">※24GB構成は＋36,000円</span></td>
 <td><strong>約 60 〜 110+ token/s</strong></td>
-<td><strong>GPT-4o-mini / Gemini 2.5 Flash</strong> 相当</td>
+<td><strong>GPT-5.6 Luna / 5.5 Instant</strong><br><strong>Claude Haiku 4.5</strong><br><strong>Gemini 3.5 Flash-Lite</strong> 相当</td>
 <td>圧倒的な爆速応答。画像・音声を含むマルチモーダル処理、日常の壁打ち、要約、リアルタイム対話エージェントに最適。16GBベースモデルでも完全稼働。</td>
 </tr>
 <tr>
@@ -241,7 +241,7 @@
 ・<strong>DeepSeek-V4 (32B 推論蒸留)</strong></td>
 <td><strong>M6 (32GB上限構成)</strong><br><span class="text-xs text-slate-400">本体＋72,000円（総額約22.1万円）</span></td>
 <td><strong>約 25 〜 55 token/s</strong></td>
-<td><strong>GPT-4 / Claude 3.5 Sonnet</strong>（初期）相当</td>
+<td><strong>GPT-5.6 Terra</strong><br><strong>Claude Sonnet 5</strong><br><strong>Gemini 3.7 Flash</strong> 相当</td>
 <td><strong>【個人・開発者向け最強のスイートスポット】</strong> 自律的思考チェーン（Thinkingモード）による難関バグ修正、リポジトリ全体の解析、Agentic Codingを完全ローカルでこなす最高の実用性。</td>
 </tr>
 <tr>
@@ -251,7 +251,7 @@
 ・<strong>Llama 4 (70B級)</strong></td>
 <td><strong>M5 Pro (64GB構成)</strong><br><span class="text-xs text-slate-400">総額約30万円〜</span></td>
 <td><strong>約 15 〜 30 token/s</strong></td>
-<td><strong>GPT-4o / o1-mini</strong> クラス</td>
+<td><strong>GPT-5.6 Sol</strong><br><strong>Claude Opus 5 / Fable 5</strong><br><strong>Gemini 3.1 Pro</strong> クラス</td>
 <td>M6（最大32GB）ではメモリ不足でロード不可。オープンウェイト最高峰の知能をローカルで常時稼働させるには、64GBユニファイドメモリと307GB/sの広帯域が必須。</td>
 </tr>
 </tbody>
@@ -297,6 +297,7 @@ AntigravityやCursorと連携させたローカルAIコーディング、社内�
 
 <h2 id="_7">変更履歴</h2>
 <ul>
+<li><strong>2026-08-30</strong>: 2026年最新商用API（OpenAI GPT-5.6 Sol/Terra/Luna、Claude 5 Opus/Sonnet/Haiku 4.5、Gemini 3.1 Pro/3.7 Flash）の世代交代に基づき、商用API相当比較カラムを最新化。</li>
 <li><strong>2026-08-30</strong>: 2026年最新オープンウェイトモデル（Gemma 4 12B/31B/26B-MoE、DeepSeek-V4-Flash/Pro、Qwen3.8-Coder 32B、Phi-4-reasoning-vision 15B、Llama 4）の最新ラインナップを反映し、推論速度・メモリマップを更新。</li>
 <li><strong>2026-08-30</strong>: 2026年最新発表のMac mini（M6 / M5 Pro）公式スペックに基づき、ローカルLLM運用における性能評価・パラメータ別推論速度・購入判断レポートを新規公開。</li>
 </ul>
