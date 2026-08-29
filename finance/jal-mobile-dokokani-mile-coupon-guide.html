@@ -3,219 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JALモバイルどこかにマイルの使い方！アプリの隠しバナーを探せ | FunUni-lab</title>
+  <title>【記事統合】JALモバイルどこかにマイル完全攻略ガイド | FunUni-lab</title>
+  <meta http-equiv="refresh" content="0;url=jal-mobile-dokokani-mile-companion-guide.html" />
   
   <!-- SEO & OGP -->
-  <meta name="description" content="JALモバイル会員限定のどこかにマイル1,500マイルクーポンをJMBアプリで見つけ、交換して予約する手順を解説します。" />
-  <meta property="og:title" content="JALモバイルどこかにマイルの使い方！アプリの隠しバナーを探せ | FunUni-lab" />
-  <meta property="og:description" content="JALモバイル会員限定のどこかにマイル1,500マイルクーポンをJMBアプリで見つけ、交換して予約する手順を解説します。" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="FunUni-lab" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Styling & Typography -->
+  <meta name="description" content="JALモバイルのどこかにマイルクーポン取得手順は、決定版記事「【完全攻略】JALモバイルどこかにマイル｜隠しバナー取得・クーポン交換から2人以上同行者予約までの全手順」へ統合されました。" />
+  <link rel="canonical" href="https://fununi222.github.io/website/finance/jal-mobile-dokokani-mile-companion-guide.html" />
+  
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  
-  <!-- Code Highlighting & Diagrams -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
   <link rel="stylesheet" href="../assets/css/synthetic.css">
-  <style>
-    :root {
-      --obsidian: #0a0c14;
-      --surface-glass: rgba(255, 255, 255, 0.03);
-      --border-glass: rgba(255, 255, 255, 0.08);
-      --accent-theme: #fbbf24;
-    }
-    
-    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
-    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
-    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #fbbf240f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
-    
-    /* Article Typography */
-    .article-body h1 { display: none; } /* Title rendered in header */
-    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #fbbf24; margin-top: 2rem; margin-bottom: 0.75rem; }
-    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
-    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
-    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
-    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
-    .article-body a { color: #fbbf24; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
-    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #fbbf24; }
-    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
-    
-    /* Table Styling */
-    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
-    table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: 0.92rem; }
-    thead { background: #fbbf2414; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
-    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    tr:hover td { background-color: rgba(255,255,255,0.02); }
-    
-    /* Code styling */
-    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
-    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #fbbf24; }
-    
-    /* Custom Callouts */
-    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #fbbf24; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
-    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
-    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
-    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
-    
-    /* Mermaid diagram container */
-    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
-  </style>
 </head>
-<body class="selection:bg-slate-700 overflow-x-hidden">
-  <div class="bg-mesh"></div>
-  
-  <!-- Global Navigation -->
-  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
-      <div class="flex items-center gap-12">
-        <a href="../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
-        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
-          <a href="../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
-          <a href="../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
-          <a href="../ai/index.html" class="hover:text-tertiary transition-colors ">AI Research</a>
-          <a href="../finance/index.html" class="hover:text-amber-400 transition-colors text-[#fbbf24] border-b-2 border-[#fbbf24] pb-1">Finance</a>
-          <a href="../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
-          <a href="../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
-          <a href="../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
-        </div>
-      </div>
-      <div class="flex items-center gap-4">
-        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #fbbf24;">
-          <span class="material-symbols-outlined">account_balance_wallet</span>
-        </div>
-      </div>
+<body class="bg-[#0a0c14] text-slate-300 min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-lg w-full bg-white/5 border border-white/10 rounded-2xl p-8 text-center backdrop-blur-md">
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-500/10 text-amber-400 mb-6">
+      <span class="material-symbols-outlined text-3xl">flight_takeoff</span>
     </div>
-  </nav>
-
-  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
-    
-    <!-- Breadcrumbs -->
-    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
-      <a href="../index.html" class="hover:text-white transition-colors">Home</a>
-      <span class="text-slate-600">/</span>
-      <a href="../finance/index.html" class="hover:text-white transition-colors" style="color: #fbbf24;">Finance</a>
-      
-    </nav>
-
-    <!-- Header Meta -->
-    <header class="mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #fbbf241a; color: #fbbf24; border-color: #fbbf2433;">
-        <span class="material-symbols-outlined text-xs">account_balance_wallet</span> Domain_04 / Finance
-      </div>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
-        JALモバイルどこかにマイルの使い方！アプリの隠しバナーを探せ
-      </h1>
-      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
-        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">calendar_today</span> 公開: 2026-06-27</span>
-        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">update</span> 更新: 2026-08-17</span>
-        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">schedule</span> 読了目安: 約5分</span>
-      </div>
-    </header>
-
-    <!-- Article Content -->
-    <article class="article-body">
-      <p>「JALモバイルを契約したのに、どこかにマイルの1,500マイル交換バナーが見つからない」。そんな人向けに、JMBアプリ内でバナーを探す流れから、クーポン交換後の予約までをまとめます。</p>
-<p>JMBアプリは画面構造が変わることがあるため、ここでは<strong>迷いやすい操作ポイント</strong>を文章で追えるように整理しました。</p>
-<hr />
-<h2 id="jmb1500">JMBアプリで1,500マイル交換バナーを見つける手順</h2>
-<h3 id="1">ステップ1：保有マイル表示を左にスワイプ</h3>
-<p>JMBアプリのホーム画面を開き、中央付近の「現在の保有マイル数」エリアを確認します。ここをタップするのではなく、<strong>左にスワイプ</strong>します。</p>
-<p>画面がJAL Payの券面表示に切り替われば成功です。</p>
-<h3 id="2">ステップ2：「マイレージ」タブをタップ</h3>
-<p>JAL Pay画面の下に、小さなタブが並びます。</p>
-<ul>
-<li>JAL Pay</li>
-<li>JALカード</li>
-<li>JAL NEOBANK</li>
-<li>マイレージ</li>
-</ul>
-<p>この中の<strong>「マイレージ」</strong>をタップします。</p>
-<h3 id="3">ステップ3：「おすすめ情報」をさらに左にスワイプ</h3>
-<p>マイレージ画面の下部に「おすすめ情報」バナーが表示されます。最初に見えているバナーだけで判断せず、このバナーエリアを<strong>左にスワイプして横スクロール</strong>します。</p>
-<h3 id="4jal-mobile">ステップ4：「JAL MOBILE どこかにマイル」をタップ</h3>
-<p>「JAL MOBILE どこかにマイル」のバナーが出たらタップし、案内に沿って1,500マイルを引き落とし、クーポンへ交換します。</p>
-<h2 id="_1">クーポン付与と有効期限</h2>
-<p>交換前後で特に注意したいのは、反映までの時間と有効期限です。</p>
-<ul>
-<li>JALモバイル利用開始月の翌々月下旬以降に専用バナーが表示される</li>
-<li>アプリで交換後、予約システム上で使えるようになるまで時間がかかる場合がある</li>
-<li>交換後のクーポンには有効期限がある</li>
-<li>期限切れ後のマイル払い戻しや再発行は原則期待しない</li>
-</ul>
-<p>旅行日が決まっていない段階で早く交換しすぎると、期限管理が難しくなります。<strong>旅行候補月を決めてから交換する</strong>のがおすすめです。</p>
-<h2 id="_2">失敗しない予約手順</h2>
-<h3 id="1_1">1. 専用ページから予約する</h3>
-<p>通常のどこかにマイルページではなく、JALモバイル会員向けクーポンを選択できる導線から進みます。通常マイル数で申し込まないよう、クーポン表示を必ず確認してください。</p>
-<h3 id="2_1">2. 発着地・日付・時間帯を入力</h3>
-<p>発着地、往復の日付、時間帯、人数を入力します。候補地はランダムに表示されます。</p>
-<h3 id="3-4">3. 4つの候補地を再検索する</h3>
-<p>希望に合わない候補なら、再検索で候補地を入れ替えられます。行ってもよい候補が複数含まれる組み合わせが出るまで粘ると、満足度が上がります。</p>
-<h3 id="4">4. クーポンを選択して申し込む</h3>
-<p>搭乗者情報を入力し、クーポン選択画面で「JALモバイル会員限定クーポン」が適用されていることを確認します。申し込み完了後は変更・払い戻しができない条件があるため、日程と名前を慎重に確認しましょう。</p>
-<h3 id="5">5. 行き先決定メールを待つ</h3>
-<p>申し込み後、通常は数日以内に行き先が決定します。決定後は座席指定や現地交通の予約に進みましょう。</p>
-<h2 id="_3">メリット・デメリット</h2>
-<h3 id="_4">メリット</h3>
-<ol>
-<li>1,500マイルで国内旅行のワクワク感を味わえる</li>
-<li>候補地を再検索できるので、納得感を高めやすい</li>
-<li>普段選ばない地域に行くきっかけになる</li>
-</ol>
-<h3 id="_5">デメリット</h3>
-<ol>
-<li>対象外路線や対象外サービスがある</li>
-<li>発券後の日程変更・キャンセルに制限がある</li>
-<li>クーポン交換後の有効期限管理が必要</li>
-</ol>
-<h2 id="faq">FAQ</h2>
-<h3 id="_6">バナーが表示されません。</h3>
-<p>利用開始月の翌々月下旬以降か、JMBアプリに正しい会員情報でログインしているかを確認してください。表示位置は変わる可能性があるため、JALモバイル公式の案内も確認しましょう。</p>
-<h3 id="_7">クーポン選択画面が出ません。</h3>
-<p>JALモバイル専用の導線から予約しているか、クーポンが予約システムに反映済みかを確認してください。通常ページから入ると、通常のどこかにマイルとして扱われる可能性があります。</p>
-<h2 id="_8">まとめ</h2>
-<p>JALモバイルのどこかにマイル特典は、バナーの場所とクーポン適用画面さえ理解すれば難しくありません。交換後の有効期限と予約導線だけ注意し、1,500マイルの旅を確実に使い切りましょう。</p>
-<p><strong>次に読むべき記事</strong> 
-<a href="https://fununi222.github.io/website/finance/jal-mobile-dokokani-mile-companion-guide.html">2人で1500マイル旅！ JALモバイルどこかにマイル同行者予約の手順</a></p>
-<h2 id="changelog">変更履歴 (Changelog)</h2>
-<ul>
-<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
-<li><strong>2026-08-02 (v3)</strong>: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。</li>
-<li><strong>2026-04-09</strong>: メタデータおよび標準化。</li>
-</ul>
-    </article>
-
-  </main>
-
-  <footer class="py-16 border-t border-white/5 bg-obsidian/50 mt-auto">
-    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
-      <div class="flex flex-col gap-2">
-        <span>© 2026 FunUni-lab Strategic Archive</span>
-        <span class="opacity-40">Direct Static HTML Architecture.</span>
-      </div>
-      <div class="flex gap-8">
-        <a href="../index.html" class="hover:text-white">Dashboard</a>
-        <a href="../finance/index.html" class="hover:text-white">Finance</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof mermaid !== 'undefined') {
-        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
-      }
-    });
-  </script>
+    <h1 class="text-2xl font-bold text-white mb-4">記事が統合されました</h1>
+    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+      「JALモバイルどこかにマイルのクーポン取得手順」は、同行者予約やトラブルシューティングまで網羅した完全攻略ガイドへ統合されました。
+    </p>
+    <a href="jal-mobile-dokokani-mile-companion-guide.html" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold transition-all shadow-lg shadow-amber-500/20">
+      完全攻略ガイドを読む →
+    </a>
+  </div>
 </body>
 </html>

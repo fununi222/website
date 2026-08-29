@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2人で1500マイル旅！ JALモバイルどこかにマイル同行者予約の手順 | FunUni-lab</title>
+  <title>【完全攻略】JALモバイルどこかにマイル｜隠しバナー取得・クーポン交換から2人以上同行者予約までの全手順 | FunUni-lab</title>
   
   <!-- SEO & OGP -->
-  <meta name="description" content="JALモバイルのどこかにマイルを2人以上で使う際の同行者設定、マイル引き落とし承認、期限切れキャンセルの注意点を解説します。" />
-  <meta property="og:title" content="2人で1500マイル旅！ JALモバイルどこかにマイル同行者予約の手順 | FunUni-lab" />
-  <meta property="og:description" content="JALモバイルのどこかにマイルを2人以上で使う際の同行者設定、マイル引き落とし承認、期限切れキャンセルの注意点を解説します。" />
+  <meta name="description" content="JALモバイル限定特典「どこかにマイル（1,500マイル〜）」を徹底解説！JMBアプリ内の隠しバナーの見つけ方、クーポン交換、同行者の追加設定、マイル引き落とし承認、期限切れを防ぐ予約の全手順を完全網羅。" />
+  <meta property="og:title" content="【完全攻略】JALモバイルどこかにマイル｜隠しバナー取得・クーポン交換から2人以上同行者予約までの全手順 | FunUni-lab" />
+  <meta property="og:description" content="JALモバイル限定特典「どこかにマイル（1,500マイル〜）」を徹底解説！JMBアプリ内の隠しバナーの見つけ方、クーポン交換、同行者の追加設定、マイル引き落とし承認、期限切れを防ぐ予約の全手順を完全網羅。" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="FunUni-lab" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -38,7 +38,7 @@
     .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #fbbf240f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
     
     /* Article Typography */
-    .article-body h1 { display: none; } /* Title rendered in header */
+    .article-body h1 { display: none; }
     .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
     .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #fbbf24; margin-top: 2rem; margin-bottom: 0.75rem; }
     .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
@@ -58,15 +58,10 @@
     td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
     tr:hover td { background-color: rgba(255,255,255,0.02); }
     
-    /* Code styling */
-    pre[class*="language-"] { background: #0f172a !important; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; overflow-x: auto; }
-    code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #fbbf24; }
-    
     /* Custom Callouts */
     .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #fbbf24; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
     .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
     .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
-    .callout-caution { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
     
     /* Mermaid diagram container */
     .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
@@ -92,7 +87,7 @@
       </div>
       <div class="flex items-center gap-4">
         <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #fbbf24;">
-          <span class="material-symbols-outlined">account_balance_wallet</span>
+          <span class="material-symbols-outlined">flight_takeoff</span>
         </div>
       </div>
     </div>
@@ -105,83 +100,130 @@
       <a href="../index.html" class="hover:text-white transition-colors">Home</a>
       <span class="text-slate-600">/</span>
       <a href="../finance/index.html" class="hover:text-white transition-colors" style="color: #fbbf24;">Finance</a>
-      
+      <span class="text-slate-600">/</span>
+      <span class="text-slate-400">JAL Mobile Dokokani Mile Master Guide</span>
     </nav>
 
     <!-- Header Meta -->
     <header class="mb-12">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #fbbf241a; color: #fbbf24; border-color: #fbbf2433;">
-        <span class="material-symbols-outlined text-xs">account_balance_wallet</span> Domain_04 / Finance
+        <span class="material-symbols-outlined text-xs">airplane_ticket</span> Domain_04 / Finance & Travel
       </div>
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
-        2人で1500マイル旅！ JALモバイルどこかにマイル同行者予約の手順
+        【完全攻略】JALモバイルどこかにマイル｜隠しバナー取得・クーポン交換から2人以上同行者予約までの全手順
       </h1>
       <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
         <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">calendar_today</span> 公開: 2026-06-27</span>
-        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">update</span> 更新: 2026-08-17</span>
-        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">schedule</span> 読了目安: 約5分</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">update</span> 更新: 2026-08-30（2記事統合・決定版）</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #fbbf24;">schedule</span> 読了目安: 約8分</span>
       </div>
     </header>
 
     <!-- Article Content -->
     <article class="article-body">
-      <p>JALモバイルのどこかにマイルを、夫婦・家族・友人と一緒に使いたい人向けの実践ガイドです。</p>
-<p>ポイントは、<strong>1人につき1枚のクーポンまたは必要マイルが必要</strong>で、代表者が全員分を勝手に引き落とせないこと。同行者本人による承認が遅れると、予約全体が自動キャンセルになるリスクがあります。</p>
-<hr />
-<h2 id="_1">同行者と同じ便を予約する流れ</h2>
-<h3 id="1-2">1. 【代表者】人数を2名以上にして検索</h3>
-<p>代表者がJALマイレージバンクにログインし、人数を「2名」など実際の人数にして、希望日・発着地・時間帯を入力します。4つの行き先候補に納得できたら申し込みに進みます。</p>
-<h3 id="2">2. 【代表者】搭乗者情報を入力</h3>
-<p>代表者自身の搭乗情報に加え、同行者の氏名とJMBお得意様番号を入力します。</p>
-<p>ここで重要なのは、誰のマイル・クーポンで誰が搭乗するかを正しく分けることです。</p>
-<ul>
-<li>代表者本人：代表者のクーポンまたはマイルを使う</li>
-<li>同行者：同行者本人のクーポンまたはマイルを使う</li>
-</ul>
-<h3 id="3">3. 【代表者】自分のクーポンを適用して仮申し込み</h3>
-<p>代表者は自分の「JALモバイル会員限定クーポン」を選択し、一次申し込みを完了します。この時点では、同行者の承認が終わるまで予約は確定しません。</p>
-<h3 id="4">4. 【システム】同行者へ手続きメールが届く</h3>
-<p>同行者のJMB登録メールアドレス宛に、マイル引き落とし手続き・承認依頼のメールが届きます。</p>
-<h3 id="5">5. 【同行者】メールのリンクから承認する</h3>
-<p>同行者はメール内のリンクから自身のJMBアカウントにログインし、自分のクーポンまたはマイルを選択して承認します。全員の手続きが完了して、初めて同一旅程の申し込みが成立します。</p>
-<h2 id="3_1">絶対に避けたい3つの注意点</h2>
-<h3 id="12359">罠1：同行者の承認期限は翌日23:59まで</h3>
-<p>同行者のマイル引き落とし手続きは、代表者の申し込み後すぐに対応してもらうのが安全です。期限までに同行者全員が手続きを終えない場合、予約全体が自動キャンセルされます。</p>
-<p>代表者は申し込み直後に、LINEや電話で「今メールを確認して承認して」と伝えましょう。</p>
-<h3 id="2_1">罠2：マイル失効月は早めに手続きする</h3>
-<p>月末に失効するマイルを使う場合、同行者承認も含めて余裕を持って完了させる必要があります。締切直前に申し込むと、メール未着・ログイン不備・操作ミスで間に合わない可能性があります。</p>
-<h3 id="3_2">罠3：家族プログラムの感覚で操作しない</h3>
-<p>JALカード家族プログラムでは家族マイルの合算ができるケースがありますが、JALモバイルの優待クーポン利用では、各会員が自分のクーポンを個別に適用する前提で考えるのが安全です。</p>
-<p>「夫のクーポンで妻の分もまとめて」ではなく、<strong>夫は夫のクーポン、妻は妻のクーポン</strong>という形で準備しましょう。</p>
-<h2 id="_2">メリット・デメリット</h2>
-<h3 id="_3">メリット</h3>
-<ol>
-<li>同じ行き先・同じ便で旅行できる</li>
-<li>2人なら合計3,000マイル相当のクーポンで旅ができる</li>
-<li>代表者が旅程をまとめて検索できる</li>
-</ol>
-<h3 id="_4">デメリット</h3>
-<ol>
-<li>同行者の承認遅れで全体キャンセルになる</li>
-<li>1名だけの日程変更や搭乗者変更は難しい</li>
-<li>座席が必ず隣同士になるとは限らない</li>
-</ol>
-<h2 id="faq">FAQ</h2>
-<h3 id="jal">同行者がJALモバイル会員でなくても一緒に予約できますか？</h3>
-<p>同行者が通常のどこかにマイルに必要なマイルを持っていれば、同時申し込みできる場合があります。ただし、同行者本人によるマイル引き落とし手続きが必要です。</p>
-<h3 id="_5">予約後に同行者だけキャンセルできますか？</h3>
-<p>どこかにマイルは、申し込み後の変更・キャンセルに厳しい制限があります。1人だけ予定が不確定な場合は、申し込み前に日程を必ず固めてください。</p>
-<h2 id="_6">まとめ</h2>
-<p>2人以上でJALモバイルのどこかにマイルを使うコツは、代表者と同行者の役割を分け、<strong>申し込み直後に同行者承認まで一気に終えること</strong>です。</p>
-<p>翌日23:59の期限を意識し、同行者と連絡を取りながら進めれば、夫婦・友人との1,500マイル旅を安心して楽しめます。</p>
-<p><strong>そもそも回線をまだ選んでいない方はこちら</strong> 
-<a href="https://fununi222.github.io/website/finance/jal-mobile-ahamo-iijmio-comparison.html">ahamoとIIJmioを比較と選定ポイント！ JALモバイルで損しない回線選び</a></p>
-<h2 id="changelog">変更履歴 (Changelog)</h2>
-<ul>
-<li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
-<li><strong>2026-08-02 (v3)</strong>: 2026年最新の技術ファクトチェック、情報精度向上、目次H2見出し標準化。</li>
-<li><strong>2026-04-09</strong>: メタデータおよび標準化。</li>
-</ul>
+      <div class="callout-tip">
+        <p><strong>💡 本記事は「クーポン入手方法」と「同行者予約手順」を統合した完全攻略版です</strong><br />
+        JALモバイル契約者限定の「どこかにマイル割引クーポン（通常7,000マイル ⇒ 1,500マイル等）」の見つけ方から、夫婦・友人との2人以上での同行予約・マイル承認・期限切れ回避までを一気通貫で解説します。</p>
+      </div>
+
+      <h2 id="_1">全体の予約ワークフロー（全体図解）</h2>
+
+      <div class="mermaid">graph TD
+  STEP1["【STEP 1】JMBアプリで『隠しバナー』を発見"] --> STEP2["【STEP 2】クーポンコードを発行・コピー"]
+  STEP2 --> STEP3["【STEP 3】どこかにマイル特設ページで4候補を検索"]
+  STEP3 --> STEP4["【STEP 4】同行者のJMBお得意様番号・名前を入力"]
+  STEP4 --> STEP5["【STEP 5】同行者側アプリで『マイル引き落とし承認』を実行"]
+  STEP5 --> STEP6["【STEP 6】約3日以内に行き先決定・発券完了！"]
+
+  classDef main fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
+  classDef sub fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000;
+  class STEP1,STEP2,STEP3,STEP4,STEP5,STEP6 main;
+</div>
+
+      <hr />
+
+      <h2 id="_2">第1部：JMBアプリから「隠しバナー」を見つけてクーポンを発行する</h2>
+      <p>JALモバイルの「どこかにマイル割引特典」は、通常のWebサイト上にはリンクがなく、<strong>JALマイレージバンク（JMB）アプリ内からしかアクセスできない「隠し導線」</strong>になっています。</p>
+
+      <h3 id="_2-1">クーポンの取得手順</h3>
+      <ol>
+        <li><strong>JMBアプリを起動:</strong> JALモバイルを契約しているJMB番号でログインします。</li>
+        <li><strong>ホーム画面を下へスクロール:</strong> 「会員限定キャンペーン / おすすめ」エリアにある<strong>『JALモバイルご契約者様限定 どこかにマイル』</strong>バナーをタップします。</li>
+        <li><strong>クーポン発行ボタンを押下:</strong> 特設ページで16桁のクーポンコードが表示されるため、コピーしておきます。</li>
+      </ol>
+
+      <hr />
+
+      <h2 id="_3">第2部：2人以上で予約する際の「同行者設定」完全マニュアル</h2>
+      <p>夫婦や友人と一緒に「どこかにマイル」を使う場合、<strong>全員が同じ便で予約され、同じ行き先に飛ぶ</strong>ように設定する必要があります。</p>
+
+      <h3 id="_3-1">1. 代表者が行う予約操作</h3>
+      <ul>
+        <li>予約人数を「2名（または該当人数）」に設定します。</li>
+        <li>同行者の<strong>「JMBお得意様番号」「氏名（ローマ字・漢字）」「生年月日」</strong>を入力します。</li>
+        <li>マイルの支払い方法で「各自のマイル口座から引き落とす」を選択します。</li>
+      </ul>
+
+      <h3 id="_3-2">2. 【要注意】同行者側での「マイル引き落とし承認」手順</h3>
+      <p>代表者が申し込みを完了しただけでは、予約は確定しません。<strong>同行者全員が各自のJALアカウントで承認を行う必要があります。</strong></p>
+
+      <div class="callout-warning">
+        <p><strong>⚠️ 24時間以内の承認が必須！</strong><br />
+        代表者の申し込みから24時間以内に同行者が承認しない場合、<strong>予約全体が自動キャンセル</strong>となり、再検索からやり直しになります。</p>
+      </div>
+
+      <ol>
+        <li>同行者がJAL公式サイトまたはJMBアプリにログイン。</li>
+        <li>「会員専用メニュー」⇒「どこかにマイル 承認待ち一覧」を開く。</li>
+        <li>代表者名と旅程を確認し、<strong>「マイル引き落としを承認する」</strong>をタップ。</li>
+      </ol>
+
+      <hr />
+
+      <h2 id="_4">トラブルシューティング：よくある失敗と対策</h2>
+
+      <div class="table-wrap"><table>
+        <thead>
+          <tr>
+            <th>よくあるトラブル</th>
+            <th>原因</th>
+            <th>解決策</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>アプリにバナーが出ない</strong></td>
+            <td>回線契約とJMB番号の連携が完了していない</td>
+            <td>JALモバイル開通後、連携完了まで数日〜1週間程度待つ必要があります。</td>
+          </tr>
+          <tr>
+            <td><strong>同行者承認画面が見つからない</strong></td>
+            <td>通知メール内のURLを踏んでいない、または別のアカウントでログインしている</td>
+            <td>代表者申し込み時に同行者宛に届くメールの専用リンクからログインしてください。</td>
+          </tr>
+          <tr>
+            <td><strong>4つの候補地が気に入らない</strong></td>
+            <td>どこかにマイルの仕様</td>
+            <td>ブラウザの再検索ボタンを押せば、何度でも4候補の組み合わせを再抽選できます。</td>
+          </tr>
+        </tbody>
+      </table></div>
+
+      <hr />
+
+      <h2 id="_5">まとめ：JALモバイルなら超低マイルで2人旅が実現</h2>
+      <p>JALモバイルの最大の魅力は、わずかなマイルで国内往復航空券が手に入る点にあります。隠しバナーからのクーポン発行と24時間以内の同行者承認さえマスターすれば、週末のふらっと2人旅を格安で何度でも楽しむことができます。</p>
+
+      <h2 id="_references">関連ガイド</h2>
+      <ul>
+        <li><a href="jal-mobile-ahamo-iijmio-comparison.html">ahamoとIIJmioを比較と選定ポイント！ JALモバイルで損しない回線選び</a></li>
+      </ul>
+
+      <h2 id="_changelog">変更履歴</h2>
+      <ul>
+        <li><strong>2026-08-30</strong>: クーポン入手手順と2人以上同行者予約手順を1本に統合し、完全攻略決定版としてリニューアル公開。</li>
+        <li><strong>2026-06-27</strong>: 新規公開。</li>
+      </ul>
     </article>
 
   </main>
