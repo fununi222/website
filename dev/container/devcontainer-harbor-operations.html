@@ -134,14 +134,14 @@
 特に、<strong>Docker HubのPull制限に悩んでいる方</strong>は必見です。</p>
 <hr />
 <h2 id="2">パブリックレジストリの「2つの大きな壁」</h2>
-<p>チームの規模が大きくなったり、CI/CD（継続的インテグレーション）を回し始めたりすると、<a href="../../glossary/system-glossary.html#:~:text=" title="Docker%20Hub">Docker Hub</a>などのパブリックレジストリを直接使うことで問題が発生します。</p>
+<p>チームの規模が大きくなったり、CI/CD（継続的インテグレーション）を回し始めたりすると、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Docker%20Hub">Docker Hub</a>などのパブリックレジストリを直接使うことで問題が発生します。</p>
 <h3 id="1-docker-hubpull">1. Docker Hubの「Pull制限」（レートリミット）</h3>
 <p>Docker Hubには厳しい制限があります。未認証ユーザーは6時間で100回、認証済みでも200回しかイメージをダウンロード（Pull）できません。
 大規模なCI/CDパイプラインを回していると、この制限にすぐに引っかかり、開発が完全にストップしてしまいます。</p>
 <h3 id="2-egress">2. 高額なEgress（データ転送）コスト</h3>
 <p>AWSやGoogle Cloudなどのパブリッククラウドから、インターネットを経由して外部のDocker Hubからデータをダウンロードすると、高額なデータ転送料（Egressコスト）が発生します。</p>
 <h2 id="harbor">解決策：Harborの「プロキシキャッシュ」機能</h2>
-<p>これらの問題を一発で解決するのが、Harborの<strong>「<a href="../../glossary/system-glossary.html#:~:text=" title="プロキシキャッシュ">プロキシキャッシュ</a>」</strong>機能です。</p>
+<p>これらの問題を一発で解決するのが、Harborの<strong>「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="プロキシキャッシュ">プロキシキャッシュ</a>」</strong>機能です。</p>
 <h3 id="_1">プロキシキャッシュの仕組み</h3>
 <p>Harborを、Docker Hubとあなたの開発環境の「間」に置きます。</p>
 <ol>

@@ -127,7 +127,7 @@
     <article class="article-body">
       <div class="text-[10px] text-on-surface-variant opacity-60 text-right mb-6 tracking-widest font-mono">Standard Edition: v2026.04.10</div>
 
-<p><a href="../../glossary/system-glossary.html#:~:text=%22AWS%20RDS%22">AWS RDS</a> 上のデータをオンプレミスのインフラへ「持ち出す」理由は、単なるバックアップに留まらない。<a href="../../glossary/system-glossary.html#:~:text=%22AIOps%22">AIOps</a> 用のデータレイク構築、コンプライアンス、あるいは<a href="../../glossary/system-glossary.html#:~:text=%22Cloud%20Exit%22">クラウド脱却（Could Exit）</a>戦略の一環として、その重要性は増している。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22AWS%20RDS%22">AWS RDS</a> 上のデータをオンプレミスのインフラへ「持ち出す」理由は、単なるバックアップに留まらない。<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22AIOps%22">AIOps</a> 用のデータレイク構築、コンプライアンス、あるいは<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22Cloud%20Exit%22">クラウド脱却（Could Exit）</a>戦略の一環として、その重要性は増している。</p>
 <hr />
 <style>
 .rds-dash-container {
@@ -208,7 +208,7 @@
 <span class="material-symbols-outlined text-sm">analytics</span> Capability Matrix
 </h4>
 <p class="text-sm text-on-surface-variant leading-relaxed opacity-70">
-本レーダーチャートは、セットアップの容易性、[AIOps](../../glossary/system-glossary.html#:~:text=%22AIOps%22) 基盤との親和性、転送効率、クエリ速度、およびコスト効率を 10 段階で評価したものです。
+本レーダーチャートは、セットアップの容易性、[AIOps](https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22AIOps%22) 基盤との親和性、転送効率、クエリ速度、およびコスト効率を 10 段階で評価したものです。
 </p>
 </div>
 <div class="p-6 rounded-2xl bg-primary/5 border border-primary/10">
@@ -235,7 +235,7 @@ html: `
 ### 1. Rubrikの技術仕様
 <ul>
 <li><strong>アーキテクチャ:</strong> AWS上にデプロイされたRubrik Security Cloud (RSC)が、AWS BackupまたはネイティブAPIを経由してRDSのスナップショットを取得・管理する。</li>
-<li><strong>オンプレ転送メカニズム (CloudOut):</strong> 取得したスナップショットデータ（S3に一時保管）を、オンプレミスのRubrikアプライアンス、またはS3互換/NFSターゲットへ <a href="../../glossary/system-glossary.html#:~:text=%22SLA%20Domain%22" class="text-primary hover:underline">SLA Domain</a> ポリシーに基づいて自動的にレプリケーション（アーカイブ）する。</li>
+<li><strong>オンプレ転送メカニズム (CloudOut):</strong> 取得したスナップショットデータ（S3に一時保管）を、オンプレミスのRubrikアプライアンス、またはS3互換/NFSターゲットへ <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22SLA%20Domain%22" class="text-primary hover:underline">SLA Domain</a> ポリシーに基づいて自動的にレプリケーション（アーカイブ）する。</li>
 <li><strong>対応データベース:</strong> Amazon Aurora, RDS for PostgreSQL, MySQL, Oracle, SQL Server。</li>
 <li><strong>制約事項:</strong> クラウド上で取得したRDSネイティブスナップショット形式のままオンプレミスへ転送されるため、オンプレミスのベアメタルサーバーへ直接インスタンスとして復元することはできない。</li>
 </ul>
@@ -280,7 +280,7 @@ html: `
 ### 1. VAST Dataの技術仕様
 <ul>
 <li><strong>アーキテクチャ:</strong> AIOps基盤のデータレイクターゲットとして機能するオールフラッシュ・エクサバイトスケールストレージ。</li>
-<li><strong>オンプレ転送メカニズム:</strong> RDS の「S3へのエクスポート (<a href="../../glossary/system-glossary.html#:~:text=%22Parquet%22" class="text-primary hover:underline">Parquet</a> 形式)」と <a href="../../glossary/system-glossary.html#:~:text=%22AWS%20DataSync%22" class="text-primary hover:underline">AWS DataSync</a> を組み合わせてオンプレミスへ同期。</li>
+<li><strong>オンプレ転送メカニズム:</strong> RDS の「S3へのエクスポート (<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22Parquet%22" class="text-primary hover:underline">Parquet</a> 形式)」と <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22AWS%20DataSync%22" class="text-primary hover:underline">AWS DataSync</a> を組み合わせてオンプレミスへ同期。</li>
 <li><strong>AIOps連携:</strong> 保存された Parquet データは、Trino や Spark から直接クエリ可能。</li>
 </ul>
 ### 2. 実行デモ（コード / コマンド例）
@@ -427,11 +427,11 @@ if (document.readyState === 'loading') {
 
 <hr />
 <h2 id="2">2. 調査の背景と目的</h2>
-<p>クラウドネイティブな運用において、スナップショットは非常に強力なツールだが、それは「AWSアカウント内」に閉じた保護であることが多い。真の復元力と、オンプレミスの強力な分析基盤（<a href="../../glossary/system-glossary.html#:~:text=%22VAST%20Data%22">VAST Data</a> 等）を活かした <a href="../../glossary/system-glossary.html#:~:text=%22AIOps%22">AIOps</a> を実現するためには、<a href="../../glossary/system-glossary.html#:~:text=%22AWS%20DataSync%22">AWS DataSync</a> や <a href="../../glossary/system-glossary.html#:~:text=%22Parquet%22">Parquet</a> フォーマットを活用した効率的なデータ移動が必要となる。</p>
+<p>クラウドネイティブな運用において、スナップショットは非常に強力なツールだが、それは「AWSアカウント内」に閉じた保護であることが多い。真の復元力と、オンプレミスの強力な分析基盤（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22VAST%20Data%22">VAST Data</a> 等）を活かした <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22AIOps%22">AIOps</a> を実現するためには、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22AWS%20DataSync%22">AWS DataSync</a> や <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22Parquet%22">Parquet</a> フォーマットを活用した効率的なデータ移動が必要となる。</p>
 <h2 id="3">3. アーキテクチャ上の留意点</h2>
 <ul>
 <li><strong>Egressコスト:</strong> AWSからのデータ転送費用は、設計段階で最も慎重に評価すべき項目である。</li>
-<li><strong>APIレート制限:</strong> 大規模なスナップショットエクスポートは AWS API の制限に抵触しやすいため、<a href="../../glossary/system-glossary.html#:~:text=%22Event%20Orchestration%22">Event Orchestration</a> による制御が推奨される。</li>
+<li><strong>APIレート制限:</strong> 大規模なスナップショットエクスポートは AWS API の制限に抵触しやすいため、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=%22Event%20Orchestration%22">Event Orchestration</a> による制御が推奨される。</li>
 </ul>
 <hr />
 <p><strong>Standard Edition: v2026.04.10</strong> | <strong>Clinical Precision. Self-Contained.</strong></p>

@@ -141,7 +141,7 @@
 <hr />
 <h2 id="2">2. 物理クラスタの最大オブジェクト数は「実質無制限」</h2>
 <p>標準的なハードウェア（brik）で構成される物理クラスタの場合、<strong>アーキテクチャ上の明確な「保護対象オブジェクトの最大数」の制限はありません。</strong></p>
-<p>前の記事（<a href="https://fununi222.github.io/website/html/infra/rubrik-scaling-strategy-clusters-vs-nodes.html">Rubrikのスケーリング戦略</a>）で解説した通り、Rubrikはメタデータ管理に分散データベース（CockroachDB）を採用しているため、ノードを追加し続ける限り、保護できるオブジェクト数は無限にスケールします。</p>
+<p>前の記事（<a href="https://fununi222.github.io/website/infra/rubrik-scaling-strategy-clusters-vs-nodes.html">Rubrikのスケーリング戦略</a>）で解説した通り、Rubrikはメタデータ管理に分散データベース（CockroachDB）を採用しているため、ノードを追加し続ける限り、保護できるオブジェクト数は無限にスケールします。</p>
 <p>実際のRubrikのストレステストや大規模導入の事例では、単一のクラスタで以下のワークロードを同時に安定して保護できていることが確認されています。</p>
 <ul>
 <li><strong>仮想マシン：</strong> 1,000台以上（1時間ごとの高頻度バックアップ）</li>
@@ -170,7 +170,7 @@
 <p>これからのデータ保護は、単にバックアップを取るだけでなく、ランサムウェア攻撃から確実に復旧できる「サイバーレジリエンス」が求められます。Rubrikの真価は、アーキテクチャの制限を気にすることなく、無限に拡張できる強靭なデータ基盤を持てることにあります。</p>
 <hr />
 <h3 id="_3">次のステップはこちら！</h3>
-<p>👉 <a href="https://fununi222.github.io/website/html/infra/rubrik-false-positive-analysis-guide.html">【プロが解説】Rubrik脅威モニタリングは誤検知しやすい？精度とノイズ対策の全貌</a></p>
+<p>👉 <a href="https://fununi222.github.io/website/infra/rubrik-false-positive-analysis-guide.html">【プロが解説】Rubrik脅威モニタリングは誤検知しやすい？精度とノイズ対策の全貌</a></p>
 <h2 id="changelog">変更履歴 (Changelog)</h2>
 <ul>
 <li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>

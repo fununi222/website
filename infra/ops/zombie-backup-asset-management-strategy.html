@@ -126,8 +126,8 @@
     <!-- Article Content -->
     <article class="article-body">
       <p>「サーバは半年前に削除したはずなのに、バックアップの請求が止まらない……」</p>
-<p>数千台規模のインフラを運用する現場で、誰もが一度は直面する<strong>「<a href="../../glossary/system-glossary.html#:~:text=" title="ゾンビバックアップ">ゾンビバックアップ</a>（Zombie Backups）」</strong>。この問題は、単なるストレージの無駄遣いにとどまらず、ITガバナンスの欠如と運用コストの深刻な漏洩を意味します。</p>
-<p>本記事では、資産管理ツール「<a href="../../glossary/system-glossary.html#:~:text=" title="Jira">Jira</a>」とRubrikをAPIで直結し、<strong>不整合を自動で検知・解消する次世代の資産管理戦略</strong>をプロの視点で解説します。</p>
+<p>数千台規模のインフラを運用する現場で、誰もが一度は直面する<strong>「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ゾンビバックアップ">ゾンビバックアップ</a>（Zombie Backups）」</strong>。この問題は、単なるストレージの無駄遣いにとどまらず、ITガバナンスの欠如と運用コストの深刻な漏洩を意味します。</p>
+<p>本記事では、資産管理ツール「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Jira">Jira</a>」とRubrikをAPIで直結し、<strong>不整合を自動で検知・解消する次世代の資産管理戦略</strong>をプロの視点で解説します。</p>
 <hr />
 <h2 id="1">1. ゾンビバックアップが組織に蔓延する構造的要因</h2>
 <p>なぜ、優秀なエンジニアが揃っている現場でも「消し忘れ」は起きるのでしょうか？</p>
@@ -143,7 +143,7 @@
 <h3 id="3">3層クロスチェック・ロジック</h3>
 <p>以下の3つのデータを定期的に自動で突合し、不整合をアラート化します。</p>
 <ol>
-<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="Jira">Jira</a>（資産台帳）</strong>: 「あるべき姿」のマスターデータ。</li>
+<li><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Jira">Jira</a>（資産台帳）</strong>: 「あるべき姿」のマスターデータ。</li>
 <li><strong>vSphere/Cloud</strong>: 「現在動いている」実機データ。</li>
 <li><strong>Rubrik</strong>: 「現在保護されている」データ。</li>
 </ol>
@@ -163,7 +163,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">台帳(無) × Rubrik(有)</td>
-<td style="text-align: left;"><strong><a href="../../glossary/system-glossary.html#:~:text=" title="ゾンビバックアップ">ゾンビバックアップ</a></strong></td>
+<td style="text-align: left;"><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ゾンビバックアップ">ゾンビバックアップ</a></strong></td>
 <td style="text-align: left;"><strong>SLAの自動解除（新規課金停止）</strong></td>
 </tr>
 <tr>
@@ -203,7 +203,7 @@
 <p>この戦略を導入することで、インフラ運用は「守り」から、経営に貢献する「攻め」の資産最適化へと進化します。</p>
 <h3 id="_1">📌 次のステップ：構築ガイド</h3>
 <p>具体的なAPIの叩き方や、Jiraとのスクリプト連携手順については、以下の実践ガイドをご覧ください。</p>
-<p>👉 <strong><a href="https://fununi222.github.io/website/html/infra/ops/Jira-rubrik-api-integration-guide.html">【実践編】APIで繋ぐ！ Jira × Rubrik不整合検知システムの構築ガイド</a></strong></p>
+<p>👉 <strong><a href="https://fununi222.github.io/website/infra/ops/Jira-rubrik-api-integration-guide.html">【実践編】APIで繋ぐ！ Jira × Rubrik不整合検知システムの構築ガイド</a></strong></p>
 <h2 id="changelog">変更履歴 (Changelog)</h2>
 <ul>
 <li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>

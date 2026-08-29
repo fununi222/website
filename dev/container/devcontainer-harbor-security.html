@@ -128,17 +128,17 @@
       <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
 <h1 id="3devsecops-harbordevcontainer">記事③：DevSecOpsを自動化！ Harbor×Devcontainerのセキュリティ戦略</h1>
-<p>これまでの記事で、<a href="../../glossary/system-glossary.html#:~:text=" title="Devcontainer">Devcontainer</a>と<a href="../../glossary/system-glossary.html#:~:text=" title="Harbor">Harbor</a>の基礎、そしてコストを下げる運用術を解説しました。
+<p>これまでの記事で、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Devcontainer">Devcontainer</a>と<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Harbor">Harbor</a>の基礎、そしてコストを下げる運用術を解説しました。
 （※前回の記事は<a href="./devcontainer-harbor-operations.html">こちら</a>）</p>
 <p>最終回となる本記事では、エンタープライズ企業で最も重視される<strong>「セキュリティと認証」</strong>について解説します。
-Harborを導入すれば、面倒なセキュリティチェックをすべて自動化し、「<a href="../../glossary/system-glossary.html#:~:text=" title="DevSecOps">DevSecOps</a>」を実現できます。</p>
+Harborを導入すれば、面倒なセキュリティチェックをすべて自動化し、「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="DevSecOps">DevSecOps</a>」を実現できます。</p>
 <hr />
 <h2 id="trivy">脆弱性スキャンを自動化（Trivyの統合）</h2>
-<p>Harborには、オープンソースの脆弱性スキャナである「<a href="../../glossary/system-glossary.html#:~:text=" title="Trivy">Trivy</a>」や「Clair」が最初から統合されています。
+<p>Harborには、オープンソースの脆弱性スキャナである「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Trivy">Trivy</a>」や「Clair」が最初から統合されています。
 使い方は簡単です。CI/CDパイプラインなどを通じてHarborにイメージをPushするだけで、<strong>自動的に脆弱性がないかスキャン</strong>してくれます。</p>
 <p>さらに、VS Codeの拡張機能（Veracode Scanなど）を使えば、Devcontainerの中でコードを書いている最中に、リアルタイムで脆弱性を発見・修正することも可能です。</p>
 <h2 id="sbom">SBOM（ソフトウェア部品表）の自動生成</h2>
-<p>最近のセキュリティ基準で必須になりつつあるのが「<a href="../../glossary/system-glossary.html#:~:text=" title="SBOM">SBOM</a>（Software Bill of Materials）」です。
+<p>最近のセキュリティ基準で必須になりつつあるのが「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="SBOM">SBOM</a>（Software Bill of Materials）」です。
 これは、ソフトウェアに「どんな部品（ライブラリ）が使われているか」を示す一覧表です。</p>
 <p>Harbor バージョン2.11以降では、イメージをPushした瞬間に<strong>Trivyが裏側で動いて、このSBOMを自動的に生成</strong>してくれます。
 これにより、PCI-DSSなどの厳しいコンプライアンス要件を満たすための書類作成の手間がゼロになります。</p>

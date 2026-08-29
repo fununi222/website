@@ -126,30 +126,30 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p>本記事は、過去に制作したレコメンドエンジン「altra-recommender」の開発プロセスを振り返ったものです。単なる<a href="../../glossary/system-glossary.html#:~:text=" title="アルゴリズム">アルゴリズム</a>の実装にとどまらず、推薦結果の「納得感」や「可読性」といった <a href="../../glossary/system-glossary.html#:~:text=" title="UI">UI</a> 体験、および<a href="../../glossary/system-glossary.html#:~:text=" title="フロントエンド">フロントエンド</a>とロジックを密結合させないデータ構造の設計について、実務に繋がる学びをまとめています。</p>
+<p>本記事は、過去に制作したレコメンドエンジン「altra-recommender」の開発プロセスを振り返ったものです。単なる<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="アルゴリズム">アルゴリズム</a>の実装にとどまらず、推薦結果の「納得感」や「可読性」といった <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="UI">UI</a> 体験、および<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="フロントエンド">フロントエンド</a>とロジックを密結合させないデータ構造の設計について、実務に繋がる学びをまとめています。</p>
 <hr />
-<p>過去に制作した <strong>altra-recommender</strong> は、ユーザーごとに合いそうな候補を提示することを意識して作ったレコメンド系の Web アプリです。見た目だけではなく、<strong>「どうやって候補を出すか」</strong> と <strong>「どう見せれば使いやすいか」</strong> の両方を考える必要があり、ロジックと <a href="../../glossary/system-glossary.html#:~:text=" title="UI">UI</a> をつなぐ難しさを学べた制作でした。</p>
+<p>過去に制作した <strong>altra-recommender</strong> は、ユーザーごとに合いそうな候補を提示することを意識して作ったレコメンド系の Web アプリです。見た目だけではなく、<strong>「どうやって候補を出すか」</strong> と <strong>「どう見せれば使いやすいか」</strong> の両方を考える必要があり、ロジックと <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="UI">UI</a> をつなぐ難しさを学べた制作でした。</p>
 <h2 id="_2">制作背景</h2>
 <p>一覧をそのまま見せるのではなく、利用者に合わせて情報を絞り込んだり、候補を提案したりする仕組みに興味があり、このアプリに取り組みました。普段使っているサービスでは当たり前に見えるレコメンド機能も、自分で作る側に回ると、データの扱い方、条件分岐、結果の見せ方まで含めて考えることが多くあります。</p>
-<p>そのため、この制作では<a href="../../glossary/system-glossary.html#:~:text=" title="アルゴリズム">アルゴリズム</a>だけに寄らず、<strong>推薦結果をどう体験として届けるか</strong> を大きなテーマにしていました。</p>
+<p>そのため、この制作では<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="アルゴリズム">アルゴリズム</a>だけに寄らず、<strong>推薦結果をどう体験として届けるか</strong> を大きなテーマにしていました。</p>
 <h2 id="_3">制作で意識したこと</h2>
 <h3 id="1-ui">1. ロジックと UI を分けて考えすぎない</h3>
-<p>レコメンド機能は、裏側で正しい結果を返せば終わりではありません。ユーザーにとっては、結果がどう並び、何が見えて、次にどう行動できるかまで含めて <a href="../../glossary/system-glossary.html#:~:text=" title="UI">UI</a> 体験になります。そのため、推薦ロジックと表示設計を別物にしすぎず、画面上でどう受け取られるかを考えながら実装しました。</p>
+<p>レコメンド機能は、裏側で正しい結果を返せば終わりではありません。ユーザーにとっては、結果がどう並び、何が見えて、次にどう行動できるかまで含めて <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="UI">UI</a> 体験になります。そのため、推薦ロジックと表示設計を別物にしすぎず、画面上でどう受け取られるかを考えながら実装しました。</p>
 <h3 id="2">2. 情報の出し方を整理する</h3>
 <p>推薦結果が多すぎると、かえって選びづらくなります。そこで、どの情報を先に見せるか、どこまで詳細を出すか、一覧性と理解しやすさのバランスを意識しました。レコメンドは精度だけでなく、<strong>結果の読みやすさ</strong> も重要だと感じました。</p>
 <h3 id="3">3. データ構造を意識して実装する</h3>
 <p>条件分岐や候補の絞り込みを進める中で、データ構造が整理されていないと修正しづらくなる場面が多くありました。そのため、機能追加を見据えて、どこに何の情報を持たせるかを意識するようになりました。これは今の開発にもつながっている学びです。</p>
 <h2 id="_4">制作を通して学んだこと</h2>
-<p>この制作で大きかったのは、<a href="../../glossary/system-glossary.html#:~:text=" title="フロントエンド">フロントエンド</a>だけでなく、ロジック設計まで含めてアプリ全体を見る視点が身についたことです。特に、推薦結果の質だけを追うのではなく、<strong>ユーザーが結果をどう受け取るか</strong> を考えることで、実装の優先順位や画面設計の考え方が大きく変わりました。</p>
+<p>この制作で大きかったのは、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="フロントエンド">フロントエンド</a>だけでなく、ロジック設計まで含めてアプリ全体を見る視点が身についたことです。特に、推薦結果の質だけを追うのではなく、<strong>ユーザーが結果をどう受け取るか</strong> を考えることで、実装の優先順位や画面設計の考え方が大きく変わりました。</p>
 <p>また、レコメンド機能は「何をおすすめするか」だけでなく、「なぜそれが出てきたのか」が見えないと使いにくくなる場面もあります。結果の理由や納得感まで含めて設計する重要性を、この制作で実感しました。</p>
 <h2 id="_5">今ならこう改善する</h2>
 <p>もし今作り直すなら、次の点をさらに強化したいです。</p>
 <ol>
-<li>推薦の理由を <a href="../../glossary/system-glossary.html#:~:text=" title="UI">UI</a> 上で伝え、納得感を高める</li>
+<li>推薦の理由を <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="UI">UI</a> 上で伝え、納得感を高める</li>
 <li>データ構造とロジックを整理し、保守しやすくする</li>
 <li>結果一覧の見せ方を改善し、比較しやすい画面にする</li>
 </ol>
-<p>過去制作として振り返ると、altra-recommender は完成度以上に、<strong>少し難しいテーマに自分で踏み込んだこと</strong> に価値があると感じています。挑戦の過程で、<a href="../../glossary/system-glossary.html#:~:text=" title="UI">UI</a>、データ、ロジックを横断して考える経験ができたことが、この制作の一番大きな収穫でした。</p>
+<p>過去制作として振り返ると、altra-recommender は完成度以上に、<strong>少し難しいテーマに自分で踏み込んだこと</strong> に価値があると感じています。挑戦の過程で、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="UI">UI</a>、データ、ロジックを横断して考える経験ができたことが、この制作の一番大きな収穫でした。</p>
 <h2 id="_6">リンク</h2>
 <ul>
 <li>GitHub: https://github.com/fumiya5222/altra-recommender</li>

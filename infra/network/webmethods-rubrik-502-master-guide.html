@@ -126,7 +126,7 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="webMethods">webMethods</a> <a href="../../glossary/system-glossary.html#:~:text=" title="Integration%20Server">Integration Server</a> (IS) と <a href="../../glossary/system-glossary.html#:~:text=" title="Rubrik">Rubrik</a> Security Cloud (RSC) の API 連携において発生する <a href="../../glossary/system-glossary.html#:~:text=" title="502%20Bad%20Gateway">HTTP 502 Bad Gateway</a> / 504 Gateway Timeout に対し、適切なリトライ設計を行わないと二次障害（リトライストーム）を招く恐れがあります。本稿では、<a href="../../glossary/system-glossary.html#:~:text=" title="REPEAT-TRY-CATCH">REPEAT-TRY-CATCH</a> による指数バックオフ＋ジッター実装と、「開始処理」と「状態確認ポーリング」のエラー判定分離設計を解説します。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="webMethods">webMethods</a> <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Integration%20Server">Integration Server</a> (IS) と <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Rubrik">Rubrik</a> Security Cloud (RSC) の API 連携において発生する <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="502%20Bad%20Gateway">HTTP 502 Bad Gateway</a> / 504 Gateway Timeout に対し、適切なリトライ設計を行わないと二次障害（リトライストーム）を招く恐れがあります。本稿では、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="REPEAT-TRY-CATCH">REPEAT-TRY-CATCH</a> による指数バックオフ＋ジッター実装と、「開始処理」と「状態確認ポーリング」のエラー判定分離設計を解説します。</p>
 <hr />
 <h2 id="1-502-bad-gateway-504-gateway-timeout">1. 502 Bad Gateway / 504 Gateway Timeout の発生要因</h2>
 <ul>
@@ -138,7 +138,7 @@
 <ol>
 <li><strong><code>REPEAT</code></strong>: 最大試行回数（3〜5回）を指定。</li>
 <li><strong><code>TRY</code></strong>: 共通HTTP通信サービスを呼び出し、ステータス非200で例外スロー。</li>
-<li><strong><code>CATCH</code></strong>: <code>pub.flow:wait</code> を用い、指数バックオフ（<code>60s ➔ 120s ➔ 240s</code>）＋ <a href="../../glossary/system-glossary.html#:~:text=" title="ジッター">ジッター</a> (±10〜20%の無作為な揺らぎ) を動的計算して適用。</li>
+<li><strong><code>CATCH</code></strong>: <code>pub.flow:wait</code> を用い、指数バックオフ（<code>60s ➔ 120s ➔ 240s</code>）＋ <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ジッター">ジッター</a> (±10〜20%の無作為な揺らぎ) を動的計算して適用。</li>
 </ol>
 <hr />
 <h2 id="3-mutation-vs-query">3. エラーハンドリング運用分離：開始処理 (Mutation) vs 状態確認 (Query)</h2>
@@ -162,7 +162,7 @@
 <td style="text-align: left;"><strong>状態確認 (Query)</strong></td>
 <td style="text-align: left;">バックアップ進捗ポーリング</td>
 <td style="text-align: left;"><strong>低</strong> (ジョブ自体は非同期実行中)</td>
-<td style="text-align: left;">警告扱い &amp; 次回ポーリングへ静観引継ぎ (<a href="../../glossary/system-glossary.html#:~:text=" title="Fail-Safe">Fail-Safe</a>)</td>
+<td style="text-align: left;">警告扱い &amp; 次回ポーリングへ静観引継ぎ (<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Fail-Safe">Fail-Safe</a>)</td>
 </tr>
 </tbody>
 </table></div>

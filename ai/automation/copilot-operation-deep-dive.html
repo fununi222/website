@@ -128,7 +128,7 @@
       <div class="text-[10px] text-emerald-500 opacity-60 text-right mb-6 tracking-widest font-mono">Research Log: v2026.04.16</div>
 
 <h1 id="enterprise-ai-ops">Enterprise AI Ops | 実運用で判明した『知識の陳腐化』と権限管理の勘所</h1>
-<p>導入初期の興奮が過ぎ、実務運用フェーズへ移行した<a href="../../glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>活用において、最も重要なのは「プロンプト」ではなく「参照データのライフサイクル管理」であることが見えてきました。本稿では、<a href="../../glossary/system-glossary.html#:~:text=" title="Notebook%20(AI)">Notebook (AI)</a>を活用した社内向けAIエージェントの本格運用を開始して数日が経過しました。本稿では、日常的なコミュニケーションツールでの返信支援や自動リサーチの実践を通じて見えてきた、エンタープライズ特有の運用課題について整理します。</p>
+<p>導入初期の興奮が過ぎ、実務運用フェーズへ移行した<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>活用において、最も重要なのは「プロンプト」ではなく「参照データのライフサイクル管理」であることが見えてきました。本稿では、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Notebook%20(AI)">Notebook (AI)</a>を活用した社内向けAIエージェントの本格運用を開始して数日が経過しました。本稿では、日常的なコミュニケーションツールでの返信支援や自動リサーチの実践を通じて見えてきた、エンタープライズ特有の運用課題について整理します。</p>
 <hr />
 <h2 id="1-copilot">1. Copilot による「返信作成」と「自動リサーチ」</h2>
 <p>コラボレーションツールでの返信作成支援は、既に「時短ツール」としての地位を確立しています。しかし、組織全体での生産性向上には、より構造的な自動化が求められます。</p>
@@ -138,21 +138,21 @@
 <li><strong>効果</strong>: 毎朝、整理されたサマリーが手元に届く状態を作り、受動的な情報収集を能動的な「インサイト抽出」へとシフト。</li>
 </ul>
 <h2 id="2-notebook">2. 『Notebook』運用の注意点：資料の多さが仇になる？</h2>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="Notebook%20(AI)">Notebook (AI)</a>機能（<a href="../../glossary/system-glossary.html#:~:text=" title="Copilot%20Studio">Copilot Studio</a>等の知識ベース）への資料投入において、以下の課題が浮き彫りになりました。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Notebook%20(AI)">Notebook (AI)</a>機能（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Copilot%20Studio">Copilot Studio</a>等の知識ベース）への資料投入において、以下の課題が浮き彫りになりました。</p>
 <h3 id="knowledge-decay">知識の累積と精度低下 (Knowledge Decay)</h3>
 <ul>
-<li><strong>事象</strong>: 「最新のマニュアル」と「一年前の暫定手順」が混在すると、AIが古い情報を参照し、誤った回答（<a href="../../glossary/system-glossary.html#:~:text=" title="ハルシネーション">ハルシネーション</a>）を生成する。</li>
+<li><strong>事象</strong>: 「最新のマニュアル」と「一年前の暫定手順」が混在すると、AIが古い情報を参照し、誤った回答（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ハルシネーション">ハルシネーション</a>）を生成する。</li>
 <li><strong>対策</strong>: ファイルを単に「追加」するのではなく、バージョン管理と定期的な「古いデータのパージ（削除）」を行うためのガバナンスが必要。</li>
 </ul>
 <h2 id="3">3. 公開範囲とアクセスコントロールの現実</h2>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>は強力な反面、意図しない情報露出のリスクを伴います。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>は強力な反面、意図しない情報露出のリスクを伴います。</p>
 <ul>
 <li><strong>Tenant-wide 公開の難しさ</strong>: 全社員への一斉公開はリスク評価に時間がかかるため、現在は「招待制の個別共有」によるスモールスタートが現実的な解。</li>
 <li><strong>社外連携プロジェクトへの適用</strong>: 問い合わせ対応の自動化においては、BP（外部パートナー）を含めた公開がライセンス上のボトルネックとなるため、カスタムインターフェースの併用を検討中。</li>
 </ul>
 <hr />
 <h2 id="ai">結論：AI運用は「データの庭師」になること</h2>
-<p>AIに高性能なモデル（<a href="../../glossary/system-glossary.html#:~:text=" title="LLM">LLM</a>）を与えるだけでは成果は限定的です。庭の手入れをするように、古くなった知識を剪定し、常に新鮮なデータが供給されるパイプラインを維持することこそが、次世代の運用エンジニアに求められるスキルです。</p>
+<p>AIに高性能なモデル（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="LLM">LLM</a>）を与えるだけでは成果は限定的です。庭の手入れをするように、古くなった知識を剪定し、常に新鮮なデータが供給されるパイプラインを維持することこそが、次世代の運用エンジニアに求められるスキルです。</p>
 <h2 id="changelog">変更履歴 (Changelog)</h2>
 <ul>
 <li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>

@@ -147,14 +147,14 @@
 <div class="callout-note">
 <p><strong>💡 戦略的アドバイス：SLAの階層化（Tiering）</strong>
 * <strong>Tier 1（最重要）</strong>: Cloud Vaultへ完全に隔離。
-* <strong>Tier 2（通常）</strong>: 同一アカウント内で <a href="../../glossary/system-glossary.html#:~:text=" title="Retention%20Lock">Retention Lock</a>（削除禁止）のみを適用。
+* <strong>Tier 2（通常）</strong>: 同一アカウント内で <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Retention%20Lock">Retention Lock</a>（削除禁止）のみを適用。
 全てを隔離するのではなく、ビジネス価値に応じたコスト配分がFinOpsの基本です。</p>
 </div>
 <hr />
 <h2 id="3-rds">3. なぜRDSは「ウイルススキャン」が不可能なのか？</h2>
 <p>仮想マシン（VM）とは異なり、RDSのスナップショットはAWS独自のブロックレベルイメージであり、ホストOSにアクセスできません。そのため、<strong>従来のウイルススキャンは構造的に不可能</strong>です。</p>
 <h3 id="dspm">代替策：DSPMによる「リスクの可視化」</h3>
-<p>スキャンができない代わりに、Rubrikは<strong><a href="../../glossary/system-glossary.html#:~:text=" title="DSPM">DSPM</a>（データセキュリティ態勢管理）</strong>を提供します。
+<p>スキャンができない代わりに、Rubrikは<strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="DSPM">DSPM</a>（データセキュリティ態勢管理）</strong>を提供します。
 バックグラウンドで一時的なリソースを立ち上げ、DB内のテーブルを直接解析。<strong>「どこに機密情報（PII）があるか」</strong>を特定することで、データ漏洩時のインパクトを最小化します。</p>
 <hr />
 <h2 id="4-api">4. 【実践】APIによる論理ダンプ抽出の自動化</h2>

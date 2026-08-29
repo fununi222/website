@@ -126,7 +126,7 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p>高度な重複排除・圧縮・Similarity-Based Data Reduction を備える次世代スケールアウト・ストレージ（<a href="../../glossary/system-glossary.html#:~:text=" title="VAST%20Data">VAST Data</a>等）では、大量データの削除が即座に物理容量解放と直線的に結びつかない特有の挙動を示します。本稿では、非同質的データ消去後のガーベジコレクション（GC）メカニズム、物理解放までの過渡期における実効容量評価と技術検証プロセスを体系化します。</p>
+<p>高度な重複排除・圧縮・Similarity-Based Data Reduction を備える次世代スケールアウト・ストレージ（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="VAST%20Data">VAST Data</a>等）では、大量データの削除が即座に物理容量解放と直線的に結びつかない特有の挙動を示します。本稿では、非同質的データ消去後のガーベジコレクション（GC）メカニズム、物理解放までの過渡期における実効容量評価と技術検証プロセスを体系化します。</p>
 <hr />
 <h2 id="1">1. なぜ即座に物理容量が空かないのか？</h2>
 <p>次世代ストレージの DASE（Disaggregated, Shared-Everything）アーキテクチャでは、データはグローバルな重複排除と類似性ベースの削除によって最小化されています。そのため、論理削除の実行から物理解放までの間には以下の遅延要因が発生します。</p>
@@ -144,7 +144,7 @@
 </ol>
 <hr />
 <h2 id="3">3. 結論：監視から「評価」への転換</h2>
-<p>スケールアウト・ストレージの運用管理は「単なる使用率%の監視」から「ガベージコレクションと将来容量の許容評価」へと転換する必要があります。<a href="../../glossary/system-glossary.html#:~:text=" title="VAST%20Data">VAST Data</a> 等のモダン基盤では、削除イベント後の回復ロジックを理解した上でインフラキャパシティを判断することが重要です。</p>
+<p>スケールアウト・ストレージの運用管理は「単なる使用率%の監視」から「ガベージコレクションと将来容量の許容評価」へと転換する必要があります。<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="VAST%20Data">VAST Data</a> 等のモダン基盤では、削除イベント後の回復ロジックを理解した上でインフラキャパシティを判断することが重要です。</p>
 <hr />
 <h2 id="changelog">変更履歴 (Changelog)</h2>
 <ul>

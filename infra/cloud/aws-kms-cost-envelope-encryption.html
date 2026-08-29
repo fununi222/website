@@ -126,7 +126,7 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p>AWS <a href="../../glossary/system-glossary.html#:~:text=" title="KMS">KMS</a> (Key Management Service) を高頻度・大量データアクセスの暗号化にそのまま適用すると、API呼び出し課金（1万リクエストあたり $0.03）が積み重なり、想定外のインフラコストにつながることがあります。本稿では、セキュリティレベルを保ちながらKMSへのAPI通信回数を大幅に削減する<strong>「エンベロープ暗号化 (Envelope Encryption)」</strong>の仕組みと、AWS Encryption SDKを用いた実践的な実装コードを解説します。</p>
+<p>AWS <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="KMS">KMS</a> (Key Management Service) を高頻度・大量データアクセスの暗号化にそのまま適用すると、API呼び出し課金（1万リクエストあたり $0.03）が積み重なり、想定外のインフラコストにつながることがあります。本稿では、セキュリティレベルを保ちながらKMSへのAPI通信回数を大幅に削減する<strong>「エンベロープ暗号化 (Envelope Encryption)」</strong>の仕組みと、AWS Encryption SDKを用いた実践的な実装コードを解説します。</p>
 <hr />
 <h2 id="1-kmsapi">1. なぜKMSでコスト急増（API課金）が発生するのか？</h2>
 <p>AWS KMSは、ルートマスターキー（KMS Key / CMK）の安全な保管と監査に特化したサービスです。</p>
@@ -206,7 +206,7 @@ print(&quot;暗号化・復号が正常に完了しました（データキー�
 <td style="text-align: left;">DBパスワード、APIトークン、PKI管理</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><a href="../../glossary/system-glossary.html#:~:text=" title="Rubrik%20Cloud%20Vault">Rubrik Cloud Vault</a></strong></td>
+<td style="text-align: left;"><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Rubrik%20Cloud%20Vault">Rubrik Cloud Vault</a></strong></td>
 <td style="text-align: left;">イミュータブルバックアップ保管</td>
 <td style="text-align: left;">ランサムウェア隔離領域へのデータ保管</td>
 </tr>

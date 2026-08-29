@@ -127,8 +127,8 @@
     <article class="article-body">
       <p>「明日の予定を、相手の都合に合わせて調整しておいて」
 「来週の出張に合わせて、ホテル周辺の美味しい店をカレンダーに登録しておいて」</p>
-<p>そんなSFのような日常は、もはや夢ではありません。<a href="../../glossary/system-glossary.html#:~:text=" title="OpenClaw">OpenClaw</a>などの自律型AIエージェントをGoogleカレンダーと連携させれば、AIはあなたの「パーソナル秘書」へと進化します。</p>
-<p>しかし、その第一歩となる「<a href="../../glossary/system-glossary.html#:~:text=" title="Google%20Calendar%20API">Google Calendar API</a>」との連携には、<a href="../../glossary/system-glossary.html#:~:text=" title="OAuth">OAuth</a>認証という高い壁が立ちはだかります。本記事では、開発者が必ずハマる<strong>「エラー 403: access_denied」を100%解消し、AIに自由な時間を生み出させるための構築術</strong>を伝授します。</p>
+<p>そんなSFのような日常は、もはや夢ではありません。<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="OpenClaw">OpenClaw</a>などの自律型AIエージェントをGoogleカレンダーと連携させれば、AIはあなたの「パーソナル秘書」へと進化します。</p>
+<p>しかし、その第一歩となる「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Google%20Calendar%20API">Google Calendar API</a>」との連携には、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="OAuth">OAuth</a>認証という高い壁が立ちはだかります。本記事では、開発者が必ずハマる<strong>「エラー 403: access_denied」を100%解消し、AIに自由な時間を生み出させるための構築術</strong>を伝授します。</p>
 <hr />
 <h2 id="1-vpspc">1. なぜ「VPS」ではなく「ローカルPC」で動かすべきなのか？</h2>
 <p>自動化といえばVPS（仮想サーバー）と考えがちですが、個人用のAIエージェント構築において、それは<strong>アンチパターン</strong>です。</p>
@@ -155,7 +155,7 @@
 <p>この設定を完了させ、古い <code>token.json</code> を削除してから再実行すれば、認証の壁を突破できます。</p>
 <hr />
 <h2 id="4-openclawai">4. OpenClawへの指示例：AI秘書の起動</h2>
-<p>環境が整ったら、<a href="../../glossary/system-glossary.html#:~:text=" title="OpenClaw">OpenClaw</a> にワークスペースの <code>credentials.json</code> を渡して、こう指示してください。</p>
+<p>環境が整ったら、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="OpenClaw">OpenClaw</a> にワークスペースの <code>credentials.json</code> を渡して、こう指示してください。</p>
 <div class="callout-note">
 <p>「この認証情報を使って、Googleカレンダーの今日の予定を読み出し、18時以降に『読書の時間』を1時間追加して。完了したら教えて。」</p>
 </div>

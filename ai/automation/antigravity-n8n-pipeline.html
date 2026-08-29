@@ -127,15 +127,15 @@
     <article class="article-body">
       <p>深夜3時、Slackが叫ぶ。「Critical: NullReferenceException in Payment API」。</p>
 <p>かつて、この通知はエンジニアの安眠を奪い、数時間のデバッグ作業を強いる絶望の合図でした。しかし2026年、私たちはもう一つの解を持っています。人間が起きる前に、AIがバグを検知し、リポジトリ全体を読み解き、修正案をテストし、GitHubにPull Requestを投げ終えている。</p>
-<p>本記事では、当サイトの自動化エンジンの核心部である、<strong><a href="../../glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>と<a href="../../glossary/system-glossary.html#:~:text=" title="n8n">n8n</a>を組み合わせた「自律修復パイプライン」</strong>の構築術を完全解剖します。</p>
+<p>本記事では、当サイトの自動化エンジンの核心部である、<strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>と<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="n8n">n8n</a>を組み合わせた「自律修復パイプライン」</strong>の構築術を完全解剖します。</p>
 <hr />
 <h2 id="1">1. 自律修復アーキテクチャの全貌</h2>
-<p>このシステムは、「思考」を司る<a href="../../glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>と、「実行（オーケストレーション）」を司る<a href="../../glossary/system-glossary.html#:~:text=" title="n8n">n8n</a>の疎結合な連携によって成り立っています。</p>
+<p>このシステムは、「思考」を司る<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>と、「実行（オーケストレーション）」を司る<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="n8n">n8n</a>の疎結合な連携によって成り立っています。</p>
 <h3 id="4">4つのフェーズ</h3>
 <ol>
 <li><strong>検知（Detection）</strong>: Sentry等の監視ツールが例外を捕捉し、n8nへWebhookを送信。</li>
-<li><strong>解釈（Reasoning）</strong>: n8nがスタックトレースを<a href="../../glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>に転送。</li>
-<li><strong>推論・修正（Fixing）</strong>: <a href="../../glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>がリポジトリ全体をスキャンし、依存関係を考慮した修正パッチ（diff）を生成。</li>
+<li><strong>解釈（Reasoning）</strong>: n8nがスタックトレースを<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>に転送。</li>
+<li><strong>推論・修正（Fixing）</strong>: <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Antigravity">Antigravity</a>がリポジトリ全体をスキャンし、依存関係を考慮した修正パッチ（diff）を生成。</li>
 <li><strong>デプロイ（PR Issuing）</strong>: n8nがGitHub APIを叩き、修正ブランチを作成。人間には「承認ボタン」のみが残される。</li>
 </ol>
 <hr />

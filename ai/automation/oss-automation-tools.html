@@ -133,22 +133,22 @@
 <h2 id="1-iac">1. インフラの基盤：構成管理とコード化 (IaC)</h2>
 <p>自動化の土台は、すべてのリソースが「コード」で定義されていることにあります。</p>
 <ul>
-<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="OpenTofu">OpenTofu</a> (Terraformのフォーク)</strong>: ライセンス改定の影響を受けない、真にオープンなインフラ定義のスタンダード。vSphereから各種パブリッククラウドまでを宣言的に管理。</li>
-<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="Ansible">Ansible</a></strong>: OS内部の設定やミドルウェアの構築に最適。エージェントレスであるため、既存環境への導入難易度が最も低く、自動化の最初のステップとして推奨。</li>
+<li><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="OpenTofu">OpenTofu</a> (Terraformのフォーク)</strong>: ライセンス改定の影響を受けない、真にオープンなインフラ定義のスタンダード。vSphereから各種パブリッククラウドまでを宣言的に管理。</li>
+<li><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Ansible">Ansible</a></strong>: OS内部の設定やミドルウェアの構築に最適。エージェントレスであるため、既存環境への導入難易度が最も低く、自動化の最初のステップとして推奨。</li>
 </ul>
 <hr />
 <h2 id="2-observability">2. インフラの感覚器：可観測性 (Observability)</h2>
 <p>何が起きているか分からなければ、自動化は暴走します。</p>
 <ul>
-<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="Prometheus">Prometheus</a> + <a href="../../glossary/system-glossary.html#:~:text=" title="Grafana">Grafana</a></strong>: メトリクス収集と可視化の黄金コンビ。</li>
+<li><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Prometheus">Prometheus</a> + <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Grafana">Grafana</a></strong>: メトリクス収集と可視化の黄金コンビ。</li>
 <li><strong>Netdata</strong>: 異常時の「初動調査」に特化した超軽量・リアルタイム監視。ボトルネックを秒単位で特定。</li>
 </ul>
 <hr />
 <h2 id="3-automation-hub">3. インフラの司令塔：オーケストレーション (Automation Hub)</h2>
 <p>ツール間を繋ぎ、ビジネスロジックを流し込む「ハブ」が必要です。</p>
 <ul>
-<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="n8n">n8n</a></strong>: セルフホスト可能なワークフロー自動化ツール。GUIで直感的に組める一方で、JavaScriptによる高度な加工も可能。</li>
-<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="Ollama">Ollama</a> (Local LLM)</strong>: 外部APIを叩かずに、VPC内でAIによる「ログの要約」や「異常判定」を実行。セキュリティとプライバシーを保ったまま、AIエージェントをインフラに組み込めます。</li>
+<li><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="n8n">n8n</a></strong>: セルフホスト可能なワークフロー自動化ツール。GUIで直感的に組める一方で、JavaScriptによる高度な加工も可能。</li>
+<li><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Ollama">Ollama</a> (Local LLM)</strong>: 外部APIを叩かずに、VPC内でAIによる「ログの要約」や「異常判定」を実行。セキュリティとプライバシーを保ったまま、AIエージェントをインフラに組み込めます。</li>
 </ul>
 <hr />
 <h2 id="4-2026">4. 2026年版 効果的な「自律復旧」アーキテクチャ</h2>

@@ -125,12 +125,12 @@
 
     <!-- Article Content -->
     <article class="article-body">
-      <p>Rubrik Security Cloud（<a href="../../glossary/system-glossary.html#:~:text=" title="RSC">RSC</a>）による自動化は、インフラ運用の「聖杯」です。しかし、数千台規模のVMや大規模なスナップショットを扱う際、<strong>「<a href="../../glossary/system-glossary.html#:~:text=" title="502%20Bad%20Gateway">502 Bad Gateway</a>」</strong>という壁が、多くのエンジニアの安眠を妨げています。</p>
+      <p>Rubrik Security Cloud（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="RSC">RSC</a>）による自動化は、インフラ運用の「聖杯」です。しかし、数千台規模のVMや大規模なスナップショットを扱う際、<strong>「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="502%20Bad%20Gateway">502 Bad Gateway</a>」</strong>という壁が、多くのエンジニアの安眠を妨げています。</p>
 <p>「APIが不安定だから自動化は無理だ」と諦めるのはまだ早いです。502エラーの正体はAPIの故障ではなく、<strong>「サーバーのリソースを使い果たす過酷なリクエスト設計」に対する悲鳴</strong>です。</p>
 <p>本記事では、大規模環境でも「絶対に落ちない」強靭なAPI連携を構築するための、4つの戦略的アプローチを伝授します。</p>
 <hr />
 <h2 id="1-502">1. 502エラーの真実：なぜゲートウェイは通信を切るのか？</h2>
-<p>502 Bad Gatewayは、<a href="../../glossary/system-glossary.html#:~:text=" title="API">API</a>ゲートウェイ（プロキシ）が背後のバックエンド処理を待ちきれず、タイムアウト（通常30〜100秒）で接続を強制切断したサインです。</p>
+<p>502 Bad Gatewayは、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="API">API</a>ゲートウェイ（プロキシ）が背後のバックエンド処理を待ちきれず、タイムアウト（通常30〜100秒）で接続を強制切断したサインです。</p>
 <h3 id="_1">発生のトリガー</h3>
 <ul>
 <li><strong>ネストの計算爆発</strong>: 「VM一覧」の下に「全スナップショット」をぶら下げ、さらにその「詳細メタデータ」を取得しようとする複雑なクエリ。</li>
@@ -138,7 +138,7 @@
 </ul>
 <hr />
 <h2 id="2-1">2. 戦略①：『宣言的フェッチ』によるクエリの極限ダイエット</h2>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="GraphQL">GraphQL</a>の最大の武器は、必要な項目だけを指定できる点にあります。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="GraphQL">GraphQL</a>の最大の武器は、必要な項目だけを指定できる点にあります。</p>
 <ul>
 <li><strong>❌ アンチパターン</strong>: とりあえずすべてのフィールドを取得する。</li>
 <li><strong>⭕ 最適解</strong>: スクリプトの目的に合わせ、フィールドを最小限に絞り込む。</li>
@@ -155,23 +155,23 @@
 <h2 id="4-3jitter">4. 戦略③：『Jitter付き指数バックオフ』の実装</h2>
 <p>一時的な輻輳（ふくそう）に対し、等間隔でのリトライは火に油を注ぐ行為です。</p>
 <ul>
-<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="指数バックオフ">指数バックオフ</a></strong>: 失敗するたびに待機時間を倍増（1s, 2s, 4s...）させる。</li>
-<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="ジッター">ジッター</a>（揺らぎ）</strong>: 待機時間にランダムな数秒を加える。これにより、複数のスクリプトが同時に再試行してサーバーを再パンクさせる「群衆の暴走」を防ぎます。</li>
+<li><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="指数バックオフ">指数バックオフ</a></strong>: 失敗するたびに待機時間を倍増（1s, 2s, 4s...）させる。</li>
+<li><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ジッター">ジッター</a>（揺らぎ）</strong>: 待機時間にランダムな数秒を加える。これにより、複数のスクリプトが同時に再試行してサーバーを再パンクさせる「群衆の暴走」を防ぎます。</li>
 </ul>
 <hr />
 <h2 id="5-4webhook">5. 戦略④：ポーリングからの卒業と『Webhook』への移行</h2>
-<p>APIを叩き続けてステータスを確認する「<a href="../../glossary/system-glossary.html#:~:text=" title="ポーリング">ポーリング</a>」は、最も非効率な負荷源です。</p>
+<p>APIを叩き続けてステータスを確認する「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ポーリング">ポーリング</a>」は、最も非効率な負荷源です。</p>
 <ul>
-<li><strong>イベント駆動</strong>: Rubrikの<a href="../../glossary/system-glossary.html#:~:text=" title="Webhook">Webhook</a>機能を使い、サーバー側から「処理完了」を通知させます。</li>
+<li><strong>イベント駆動</strong>: Rubrikの<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Webhook">Webhook</a>機能を使い、サーバー側から「処理完了」を通知させます。</li>
 <li><strong>メリット</strong>: APIリクエスト回数が激減し、タイムアウトのリスクそのものを根絶できます。</li>
 </ul>
 <hr />
 <h2 id="api">まとめ：APIを「尊重」する設計が運用を救う</h2>
 <p>Rubrik APIの安定化は、単なるコード修正ではなく、インフラへの深い洞察に基づいたアーキテクチャの転換です。</p>
 <ol>
-<li><strong>ダイエット</strong>: <a href="../../glossary/system-glossary.html#:~:text=" title="宣言的フェッチ">宣言的フェッチ</a>でクエリ負荷を下げる。</li>
-<li><strong>分散</strong>: <a href="../../glossary/system-glossary.html#:~:text=" title="ジッター">ジッター</a>付きバックオフでサーバーの回復を待つ。</li>
-<li><strong>転換</strong>: <a href="../../glossary/system-glossary.html#:~:text=" title="Webhook">Webhook</a>でプッシュ型運用へシフトする。</li>
+<li><strong>ダイエット</strong>: <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="宣言的フェッチ">宣言的フェッチ</a>でクエリ負荷を下げる。</li>
+<li><strong>分散</strong>: <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ジッター">ジッター</a>付きバックオフでサーバーの回復を待つ。</li>
+<li><strong>転換</strong>: <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Webhook">Webhook</a>でプッシュ型運用へシフトする。</li>
 </ol>
 <p>これらの戦略を適用すれば、あなたの自動化システムは、深夜のアラートに怯えることなく、静かに、確実に、その任務を遂行し続けるはずです。</p>
 <h2 id="changelog">変更履歴 (Changelog)</h2>

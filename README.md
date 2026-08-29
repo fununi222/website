@@ -31,18 +31,11 @@ FunUni-lab の技術ブログ・ナレッジ共有用の静的ポータルサイ
 ### 1. 記事の執筆
 各カテゴリの適切なサブディレクトリ配下に、標準テンプレートに沿った HTML ファイルを作成します。
 
-### 2. インデックス同期処理の実行
-記事の作成・修正を行った後、以下のコマンドを実行して記事インデックスを更新します。
-```bash
-python scripts/generate_ogp_proxies.py
-```
-このコマンドにより以下が自動更新されます：
-- `assets/data/article_index.json`
-- `assets/js/article-data.js`
-- `assets/js/skill-data.js`
+### 2. インデックスの同期
+記事の作成・修正後は、`assets/data/article_index.json` と `assets/js/article-data.js` に同じ記事メタデータ（title、description、date、updated、category、path、`direct_html: true`）を追加・更新します。記事ファイルは HTML のみで管理し、Markdown 変換や OGP プロキシ生成は行いません。
 
 ---
 
 ## GitHub Actions 自動化
 
-GitHub の `main` ブランチにプッシュが発生すると、GitHub Actions ワークフロー (`.github/workflows/generate-ogp.yml`) が自動的に起動し、インデックスやスキルデータを最新状態に同期して GitHub Pages へデプロイします。
+GitHub の `main` ブランチへのプッシュで、GitHub Pages が直接 HTML の記事・インデックス・アセットを配信します。

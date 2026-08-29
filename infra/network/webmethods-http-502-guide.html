@@ -126,7 +126,7 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="webMethods">webMethods</a> <a href="../../glossary/system-glossary.html#:~:text=" title="Integration%20Server">Integration Server</a> (IS) で外部Web API / マイクロサービス連携時に突発発生する <a href="../../glossary/system-glossary.html#:~:text=" title="502%20Bad%20Gateway">HTTP 502 Bad Gateway</a> エラーは、一時的なネットワーク過負荷やサービス瞬断が起因の大半を占めます。本稿では、TRY-CATCH ブロックによるステータス捕捉、<code>pub.flow:getLastError</code> の メモリリーク防止チューニング、および <code>pub.flow:throwExceptionForRetry</code> を用いた標準自動リトライ実装を解説します。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="webMethods">webMethods</a> <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Integration%20Server">Integration Server</a> (IS) で外部Web API / マイクロサービス連携時に突発発生する <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="502%20Bad%20Gateway">HTTP 502 Bad Gateway</a> エラーは、一時的なネットワーク過負荷やサービス瞬断が起因の大半を占めます。本稿では、TRY-CATCH ブロックによるステータス捕捉、<code>pub.flow:getLastError</code> の メモリリーク防止チューニング、および <code>pub.flow:throwExceptionForRetry</code> を用いた標準自動リトライ実装を解説します。</p>
 <hr />
 <h2 id="1-http-502-bad-gateway">1. なぜ HTTP 502 Bad Gateway エラーに自動再試行が有効なのか？</h2>
 <p>502 Bad Gateway はクライアントのパラメータエラー（4xx）やアプリケーションの致命的例外（500）ではなく、リバースプロキシや API Gateway がバックエンドサーバーから正しい応答を受信できなかった一時的通信障害です。短時間の待機後に再試行（Retry）を行うことで、大部分のトランザクションが正常完了します。</p>

@@ -126,10 +126,10 @@
     <!-- Article Content -->
     <article class="article-body">
       <p>本レポートでは、16ビットの浮動小数点(FP16)を「-1, 0, 1」の3値（実質1.58ビット）へと極限圧縮する「1ビット量子化技術」と、その実用モデルである「Bonsai-8B」の衝撃について解説します。
-パラメータの簡略化により複雑な乗算処理が不要となり、<a href="../../glossary/system-glossary.html#:~:text=" title="VRAM">VRAM</a> の消費量を激減させることで「数十万円の <a href="../../glossary/system-glossary.html#:~:text=" title="GPU">GPU</a> なしに、普通のCPUやスマホで十分な速度の推論」が可能になります。この技術的ブレイクスルーは、エッジAIの爆発的普及やNVIDIA一強体制へのカウンターとなり、AIインフラのコスト構造やプライバシー要件に巨大なパラダイムシフトをもたらします。</p>
+パラメータの簡略化により複雑な乗算処理が不要となり、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="VRAM">VRAM</a> の消費量を激減させることで「数十万円の <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="GPU">GPU</a> なしに、普通のCPUやスマホで十分な速度の推論」が可能になります。この技術的ブレイクスルーは、エッジAIの爆発的普及やNVIDIA一強体制へのカウンターとなり、AIインフラのコスト構造やプライバシー要件に巨大なパラダイムシフトをもたらします。</p>
 <hr />
 <h2 id="1-1">1. パラダイムシフト：1ビット量子化とは？</h2>
-<p>従来の <a href="../../glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> は、人間の脳のシナプスに相当する「パラメータ（重み）」を16ビットの浮動小数点（FP16）で保持していました。Bonsai-8Bなどの1ビット <a href="../../glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> は、これを「-1, 0, 1」の3値（実質1.58ビット）にまで極限圧縮します。これにより、複雑な「乗算」が不要になり、単純な「加算」のみで計算が可能になります。</p>
+<p>従来の <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> は、人間の脳のシナプスに相当する「パラメータ（重み）」を16ビットの浮動小数点（FP16）で保持していました。Bonsai-8Bなどの1ビット <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> は、これを「-1, 0, 1」の3値（実質1.58ビット）にまで極限圧縮します。これにより、複雑な「乗算」が不要になり、単純な「加算」のみで計算が可能になります。</p>
 <div class="bg-surface-container rounded-xl p-6 text-center border border-white/5 my-8">
 <div class="flex justify-center mb-6 space-x-4">
 <button id="btn-fp16" class="px-6 py-2 rounded-lg bg-surface text-on-surface font-medium border border-white/5 transition-colors">従来型 (FP16)</button>
@@ -144,7 +144,7 @@
 </div>
 
 <h2 id="2">2. パフォーマンスの劇的変化</h2>
-<p>計算の軽量化は、<a href="../../glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> を動かすためのハードルを劇的に下げます。以下のグラフから、メモリ消費、推論速度、消費電力の観点で、従来のモデルといかに異なるかを確認してください。</p>
+<p>計算の軽量化は、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> を動かすためのハードルを劇的に下げます。以下のグラフから、メモリ消費、推論速度、消費電力の観点で、従来のモデルといかに異なるかを確認してください。</p>
 <div class="bg-surface-container rounded-2xl border border-white/5 p-6 md:p-8 my-8 cyber-glow">
 <div class="flex flex-wrap justify-center gap-2 mb-8 border-b border-white/10 pb-4">
 <button class="chart-tab-btn px-4 py-2 rounded font-semibold transition-colors bg-surface text-primary border border-primary/30 text-[10px] uppercase tracking-widest" data-metric="memory">
@@ -167,7 +167,7 @@
 </div>
 
 <h2 id="3">3. その先に何が起きるか（未来予測）</h2>
-<p>「推論に <a href="../../glossary/system-glossary.html#:~:text=" title="GPU">GPU</a> が不要になる」という事実は、単なる技術的進歩にとどまらず、ビジネスモデル、ハードウェア市場、そして社会インフラに多大な影響を与えます。</p>
+<p>「推論に <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="GPU">GPU</a> が不要になる」という事実は、単なる技術的進歩にとどまらず、ビジネスモデル、ハードウェア市場、そして社会インフラに多大な影響を与えます。</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
 <!-- Card 1 -->
 <div class="bg-surface-container p-6 rounded-xl border border-white/5 shadow-sm hover:border-primary/30 transition-all group relative overflow-hidden cyber-glow">
@@ -369,7 +369,7 @@ insightBox.style.opacity = 1;
 <ul>
 <li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>
 <li><strong>2026-04-09</strong>: <code>SKILL.md</code> 準拠のグローバルデザイン統一およびメタデータ標準化アップデートを実施。</li>
-<li><strong>2026-04-06</strong>: HTMLレイアウト（インデント除去）の修正、<a href="../../glossary/system-glossary.html#:~:text=" title="VRAM">VRAM</a> / <a href="../../glossary/system-glossary.html#:~:text=" title="GPU">GPU</a> 等の用語紐付けを追加し、SPAエンジンでの描画精度を向上。</li>
+<li><strong>2026-04-06</strong>: HTMLレイアウト（インデント除去）の修正、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="VRAM">VRAM</a> / <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="GPU">GPU</a> 等の用語紐付けを追加し、SPAエンジンでの描画精度を向上。</li>
 </ul>
     </article>
 

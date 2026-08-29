@@ -126,11 +126,11 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p>従来のランサムウェアがデータの「可用性」を人質にするのに対し、最新の<a href="../../glossary/system-glossary.html#:~:text=" title="ノーウェアランサム">ノーウェアランサム</a>は「機密性」の暴露を武器にします。データの暗号化プロセスを完全に省略することで、従来のセキュリティ製品の暗号化振る舞い検知をすり抜け、超高速な情報窃取（<a href="../../glossary/system-glossary.html#:~:text=" title="エクスフィルトレーション">エクスフィルトレーション</a>）を完遂します。バックアップを保持していても情報流出は防げないという「バックアップのパラドックス」に直面する中、企業は<a href="../../glossary/system-glossary.html#:~:text=" title="MFA">MFA</a>による境界防衛の徹底と、<a href="../../glossary/system-glossary.html#:~:text=" title="EDR">EDR</a>や<a href="../../glossary/system-glossary.html#:~:text=" title="NDR">NDR</a>・DLP（データ流出防止）等のAI主導型検知アーキテクチャへの移行が急務となっています。</p>
+<p>従来のランサムウェアがデータの「可用性」を人質にするのに対し、最新の<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ノーウェアランサム">ノーウェアランサム</a>は「機密性」の暴露を武器にします。データの暗号化プロセスを完全に省略することで、従来のセキュリティ製品の暗号化振る舞い検知をすり抜け、超高速な情報窃取（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="エクスフィルトレーション">エクスフィルトレーション</a>）を完遂します。バックアップを保持していても情報流出は防げないという「バックアップのパラドックス」に直面する中、企業は<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="MFA">MFA</a>による境界防衛の徹底と、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="EDR">EDR</a>や<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="NDR">NDR</a>・DLP（データ流出防止）等のAI主導型検知アーキテクチャへの移行が急務となっています。</p>
 <hr />
 <h2 id="1">1. 導入：変容するサイバー空間の脅威とノーウェアランサムの定義</h2>
 <p>現代のサイバー脅威情勢は、単なるシステムの破壊や業務妨害から、高度に組織化されたデータの窃取およびそれを応用した金銭的恐喝へと、その作戦行動のパラダイムを完全に移行させています。長年にわたり、サイバーセキュリティの領域において最大の脅威と見なされてきたのは、標的ネットワークに侵入した後に重要データを暗号化し、業務システムを麻痺させた上で、復号キーと引き換えに身代金を要求する伝統的なランサムウェアでした。</p>
-<p>しかしながら、近年の警察庁をはじめとするサイバー脅威インテリジェンスの報告や、実際のインシデント事例の解析により、攻撃者の戦術が新たなフェーズへ突入したことが明白となっています。その最も顕著な例が、データの暗号化プロセスを完全に省略し、窃取したデータの公開を盾に恐喝を行う<strong>「<a href="../../glossary/system-glossary.html#:~:text=" title="ノーウェアランサム">ノーウェアランサム</a>（非暗号化型ランサムウェア）」</strong>と呼ばれる脅威ベクトルの定着です [1, 2]。</p>
+<p>しかしながら、近年の警察庁をはじめとするサイバー脅威インテリジェンスの報告や、実際のインシデント事例の解析により、攻撃者の戦術が新たなフェーズへ突入したことが明白となっています。その最も顕著な例が、データの暗号化プロセスを完全に省略し、窃取したデータの公開を盾に恐喝を行う<strong>「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ノーウェアランサム">ノーウェアランサム</a>（非暗号化型ランサムウェア）」</strong>と呼ばれる脅威ベクトルの定着です [1, 2]。</p>
 <p>暗号化というプロセスを意図的に放棄することにより、攻撃者は作戦の迅速性を劇的に向上させると同時に、従来のセキュリティ製品による検知を回避する能力を獲得しています [1]。</p>
 <hr />
 <h2 id="2">2. ノーウェアランサムの攻撃アーキテクチャと戦術的優位性</h2>
@@ -138,13 +138,13 @@
 <pre><code>[初期侵入] (VPN/RDP/MFA突破) ➔ [権限昇格] ➔ [横展開 (Living off the Land)] ➔ [高速データ窃取 (Exfiltration)] ➔ [直接恐喝 (No Encryption)]
 </code></pre>
 <h3 id="21">2.1. 攻撃スピードの極大化と運用効率の向上</h3>
-<p>ノーウェアランサムの最大の特徴は、ノイズの多い暗号化処理を意図的に省略している点にあります [1]。従来の手法では、大量のファイルに対する暗号化が完了するまでに数時間から数日を要することがあり、この時間的猶予が<a href="../../glossary/system-glossary.html#:~:text=" title="EDR">EDR</a>による異常検知とインシデント対応の窓口となっていました。しかし、ノーウェアランサムは純粋なデータの窃取のみを目的としているため、価値の高い情報を特定し、外部の<a href="../../glossary/system-glossary.html#:~:text=" title="C2">C2</a>サーバーへと転送し終えた時点で、作戦の第一段階は完了します [1]。</p>
+<p>ノーウェアランサムの最大の特徴は、ノイズの多い暗号化処理を意図的に省略している点にあります [1]。従来の手法では、大量のファイルに対する暗号化が完了するまでに数時間から数日を要することがあり、この時間的猶予が<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="EDR">EDR</a>による異常検知とインシデント対応の窓口となっていました。しかし、ノーウェアランサムは純粋なデータの窃取のみを目的としているため、価値の高い情報を特定し、外部の<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="C2">C2</a>サーバーへと転送し終えた時点で、作戦の第一段階は完了します [1]。</p>
 <h3 id="22">2.2. 従来の検知メカニズムに対する高度な隠蔽性</h3>
-<p>従来のエンドポイント保護プラットフォーム（<a href="../../glossary/system-glossary.html#:~:text=" title="EPP">EPP</a>）の多くは、「大量のファイルの拡張子が短時間で変更される挙動」や「暗号化アルゴリズムの実行」をトリガーとして脅威を検知します。ノーウェアランサムによる攻撃では暗号化特有の挙動が一切発生しないため、シグネチャベースの検知を容易にすり抜けてしまいます [1]。</p>
+<p>従来のエンドポイント保護プラットフォーム（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="EPP">EPP</a>）の多くは、「大量のファイルの拡張子が短時間で変更される挙動」や「暗号化アルゴリズムの実行」をトリガーとして脅威を検知します。ノーウェアランサムによる攻撃では暗号化特有の挙動が一切発生しないため、シグネチャベースの検知を容易にすり抜けてしまいます [1]。</p>
 <hr />
 <h2 id="3">3. 脅迫経済の進化とサイバー攻撃者のマネタイズ戦略</h2>
 <h3 id="31">3.1. 二重恐喝（ダブルエクストーション）から純粋な暴露型への移行</h3>
-<p>単一恐喝の限界を打破するために攻撃者が編み出したのが「<a href="../../glossary/system-glossary.html#:~:text=" title="二重恐喝">二重恐喝</a>（ダブルエクストーション）」であり、ノーウェアランサムはその実践型と言えます [1, 2]。</p>
+<p>単一恐喝の限界を打破するために攻撃者が編み出したのが「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="二重恐喝">二重恐喝</a>（ダブルエクストーション）」であり、ノーウェアランサムはその実践型と言えます [1, 2]。</p>
 <h3 id="32">3.2. ダークウェブを利用した多様な収益化モデル</h3>
 <p>窃取したデータを用いて被害企業を脅迫するだけでなく、ダークウェブ上のアンダーグラウンドフォーラムで顧客情報やソースコードを直接販売することによって二重・三重の利益を得るケースが定着しています。</p>
 <hr />
@@ -181,7 +181,7 @@
 <p>被害の約6割を中小企業が占めており、サプライチェーンや委託先を踏み台とした攻撃経路が定着しています [2]。</p>
 <hr />
 <h2 id="5">5. 初期侵入経路とインフラストラクチャの脆弱性</h2>
-<p>企業ネットワークへの侵入経路の大部分は、<a href="../../glossary/system-glossary.html#:~:text=" title="VPN">VPN</a>機器およびリモートデスクトッププロトコル（<a href="../../glossary/system-glossary.html#:~:text=" title="RDP">RDP</a>）の脆弱性や設定不備に集中しています [2]。未適用のパッチや、<a href="../../glossary/system-glossary.html#:~:text=" title="MFA">MFA</a>未導入のアカウントが主要な標的となっています。</p>
+<p>企業ネットワークへの侵入経路の大部分は、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="VPN">VPN</a>機器およびリモートデスクトッププロトコル（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="RDP">RDP</a>）の脆弱性や設定不備に集中しています [2]。未適用のパッチや、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="MFA">MFA</a>未導入のアカウントが主要な標的となっています。</p>
 <hr />
 <h2 id="6">6. バックアップのパラドックス：従来のレジリエンスが機能しない理由</h2>
 <h3 id="61">6.1. 復旧の限界</h3>
@@ -217,7 +217,7 @@
 <tr>
 <td style="text-align: left;"><strong>検知・対応</strong></td>
 <td style="text-align: left;">シグネチャ型アンチウイルス</td>
-<td style="text-align: left;">AI主導 <a href="../../glossary/system-glossary.html#:~:text=" title="EDR">EDR</a> + <a href="../../glossary/system-glossary.html#:~:text=" title="NDR">NDR</a> 異常トラフィック検知</td>
+<td style="text-align: left;">AI主導 <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="EDR">EDR</a> + <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="NDR">NDR</a> 異常トラフィック検知</td>
 </tr>
 </tbody>
 </table></div>

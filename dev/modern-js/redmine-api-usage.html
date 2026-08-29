@@ -125,11 +125,11 @@
 
     <!-- Article Content -->
     <article class="article-body">
-      <p><a href="../../glossary/system-glossary.html#:~:text=" title="Redmine">Redmine</a>の<a href="../../glossary/system-glossary.html#:~:text=" title="REST%20API">REST API</a>を有効活用することで、チケットの自動起票や外部ダッシュボードへのデータ集約など、プロジェクト管理の自動化を強力に推進できます。本稿では、高度な抽出シナリオ（Basic認証、クエリ活用、<a href="../../glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>投入用データ整備）について解説します。</p>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="Redmine">Redmine</a>の<a href="../../glossary/system-glossary.html#:~:text=" title="REST%20API">REST API</a>を有効活用することで、チケットの自動起票や外部ダッシュボードへのデータ集約など、プロジェクト管理の自動化を強力に推進できます。本稿では、高度な抽出シナリオ（Basic認証、クエリ活用、<a href="../../glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>投入用データ整備）について解説します。</p>
+      <p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Redmine">Redmine</a>の<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="REST%20API">REST API</a>を有効活用することで、チケットの自動起票や外部ダッシュボードへのデータ集約など、プロジェクト管理の自動化を強力に推進できます。本稿では、高度な抽出シナリオ（Basic認証、クエリ活用、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>投入用データ整備）について解説します。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Redmine">Redmine</a>の<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="REST%20API">REST API</a>を有効活用することで、チケットの自動起票や外部ダッシュボードへのデータ集約など、プロジェクト管理の自動化を強力に推進できます。本稿では、高度な抽出シナリオ（Basic認証、クエリ活用、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>投入用データ整備）について解説します。</p>
 <hr />
 <h2 id="1">1. 認証方式の選択</h2>
-<p>Redmine環境によっては、APIキーだけでなく<a href="../../glossary/system-glossary.html#:~:text=" title="Basic認証">Basic認証</a>が必要な場合があります。</p>
+<p>Redmine環境によっては、APIキーだけでなく<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Basic認証">Basic認証</a>が必要な場合があります。</p>
 <h3 id="api">APIアクセスキー方式 (推奨)</h3>
 <p>自身の「個人設定」画面から取得したAPIキーをヘッダーに含めます。</p>
 <pre><code class="language-http">X-Redmine-API-Key: [YOUR_API_KEY]
@@ -141,7 +141,7 @@
  &quot;https://redmine.example.com/issues.json&quot;
 </code></pre>
 <h2 id="2">2. 効率的なデータのバルク抽出</h2>
-<p>数千件規模のチケットを<a href="../../glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>（<a href="../../glossary/system-glossary.html#:~:text=" title="RAG">RAG</a>）に投入する場合、ブラウザでの検索結果と同じ条件でAPIから取得するのが最も効率的です。</p>
+<p>数千件規模のチケットを<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="RAG">RAG</a>）に投入する場合、ブラウザでの検索結果と同じ条件でAPIから取得するのが最も効率的です。</p>
 <h3 id="query_id">保存済みクエリ (<code>query_id</code>) の活用</h3>
 <p>Redmine上で作成した「保存済みクエリ」のIDを指定することで、複雑なフィルタ条件をAPI側で再定義する必要がなくなります。</p>
 <pre><code class="language-bash"># クエリID = 123 の結果をページ単位で取得
@@ -150,15 +150,15 @@ GET /issues.json?query_id=123&amp;limit=100&amp;offset=0
 <h3 id="_1">ページネーションの実装</h3>
 <p>大量データを取得する際は、<code>total_count</code> を確認しながら <code>offset</code> をずらしてループ処理を行います。メモリ負荷を抑えるため、逐次ファイルへ書き出す「ストリーム処理」的な構成が望ましいです。</p>
 <h2 id="3-ai-llm">3. 生成AI (LLM) 向けデータ整形</h2>
-<p>抽出したJSONを<a href="../../glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>に効率よく学習・検索させるためのポイントです。</p>
+<p>抽出したJSONを<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>に効率よく学習・検索させるためのポイントです。</p>
 <ul>
-<li><strong>JSONL形式への変換</strong>: ExcelやCSVよりも、1行1チケットのJSONL（JSON Lines）形式が<a href="../../glossary/system-glossary.html#:~:text=" title="LLM">LLM</a>のトレーニングやベクトル検索用のチャンク分割に適しています。</li>
+<li><strong>JSONL形式への変換</strong>: ExcelやCSVよりも、1行1チケットのJSONL（JSON Lines）形式が<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="LLM">LLM</a>のトレーニングやベクトル検索用のチャンク分割に適しています。</li>
 <li><strong>履歴 (Journals) の統合</strong>: <code>?include=journals</code> を付与し、チケットの「現状」だけでなく「解決に至るまでの経緯（やり取り）」を一つのテキストブロックに結合することで、回答精度が飛躍的に向上します。</li>
 <li><strong>機微情報のスクライブ</strong>: 抽出スクリプト内で、個人名や機微情報をプレースホルダーに置換する前処理を推奨します。</li>
 </ul>
 <hr />
 <h2 id="_2">自動化の可能性</h2>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="REST%20API">REST API</a>を解禁することで、<a href="../../glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>エージェントが自律的にプロジェクトの進捗を確認したり、過去の類似トラブルから解決策を提示する「Artemis」のようなナレッジエージェントの構築が可能になります。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="REST%20API">REST API</a>を解禁することで、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="生成AI">生成AI</a>エージェントが自律的にプロジェクトの進捗を確認したり、過去の類似トラブルから解決策を提示する「Artemis」のようなナレッジエージェントの構築が可能になります。</p>
 <h2 id="changelog">変更履歴 (Changelog)</h2>
 <ul>
 <li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>

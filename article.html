@@ -1,129 +1,30 @@
-<!DOCTYPE html>
-<html class="dark" lang="ja">
+<!doctype html>
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article Archive | FunUni-lab Technical Archive</title>
-    
-    <!-- SEO & OGP -->
-    <meta name="description" content="FunUni-lab Technical Archive: ITインフラ、生成AI、ハイブリッド旅行術のリサーチログ。" />
-    <meta property="og:title" content="Technical Archive | FunUni-lab" />
-    <meta property="og:description" content="2026年最新のITインフラ・AI・旅行術を凝縮したテクニカルアーカイブ。" />
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="FunUni-lab" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Technical Archive | FunUni-lab" />
-    <meta name="twitter:description" content="2026年最新のITインフラ・AI・旅行術を凝縮したテクニカルアーカイブ。" />
-
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    
-    <!-- Rendering Engine Dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Cache Control -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-
-    <script src="assets/js/tw-config.js"></script>
-    <link rel="stylesheet" href="assets/css/synthetic.css">
-    <style>
-      :root {
-        --obsidian: #0a0c14;
-        --surface-glass: rgba(255, 255, 255, 0.03);
-        --border-glass: rgba(255, 255, 255, 0.08);
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>記事を移動しています | FunUni-lab</title>
+  <script>
+    (function () {
+      const source = new URLSearchParams(window.location.search).get('md');
+      const base = window.location.pathname.replace(/\/article\.html$/, '/');
+      const fallback = base + 'index.html';
+      if (!source) {
+        window.location.replace(fallback);
+        return;
       }
-      body { background-color: var(--obsidian); color: #e2e8f0; }
-      .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 50% 50%, rgba(108, 92, 231, 0.05) 0%, transparent 70%); }
-      
-      /* Article Specific Overrides */
-      article h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; letter-spacing: -0.05em; line-height: 1.1; margin-bottom: 1.5rem; color: #fff; }
-      article h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.875rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1rem; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; }
-      article h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem; color: #aaa4ff; }
-      article p { margin-bottom: 1.5rem; line-height: 1.8; color: #94a3b8; }
-      article a { color: #aaa4ff; text-decoration: none; transition: color 0.2s; border-bottom: 1px solid transparent; }
-      article a:hover { color: #00d2ff; border-bottom-color: #00d2ff; }
-      article ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #94a3b8; }
-      article li { margin-bottom: 0.5rem; }
-      article img { border-radius: 12px; margin: 2rem 0; border: 1px solid rgba(255,255,255,0.1); }
-      article code:not([class*="language-"]) { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.875em; color: #00ffca; }
-      article .table-wrap { width: 100%; margin: 2rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; background: rgba(255,255,255,0.02); }
-      article table { width: 100%; border-collapse: collapse; margin: 0; min-width: 500px; }
-      article thead { background: rgba(170, 164, 255, 0.08); border-bottom: 1px solid rgba(255,255,255,0.1); }
-      article th { color: #dee5ff; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 1.25rem; text-align: left; }
-      article td { color: #94a3b8; font-size: 0.9em; line-height: 1.6; padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      article tr:hover td { background-color: rgba(255,255,255,0.02); }
-    </style>
+
+      const target = source.replace(/^\/+/, '').replace(/^md\//, '').replace(/\.md$/i, '.html');
+      if (!/^[A-Za-z0-9_./-]+\.html$/i.test(target) || target.includes('..')) {
+        window.location.replace(fallback);
+        return;
+      }
+      window.location.replace(base + target + window.location.hash);
+    }());
+  </script>
 </head>
-<body class="font-body selection:bg-primary/30 overflow-x-hidden">
-    <div class="bg-mesh"></div>
-
-    <!-- Global Navigation -->
-    <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto h-full px-8 flex justify-between items-center">
-        <div class="flex items-center gap-12">
-          <a href="index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
-          <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
-            <a href="infra/index.html" class="hover:text-primary transition-colors">Infrastructure</a>
-            <a href="dev/index.html" class="hover:text-secondary transition-colors">Development</a>
-            <a href="ai/index.html" class="hover:text-tertiary transition-colors">AI Research</a>
-            <a href="finance/index.html" class="hover:text-amber-400 transition-colors">Finance</a>
-            <a href="lpo/index.html" class="hover:text-purple-400 transition-colors">Optimization</a>
-            <a href="other/index.html" class="hover:text-emerald-400 transition-colors">Strategic Life</a>
-            <a href="youtube/index.html" class="hover:text-red-500 transition-colors">YouTube Lab</a>
-          </div>
-        </div>
-        <div class="flex items-center gap-6">
-          <div class="hidden md:flex flex-col items-end">
-            <span class="text-[9px] font-bold text-primary tracking-[0.2em] uppercase">Reading_Node</span>
-            <span class="text-[10px] text-slate-500 font-mono tracking-tighter">Article_Viewer_Online</span>
-          </div>
-          <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center text-primary cyber-glow">
-            <span class="material-symbols-outlined">menu_book</span>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <main class="pt-28 pb-20 flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-        <div class="flex gap-10 items-start justify-center">
-            <!-- Article Body -->
-            <article class="bg-surface-glass backdrop-blur-xl rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl flex-1 min-w-0 max-w-4xl">
-                <!-- Breadcrumbs -->
-                <nav id="sme-breadcrumbs" class="mb-8 flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-slate-500"></nav>
-
-                <div id="sme-content" data-src="" class="article-body">
-                    <div class="flex items-center justify-center h-64">
-                        <div class="animate-pulse flex flex-col items-center gap-4">
-                            <span class="material-symbols-outlined text-4xl text-primary animate-spin">sync</span>
-                            <span class="text-primary font-bold text-[10px] uppercase tracking-widest">Accessing Memory Node...</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </main>
-
-    <footer class="w-full py-12 px-8 mt-auto bg-obsidian/50 backdrop-blur-sm border-t border-white/5">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
-            <div class="flex flex-col gap-2 text-center md:text-left text-slate-500 font-mono text-[10px] uppercase tracking-widest">
-                <span>© 2026 FunUni-lab Strategic Archive</span>
-                <span class="opacity-40">Reading Data Node. End of Document.</span>
-            </div>
-            <div class="flex gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
-                <a href="index.html" class="hover:text-white transition-colors">Dashboard</a>
-                <a href="glossary/system-glossary.html" class="hover:text-white transition-colors">Glossary</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="assets/js/sme.js?v=20260802_abolish"></script>
+<body>
+  <p>記事を直接 HTML ページへ移動しています。<a href="index.html">トップへ戻る</a></p>
 </body>
 </html>

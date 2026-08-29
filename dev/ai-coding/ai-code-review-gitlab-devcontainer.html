@@ -125,10 +125,10 @@
 
     <!-- Article Content -->
     <article class="article-body">
-      <p>「AIによる<a href="../../glossary/system-glossary.html#:~:text=" title="AIコードレビュー">コードレビュー</a>を導入したけれど、ノイズが多くて結局人間がすべて見直している……」</p>
+      <p>「AIによる<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="AIコードレビュー">コードレビュー</a>を導入したけれど、ノイズが多くて結局人間がすべて見直している……」</p>
 <p>そんな経験はありませんか？</p>
-<p>従来のAIレビューの多くは、<a href="../../glossary/system-glossary.html#:~:text=" title="MR">マージリクエスト（MR）</a>の「テキスト差分」だけをAIに送るため、<strong>「プロジェクト全体の型定義」や「共通部品の仕様」を無視した<a href="../../glossary/system-glossary.html#:~:text=" title="ハルシネーション">ハルシネーション（幻覚）</a></strong>が避けられませんでした。</p>
-<p>本記事では、この問題を根本から解決する<strong>「<a href="../../glossary/system-glossary.html#:~:text=" title="GitLab%20CI">GitLab CI</a> ＋ DevContainer ＋ 動的コンテキスト」</strong>の連携による、次世代のAIレビュー基盤を解説します。</p>
+<p>従来のAIレビューの多くは、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="MR">マージリクエスト（MR）</a>の「テキスト差分」だけをAIに送るため、<strong>「プロジェクト全体の型定義」や「共通部品の仕様」を無視した<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ハルシネーション">ハルシネーション（幻覚）</a></strong>が避けられませんでした。</p>
+<p>本記事では、この問題を根本から解決する<strong>「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="GitLab%20CI">GitLab CI</a> ＋ DevContainer ＋ 動的コンテキスト」</strong>の連携による、次世代のAIレビュー基盤を解説します。</p>
 <hr />
 <h2 id="1-ai">1. 従来のAIレビューが「役に立たない」最大の理由</h2>
 <p>多くのAIレビューツールが失敗する原因は、AIに<strong>「文脈（Context）」</strong>が不足していることにあります。</p>
@@ -143,7 +143,7 @@
 <p>効果的なAIレビューを実現する鍵は、<strong>「GitLab Runner上に、開発者と同じ環境（DevContainer）を再現すること」</strong>です。</p>
 <h3 id="3">この構成がもたらす3つの革新</h3>
 <ol>
-<li><strong>正確な型解析</strong>: <a href="../../glossary/system-glossary.html#:~:text=" title="LSP">LSP（Language Server Protocol）</a>を起動し、プロジェクト全体のシンボル情報をAIに提供。</li>
+<li><strong>正確な型解析</strong>: <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="LSP">LSP（Language Server Protocol）</a>を起動し、プロジェクト全体のシンボル情報をAIに提供。</li>
 <li><strong>実行ベースの検証</strong>: コンテナ内でテストを走らせ、そのエラー結果をAIが解析・修正提案。</li>
 <li><strong>セキュリティの担保</strong>: AIを隔離されたサンドボックスで動かすため、不適切なコード生成によるホスト環境への攻撃リスクを遮断。</li>
 </ol>
@@ -159,7 +159,7 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong><a href="../../glossary/system-glossary.html#:~:text=" title="GitLab%20CI">GitLab CI</a></strong></td>
+<td style="text-align: left;"><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="GitLab%20CI">GitLab CI</a></strong></td>
 <td style="text-align: left;">パイプライン制御とMRへのインラインコメント投稿</td>
 </tr>
 <tr>
@@ -167,8 +167,8 @@
 <td style="text-align: left;">依存関係が解決された「動く」環境の提供</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><a href="../../glossary/system-glossary.html#:~:text=" title="Tree-sitter">Tree-sitter</a></strong></td>
-<td style="text-align: left;">コードを構造的に解析し、「<a href="../../glossary/system-glossary.html#:~:text=" title="リポジトリマップ">リポジトリマップ</a>」を構築</td>
+<td style="text-align: left;"><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Tree-sitter">Tree-sitter</a></strong></td>
+<td style="text-align: left;">コードを構造的に解析し、「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="リポジトリマップ">リポジトリマップ</a>」を構築</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>LSP</strong></td>
@@ -206,8 +206,8 @@
 <hr />
 <h3 id="_1">💡 関連リンク</h3>
 <ul>
-<li><a href="https://fununi222.github.io/website/html/dev/ai-coding/ai-coding-tools-comparison-2026.html">AI Coding Tools 比較と選定ポイント 2026</a></li>
-<li><a href="https://fununi222.github.io/website/html/dev/ai-coding/ai-code-review-senior-guide.html">シニアエンジニア超えのAIコードレビュー術</a></li>
+<li><a href="https://fununi222.github.io/website/dev/ai-coding/ai-coding-tools-comparison-2026.html">AI Coding Tools 比較と選定ポイント 2026</a></li>
+<li><a href="https://fununi222.github.io/website/dev/ai-coding/ai-code-review-senior-guide.html">シニアエンジニア超えのAIコードレビュー術</a></li>
 </ul>
 <h2 id="changelog">変更履歴 (Changelog)</h2>
 <ul>

@@ -126,20 +126,20 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p>大企業におけるAI活用の成否は、PDF等の非構造化データに依存する既存の <a href="../../glossary/system-glossary.html#:~:text=" title="RAG">RAG</a> アーキテクチャの限界をいかに突破するかにかかっています。本レポートでは、<a href="../../glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> との親和性が高いMarkdownベースのナレッジ管理、分散型データ所有権を提唱する <a href="../../glossary/system-glossary.html#:~:text=" title="データメッシュ">データメッシュ</a>、そして自動化されたガバナンスを実現する <a href="../../glossary/system-glossary.html#:~:text=" title="Docs-as-Code">Docs-as-Code</a> 戦略を詳解。知識を単なるファイルから「戦略的インフラ」へと格上げし、2026年のナレッジ・インテリジェンス時代を勝ち抜くための組織変革ロードマップを提示します。</p>
+<p>大企業におけるAI活用の成否は、PDF等の非構造化データに依存する既存の <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="RAG">RAG</a> アーキテクチャの限界をいかに突破するかにかかっています。本レポートでは、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> との親和性が高いMarkdownベースのナレッジ管理、分散型データ所有権を提唱する <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="データメッシュ">データメッシュ</a>、そして自動化されたガバナンスを実現する <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Docs-as-Code">Docs-as-Code</a> 戦略を詳解。知識を単なるファイルから「戦略的インフラ」へと格上げし、2026年のナレッジ・インテリジェンス時代を勝ち抜くための組織変革ロードマップを提示します。</p>
 <hr />
 <h2 id="1-ai">1. 序論：エンタープライズAIの台頭とナレッジ管理におけるパラダイムシフト</h2>
-<p>現代のビジネス環境において、人工知能（AI）の大規模な導入は企業の競争力を左右する中核的な戦略となっています。特に、エンタープライズAIアプリケーションの約85%が、<a href="../../glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> に外部の専門知識を動的に提供する <a href="../../glossary/system-glossary.html#:~:text=" title="RAG">RAG</a> （Retrieval-Augmented Generation：検索拡張生成）を基盤アーキテクチャとして採用しています [1]。RAGは、AIモデルを最新の企業データに接地（グラウンディング）させるための事実上の標準技術であり、<a href="../../glossary/system-glossary.html#:~:text=" title="ハルシネーション">ハルシネーション</a>（幻覚）を抑制し、企業固有の文脈に基づいた回答を生成するために不可欠なプロセスです。</p>
+<p>現代のビジネス環境において、人工知能（AI）の大規模な導入は企業の競争力を左右する中核的な戦略となっています。特に、エンタープライズAIアプリケーションの約85%が、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> に外部の専門知識を動的に提供する <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="RAG">RAG</a> （Retrieval-Augmented Generation：検索拡張生成）を基盤アーキテクチャとして採用しています [1]。RAGは、AIモデルを最新の企業データに接地（グラウンディング）させるための事実上の標準技術であり、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ハルシネーション">ハルシネーション</a>（幻覚）を抑制し、企業固有の文脈に基づいた回答を生成するために不可欠なプロセスです。</p>
 <p>近年、技術者の間で「Markdown（Md）ベースのナレッジ管理は大企業で通用するか」という根本的な問いが提起されています。この議論の背景には、非構造化データ（PDFやWord文書）を力技で処理する従来のRAGシステムが限界を迎えつつあるという技術的な事実が存在します [2]。Markdownは軽量でありながら明確な構造を持ち、LLMとの親和性が極めて高いフォーマットです。しかし、大企業が直面している現実は、単なるファイル形式の選定という技術的課題に留まりません。本質的な問題は、サイロ化された部門、複雑化した意思決定プロセス、およびレガシーなツールエコシステムに依存する「組織構造そのもの」にあります [2]。</p>
-<p>本レポートは、Markdownベースのナレッジ管理が持つ技術的優位性を詳細に解析するとともに、大企業特有の組織的障壁を浮き彫りにします。さらに、データメッシュ・アーキテクチャ、<a href="../../glossary/system-glossary.html#:~:text=" title="Docs-as-Code">Docs-as-Code</a>（コードとしてのドキュメント）の概念、そして2026年に向けた次世代の知識インテリジェンス（Knowledge Intelligence）のトレンドを包括的に分析することで、大企業がいかにして真のデータ活用基盤を構築すべきかについて多角的な洞察を提供します。</p>
+<p>本レポートは、Markdownベースのナレッジ管理が持つ技術的優位性を詳細に解析するとともに、大企業特有の組織的障壁を浮き彫りにします。さらに、データメッシュ・アーキテクチャ、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Docs-as-Code">Docs-as-Code</a>（コードとしてのドキュメント）の概念、そして2026年に向けた次世代の知識インテリジェンス（Knowledge Intelligence）のトレンドを包括的に分析することで、大企業がいかにして真のデータ活用基盤を構築すべきかについて多角的な洞察を提供します。</p>
 <hr />
 <h2 id="2-rag">2. RAGアーキテクチャの技術的限界と構造化データの必要性</h2>
-<p>エンタープライズにおける <a href="../../glossary/system-glossary.html#:~:text=" title="RAG">RAG</a> の実装において、多くの組織が最初に直面する障壁は、既存の文書リソースの形式とAIモデルの処理メカニズムとの間の決定的な不一致です。</p>
+<p>エンタープライズにおける <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="RAG">RAG</a> の実装において、多くの組織が最初に直面する障壁は、既存の文書リソースの形式とAIモデルの処理メカニズムとの間の決定的な不一致です。</p>
 <h3 id="21-pdf">2.1. PDFおよびレガシーフォーマットの技術的負債とデータ抽出の困難</h3>
 <p>大企業のファイルサーバーやドキュメント管理システムには、過去数十年間にわたり蓄積された数万から数十万に及ぶPDF、Word、PowerPointなどの文書が存在しています [3, 4]。これらの文書をそのままRAGパイプラインに投入するアプローチは、極めて高い失敗率を伴います。なぜなら、PDFは本質的に「インクを紙にどう配置するか」という描画のためのフォーマットであり、意味的な構造（セマンティクス）をネイティブに保持していないからです [5]。</p>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> はテキストをシーケンシャルに処理するように設計されていますが、企業文書に頻出する「表（テーブル）」や「多次元データ」は行と列による多次元構造を持っています [6]。LlamaParse、Unstructured、Vectorizeといった最新の抽出ツールは、視覚的なレイアウトを維持しながらMarkdown表現を生成する機能を提供していますが、完璧なデータ変換は保証されていません [5]。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="LLM">LLM</a> はテキストをシーケンシャルに処理するように設計されていますが、企業文書に頻出する「表（テーブル）」や「多次元データ」は行と列による多次元構造を持っています [6]。LlamaParse、Unstructured、Vectorizeといった最新の抽出ツールは、視覚的なレイアウトを維持しながらMarkdown表現を生成する機能を提供していますが、完璧なデータ変換は保証されていません [5]。</p>
 <h3 id="22">2.2. チャンキングの注意点とベクトル類似度検索の根本的欠陥</h3>
-<p>レガシー文書をRAGで扱う際の最大の技術的障壁は「<a href="../../glossary/system-glossary.html#:~:text=" title="チャンキング">チャンキング</a>（文書の分割）」です。<a href="../../glossary/system-glossary.html#:~:text=" title="チャンキング">チャンキング</a>の質は、LLMの選択以上にシステムのパフォーマンスに決定的な影響を与えます [9]。文書を機械的に512トークンなどで分割する単純な固定長チャンキングは、文や段落の境界を無視し、表を物理的に分断してしまうため、RAGが抽出するコンテキストを破壊します [9]。</p>
+<p>レガシー文書をRAGで扱う際の最大の技術的障壁は「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="チャンキング">チャンキング</a>（文書の分割）」です。<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="チャンキング">チャンキング</a>の質は、LLMの選択以上にシステムのパフォーマンスに決定的な影響を与えます [9]。文書を機械的に512トークンなどで分割する単純な固定長チャンキングは、文や段落の境界を無視し、表を物理的に分断してしまうため、RAGが抽出するコンテキストを破壊します [9]。</p>
 <p>また、従来のRAGシステムの多くはクエリとチャンク間のベクトル類似度（Cosine Similarityなど）に依存していますが、ベクトル空間における距離の近さは必ずしも「意味的な関連性（Relevance）」を担保しません [10]。</p>
 <h3 id="23-llm-wikimarkdown">2.3. LLM Wiki（Markdown）によるコンテキストの完全性と経済性</h3>
 <div class="table-wrap"><table>
@@ -202,7 +202,7 @@
 <td style="text-align: left;">外部向けヘルプセンターと内部開発者ポータル [13]。</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><a href="../../glossary/system-glossary.html#:~:text=" title="ServiceNow">ServiceNow</a> KM</strong></td>
+<td style="text-align: left;"><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ServiceNow">ServiceNow</a> KM</strong></td>
 <td style="text-align: left;">ITSMと完全統合。インシデント解決から自動記事生成。</td>
 <td style="text-align: left;">ITサポートデスク、ヘルプデスク手順標準化 [16]。</td>
 </tr>
@@ -213,7 +213,7 @@
 <hr />
 <h2 id="4">4. 組織構造の壁：ガバナンスの欠如とナレッジのインフラ化</h2>
 <p>管理されていない（Ungoverned）ナレッジベースにRAGを接続すると、RAGはそのガバナンスの欠如を修正するどころか、古くて信頼性のないコンテンツを高速かつ大規模に全ユーザーに配信する「誤情報の増幅器」と化してしまいます [1]。</p>
-<p>情報は「企業のバランスシートに載るべき高付加価値資産」であり、情報のサイロ化による重複作業は、従業員に深刻な <a href="../../glossary/system-glossary.html#:~:text=" title="ナレッジ・タックス">ナレッジ・タックス</a>（知識税）を課しています [18]。</p>
+<p>情報は「企業のバランスシートに載るべき高付加価値資産」であり、情報のサイロ化による重複作業は、従業員に深刻な <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ナレッジ・タックス">ナレッジ・タックス</a>（知識税）を課しています [18]。</p>
 <hr />
 <h2 id="5">5. データメッシュ・アーキテクチャ：分散型データ所有権の光と影</h2>
 <div class="table-wrap"><table>
@@ -246,7 +246,7 @@
 
 <hr />
 <h2 id="6-docs-as-codemarkdown-gitlab">6. Docs-as-Code：大規模Markdown管理の成功の青写真 (GitLabモデル)</h2>
-<p>GitLabは全社の規程・製品仕様を巨大な単一Markdownリポジトリ（ハンドブック）で運用し、<strong><a href="../../glossary/system-glossary.html#:~:text=" title="Docs-as-Code">Docs-as-Code</a></strong> を極限まで実践しています [27, 28]。</p>
+<p>GitLabは全社の規程・製品仕様を巨大な単一Markdownリポジトリ（ハンドブック）で運用し、<strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Docs-as-Code">Docs-as-Code</a></strong> を極限まで実践しています [27, 28]。</p>
 <ol>
 <li><strong>属人性の排除と機械可読性の強制</strong>: CI/CDパイプライン上で自然言語リンター（Vale等）を動かし、フォーマットの一貫性を自動検証。</li>
 <li><strong>完全な監査可能性（Auditability）</strong>: 「誰が、いつ、なぜ更新したか」をGitのコミット履歴として暗号学的に保持。</li>
@@ -254,14 +254,14 @@
 </ol>
 <hr />
 <h2 id="7-2026">7. 2026年におけるナレッジマネジメントの最前線（自律修復型アーキテクチャ）</h2>
-<p>データは作成から時間が経つほど陳腐化します。この問題に対し、2026年の最先端アーキテクチャでは <strong><a href="../../glossary/system-glossary.html#:~:text=" title="AIエージェント">AIエージェント</a> がバックグラウンドでナレッジベースを監視し、ROT（重複・旧式・無価値データ）を検知して自動修正・PR作成を行う <a href="../../glossary/system-glossary.html#:~:text=" title="自律修復型">自律修復型</a>（Self-healing）ナレッジベース</strong> が定着しています [18]。</p>
+<p>データは作成から時間が経つほど陳腐化します。この問題に対し、2026年の最先端アーキテクチャでは <strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="AIエージェント">AIエージェント</a> がバックグラウンドでナレッジベースを監視し、ROT（重複・旧式・無価値データ）を検知して自動修正・PR作成を行う <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="自律修復型">自律修復型</a>（Self-healing）ナレッジベース</strong> が定着しています [18]。</p>
 <hr />
 <h2 id="8">8. 結論と戦略的提言</h2>
 <p>大企業がMarkdownベースのナレッジ管理を真に機能させ、RAGおよびAI活用を推進するための戦略的アクション：</p>
 <ul>
 <li><strong>ハイブリッド戦略</strong>: 契約書等の静的文書はAI解析で動的Markdown化し、内部マニュアルは最初から構造化エディタで作成 [4, 5, 13]。</li>
 <li><strong>Docs-as-Code文化</strong>: GitLabモデルに倣い、CI/CDパイプラインで自動フォーマット検証を担保 [19, 28]。</li>
-<li><strong>自律修復型AI基盤の構築</strong>: <a href="../../glossary/system-glossary.html#:~:text=" title="n8n">n8n</a> や <a href="../../glossary/system-glossary.html#:~:text=" title="Ollama">Ollama</a> 等を活用し、AIエージェントに情報の整合性を継続的に監視させ、<a href="../../glossary/system-glossary.html#:~:text=" title="ナレッジ・タックス">ナレッジ・タックス</a> を排除 [18]。</li>
+<li><strong>自律修復型AI基盤の構築</strong>: <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="n8n">n8n</a> や <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Ollama">Ollama</a> 等を活用し、AIエージェントに情報の整合性を継続的に監視させ、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ナレッジ・タックス">ナレッジ・タックス</a> を排除 [18]。</li>
 </ul>
 <hr />
 <h2 id="_2">参考文献</h2>

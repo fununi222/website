@@ -126,7 +126,7 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p>VPS（ConoHa, さくらのVPS, DigitalOcean等）上で <a href="../../glossary/system-glossary.html#:~:text=" title="OpenClaw">OpenClaw</a> などの <a href="../../glossary/system-glossary.html#:~:text=" title="AIエージェント">AIエージェント</a> スキルを稼働させている際、「SSHやDNS名前解決は成功するが、HTTPS通信（Outbound 443）がタイムアウトする」問題が発生します。本稿では、OS内ファイアウォール（ufw/iptables）を超えたVPS事業者コントロールパネル上のインフラ層パケットフィルター遮断の切分けと復旧手順を完全解説します。</p>
+<p>VPS（ConoHa, さくらのVPS, DigitalOcean等）上で <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="OpenClaw">OpenClaw</a> などの <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="AIエージェント">AIエージェント</a> スキルを稼働させている際、「SSHやDNS名前解決は成功するが、HTTPS通信（Outbound 443）がタイムアウトする」問題が発生します。本稿では、OS内ファイアウォール（ufw/iptables）を超えたVPS事業者コントロールパネル上のインフラ層パケットフィルター遮断の切分けと復旧手順を完全解説します。</p>
 <hr />
 <h2 id="1-udp-53">1. 診断の鉄則：なぜ『名前解決 (UDP 53)』だけが成功するのか？</h2>
 <ul>

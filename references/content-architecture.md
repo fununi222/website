@@ -12,9 +12,10 @@ FunUni-lab utilizes a **Direct Static HTML Architecture** powered by AI authorin
    - Built-in SEO/OGP meta tags and structured semantics out-of-the-box.
    - High performance with 0ms First Contentful Paint.
 
-2. **Legacy / Hybrid Support**:
-   - Existing Markdown articles in `md/` and viewer `article.html` (`sme.js`) remain accessible for historical archives.
-   - New articles should be authored as direct static HTML.
+2. **HTML-only publishing**:
+   - `md/` sources, Markdown rendering, and HTML proxy pages are not published.
+   - `article.html?md=...` remains only as a client-side compatibility redirect to the matching direct HTML page.
+   - New articles are authored and published as direct static HTML.
 
 ## Article Tech Stack
 

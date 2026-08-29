@@ -26,4 +26,8 @@ __pycache__/
 # Scratch & Temporary analysis
 scratch/
 
+# Retired during the direct static HTML migration
+/md/
+/html/
+
 

@@ -126,7 +126,7 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p>従来のストレージ設計では「高速だが高価なSSD/NVMe層」と「安価だが低速なHDD/テープ階層」の自動階層化 (Tiering) がデファクトとされてきました。しかし、LLM/GPU基盤が要求する超高速かつ大容量なデータ供給に対し、階層化はレイテンシ・ボトルネックの元凶となります。<a href="../../glossary/system-glossary.html#:~:text=" title="VAST%20Data">VAST Data</a> は DASE（Disaggregated Shared Everything）アーキテクチャと QLC フラッシュ＋SCM (Storage Class Memory) の組み合わせにより、全データを単一の高速オールフラッシュ層に統合する「ユニバーサル・ストレージ」を実現します。</p>
+<p>従来のストレージ設計では「高速だが高価なSSD/NVMe層」と「安価だが低速なHDD/テープ階層」の自動階層化 (Tiering) がデファクトとされてきました。しかし、LLM/GPU基盤が要求する超高速かつ大容量なデータ供給に対し、階層化はレイテンシ・ボトルネックの元凶となります。<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="VAST%20Data">VAST Data</a> は DASE（Disaggregated Shared Everything）アーキテクチャと QLC フラッシュ＋SCM (Storage Class Memory) の組み合わせにより、全データを単一の高速オールフラッシュ層に統合する「ユニバーサル・ストレージ」を実現します。</p>
 <hr />
 <h2 id="1-dase">1. DASE：分離共有型アーキテクチャのイノベーション</h2>
 <p>VAST Dataの中核を成す DASE（Disaggregated Shared Everything）は、従来の Shared-Nothing または Shared-Disk 型ストレージのボトルネックを排除します。</p>

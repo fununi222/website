@@ -126,7 +126,7 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="webMethods">webMethods</a> <a href="../../glossary/system-glossary.html#:~:text=" title="Integration%20Server">Integration Server</a> (IS) と <a href="../../glossary/system-glossary.html#:~:text=" title="API%20Gateway">webMethods API Gateway</a> が複合するマルチレイヤー構成において、全レイヤーが個別に自動リトライを試みると、リクエスト数が乗算的に急増する「<a href="../../glossary/system-glossary.html#:~:text=" title="リトライストーム">リトライストーム</a> (Retry Storm)」が発生し、システム全体を共倒れさせます。本稿では、リトライ責任の一元化、バルクヘッド、サーキットブレーカー、および <a href="../../glossary/system-glossary.html#:~:text=" title="べき等性">べき等性</a> (Idempotency Key) 担保設計を解説します。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="webMethods">webMethods</a> <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Integration%20Server">Integration Server</a> (IS) と <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="API%20Gateway">webMethods API Gateway</a> が複合するマルチレイヤー構成において、全レイヤーが個別に自動リトライを試みると、リクエスト数が乗算的に急増する「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="リトライストーム">リトライストーム</a> (Retry Storm)」が発生し、システム全体を共倒れさせます。本稿では、リトライ責任の一元化、バルクヘッド、サーキットブレーカー、および <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="べき等性">べき等性</a> (Idempotency Key) 担保設計を解説します。</p>
 <hr />
 <h2 id="1">1. カスケード障害「リトライストーム」の乗算メカニズム</h2>
 <p>多層システム（Client ➔ API Gateway ➔ Integration Server ➔ Backend API）において、各レイヤーがそれぞれ3回リトライを設定している場合、1回のリクエスト失敗が <code>3 × 3 × 3 = 27倍</code> の負荷へと爆発します。</p>
@@ -140,7 +140,7 @@
 </ol>
 <hr />
 <h2 id="3-idempotency">3. べき等性（Idempotency）とトランザクション保護</h2>
-<p>自動再試行を行う前提として、複数回実行されてもデータ不整合が発生しない「<a href="../../glossary/system-glossary.html#:~:text=" title="べき等性">べき等性</a>」の担保が絶対要件です。</p>
+<p>自動再試行を行う前提として、複数回実行されてもデータ不整合が発生しない「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="べき等性">べき等性</a>」の担保が絶対要件です。</p>
 <ul>
 <li><strong>Idempotency-Key ヘッダー検証</strong>: API Gateway / IS レイヤーでユニークなキー（UUID/トランザクションID）をRedis等で重複チェック。</li>
 <li>二重決済・二重更新の完全防犯。</li>

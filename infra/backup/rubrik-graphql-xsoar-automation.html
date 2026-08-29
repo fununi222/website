@@ -128,7 +128,7 @@
       <p>「ランサムウェアを検知したが、担当者が気づいたのは3時間後だった……」
 「管理画面が多すぎて、インシデント発生時の初動が遅れる……」</p>
 <p>サイバー攻撃が高度化する現代、人間による「手動の初動対応」は、もはやリスクでしかありません。必要なのは、脅威を検知した瞬間に、インフラが自律的にデータを保護し、被害を最小化する<strong>「反射神経」</strong>です。</p>
-<p>本記事では、<a href="../../glossary/system-glossary.html#:~:text=" title="Rubrik">Rubrik</a>の<a href="../../glossary/system-glossary.html#:~:text=" title="GraphQL">GraphQL</a> APIと、運用自動化プラットフォーム「Cortex <a href="../../glossary/system-glossary.html#:~:text=" title="XSOAR">XSOAR</a>」を連携させ、MTTR（平均修復時間）を劇的に短縮する、次世代のセキュリティ運用モデルを詳解します。</p>
+<p>本記事では、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Rubrik">Rubrik</a>の<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="GraphQL">GraphQL</a> APIと、運用自動化プラットフォーム「Cortex <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="XSOAR">XSOAR</a>」を連携させ、MTTR（平均修復時間）を劇的に短縮する、次世代のセキュリティ運用モデルを詳解します。</p>
 <hr />
 <h2 id="1-graphql">1. なぜ「GraphQL」が自動化の鍵を握るのか？</h2>
 <p>従来のREST APIによる自動化には、「オーバーフェッチ（不要なデータの過剰取得）」という課題がありました。</p>
@@ -143,7 +143,7 @@
 <li><strong>脅威検知</strong>: Rubrikがバックアップデータの異常（エントロピーの変化）やマルウェアの一致を検知。</li>
 <li><strong>自動発火</strong>: XSOARがWebhookを介して即座にインシデントを作成。</li>
 <li><strong>証拠保全</strong>: <code>rubrik-anomaly-csv-analysis</code> コマンドを自動実行し、影響範囲（全ファイルリスト）をCSV出力。</li>
-<li><strong>強制隔離</strong>: 被害が拡大する前に、該当VMの仮想ニックを遮断、あるいは<a href="../../glossary/system-glossary.html#:~:text=" title="マイクロセグメンテーション">マイクロセグメンテーション</a>を適用。</li>
+<li><strong>強制隔離</strong>: 被害が拡大する前に、該当VMの仮想ニックを遮断、あるいは<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="マイクロセグメンテーション">マイクロセグメンテーション</a>を適用。</li>
 <li><strong>不変性の確保</strong>: 該当スナップショットに、さらなる強力な保持ロック（Retention Lock）を動的に適用。</li>
 </ol>
 <hr />
@@ -161,7 +161,7 @@
 <li><strong>人間を「監督」に昇華させる</strong>: 単純な隔離作業をAIと自動化に任せ、人間は「攻撃の意図分析」や「根本原因の特定」に注力する。</li>
 </ol>
 <p>「バックアップは守るもの」から「自ら守り、反撃を助けるもの」へ。RubrikとXSOARの連携は、あなたのインフラを効果的な盾へと進化させます。</p>
-<p>👉 <strong><a href="https://fununi222.github.io/website/html/infra/backup/rubrik-api-502-timeout-guide.html">さらなる高みへ：APIのタイムアウト問題を解決する、大規模運用の鉄則はこちら</a></strong></p>
+<p>👉 <strong><a href="https://fununi222.github.io/website/infra/backup/rubrik-api-502-timeout-guide.html">さらなる高みへ：APIのタイムアウト問題を解決する、大規模運用の鉄則はこちら</a></strong></p>
 <h2 id="changelog">変更履歴 (Changelog)</h2>
 <ul>
 <li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>

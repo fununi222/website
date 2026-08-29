@@ -125,25 +125,25 @@
 
     <!-- Article Content -->
     <article class="article-body">
-      <p><a href="../../glossary/system-glossary.html#:~:text=" title="AWS%20RDS">AWS</a> は、単なる仮想サーバー提供を超え、<a href="../../glossary/system-glossary.html#:~:text=" title="AWS%20Nitro%20System">AWS Nitro System</a> によるハイパーバイザタスクのオフロードと <a href="../../glossary/system-glossary.html#:~:text=" title="Amazon%20EventBridge">Amazon EventBridge</a> を中心としたイベント駆動エコシステムにより、高いレジリエンスと自律運用（<a href="../../glossary/system-glossary.html#:~:text=" title="AIOps">AIOps</a>）を実現するクラウドプラットフォームです。本稿では、そのアーキテクチャの本質とセルフヒーリング自動化への適用手法を解説します。</p>
+      <p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="AWS%20RDS">AWS</a> は、単なる仮想サーバー提供を超え、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="AWS%20Nitro%20System">AWS Nitro System</a> によるハイパーバイザタスクのオフロードと <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Amazon%20EventBridge">Amazon EventBridge</a> を中心としたイベント駆動エコシステムにより、高いレジリエンスと自律運用（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="AIOps">AIOps</a>）を実現するクラウドプラットフォームです。本稿では、そのアーキテクチャの本質とセルフヒーリング自動化への適用手法を解説します。</p>
 <hr />
 <h2 id="1-aws">1. AWSのアーキテクチャ設計原則と分散基盤</h2>
 <ul>
-<li><strong>マルチAZ・セルラーアーキテクチャ</strong>: リージョン内の複数アベイラビリティーゾーン（<a href="../../glossary/system-glossary.html#:~:text=" title="Multi-AZ">Multi-AZ</a>）により、物理障害ドメインを厳格に分離。</li>
-<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="AWS%20Nitro%20System">AWS Nitro System</a></strong>: ネットワーク、ストレージ、暗号化処理を専用Nitro Cardへオフロードし、ベアメタルと同等のI/Oパフォーマンスと強力なハードウェアセキュリティ境界を確保。</li>
+<li><strong>マルチAZ・セルラーアーキテクチャ</strong>: リージョン内の複数アベイラビリティーゾーン（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Multi-AZ">Multi-AZ</a>）により、物理障害ドメインを厳格に分離。</li>
+<li><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="AWS%20Nitro%20System">AWS Nitro System</a></strong>: ネットワーク、ストレージ、暗号化処理を専用Nitro Cardへオフロードし、ベアメタルと同等のI/Oパフォーマンスと強力なハードウェアセキュリティ境界を確保。</li>
 <li><strong>コントロールプレーンとデータプレーンの分離</strong>: リソース管理・プロビジョニングAPI（コントロールプレーン）と、実際のパケット転送・ストレージI/O（データプレーン）を物理的に分離し、大規模障害時の爆発半径（Blast Radius）を最小化。</li>
 </ul>
 <hr />
 <h2 id="2-aiops-auto-remediation">2. AIOps と自己修復（Auto-Remediation）への適合性</h2>
 <ul>
-<li><strong>完全な API 完備性と <a href="../../glossary/system-glossary.html#:~:text=" title="Boto3">Boto3</a></strong>: すべてのリソース操作がRESTful APIとして標準公開されており、Python / Boto3 経由で障害検知からの自動修復パイプラインを即時呼び出し可能。</li>
+<li><strong>完全な API 完備性と <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Boto3">Boto3</a></strong>: すべてのリソース操作がRESTful APIとして標準公開されており、Python / Boto3 経由で障害検知からの自動修復パイプラインを即時呼び出し可能。</li>
 <li><strong>EventBridge によるリアクティブ自動化</strong>: CloudWatch Alarms / GuardDuty の異常検知イベントを EventBridge で受信し、AWS Lambda や Step Functions をキックしてインスタンス再起動やセキュリティグループ自動隔離（Runbook Automation）を実行。</li>
-<li><strong>MLベース異常検知 (<a href="../../glossary/system-glossary.html#:~:text=" title="Amazon%20DevOps%20Guru">Amazon DevOps Guru</a>)</strong>: 機械学習モデルによりシステムメトリクスの正常範囲（Baseline）を動的算出。メモリリークやレイテンシ異常を静的閾値なしで自律検知。</li>
+<li><strong>MLベース異常検知 (<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Amazon%20DevOps%20Guru">Amazon DevOps Guru</a>)</strong>: 機械学習モデルによりシステムメトリクスの正常範囲（Baseline）を動的算出。メモリリークやレイテンシ異常を静的閾値なしで自律検知。</li>
 </ul>
 <hr />
 <h2 id="3">3. 参考文献と推奨リソース</h2>
 <ul>
-<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="AWS%20Well-Architected%20Framework">AWS Well-Architected Framework</a></strong>: https://aws.amazon.com/jp/architecture/well-architected/</li>
+<li><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="AWS%20Well-Architected%20Framework">AWS Well-Architected Framework</a></strong>: https://aws.amazon.com/jp/architecture/well-architected/</li>
 <li><strong>AWS Nitro System アーキテクチャ</strong>: https://aws.amazon.com/jp/ec2/nitro/</li>
 <li><strong>Amazon DevOps Guru</strong>: https://aws.amazon.com/jp/devops-guru/</li>
 </ul>

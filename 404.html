@@ -1,53 +1,48 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Routing Node | FunUni-lab Technical Archive</title>
-    <!-- Technical Archive 404 Global Router & URL Migrator -->
-    <script type="text/javascript">
-      /**
-       * GitHub Pages SPA 404 Fallback Router & Date-Blind Migrator
-       * Handles: /website/html/category/2026-04-09-file.html -> /website/https://fununi222.github.io/website/html/category/file.html
-       */
-      (function() {
-        var path = window.location.pathname;
-        var origin = window.location.origin;
-        
-        // Robust Repo Name Detection
-        var repoName = "";
-        if (path.startsWith("/website/")) {
-            repoName = "website";
-        }
-        
-        var baseUrl = origin + (repoName ? "/" + repoName : "");
-        
-        // 1. Detect if this is a request for a potential article node
-        var htmlMatch = path.match(/\/([^\/]+\/)([^\/]+)\.html$/);
-        
-        if (htmlMatch) {
-          var folder = htmlMatch[1]; 
-          var filename = htmlMatch[2];
-          
-          // 2. Normalize folder names
-          folder = folder.replace(/^it\//, 'infra/').replace(/^points\//, 'finance/');
-          
-          // 3. Date-Blind Regex
-          var dateStrippedFilename = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
-          
-          // 4. Construct target SPA URL using the detected base
-          var targetMd = folder + dateStrippedFilename + ".md";
-          var redirectUrl = baseUrl + "/article.html?md=" + targetMd;
-          
-          console.log("SPA Router: Redirecting to ->", redirectUrl);
-          window.location.replace(redirectUrl);
-        } else {
-          window.location.replace(baseUrl + "/index.html");
-        }
-      })();
-    </script>
-  </head>
-  <body style="background-color: #060e20; color: #aaa4ff; font-family: monospace; display: flex; align-items: center; justify-content: center; height: 100vh;">
-    Initiating Synthetic Node Redirection Protocol...
-  </body>
-</html>
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>ページを移動しています | FunUni-lab</title>
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      const base = path.startsWith('/website/') ? '/website/' : '/';
+      const relative = path.slice(base.length).replace(/^html\//, '');
+      const target = base + relative;
+      const home = base + 'index.html';
 
+      if (!/^[A-Za-z0-9_./-]+\.html$/i.test(relative) || relative.includes('..')) {
+        window.location.replace(home);
+        return;
+      }
+
+      function redirectIfPresent(candidate) {
+        fetch(candidate, { method: 'HEAD' })
+          .then(function (response) {
+            window.location.replace(response.ok ? candidate + window.location.search + window.location.hash : home);
+          })
+          .catch(function () { window.location.replace(home); });
+      }
+
+      fetch(target, { method: 'HEAD' })
+        .then(function (response) {
+          if (response.ok) {
+            window.location.replace(target + window.location.search + window.location.hash);
+            return;
+          }
+          const normalized = relative
+            .replace(/^it\//, 'infra/')
+            .replace(/^points\//, 'finance/')
+            .replace(/(^|\/)\d{4}-\d{2}-\d{2}-/, '$1');
+          redirectIfPresent(base + normalized);
+        })
+        .catch(function () { window.location.replace(home); });
+    }());
+  </script>
+</head>
+<body>
+  <p>ページを直接 HTML ページへ移動しています。<a href="index.html">トップへ戻る</a></p>
+</body>
+</html>

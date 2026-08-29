@@ -126,7 +126,7 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p>数十TB〜200TB超のデータベースをクラウド上で運用・保護する際、最大の障害となるのが「外部データ転送費 (Egress Cost)」と「ストレージ容量・I/O上限」です。本稿では、インターネット経由のバックアップ全データ引き出しに伴う高額請求リスクと、<a href="../../glossary/system-glossary.html#:~:text=" title="Amazon%20Aurora">Amazon Aurora</a> (Aurora Limitless Database) を用いた同一リージョン内隔離保護（Zero Egress 構成）によるFinOps最適化設計を解説します。</p>
+<p>数十TB〜200TB超のデータベースをクラウド上で運用・保護する際、最大の障害となるのが「外部データ転送費 (Egress Cost)」と「ストレージ容量・I/O上限」です。本稿では、インターネット経由のバックアップ全データ引き出しに伴う高額請求リスクと、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Amazon%20Aurora">Amazon Aurora</a> (Aurora Limitless Database) を用いた同一リージョン内隔離保護（Zero Egress 構成）によるFinOps最適化設計を解説します。</p>
 <hr />
 <h2 id="1-egress-cost">1. 下りデータ転送費（Egress Cost）が招くコスト爆発の真実</h2>
 <p>パブリッククラウドの基本料金体系は「インバウンド（受信）無料 / アウトバウンド（送信・引き出し）高額」です。</p>
@@ -146,7 +146,7 @@
 <p>通常の Amazon RDS (MySQL/PostgreSQL等) では、1インスタンスあたりの単一ストレージボリューム上限（最大64TB）が存在し、シャーディング（データベース分散分割）なしでの大規模スケールには限界があります。</p>
 <hr />
 <h2 id="3-amazon-aurora">3. Amazon Aurora による大規模環境の最適化</h2>
-<p>クラウドネイティブDB <strong><a href="../../glossary/system-glossary.html#:~:text=" title="Amazon%20Aurora">Amazon Aurora</a></strong> は、ストレージエンジンがDBコンピュートから分離された分散アーキテクチャを採用しています。</p>
+<p>クラウドネイティブDB <strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Amazon%20Aurora">Amazon Aurora</a></strong> は、ストレージエンジンがDBコンピュートから分離された分散アーキテクチャを採用しています。</p>
 <ul>
 <li><strong>シームレスなストレージ自動拡張</strong>: 最大 128TB〜256TB（Aurora Limitless DB等）まで自動スケールアウト。</li>
 <li><strong>バックアップストレージ単価の優位性</strong>: 標準RDSストレージ単価と比較して大幅なコスト削減（Auroraスナップショット保持費用の最適化）。</li>

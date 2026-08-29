@@ -126,10 +126,10 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="webMethods">webMethods</a> <a href="../../glossary/system-glossary.html#:~:text=" title="Integration%20Server">Integration Server</a> で外部APIを呼出す際、一定間隔での単純再試行は Thundering Herd（群衆の暴走）を引き起こし、バックエンド障害を増幅させます。本稿では、<code>REPEAT</code> ステップと <a href="../../glossary/system-glossary.html#:~:text=" title="指数バックオフ">指数バックオフ</a> (Exponential Backoff + Full Jitter) を用いた強靭な自己回復リトライ処理の構築手順とパイプラインロールバックの注意点を解説します。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="webMethods">webMethods</a> <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Integration%20Server">Integration Server</a> で外部APIを呼出す際、一定間隔での単純再試行は Thundering Herd（群衆の暴走）を引き起こし、バックエンド障害を増幅させます。本稿では、<code>REPEAT</code> ステップと <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="指数バックオフ">指数バックオフ</a> (Exponential Backoff + Full Jitter) を用いた強靭な自己回復リトライ処理の構築手順とパイプラインロールバックの注意点を解説します。</p>
 <hr />
 <h2 id="1-exponential-backoffjitter">1. なぜ指数バックオフ（Exponential Backoff）とジッター（Jitter）が必要なのか？</h2>
-<p>外部サービスで <a href="../../glossary/system-glossary.html#:~:text=" title="502%20Bad%20Gateway">502 Bad Gateway</a> や 503/429 エラーが起きた際、複数のリクエストが一斉に固定間隔（例: 5秒ごと）で再試行を行うと、アクセススパイクが原因で復旧中のバックエンドが再びダウンします。</p>
+<p>外部サービスで <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="502%20Bad%20Gateway">502 Bad Gateway</a> や 503/429 エラーが起きた際、複数のリクエストが一斉に固定間隔（例: 5秒ごと）で再試行を行うと、アクセススパイクが原因で復旧中のバックエンドが再びダウンします。</p>
 <ul>
 <li><strong>指数バックオフ</strong>: 待機時間を <code>1s ➔ 2s ➔ 4s ➔ 8s</code> と倍々で延ばす。</li>
 <li><strong>フル・ジッター (Full Jitter)</strong>: 待機時間にランダムな揺らぎを加算し、リクエストタイミングの重複を分散。</li>
@@ -153,7 +153,7 @@
 </div>
 <hr />
 <h2 id="3-is-thread-pool">3. サーバースレッド（IS Thread Pool）の枯渇リスクと回避策</h2>
-<p>長時間（数分〜数十分）に及ぶ <code>REPEAT</code> + Sleep ループを過剰に実行すると、<a href="../../glossary/system-glossary.html#:~:text=" title="Integration%20Server">Integration Server</a> のワーカースレッドが枯渇し、サーバー全体の応答が停止します。</p>
+<p>長時間（数分〜数十分）に及ぶ <code>REPEAT</code> + Sleep ループを過剰に実行すると、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Integration%20Server">Integration Server</a> のワーカースレッドが枯渇し、サーバー全体の応答が停止します。</p>
 <ul>
 <li><strong>使い分けの基準</strong>:</li>
 <li>短時間（数秒〜数十秒）のスパイク障害 ➔ <code>REPEAT</code> によるインラインバックオフ。</li>

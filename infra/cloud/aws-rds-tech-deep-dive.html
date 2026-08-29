@@ -126,7 +126,7 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="AWS%20RDS">Amazon RDS</a> はマネージド型のデータベース基盤ですが、大規模スパイクやコネクション超過に対しては適切な設計が必要です。本稿では、Multi-AZ DB クラスター（Quorumベースレプリケーション）、<a href="../../glossary/system-glossary.html#:~:text=" title="RDS%20Proxy">RDS Proxy</a> によるコネクションプーリング、および Boto3 / <a href="../../glossary/system-glossary.html#:~:text=" title="AIOps">AIOps</a> を組み合わせた自律型スケーリング・セルフヒーリング設計を解説します。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="AWS%20RDS">Amazon RDS</a> はマネージド型のデータベース基盤ですが、大規模スパイクやコネクション超過に対しては適切な設計が必要です。本稿では、Multi-AZ DB クラスター（Quorumベースレプリケーション）、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="RDS%20Proxy">RDS Proxy</a> によるコネクションプーリング、および Boto3 / <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="AIOps">AIOps</a> を組み合わせた自律型スケーリング・セルフヒーリング設計を解説します。</p>
 <hr />
 <h2 id="1-multi-az-db-vs-multi-az-db">1. 高可用性の比較：Multi-AZ DB インスタンス vs Multi-AZ DB クラスター</h2>
 <div class="table-wrap"><table>
@@ -186,7 +186,7 @@ def autonomous_remediation(db_id, target_class):
 <ul>
 <li><strong>Storage Auto-Scaling のクールダウン制約</strong>: 容量拡張後、次の自動拡張まで6時間のクールダウン（またはアロケーション待ち）が発生。</li>
 <li><strong>ストレージ収縮（Shrink）不可</strong>: 拡大したストレージサイズを物理的に縮小することは不可能なため、初期設計で適正値を算出。</li>
-<li><strong><a href="../../glossary/system-glossary.html#:~:text=" title="RDS%20Proxy">RDS Proxy</a> の標準統合</strong>: AWS Lambda などのサーバーレス環境やスパイク性接続から DB エンジンを防御するため、コネクションプーリング層を必須構成とする。</li>
+<li><strong><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="RDS%20Proxy">RDS Proxy</a> の標準統合</strong>: AWS Lambda などのサーバーレス環境やスパイク性接続から DB エンジンを防御するため、コネクションプーリング層を必須構成とする。</li>
 </ul>
 <hr />
 <h2 id="4">4. まとめ</h2>

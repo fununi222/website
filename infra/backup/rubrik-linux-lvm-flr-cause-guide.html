@@ -126,10 +126,10 @@
     <!-- Article Content -->
     <article class="article-body">
       <p>「バックアップは100%成功しているのに、なぜファイルが戻せないのか？」</p>
-<p>Rubrikを運用する現場で、Linux+LVM（論理ボリュームマネージャ）環境において<a href="../../glossary/system-glossary.html#:~:text=" title="FLR">FLR</a>（ファイル単位リストア）がエラーになる事象は、エンジニアにとって最も不可解なトラブルの一つです。</p>
+<p>Rubrikを運用する現場で、Linux+LVM（論理ボリュームマネージャ）環境において<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="FLR">FLR</a>（ファイル単位リストア）がエラーになる事象は、エンジニアにとって最も不可解なトラブルの一つです。</p>
 <p>しかし、その裏側にはLinuxカーネルの<strong>「一貫性保持」</strong>という、極めて厳格な仕様が隠れています。本記事では、このトラブルの正体を技術的に解体し、有事の際に「なぜこの復旧手法が必要なのか」を論理的に説明できるようにします。</p>
 <hr />
-<h2 id="1-uuid">1. 諸悪の根源は「<a href="../../glossary/system-glossary.html#:~:text=" title="UUID">UUID</a>（一意識別子）」の重複</h2>
+<h2 id="1-uuid">1. 諸悪の根源は「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="UUID">UUID</a>（一意識別子）」の重複</h2>
 <p>LVM環境におけるFLR失敗の9割は、<strong>「UUIDの競合」</strong>が原因です。</p>
 <h3 id="_1">なぜ重複が起きるのか？</h3>
 <p>エンタープライズITでは、効率化のために「ゴールデンイメージ」から仮想マシンをクローン展開するのが一般的です。</p>
@@ -159,7 +159,7 @@
 <li><strong>Helper VMの常備</strong>: リストア専用のLinux VMを用意し、<code>vgimportclone</code> コマンドで強制マウントする。</li>
 </ul>
 <p>具体的な「救出コマンド」と「詳細な復旧ステップ」については、以下の<strong>【実践編】</strong>で詳解しています。</p>
-<p>👉 <strong><a href="https://fununi222.github.io/website/html/infra/backup/rubrik-linux-lvm-restore-guide.html">【実践編】RubrikでLinux LVMのリストアを100%成功させる手順ガイド</a></strong></p>
+<p>👉 <strong><a href="https://fununi222.github.io/website/infra/backup/rubrik-linux-lvm-restore-guide.html">【実践編】RubrikでLinux LVMのリストアを100%成功させる手順ガイド</a></strong></p>
 <hr />
 <h2 id="5-sla">5. まとめ：トラブルの本質を理解し、SLAを死守せよ</h2>
 <ol>

@@ -125,15 +125,15 @@
 
     <!-- Article Content -->
     <article class="article-body">
-      <p>前回の記事では、<a href="../../glossary/system-glossary.html#:~:text=" title="ゾンビバックアップ">ゾンビバックアップ</a>を根絶するための全体戦略を解説しました。今回は、エンジニア向けに、資産管理ツール「<a href="../../glossary/system-glossary.html#:~:text=" title="Jira">Jira</a>」とRubrikをAPIで繋ぎ、自動で不整合を検知・解消するシステムの具体的な実装方法を解説します。</p>
+      <p>前回の記事では、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="ゾンビバックアップ">ゾンビバックアップ</a>を根絶するための全体戦略を解説しました。今回は、エンジニア向けに、資産管理ツール「<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Jira">Jira</a>」とRubrikをAPIで繋ぎ、自動で不整合を検知・解消するシステムの具体的な実装方法を解説します。</p>
 <h2 id="1">1. システムアーキテクチャ</h2>
-<p>自動化の核となるのは、3つのソースからデータを収集し、<a href="../../glossary/system-glossary.html#:~:text=" title="名寄せ">名寄せ</a>を行う「Sync Agent（Python等で記述）」です。</p>
+<p>自動化の核となるのは、3つのソースからデータを収集し、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="名寄せ">名寄せ</a>を行う「Sync Agent（Python等で記述）」です。</p>
 <ul>
 <li><strong>データソースA (Jira)</strong>: CSVエクスポートまたはDB参照により、サーバーの管理状態（稼働・廃棄・休止）を取得。</li>
 <li><strong>データソースB (vSphere)</strong>: <code>vSphere Automation API</code> を使用し、VMの存在確認とパワー状態を取得。</li>
-<li><strong>データソースC (Rubrik)</strong>: <code>Rubrik [RSC](../../glossary/system-glossary.html#:~:text="RSC") API</code> を使用し、保護状態（SLA Domain）とRelic状態を取得。</li>
+<li><strong>データソースC (Rubrik)</strong>: <code>Rubrik [RSC](https://fununi222.github.io/website/glossary/system-glossary.html#:~:text="RSC") API</code> を使用し、保護状態（SLA Domain）とRelic状態を取得。</li>
 </ul>
-<h2 id="2">2. <a href="../../glossary/system-glossary.html#:~:text=" title="名寄せ">名寄せ</a>ロジックの実装ポイント</h2>
+<h2 id="2">2. <a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="名寄せ">名寄せ</a>ロジックの実装ポイント</h2>
 <p>ホスト名は重複や変更が多いため、キーには必ず <strong><code>vSphere Instance UUID</code></strong> を使用します。</p>
 <h3 id="_1">判定アルゴリズムの例</h3>
 <p>Pythonで各ソースのデータを辞書形式で保持し、以下のように突合します。</p>
@@ -146,7 +146,7 @@ for uuid in rubrik_protected_vms:
  apply_unprotected_sla(uuid) # Rubrik SLAを解除
 </code></pre>
 <h2 id="3-rubrik-api">3. 使用する主要なRubrik APIエンドポイント</h2>
-<p>Rubrik Security Cloud（<a href="../../glossary/system-glossary.html#:~:text=" title="RSC">RSC</a>）では、<a href="../../glossary/system-glossary.html#:~:text=" title="GraphQL">GraphQL</a>を用いて以下の情報を一括取得します。</p>
+<p>Rubrik Security Cloud（<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="RSC">RSC</a>）では、<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="GraphQL">GraphQL</a>を用いて以下の情報を一括取得します。</p>
 <ul>
 <li><strong>VM一覧とSLA状態の取得</strong>: <code>vms</code> クエリを使用。<code>instanceUuid</code> や <code>effectiveSlaDomain</code> フィールドを含めます。</li>
 <li><strong>バックアップの一時停止</strong>: <code>pauseManagedVolume</code> などのミューテーション。</li>
@@ -159,10 +159,10 @@ for uuid in rubrik_protected_vms:
 <li><strong>閾値リミッター</strong>: 一度に削除・解除する対象が全資産の5%を超える場合は、処理を中断してアラートを出す。</li>
 <li><strong>監査ログ</strong>: すべてのAPI操作をログに記録し、いつ誰（どのサービスアカウント）が変更したかを追跡可能にする。</li>
 </ol>
-<h2 id="_2">まとめ：<a href="../../glossary/system-glossary.html#:~:text=" title="真実のソース">真実のソース</a>を中心とした運用へ</h2>
+<h2 id="_2">まとめ：<a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="真実のソース">真実のソース</a>を中心とした運用へ</h2>
 <p>API連携による不整合検知は、導入初期こそ工数がかかりますが、一度稼働すれば「消し忘れ」というヒューマンエラーを恒久的に排除できます。</p>
 <p>まずは一部のセグメントからスモールスタートし、徐々に自動化の範囲を広げていくことをお勧めします。</p>
-<p>👉 <strong><a href="https://fununi222.github.io/website/html/infra/zombie-backup-asset-management-strategy.html">① 戦略編：ゾンビバックアップを根絶するIT資産管理の自動化戦略へ戻る</a></strong></p>
+<p>👉 <strong><a href="https://fununi222.github.io/website/infra/zombie-backup-asset-management-strategy.html">① 戦略編：ゾンビバックアップを根絶するIT資産管理の自動化戦略へ戻る</a></strong></p>
 <h2 id="changelog">変更履歴 (Changelog)</h2>
 <ul>
 <li><strong>2026-08-17</strong>: 読み手に寄り添うプロ品質へのリライト（煽り・誇張表現の適正化、概要・構成の洗練）。</li>

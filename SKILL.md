@@ -11,14 +11,13 @@ The archive is organized into four primary domains to maximize topical relevance
 3.  **Finance & Asset Strategy**: Focus on financial engineering (point ecosystems), wealth protection against inflation, and algorithmic asset optimization.
 4.  **Strategic Travel & Life**: Focus on high-value travel guides (Niseko Strategy, Es Con Field), and engineering-led lifestyle design (KISS Principle).
 
-### Architecture: Hybrid Static Indexing
+### Architecture: Direct Static HTML
 
-The portal uses a **Hybrid Static Architecture** to balance dynamic rendering flexibility with native social media compatibility (OGP).
+The portal uses a **Direct Static HTML Architecture** for native social media compatibility (OGP) without a client-side content renderer.
 
-1.  **Markdown Sources (`md/`)**: All raw content resides here. This is the "Source of Truth".
-2.  **HTML Entry Points (`html/`)**: Static proxy files for SNS sharing, mirroring the `md/` structure.
-3.  **Dynamic Viewer (`article.html`)**: The unified rendering engine (`sme.js`) that processes Markdown into a premium, interactive UI.
-4.  **Dynamic Hub Engine (`archive-loader.js`)**: Processes the JSON index to fully automate the rendering of category hub pages (`infra/index.html` etc.), automatically sorting by latest and grouping by sub-categories without any manual HTML editing.
+1.  **Direct HTML Articles**: Each article is a complete HTML document under its category directory and is the source of truth.
+2.  **Compatibility Router (`article.html`)**: Legacy Markdown URLs redirect to their matching direct HTML article; it does not render content.
+3.  **Dynamic Hub Engine (`archive-loader.js`)**: Processes the JSON index to automatically render category hub pages (`infra/index.html` etc.).
 
 ## Content Strategy: Reader-Centric Knowledge Ecosystem
 
@@ -35,13 +34,13 @@ Every article must be treated as a valuable, reader-first resource that clearly 
 ## Asset & Design Standards
 
 - **Aesthetic Excellence**: Use curated color palettes (HSL), smooth gradients, and glassmorphism.
-- **Mirrored Asset Structure (Standard)**: To ensure scalability and manageability, image assets MUST mirror the Markdown directory hierarchy.
-    - **Markdown**: `md/[category]/[subcategory]/[article].md`
+- **Mirrored Asset Structure (Standard)**: To ensure scalability and manageability, image assets MUST mirror the direct HTML article hierarchy.
+    - **Article**: `[category]/[subcategory]/[article].html`
     - **Image**: `assets/img/[category]/[subcategory]/[image-name].png`
 - **Relative Pathing Strategy**:
     - **Category Level (Depth 3)**: Use `../../../assets/img/[category]/...`
     - **Sub-category Level (Depth 4)**: Use `../../../../assets/img/[category]/[subcategory]/...`
-- **SME.js Engine**: Supports breadcrumbs and dynamic glossary linking.
+- **Direct article pages**: Include breadcrumbs and internal links directly in each HTML article.
 
 ## Terminology & Governance (Nomenclature)
 
@@ -62,21 +61,12 @@ To maintain a professional, high-authority technical archive, all articles must 
 
 ## ⚙️ Publishing Workflow (CRITICAL)
 
-Whenever a new article is added to the `md/` directory, the following command **MUST** be executed from the root directory:
-```bash
-python scripts/generate_ogp_proxies.py
-```
-This single command automatically performs three critical operations:
-1. Generates HTML proxy files in `html/` for OGP and SNS sharing.
-2. Extracts metadata from all Markdown files and updates `assets/data/article_index.json`.
-3. The `archive-loader.js` engine instantly parses this JSON to dynamically build beautifully categorized and sorted glass-card grids across all category hub pages, eliminating the need for manual HTML updates.
+Whenever a new HTML article is added, update its metadata in both `assets/data/article_index.json` and `assets/js/article-data.js`. The `archive-loader.js` engine parses this JSON to build the category hub grids without manual card edits.
 
 ## Critical Files & Directories
 
-- `md/` (Sources: `infra/`, `ai/`, `dev/`, `finance/`, `other/`)
-- `html/` (Public Proxies - Must mirror `md/` structure exactly)
-- `scripts/generate_ogp_proxies.py` (Recursive Publishing Tool)
-- `md/glossary/system-glossary.md` (The Archive's Technical Dictionary)
+- Direct article directories: `infra/`, `ai/`, `dev/`, `finance/`, `lpo/`, `other/`, `youtube/`, `glossary/`
+- `glossary/system-glossary.html` (The Archive's Technical Dictionary)
 - `SKILL.md` (This Governance Document)
 
 ## 📊 System Optimization Dashboard (LPO)

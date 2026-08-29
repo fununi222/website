@@ -126,7 +126,7 @@
     <!-- Article Content -->
     <article class="article-body">
       <h2 id="_1">概要</h2>
-<p><a href="../../glossary/system-glossary.html#:~:text=" title="Rubrik">Rubrik</a> (Rubrik Security Cloud) 導入時、「バックアップ実行中に本番ストレージのI/O負荷が急増する」「Rubrik側でバックアップ受信帯域のスロットリングが設定できない」という課題が散見されます。本稿では、Rubrikのデータ取得思想とIngress/Egress制御の差分、および本番ストレージの過負荷（Noisy Neighbor問題）を防ぐ4つのロードバランシング・ベストプラクティスを解説します。</p>
+<p><a href="https://fununi222.github.io/website/glossary/system-glossary.html#:~:text=" title="Rubrik">Rubrik</a> (Rubrik Security Cloud) 導入時、「バックアップ実行中に本番ストレージのI/O負荷が急増する」「Rubrik側でバックアップ受信帯域のスロットリングが設定できない」という課題が散見されます。本稿では、Rubrikのデータ取得思想とIngress/Egress制御の差分、および本番ストレージの過負荷（Noisy Neighbor問題）を防ぐ4つのロードバランシング・ベストプラクティスを解説します。</p>
 <hr />
 <h2 id="1-rubrikingress">1. なぜRubrikはバックアップ時の帯域スロットリング（Ingress）を直接制御できないのか？</h2>
 <p>Rubrikにおけるデータトラフィックの帯域制御は、通信の方向によって挙動が明確に分離されています。</p>
