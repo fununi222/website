@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mac mini（M6 / M4）ローカルLLM構築のSSD換装・外付けSSDとメモリ容量（24GB vs 32GB）の最適解ガイド【2026年最新】 | FunUni-lab</title>
+  
+  <!-- SEO & OGP -->
+  <meta name="description" content="Mac mini（M6 / M4）でローカルLLM環境を組む際、最小256GB/512GB構成からSSDを自前交換できるのか？外付けUSB4 SSDとの違いや、24GBと32GBのメモリ選定基準（帯域幅と27B/32Bモデル対応力）を徹底解説。" />
+  <meta property="og:title" content="Mac mini（M6 / M4）ローカルLLM構築のSSD換装・外付けSSDとメモリ容量（24GB vs 32GB）の最適解ガイド【2026年最新】 | FunUni-lab" />
+  <meta property="og:description" content="Mac mini（M6 / M4）でローカルLLM環境を組む際、最小256GB/512GB構成からSSDを自前交換できるのか？外付けUSB4 SSDとの違いや、24GBと32GBのメモリ選定基準（帯域幅と27B/32Bモデル対応力）を徹底解説。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="FunUni-lab" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styling & Typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Code Highlighting & Diagrams -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  
+  <link rel="stylesheet" href="../../assets/css/synthetic.css">
+  <style>
+    :root {
+      --obsidian: #0a0c14;
+      --surface-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --accent-theme: #00ffca;
+    }
+    
+    body { background-color: var(--obsidian); color: #e2e8f0; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+    .glass-card { background: var(--surface-glass); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 20px; }
+    .bg-mesh { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 80% 20%, #00ffca0f 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%); }
+    
+    /* Article Typography */
+    .article-body h1 { display: none; }
+    .article-body h2 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .article-body h3 { font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00ffca; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-body h4 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body p { margin-bottom: 1.25rem; line-height: 1.85; color: #94a3b8; }
+    .article-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #94a3b8; }
+    .article-body li { margin-bottom: 0.4rem; line-height: 1.75; }
+    .article-body a { color: #00ffca; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .article-body a:hover { filter: brightness(1.2); border-bottom-color: #00ffca; }
+    .article-body hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0; }
+    
+    /* Table Styling */
+    .table-wrap { width: 100%; margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.02); }
+    table { width: 100%; border-collapse: collapse; min-width: 600px; font-size: 0.92rem; }
+    thead { background: #00ffca14; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    th { color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; letter-spacing: 0.05em; }
+    td { color: #94a3b8; padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tr:hover td { background-color: rgba(255,255,255,0.02); }
+    
+    /* Custom Callouts */
+    .callout-note { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #00ffca; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-tip { background: rgba(52, 211, 153, 0.05); border-left: 4px solid #34d399; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    .callout-warning { background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 1.25rem; margin: 1.75rem 0; }
+    
+    /* Mermaid diagram container */
+    .mermaid { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0; display: flex; justify-content: center; }
+  </style>
+</head>
+<body class="selection:bg-slate-700 overflow-x-hidden">
+  <div class="bg-mesh"></div>
+  
+  <!-- Global Navigation -->
+  <nav class="fixed top-0 z-[100] w-full h-20 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto h-full px-6 md:px-8 flex justify-between items-center">
+      <div class="flex items-center gap-12">
+        <a href="../../index.html" class="text-2xl font-bold font-headline tracking-tighter text-white">FunUni-lab<span class="text-secondary text-sm ml-1 opacity-50">.v2</span></a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          <a href="../../infra/index.html" class="hover:text-primary transition-colors ">Infrastructure</a>
+          <a href="../../dev/index.html" class="hover:text-secondary transition-colors ">Development</a>
+          <a href="../../ai/index.html" class="hover:text-tertiary transition-colors text-[#00ffca] border-b-2 border-[#00ffca] pb-1">AI Research</a>
+          <a href="../../finance/index.html" class="hover:text-amber-400 transition-colors ">Finance</a>
+          <a href="../../lpo/index.html" class="hover:text-purple-400 transition-colors ">Optimization</a>
+          <a href="../../other/index.html" class="hover:text-emerald-400 transition-colors ">Strategic Life</a>
+          <a href="../../youtube/index.html" class="hover:text-red-500 transition-colors ">YouTube Lab</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center" style="color: #00ffca;">
+          <span class="material-symbols-outlined">memory</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 md:px-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-500">
+      <a href="../../index.html" class="hover:text-white transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="../../ai/index.html" class="hover:text-white transition-colors" style="color: #00ffca;">AI Research</a>
+      <span class="text-slate-600">/</span>
+      <span class="text-slate-400">Mac mini SSD & Memory Guide</span>
+    </nav>
+
+    <!-- Header Meta -->
+    <header class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold tracking-widest uppercase mb-4" style="background: #00ffca1a; color: #00ffca; border-color: #00ffca33;">
+        <span class="material-symbols-outlined text-xs">tune</span> Domain_03 / AI Hardware Architecture
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-white leading-tight mb-6">
+        Mac mini（M6 / M4）ローカルLLM構築のSSD換装・外付けSSDとメモリ容量（24GB vs 32GB）の最適解ガイド
+      </h1>
+      <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono border-b border-white/5 pb-6">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">calendar_today</span> 公開: 2026-08-30</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">update</span> 更新: 2026-08-30</span>
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" style="color: #00ffca;">schedule</span> 読了目安: 約7分</span>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-body">
+      <h2 id="_1">はじめに：Mac mini購入時に誰もが悩む「SSD」と「メモリ」の壁</h2>
+      <p>Mac mini（M6 / M4）でローカルLLM（Llama 3.1、Qwen 2.5/3.8、Gemma 4、DeepSeek等）を動かそうとする際、購入構成で最も多く寄せられる疑問が以下の2点です。</p>
+      <ol>
+        <li><strong>「本体は最小SSD（256GB）で安く買い、あとから大容量SSDに自前で交換・増設できないのか？」</strong></li>
+        <li><strong>「メモリは24GBで足りるのか？ それとも+3.6万円払って32GBにすべきなのか？」</strong></li>
+      </ol>
+      <p>結論から言うと、<strong>ストレージは「外付けUSB4 / Thunderbolt 4 SSD」を使うのが圧倒的に安全かつ低コストな最適解</strong>であり、<strong>メモリは「動かしたいモデル規模（14B以下か、27B〜32Bか）」によって選択が明確に分かれます</strong>。</p>
+      <p>本記事では、ハードウェアの内部構造やファームウェア仕様、ローカルLLMの動作特性に基づき、最も後悔しない購入戦略を整理します。</p>
+
+      <hr />
+
+      <h2 id="_2">第1章：内蔵SSDの自前交換は可能か？（技術的真実と4つのハードル）</h2>
+      <p>「Mac mini M4以降はSSDがモジュール式（取り外し可能）になった」という情報を見て、市販のM.2 NVMe SSDを挿せると考える方が少なくありません。しかし、ここには<strong>Apple Silicon特有の大きな技術的ギャップ</strong>が存在します。</p>
+
+      <div class="mermaid">
+flowchart LR
+    subgraph 一般的なPC
+        SSD_PC["市販 M.2 NVMe SSD<br>(SSDコントローラー + NANDメモリ一体型)"] --> M2_SLOT["標準M.2スロット"]
+    end
+
+    subgraph Apple Silicon Mac
+        SOC["Apple M4 / M6 SoC<br>(SSDコントローラー内蔵)"] --- CONNECTOR["独自形状コネクタ"]
+        CONNECTOR --- APPLE_MODULE["専用ドーターボード<br>(生NANDフラッシュのみ実装)"]
+    end
+      </div>
+
+      <h3>1. なぜ市販のM.2 SSDは使えないのか？</h3>
+      <p>一般的なPC用のM.2 SSDは、「コントローラーIC」と「NANDフラッシュ」が1枚の基板に載っています。一方、Apple Silicon Macでは<strong>SSDコントローラーがSoC（M4/M6プロセッサ本体）に統合</strong>されており、取り外し可能な基板側には<strong>「生のNANDチップ（フラッシュメモリ）」しか載っていません</strong>。</p>
+      <p>そのため、コネクタの形状・ピンアサイン・通信プロトコルが市販のM.2 NVMe規格とは完全に異なり、物理的にも電気的にも市販品をポン付けすることは不可能です。</p>
+
+      <h3>2. 独自互換モジュールで換装する場合の「4つのハードル」</h3>
+      <p>サードパーティ製の互換基板やNAND貼り替えモジュールを個人輸入して物理的に差し替えること自体は技術的に可能ですが、以下の重大な制約とリスクが伴います。</p>
+
+      <div class="callout-warning">
+        <strong>⚠️ 自前SSD換装における4大リスク</strong>
+        <ul class="mt-2 mb-0">
+          <li><strong>別のMacとApple Configuratorによる「DFU復元」が必須：</strong>モジュールを差し替えただけではOSもファームウェアも存在しないため起動しません。別のMacとUSB-C接続し、DFUモードでIPSWファームウェアを書き込み、Appleサーバーとペアリング認証を行う必要があります（Windows PCからは不可）。</li>
+          <li><strong>微小ケーブルの断線リスク：</strong>Mac mini内部は高密度に集積されており、特に電源ボタンとロジックボードを結ぶ極細FPCリボンケーブルは分解時に容易に断線します。</li>
+          <li><strong>Apple正規保証・AppleCareの完全喪失：</strong>一度でも開封・改造を行うと保証が無効になります。</li>
+          <li><strong>リセールバリューの崩壊：</strong>将来の買い替え時に公式下取りや中古買取店で「改造品/ジャンク扱い」となり、査定額が大幅に下がります。</li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <h2 id="_3">第2章：なぜ「外付けUSB4 SSD」がローカルLLMの最適解なのか？</h2>
+      <p>「内蔵SSDを大容量化できないなら、ローカルLLMの大量のモデルデータ（1ファイル10GB〜30GB）はどうするのか？」という点について、<strong>外付けUSB4 / Thunderbolt 4 SSDが完璧な回答</strong>となります。</p>
+
+      <h3>1. LLM推論のボトルネックは「SSD」ではなく「メモリ帯域」</h3>
+      <p>ローカルLLM（Ollamaやllama.cpp等）の動作において、SSDが使用されるのは<strong>「モデル起動時にファイル全体をメインメモリ（Unified Memory）にロードする数秒間だけ」</strong>です。</p>
+      <p>推論実行中（トークン生成中）は、SoCとユニファイドメモリ間（120GB/s〜170GB/s）で超高速データ転送が行われるため、<strong>SSDの読み書き速度は推論速度（token/s）に1ミリも影響しません</strong>。</p>
+
+      <div class="table-wrap"><table>
+        <thead>
+          <tr>
+            <th>ストレージ方式</th>
+            <th>実効転送速度</th>
+            <th>25GBモデルのロード時間</th>
+            <th>2TB増設コスト</th>
+            <th>保証 / 難易度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>内蔵SSD（Apple純正）</strong></td>
+            <td>約 5,000 MB/s</td>
+            <td>約 5 秒</td>
+            <td><strong>＋120,000円</strong>（購入時）</td>
+            <td>安全・保証維持</td>
+          </tr>
+          <tr>
+            <td><strong>外付けUSB4 NVMe SSD</strong><br><span class="text-xs text-slate-400">（ASM2464PD等＋市販M.2）</span></td>
+            <td><strong>約 3,000〜3,800 MB/s</strong></td>
+            <td><strong>約 7〜8 秒</strong></td>
+            <td><strong>約 22,000〜28,000円</strong></td>
+            <td><strong>安全・保証維持・挿すだけ</strong></td>
+          </tr>
+          <tr>
+            <td><strong>内蔵SSD 自前換装</strong></td>
+            <td>約 3,500〜5,000 MB/s</td>
+            <td>約 5〜7 秒</td>
+            <td>約 25,000〜35,000円</td>
+            <td>高難度・保証完全消滅</td>
+          </tr>
+        </tbody>
+      </table></div>
+
+      <div class="callout-tip">
+        <strong>💡 結論：</strong>外付けUSB4 SSDを使えば、内蔵SSDとのロード時間の差はわずか2〜3秒です。約2.5万円で2TBの超大容量を確保でき、Macを買い替えてもそのまま外付けドライブとして流用できるため、コスト・実用性・安全性のすべてで最善の選択肢となります。
+      </div>
+
+      <hr />
+
+      <h2 id="_4">第3章：メモリ容量の選択：24GB vs 32GB どちらを選ぶべきか？</h2>
+      <p>SSDの問題が「最小構成＋外付けSSD」で解決した後に残る最大の決断が、<strong>ユニファイドメモリの容量選択（24GB vs 32GB）</strong>です。</p>
+
+      <h3>1. メモリ帯域幅の仕様：24GBと32GBは同等</h3>
+      <p>Mac mini M6において、ベースモデル（16GB構成）から<strong>24GB構成を選択した段階でメモリバスチャネルが拡張され、帯域幅が向上</strong>しています。そのため、<strong>24GB構成と32GB構成の間ではメモリ帯域幅（＝トークン生成の理論速度）に差はありません</strong>。</p>
+      <p>つまり、同じ8Bや14Bのモデルを動かす場合、<strong>24GBでも32GBでも推論速度（token/s）は全く同じ</strong>です。比較すべきポイントは純粋に<strong>「VRAMとして割り当て可能な容量の壁」</strong>に絞られます。</p>
+
+      <div class="mermaid">
+flowchart TD
+    subgraph 容量の壁
+        M24["【24GB 構成】<br>GPU実質割当：約 16〜18GB"]
+        M32["【32GB 構成】<br>GPU実質割当：約 24〜26GB"]
+    end
+
+    M24 -->|超快適| L14["8B 〜 14B モデル<br>(Llama 3.1 8B / Qwen 14B / Gemma 9B)"]
+    M24 -.->|短文なら可 / 長文でスワップ| L27["27B モデル (Q4 / 約15GB)"]
+    M24 x--x|メモリ不足で動作不可| L32["32B モデル (Q4 / 約19GB)"]
+
+    M32 -->|超快適| L14
+    M32 -->|長文も完全オンメモリ| L27
+    M32 -->|長文も完全オンメモリ| L32
+      </div>
+
+      <h3>2. 24GB vs 32GB の対応モデルと実用性比較</h3>
+
+      <div class="table-wrap"><table>
+        <thead>
+          <tr>
+            <th>比較項目</th>
+            <th>24GB 構成（ベース＋約3.6万円）</th>
+            <th>32GB 構成（ベース＋約7.2万円）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GPU実質割当上限</strong></td>
+            <td><strong>約 16GB 〜 18GB</strong></td>
+            <td><strong>約 24GB 〜 26GB</strong></td>
+          </tr>
+          <tr>
+            <td><strong>8B〜14B モデル</strong><br><span class="text-xs text-slate-400">（Llama 3.1 8B / Qwen 14B / Gemma 9B）</span></td>
+            <td><strong>◎ 超快適・最速</strong>（約25〜35 token/s）</td>
+            <td><strong>◎ 超快適・最速</strong>（約25〜35 token/s）</td>
+          </tr>
+          <tr>
+            <td><strong>27B モデル</strong><br><span class="text-xs text-slate-400">（Qwen3.8-27B Q4 / 約15GB）</span></td>
+            <td><strong>△ ギリギリ動作</strong><br>短文なら動くが、長文コンテキストでスワップ発生</td>
+            <td><strong>◎ 完全オンメモリ動作</strong><br>8k〜16kコンテキストも安定稼働</td>
+          </tr>
+          <tr>
+            <td><strong>32B モデル</strong><br><span class="text-xs text-slate-400">（Qwen 2.5 32B / DeepSeek蒸留32B Q4）</span></td>
+            <td><strong>❌ 動作不可</strong>（重み約19GB＋OS消費でメモリ溢れ）</td>
+            <td><strong>◎ 実用水準で完全動作</strong>（約12〜16 token/s）</td>
+          </tr>
+          <tr>
+            <td><strong>メモリ増設の可否</strong></td>
+            <td>❌ 後からの増設は不可能</td>
+            <td>❌ 後からの増設は不可能</td>
+          </tr>
+        </tbody>
+      </table></div>
+
+      <hr />
+
+      <h2 id="_5">第4章：あなたに最適な構成の選び方（判断フロー）</h2>
+
+      <div class="mermaid">
+flowchart TD
+    START["Mac mini 構成検討"] --> Q1{"Qwen 27B / 32B や DeepSeek蒸留など<br>『32Bクラスの賢いモデル』を<br>日常・業務でフル活用したいか？"}
+    
+    Q1 -- "Yes（32Bモデルを実用したい）" --> OPT_32["★ おすすめ構成 A<br>【メモリ 32GB ＋ 最小SSD】<br>＋ 外付けUSB4 SSD (1〜2TB)"]
+    
+    Q1 -- "No（8B〜14Bで十分）" --> Q2{"購入初期費用を<br>できる限り抑えたいか？"}
+    
+    Q2 -- "Yes（コスト重視）" --> OPT_24["おすすめ構成 B<br>【メモリ 24GB ＋ 最小SSD】<br>＋ 外付けUSB4 SSD (1〜2TB)"]
+    Q2 -- "念のため余裕を持たせたい" --> OPT_32
+      </div>
+
+      <h3>おすすめ構成 A：【32GB ＋ 最小SSD ＋ 外付けUSB4 SSD】（総合推奨）</h3>
+      <ul>
+        <li><strong>対象ユーザー：</strong>2026年現在の主流である27B〜32Bクラス（Qwen3.8-27B、DeepSeek-R1蒸留32B、Gemma 26B/31B等）をしっかり動かしたい人。</li>
+        <li><strong>メリット：</strong>長文プロンプトやRAG検索結果を流し込んでもVRAMが枯渇せず、今後2〜3年にわたって現役で戦える。</li>
+        <li><strong>概算費用：</strong>本体約22.1万円 ＋ 外付けSSD約2.5万円 ＝ <strong>合計 約24.6万円</strong></li>
+      </ul>
+
+      <h3>おすすめ構成 B：【24GB ＋ 最小SSD ＋ 外付けUSB4 SSD】（コスパ特化）</h3>
+      <ul>
+        <li><strong>対象ユーザー：</strong>8B〜14Bクラスの軽量・高速モデルによる日常会話、テキスト要約、軽めのコーディング支援で十分な人。</li>
+        <li><strong>メリット：</strong>32GB構成と同等の最高速度を維持しつつ、本体費用を約3.6万円抑えられる。</li>
+        <li><strong>概算費用：</strong>本体約18.5万円 ＋ 外付けSSD約2.5万円 ＝ <strong>合計 約21.0万円</strong></li>
+      </ul>
+
+      <hr />
+
+      <h2 id="_6">まとめ：メモリ最優先・ストレージは外付けが鉄則</h2>
+      <p>Mac miniでローカルLLMを構築する際の黄金ルールは、<strong>「SSDは最小サイズにして外付けで補い、予算はすべてユニファイドメモリの容量に投入する」</strong>ことです。</p>
+      <ul>
+        <li><strong>SSDの自前換装：</strong>市販品は使えず、専用モジュール調達・分解断線リスク・DFU復元の手間・保証消滅を考えると、外付けUSB4 SSDに比べてメリットがほぼない。</li>
+        <li><strong>外付けUSB4 SSD：</strong>約2.5万円で2TBの高速ストレージが得られ、モデルロード時間は内蔵と数秒差。推論速度には一切影響しない。</li>
+        <li><strong>メモリ容量：</strong>24GBと32GBで帯域幅（速度）は同等。8B〜14B特化なら「24GB」、現在主流の27B〜32B実用なら「32GB」を選ぶ。</li>
+      </ul>
+      <p>SSDは後から外付けでいくらでも拡張できますが、<strong>メモリだけは購入後に1GBたりとも増やせません</strong>。ご自身の目的とするモデル規模に合わせて、後悔のないメモリ選定を行ってください。</p>
+
+      <hr />
+
+      <h2 id="_7">関連記事・あわせて読みたい</h2>
+      <ul>
+        <li><a href="mac-mini-m6-m5pro-local-llm-guide.html">2026年最新Mac mini（M6 / M5 Pro）ローカルLLM運用・購入判断完全ガイド｜パラメータ別推論速度とメモリ最適化</a></li>
+        <li><a href="mac-mini-m6-vs-m4-used-cost-guide.html">【徹底比較】Mac mini M6（新品）vs 中古M4｜ローカルLLM運用で32GBモデルはどっちがお得？価格差・帯域幅・保証の損益分岐点</a></li>
+        <li><a href="local-llm-pc-cost-guide-2026.html">Qwen3.8-27Bを動かす非Mac PCのコスパ最適解｜中古RTX 3090 24GB・Ryzen AI・RTX 5090の価格と実用性比較</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="py-20 border-t border-white/5 bg-obsidian/50 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 font-mono text-[10px] uppercase tracking-widest">
+      <div class="flex flex-col gap-2">
+        <span>© 2026 FunUni-lab Strategic Archive</span>
+        <span class="opacity-40">AI Hardware & Architecture Research Division.</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="../../index.html" class="hover:text-white">Home</a>
+        <a href="../../ai/index.html" class="hover:text-white">AI Research</a>
+        <a href="../../glossary/system-glossary.html" class="hover:text-white">Glossary</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+</body>
+</html>
