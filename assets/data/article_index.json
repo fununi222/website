@@ -1,5 +1,14 @@
 [
   {
+    "title": "povo 2.0 従業員用eSIMの導入・設定・運用ガイド",
+    "description": "povo 2.0の5分以内通話かけ放題を従業員用eSIMとして導入する手順を、契約形態、デュアルSIM設定、退職・紛失時の対応まで整理します。",
+    "date": "2026-09-12",
+    "updated": "2026-09-12",
+    "category": "finance",
+    "path": "finance/povo-employee-esim-guide.html",
+    "direct_html": true
+  },
+  {
     "title": "【徹底比較】Mac mini M6（新品）vs 中古M4｜ローカルLLM運用で32GBモデルはどっちがお得？価格差・帯域幅・保証の損益分岐点",
     "description": "ローカルLLM（Qwen3.8-27B・Gemma 4等）を32GBメモリで動かすなら、最新Mac mini M6（新品約22.1万円）と型落ち中古M4（相場約13万〜16万円）のどちらがお得か？約6万〜9万円の価格差、メモリ帯域幅（170GB/s vs 120GB/s）、外付けSSD費用、保証・リセールまで徹底比較。",
     "date": "2026-08-30",
